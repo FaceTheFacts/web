@@ -20,8 +20,8 @@ const Profile: React.FC = () => {
       <IonContent fullscreen>
         <IonCard>
           <IonCardHeader>
-              <IonCardTitle>Philipp Amthor</IonCardTitle>
-              
+            
+
           </IonCardHeader>
 
               <IonCardContent>
