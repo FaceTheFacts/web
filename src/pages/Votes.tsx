@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import TopicFilter from '../components/TopicFilter';
+import PartyMatch from '../components/PartyMatch';
 import SubHeading from '../components/SubHeading';
 import './Page.css';
 
@@ -30,6 +31,7 @@ const Votes: React.FC = () => {
         <SubHeading name="Filtern Nach Themen" />
         <TopicFilter name={name} />
         <SubHeading name="Übereinstimmung mit anderen Fraktionen" />
+        <PartyMatch name={name} />
         <SubHeading name="Abstimmungen" />
       </IonContent>
     </IonPage>
