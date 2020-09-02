@@ -35,7 +35,7 @@ const appPages: AppPage[] = [
     iosIcon: homeOutline,
     mdIcon: homeSharp
   },
-  {
+  /* {
     title: 'Inbox',
     url: '/page/Inbox',
     iosIcon: mailOutline,
@@ -70,7 +70,7 @@ const appPages: AppPage[] = [
     url: '/page/Spam',
     iosIcon: warningOutline,
     mdIcon: warningSharp
-  }
+  } */
 ];
 
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
