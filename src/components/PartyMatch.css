@@ -1,0 +1,21 @@
+.party-matches {
+  background-color: #e3e3e3;
+  overflow-x: scroll;
+  width: 250%;
+}
+
+.party-item {
+  float: left;
+}
+
+.party-thumbnail {
+  background-color: #ffffff;
+  width: 100px;
+  height: 100px;
+  color: #000000;
+  border-radius: 10px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  overflow: hidden;
+  clear: right;
+}
