@@ -1,0 +1,7 @@
+{
+  "name": "Face the Facts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
