@@ -3,7 +3,7 @@ import './Card.css';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton } from '@ionic/react';
 import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 
-const CardExamples: React.FC = () => {
+const Card: React.FC = () => {
   return (
         <IonPage>
         <IonHeader>
