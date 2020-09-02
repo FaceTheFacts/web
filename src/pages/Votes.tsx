@@ -21,7 +21,7 @@ const Votes: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen>
+      <IonContent fullscreen scrollEvents={true}>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">{name}</IonTitle>
@@ -29,6 +29,8 @@ const Votes: React.FC = () => {
         </IonHeader>
         <SubHeading name="Filtern Nach Themen" />
         <TopicFilter name={name} />
+        <SubHeading name="Übereinstimmung mit anderen Fraktionen" />
+        <SubHeading name="Abstimmungen" />
       </IonContent>
     </IonPage>
   );
