@@ -2,6 +2,8 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import React from 'react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
+import TopicFilter from '../components/TopicFilter';
+import SubHeading from '../components/SubHeading';
 import './Page.css';
 
 const Votes: React.FC = () => {
@@ -25,7 +27,8 @@ const Votes: React.FC = () => {
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={name} />
+        <SubHeading name="Filtern Nach Themen" />
+        <TopicFilter name={name} />
       </IonContent>
     </IonPage>
   );
