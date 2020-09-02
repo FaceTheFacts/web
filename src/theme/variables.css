@@ -230,16 +230,4 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
-ion-toolbar {
 
-  --background:  url('C:/Users/Liam/Desktop/Face the Facts/face-the-facts-app/resources/Phillip-Amthor-im-Bundestag-1.png');
-  --background-repeat: no-repeat;
-  --background-attachment: fixed;
-  --background-position: center;
-  
-}
-
-ion-title {
-
-  text-decoration-color: white;
-}
