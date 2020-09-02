@@ -12,7 +12,7 @@ import {
 
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, homeOutline, homeSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -23,6 +23,18 @@ interface AppPage {
 }
 
 const appPages: AppPage[] = [
+  {
+    title: 'Profile',
+    url: '/profile',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
+  },
+  {
+    title: 'Votes',
+    url: '/votes',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
+  },
   {
     title: 'Inbox',
     url: '/page/Inbox',
