@@ -7,7 +7,7 @@ interface ContainerProps {
 
 const SubHeading: React.FC<ContainerProps> = ({ name }) => {
   return (
-    <div className="sub-heading">
+    <div className="sub-heading" >
       <strong>{name}</strong>
     </div>
   );
