@@ -1,5 +1,7 @@
 import Menu from './components/Menu';
 import Page from './pages/Page';
+import Scan from './pages/Scan';
+import Search from './pages/Search'
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
 import React from 'react';
@@ -35,9 +37,12 @@ const App: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/page/:name" component={Page} exact />
-            <Route path="/profile" component={Profile} exact />
-            <Route path="/votes" component={Votes} exact />
-            <Redirect from="/" to="/page/Inbox" exact />
+            <Route path="/scan" component={Scan} exact />
+            <Route path="/search" component={Search} exact />
+            <Route path="/politician/:id" component={Profile} exact />
+            <Route path="/politician/:id/votes" component={Votes} exact />
+            <Route path="/politician/:id/votes/:id" component={Votes} exact />
+            <Redirect from="/" to="/scan" exact />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
