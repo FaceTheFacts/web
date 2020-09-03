@@ -54,14 +54,14 @@ const Votes: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollEvents={true} scrollX={true}>
+      <IonContent fullscreen >
         <SubHeading name="Filtern Nach Themen" />
 
         <TopicFilter name={name} />
 
         <SubHeading name="Übereinstimmung mit anderen Fraktionen" />
 
-        <PartyMatch name={name} />
+        <PartyMatch name={name}  />
         <SubHeading name="Abstimmungen" />
         {votes.map((vote, index) => {
           return <VoteCard vote={vote} />;

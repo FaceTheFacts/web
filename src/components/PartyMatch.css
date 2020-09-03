@@ -1,12 +1,14 @@
 .party-matches {
   background-color: #e3e3e3;
-  overflow-x: scroll;
   width: 250%;
   margin-bottom: 10px;
 }
 
 .party-item {
-  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .party-thumbnail {
@@ -19,4 +21,11 @@
   margin: 10px;
   overflow: hidden;
   clear: right;
+  margin-bottom: 4px;
+}
+
+.party-match-row {
+
+  overflow-x: scroll;
+  white-space: nowrap;
 }

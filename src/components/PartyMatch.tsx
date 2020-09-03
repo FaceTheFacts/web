@@ -8,27 +8,33 @@ interface ContainerProps {
 const parties = [
     {
       name: "CDU",
-      image: "assets/image/cdu_logo.jpeg",
+      image: "assets/image/cdu.png",
       filter: "",
       percentage: "96%"
     },
     {
       name: "SPD",
-      image: "assets/image/spd_logo.jpeg",
+      image: "assets/image/spd.png",
       filter: "",
       percentage: "96%"
     },
     {
       name: "FDP",
-      image: "assets/image/fdp_logo.jpeg",
+      image: "assets/image/fdp.png",
       filter: "",
       percentage: "73%"
     },
     {
       name: "Die Grünen",
-      image: "assets/image/gruenen_logo.png",
+      image: "assets/image/gruen.png",
       filter: "",
       percentage: "63%"
+    },
+    {
+      name: "Alternative für Deutschland",
+      image: "assets/image/afd.png",
+      filter: "",
+      percentage: "3%"
     },
   ]
 
@@ -39,12 +45,12 @@ const PartyMatch: React.FC<ContainerProps> = ({ name }) => {
       <div className="party-match-row">
         {parties.map((party, index) => {
           return (
-            <IonItem className="party-item">
+            <div className="party-item">
           <IonThumbnail className="party-thumbnail">
             <img src={party.image}></img>
           </IonThumbnail>
-          <IonLabel>{party.percentage}</IonLabel>
-          </IonItem>
+          <IonLabel className="party-percentage">{party.percentage}</IonLabel>
+          </div>
           );
         })}
       </div>
