@@ -1,21 +1,21 @@
 import React from "react";
 import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonCardContent,
-  IonItem,
-  IonIcon,
-  IonLabel,
-  IonButton,
-  IonButtons,
-  IonMenuButton,
+	IonContent,
+	IonHeader,
+	IonPage,
+	IonTitle,
+	IonToolbar,
+	IonCard,
+	IonCardHeader,
+	IonCardSubtitle,
+	IonCardTitle,
+	IonCardContent,
+	IonItem,
+	IonIcon,
+	IonLabel,
+	IonButton,
+	IonButtons,
+	IonMenuButton,
 } from "@ionic/react";
 import { pin, wifi, wine, warning, walk } from "ionicons/icons";
 import { useParams } from "react-router";
@@ -26,24 +26,24 @@ import SubHeading from "../components/SubHeading";
 import Menu from "../components/Menu";
 
 const Profile: React.FC = () => {
-  const { name } = useParams<{ name: string }>();
+	const { name } = useParams<{ name: string }>();
 
-  return (
-    <IonPage>
-      <IonContent fullscreen>
-        <IonCard>
-          <IonCardHeader></IonCardHeader>
+	return (
+		<IonPage>
+			<IonContent fullscreen>
+				<IonCard>
+					<IonCardHeader></IonCardHeader>
 
-          <IonCardContent></IonCardContent>
-        </IonCard>
-        <SubHeading name="Abstimmungsverhalten >" />
+					<IonCardContent></IonCardContent>
+				</IonCard>
+				<SubHeading name="Abstimmungsverhalten >" />
 
-        <SubHeading name="Kontroversen" />
+				<SubHeading name="Kontroversen" />
 
-        <SubHeading name="Bekannte Nebentätigkeiten" />
-      </IonContent>
-    </IonPage>
-  );
+				<SubHeading name="Bekannte Nebentätigkeiten" />
+			</IonContent>
+		</IonPage>
+	);
 };
 
 export default Profile;

@@ -1,15 +1,13 @@
 :root {
-    --ion-background-color: #e3e3e3;
-    --ion-toolbar-background: #A1C5FF;
-    --ion-toolbar-color: #14345A;
+	--ion-background-color: #e3e3e3;
+	--ion-toolbar-background: #a1c5ff;
+	--ion-toolbar-color: #14345a;
 }
 
-
 .votes-header {
-    height: 95px;
+	height: 95px;
 }
 
 .page-title {
-    height: 55px;
-
+	height: 55px;
 }
