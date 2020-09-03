@@ -8,7 +8,8 @@
 }
 
 .sub-heading strong {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 26px;
   text-transform: uppercase;
   margin-left: 10px;
