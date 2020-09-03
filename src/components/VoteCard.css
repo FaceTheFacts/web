@@ -1,0 +1,36 @@
+ion-card {
+  background-color: #ffffff;
+}
+
+ion-card-title {
+  font-size: 16px;
+}
+.vote-chart-container {
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid
+}
+
+.candidate-vote {
+  width: 89px;
+  height: 35px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.ja {
+  background-color: #14B83A;
+}
+
+.nein {
+  background-color: #DE2B5E;
+}
+
