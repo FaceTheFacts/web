@@ -7,7 +7,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import TopicFilter from '../components/TopicFilter';
 import SubHeading from '../components/SubHeading';
 import Menu from '../components/Menu';
-import Card from '../components/Card';
+
 
 const Profile: React.FC = () => {
 
