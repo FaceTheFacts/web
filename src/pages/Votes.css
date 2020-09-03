@@ -1,0 +1,15 @@
+:root {
+    --ion-background-color: #e3e3e3;
+    --ion-toolbar-background: #A1C5FF;
+    --ion-toolbar-color: #14345A;
+}
+
+
+.votes-header {
+    height: 95px;
+}
+
+.page-title {
+    height: 55px;
+
+}
