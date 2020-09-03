@@ -38,6 +38,7 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
         {
           ticks: {
             display: false,
+            max: vote.result.yes + vote.result.no + vote.result.abstain + vote.result.none
           },
           gridLines: {
             display: false,
@@ -89,14 +90,14 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
           backgroundColor: "#16A6CA",
           borderWidth: 0,
           hoverBackgroundColor: "#16A6CA",
-          data: [vote.result.withhold],
+          data: [vote.result.abstain],
         },
         {
           label: "Nicht abg.",
           backgroundColor: "#808080",
           borderWidth: 0,
           hoverBackgroundColor: "#808080",
-          data: [vote.result.noVote],
+          data: [vote.result.none],
         },
       ],
     });
