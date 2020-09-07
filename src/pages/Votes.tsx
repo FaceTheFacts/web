@@ -40,7 +40,9 @@ const votes = [
 	},
 ];
 
+
 const Votes: React.FC = () => {
+
 	const { name } = useParams<{ name: string }>();
 
 	return (
@@ -55,7 +57,6 @@ const Votes: React.FC = () => {
 					</IonTitle>
 				</IonToolbar>
 			</IonHeader>
-
 			<IonContent fullscreen>
 				<SubHeading name="Filtern Nach Themen" />
 
@@ -74,3 +75,4 @@ const Votes: React.FC = () => {
 };
 
 export default Votes;
+

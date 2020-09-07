@@ -27,7 +27,9 @@ interface ContainerProps {
 }
 
 const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
+
 	const candidateVoteClassName = `candidate-vote vote-${vote.candidateVote.toLowerCase()}`;
+	
 	return (
 		<IonCard>
 			<IonCardHeader>

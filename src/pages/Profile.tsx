@@ -25,17 +25,36 @@ import TopicFilter from "../components/TopicFilter";
 import SubHeading from "../components/SubHeading";
 import Menu from "../components/Menu";
 
+const votes = [
+	{
+		subtitle: "Beschlussempfehlung",
+		title: "Bundeswehreinsatz in Afghanistan",
+		candidateVote: "yes",
+		result: {
+			yes: 356,
+			no: 159,
+			abstain: 21,
+			none: 173,
+		},
+	}
+]
+
 const Profile: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 
 	return (
 		<IonPage>
+			<IonHeader>
+				<IonToolbar className = 'profile-picture'>
+					<IonButtons slot="end">
+						<IonMenuButton />
+					</IonButtons>
+					<IonTitle className="page-title">
+						Philipp Amthor
+					</IonTitle>
+				</IonToolbar>
+			</IonHeader>
 			<IonContent fullscreen>
-				<IonCard>
-					<IonCardHeader></IonCardHeader>
-
-					<IonCardContent></IonCardContent>
-				</IonCard>
 				<SubHeading name="Abstimmungsverhalten >" />
 
 				<SubHeading name="Kontroversen" />
