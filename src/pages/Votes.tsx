@@ -67,6 +67,7 @@ const Votes: React.FC = () => {
 					</IonTitle>
 				</IonToolbar>
 			</IonHeader>
+			
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
 				{/* Pass name to the Subheading component to be in control of the sub heading text */}

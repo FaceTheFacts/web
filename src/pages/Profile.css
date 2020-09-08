@@ -1,8 +1,3 @@
-
-.profile-picture {
-        --background: url('https://www.wikidata.org/wiki/Q40998607#/media/File:Philipp_Amthor.jpg');
-}
-
-.page-title {
-	height: 55px;
+.menu-button {
+        position: absolute;
 }

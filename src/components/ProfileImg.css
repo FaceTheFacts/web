@@ -1,0 +1,15 @@
+img {
+    object-fit: cover;
+    overflow: hidden;
+    margin: 0px 160px 0px 0px;
+    height: 250px;
+    width: 100%;
+  }
+
+.politician-name {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 26px;
+
+  }
