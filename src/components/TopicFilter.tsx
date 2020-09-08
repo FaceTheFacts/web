@@ -5,6 +5,8 @@ import "./TopicFilter.css";
 interface ContainerProps {
 	name: string;
 }
+
+/* Hard code filters until we load them from api */
 const topicFilters = {
 	row0: [
 		{
@@ -78,9 +80,12 @@ const topicFilters = {
 		},
 	],
 };
+
+
 const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
 	return (
 		<div className="topic-filters">
+			{/* For each item in each row create a button with the icon and the name of the topic and the topic-filter-button CSS class */}
 			<div className="topic-filter-row">
 				{topicFilters.row0.map((topicFilter, index) => {
 					return (

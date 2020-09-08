@@ -20,55 +20,69 @@ import {
 } from "@ionic/react";
 import { HorizontalBar } from "react-chartjs-2";
 
+/* 
+Register the ChartProps interface so we can pass properties to the component. 
+To be more TypeScripty, we should create a vote type which we can reuse throughout the app.
+*/
 interface ChartProps {
 	vote: any;
 }
 
+/* Create the VoteChart component and pass in the vote property from VoteCard */
 const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 	/*imports: [
         ChartsModule
       ]*/
 	const [chartData, setChartData] = useState({});
+
+	/* 
+	Settings for the chart. For reference see:
+	 React wrapper for chart.js https://www.npmjs.com/package/react-chartjs-2 
+	 Chart.js documentation: https://www.chartjs.org/docs/latest/
+
+	 There is a small difference in implementation between vanilla javascript and the react library, but it should become clear from the documentation
+
+	 */
 	const chartOptions = {
 		title: {
-			display: false,
+			display: false, // hide the title, we add this manually in VoteCard.tsx
 		},
 		scales: {
 			xAxes: [
 				{
 					ticks: {
-						display: false,
-						max:
+						display: false, //hide the horizontal axis and it's values
+						max: //set the max so the chart always fills the whole bar
 							vote.result.yes +
 							vote.result.no +
 							vote.result.abstain +
 							vote.result.none,
 					},
-					gridLines: {
+					gridLines: { // hide gridlines
 						display: false,
 						drawBorder: false,
 					},
 					scaleLabel: {
 						display: false,
 					},
-					stacked: true,
+					stacked: true, //stack the datasets into a single bar
 				},
 			],
 			yAxes: [
 				{
-					gridLines: {
+					gridLines: { // hide gridlines
 						display: false,
 						drawBorder: false,
 					},
 					scaleLabel: {
 						display: false,
 					},
-					stacked: true,
+					stacked: true, //stack the charts
 				},
 			],
 		},
 		legend: {
-			display: false,
+			display: false, // do not display the legend, we built this ourselves in VoteCard.tsx
 		},
 	};
 	const loadData = (vote: any) => {
@@ -106,37 +120,19 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 			],
 		});
 	};
+
+	/* 
+	UseState and UseEffect are React functions for state management.
+	UseEffect is basically a way to call functions and change data inside a component without having to write a separate class for it
+	More information here: https://reactjs.org/docs/hooks-effect.html
+	*/
 	useEffect(() => {
 		loadData(vote);
 	}, []);
-	/*      useIonViewWillEnter(() => {
-        console.log('ionViewWillEnter event fired');
-        const ctx = new CanvasRenderingContext2D();
-        var stackedBar = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                datasets: [{
-                    barPercentage: 0.5,
-                    barThickness: 6,
-                    maxBarThickness: 8,
-                    minBarLength: 2,
-                    data: [10, 20, 30, 40, 50, 60, 70]
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        stacked: true
-                    }],
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
-        });
-      });  */
+
 	return (
 		<div className="bar-chart">
+			{/* HorizontalBar is a component from the Chart.js library, we only have to pass data and options to it */}
 			<HorizontalBar data={chartData} options={chartOptions} />
 		</div>
 	);
