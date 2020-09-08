@@ -12,6 +12,8 @@ import "./PartyMatch.css";
 interface ContainerProps {
 	name: string;
 }
+
+/* Hardcode parties and percentages until the api can answer this question */
 const parties = [
 	{
 		name: "CDU",
@@ -45,10 +47,13 @@ const parties = [
 	},
 ];
 
+/* The PartyMatch component. The property name is also not being used currently. 
+It would make sense to pass politician ID into this component so we can load results from db */
 const PartyMatch: React.FC<ContainerProps> = ({ name }) => {
 	return (
 		<div className="party-matches">
 			<div className="party-match-row">
+				{/* For each party create a thumbnail with a percentage underneath  */}
 				{parties.map((party, index) => {
 					return (
 						<div className="party-item">

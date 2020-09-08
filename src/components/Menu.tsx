@@ -23,6 +23,7 @@ import {
 } from "ionicons/icons";
 import "./Menu.css";
 
+/* Interface is how types are defined in typescript. This should appear throughout the app and makes it typesafe */
 interface AppPage {
 	url: string;
 	iosIcon: string;
@@ -30,6 +31,7 @@ interface AppPage {
 	title: string;
 }
 
+/* Hardcoded app pages, this might not need to change. */
 const appPages: AppPage[] = [
 	{
 		title: "Scan",
@@ -95,6 +97,7 @@ const appPages: AppPage[] = [
 
 const labels = ["Family", "Friends", "Notes", "Work", "Travel", "Reminders"];
 
+/* Menu component. */
 const Menu: React.FC = () => {
 	const location = useLocation();
 
@@ -104,25 +107,31 @@ const Menu: React.FC = () => {
 				<IonList id="inbox-list">
 					<IonListHeader>Face the Facts</IonListHeader>
 					{/* <IonNote>hi@ionicframework.com</IonNote> */}
+
+					{/* For each appPage, create an entry in the menu */}
 					{appPages.map((appPage, index) => {
 						return (
 							<IonMenuToggle key={index} autoHide={false}>
 								<IonItem
+								/* Hightlight selected page */
 									className={
 										location.pathname === appPage.url
 											? "selected"
 											: ""
 									}
+									/* connect to router from App.tsx */
 									routerLink={appPage.url}
 									routerDirection="none"
 									lines="none"
 									detail={false}
 								>
+									{/* Add the icon */}
 									<IonIcon
 										slot="start"
 										ios={appPage.iosIcon}
 										md={appPage.mdIcon}
 									/>
+									{/* Name */}
 									<IonLabel>{appPage.title}</IonLabel>
 								</IonItem>
 							</IonMenuToggle>

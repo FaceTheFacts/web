@@ -33,8 +33,11 @@ const App: React.FC = () => {
 		<IonApp>
 			<IonReactRouter>
 				<IonSplitPane contentId="main">
+					{/* Include the side menu */}
 					<Menu />
 					<IonRouterOutlet id="main">
+						{/* Register each page with the router
+						This works by defining a path and telling the router which component (page) to render for that path. */}
 						<Route path="/page/:name" component={Page} exact />
 						<Route path="/scan" component={Scan} exact />
 						<Route path="/search" component={Search} exact />
@@ -53,6 +56,7 @@ const App: React.FC = () => {
 							component={Votes}
 							exact
 						/>
+						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/scan" exact />
 					</IonRouterOutlet>
 				</IonSplitPane>

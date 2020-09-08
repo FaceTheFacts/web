@@ -41,10 +41,10 @@ const Scan: React.FC = () => {
 		x: 0,
 		y: 0,
 		width: window.screen.width,
-		height: window.screen.height,
+		height: window.screen.height*0.8,
 		camera: "rear",
 		tapPhoto: true,
-		previewDrag: true,
+		previewDrag: false,
 		toBack: true,
 		alpha: 1,
 	};
@@ -53,6 +53,8 @@ const Scan: React.FC = () => {
 		await CameraPreview.startCamera(cameraPreviewOpts).then((res) => {
 			console.log("Open Camera");
 			console.log(res);
+		}).catch((err) =>{
+			console.log(err);
 		});
 	};
 	return (
