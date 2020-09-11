@@ -15,6 +15,8 @@ import {
 	IonButton,
 	IonButtons,
 	IonMenuButton,
+	IonFab,
+	IonFabButton,
 } from "@ionic/react";
 import React from "react";
 import { pin, wifi, wine, warning, walk } from "ionicons/icons";
@@ -27,7 +29,8 @@ import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
 import ProfileImg from "../components/ProfileImg";
-import "./Votes.css";
+import "./Profile.css";
+
 
 
 // Hardcoded votes until we connect to our API
@@ -62,9 +65,10 @@ const Profile: React.FC = () => {
 			<IonHeader>
 				{" "}
 				{/* Header Tag */}
-				<IonToolbar>
+				
 					{" "}
 					{/* Toolbar tag, this is the title bar / top bar */}
+					
 
 					{/* ProfileImg component that holds all the images of the politicians. 
 					Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
@@ -72,23 +76,23 @@ const Profile: React.FC = () => {
 					The politicans name is included on the ProfileImg */}
 					<ProfileImg name={name} />
 
-					{/* Here we include the menu button */}
+					{/* Here we include the Fab menu button */}
+									
+					<IonFab vertical="top" horizontal="end">	
+						<IonFabButton/>
+					</IonFab>
+					
 
-					{/*Button is currently pushing the picture aside! Look into "floating action buttons - fab" 
-					in the ionic documentation and maybe replace the current menu button by creating a 
-					fab component and adding that to the profile.tsx toolbar*/}
-					<IonButtons className="menu-button" slot="end">
-						<IonMenuButton/>
-					</IonButtons>
 					<IonTitle>
 						{/* Add a page title */}
 
 					</IonTitle>
-				</IonToolbar>
+				
 			</IonHeader>
 
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
+
 
 				{/* Pass name to the Subheading component to be in control of the sub heading text */}
 				<SubHeading name="Abstimmungsverhalten >" />

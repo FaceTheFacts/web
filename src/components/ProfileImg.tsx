@@ -13,7 +13,7 @@ interface ContainerProps {
 const ProfileImg: React.FC<ContainerProps> = ({ name }) => {
 	return (
         <div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Philipp_Amthor.jpg/1280px-Philipp_Amthor.jpg"></img>
+            <img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img>
             <div className="politician-name">Philipp Amthor</div>
         </div>
 		

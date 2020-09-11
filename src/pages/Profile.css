@@ -1,3 +1,14 @@
-.menu-button {
-        position: absolute;
+
+ion-fab {
+
+        color: #000000;
+}
+
+ion-fab-button {
+        --ion-color-primary:#000000; 
+        overflow: visible;  
+        opacity: 0.7;
+        border-radius:50%;
+        width: 50px;
+        height: 50px;
 }
