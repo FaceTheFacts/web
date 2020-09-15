@@ -63,41 +63,39 @@ const Profile: React.FC = () => {
 		<IonPage>
 			{" "}
 			{/* Page Tag */}
-			<IonHeader>
-				{" "}
-				{/* Header Tag */}
-				
+	
+
+				<IonHeader>
+
 					{" "}
-					{/* Toolbar tag, this is the title bar / top bar */}
+					{/* Header Tag */}
 					
+						{" "}
+						{/* Toolbar tag, this is the title bar / top bar */}
+						
 
-					{/* ProfileImg component that holds all the images of the politicians. 
-					Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
-					to make our life easier when we add the profiles images of new politicians.
-					The politicans name is included on the ProfileImg */}
-					<ProfileImg name={name} />
+						{/* ProfileImg component that holds all the images of the politicians. 
+						Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
+						to make our life easier when we add the profiles images of new politicians.
+						The politicans name is included on the ProfileImg */}
+						<ProfileImg name={name} />
 
-					{/* Here we include the Fab menu button */}
-					<IonFab vertical="top" horizontal="end">
-						<FabMenuButton/>
-					</IonFab>
-					
-					
-					
+						{/* Here we include the Fab menu button */}
+						<IonFab vertical="top" horizontal="end">
+							<FabMenuButton/>
+						</IonFab>
+		
+						
 
-					<IonTitle>
-						{/* Add a page title */}
+				</IonHeader>
 
-					</IonTitle>
-				
-			</IonHeader>
 
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
 
 
 				{/* Pass name to the Subheading component to be in control of the sub heading text */}
-				<SubHeading name="Abstimmungsverhalten >" />
+				<SubHeading name="Abstimmungsverhalten" />
 
 				{/* For each vote in votes, render a VoteCard component */}
 				{votes.map((vote, index) => {
@@ -108,6 +106,7 @@ const Profile: React.FC = () => {
 
 				<SubHeading name="Bekannte Nebentätigkeiten" />
 			</IonContent>
+			
 		</IonPage>
 	);
 };

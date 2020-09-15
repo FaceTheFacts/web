@@ -1,14 +1,18 @@
-img {
-    object-fit: cover;
-    overflow: hidden;
-    height: 250px;
-    width: 100%;
-  }
+.imgContainer {
+  width: 700px;
+  height: 280px;
+  overflow:hidden;
+  margin: 0 0 0 -120px;
+
+}
+
 
 .politician-name {
     position: absolute;
     bottom: 8px;
     left: 16px;
-    font-size: 26px;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
 
   }

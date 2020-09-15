@@ -4,3 +4,6 @@ ion-fab {
         color: #000000;
 }
 
+ion-header {
+        max-height: 280px;
+}

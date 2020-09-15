@@ -12,7 +12,7 @@ interface ContainerProps {
 /* This is just a simple component to repeat the ProfileImg wherever we need it */
 const ProfileImg: React.FC<ContainerProps> = ({ name }) => {
 	return (
-        <div>
+        <div className="imgContainer">
             <img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img>
             <div className="politician-name">Philipp Amthor</div>
         </div>
