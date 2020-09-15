@@ -29,6 +29,7 @@ import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
 import ProfileImg from "../components/ProfileImg";
+import FabMenuButton from "../components/FabMenuButton";
 import "./Profile.css";
 
 
@@ -77,10 +78,11 @@ const Profile: React.FC = () => {
 					<ProfileImg name={name} />
 
 					{/* Here we include the Fab menu button */}
-									
-					<IonFab vertical="top" horizontal="end">	
-						<IonFabButton/>
+					<IonFab vertical="top" horizontal="end">
+						<FabMenuButton/>
 					</IonFab>
+					
+					
 					
 
 					<IonTitle>
