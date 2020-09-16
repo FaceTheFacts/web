@@ -28,8 +28,10 @@ import SubHeading from "../components/SubHeading";
 import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
-import ProfileImg from "../components/ProfileImg";
+import ProfileImage from "../components/ProfileImage";
 import FabMenuButton from "../components/FabMenuButton";
+import ProfileChip from "../components/ProfileChip";
+import ProfileName from "../components/ProfileName";
 import "./Profile.css";
 
 
@@ -78,7 +80,9 @@ const Profile: React.FC = () => {
 						Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 						to make our life easier when we add the profiles images of new politicians.
 						The politicans name is included on the ProfileImg */}
-						<ProfileImg name={name} />
+						<ProfileImage name={name} />
+						<ProfileName name={name} />
+						<ProfileChip name={name} />
 
 						{/* Here we include the Fab menu button */}
 						<IonFab vertical="top" horizontal="end">
