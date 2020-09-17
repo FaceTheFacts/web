@@ -1,9 +1,9 @@
 .politician-details {
-  position: absolute;
-  bottom: 2px;
-  left: 12px;
+  margin-left: 10px;
+  bottom: 45px;
   font-size: 14px;
   font-weight: 200;
   color: white;
+  background-color: #555555ab;
 
 }

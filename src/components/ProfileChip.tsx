@@ -3,15 +3,16 @@ import { IonList, IonItem, IonThumbnail, IonImg, IonLabel, IonContent, IonChip, 
 import "./ProfileChip.css";
 
 interface ContainerProps {
-	name: string;
+	chip: any;
 }
 
-const ProfileImgDetails: React.FC<ContainerProps> = ({ name }) => {
+const ProfileChip: React.FC<ContainerProps> = ({ chip }) => {
 	return (
-          <IonChip className="politician-details">CDU/CSU</IonChip>
+          <IonChip className="politician-details">{chip}</IonChip>
       );
   };
 
-export default ProfileImgDetails;
+export default ProfileChip;
 
 // Need to find a way to use Chips dynamically so that the 2nd, 3rd, etc. chips are all placed in line!
+// Pass in an array of all chips, then use array.map

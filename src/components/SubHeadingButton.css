@@ -1,0 +1,16 @@
+.sub-heading-button {
+	text-align: left;
+	height: 16px;
+    background-color: #14345a;  
+    margin-left: -2px;
+}
+
+.sub-heading-button strong {
+    color: white;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 26px;
+	text-transform: uppercase;
+}
+
+

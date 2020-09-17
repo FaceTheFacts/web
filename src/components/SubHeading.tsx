@@ -2,7 +2,7 @@ import React from "react";
 import "./SubHeading.css";
 
 interface ContainerProps {
-	name: string;
+	name?: string;
 }
 
 /* This is just a simple component to repeat the subheading wherever we need it */

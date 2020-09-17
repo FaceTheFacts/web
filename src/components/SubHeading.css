@@ -2,26 +2,15 @@
 	text-align: left;
 	height: 40px;
 	background-color: #14345a;
-	color: white;
 	margin-bottom: 10px;
 	padding-top: 7px;
 }
 
 .sub-heading strong {
+	color: white;
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 26px;
 	text-transform: uppercase;
 	margin-left: 10px;
-}
-
-.container p {
-	font-size: 16px;
-	line-height: 22px;
-	color: #8c8c8c;
-	margin: 0;
-}
-
-.container a {
-	text-decoration: none;
 }

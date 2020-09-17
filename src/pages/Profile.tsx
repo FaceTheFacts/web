@@ -32,9 +32,12 @@ import ProfileImage from "../components/ProfileImage";
 import FabMenuButton from "../components/FabMenuButton";
 import ProfileChip from "../components/ProfileChip";
 import ProfileName from "../components/ProfileName";
+import NebenCard from "../components/NebenCard";
+import SubHeadingButton from "../components/SubHeadingButton";
 import "./Profile.css";
 
-
+// Hardcoded chips until we connect to our API
+const chips = ["CDU/CSU", "Mitglied des Bundestags"];
 
 // Hardcoded votes until we connect to our API
 const votes = [
@@ -65,50 +68,54 @@ const Profile: React.FC = () => {
 		<IonPage>
 			{" "}
 			{/* Page Tag */}
-	
-
 				<IonHeader>
-
 					{" "}
 					{/* Header Tag */}
 					
 						{" "}
-						{/* Toolbar tag, this is the title bar / top bar */}
-						
+						{/* Toolbar tag, this is the title bar / top bar */}					
 
 						{/* ProfileImg component that holds all the images of the politicians. 
 						Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 						to make our life easier when we add the profiles images of new politicians.
 						The politicans name is included on the ProfileImg */}
+
+						{/* ProfileImage needs a gradient overlay added! */}
 						<ProfileImage name={name} />
 						<ProfileName name={name} />
-						<ProfileChip name={name} />
+						{/* For each vote in votes, render a VoteCard component */}
+						{chips.map((chip, index) => {
+							return <ProfileChip chip={chip} />;
+						})}	
 
 						{/* Here we include the Fab menu button */}
 						<IonFab vertical="top" horizontal="end">
 							<FabMenuButton/>
 						</IonFab>
 		
-						
-
 				</IonHeader>
-
 
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
 
 
-				{/* Pass name to the Subheading component to be in control of the sub heading text */}
-				<SubHeading name="Abstimmungsverhalten" />
+				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
+				
+				<div className="heading-underlay">
+					<SubHeadingButton name ="Abstimmungsverhalten >" />
+				</div>
+				
+					{/* For each vote in votes, render a VoteCard component */}
+					{votes.map((vote, index) => {
+						return <VoteCard vote={vote} />;
+					})}
 
-				{/* For each vote in votes, render a VoteCard component */}
-				{votes.map((vote, index) => {
-					return <VoteCard vote={vote} />;
-				})}
+				{/* Pass name to Subheading to be in control of the sub heading text */}
 
 				<SubHeading name="Kontroversen" />
 
 				<SubHeading name="Bekannte Nebentätigkeiten" />
+
 			</IonContent>
 			
 		</IonPage>
