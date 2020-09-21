@@ -3,6 +3,18 @@
   height: 280px;
   overflow:hidden;
   margin: 0 0 0 -120px;
+  position:relative;
+  z-index: 1;
 }
+.gradientOverlay {
+  z-index: 2;
+  width: 700;
+  height: 170px;
+  overflow: visible;
+  position:absolute;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+
+
 
 

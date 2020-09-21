@@ -13,6 +13,3 @@ const ProfileChip: React.FC<ContainerProps> = ({ chip }) => {
   };
 
 export default ProfileChip;
-
-// Need to find a way to use Chips dynamically so that the 2nd, 3rd, etc. chips are all placed in line!
-// Pass in an array of all chips, then use array.map

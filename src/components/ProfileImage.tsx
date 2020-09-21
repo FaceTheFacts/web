@@ -13,7 +13,9 @@ interface ContainerProps {
 const ProfileImage: React.FC<ContainerProps> = ({ name }) => {
 	return (
         <div className="imgContainer">
-            <img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img>
+            <div><img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img></div>
+            <div><img className="gradientOverlay"></img></div>
+            
         </div>
 		
 	);
