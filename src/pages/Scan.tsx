@@ -20,6 +20,10 @@ import {
 	CameraPreviewOptions,
 	CameraPreviewDimensions,
 } from "@ionic-native/camera-preview";
+
+import { Plugins } from '@capacitor/core';
+import "capacitor-plugin-camera-preview"
+
 import { useParams } from "react-router";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
@@ -27,6 +31,8 @@ import "./Page.css";
 const Scan: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 	const { photo, getPhoto } = useCamera();
+
+	const { CameraPreview } = Plugins;
 
 	const handleTakePhoto = () => {
 		if (availableFeatures.getPhoto) {
@@ -50,12 +56,19 @@ const Scan: React.FC = () => {
 	};
 
 	const startCamera = async () => {
-		await CameraPreview.startCamera(cameraPreviewOpts).then((res) => {
+		await CameraPreview.startCamera(cameraPreviewOpts)
+		.then((res: {}) => {
+			console.log("Opened Camera");
+			console.log(res);
+		}).catch((err: {}) =>{
+			console.log(err);
+		});
+		/* await CameraPreview.startCamera(cameraPreviewOpts).then((res) => {
 			console.log("Open Camera");
 			console.log(res);
 		}).catch((err) =>{
 			console.log(err);
-		});
+		}); */
 	};
 	return (
 		<IonPage>
@@ -86,6 +99,7 @@ const Scan: React.FC = () => {
 				) : (
 					<div>Camera not available on this platform</div>
 				)}
+				<div id='camera-preview'></div>
 			</IonContent>
 		</IonPage>
 	);
