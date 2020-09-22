@@ -5,5 +5,6 @@
     font-size: 32px;
     font-weight: 600;
     color: white;
+    z-index: 3; 
 
   }

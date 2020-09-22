@@ -1,20 +1,26 @@
 import React from 'react';
-import { IonCard, IonList, IonItem, IonThumbnail, IonImg, IonLabel, IonContent, IonChip, IonIcon, IonAvatar } from '@ionic/react';
+import { IonCard, IonContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 import "./NebenCard.css";
 
 
 
 interface ContainerProps {
-	name: string;
+	title: string;
+	subtitle: string;
 }
 
 
-const NebenCard: React.FC<ContainerProps> = ({ name }) => {
+const NebenCard: React.FC<ContainerProps> = ({ title, subtitle }) => {
 	
 	return (
-        <IonCard>
-            
-        </IonCard>
+	
+			<IonCard className = "neben-layout">
+				<IonCardHeader>
+					<IonCardTitle className="neben-minor">{subtitle}</IonCardTitle>
+					<IonCardTitle className="neben-major">{title}</IonCardTitle>
+				</IonCardHeader>
+			</IonCard>
+
         
 	);
 };

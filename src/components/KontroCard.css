@@ -1,15 +1,5 @@
-.neben-minor {
-    overflow: hidden;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0.3px;
-    line-height: 1.2;
-    font-weight: 400;
-    font-style: normal;
-}
 
-.neben-major {
-
+.kontro-major {
     overflow: hidden;
     color: #000000;
     font-size: 16px;
@@ -20,8 +10,8 @@
 
 }
 
-.neben-layout{
-    padding-top: 15px;
+.kontro-layout{
+    padding-top: 22px;
     height: 65px;
     overflow: "hidden";
     background-color: #ffffff;

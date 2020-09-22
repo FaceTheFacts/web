@@ -1,10 +1,14 @@
+/*Button Background*/
 .sub-heading-button {
 	text-align: left;
 	height: 16px;
-    background-color: #14345a;  
-    margin-left: -2px;
+    --background:transparent;  
+	margin-left: -2px;
+	--box-shadow:none;
+	--border-style:none;
 }
 
+/*Button Text*/
 .sub-heading-button strong {
     color: white;
 	font-size: 14px;
