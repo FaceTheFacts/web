@@ -29,22 +29,24 @@ import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
 import CameraView from "../components/CameraView";
 
-const Scan: React.FC = () => {
-	const { name } = useParams<{ name: string }>();
-	const { photo, getPhoto } = useCamera();
+class Scan extends React.Component {
+	//name = useParams<{ name: string }>();
+	name = 'Scan'
+	/* photo = useCamera();
+	getPhoto = useCamera(); */
 
-	const { CameraPreview } = Plugins;
+	CameraPreview = Plugins;
 
-	const handleTakePhoto = () => {
+	/* const handleTakePhoto = () => {
 		if (availableFeatures.getPhoto) {
-			getPhoto({
+			this.getPhoto({
 				quality: 100,
 				allowEditing: false,
 				resultType: CameraResultType.DataUrl,
 			});
 		}
-	};
-	const cameraPreviewOpts: CameraPreviewOptions = {
+	}; */
+	cameraPreviewOpts: CameraPreviewOptions = {
 		x: 0,
 		y: 0,
 		width: window.screen.width,
@@ -56,10 +58,10 @@ const Scan: React.FC = () => {
 		alpha: 1,
 	};
 
-	const startCamera = async () => {
+	/* startCamera = async () => {
 		const video = React.createRef();
 		const canvas = React.createRef();
-		await CameraPreview.startCamera(cameraPreviewOpts, video, canvas)
+		await CameraPreview.startCamera(this.cameraPreviewOpts, video, canvas)
 			.then((res: {}) => {
 				console.log("Opened Camera");
 				console.log(res);
@@ -73,32 +75,40 @@ const Scan: React.FC = () => {
 		}).catch((err) =>{
 			console.log(err);
 		}); */
-	};
+	//};
 
-	const takeSnapshot = async () => {
+	takeSnapshot = async () => {
 		await CameraPreview.takeSnapshot().then((res: {}) => console.log(res));
 	};
 
-	let showCamera = false;
+	state = {
+		showingCamera :false
+	};
+	
 
-	return (
-		<IonPage>
-			<IonHeader>
-				<IonToolbar>
-					<IonButtons slot="start">
-						<IonMenuButton />
-					</IonButtons>
-					<IonTitle>{name}</IonTitle>
-				</IonToolbar>
-			</IonHeader>
+	showCamera = () => {
+		this.setState({showingCamera: true});
+	}
 
-			<IonContent fullscreen>
-				<IonHeader collapse="condense">
+	render() {
+		return (
+			<IonPage>
+				<IonHeader>
 					<IonToolbar>
-						<IonTitle size="large">{name}</IonTitle>
+						<IonButtons slot="start">
+							<IonMenuButton />
+						</IonButtons>
+						<IonTitle>{this.name}</IonTitle>
 					</IonToolbar>
 				</IonHeader>
-				{/*
+
+				<IonContent fullscreen>
+					<IonHeader collapse="condense">
+						<IonToolbar>
+							<IonTitle size="large">{this.name}</IonTitle>
+						</IonToolbar>
+					</IonHeader>
+					{/*
 				
 				{availableFeatures.getPhoto ? (
 					<div>
@@ -118,14 +128,15 @@ const Scan: React.FC = () => {
 								Take Snapshot
 							</IonButton>
 							*/}
-				<IonButton onClick={this.showCamera()}>
-					Start Camera Preview
-				</IonButton>
+					<IonButton onClick={this.showCamera}>
+						Start Camera Preview
+					</IonButton>
 
-				<CameraView />
-			</IonContent>
-		</IonPage>
-	);
-};
+					{ this.state.showingCamera ? <CameraView /> : null }
+				</IonContent>
+			</IonPage>
+		);
+	}
+}
 
 export default Scan;
