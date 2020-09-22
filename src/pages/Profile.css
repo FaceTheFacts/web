@@ -1,13 +1,12 @@
 
-
 ion-header {
         max-height: 280px;
 }
 
-.heading-underlay {
+.subheading-button-underlay {
 	text-align: left;
 	height: 40px;
-	background-color: #14345a;
+	background-color: #14345A;
 	margin-bottom: 10px;
 	padding-top: 7px;
 }

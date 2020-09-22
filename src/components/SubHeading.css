@@ -1,9 +1,10 @@
 .sub-heading {
 	text-align: left;
 	height: 40px;
-	background-color: #14345a;
+	background-color: #14345A;
 	margin-bottom: 10px;
 	padding-top: 7px;
+
 }
 
 .sub-heading strong {
@@ -13,4 +14,12 @@
 	line-height: 26px;
 	text-transform: uppercase;
 	margin-left: 10px;
+}
+
+.info-button {
+    --background: transparent;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    opacity: 1;
 }

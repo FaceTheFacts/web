@@ -4,6 +4,8 @@ ion-col {
 }
 
 ion-card {
+	margin-top: 0px;
+	margin-bottom: 10px;
 	background-color: #ffffff;
 	height: 128px;
 }
@@ -21,6 +23,7 @@ ion-card-subtitle {
 }
 
 .vote-card-content {
+	
 	padding-left: 10px !important;
 	padding-right: 10px;
 }
