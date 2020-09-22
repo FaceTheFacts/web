@@ -9,13 +9,14 @@ interface ContainerProps {
 }
 
 
-/* This is just a simple component to repeat the ProfileImg wherever we need it */
+/* This is just a simple component to repeat the ProfileImg wherever we need it 
+ */
 const ProfileImage: React.FC<ContainerProps> = ({ name }) => {
 	return (
         <div className="imgContainer">
-            <img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img>
+                <img src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"></img>  
         </div>
-		
+        	
 	);
 };
 

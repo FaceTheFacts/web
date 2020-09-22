@@ -29,11 +29,12 @@ import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
 import ProfileImage from "../components/ProfileImage";
-import FabMenuButton from "../components/FabMenuButton";
+import MenuButton from "../components/MenuButton";
 import ProfileChip from "../components/ProfileChip";
 import ProfileName from "../components/ProfileName";
 import NebenCard from "../components/NebenCard";
 import SubHeadingButton from "../components/SubHeadingButton";
+import KontroCard from "../components/KontroCard";
 import "./Profile.css";
 
 // Hardcoded chips until we connect to our API
@@ -90,7 +91,7 @@ const Profile: React.FC = () => {
 
 						{/* Here we include the Fab menu button */}
 						<IonFab vertical="top" horizontal="end">
-							<FabMenuButton/>
+							<MenuButton/>
 						</IonFab>
 		
 				</IonHeader>
@@ -101,10 +102,10 @@ const Profile: React.FC = () => {
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 				
-				<div className="heading-underlay">
+				<div className="subheading-button-underlay">
 					<SubHeadingButton name ="Abstimmungsverhalten >" />
 				</div>
-				
+						
 					{/* For each vote in votes, render a VoteCard component */}
 					{votes.map((vote, index) => {
 						return <VoteCard vote={vote} />;
@@ -114,7 +115,16 @@ const Profile: React.FC = () => {
 
 				<SubHeading name="Kontroversen" />
 
+					{/* Hardcoded for now until passed in from the API */}
+					<KontroCard title='"Hey Reto du alter Zerstörer"'/>
+
 				<SubHeading name="Bekannte Nebentätigkeiten" />
+
+					{/* Hardcoded for now until passed in from the API */}
+					<NebenCard title="Sparkasse Uecker-Randow" subtitle="Mitglied des Verwaltungsrates"/>
+
+
+				
 
 			</IonContent>
 			
