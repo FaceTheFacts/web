@@ -1,25 +1,24 @@
 import React from 'react';
-import { IonCard, IonContent, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonCardContent, IonButton, IonCard, IonContent, IonCardHeader, IonCardTitle } from '@ionic/react';
+
 import "./KontroCard.css";
 
 
 
 interface ContainerProps {
-	title: string;
+	kontro: string;
 }
 
 
-const KontroCard: React.FC<ContainerProps> = ({ title }) => {
+
+const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
 	
 	return (
-	
 			<IonCard className = "kontro-layout">
-				<IonCardHeader>
-					<IonCardTitle className="kontro-major">{title}</IonCardTitle>
+				<IonCardHeader className="accordion">
+						{kontro}
 				</IonCardHeader>
-			</IonCard>
-
-        
+			</IonCard>        
 	);
 };
 

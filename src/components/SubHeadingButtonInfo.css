@@ -17,4 +17,8 @@
 	text-transform: uppercase;
 }
 
+.scrollhidden {
+	overflow:hidden;
+	z-index: 1;
+}
 

@@ -12,19 +12,32 @@
     "@ionic-native/core": "^5.28.0",
     "@ionic/cli": "^6.11.8",
     "@ionic/pwa-elements": "^3.0.1",
+<<<<<<< HEAD
     "@ionic/react": "^5.3.3",
     "@ionic/react-router": "^5.3.3",
     "@tensorflow-models/blazeface": "0.0.5",
     "@tensorflow/tfjs-converter": "^1.7.4",
     "@tensorflow/tfjs-core": "^1.7.4",
     "@tensorflow/tfjs-node": "^1.7.4",
+=======
+    "@ionic/react": "^5.0.7",
+    "@ionic/react-router": "^5.0.7",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+>>>>>>> develop
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^8.0.3",
     "@types/chart.js": "^2.9.24",
     "@types/jest": "^24.0.25",
+<<<<<<< HEAD
     "@types/node": "^12.12.62",
+=======
+    "@types/node": "^12.12.24",
+    "@types/prop-types": "^15.7.3",
+>>>>>>> develop
     "@types/react": "^16.9.17",
+    "@types/react-collapse": "^5.0.0",
     "@types/react-dom": "^16.9.4",
     "@types/react-router": "^5.1.4",
     "@types/react-router-dom": "^5.1.3",
@@ -33,17 +46,31 @@
     "fuse.js": "^6.4.1",
     "ionic": "^5.4.16",
     "ionicons": "^5.0.0",
+<<<<<<< HEAD
     "node": "^14.11.0",
     "node-pre-gyp": "^0.15.0",
+=======
+    "node": "^14.8.0",
+    "prop-types": "^15.7.2",
+>>>>>>> develop
     "react": "^16.13.0",
+    "react-accessible-accordion": "^3.3.3",
     "react-chartjs-2": "^2.10.0",
-    "react-dom": "^16.13.0",
+    "react-collapse": "^5.0.1",
+    "react-dom": "^16.13.1",
+    "react-native": "^0.63.2",
+    "react-native-expandable-card": "^1.0.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+<<<<<<< HEAD
     "rxjs": "^5.5.0",
     "seedrandom": "^2.4.4",
     "tesseract.js": "^2.1.3",
+=======
+    "reactstrap": "^8.6.0",
+    "smart-webcomponents-react": "^8.0.0",
+>>>>>>> develop
     "typescript": "3.8.3"
   },
   "scripts": {

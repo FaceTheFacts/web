@@ -8,3 +8,16 @@
 .page-title {
 	height: 55px;
 }
+
+
+.grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.last-grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 30px;
+}

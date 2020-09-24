@@ -1,8 +1,10 @@
 .topic-filters {
-	background-color: #e3e3e3;
 	overflow-x: scroll;
 	width: 250%;
-	margin: 5px;
+	padding-bottom:15px;
+	padding-top:15px;
+	padding-left: 10px;
+
 }
 
 .topic-filter-button {
