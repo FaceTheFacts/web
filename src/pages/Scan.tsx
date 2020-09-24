@@ -29,7 +29,7 @@ import { useParams } from "react-router";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
 import CameraView from "../components/CameraView";
-import { ContainerProps } from '../definitions/interfaces'
+
 
 class Scan extends React.PureComponent<RouteComponentProps> {
 
