@@ -30,6 +30,7 @@
     "@types/react-router-dom": "^5.1.3",
     "aws-sdk": "^2.757.0",
     "chart.js": "^2.9.3",
+    "fuse.js": "^6.4.1",
     "ionic": "^5.4.16",
     "ionicons": "^5.0.0",
     "node": "^14.11.0",
