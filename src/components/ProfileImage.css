@@ -1,9 +1,9 @@
 
 .imgContainer {
   width: 700px;
-  height: 280px;
+  height: 300px;
   overflow:hidden;
-  margin: 0 0 0 -120px;
+  margin: -20px 0 0 -120px;
   position:relative;
   z-index: 1;
 }
