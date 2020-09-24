@@ -1,10 +1,10 @@
 .politician-details {
   margin-left: 10px;
-  bottom: 45px;
+  bottom: 80px;
   font-size: 14px;
   font-weight: 200;
   color: white;
   background-color: #555555ab;
-  z-index: 3; 
+  z-index: 2; 
 
 }

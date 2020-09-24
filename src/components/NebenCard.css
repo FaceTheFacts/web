@@ -1,5 +1,5 @@
 .neben-minor {
-    overflow: hidden;
+    overflow: visible;
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.3px;
@@ -10,21 +10,23 @@
 
 .neben-major {
 
-    overflow: hidden;
+    overflow: visible;
     color: #000000;
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 1;
     font-weight: 600;
     font-style: normal;
+    
 
 }
 
 .neben-layout{
     padding-top: 15px;
     height: 65px;
-    overflow: "hidden";
+    overflow: hidden;
     background-color: #ffffff;
     border-radius: 10px;
-    margin-top: 0px;
+    margin-top: 10px;
+    position: relative;
 }
