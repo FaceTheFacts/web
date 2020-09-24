@@ -9,6 +9,7 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 import React from "react";
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import {
 	useCamera,
 	availableFeatures,
@@ -28,8 +29,10 @@ import { useParams } from "react-router";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
 import CameraView from "../components/CameraView";
+import { ContainerProps } from '../definitions/interfaces'
 
-class Scan extends React.Component {
+class Scan extends React.PureComponent<RouteComponentProps> {
+
 	//name = useParams<{ name: string }>();
 	name = 'Scan'
 	/* photo = useCamera();
@@ -139,4 +142,4 @@ class Scan extends React.Component {
 	}
 }
 
-export default Scan;
+export default withRouter(Scan);
