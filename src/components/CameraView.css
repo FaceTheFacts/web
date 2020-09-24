@@ -1,9 +1,12 @@
 video {
     position: fixed;
     left: 0;
+    z-index: 1;
 }
 
 canvas {
     position: fixed;
     left: 0;
+    z-index: 2;
 }
+
