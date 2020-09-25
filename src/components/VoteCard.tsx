@@ -25,7 +25,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 	const candidateVoteClassName = `candidate-vote vote-${vote.candidateVote.toLowerCase()}`;
 	
 	return (
-		<div>
+		<div className="grey-background">
 				<IonCard>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
@@ -66,16 +66,16 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 						<IonRow>
 							<IonCol size="1"></IonCol>
 							<IonCol size="2">
-								<div className="vote-legend-circle vote-yes"></div>
-								<span className="vote-legend-text">Yes</span>
+								<div className="vote-legend-circle vote-ja"></div>
+								<span className="vote-legend-text">Ja</span>
 							</IonCol>
 							<IonCol size="2">
-								<div className="vote-legend-circle vote-no"></div>
-								<span className="vote-legend-text">No</span>
+								<div className="vote-legend-circle vote-nein"></div>
+								<span className="vote-legend-text">Nein</span>
 							</IonCol>
 							<IonCol size="3">
 								<div className="vote-legend-circle vote-abstain"></div>
-								<span className="vote-legend-text">Abstain</span>
+								<span className="vote-legend-text">Enthalten</span>
 							</IonCol>
 							<IonCol size="4">
 								<div className="vote-legend-circle vote-none"></div>

@@ -56,7 +56,7 @@ const votes = [
 	{
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		candidateVote: "JA",
 		result: {
 			yes: 356,
 			no: 159,
