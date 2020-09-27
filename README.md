@@ -1,4 +1,5 @@
 # Face the Facts
+[![codecov](https://codecov.io/gh/Face-the-Facts/mobile-app/branch/develop/graph/badge.svg)](https://codecov.io/gh/Face-the-Facts/mobile-app)
 
 ## Development
 npm needs to be installed to run this project
