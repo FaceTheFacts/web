@@ -1,0 +1,12 @@
+node_modules
+build
+coverage
+.github
+electron
+ios
+.dockerignore
+Dockerfile
+Dockerfile.prod
+.gitignore
+.prettierignore
+.prettierrc.json
