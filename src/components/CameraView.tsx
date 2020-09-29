@@ -287,7 +287,7 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 				{/* { this.state.politicianDetected ? <IonButton id='profile-button' routerLink='/politician/1' >Detected Philipp Amthor, view?</IonButton> : null } */}
 
 				<video ref={this.videoRef} playsInline autoPlay></video>
-				<canvas ref={this.canvasRef}></canvas>
+				<canvas ref={this.canvasRef} id="camera-canvas"></canvas>
 			</div>
 		);
 	}
