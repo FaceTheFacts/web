@@ -2,3 +2,6 @@ build
 coverage
 ios
 node_modules
+electron
+public
+resources
