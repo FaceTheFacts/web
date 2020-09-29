@@ -13,10 +13,14 @@ interface ContainerProps {
 
 const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
 	
+	//State Hook to alter state when clicked
+	const [isOpen, setIsOpen] = React.useState (false);
+
+
 	return (
 			<IonCard className = "kontro-layout">
-				<IonCardHeader className="accordion">
-						{kontro}
+				<IonCardHeader className="accordion" onClick={() => setIsOpen(!isOpen)}>
+						{kontro} {isOpen? "open" : "closed"}
 				</IonCardHeader>
 			</IonCard>        
 	);

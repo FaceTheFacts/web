@@ -47,7 +47,7 @@ const appPages: AppPage[] = [
 	},
 	{
 		title: "Profile",
-		url: "/politician/1",
+		url: "/politician/1/profile",
 		iosIcon: homeOutline,
 		mdIcon: homeSharp,
 	},
