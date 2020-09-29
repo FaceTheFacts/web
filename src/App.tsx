@@ -42,7 +42,7 @@ const App: React.FC = () => {
 						<Route path="/scan" component={Scan} exact />
 						<Route path="/search" component={Search} exact />
 						<Route
-							path="/politician/:id"
+							path="/politician/:id/profile"
 							component={Profile}
 							exact
 						/>

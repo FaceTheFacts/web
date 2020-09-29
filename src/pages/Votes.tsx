@@ -6,6 +6,7 @@ import {
 	IonPage,
 	IonTitle,
 	IonToolbar,
+	IonBackButton
 } from "@ionic/react";
 import React from "react";
 import { useParams } from "react-router";
@@ -21,7 +22,7 @@ const votes = [
 	{
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		candidateVote: "JA",
 		result: {
 			yes: 356,
 			no: 159,
@@ -30,14 +31,14 @@ const votes = [
 		},
 	},
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		subtitle: "Änderungsantrag",
+		title: "Kohleausstiegsgesetz",
+		candidateVote: "NEIN",
 		result: {
-			yes: 50,
-			no: 25,
-			abstain: 15,
-			none: 10,
+			yes: 120,
+			no: 539,
+			abstain: 0,
+			none: 50,
 		},
 	},
 ];
@@ -55,13 +56,13 @@ const Votes: React.FC = () => {
 			<IonHeader>
 				{" "}
 				{/* Header Tag */}
-				<IonToolbar className="votes-header">
+				<IonToolbar className="votes-toolbar">
 					{" "}
 					{/* Toolbar tag, this is the title bar / top bar */}
-					{/* Here we include the menu button */}
-					<IonButtons slot="end">
-						<IonMenuButton />
-					</IonButtons>
+					{/* Here we include the back button */}
+					<IonButtons slot="start">
+         				 <IonBackButton defaultHref="profile" text="" />
+       				</IonButtons>
 					{/* Add a page title */}
 					<IonTitle className="page-title">
 						Abstimmungsverhalten
