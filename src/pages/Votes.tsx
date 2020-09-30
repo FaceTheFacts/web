@@ -51,34 +51,29 @@ const Votes: React.FC = () => {
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			{" "}
-			{/* Page Tag */}
-			<IonHeader>
-				{" "}
-				{/* Header Tag */}
-				<IonToolbar className="votes-toolbar">
-					{" "}
-					{/* Toolbar tag, this is the title bar / top bar */}
-					{/* Here we include the back button */}
-					<IonButtons slot="start">
-         				 <IonBackButton defaultHref="profile" text="" />
-       				</IonButtons>
-					{/* Add a page title */}
-					<IonTitle className="page-title">
-						Abstimmungsverhalten
-					</IonTitle>
-				</IonToolbar>
-			</IonHeader>
 			
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
+				<div className="votes-toolbar">
+
+					<IonButtons slot="start">
+							<IonBackButton className="back-button" defaultHref="profile" text="" />
+					</IonButtons>
+					{/* Add a page title */}
+					
+					<IonTitle className="page-title">
+						ABSTIMMUNGSVERHALTEN
+					</IonTitle>
+					
+				</div>
+
 				{/* Pass name to the SubHeading component to be in control of the sub heading text */}
 				<SubHeading name="Filtern Nach Themen" />
 
 				{/* TopicFilter component that holds all the filters for the topics of polls. 
 				Right now the name property is not being used, maybe it's an Idea to dynamically pass in the topics, 
 				to make our life easier in case a new topic is added or we want to translate for other countries and languages */}
-				<div className="grey-back">
+				<div className="grey-back-scroll">
 					<TopicFilter name={name} />
 				</div>
 
@@ -87,7 +82,7 @@ const Votes: React.FC = () => {
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
 				the politician id so we can retrieve the match percentage from our api */}
-				<div className="grey-back">
+				<div className="grey-back-scroll">
 					<PartyMatch name={name} />
 				</div>
 

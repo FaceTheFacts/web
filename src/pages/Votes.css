@@ -1,23 +1,32 @@
 
 .votes-toolbar {
 	height: 95px;
-	--ion-background-color: #e3e3e3;
-	--ion-toolbar-background: #a1c5ff;
-	--ion-toolbar-color: #14345a;
+	background-color: #a1c5ff;
+}
 
+.back-button {
+	margin-top: 50px;
+	margin-left: 10px;
+	size: 1px;
 }
 
 
 .page-title {
-	
 	height: 55px;
+	margin-top: 40px;
+	font-size: 15px;
+	width: fit-content;
 }
 
 
-.grey-back {
+.grey-back-scroll {
 	background-color: #e3e3e3;;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	overflow-x: scroll;
+    overflow-y: hidden;
+  	white-space: nowrap;
+
 }
 
 .last-grey-back {
