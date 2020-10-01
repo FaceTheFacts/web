@@ -1,10 +1,5 @@
 import React from "react";
-import {
-	IonCardContent,
-	IonCard,
-	IonCardHeader,
-	IonCardSubtitle,
-} from "@ionic/react";
+import { IonCard, IonCardHeader, IonCardSubtitle } from "@ionic/react";
 
 import "./KontroArticle.css";
 interface ContainerProps {
@@ -17,8 +12,6 @@ interface ContainerProps {
 }
 
 const KontroArticle: React.FC<ContainerProps> = ({ article }) => {
-	//State Hook to alter state when clicked
-	//const [isOpen, setIsOpen] = React.useState(false);
 	const publisher_logo = `../assets/image/${article.publisher}.png`;
 	return (
 		<IonCard className="article-card" href={article.url}>
