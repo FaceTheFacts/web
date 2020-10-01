@@ -56,8 +56,12 @@ const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
 			<IonCardContent className="kontro-card-content">
 				<div className="article-row">
 					{kontro.articles.map((article, index) => {
+						const key = `${kontro.label}-${index}`;
 						return (
-							<KontroArticle article={article}></KontroArticle>
+							<KontroArticle
+								article={article}
+								key={key}
+							></KontroArticle>
 						);
 					})}
 				</div>

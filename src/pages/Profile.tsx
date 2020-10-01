@@ -138,7 +138,7 @@ const Profile: React.FC = () => {
 					<ProfileName name={name} />
 					{/* For each vote in votes, render a VoteCard component */}
 					{chips.map((chip, index) => {
-						return <ProfileChip chip={chip} />;
+						return <ProfileChip chip={chip} key={index} />;
 					})}
 					{/* Here we include the Fab menu button */}
 					<IonFab vertical="top" horizontal="end">
@@ -155,7 +155,7 @@ const Profile: React.FC = () => {
 				<div className="grey-back">
 					{/* For each vote in votes, render a VoteCard component */}
 					{votes.map((vote, index) => {
-						return <VoteCard vote={vote} />;
+						return <VoteCard vote={vote} key={index} />;
 					})}
 				</div>
 
@@ -168,7 +168,7 @@ const Profile: React.FC = () => {
 				<div className="grey-back">
 					{/* For each item in kontro, render a KontroCard component */}
 					{kontros.map((kontro, index) => {
-						return <KontroCard kontro={kontro} />;
+						return <KontroCard kontro={kontro} key={index} />;
 					})}
 				</div>
 
@@ -179,7 +179,7 @@ const Profile: React.FC = () => {
 				<div className="last-grey-back">
 					{/* For each item in title, render a NebenCard component */}
 					{nebens.map((neben, index) => {
-						return <NebenCard neben={neben} />;
+						return <NebenCard neben={neben} key={index} />;
 					})}
 				</div>
 			</IonContent>
