@@ -1,17 +1,14 @@
 .article-card {
 	width: 120px;
-	margin-left: 0;
-	margin-right: 11px;
-	float: left;
+	margin-left: 10px;
+	margin-right: 0;
 	height: 120px;
+	display: inline-block;
 }
 
 .publisher-image {
 	position: absolute;
 	width: 50%;
-}
-
-.article-image {
 }
 
 .article-header {
@@ -28,4 +25,5 @@
 	letter-spacing: -0.2px;
 	color: black;
 	margin-bottom: 0px;
+	white-space: normal;
 }

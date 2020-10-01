@@ -34,7 +34,7 @@
 }
 
 .kontro-card-content {
-	padding: 10px;
+	padding: 10px 0;
 }
 
 .accordion {
@@ -52,5 +52,8 @@
 }
 
 .article-row {
-	width: 1000%;
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
 }
