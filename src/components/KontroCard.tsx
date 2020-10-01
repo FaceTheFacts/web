@@ -8,10 +8,19 @@ import {
 	IonCardTitle,
 } from "@ionic/react";
 
+import KontroArticle from "./KontroArticle";
 import "./KontroCard.css";
 
+interface Article {
+	image: string;
+	url: string;
+	label: string;
+}
 interface ContainerProps {
-	kontro: string;
+	kontro: {
+		label: string;
+		articles: Array<Article>;
+	};
 }
 
 const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
@@ -24,9 +33,11 @@ const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
 				className="accordion"
 				onClick={() => setIsOpen(!isOpen)}
 			>
-				{kontro} {isOpen ? "open" : "closed"}
+				{kontro.label} {isOpen ? "open" : "closed"}
 			</IonCardHeader>
-			<IonCard></IonCard>
+			{kontro.articles.map((article, index) => {
+				return <KontroArticle article={article}></KontroArticle>;
+			})}
 		</IonCard>
 	);
 };
