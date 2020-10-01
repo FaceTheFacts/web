@@ -43,9 +43,30 @@ const kontros = [
 		label: "Lobbyismus-Affäre",
 		articles: [
 			{
-				label: "Article 1",
-				image: "Image url",
-				url: "article url",
+				label:
+					"Geschäftsführer von Augustus Intelligence lässt Amt ruhen",
+				image:
+					"https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg",
+				url:
+					"https://www.spiegel.de/wirtschaft/unternehmen/affaere-um-philipp-amthor-geschaeftsfuehrer-von-augustus-intelligence-laesst-amt-ruhen-a-6577f286-2dc0-4f74-a08c-a2536e86a87d",
+				publisher: "spiegel",
+			},
+			{
+				label:
+					"Für diese merkwürdige Firma hat sich Philipp Amthor engagiert",
+				image:
+					"https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg",
+				url:
+					"https://www.handelsblatt.com/politik/deutschland/augustus-intelligence-fuer-diese-merkwuerdige-firma-hat-sich-philipp-amthor-engagiert/25914246.html?ticket=ST-630502-PMl5Lfyb2kItmkRSq1QJ-ap6",
+				publisher: "handelsblatt",
+			},
+			{
+				label: "Verfahren gegen Philipp Amthor eingestellt",
+				image:
+					"https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop",
+				url:
+					"https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt",
+				publisher: "zeit-online",
 			},
 		],
 	},
@@ -56,6 +77,7 @@ const kontros = [
 				label: "Article 1",
 				image: "Image url",
 				url: "article url",
+				publisher: "spiegel",
 			},
 		],
 	},
