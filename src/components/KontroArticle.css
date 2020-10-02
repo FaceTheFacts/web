@@ -1,0 +1,29 @@
+.article-card {
+	width: 120px;
+	margin-left: 10px;
+	margin-right: 0;
+	height: 120px;
+	display: inline-block;
+}
+
+.publisher-image {
+	position: absolute;
+	width: 50%;
+}
+
+.article-header {
+	padding: 5px;
+}
+
+.article-label {
+	font-size: 11px;
+	font-family: "Barlow", sans-serif;
+	line-height: 1.2;
+	font-weight: 500;
+	font-style: normal;
+	text-transform: none;
+	letter-spacing: -0.2px;
+	color: black;
+	margin-bottom: 0px;
+	white-space: normal;
+}

@@ -1,12 +1,11 @@
 video {
-    position: fixed;
-    left: 0;
-    z-index: 1;
+	position: fixed;
+	left: 0;
+	z-index: 1;
 }
 
-canvas {
-    position: fixed;
-    left: 0;
-    z-index: 2;
+#camera-canvas {
+	position: fixed;
+	left: 0;
+	z-index: 2;
 }
-
