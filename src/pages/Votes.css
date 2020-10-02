@@ -12,8 +12,8 @@
 
 
 .page-title {
+	margin-top:50px;
 	height: 55px;
-	margin-top: 40px;
 	font-size: 15px;
 	width: fit-content;
 }
@@ -24,9 +24,7 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	overflow-x: scroll;
-    overflow-y: hidden;
-  	white-space: nowrap;
-
+	scrollbar-width: none;
 }
 
 .last-grey-back {

@@ -61,7 +61,7 @@ const Votes: React.FC = () => {
 					</IonButtons>
 					{/* Add a page title */}
 					
-					<IonTitle className="page-title">
+					<IonTitle className="page-title" slot="start">
 						ABSTIMMUNGSVERHALTEN
 					</IonTitle>
 					
