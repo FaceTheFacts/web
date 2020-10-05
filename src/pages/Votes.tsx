@@ -12,7 +12,6 @@ import React from "react";
 import { useParams } from "react-router";
 import TopicFilter from "../components/TopicFilter";
 import PartyMatch from "../components/PartyMatch";
-import SubHeadingInfo from "../components/SubHeadingInfo";
 import SubHeading from "../components/SubHeading";
 import VoteCard from "../components/VoteCard";
 import "./Votes.css";
