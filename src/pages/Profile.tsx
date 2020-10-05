@@ -25,6 +25,7 @@ import "./Page.css";
 import ExploreContainer from "../components/ExploreContainer";
 import TopicFilter from "../components/TopicFilter";
 import SubHeadingInfo from "../components/SubHeadingInfo";
+import SubHeading from "../components/SubHeading";
 import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
@@ -149,7 +150,11 @@ const Profile: React.FC = () => {
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 
 				<div className="subheading-button-underlay">
-					<SubHeadingButtonInfo name="Abstimmungsverhalten >" />
+					<SubHeading
+						name="Abstimmungsverhalten >"
+						icon="infobutton.svg"
+						button="votes"
+					/>
 				</div>
 
 				<div className="grey-back">
