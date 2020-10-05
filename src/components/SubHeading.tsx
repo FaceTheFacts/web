@@ -4,18 +4,29 @@ import "./SubHeading.css";
 
 interface SubheadingProps {
 	icon?: string;
-	button?: string;
+	buttonAction?: string;
 	name: string;
 }
 
 /* This is just a simple component to repeat the subheading wherever we need it */
-const SubHeading: React.FC<SubheadingProps> = ({ name, button, icon }) => {
+const SubHeading: React.FC<SubheadingProps> = ({
+	name,
+	buttonAction,
+	icon,
+}) => {
 	var heading = null;
 	var headingIcon = null;
 
-	if (button !== undefined) {
+	const executeButtonAction = () => {
+		console.log(buttonAction);
+	};
+
+	if (buttonAction !== undefined) {
 		heading = (
-			<IonButton className="sub-heading-button">
+			<IonButton
+				className="sub-heading-button"
+				onClick={executeButtonAction}
+			>
 				<strong>{name}</strong>
 			</IonButton>
 		);
@@ -24,7 +35,7 @@ const SubHeading: React.FC<SubheadingProps> = ({ name, button, icon }) => {
 	}
 
 	if (icon !== undefined) {
-		const iconSrc = `../assets/icon/${icon}`;
+		const iconSrc = `..\\assets\\icon\\${icon}`;
 		headingIcon = (
 			<IonFab horizontal="end" slot="fixed" className="scrollhidden">
 				<IonFabButton className="info-button">
