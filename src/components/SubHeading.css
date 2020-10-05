@@ -1,11 +1,10 @@
 .sub-heading {
 	text-align: left;
 	height: 40px;
-	background-color: #14345A;
+	background-color: #14345a;
 
 	padding-top: 7px;
 	position: relative;
-
 }
 
 .sub-heading strong {
@@ -15,5 +14,36 @@
 	line-height: 26px;
 	text-transform: uppercase;
 	margin-left: 10px;
+}
 
+/*Button Background*/
+.sub-heading-button {
+	text-align: left;
+	height: 16px;
+	--background: transparent;
+	margin-left: -2px;
+	--box-shadow: none;
+	--border-style: none;
+}
+
+/*Button Text*/
+.sub-heading-button strong {
+	color: white;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 26px;
+	text-transform: uppercase;
+}
+
+.info-button {
+	--background: transparent;
+	width: 22px;
+	height: 22px;
+	margin-top: 2px;
+	opacity: 1;
+}
+
+.scrollhidden {
+	overflow: hidden;
+	z-index: 1;
 }

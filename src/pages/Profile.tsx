@@ -22,15 +22,11 @@ import React from "react";
 import { pin, wifi, wine, warning, walk } from "ionicons/icons";
 import { useParams } from "react-router";
 import "./Page.css";
-import ExploreContainer from "../components/ExploreContainer";
-import TopicFilter from "../components/TopicFilter";
-import SubHeadingInfo from "../components/SubHeadingInfo";
+import SubHeading from "../components/SubHeading";
 import Menu from "../components/Menu";
-import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
 import MenuButton from "../components/MenuButton";
 import NebenCard from "../components/NebenCard";
-import SubHeadingButtonInfo from "../components/SubHeadingButtonInfo";
 import KontroCard from "../components/KontroCard";
 import PoliticianProfile from "../components/PoliticianProfile";
 import "./Profile.css";
@@ -147,7 +143,11 @@ const Profile: React.FC = () => {
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 
 				<div className="subheading-button-underlay">
-					<SubHeadingButtonInfo name="Abstimmungsverhalten >" />
+					<SubHeading
+						name="Abstimmungsverhalten >"
+						icon="infobutton.svg"
+						buttonAction="votes"
+					/>
 				</div>
 
 				<div className="grey-back">
@@ -160,7 +160,7 @@ const Profile: React.FC = () => {
 				{/* Pass name to Subheading to be in control of the sub heading text */}
 
 				<div>
-					<SubHeadingInfo name="Kontroversen" />
+					<SubHeading name="Kontroversen" icon="infobutton.svg" />
 				</div>
 
 				<div className="grey-back">
@@ -171,7 +171,10 @@ const Profile: React.FC = () => {
 				</div>
 
 				<div>
-					<SubHeadingInfo name="Bekannte Nebentätigkeiten" />
+					<SubHeading
+						name="Bekannte Nebentätigkeiten"
+						icon="infobutton.svg"
+					/>
 				</div>
 
 				<div className="last-grey-back">
