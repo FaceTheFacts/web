@@ -25,6 +25,7 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "7": "0.0.1",
     "@capacitor-community/electron": "^1.2.3",
     "@capacitor-community/react-hooks": "0.0.11",
     "@capacitor/core": "^2.4.1",
@@ -59,10 +60,9 @@
     "fuse.js": "^6.4.1",
     "ionic": "^5.4.16",
     "ionicons": "^5.0.0",
-    "node": "^14.11.0",
     "node-pre-gyp": "^0.15.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
+    "react": "^16.13.1",
     "react-accessible-accordion": "^3.3.3",
     "react-chartjs-2": "^2.10.0",
     "react-collapse": "^5.0.1",
@@ -73,7 +73,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "reactstrap": "^8.6.0",
-    "rxjs": "^5.5.0",
+    "rxjs": "^5.5.12",
     "seedrandom": "^2.4.4",
     "smart-webcomponents-react": "^8.0.0",
     "tesseract.js": "^2.1.3",
