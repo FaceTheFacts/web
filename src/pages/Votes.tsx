@@ -54,6 +54,7 @@ const Votes: React.FC = () => {
 			
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
+				
 				<div className="votes-toolbar">
 
 					<IonButtons slot="start">
@@ -61,7 +62,7 @@ const Votes: React.FC = () => {
 					</IonButtons>
 					{/* Add a page title */}
 					
-					<IonTitle className="page-title" slot="start">
+					<IonTitle className="page-title">
 						ABSTIMMUNGSVERHALTEN
 					</IonTitle>
 					

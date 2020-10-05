@@ -32,3 +32,8 @@
 	padding-top: 5px;
 	padding-bottom: 30px;
 }
+
+.hide-scrollbar {
+	overflow: hidden;
+	scrollbar-width: none;
+}
