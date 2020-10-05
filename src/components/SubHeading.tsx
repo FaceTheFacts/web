@@ -35,7 +35,7 @@ const SubHeading: React.FC<SubheadingProps> = ({
 	}
 
 	if (icon !== undefined) {
-		const iconSrc = `..\\assets\\icon\\${icon}`;
+		const iconSrc = `../assets/icon/${icon}`;
 		headingIcon = (
 			<IonFab horizontal="end" slot="fixed" className="scrollhidden">
 				<IonFabButton className="info-button">
@@ -45,12 +45,21 @@ const SubHeading: React.FC<SubheadingProps> = ({
 		);
 	}
 
-	return (
-		<div className="sub-heading">
-			{heading}
-			{headingIcon}
-		</div>
-	);
+	if (buttonAction === undefined) {
+		return (
+			<div className="sub-heading">
+				{heading}
+				{headingIcon}
+			</div>
+		);
+	} else {
+		return (
+			<div>
+				{heading}
+				{headingIcon}
+			</div>
+		);
+	}
 };
 
 export default SubHeading;
