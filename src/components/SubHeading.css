@@ -35,6 +35,14 @@
 	text-transform: uppercase;
 }
 
+.info-button {
+	--background: transparent;
+	width: 22px;
+	height: 22px;
+	margin-top: 2px;
+	opacity: 1;
+}
+
 .scrollhidden {
 	overflow: hidden;
 	z-index: 1;
