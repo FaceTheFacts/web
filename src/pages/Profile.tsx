@@ -81,14 +81,13 @@ const kontros = [
 	},
 ];
 
-
 /*Hardcoded politician header for now*/
-const politician = 
-	{
-		name: "Philipp Amthor",	
-		chips: ["CDU/CSU", "Mitglied des Bundestags"],
-		image: "https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
-	};
+const politician = {
+	name: "Philipp Amthor",
+	chips: ["CDU/CSU", "Mitglied des Bundestags"],
+	image:
+		"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
+};
 
 {
 	/* Hardcoded for now until passed in from the API */
@@ -137,10 +136,7 @@ const Profile: React.FC = () => {
 				to make our life easier when we add the profiles images of new politicians.
 				The politicans name is included on the ProfileImg */}
 				<div className="profile-header">
-
-
-					<PoliticianProfile politician={politician} />;
-				
+					<PoliticianProfile politician={politician} />
 
 					{/* Here we include the Fab menu button */}
 					<IonFab vertical="top" horizontal="end">
