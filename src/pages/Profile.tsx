@@ -153,7 +153,7 @@ const Profile: React.FC = () => {
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
-						button="votes"
+						buttonAction="votes"
 					/>
 				</div>
 
@@ -167,7 +167,7 @@ const Profile: React.FC = () => {
 				{/* Pass name to Subheading to be in control of the sub heading text */}
 
 				<div>
-					<SubHeadingInfo name="Kontroversen" />
+					<SubHeading name="Kontroversen" icon="infobutton.svg" />
 				</div>
 
 				<div className="grey-back">
@@ -178,7 +178,10 @@ const Profile: React.FC = () => {
 				</div>
 
 				<div>
-					<SubHeadingInfo name="Bekannte Nebentätigkeiten" />
+					<SubHeading
+						name="Bekannte Nebentätigkeiten"
+						icon="infobutton.svg"
+					/>
 				</div>
 
 				<div className="last-grey-back">
