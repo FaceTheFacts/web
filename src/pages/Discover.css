@@ -37,3 +37,13 @@
 	border-radius: 10px;
 	padding-left: 18px !important;
 }
+
+.popover {
+	--width: 90vw;
+}
+
+.popover-content {
+	background-color: red;
+	left: 5% !important;
+	top: 65% !important;
+}

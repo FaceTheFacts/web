@@ -1,37 +1,28 @@
 import {
-	IonButton,
 	IonInput,
 	IonContent,
 	IonImg,
 	IonModal,
-	IonHeader,
 	IonFabButton,
 	IonPage,
-	IonTitle,
-	IonToolbar,
 	IonIcon,
+	IonButton,
+	IonPopover,
 } from "@ionic/react";
 import { closeOutline } from "ionicons/icons";
 import React, { useState } from "react";
 import { useParams } from "react-router";
 import CameraView from "../components/CameraView";
+import DetectedCandidate from "../components/DetectedCandidate";
 import "./Discover.css";
 
 const Discover: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
+	const [showPopover, setShowPopover] = useState<boolean>(true);
 	return (
 		<IonPage>
-			{/* <IonHeader>
-				<IonToolbar>
-					<IonButtons slot="start">
-						<IonMenuButton />
-					</IonButtons>
-					<IonTitle>Discover</IonTitle>
-				</IonToolbar>
-			</IonHeader> */}
-
 			<IonContent fullscreen>
 				<IonModal isOpen={showCamera} cssClass="my-custom-class">
 					<IonFabButton
@@ -64,11 +55,17 @@ const Discover: React.FC = () => {
 						disabled={true}
 						onIonChange={(e) => setText(e.detail.value!)}
 					></IonInput>
-					{/* <IonHeader collapse="condense">
-					<IonToolbar>
-						<IonTitle size="large">Discover</IonTitle>
-					</IonToolbar>
-				</IonHeader> */}
+					<IonPopover
+						isOpen={showPopover}
+						cssClass="popover"
+						onDidDismiss={(e) => setShowPopover(false)}
+						translucent={true}
+					>
+						<DetectedCandidate name="candidate" />
+					</IonPopover>
+					<IonButton onClick={() => setShowPopover(true)}>
+						Show Popover
+					</IonButton>
 				</div>
 			</IonContent>
 		</IonPage>
