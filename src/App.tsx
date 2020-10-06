@@ -59,7 +59,7 @@ const App: React.FC = () => {
 							exact
 						/>
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
-						<Redirect from="/" to="/scan" exact />
+						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>
 				</IonSplitPane>
 			</IonReactRouter>
