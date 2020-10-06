@@ -9,3 +9,10 @@ video {
 	left: 0;
 	z-index: 2;
 }
+
+.camera-close-button {
+	position: fixed;
+	top: -210px;
+	right: -40px;
+	z-index: 3;
+}
