@@ -57,7 +57,7 @@ jobs:
           eslint-utils \
           eslint-visitor-keys
           
-          npx eslint ./src --ext .tsx
+          npx eslint ./src --ext .tsx --max-warnings 0
           
           # get changed files
           #FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)
