@@ -16,6 +16,13 @@ import CameraView from "../components/CameraView";
 import DetectedCandidate from "../components/DetectedCandidate";
 import "./Discover.css";
 
+/**
+ * TODO:
+ * pass setShowCamera
+ * fix OCR (git restore?)
+ * fix camera opening from anywhere
+ **/
+
 const Discover: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
