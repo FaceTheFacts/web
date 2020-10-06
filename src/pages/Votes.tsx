@@ -6,13 +6,12 @@ import {
 	IonPage,
 	IonTitle,
 	IonToolbar,
-	IonBackButton
+	IonBackButton,
 } from "@ionic/react";
 import React from "react";
 import { useParams } from "react-router";
 import TopicFilter from "../components/TopicFilter";
 import PartyMatch from "../components/PartyMatch";
-import SubHeadingInfo from "../components/SubHeadingInfo";
 import SubHeading from "../components/SubHeading";
 import VoteCard from "../components/VoteCard";
 import "./Votes.css";
@@ -51,21 +50,21 @@ const Votes: React.FC = () => {
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
-				
 				<div className="votes-toolbar">
-
 					<IonButtons slot="start">
-							<IonBackButton className="back-button" defaultHref="profile" text="" />
+						<IonBackButton
+							className="back-button"
+							defaultHref="profile"
+							text=""
+						/>
 					</IonButtons>
 					{/* Add a page title */}
-					
+
 					<IonTitle className="page-title">
 						ABSTIMMUNGSVERHALTEN
 					</IonTitle>
-					
 				</div>
 
 				{/* Pass name to the SubHeading component to be in control of the sub heading text */}
@@ -78,7 +77,10 @@ const Votes: React.FC = () => {
 					<TopicFilter name={name} />
 				</div>
 
-				<SubHeadingInfo name="Übereinstimmung mit anderen Fraktionen" />
+				<SubHeading
+					name="Übereinstimmung mit anderen Fraktionen"
+					icon="infobutton.svg"
+				/>
 
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
@@ -95,11 +97,9 @@ const Votes: React.FC = () => {
 						return <VoteCard vote={vote} />;
 					})}
 				</div>
-					
 			</IonContent>
 		</IonPage>
 	);
 };
 
 export default Votes;
-
