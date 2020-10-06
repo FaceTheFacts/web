@@ -2,7 +2,6 @@ import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 //import { CameraPreviewOptions } from "@ionic-native/camera-preview";
-import { IonButton } from "@ionic/react";
 
 import {
 	BlazeFaceModel,
@@ -38,8 +37,11 @@ import "./CameraView.css";
 // 	this.setState(faces[i]: results[i])
 //}
 
-class CameraView extends React.PureComponent<RouteComponentProps> {
-	constructor(props: RouteComponentProps) {
+interface CameraViewProps extends RouteComponentProps {
+	setShowPopover: Function;
+}
+class CameraView extends React.PureComponent<CameraViewProps> {
+	constructor(props: CameraViewProps) {
 		super(props);
 	}
 	state = {
@@ -54,7 +56,7 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 		x: 0,
 		y: 0,
 		width: window.screen.width,
-		height: window.screen.height * 0.8,
+		height: window.screen.height,
 		camera: "rear",
 		tapPhoto: true,
 		previewDrag: false,
@@ -72,6 +74,23 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 			.catch((err) => {
 				console.log(err);
 			});
+	}
+
+	async componentWillUnmount() {
+		await this.stopCamera();
+	}
+
+	async stopCamera() {
+		console.log("terminating workers");
+		await this.scheduler.terminate();
+
+		console.log("stopping camera");
+		const tracks = this.stream?.getTracks();
+		if (tracks !== undefined) {
+			for (let track of tracks) {
+				track.stop();
+			}
+		}
 	}
 
 	detectFaceFromVideoFrame = (
@@ -121,7 +140,7 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 		const start = new Date();
 
 		if (video.current) {
-			canvas.current
+			/* canvas.current
 				?.getContext("2d")
 				?.drawImage(
 					video.current,
@@ -129,7 +148,7 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 					0,
 					canvas.current.width,
 					canvas.current.height
-				);
+				); */
 
 			await this.scheduler
 				.addJob("recognize", canvas.current)
@@ -148,6 +167,7 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 					const res = fuse.search("philipp amthor");
 					console.log(res);
 					if (res.length > 0) {
+						this.props.setShowPopover(true);
 						this.redirectToProfile();
 						return new Promise((resolve, reject) => {});
 						/* this.setState({politicianDetected: true}) */
@@ -166,55 +186,47 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 	};
 
 	redirectToProfile = async () => {
-		console.log("terminating workers");
-		await this.scheduler.terminate();
-
-		console.log("stopping camera");
-		const tracks = this.stream?.getTracks();
-		if (tracks !== undefined) {
-			for (let track of tracks) {
-				track.stop();
-			}
-		}
+		await this.stopCamera();
 
 		console.log("redirecting");
-		this.props.history.push("/politician/1");
+		this.props.history.push("/politician/1/profile");
 	};
 
 	showDetections = (predictions: NormalizedFace[]) => {
 		const ctx = this.canvasRef.current?.getContext(
 			"2d"
 		) as CanvasRenderingContext2D;
+		if (ctx) {
+			ctx.canvas.width = this.cameraOpts.width;
+			ctx.canvas.height = this.cameraOpts.height;
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-		ctx.canvas.width = this.cameraOpts.width;
-		ctx.canvas.height = this.cameraOpts.height;
-		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			predictions.forEach((prediction) => {
+				const start: [number, number] = prediction.topLeft as [
+					number,
+					number
+				];
+				const end: [number, number] = prediction.bottomRight as [
+					number,
+					number
+				];
+				var probability = prediction.probability as number;
 
-		predictions.forEach((prediction) => {
-			const start: [number, number] = prediction.topLeft as [
-				number,
-				number
-			];
-			const end: [number, number] = prediction.bottomRight as [
-				number,
-				number
-			];
-			var probability = prediction.probability as number;
+				const size = [end[0] - start[0], end[1] - start[1]];
 
-			const size = [end[0] - start[0], end[1] - start[1]];
-
-			// Render a rectangle over each detected face.
-			ctx.beginPath();
-			ctx.strokeStyle = "green";
-			ctx.lineWidth = 4;
-			ctx.rect(start[0], start[1], size[0], size[1]);
-			ctx.stroke();
-			var prob = (probability * 100).toPrecision(5).toString();
-			var text = prob + "%";
-			ctx.fillStyle = "red";
-			ctx.font = "13pt sans-serif";
-			ctx.fillText(text, start[0] + 5, start[1] + 20);
-		});
+				// Render a rectangle over each detected face.
+				ctx.beginPath();
+				ctx.strokeStyle = "green";
+				ctx.lineWidth = 4;
+				ctx.rect(start[0], start[1], size[0], size[1]);
+				ctx.stroke();
+				var prob = (probability * 100).toPrecision(5).toString();
+				var text = prob + "%";
+				ctx.fillStyle = "red";
+				ctx.font = "13pt sans-serif";
+				ctx.fillText(text, start[0] + 5, start[1] + 20);
+			});
+		}
 	};
 
 	async startCamera() {
@@ -275,9 +287,28 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 		const model = await load();
 		console.log(model);
 		const video = this.videoRef;
+		const ctx = this.canvasRef.current?.getContext("2d");
+		//this.canvasRef.current
+		if (video.current && ctx) {
+			console.log(ctx);
+			console.log("Drawing video on canvas");
+			ctx.drawImage(
+				video.current,
+				0,
+				0,
+				ctx.canvas.width,
+				ctx.canvas.height
+			);
+		}
+
 		this.detectFaceFromVideoFrame(model, video);
 		await this.detectTextFromVideoFrame(this.canvasRef, video);
+
+		requestAnimationFrame(() => {
+			this.draw();
+		});
 	}
+
 	render() {
 		return (
 			<div>
