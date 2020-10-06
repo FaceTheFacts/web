@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import VoteChart from "./VoteChart";
 import "./VoteCard.css";
 import {
@@ -10,6 +10,9 @@ import {
 	IonGrid,
 	IonCol,
 	IonRow,
+	IonModal,
+	IonButton,
+	IonContent
 } from "@ionic/react";
 
 interface ContainerProps {
@@ -17,6 +20,10 @@ interface ContainerProps {
 }
 
 const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
+	
+
+	//State Hook to alter state when clicked and open vote detail modal
+	const [showDetails, setShowDetails] = React.useState(false);
 
 	/* 
 	Dynamically create the className for the candidate's vote, so we have all the colours.
@@ -26,12 +33,13 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 	
 	return (
 		<div className="grey-background">
-				<IonCard>
+			{/*Clicking on the card triggers the vote-detail modal*/}
+			<IonCard onClick={() => setShowDetails(!showDetails)}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
 				*/}
-				<IonCardHeader>
+				<IonCardHeader >
 					<IonGrid>
 						<IonRow>
 							<IonCol size="8">
@@ -48,6 +56,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 				</IonCardHeader>
 
 				<IonCardContent className="vote-card-content">
+
 
 					{/* We also use a grid here to more easily arrange the indivdual components. */}
 					<IonGrid>
@@ -85,7 +94,21 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 					</IonGrid>
 				</IonCardContent>
 			</IonCard>
+
+			{/*Vote Detail Modal*/}
+
+			{/*Add click handler on the page to set the modal to false if click is outside of modal div*/}
+			<IonContent onClick={() => setShowDetails(!showDetails)}>
+				<IonModal isOpen={showDetails} cssClass="details-open" >
+				<p>This is where I build the modal page with all the vote details</p>
+      			</IonModal>
+				
+			</IonContent>
+
+			
+				
 		</div>
+		
 		
 	);
 };
