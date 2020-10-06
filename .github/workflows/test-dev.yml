@@ -15,25 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  test:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Installs dependencies and runs tests
-      - name: Install Dependencies & Test 
-        run: |
-          npm ci
-          npm test
-        env:
-          CI: true
           
-  codecov:
+  unittests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -52,3 +35,35 @@ jobs:
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
+          
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run ESLint
+        run: |
+          # Install eslint and plugins
+          npm i \
+          eslint \
+          eslint-config-react-app \
+          eslint-import-resolver-node \
+          eslint-loader \
+          eslint-module-utils \
+          eslint-plugin-flowtype \
+          eslint-plugin-import \
+          eslint-plugin=jsx-a11y \
+          eslint-plugin-react \
+          eslint-plugin-react-hooks \
+          eslint-scope \
+          eslint-utils \
+          eslint-visitor-keys
+          
+          npx eslint ./src --ext .tsx
+          
+          # get changed files
+          #FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)
+          #for file in ${FILES[@]}; do
+          #  npx eslint $file
+          #done
+        env:
+          CI: true
