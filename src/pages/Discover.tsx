@@ -20,7 +20,7 @@ const Discover: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
-	const [showPopover, setShowPopover] = useState<boolean>(true);
+	const [showPopover, setShowPopover] = useState<boolean>(false);
 	return (
 		<IonPage>
 			<IonContent fullscreen>
@@ -31,7 +31,7 @@ const Discover: React.FC = () => {
 					>
 						<IonIcon icon={closeOutline}></IonIcon>
 					</IonFabButton>
-					<CameraView />
+					<CameraView setShowPopover={setShowPopover} />
 				</IonModal>
 				<div
 					className="discover-page"
@@ -61,7 +61,7 @@ const Discover: React.FC = () => {
 						onDidDismiss={(e) => setShowPopover(false)}
 						translucent={true}
 					>
-						<DetectedCandidate name="candidate" />
+						<DetectedCandidate setShowPopover={setShowPopover} />
 					</IonPopover>
 					<IonButton onClick={() => setShowPopover(true)}>
 						Show Popover
