@@ -5,11 +5,13 @@ import {
 	IonImg,
 	IonModal,
 	IonHeader,
-	IonMenuButton,
+	IonFabButton,
 	IonPage,
 	IonTitle,
 	IonToolbar,
+	IonIcon,
 } from "@ionic/react";
+import { closeOutline } from "ionicons/icons";
 import React, { useState } from "react";
 import { useParams } from "react-router";
 import CameraView from "../components/CameraView";
@@ -32,10 +34,13 @@ const Discover: React.FC = () => {
 
 			<IonContent fullscreen>
 				<IonModal isOpen={showCamera} cssClass="my-custom-class">
+					<IonFabButton
+						className="camera-close-button"
+						onClick={() => setShowCamera(false)}
+					>
+						<IonIcon icon={closeOutline}></IonIcon>
+					</IonFabButton>
 					<CameraView />
-					<IonButton onClick={() => setShowCamera(false)}>
-						Close Camera
-					</IonButton>
 				</IonModal>
 				<div
 					className="discover-page"

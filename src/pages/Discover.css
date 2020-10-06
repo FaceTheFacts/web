@@ -10,7 +10,7 @@
 	width: 130px;
 	height: 130px;
 	border-radius: 20px;
-	top: 35%;
+	top: 30%;
 	left: 33%;
 }
 
@@ -28,7 +28,7 @@
 
 .search-bar {
 	position: fixed;
-	top: 55%;
+	top: 60%;
 	background-color: #d4d4d4;
 	margin-left: 20px;
 	margin-right: 20px;
