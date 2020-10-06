@@ -43,7 +43,10 @@
 	background-color: white;
 	border-radius: 10px;
 }
-
+.candidate-item {
+	width: 100%;
+	margin-left: -15px;
+}
 .detected-candidate-image-container {
 	margin: 10px;
 	width: 90px;
