@@ -155,6 +155,7 @@ const Profile: React.FC = () => {
 					{votes.map((vote, index) => {
 						return <VoteCard vote={vote} key={index} />;
 					})}
+
 				</div>
 
 				{/* Pass name to Subheading to be in control of the sub heading text */}

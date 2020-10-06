@@ -12,7 +12,8 @@ import {
 	IonRow,
 	IonModal,
 	IonButton,
-	IonContent
+	IonContent,
+	IonBackdrop,
 } from "@ionic/react";
 
 interface ContainerProps {
@@ -97,16 +98,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 
 			{/*Vote Detail Modal*/}
 
-			{/*Add click handler on the page to set the modal to false if click is outside of modal div*/}
+			{/*Backdrop not covering the whole screen and Modal starting to high up too. They seem to be in the wrong div - need to be on the whole page.*/}
 			<IonContent onClick={() => setShowDetails(!showDetails)}>
-				<IonModal isOpen={showDetails} cssClass="details-open" >
-				<p>This is where I build the modal page with all the vote details</p>
-      			</IonModal>
-				
+				<IonBackdrop tappable={true} className="backdrop">
+					<IonModal isOpen={showDetails} cssClass="details-open" backdropDismiss={true} swipeToClose={true}>
+					<p>This is where I build the modal page with all the vote details</p>
+					</IonModal>		
+				</IonBackdrop>
 			</IonContent>
-
-			
-				
+	
 		</div>
 		
 		

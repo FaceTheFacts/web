@@ -58,6 +58,9 @@
 }
 
 .details-open {
-	height: 700px;
+	height: 80%;
 }
 
+.backdrop {
+	height:100%;
+}
