@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	IonGrid,
 	IonRow,
@@ -6,14 +6,15 @@ import {
 	IonImg,
 	IonChip,
 	IonIcon,
+	IonItem,
 } from "@ionic/react";
 import { chevronForwardOutline } from "ionicons/icons";
 import "./DetectedCandidate.css";
 interface ContainerProps {
-	name: string;
+	setShowPopover: Function;
 }
 
-const DetectedCandidate: React.FC<ContainerProps> = ({ name }) => {
+const DetectedCandidate: React.FC<ContainerProps> = ({ setShowPopover }) => {
 	return (
 		<div className="detected-candidate-popover">
 			<IonGrid className="detected-candidate-grid">
@@ -35,26 +36,32 @@ const DetectedCandidate: React.FC<ContainerProps> = ({ name }) => {
 					</IonCol>
 				</IonRow>
 				<IonRow className="candidate-row">
-					<IonCol size="4">
-						<div className="detected-candidate-image-container">
-							<IonImg
-								className="detected-candidate-image"
-								src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
-							></IonImg>
-						</div>
-					</IonCol>
-					<IonCol>
-						<h3 className="detected-candidate-name">
-							Philipp Amthor
-						</h3>
-						<IonChip className="detected-candidate-chip">
-							CDU/CSU
-						</IonChip>
-						<IonIcon
+					<IonItem
+						className="candidate-item"
+						routerLink="/politician/1/profile"
+						onClick={() => setShowPopover(false)}
+					>
+						<IonCol size="4">
+							<div className="detected-candidate-image-container">
+								<IonImg
+									className="detected-candidate-image"
+									src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
+								></IonImg>
+							</div>
+						</IonCol>
+						<IonCol>
+							<h3 className="detected-candidate-name">
+								Philipp Amthor
+							</h3>
+							<IonChip className="detected-candidate-chip">
+								CDU/CSU
+							</IonChip>
+							{/* <IonIcon
 							className="detected-candidate-icon"
 							icon={chevronForwardOutline}
-						></IonIcon>
-					</IonCol>
+						></IonIcon> */}
+						</IonCol>
+					</IonItem>
 				</IonRow>
 			</IonGrid>
 		</div>
