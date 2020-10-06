@@ -1,7 +1,7 @@
 import Menu from "./components/Menu";
 import Page from "./pages/Page";
 import Discover from "./pages/Discover";
-import Scan from "./pages/Scan";
+//import Scan from "./pages/Scan";
 import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import Votes from "./pages/Votes";
@@ -41,7 +41,7 @@ const App: React.FC = () => {
 							This works by defining a path and telling the router which component (page) to render for that path. */}
 						<Route path="/page/:name" component={Page} exact />
 						<Route path="/discover" component={Discover} exact />
-						<Route path="/scan" component={Scan} exact />
+						{/* <Route path="/scan" component={Scan} exact /> */}
 						<Route path="/search" component={Search} exact />
 						<Route
 							path="/politician/:id/profile"
