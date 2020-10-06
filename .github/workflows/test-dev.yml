@@ -38,11 +38,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run ESLint
-        run: |
-          # Install dependencies
-          npm ci
-          # Run eslint with max warnings of 0
-          npx eslint ./src --ext .tsx --max-warnings 0
-        env:
-          CI: true
+      - uses: bradennapier/eslint-plus-action@v3.4.2
+        with:
+          issueSummaryType: full
+          extensions: .tsx
+          npmInstall: true
+      #- id: eslint
+      #- name: Run ESLint
+      #  run: |
+      #    # Install dependencies
+      #    npm ci
+      #    # Run eslint with max warnings of 0
+      #    npx eslint ./src --ext .tsx --max-warnings 0
+      #  env:
+      #    CI: true
+
