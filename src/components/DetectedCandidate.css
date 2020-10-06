@@ -1,0 +1,79 @@
+.detected-candidate-popover {
+	width: 90vw;
+	background-color: transparent;
+}
+
+.detected-candidate-grid {
+	padding: 0;
+}
+
+.constituency-row {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	border-radius: 10px;
+	overflow-x: scroll;
+}
+
+.constituency-number {
+	font-size: 16px;
+	line-height: 1.2;
+	font-family: "Bely-Bold", serif;
+}
+
+.constituency-label {
+	font-size: 10px;
+	font-family: "SoleilBk", serif;
+	line-height: 1.2;
+}
+
+.postcode-label {
+	font-size: 12px;
+	font-family: "SoleilBk", serif;
+	line-height: 1.2;
+}
+.constituency-postcodes {
+	font-size: 24px;
+	line-height: 1.2;
+	font-family: "Soleil", serif;
+	width: fit-content;
+	white-space: nowrap;
+}
+
+.candidate-row {
+	background-color: white;
+	border-radius: 10px;
+}
+
+.detected-candidate-image-container {
+	margin: 10px;
+	width: 90px;
+	height: 90px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.detected-candidate-image {
+	height: 90px;
+	width: 90px;
+	object-fit: cover;
+}
+
+.detected-candidate-name {
+	font-size: 16px;
+	font-family: "IBM Plex Serif", serif;
+	font-weight: 500;
+}
+
+.detected-candidate-chip {
+	margin-top: 20px;
+	background-color: #000000;
+	color: white;
+	font-family: "SoleilSb", serif;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.detected-candidate-icon {
+	position: fixed;
+	top: 72%;
+	right: 10px;
+}
