@@ -33,6 +33,7 @@ import "./theme/variables.css";
 const App: React.FC = () => {
 	return (
 		<IonApp>
+			
 				<IonReactRouter>
 					<IonSplitPane contentId="main">
 						{/* Include the side menu */}

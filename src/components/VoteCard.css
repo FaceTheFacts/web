@@ -57,10 +57,10 @@
 	color: #000000;
 }
 
+
 .details-open {
-	height: 80%;
+	--height:80%;
+
 }
 
-.backdrop {
-	height:100%;
-}
+

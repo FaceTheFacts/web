@@ -107,6 +107,9 @@ const votes = [
 			abstain: 21,
 			none: 173,
 		},
+		chip: "Auswärtiges",
+		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
+		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
 	},
 ];
 
@@ -127,6 +130,8 @@ const Profile: React.FC = () => {
 			</IonHeader>
 			{/* Here the content of our page starts */}
 			<IonContent>
+
+				
 				{/* ProfileImg component that holds all the images of the politicians. 
 				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 				to make our life easier when we add the profiles images of new politicians.
