@@ -12,9 +12,18 @@ import { chevronForwardOutline } from "ionicons/icons";
 import "./DetectedCandidate.css";
 interface ContainerProps {
 	setShowPopover: Function;
+	setShowCamera: Function;
 }
 
-const DetectedCandidate: React.FC<ContainerProps> = ({ setShowPopover }) => {
+const DetectedCandidate: React.FC<ContainerProps> = ({
+	setShowPopover,
+	setShowCamera,
+}) => {
+	const navigateToProfile = () => {
+		console.log("navigating to profile");
+		setShowCamera(false);
+		setShowPopover(false);
+	};
 	return (
 		<div className="detected-candidate-popover">
 			<IonGrid className="detected-candidate-grid">
@@ -39,7 +48,7 @@ const DetectedCandidate: React.FC<ContainerProps> = ({ setShowPopover }) => {
 					<IonItem
 						className="candidate-item"
 						routerLink="/politician/1/profile"
-						onClick={() => setShowPopover(false)}
+						onClick={() => navigateToProfile()}
 					>
 						<IonCol size="4">
 							<div className="detected-candidate-image-container">
