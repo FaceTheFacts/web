@@ -18,9 +18,8 @@ import "./Discover.css";
 
 /**
  * TODO:
- * pass setShowCamera
- * fix OCR (git restore?)
  * fix camera opening from anywhere
+ * Refactor into class component
  **/
 
 const Discover: React.FC = () => {
@@ -68,11 +67,11 @@ const Discover: React.FC = () => {
 						onDidDismiss={(e) => setShowPopover(false)}
 						translucent={true}
 					>
-						<DetectedCandidate setShowPopover={setShowPopover} />
+						<DetectedCandidate
+							setShowPopover={setShowPopover}
+							setShowCamera={setShowCamera}
+						/>
 					</IonPopover>
-					<IonButton onClick={() => setShowPopover(true)}>
-						Show Popover
-					</IonButton>
 				</div>
 			</IonContent>
 		</IonPage>
