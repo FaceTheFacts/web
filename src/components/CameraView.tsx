@@ -82,9 +82,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	scheduler = createScheduler();
 
 	async componentDidMount() {
-		await this.startCamera()
+		await this.initialiseCamera()
 			.then((res) => {
-				console.log("started camera");
+				console.log(res);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -96,21 +96,84 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	// Refactored Code starts here
-	async initialiseCamera() {}
+	async initialiseCamera() {
+		// get media tracks
+		await navigator.mediaDevices
+			.getUserMedia({
+				video: {
+					facingMode: "environment",
+					width: this.cameraOpts.width,
+					height: this.cameraOpts.height,
+				},
+				audio: false,
+			})
+			.then((stream: MediaStream) => {
+				this.stream = stream;
+				this.initVideo();
+			})
+			.catch((err: {}) => {
+				console.log(err);
+			});
 
-	async beginCamera() {
-		// this should be renamed to start camera
+		return new Promise((resolve, reject) => {
+			if (this.stream?.getTracks()[0].readyState === "live") {
+				resolve("successfully started camera");
+			} else {
+				reject("error starting camera");
+			}
+		});
+	}
+
+	initVideo() {
+		// initialise video element
+		if (this.videoRef.current !== null) {
+			this.videoRef.current.style.width = String(this.cameraOpts.width);
+			this.videoRef.current.style.height = String(this.cameraOpts.height);
+			this.videoRef.current.srcObject = this.stream as MediaStream;
+
+			// add event listeners
+			this.videoRef.current.addEventListener(
+				"play",
+				() => {
+					this.drawLoop();
+				},
+				false
+			);
+
+			this.videoRef.current.onloadedmetadata = (e) => {
+				this.videoRef.current?.play();
+				if (this.videoRef.current !== null) {
+				}
+			};
+		}
 	}
 
 	// detect faces and characters
-	async detectFaces() {}
+	async detectFaces() {
+		if (this.model === undefined) {
+			console.log("Loading BlazeFace Model");
+			this.model = await load();
+		}
+
+		this.model
+			.estimateFaces(this.videoRef.current as HTMLVideoElement, false)
+			.then((predictions) => {
+				console.log(predictions);
+			});
+	}
 
 	async recogniseCharacters() {}
 
 	fuseSearchResults() {}
 
 	// display results
-	drawLoop() {}
+	async drawLoop() {
+		await this.detectFaces();
+
+		requestAnimationFrame(async () => {
+			await this.drawLoop();
+		});
+	}
 
 	drawVideoOnCanvas() {}
 
