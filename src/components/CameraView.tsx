@@ -21,7 +21,21 @@ import "./CameraView.css";
 // upon resolve we redirect
 
 // Pseudo Code ideal structure component
-
+/**
+ * loadCamera --> returns cameraStream
+ * startCamera(cameraStream) --> returns Promise?
+ *
+ * detectFace(cameraStream) --> returns predictions
+ * recognizeCharacters(cameraStream) --> returns resultArray
+ * fuseSearchResults(resultArray) --> returns result
+ *
+ * draw() {
+ * 	drawVideoOnCanvas()
+ * 	drawDetectedFaces()
+ * 	drawOCRProgress()
+ * }
+ *
+ */
 // async componentDidMount(){
 //   await this.startCamera().then
 //
@@ -51,6 +65,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 	videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
 	stream?: MediaStream;
+	model?: BlazeFaceModel;
 
 	cameraOpts = {
 		x: 0,
@@ -77,13 +92,66 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async componentWillUnmount() {
+		await this.stop();
+	}
+
+	// Refactored Code starts here
+	async initialiseCamera() {}
+
+	async beginCamera() {
+		// this should be renamed to start camera
+	}
+
+	// detect faces and characters
+	async detectFaces() {}
+
+	async recogniseCharacters() {}
+
+	fuseSearchResults() {}
+
+	// display results
+	drawLoop() {}
+
+	drawVideoOnCanvas() {}
+
+	drawDetectedFaces() {}
+
+	showCandidatePopover() {}
+
+	// terminate processes
+
+	async stop() {
+		await this.stopOCR()
+			.then((msg) => {
+				console.log(msg);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+
+		this.stopFaceDetection();
 		await this.stopCamera();
 	}
 
-	async stopCamera() {
+	async stopOCR() {
 		console.log("terminating workers");
 		await this.scheduler.terminate();
+		return new Promise((resolve, reject) => {
+			if (this.scheduler.getNumWorkers.length === 0) {
+				resolve("successfully stopped camera stream");
+			} else {
+				reject("failed to stop camera stream");
+			}
+		});
+	}
 
+	stopFaceDetection() {
+		console.log("stopping face detection");
+		delete this.model;
+	}
+	// Old Code starts here
+
+	async stopCamera() {
 		console.log("stopping camera");
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
@@ -91,6 +159,16 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				track.stop();
 			}
 		}
+
+		return new Promise((resolve, reject) => {
+			if (this.stream?.getTracks()[0].readyState == "ended") {
+				console.log("success");
+				resolve("successfully stopped camera stream");
+			} else {
+				console.log("failed");
+				reject("failed to stop camera stream");
+			}
+		});
 	}
 
 	detectFaceFromVideoFrame = (
