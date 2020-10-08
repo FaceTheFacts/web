@@ -66,15 +66,15 @@
 	background-color: #ffffff;
 	height: 128px;
 }
-.vote-card ion-card-header {
+.vote-card-header {
 	padding-top: 2px;
 	padding-bottom: 0px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
-.vote-card ion-card-title {
+.vote-card-title {
 	font-size: 16px;
 }
-.vote-card ion-card-subtitle {
+.vote-card-subtitle {
 	font-size: 14px;
 }

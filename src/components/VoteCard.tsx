@@ -30,14 +30,16 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
 				*/}
-				<IonCardHeader>
+				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
 							<IonCol size="8">
-								<IonCardSubtitle>
+								<IonCardSubtitle className="vote-card-subtitle">
 									{vote.subtitle}
 								</IonCardSubtitle>
-								<IonCardTitle>{vote.title}</IonCardTitle>
+								<IonCardTitle className="vote-card-title">
+									{vote.title}
+								</IonCardTitle>
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
