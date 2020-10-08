@@ -25,6 +25,7 @@
 
 .kontro-title {
 	float: left;
+	font-size: 16px;
 }
 
 .kontro-expand-icon {
@@ -57,4 +58,16 @@
 	overflow-y: hidden;
 	scrollbar-width: none;
 	white-space: nowrap;
+}
+
+.kontro-layout {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #ffffff;
+}
+.kontro-card-header {
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
