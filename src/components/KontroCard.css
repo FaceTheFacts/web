@@ -58,3 +58,27 @@
 	scrollbar-width: none;
 	white-space: nowrap;
 }
+
+.konto-layout ion-col {
+	padding-bottom: 0px;
+	padding-top: 2px;
+}
+
+.kontro-layout ion-card {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #ffffff;
+	height: 128px;
+}
+.kontro-layout ion-card-header {
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.kontro-layout ion-card-title {
+	font-size: 16px;
+}
+.kontro-layout ion-card-subtitle {
+	font-size: 14px;
+}

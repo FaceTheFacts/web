@@ -1,6 +1,4 @@
-
 .vote-card-content {
-	
 	padding-left: 10px !important;
 	padding-right: 10px;
 }
@@ -55,4 +53,28 @@
 	font-size: 11px;
 	font-weight: 600;
 	color: #000000;
+}
+
+.vote-card ion-col {
+	padding-bottom: 0px;
+	padding-top: 2px;
+}
+
+.vote-card {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #ffffff;
+	height: 128px;
+}
+.vote-card ion-card-header {
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.vote-card ion-card-title {
+	font-size: 16px;
+}
+.vote-card ion-card-subtitle {
+	font-size: 14px;
 }
