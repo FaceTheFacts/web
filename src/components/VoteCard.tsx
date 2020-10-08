@@ -102,17 +102,32 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 
 			{/*Backdrop not covering the whole screen and Modal starting to high up too. They seem to be in the wrong div - need to be on the whole page.*/}
 			
-			<IonContent onClick={() => setShowDetails(!showDetails)}>
-				<IonModal isOpen={showDetails} cssClass="details-open" backdropDismiss={true} swipeToClose={true}>
-					<p>This is where I build the modal page with all the vote details</p>
-				</IonModal>		
-			</IonContent>
+				<IonContent onClick={() => setShowDetails(!showDetails)}>
+					<IonModal isOpen={showDetails} cssClass="details-open" backdropDismiss={true} swipeToClose={true}>
+						<div className="title-div">
+							<IonCardSubtitle className="subtitle-styling">{vote.subtitle}</IonCardSubtitle>
+							<IonCardTitle className="title-styling">{vote.title}</IonCardTitle>	
+						</div>
 
-			
-	
+						<div className="abstract-div">
+						</div>
+
+						<hr className="first-line-style"></hr>
+
+						<div className="reason-div">
+						</div>
+						
+						<hr className="second-line-style"></hr>
+
+						<div className="result-div">
+						</div>
+
+						<div className="round-chart-div">
+						</div>
+					</IonModal>	
+				</IonContent>			
 		</div>
-		
-		
+	
 	);
 };
 
