@@ -35,8 +35,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	cameraOpts = {
 		x: 0,
 		y: 0,
-		width: window.screen.width,
-		height: window.screen.height,
+		width: window.innerWidth,
+		height: window.innerHeight,
 		camera: "rear",
 		tapPhoto: true,
 		previewDrag: false,
@@ -120,6 +120,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	initCanvas() {
 		// initialise canvas for drawing
+		console.log(window.innerHeight);
 		const ctx = this.canvasRef.current?.getContext("2d");
 		if (ctx) {
 			ctx.canvas.width = this.cameraOpts.width;
@@ -317,7 +318,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		) as CanvasRenderingContext2D;
 		if (ctx) {
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
+			//ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			//ctx.fillStyle = "rgba(0,0,0,0.5)"
+			//ctx.fill()
 			predictions.forEach((prediction) => {
 				const start: [number, number] = prediction.topLeft as [
 					number,
@@ -333,15 +336,22 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 				// Render a rectangle over each detected face.
 				ctx.beginPath();
-				ctx.strokeStyle = "green";
-				ctx.lineWidth = 4;
-				ctx.rect(start[0], start[1], size[0], size[1]);
+				ctx.strokeStyle = "white";
+				ctx.lineWidth = 6;
+
+				// draw full screen clockwise, then face bbox counter clockwise
+				// to darken everything but the face
+				ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+				ctx.rect(end[0], start[1], -size[0], size[1]);
+
 				ctx.stroke();
+				ctx.fillStyle = "rgba(0,0,0,0.5)";
+				ctx.fill();
 				var prob = (probability * 100).toPrecision(5).toString();
 				var text = prob + "%";
 				ctx.fillStyle = "red";
 				ctx.font = "13pt sans-serif";
-				ctx.fillText(text, start[0] + 5, start[1] + 20);
+				//ctx.fillText(text, start[0] + 5, start[1] + 20);
 			});
 		}
 	};
