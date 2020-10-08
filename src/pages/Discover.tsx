@@ -39,11 +39,11 @@ const Discover: React.FC = () => {
 					</IonFabButton>
 					<CameraView setShowPopover={setShowPopover} />
 				</IonModal>
-				<div
-					className="discover-page"
-					onClick={() => setShowCamera(true)}
-				>
-					<div className="camera-icon-background">
+				<div className="discover-page">
+					<div
+						className="camera-icon-background"
+						onClick={() => setShowCamera(true)}
+					>
 						<IonImg
 							id="camera-square"
 							src="../assets/icon/camera-square.svg"
