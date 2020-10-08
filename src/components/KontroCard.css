@@ -60,16 +60,10 @@
 	white-space: nowrap;
 }
 
-/* .konto-layout ion-col {
-	padding-bottom: 0px;
-	padding-top: 2px;
-} */
-
 .kontro-layout {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	background-color: #ffffff;
-	height: 128px;
 }
 .kontro-card-header {
 	padding-top: 2px;
