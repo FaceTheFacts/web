@@ -32,6 +32,39 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	model?: BlazeFaceModel;
 	animationFrameID?: number;
 
+	/** only needed on mobile devices
+	 *
+	 * setCameraOpts()
+	 * get window.innerWidth
+	 * get window.innerHeight
+	 *
+	 * better plan:
+	 * try aspec ratio full screen
+	 * on error set min 4:3 max 16:9 (this might need tweaking)
+	 *
+	 * calculate best matching resolutions
+	 * for supported aspact ratios
+	 *
+	 * loop through aspect ratios factors
+	 * check if it fits within the height
+	 *
+	 * repeat process but for height
+	 * if 16:9 is only slightly narrower than screen width, use that
+	 *
+	 * supported aspect ratios
+	 *
+	 * can they be rotated 90 degrees?
+	 * would be great for tall screens
+	 * e.g. 9:16
+	 *
+	 * iOS
+	 * - 4:3
+	 * - 16:9
+	 * - 1:1
+	 *
+	 * set width
+	 * set height
+	 */
 	cameraOpts = {
 		x: 0,
 		y: 0,
@@ -71,17 +104,40 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// Refactored Code starts here
 	async initialiseCamera() {
 		// get media tracks
+		console.log(navigator.mediaDevices.getSupportedConstraints());
 		await navigator.mediaDevices
 			.getUserMedia({
 				video: {
 					facingMode: "environment",
-					width: this.cameraOpts.width,
-					height: this.cameraOpts.height,
+					width: { exact: this.cameraOpts.width },
+					height: { exact: this.cameraOpts.height },
+					aspectRatio: {
+						ideal: this.cameraOpts.width / this.cameraOpts.height,
+					},
 				},
 				audio: false,
 			})
 			.then((stream: MediaStream) => {
 				this.stream = stream;
+				//this.stream?.getVideoTracks()[0].applyConstraints({	,})
+				//Math.round()
+				this.stream
+					.getVideoTracks()[0]
+					.applyConstraints({
+						aspectRatio: {
+							exact: parseFloat(
+								(
+									this.cameraOpts.width /
+									this.cameraOpts.height
+								).toFixed(9)
+							),
+						},
+					})
+					.catch((reason) => {
+						console.log(reason);
+					});
+				console.log(this.stream.getVideoTracks()[0].getConstraints());
+				console.log(this.stream.getVideoTracks()[0].getSettings());
 				this.initVideo();
 				this.initCanvas();
 			})
@@ -101,10 +157,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	initVideo() {
 		// initialise video element
 		if (this.videoRef.current !== null) {
-			this.videoRef.current.style.width = String(this.cameraOpts.width);
-			this.videoRef.current.style.height = String(this.cameraOpts.height);
+			this.videoRef.current.style.width = String(
+				`${this.cameraOpts.width}px`
+			);
+			this.videoRef.current.style.height = String(
+				`${this.cameraOpts.height}px`
+			);
 			this.videoRef.current.srcObject = this.stream as MediaStream;
-			console.log(this.videoRef.current);
+
 			// add event listeners for play and onloadedmetadata events
 			this.videoRef.current.addEventListener(
 				"play",
@@ -319,9 +379,16 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		) as CanvasRenderingContext2D;
 		if (ctx) {
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			//ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			//ctx.fillStyle = "rgba(0,0,0,0.5)"
-			//ctx.fill()
+
+			// Render a rectangle over each detected face.
+			ctx.beginPath();
+			ctx.strokeStyle = "white";
+			ctx.lineWidth = 6;
+
+			// draw full screen clockwise, then face bbox counter clockwise
+			// to darken everything but the face
+			ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
 			predictions.forEach((prediction) => {
 				const start: [number, number] = prediction.topLeft as [
 					number,
@@ -335,25 +402,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 				const size = [end[0] - start[0], end[1] - start[1]];
 
-				// Render a rectangle over each detected face.
-				ctx.beginPath();
-				ctx.strokeStyle = "white";
-				ctx.lineWidth = 6;
-
-				// draw full screen clockwise, then face bbox counter clockwise
-				// to darken everything but the face
-				ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+				// counter clockwise
 				ctx.rect(end[0], start[1], -size[0], size[1]);
 
-				ctx.stroke();
-				ctx.fillStyle = "rgba(0,0,0,0.5)";
-				ctx.fill();
 				var prob = (probability * 100).toPrecision(5).toString();
-				var text = prob + "%";
-				ctx.fillStyle = "red";
-				ctx.font = "13pt sans-serif";
-				//ctx.fillText(text, start[0] + 5, start[1] + 20);
 			});
+			ctx.stroke();
+			ctx.fillStyle = "rgba(0,0,0,0.5)";
+			ctx.fill();
 		}
 	};
 
