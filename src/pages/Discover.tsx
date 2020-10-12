@@ -61,12 +61,6 @@ const Discover: React.FC = () => {
 						disabled={true}
 						onIonChange={(e) => setText(e.detail.value!)}
 					></IonInput>
-					<p style={{ color: "white" }}>
-						innerWidth: {window.innerWidth}
-					</p>
-					<p style={{ color: "white" }}>
-						screen.width: {window.screen.width}
-					</p>
 					<IonPopover
 						isOpen={showPopover}
 						cssClass="popover"
