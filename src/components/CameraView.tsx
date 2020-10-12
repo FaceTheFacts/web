@@ -47,6 +47,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	scheduler = createScheduler();
 
 	async componentDidMount() {
+		console.log(this.cameraOpts);
 		await this.initialiseCamera()
 			.then((res) => {
 				console.log(res);
@@ -103,7 +104,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			this.videoRef.current.style.width = String(this.cameraOpts.width);
 			this.videoRef.current.style.height = String(this.cameraOpts.height);
 			this.videoRef.current.srcObject = this.stream as MediaStream;
-
+			console.log(this.videoRef.current);
 			// add event listeners for play and onloadedmetadata events
 			this.videoRef.current.addEventListener(
 				"play",
