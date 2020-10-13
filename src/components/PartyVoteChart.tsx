@@ -37,6 +37,7 @@ interface voteResult {
 	no: number,
 	abstain: number,
 	none: number
+	partyTotal: string
 }
 
 const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
@@ -50,11 +51,13 @@ const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
 					{ title: 'abstain', value: partyVote.abstain, color: '#19ace6' },
 					{ title: 'none', value: partyVote.none, color: '#c4c4c4' }
 				]}
-				viewBoxSize = {[200, 120]}
-				center = {[50, 54]}
+
 				radius = {45}
-				lineWidth = {20}
+				lineWidth = {30}
+				lengthAngle = {-360}
+				startAngle = {180}
 			/>;	
+
 
 		</div>
 	);

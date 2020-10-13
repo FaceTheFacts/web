@@ -39,6 +39,7 @@ const votes = [
 					no: 0,
 					abstain: 0,
 					none: 46,
+					partyTotal: 246
 				},
 			]
 		},
@@ -47,6 +48,9 @@ const votes = [
 		subtitle: "Änderungsantrag",
 		title: "Kohleausstiegsgesetz",
 		candidateVote: "no",
+		chip: "",
+		abstract: "",
+		reason: "",
 		result: {
 			total: {
 				yes: 120,
@@ -61,6 +65,7 @@ const votes = [
 					no: 234,
 					abstain: 0,
 					none: 12,
+					partyTotal: 246
 				},
 			]
 		},
@@ -69,6 +74,9 @@ const votes = [
 		subtitle: "Beschlussempfehlung",
 		title: "Corona-Konjunkturpaket",
 		candidateVote: "no",
+		chip: "",
+		abstract: "",
+		reason: "",
 		result: {
 			total: {
 				yes: 87,
@@ -83,6 +91,7 @@ const votes = [
 					no: 237,
 					abstain: 0,
 					none: 9,
+					partyTotal: 246
 				},
 			]
 		},
@@ -91,6 +100,9 @@ const votes = [
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz Libanon (UNIFIL)",
 		candidateVote: "none",
+		chip: "",
+		abstract: "",
+		reason: "",
 		result: {
 			total: {
 				yes: 515,
@@ -105,6 +117,7 @@ const votes = [
 					no: 0,
 					abstain: 0,
 					none: 13,
+					partyTotal: 259
 				},
 			]
 		},

@@ -154,7 +154,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 						</div>
 
 						<div>
-							<IonButton className= "abstract-button">zum Gesetz</IonButton>
+							<IonButton fill = "clear" className = "abstract-button">zum Gesetz</IonButton>
 						</div>
 
 						<hr className="first-line-style"></hr>
@@ -235,12 +235,45 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 							<IonCard className="round-chart-card">
 								<IonCardHeader>
 									<IonGrid>
-										<div className="party-chart-container">
-										{/* Render a partyVoteChart component for the vote result.
-											This will need to be altered when multiple parties are added to the dataset. 
-										*/}
-											<PartyVoteChart partyVote={vote.result.partyResult[0]} />
-										</div>
+										<IonRow >
+											<IonCol size = "6">
+												<div>
+													{/* Render a partyVoteChart component for the vote result.
+													All partyResult[0] instances below will need to be altered when multiple parties are added to the dataset. 
+													*/}
+													<PartyVoteChart partyVote={vote.result.partyResult[0]} />
+												</div>
+											</IonCol>
+											<IonCol size = "6">
+												<IonRow>
+													<IonText>
+														<span className="chart-vote-title">{vote.result.partyResult[0].partyName}</span> 
+														<p className="chart-vote-members"> {vote.result.partyResult[0].partyTotal} Mitglieder</p> 
+													</IonText>
+												</IonRow>
+												<IonRow className="chart-row-spacing">
+													<div className="result-legend-circle vote-yes"></div>
+													<span className="result-legend-text">Ja: {vote.result.partyResult[0].yes}</span>
+												</IonRow>
+												<IonRow className="chart-row-spacing">
+													<div className="result-legend-circle vote-no"></div>
+													<span className="result-legend-text">Nein: {vote.result.partyResult[0].no}</span>
+												</IonRow>
+												<IonRow className="chart-row-spacing">
+													<div className="result-legend-circle vote-abstain"></div>
+													<span className="result-legend-text">
+														Enthalten: {vote.result.partyResult[0].abstain}
+													</span>
+												</IonRow>
+												<IonRow className="chart-row-spacing">
+													<div className="result-legend-circle vote-none"></div>
+													<span className="result-legend-text">
+														Nicht abg.: {vote.result.partyResult[0].none}
+													</span>
+												</IonRow>
+											</IonCol>
+										</IonRow>
+
 									</IonGrid>
 								</IonCardHeader>
 							</IonCard>

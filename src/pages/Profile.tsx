@@ -119,6 +119,7 @@ const votes = [
 					no: 0,
 					abstain: 0,
 					none: 46,
+					partyTotal: 246
 				},
 			]
 		},
