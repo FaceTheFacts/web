@@ -32,7 +32,7 @@ const votes = [
 				abstain: 21,
 				none: 173,
 			},
-			partyResults: [
+			partyResult: [
 				{
 					partyName:  "CDU/CSU",
 					yes: 200,
@@ -54,7 +54,7 @@ const votes = [
 				abstain: 0,
 				none: 50,
 			},
-			partyResults: [
+			partyResult: [
 				{
 					partyName: "CDU/CSU",
 					yes: 0,
@@ -76,7 +76,7 @@ const votes = [
 				abstain: 3,
 				none: 39,
 			},
-			partyResults: [
+			partyResult: [
 				{
 					partyName: "CDU/CSU",
 					yes: 0,
@@ -98,7 +98,7 @@ const votes = [
 				abstain: 4,
 				none: 41,
 			},
-			partyResults: [
+			partyResult: [
 				{
 					partyName: "CDU/CSU",
 					yes: 246,

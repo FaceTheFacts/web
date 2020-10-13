@@ -28,20 +28,27 @@ Register the ChartProps interface so we can pass properties to the component.
 To be more TypeScripty, we should create a vote type which we can reuse throughout the app.
 */
 interface ChartProps {
-	partyVote: any;
+	partyVote: voteResult;
 }
 
-
+interface voteResult {
+	partyName: string,
+	yes: number,
+	no: number,
+	abstain: number,
+	none: number
+}
 
 const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
-
+	console.log(partyVote)
 	return (
 		<div>
-			<PieChart className="donut-chart"
+			<PieChart
 				data = {[
-					{ title: 'One', value: 10, color: '#E38627' },
-					{ title: 'Two', value: 15, color: '#C13C37' },
-					{ title: 'Three', value: 20, color: '#6A2135' },
+					{ title: 'yes', value: partyVote.yes, color: '#14b83a' },
+					{ title: 'no', value: partyVote.no, color: '#de2b5e' },
+					{ title: 'abstain', value: partyVote.abstain, color: '#19ace6' },
+					{ title: 'none', value: partyVote.none, color: '#c4c4c4' }
 				]}
 				viewBoxSize = {[200, 120]}
 				center = {[50, 54]}

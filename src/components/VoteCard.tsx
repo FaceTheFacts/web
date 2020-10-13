@@ -61,10 +61,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 
 
 
-
+	/* 
+	Let Typescript know that candidateVote will always have one of these four values. 
+	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
+	predefined to only have one of these four values.
+	*/
 	const voteString: "yes" | "no" | "abstain" | "none" = vote.candidateVote
 
 
+	
 	return (
 		<div className="grey-background">
 			<IonCard className="vote-card" onClick={() => setShowDetails(!showDetails)}>
@@ -159,7 +164,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 								<IonRow>
 									<IonCol className={reasonVoteClassName}>
 										<div>
-											{vote.candidateVote}
+											{voteStrings[voteString]}
 										</div>
 									</IonCol>
 									<IonCol className="reason-reason">
@@ -231,8 +236,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 								<IonCardHeader>
 									<IonGrid>
 										<div className="party-chart-container">
-										{/* Render a partyVoteChart component for the vote result */}
-											<PartyVoteChart partyVote={vote} />
+										{/* Render a partyVoteChart component for the vote result.
+											This will need to be altered when multiple parties are added to the dataset. 
+										*/}
+											<PartyVoteChart partyVote={vote.result.partyResult[0]} />
 										</div>
 									</IonGrid>
 								</IonCardHeader>

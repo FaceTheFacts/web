@@ -112,7 +112,7 @@ const votes = [
 				abstain: 21,
 				none: 173,
 			},
-			partyResults: [
+			partyResult: [
 				{
 					partyName:  "CDU/CSU",
 					yes: 200,
