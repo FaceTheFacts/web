@@ -6,7 +6,6 @@ import {
 	IonFabButton,
 	IonPage,
 	IonIcon,
-	IonButton,
 	IonPopover,
 } from "@ionic/react";
 import { closeOutline } from "ionicons/icons";
@@ -16,17 +15,20 @@ import CameraView from "../components/CameraView";
 import DetectedCandidate from "../components/DetectedCandidate";
 import "./Discover.css";
 
-/**
- * TODO:
- * fix camera opening from anywhere
- * Refactor into class component
- **/
-
 const Discover: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
+
+	// animation for the popover
+	/* const popoverAnimation = (baseEl: any) => {
+		return createAnimation()
+		.addElement(baseEl)
+		.duration(500)
+		.fromTo("bottom", "-20%", "20%")
+	} */
+
 	return (
 		<IonPage>
 			<IonContent fullscreen>
@@ -66,6 +68,8 @@ const Discover: React.FC = () => {
 						cssClass="popover"
 						onDidDismiss={(e) => setShowPopover(false)}
 						translucent={true}
+						id="detected-candidate-popover"
+						/* enterAnimation={popoverAnimation} */
 					>
 						<DetectedCandidate
 							setShowPopover={setShowPopover}
