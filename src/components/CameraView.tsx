@@ -385,7 +385,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 			// draw full screen clockwise, then face bbox counter clockwise
 			// to darken everything but the face
-			ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			if (!isSafari) {
+				ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			}
 
 			predictions.forEach((prediction) => {
 				const start: [number, number] = prediction.topLeft as [
@@ -396,14 +398,17 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 					number,
 					number
 				];
-				console.log(start);
-				console.log(end);
+
 				var probability = prediction.probability as number;
 
 				const size = [end[0] - start[0], end[1] - start[1]];
 
-				// counter clockwise
-				ctx.rect(end[0], start[1], -size[0], size[1]);
+				if (!isSafari) {
+					// counter clockwise
+					ctx.rect(end[0], start[1], -size[0], size[1]);
+				} else {
+					ctx.rect(start[0], start[1], size[0], size[1]);
+				}
 
 				var prob = (probability * 100).toPrecision(5).toString();
 			});
