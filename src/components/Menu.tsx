@@ -35,13 +35,13 @@ interface AppPage {
 const appPages: AppPage[] = [
 	{
 		title: "Scan",
-		url: "/scan",
+		url: "/discover",
 		iosIcon: cameraOutline,
 		mdIcon: cameraSharp,
 	},
 	{
 		title: "Search",
-		url: "/search",
+		url: "/discover",
 		iosIcon: searchOutline,
 		mdIcon: searchSharp,
 	},
@@ -113,7 +113,7 @@ const Menu: React.FC = () => {
 						return (
 							<IonMenuToggle key={index} autoHide={false}>
 								<IonItem
-								/* Hightlight selected page */
+									/* Hightlight selected page */
 									className={
 										location.pathname === appPage.url
 											? "selected"
