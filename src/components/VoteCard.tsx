@@ -17,6 +17,8 @@ import {
 	IonBackdrop,
 	IonChip,
 	IonText,
+	IonIcon,
+	IonLabel,
 } from "@ionic/react";
 
 
@@ -143,9 +145,16 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 				<IonContent>
 					<IonModal isOpen={showDetails} cssClass="details-open" backdropDismiss={true} swipeToClose={true}>
 						<div className="title-div">
+
 							<IonCardSubtitle className="subtitle-styling">{vote.subtitle}</IonCardSubtitle>
-							<IonCardTitle className="title-styling">{vote.title}</IonCardTitle>	
-							<IonChip className="chip-styling">{vote.chip}</IonChip>
+							<IonCardTitle className="title-styling">{vote.title}</IonCardTitle>
+
+							<IonChip className="chip-styling" >
+								<IonIcon icon= {vote.chip.icon} />
+
+								<IonLabel>{vote.chip.name}</IonLabel>
+
+							</IonChip>
 						</div>
 
 						<div className="abstract-div">

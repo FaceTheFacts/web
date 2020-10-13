@@ -102,7 +102,10 @@ const votes = [
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz in Afghanistan",
 		candidateVote: "yes",
-		chip: "Auswärtiges",
+		chip: {
+			name: "Auswärtiges",
+			icon: "assets/icon/handshake-light.svg"
+		},
 		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
 		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
 		result: {
