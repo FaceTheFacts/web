@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PartyVoteChart from "./PartyVoteChart";
 import VoteChart from "./VoteChart";
 import "./VoteCard.css";
 import {
@@ -22,9 +23,21 @@ import {
 
 interface ContainerProps {
 	vote: any;
+	
 }
 
 const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
+	
+	/* 
+	Internationalisation to keep the code in English but print the national language
+	*/
+
+	const voteStrings = {
+		yes: "JA",
+		no: "NEIN",
+		abstain: "ENTHALTEN",
+		none: "Nicht Abg."
+	};
 	
 
 	//State Hook to alter state when clicked and open vote detail modal
@@ -35,8 +48,23 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 	In VoteCard.css these correspond to vote-yes, vote-no, vote-abstain, and vote-none
 	*/
 	const candidateVoteClassName = `candidate-vote vote-${vote.candidateVote.toLowerCase()}`;
+
+	/* 
+	Dynamically create the className for the candidate's reason for voting
+	*/
 	const reasonVoteClassName = `reason-vote vote-${vote.candidateVote.toLowerCase()}`;
-	const totalvotes= `${vote.result.yes + vote.result.no + vote.result.abstain + vote.result.none}`
+
+	/* 
+	Dynamically calculate the total number of votes
+	*/
+	const totalvotes= `${vote.result.total.yes + vote.result.total.no + vote.result.total.abstain + vote.result.total.none}`
+
+
+
+
+	const voteString: "yes" | "no" | "abstain" | "none" = vote.candidateVote
+
+
 	return (
 		<div className="grey-background">
 			<IonCard className="vote-card" onClick={() => setShowDetails(!showDetails)}>
@@ -57,7 +85,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
-									{vote.candidateVote}
+									{voteStrings[voteString]}
 								</div>
 							</IonCol>
 						</IonRow>
@@ -81,11 +109,11 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 						<IonRow>
 							<IonCol size="1"></IonCol>
 							<IonCol size="2">
-								<div className="vote-legend-circle vote-ja"></div>
+								<div className="vote-legend-circle vote-yes"></div>
 								<span className="vote-legend-text">Ja</span>
 							</IonCol>
 							<IonCol size="2">
-								<div className="vote-legend-circle vote-nein"></div>
+								<div className="vote-legend-circle vote-no"></div>
 								<span className="vote-legend-text">Nein</span>
 							</IonCol>
 							<IonCol size="3">
@@ -175,23 +203,23 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 								<IonRow>
 									<IonCol size="auto"></IonCol>
 									<IonCol size="auto">
-										<div className="result-legend-circle vote-ja"></div>
-										<span className="result-legend-text">Ja: {vote.result.yes}</span>
+										<div className="result-legend-circle vote-yes"></div>
+										<span className="result-legend-text">Ja: {vote.result.total.yes}</span>
 									</IonCol>
 									<IonCol size="auto">
-										<div className="result-legend-circle vote-nein"></div>
-										<span className="result-legend-text">Nein: {vote.result.no}</span>
+										<div className="result-legend-circle vote-no"></div>
+										<span className="result-legend-text">Nein: {vote.result.total.no}</span>
 									</IonCol>
 									<IonCol size="auto">
 										<div className="result-legend-circle vote-abstain"></div>
 										<span className="result-legend-text">
-											Enthalten: {vote.result.abstain}
+											Enthalten: {vote.result.total.abstain}
 										</span>
 									</IonCol>
 									<IonCol size="auto">
 										<div className="result-legend-circle vote-none"></div>
 										<span className="result-legend-text">
-											Nicht abg.: {vote.result.none}
+											Nicht abg.: {vote.result.total.none}
 										</span>
 									</IonCol>
 								</IonRow>
@@ -202,7 +230,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 							<IonCard className="round-chart-card">
 								<IonCardHeader>
 									<IonGrid>
-
+										<div className="party-chart-container">
+										{/* Render a partyVoteChart component for the vote result */}
+											<PartyVoteChart partyVote={vote} />
+										</div>
 									</IonGrid>
 								</IonCardHeader>
 							</IonCard>
