@@ -32,39 +32,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	model?: BlazeFaceModel;
 	animationFrameID?: number;
 
-	/** only needed on mobile devices
-	 *
-	 * setCameraOpts()
-	 * get window.innerWidth
-	 * get window.innerHeight
-	 *
-	 * better plan:
-	 * try aspec ratio full screen
-	 * on error set min 4:3 max 16:9 (this might need tweaking)
-	 *
-	 * calculate best matching resolutions
-	 * for supported aspact ratios
-	 *
-	 * loop through aspect ratios factors
-	 * check if it fits within the height
-	 *
-	 * repeat process but for height
-	 * if 16:9 is only slightly narrower than screen width, use that
-	 *
-	 * supported aspect ratios
-	 *
-	 * can they be rotated 90 degrees?
-	 * would be great for tall screens
-	 * e.g. 9:16
-	 *
-	 * iOS
-	 * - 4:3
-	 * - 16:9
-	 * - 1:1
-	 *
-	 * set width
-	 * set height
-	 */
 	cameraOpts = {
 		x: 0,
 		y: 0,
@@ -101,49 +68,65 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.stop();
 	}
 
-	// Refactored Code starts here
+	async getVideoStream() {
+		const stream = await navigator.mediaDevices.getUserMedia({
+			video: {
+				facingMode: "environment",
+				width: { exact: this.cameraOpts.width },
+				height: { exact: this.cameraOpts.height },
+			},
+			audio: false,
+		});
+		console.log(stream);
+		return stream;
+	}
+
+	setFullscreen(track: MediaStreamTrack) {
+		return track.applyConstraints({
+			aspectRatio: {
+				exact: this.cameraOpts.width / this.cameraOpts.height,
+			},
+		});
+	}
+
+	set4by3(track: MediaStreamTrack) {
+		const height = this.cameraOpts.width * (4 / 3);
+		return track.applyConstraints({
+			height: height,
+			width: this.cameraOpts.width,
+			aspectRatio: 4 / 3,
+		});
+	}
+
+	async setAspectRatio() {
+		const videoTrack = this.stream?.getVideoTracks()[0];
+
+		this.setFullscreen(videoTrack as MediaStreamTrack)
+			.then(() => {
+				console.log("set video to fullscreen");
+			})
+			.catch((err) => {
+				console.log(err);
+				this.set4by3(videoTrack as MediaStreamTrack).then(() => {
+					console.log("set video to 4:3");
+				});
+			});
+	}
+
 	async initialiseCamera() {
 		// get media tracks
 		console.log(navigator.mediaDevices.getSupportedConstraints());
-		await navigator.mediaDevices
-			.getUserMedia({
-				video: {
-					facingMode: "environment",
-					width: { exact: this.cameraOpts.width },
-					height: { exact: this.cameraOpts.height },
-					aspectRatio: {
-						ideal: this.cameraOpts.width / this.cameraOpts.height,
-					},
-				},
-				audio: false,
-			})
-			.then((stream: MediaStream) => {
-				this.stream = stream;
-				//this.stream?.getVideoTracks()[0].applyConstraints({	,})
-				//Math.round()
-				this.stream
-					.getVideoTracks()[0]
-					.applyConstraints({
-						aspectRatio: {
-							exact: parseFloat(
-								(
-									this.cameraOpts.width /
-									this.cameraOpts.height
-								).toFixed(9)
-							),
-						},
-					})
-					.catch((reason) => {
-						console.log(reason);
-					});
-				console.log(this.stream.getVideoTracks()[0].getConstraints());
-				console.log(this.stream.getVideoTracks()[0].getSettings());
-				this.initVideo();
-				this.initCanvas();
-			})
-			.catch((err: {}) => {
-				console.log(err);
-			});
+
+		this.stream = await this.getVideoStream();
+		await this.setAspectRatio();
+		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings()
+			.height as number;
+		console.log(this.stream?.getVideoTracks()[0].getSettings());
+		this.initVideo();
+		this.initCanvas();
+		/* .then(() => {
+			
+		}); */
 
 		return new Promise((resolve, reject) => {
 			if (this.stream?.getTracks()[0].readyState === "live") {
@@ -157,6 +140,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	initVideo() {
 		// initialise video element
 		if (this.videoRef.current !== null) {
+			this.videoRef.current.width = this.cameraOpts.width;
+			this.videoRef.current.height = this.cameraOpts.height;
 			this.videoRef.current.style.width = String(
 				`${this.cameraOpts.width}px`
 			);
@@ -166,6 +151,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			this.videoRef.current.srcObject = this.stream as MediaStream;
 
 			// add event listeners for play and onloadedmetadata events
+			console.log(this, this.videoRef.current);
 			this.videoRef.current.addEventListener(
 				"play",
 				() => {
@@ -181,7 +167,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	initCanvas() {
 		// initialise canvas for drawing
-		console.log(window.innerHeight);
 		const ctx = this.canvasRef.current?.getContext("2d");
 		if (ctx) {
 			ctx.canvas.width = this.cameraOpts.width;
@@ -218,9 +203,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			console.log("Loading BlazeFace Model");
 			this.model = await load();
 		}
-
+		console.log(
+			this.videoRef.current?.height,
+			this.videoRef.current?.width
+		);
 		const predictions = await this.model.estimateFaces(
-			this.videoRef.current as HTMLVideoElement,
+			this.canvasOCRRef.current as HTMLCanvasElement,
 			false
 		);
 
@@ -315,7 +303,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	drawVideoOnCanvas() {
 		const ctx = this.canvasOCRRef.current?.getContext("2d");
-		ctx?.drawImage(this.videoRef.current as HTMLVideoElement, 0, 0);
+		ctx?.drawImage(
+			this.videoRef.current as HTMLVideoElement,
+			0,
+			0,
+			this.cameraOpts.width,
+			this.cameraOpts.height
+		);
 	}
 
 	// terminate processes
@@ -374,6 +368,10 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	showDetections = (predictions: NormalizedFace[]) => {
+		console.log(navigator.userAgent);
+		const ua = navigator.userAgent.toLowerCase();
+		const isSafari = ua.includes("safari") && ua.indexOf("chrome") == -1;
+		console.log(isSafari);
 		const ctx = this.canvasRef.current?.getContext(
 			"2d"
 		) as CanvasRenderingContext2D;
@@ -398,6 +396,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 					number,
 					number
 				];
+				console.log(start);
+				console.log(end);
 				var probability = prediction.probability as number;
 
 				const size = [end[0] - start[0], end[1] - start[1]];
@@ -408,17 +408,35 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				var prob = (probability * 100).toPrecision(5).toString();
 			});
 			ctx.stroke();
-			ctx.fillStyle = "rgba(0,0,0,0.5)";
-			ctx.fill();
+			if (!isSafari) {
+				ctx.fillStyle = "rgba(0,0,0,0.5)";
+				ctx.fill();
+			}
 		}
 	};
 
 	render() {
 		return (
-			<div>
-				<video ref={this.videoRef} playsInline autoPlay></video>
-				<canvas ref={this.canvasRef} id="camera-canvas"></canvas>
-				<canvas ref={this.canvasOCRRef} id="ocr-canvas"></canvas>
+			<div className="camera-container">
+				<div className="camera">
+					<video
+						ref={this.videoRef}
+						id="camera-video"
+						className="video-element"
+						playsInline
+						autoPlay
+					></video>
+					<canvas
+						ref={this.canvasRef}
+						id="camera-canvas"
+						className="video-element"
+					></canvas>
+					<canvas
+						ref={this.canvasOCRRef}
+						id="ocr-canvas"
+						className="video-element"
+					></canvas>
+				</div>
 			</div>
 		);
 	}
