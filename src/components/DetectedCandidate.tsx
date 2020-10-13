@@ -10,6 +10,7 @@ import {
 } from "@ionic/react";
 import { chevronForwardOutline } from "ionicons/icons";
 import "./DetectedCandidate.css";
+import { useHistory } from "react-router";
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
@@ -19,10 +20,14 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 	setShowPopover,
 	setShowCamera,
 }) => {
+	const history = useHistory();
+
 	const navigateToProfile = () => {
+		//console.log(event)
 		console.log("navigating to profile");
 		setShowCamera(false);
 		setShowPopover(false);
+		history.push("/politician/1/profile");
 	};
 	return (
 		<div className="detected-candidate-popover">
@@ -47,8 +52,8 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 				<IonRow className="candidate-row">
 					<IonItem
 						className="candidate-item"
-						routerLink="/politician/1/profile"
-						onClick={() => navigateToProfile()}
+						/* routerLink="/politician/1/profile" */
+						onClick={navigateToProfile}
 					>
 						<IonCol size="4">
 							<div className="detected-candidate-image-container">
@@ -58,7 +63,7 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 								></IonImg>
 							</div>
 						</IonCol>
-						<IonCol>
+						<IonCol size="8">
 							<h3 className="detected-candidate-name">
 								Philipp Amthor
 							</h3>
