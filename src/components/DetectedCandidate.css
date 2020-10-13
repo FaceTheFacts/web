@@ -45,10 +45,9 @@
 }
 .candidate-item {
 	width: 100%;
-	margin-left: -15px;
 }
 .detected-candidate-image-container {
-	margin: 10px;
+	margin: 10px 10px 10px 0px;
 	width: 90px;
 	height: 90px;
 	border-radius: 10px;
@@ -64,10 +63,12 @@
 	font-size: 16px;
 	font-family: "IBM Plex Serif", serif;
 	font-weight: 500;
+	margin-left: 20px;
 }
 
 .detected-candidate-chip {
 	margin-top: 20px;
+	margin-left: 20px;
 	background-color: #000000;
 	color: white;
 	font-family: "SoleilSb", serif;
