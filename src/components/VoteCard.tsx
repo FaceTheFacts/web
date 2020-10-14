@@ -172,7 +172,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 							<IonGrid fixed={true}>
 								<IonRow>
 									<IonCol className={reasonVoteClassName}>
-										<div>
+										<div className = "reason-vote-text">
 											{voteStrings[voteString]}
 										</div>
 									</IonCol>
