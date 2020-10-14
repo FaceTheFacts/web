@@ -8,6 +8,9 @@
 	margin-bottom: 10px;
 	background-color: #ffffff;
 }
+.article-image {
+	max-height: 70px;
+}
 
 .publisher-image {
 	padding-top: 0px;

@@ -72,7 +72,7 @@ const kontros = [
 		label: '"Hey Rezo, du alter Zerstörer!"',
 		articles: [
 			{
-				label: '"Zerstörung der CDU": Amthor zur fehlenden Videoantwort der CDU auf Rezo',
+				label: 'Amthor zur fehlenden Videoantwort der CDU auf Rezo',
 				image:
 					"https://i.ytimg.com/vi/DEKzmztBZNI/maxresdefault.jpg",
 				url:
@@ -104,7 +104,7 @@ const kontros = [
 				publisher: "bild",
 			},
 			{
-				label: "CDU-Antwort an Rezo doch nicht im Netz - Amthor bleibt Video schuldig",
+				label: "CDU-Antwort an Rezo doch nicht im Netz",
 				image:
 					"https://www.wz.de/imgs/39/6/7/6/2/2/5/8/7/tok_9493083746e31342f0314db3fd137b7f/w1900_h1052_x1985_y745_MDB_2195_116329216-965890a82ac6efee.jpg",
 				url:
