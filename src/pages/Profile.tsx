@@ -65,16 +65,51 @@ const kontros = [
 					"https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt",
 				publisher: "zeit-online",
 			},
+
 		],
 	},
 	{
 		label: '"Hey Rezo, du alter Zerstörer!"',
 		articles: [
 			{
-				label: "Article 1",
-				image: "Image url",
-				url: "article url",
-				publisher: "spiegel",
+				label: '"Zerstörung der CDU": Amthor zur fehlenden Videoantwort der CDU auf Rezo',
+				image:
+					"https://i.ytimg.com/vi/DEKzmztBZNI/maxresdefault.jpg",
+				url:
+					"https://www.youtube.com/watch?v=DEKzmztBZNI",
+				publisher: "tagesschau",
+			},
+			{
+				label: "CDU-Antwort an YouTuber Rezo doch nicht im Netz",
+				image:
+					"https://www.tagesspiegel.de/images/philipp-amthor-mdb-cdu-bundestagsabgeordneter-aus-mecklenburg-vorpommern-fotografiert-im-tunnel-zwischen-reichstag-und-paul-loebe-haus-in-berlin-foto-mike-wolff/25035974/1-format43.jpg",
+				url:
+					"https://www.tagesspiegel.de/politik/amthor-bleibt-video-schuldig-cdu-antwort-an-youtuber-rezo-doch-nicht-im-netz/25035964.html",
+				publisher: "tagesspiegel",
+			},
+			{
+				label: "Amthor verrät Satz aus Video Antwort",
+				image:
+					"https://www.zdf.de/assets/philipp-amthor-106~1280x720?cb=1559819231142",
+				url:
+					"https://www.zdf.de/nachrichten/heute-sendungen/videos/philipp-amthor-verraet-ersten-satz-aus-antwort-video-an-rezo-bei-markus-lanz-100.html",
+				publisher: "zdf",
+			},
+			{
+				label: "CDU-Mann Amthor verblüfft mit Blödel-Auftritt",
+				image:
+					"https://bilder.t-online.de/b/88/06/90/98/id_88069098/tid_da/der-27-jaehrige-bundestagsabgeordnete-philipp-amthor-galt-als-nachwuchshoffnung-der-cdu-.jpg",
+				url:
+					"https://www.bild.de/politik/inland/politik-inland/philipp-amthor-cdu-kuendigt-bei-markus-lanz-antwort-auf-rezo-video-an-aber-64827894.bild.html",
+				publisher: "bild",
+			},
+			{
+				label: "CDU-Antwort an Rezo doch nicht im Netz - Amthor bleibt Video schuldig",
+				image:
+					"https://www.wz.de/imgs/39/6/7/6/2/2/5/8/7/tok_9493083746e31342f0314db3fd137b7f/w1900_h1052_x1985_y745_MDB_2195_116329216-965890a82ac6efee.jpg",
+				url:
+					"https://www.wz.de/politik/cdu-antwort-an-rezo-doch-nicht-im-netz-amthor-bleibt-video-schuldig_aid-45960339",
+				publisher: "westdeutsche-zeitung",
 			},
 		],
 	},
