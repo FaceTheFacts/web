@@ -1,5 +1,8 @@
 import React from "react";
-import { IonButton, IonFabButton, IonFab } from "@ionic/react";
+import { IonButton, IonFabButton, IonFab, IonRouterOutlet } from "@ionic/react";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import { useHistory } from "react-router";
+import Votes from "../pages/Votes";
 import "./SubHeading.css";
 
 interface SubheadingProps {
@@ -17,8 +20,13 @@ const SubHeading: React.FC<SubheadingProps> = ({
 	var heading = null;
 	var headingIcon = null;
 
+	const history = useHistory();
+
+
 	const executeButtonAction = () => {
-		console.log(buttonAction);
+
+		history.push(buttonAction as string);
+	
 	};
 
 	if (buttonAction !== undefined) {
