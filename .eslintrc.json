@@ -26,6 +26,7 @@
     "rules": {
         "indent": ["warn", "tab"],
         "no-tabs": ["warn", {"allowIndentationTabs": true}],
+        "react/jsx-filename-extension": ["warn", {"extensions": [".tsx"]}],
         "react/jsx-indent": ["warn", "tab"],
         "react/jsx-indent-props": ["warn", "tab"],
         "import/extensions": ["warn", "ignorePackages"],
