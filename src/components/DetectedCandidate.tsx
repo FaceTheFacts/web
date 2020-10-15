@@ -54,7 +54,6 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 				<IonRow className="candidate-row">
 					<IonItem
 						className="candidate-item"
-						/* routerLink="/politician/1/profile" */
 						onClick={navigateToProfile}
 					>
 						<IonCol size="4">
