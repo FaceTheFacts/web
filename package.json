@@ -24,6 +24,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest": {
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
+  },
   "dependencies": {
     "7": "0.0.1",
     "@capacitor-community/electron": "^1.2.3",
@@ -84,6 +89,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "2.4.0",
+    "jest-canvas-mock": "^2.3.0",
     "prettier": "2.1.1"
   }
 }
