@@ -21,9 +21,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	constructor(props: CameraViewProps) {
 		super(props);
 	}
-	state = {
-		politicianDetected: false,
-	};
 
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
