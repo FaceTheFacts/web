@@ -38,11 +38,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci
+        env: 
+          CI: true
       - uses: bradennapier/eslint-plus-action@v3.4.2
         with:
           issueSummaryType: full
           extensions: .tsx
-          npmInstall: true
           configFile: .eslintrc.json
           reportIgnoredFiles: true
       #- id: eslint
