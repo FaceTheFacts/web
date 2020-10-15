@@ -17,6 +17,7 @@ import "./CameraView.css";
 
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
+	setCandidate: Function;
 }
 
 class CameraView extends React.PureComponent<CameraViewProps> {

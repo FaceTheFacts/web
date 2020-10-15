@@ -15,17 +15,19 @@ import log from "loglevel";
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
+	candidateId: number;
 }
 
 const DetectedCandidate: React.FC<ContainerProps> = ({
 	setShowPopover,
 	setShowCamera,
+	candidateId,
 }) => {
 	const history = useHistory();
 
 	const navigateToProfile = () => {
-		log.debug("navigating to profile 1");
-		history.push("/politician/1/profile");
+		log.debug(`navigating to profile ${candidateId}`);
+		history.push(`/politician/${candidateId}/profile`);
 		setShowCamera(false);
 		setShowPopover(false);
 	};
