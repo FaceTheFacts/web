@@ -18,15 +18,20 @@ interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
 }
 class CameraView extends React.PureComponent<CameraViewProps> {
-	constructor(props: CameraViewProps) {
+	/* constructor(props: CameraViewProps) {
 		super(props);
-	}
+	} */
 
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+
 	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+
 	videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
+
 	stream?: MediaStream;
+
 	model?: BlazeFaceModel;
+
 	animationFrameID?: number;
 
 	cameraOpts = {
