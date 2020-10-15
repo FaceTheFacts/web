@@ -1,16 +1,12 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { useParams } from "react-router-dom";
-import { act } from "react-dom/test-utils";
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from "history";
+import { getByTestId } from "@testing-library/react";
+// import { act } from "react-dom/test-utils";
+import "jest-canvas-mock";
 
 import Profile from "./Profile";
-
-jest.mock("react-router-dom", () => ({
-	...jest.requireActual("react-router-dom"),
-	useParams: () => ({
-		id: "1",
-	}),
-}));
 
 let container: HTMLDivElement | null = null;
 
@@ -29,14 +25,33 @@ afterEach(() => {
 	}
 });
 
-it("renders with all data", () => {
-	act(() => {
-		//useParams.mockReturnValue({1})
-		render(<Profile />, container);
+test("renders with all data", () => {
+	// this will change after we remove the hard coded data
+	// we can probably skip most of this and test for the correct API calls
+	const candidate = {
+		id: "1",
+		name: "Philipp Amthor",
+		image:
+			"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
+		party: "CDU/CSU",
+	};
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/votes`],
 	});
+	render(
+		<Router history={history}>
+			<Profile />
+		</Router>,
+		container
+	);
+
 	if (container !== null) {
-		/* expect(container.textContent).toBe(
-			"FinanzenHeimatAuswärtigesWirtschaft und EnergieJustizSozialesVerteidigungLandwirtschaftFamilieGesundheitInfrastrukturUmweltBildung/Forschung"
-		); */
+		expect(getByTestId(container, "profile-name").textContent).toBe(
+			candidate.name
+		);
+
+		expect(
+			getByTestId(container, "profile-img-url").getAttribute("src")
+		).toBe(candidate.image);
 	}
 });
