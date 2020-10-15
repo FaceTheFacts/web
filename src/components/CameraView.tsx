@@ -1,5 +1,5 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 //import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
@@ -7,12 +7,12 @@ import {
 	BlazeFaceModel,
 	load,
 	NormalizedFace,
-} from "@tensorflow-models/blazeface";
+} from '@tensorflow-models/blazeface';
 
-import { createWorker, createScheduler } from "tesseract.js";
-import Fuse from "fuse.js";
+import { createWorker, createScheduler } from 'tesseract.js';
+import Fuse from 'fuse.js';
 
-import "./CameraView.css";
+import './CameraView.css';
 
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
@@ -41,7 +41,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		y: 0,
 		width: window.innerWidth,
 		height: window.innerHeight,
-		camera: "rear",
+		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
 		toBack: true,
@@ -68,14 +68,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async componentWillUnmount() {
-		console.log("stopping");
+		console.log('stopping');
 		await this.stop();
 	}
 
 	async getVideoStream() {
 		const stream = await navigator.mediaDevices.getUserMedia({
 			video: {
-				facingMode: "environment",
+				facingMode: 'environment',
 				width: { exact: this.cameraOpts.width },
 				height: { exact: this.cameraOpts.height },
 			},
@@ -107,12 +107,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		this.setFullscreen(videoTrack as MediaStreamTrack)
 			.then(() => {
-				console.log("set video to fullscreen");
+				console.log('set video to fullscreen');
 			})
 			.catch((err) => {
 				console.log(err);
 				this.set4by3(videoTrack as MediaStreamTrack).then(() => {
-					console.log("set video to 4:3");
+					console.log('set video to 4:3');
 				});
 			});
 	}
@@ -133,10 +133,10 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}); */
 
 		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState === "live") {
-				resolve("successfully started camera");
+			if (this.stream?.getTracks()[0].readyState === 'live') {
+				resolve('successfully started camera');
 			} else {
-				reject("error starting camera");
+				reject('error starting camera');
 			}
 		});
 	}
@@ -157,7 +157,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			// add event listeners for play and onloadedmetadata events
 			console.log(this, this.videoRef.current);
 			this.videoRef.current.addEventListener(
-				"play",
+				'play',
 				() => {
 					this.drawLoop();
 				},
@@ -171,14 +171,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	initCanvas() {
 		// initialise canvas for drawing
-		const ctx = this.canvasRef.current?.getContext("2d");
+		const ctx = this.canvasRef.current?.getContext('2d');
 		if (ctx) {
 			ctx.canvas.width = this.cameraOpts.width;
 			ctx.canvas.height = this.cameraOpts.height;
 		}
 
 		// initialise canvas for OCR
-		const ctxOCR = this.canvasOCRRef.current?.getContext("2d");
+		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
 		if (ctxOCR) {
 			ctxOCR.canvas.width = this.cameraOpts.width;
 			ctxOCR.canvas.height = this.cameraOpts.height;
@@ -191,11 +191,11 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				logger: (m) => console.log(m),
 			});
 			await worker.load();
-			await worker.loadLanguage("deu");
-			await worker.initialize("deu");
+			await worker.loadLanguage('deu');
+			await worker.initialize('deu');
 			await worker.setParameters({
 				tessedit_char_whitelist:
-					"abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ",
+					'abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ',
 			});
 			this.scheduler.addWorker(worker);
 		}
@@ -204,7 +204,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// detect faces and characters
 	async detectFaces() {
 		if (this.model === undefined) {
-			console.log("Loading BlazeFace Model");
+			console.log('Loading BlazeFace Model');
 			this.model = await load();
 		}
 		console.log(
@@ -221,7 +221,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			if (predictions !== undefined) {
 				resolve(predictions);
 			} else {
-				reject("could not detect faces");
+				reject('could not detect faces');
 			}
 		});
 	}
@@ -233,28 +233,28 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 
 		const result = await this.scheduler.addJob(
-			"recognize",
+			'recognize',
 			this.canvasOCRRef.current
 		);
-		const results = result.data.text.split("\n");
+		const results = result.data.text.split('\n');
 
 		return new Promise((resolve, reject) => {
 			if (results.length > 0) {
 				resolve(results);
 			} else {
-				reject("could not detect characters");
+				reject('could not detect characters');
 			}
 		});
 	}
 
 	async fuseSearchResults(results: String[]) {
-		this.candidates = ["philipp amthor", "renate künast", "angela merkel"];
+		this.candidates = ['philipp amthor', 'renate künast', 'angela merkel'];
 		const options = {
 			includeScore: true,
 		};
 		const fuse = new Fuse(results, options);
 		const match = {
-			query: "",
+			query: '',
 			result: {},
 		};
 
@@ -268,11 +268,11 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 
 		return new Promise((resolve, reject) => {
-			if (match.query !== "") {
+			if (match.query !== '') {
 				console.log(match);
 				resolve(match);
 			} else {
-				reject("no candidate found");
+				reject('no candidate found');
 			}
 		});
 	}
@@ -306,7 +306,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	drawVideoOnCanvas() {
-		const ctx = this.canvasOCRRef.current?.getContext("2d");
+		const ctx = this.canvasOCRRef.current?.getContext('2d');
 		ctx?.drawImage(
 			this.videoRef.current as HTMLVideoElement,
 			0,
@@ -334,25 +334,25 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async stopOCR() {
-		console.log("terminating workers");
+		console.log('terminating workers');
 		await this.scheduler.terminate();
 		return new Promise((resolve, reject) => {
 			if (this.scheduler.getNumWorkers.length === 0) {
-				resolve("successfully stopped camera stream");
+				resolve('successfully stopped camera stream');
 			} else {
-				reject("failed to stop camera stream");
+				reject('failed to stop camera stream');
 			}
 		});
 	}
 
 	stopFaceDetection() {
-		console.log("stopping face detection");
+		console.log('stopping face detection');
 		delete this.model;
 	}
 	// Old Code starts here
 
 	async stopCamera() {
-		console.log("stopping camera");
+		console.log('stopping camera');
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
 			for (let track of tracks) {
@@ -361,12 +361,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 
 		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState == "ended") {
-				console.log("success");
-				resolve("successfully stopped camera stream");
+			if (this.stream?.getTracks()[0].readyState == 'ended') {
+				console.log('success');
+				resolve('successfully stopped camera stream');
 			} else {
-				console.log("failed");
-				reject("failed to stop camera stream");
+				console.log('failed');
+				reject('failed to stop camera stream');
 			}
 		});
 	}
@@ -374,17 +374,17 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	showDetections = (predictions: NormalizedFace[]) => {
 		console.log(navigator.userAgent);
 		const ua = navigator.userAgent.toLowerCase();
-		const isSafari = ua.includes("safari") && ua.indexOf("chrome") == -1;
+		const isSafari = ua.includes('safari') && ua.indexOf('chrome') == -1;
 		console.log(isSafari);
 		const ctx = this.canvasRef.current?.getContext(
-			"2d"
+			'2d'
 		) as CanvasRenderingContext2D;
 		if (ctx) {
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 			// Render a rectangle over each detected face.
 			ctx.beginPath();
-			ctx.strokeStyle = "white";
+			ctx.strokeStyle = 'white';
 			ctx.lineWidth = 6;
 
 			// draw full screen clockwise, then face bbox counter clockwise
@@ -418,7 +418,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 			ctx.stroke();
 			if (!isSafari) {
-				ctx.fillStyle = "rgba(0,0,0,0.5)";
+				ctx.fillStyle = 'rgba(0,0,0,0.5)';
 				ctx.fill();
 			}
 		}
