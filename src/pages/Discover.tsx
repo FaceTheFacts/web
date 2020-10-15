@@ -20,7 +20,7 @@ const Discover: React.FC = () => {
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
-	const [candidate, setCandidate] = useState<number>(1);
+	const [candidate, setCandidate] = useState<number>(0);
 
 	// animation for the popover
 	/* const popoverAnimation = (baseEl: any) => {
