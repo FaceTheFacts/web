@@ -29,6 +29,7 @@
         "react/jsx-indent": ["warn", "tab"],
         "react/jsx-indent-props": ["warn", "tab"],
         "import/extensions": ["warn", "ignorePackages"],
-        "quotes": ["warn", "single"]
+        "quotes": ["warn", "single"],
+        "no-restricted-syntax": ["off"]
     }
 }
