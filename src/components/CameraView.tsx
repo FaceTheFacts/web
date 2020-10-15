@@ -1,5 +1,6 @@
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import log from "loglevel";
 
 //import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
@@ -17,6 +18,7 @@ import "./CameraView.css";
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
 }
+
 class CameraView extends React.PureComponent<CameraViewProps> {
 	constructor(props: CameraViewProps) {
 		super(props);
@@ -47,13 +49,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	scheduler = createScheduler();
 
 	async componentDidMount() {
-		console.log(this.cameraOpts);
 		await this.initialiseCamera()
 			.then((res) => {
-				console.log(res);
+				log.debug(res);
 			})
 			.catch((err) => {
-				console.log(err);
+				log.error(err);
 			});
 
 		// load BlazeFaceModel for face detetction
@@ -64,7 +65,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async componentWillUnmount() {
-		console.log("stopping");
+		log.debug("stopping camera preview");
 		await this.stop();
 	}
 
@@ -77,7 +78,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			},
 			audio: false,
 		});
-		console.log(stream);
 		return stream;
 	}
 
@@ -103,30 +103,27 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		this.setFullscreen(videoTrack as MediaStreamTrack)
 			.then(() => {
-				console.log("set video to fullscreen");
+				log.debug("set video to fullscreen");
 			})
 			.catch((err) => {
-				console.log(err);
+				log.info(err);
 				this.set4by3(videoTrack as MediaStreamTrack).then(() => {
-					console.log("set video to 4:3");
+					log.debug("set video to 4:3");
 				});
 			});
 	}
 
 	async initialiseCamera() {
 		// get media tracks
-		console.log(navigator.mediaDevices.getSupportedConstraints());
+		log.debug(navigator.userAgent);
 
 		this.stream = await this.getVideoStream();
 		await this.setAspectRatio();
 		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings()
 			.height as number;
-		console.log(this.stream?.getVideoTracks()[0].getSettings());
+
 		this.initVideo();
 		this.initCanvas();
-		/* .then(() => {
-			
-		}); */
 
 		return new Promise((resolve, reject) => {
 			if (this.stream?.getTracks()[0].readyState === "live") {
@@ -151,7 +148,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			this.videoRef.current.srcObject = this.stream as MediaStream;
 
 			// add event listeners for play and onloadedmetadata events
-			console.log(this, this.videoRef.current);
 			this.videoRef.current.addEventListener(
 				"play",
 				() => {
@@ -184,7 +180,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	initializeTesseract = async () => {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
-				logger: (m) => console.log(m),
+				logger: (m) => log.debug(m),
 			});
 			await worker.load();
 			await worker.loadLanguage("deu");
@@ -200,13 +196,10 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// detect faces and characters
 	async detectFaces() {
 		if (this.model === undefined) {
-			console.log("Loading BlazeFace Model");
+			log.debug("Loading BlazeFace Model");
 			this.model = await load();
 		}
-		console.log(
-			this.videoRef.current?.height,
-			this.videoRef.current?.width
-		);
+
 		const predictions = await this.model.estimateFaces(
 			this.canvasOCRRef.current as HTMLCanvasElement,
 			false
@@ -265,7 +258,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		return new Promise((resolve, reject) => {
 			if (match.query !== "") {
-				console.log(match);
 				resolve(match);
 			} else {
 				reject("no candidate found");
@@ -281,7 +273,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				this.showDetections(predictions);
 			})
 			.catch((err) => {
-				console.log(err);
+				log.error(err);
 			});
 
 		// recognize characters and show progress
@@ -289,10 +281,11 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		await this.fuseSearchResults(results)
 			.then((match) => {
+				log.debug(`Detected candidate ${match}`);
 				this.props.setShowPopover(true);
 			})
 			.catch((err) => {
-				console.log(err);
+				log.error(err);
 			});
 
 		// repeat
@@ -319,18 +312,24 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		await this.stopOCR()
 			.then((msg) => {
-				console.log(msg);
+				log.debug(msg);
 			})
 			.catch((err) => {
-				console.log(err);
+				log.error(err);
 			});
 
 		this.stopFaceDetection();
-		await this.stopCamera();
+		await this.stopCamera()
+			.then((msg) => {
+				log.debug(msg);
+			})
+			.catch((err) => {
+				log.error(err);
+			});
 	}
 
 	async stopOCR() {
-		console.log("terminating workers");
+		log.debug("terminating workers");
 		await this.scheduler.terminate();
 		return new Promise((resolve, reject) => {
 			if (this.scheduler.getNumWorkers.length === 0) {
@@ -342,13 +341,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	stopFaceDetection() {
-		console.log("stopping face detection");
+		log.debug("stopping face detection");
 		delete this.model;
 	}
 	// Old Code starts here
 
 	async stopCamera() {
-		console.log("stopping camera");
+		log.debug("stopping camera");
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
 			for (let track of tracks) {
@@ -358,20 +357,16 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		return new Promise((resolve, reject) => {
 			if (this.stream?.getTracks()[0].readyState == "ended") {
-				console.log("success");
 				resolve("successfully stopped camera stream");
 			} else {
-				console.log("failed");
 				reject("failed to stop camera stream");
 			}
 		});
 	}
 
 	showDetections = (predictions: NormalizedFace[]) => {
-		console.log(navigator.userAgent);
 		const ua = navigator.userAgent.toLowerCase();
 		const isSafari = ua.includes("safari") && ua.indexOf("chrome") == -1;
-		console.log(isSafari);
 		const ctx = this.canvasRef.current?.getContext(
 			"2d"
 		) as CanvasRenderingContext2D;
