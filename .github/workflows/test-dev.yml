@@ -60,7 +60,7 @@ jobs:
           CI: true
       - name: Run eslint
         run: |
-            npx eslint .src --ext .tsx --max-warnings 0
+            npx eslint ./src --ext .tsx --max-warnings 0
       #- id: eslint
       #- name: Run ESLint
       #  run: |
