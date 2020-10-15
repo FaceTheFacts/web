@@ -34,6 +34,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	animationFrameID?: number;
 
+	candidates?: Array<string>;
+
 	cameraOpts = {
 		x: 0,
 		y: 0,
@@ -246,17 +248,17 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async fuseSearchResults(results: String[]) {
-		const candidates = ["philipp amthor", "renate künast", "angela merkel"];
+		this.candidates = ["philipp amthor", "renate künast", "angela merkel"];
 		const options = {
 			includeScore: true,
 		};
 		const fuse = new Fuse(results, options);
-		let match = {
+		const match = {
 			query: "",
 			result: {},
 		};
 
-		for (const candidate of candidates) {
+		for (const candidate of this.candidates) {
 			const res = fuse.search(candidate as string);
 			console.log(res);
 			if (res.length > 0) {
