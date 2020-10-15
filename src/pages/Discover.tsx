@@ -7,13 +7,13 @@ import {
 	IonPage,
 	IonIcon,
 	IonPopover,
-} from "@ionic/react";
-import { closeOutline } from "ionicons/icons";
-import React, { useState } from "react";
-import { useParams } from "react-router";
-import CameraView from "../components/CameraView";
-import DetectedCandidate from "../components/DetectedCandidate";
-import "./Discover.css";
+} from '@ionic/react';
+import { closeOutline } from 'ionicons/icons';
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import CameraView from '../components/CameraView';
+import DetectedCandidate from '../components/DetectedCandidate';
+import './Discover.css';
 
 const Discover: React.FC = () => {
 	const { name } = useParams<{ name: string }>();

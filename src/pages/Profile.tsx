@@ -18,52 +18,52 @@ import {
 	IonFab,
 	IonFabButton,
 	IonRouterOutlet,
-} from "@ionic/react";
-import React from "react";
-import { IonReactRouter } from "@ionic/react-router";
-import { pin, wifi, wine, warning, walk } from "ionicons/icons";
-import { useParams } from "react-router";
-import "./Page.css";
-import SubHeading from "../components/SubHeading";
-import Menu from "../components/Menu";
-import VoteCard from "../components/VoteCard";
-import MenuButton from "../components/MenuButton";
-import NebenCard from "../components/NebenCard";
-import KontroCard from "../components/KontroCard";
-import PoliticianProfile from "../components/PoliticianProfile";
-import Votes from "../pages/Votes";
-import "./Profile.css";
+} from '@ionic/react';
+import React from 'react';
+import { IonReactRouter } from '@ionic/react-router';
+import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
+import { useParams } from 'react-router';
+import './Page.css';
+import SubHeading from '../components/SubHeading';
+import Menu from '../components/Menu';
+import VoteCard from '../components/VoteCard';
+import MenuButton from '../components/MenuButton';
+import NebenCard from '../components/NebenCard';
+import KontroCard from '../components/KontroCard';
+import PoliticianProfile from '../components/PoliticianProfile';
+import Votes from '../pages/Votes';
+import './Profile.css';
 
 // Hardcoded Kontroversen until we connect to our API
 const kontros = [
 	{
-		label: "Lobbyismus-Affäre",
+		label: 'Lobbyismus-Affäre',
 		articles: [
 			{
 				label:
-					"Geschäftsführer von Augustus Intelligence lässt Amt ruhen",
+					'Geschäftsführer von Augustus Intelligence lässt Amt ruhen',
 				image:
-					"https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg",
+					'https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg',
 				url:
-					"https://www.spiegel.de/wirtschaft/unternehmen/affaere-um-philipp-amthor-geschaeftsfuehrer-von-augustus-intelligence-laesst-amt-ruhen-a-6577f286-2dc0-4f74-a08c-a2536e86a87d",
-				publisher: "spiegel",
+					'https://www.spiegel.de/wirtschaft/unternehmen/affaere-um-philipp-amthor-geschaeftsfuehrer-von-augustus-intelligence-laesst-amt-ruhen-a-6577f286-2dc0-4f74-a08c-a2536e86a87d',
+				publisher: 'spiegel',
 			},
 			{
 				label:
-					"Für diese merkwürdige Firma hat sich Philipp Amthor engagiert",
+					'Für diese merkwürdige Firma hat sich Philipp Amthor engagiert',
 				image:
-					"https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg",
+					'https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg',
 				url:
-					"https://www.handelsblatt.com/politik/deutschland/augustus-intelligence-fuer-diese-merkwuerdige-firma-hat-sich-philipp-amthor-engagiert/25914246.html?ticket=ST-630502-PMl5Lfyb2kItmkRSq1QJ-ap6",
-				publisher: "handelsblatt",
+					'https://www.handelsblatt.com/politik/deutschland/augustus-intelligence-fuer-diese-merkwuerdige-firma-hat-sich-philipp-amthor-engagiert/25914246.html?ticket=ST-630502-PMl5Lfyb2kItmkRSq1QJ-ap6',
+				publisher: 'handelsblatt',
 			},
 			{
-				label: "Verfahren gegen Philipp Amthor eingestellt",
+				label: 'Verfahren gegen Philipp Amthor eingestellt',
 				image:
-					"https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop",
+					'https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop',
 				url:
-					"https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt",
-				publisher: "zeit-online",
+					'https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt',
+				publisher: 'zeit-online',
 			},
 		],
 	},
@@ -71,10 +71,10 @@ const kontros = [
 		label: '"Hey Rezo, du alter Zerstörer!"',
 		articles: [
 			{
-				label: "Article 1",
-				image: "Image url",
-				url: "article url",
-				publisher: "spiegel",
+				label: 'Article 1',
+				image: 'Image url',
+				url: 'article url',
+				publisher: 'spiegel',
 			},
 		],
 	},
@@ -82,36 +82,36 @@ const kontros = [
 
 /*Hardcoded politician header for now*/
 const politician = {
-	name: "Philipp Amthor",
-	chips: ["CDU/CSU", "Mitglied des Bundestags"],
+	name: 'Philipp Amthor',
+	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
 	image:
-		"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
-	party: "CDU/CSU",
+		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
+	party: 'CDU/CSU',
 };
 
 /* Hardcoded for now until passed in from the API */
 
 const nebens = [
 	{
-		subtitle: "Mitglied des Verwaltungsrates",
-		title: "Sparkasse Uecker-Randow",
+		subtitle: 'Mitglied des Verwaltungsrates',
+		title: 'Sparkasse Uecker-Randow',
 	},
 ];
 
 // Hardcoded votes until we connect to our API
 const votes = [
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		subtitle: 'Beschlussempfehlung',
+		title: 'Bundeswehreinsatz in Afghanistan',
+		candidateVote: 'yes',
 		chip: {
-			name: "Auswärtiges",
-			icon: "assets/icon/handshake-light.svg",
+			name: 'Auswärtiges',
+			icon: 'assets/icon/handshake-light.svg',
 		},
 		abstract:
-			"Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
+			'Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.',
 		reason:
-			"Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
+			'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
 		result: {
 			total: {
 				yes: 356,
@@ -121,7 +121,7 @@ const votes = [
 			},
 			partyResult: [
 				{
-					partyName: "CDU/CSU",
+					partyName: 'CDU/CSU',
 					yes: 200,
 					no: 0,
 					abstain: 0,
@@ -142,11 +142,11 @@ const Profile: React.FC = () => {
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			{" "}
+			{' '}
 			{/* Page Tag */}
 			<IonHeader>
-				{" "}
-				{/* Header Tag */}{" "}
+				{' '}
+				{/* Header Tag */}{' '}
 				{/* Toolbar tag, this is the title bar / top bar */}
 			</IonHeader>
 			{/* Here the content of our page starts */}

@@ -3,5 +3,6 @@
 	"tabWidth": 4,
 	"useTabs": true,
 	"semi": true,
-	"overrides": []
+	"overrides": [],
+	"singleQuote": true
 }
