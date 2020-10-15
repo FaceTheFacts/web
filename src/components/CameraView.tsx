@@ -237,23 +237,40 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	async fuseSearchResults(results: String[]) {
-		const candidates = ["philipp amthor", "renate künast", "angela merkel"];
+	async fuseSearchResults(
+		results: String[]
+	): Promise<{ result: {}; query: string; id: number }> {
+		const candidates = [
+			{
+				name: "philipp amthor",
+				id: 1,
+			},
+			{
+				name: "renate künast",
+				id: 2,
+			},
+			{
+				name: "angela merkel",
+				id: 3,
+			},
+		];
 		const options = {
 			includeScore: true,
 		};
 		const fuse = new Fuse(results, options);
 		let match = {
 			query: "",
+			id: 0,
 			result: {},
 		};
 
 		for (const candidate of candidates) {
-			const res = fuse.search(candidate as string);
+			const res = fuse.search(candidate.name as string);
 			console.log(res);
 			if (res.length > 0) {
 				match.result = res;
-				match.query = candidate;
+				match.query = candidate.name;
+				match.id = candidate.id;
 			}
 		}
 
@@ -282,11 +299,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		await this.fuseSearchResults(results)
 			.then((match) => {
-				log.debug(`Detected candidate ${match}`);
+				log.debug(`Detected candidate ${match.query}`);
+				this.props.setCandidate(match.id);
 				this.props.setShowPopover(true);
 			})
 			.catch((err) => {
-				log.error(err);
+				log.debug(err);
 			});
 
 		// repeat
