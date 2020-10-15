@@ -42,7 +42,7 @@ jobs:
         run: npm ci
         env: 
           CI: true
-      - uses: Face-the-Facts/eslint-plus-action
+      - uses: Face-the-Facts/eslint-plus-action@v3.4.2
         with:
           issueSummaryType: full
           extensions: .tsx
