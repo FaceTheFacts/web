@@ -8,8 +8,22 @@ on: [ push, pull_request ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  skip_check:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          github_token: ${{ github.token }}
+          paths_ignore: '["**/README.md", "**/docs/**"]'  
           
   unittests:
+    needs: skip_check
+    if: ${{ needs.skip_check.outputs.should_skip == 'false' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +42,9 @@ jobs:
           fail_ci_if_error: true # optional (default = false)
   
   build:
+    needs: skip_check
+    if: ${{ needs.skip_check.outputs.should_skip == 'false' }}
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies & build
