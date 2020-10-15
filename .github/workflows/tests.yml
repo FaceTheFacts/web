@@ -1,17 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Automated Tests
+name: Tests
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the develop branch
-on:
-  push:
-    branches:
-      - '!develop'
-      - '*'
-  pull_request:
-    branches:
-      - '*'
+on: [ push, pull_request ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Generate Coverage Report
+      - name: Generate coverage report
         run: |
           npm ci
           npm test -- --coverage
@@ -33,28 +26,17 @@ jobs:
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
-          
-  eslint:
+  
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: npm ci
-        env: 
+      - name: Install dependencies & build
+        run: |
+          npm ci
+          npm run build
+        env:
           CI: true
-      - uses: bradennapier/eslint-plus-action@v3.4.2
-        with:
-          issueSummaryType: full
-          extensions: .tsx
-          configFile: .eslintrc.json
-          reportIgnoredFiles: true
-      #- id: eslint
-      #- name: Run ESLint
-      #  run: |
-      #    # Install dependencies
-      #    npm ci
-      #    # Run eslint with max warnings of 0
-      #    npx eslint ./src --ext .tsx --max-warnings 0
-      #  env:
-      #    CI: true
-
+          
+  

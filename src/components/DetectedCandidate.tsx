@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
 	IonGrid,
 	IonRow,
@@ -7,10 +7,10 @@ import {
 	IonChip,
 	IonIcon,
 	IonItem,
-} from "@ionic/react";
-import { chevronForwardOutline } from "ionicons/icons";
-import "./DetectedCandidate.css";
-import { useHistory } from "react-router";
+} from '@ionic/react';
+import { chevronForwardOutline } from 'ionicons/icons';
+import './DetectedCandidate.css';
+import { useHistory } from 'react-router';
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
@@ -24,10 +24,10 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 
 	const navigateToProfile = () => {
 		//console.log(event)
-		console.log("navigating to profile");
+		console.log('navigating to profile');
 		setShowCamera(false);
 		setShowPopover(false);
-		history.push("/politician/1/profile");
+		history.push('/politician/1/profile');
 	};
 	return (
 		<div className="detected-candidate-popover">
@@ -60,7 +60,7 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 								<IonImg
 									className="detected-candidate-image"
 									src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
-								></IonImg>
+								/>
 							</div>
 						</IonCol>
 						<IonCol size="8">
