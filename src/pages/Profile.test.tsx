@@ -28,6 +28,7 @@ afterEach(() => {
 test("renders with all data", () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
+	// we will also have to mock the API responses
 	const candidate = {
 		id: "1",
 		name: "Philipp Amthor",
