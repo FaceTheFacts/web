@@ -89,9 +89,8 @@ const politician = {
 	party: "CDU/CSU",
 };
 
-{
-	/* Hardcoded for now until passed in from the API */
-}
+/* Hardcoded for now until passed in from the API */
+
 const nebens = [
 	{
 		subtitle: "Mitglied des Verwaltungsrates",
@@ -137,7 +136,7 @@ const votes = [
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	const { name } = useParams<{ name: string }>();
+	//const { name } = useParams<{ name: string }>();
 	const { id } = useParams<{ id: string }>();
 
 	/* This is returned when using this component */
