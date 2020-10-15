@@ -43,6 +43,7 @@ jobs:
           issueSummaryType: full
           extensions: .tsx
           npmInstall: true
+          configFile: .eslintrc.json
       #- id: eslint
       #- name: Run ESLint
       #  run: |
