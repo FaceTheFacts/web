@@ -60,6 +60,7 @@
     "fuse.js": "^6.4.1",
     "ionic": "^5.4.16",
     "ionicons": "^5.0.0",
+    "loglevel": "^1.7.0",
     "node-pre-gyp": "^0.15.0",
     "npm-merge-driver": "^2.3.6",
     "prop-types": "^15.7.2",

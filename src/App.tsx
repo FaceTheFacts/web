@@ -1,11 +1,12 @@
 import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { Redirect, Route } from 'react-router-dom';
+import log from 'loglevel';
 import React from 'react';
 import Menu from './components/Menu';
 import Page from './pages/Page';
 import Discover from './pages/Discover';
-//import Scan from "./pages/Scan";
+// import Scan from "./pages/Scan";
 import Search from './pages/Search';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
@@ -30,6 +31,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const App: React.FC = () => {
+	log.setLevel('DEBUG', true);
 	return (
 		<IonApp>
 			<IonReactRouter>
@@ -38,7 +40,8 @@ const App: React.FC = () => {
 					<Menu />
 					<IonRouterOutlet id="main">
 						{/* Register each page with the router
-							This works by defining a path and telling the router which component (page) to render for that path. */}
+							This works by defining a path and telling the router which component
+							(page) to render for that path. */}
 						<Route path="/page/:name" component={Page} exact />
 						<Route path="/discover" component={Discover} exact />
 						{/* <Route path="/scan" component={Scan} exact /> */}
