@@ -137,15 +137,15 @@ const nebens = [
 // Hardcoded votes until we connect to our API
 const votes = [
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		subtitle: 'Beschlussempfehlung',
+		title: 'Bundeswehreinsatz in Afghanistan',
+		candidateVote: 'yes',
 		chip: {
-			name: "Auswärtiges",
-			icon: "assets/icon/handshake-light.svg"
+			name: 'Verteidigung',
+			icon: 'assets/icon/shield-light.svg'
 		},
-		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
-		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
+		abstract: 'Beschlussempfehlung des auswärtigen Ausschusses zum Antrag der Regierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am Nato-geführten Einsatz. Support für die Ausbildung, Beratung und Unterstützung der afghanischen Verteidigung- und Sicherheitskräfte im Land.',
+		reason: 'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
 		result: {
 			total: {
 				yes: 356,
@@ -155,7 +155,7 @@ const votes = [
 			},
 			partyResult: [
 				{
-					partyName:  "CDU/CSU",
+					partyName:  'CDU/CSU',
 					yes: 200,
 					no: 0,
 					abstain: 0,
