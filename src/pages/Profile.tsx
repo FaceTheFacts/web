@@ -18,52 +18,52 @@ import {
 	IonFab,
 	IonFabButton,
 	IonRouterOutlet,
-} from "@ionic/react";
-import React from "react";
-import { IonReactRouter } from "@ionic/react-router";
-import { pin, wifi, wine, warning, walk } from "ionicons/icons";
-import { useParams } from "react-router";
-import "./Page.css";
-import SubHeading from "../components/SubHeading";
-import Menu from "../components/Menu";
-import VoteCard from "../components/VoteCard";
-import MenuButton from "../components/MenuButton";
-import NebenCard from "../components/NebenCard";
-import KontroCard from "../components/KontroCard";
-import PoliticianProfile from "../components/PoliticianProfile";
-import Votes from "../pages/Votes";
-import "./Profile.css";
+} from '@ionic/react';
+import React from 'react';
+import { IonReactRouter } from '@ionic/react-router';
+import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
+import { useParams } from 'react-router';
+import './Page.css';
+import SubHeading from '../components/SubHeading';
+import Menu from '../components/Menu';
+import VoteCard from '../components/VoteCard';
+import MenuButton from '../components/MenuButton';
+import NebenCard from '../components/NebenCard';
+import KontroCard from '../components/KontroCard';
+import PoliticianProfile from '../components/PoliticianProfile';
+import Votes from '../pages/Votes';
+import './Profile.css';
 
 // Hardcoded Kontroversen until we connect to our API
 const kontros = [
 	{
-		label: "Lobbyismus-Affäre",
+		label: 'Lobbyismus-Affäre',
 		articles: [
 			{
 				label:
-					"Geschäftsführer von Augustus Intelligence lässt Amt ruhen",
+					'Geschäftsführer von Augustus Intelligence lässt Amt ruhen',
 				image:
-					"https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg",
+					'https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg',
 				url:
-					"https://www.spiegel.de/wirtschaft/unternehmen/affaere-um-philipp-amthor-geschaeftsfuehrer-von-augustus-intelligence-laesst-amt-ruhen-a-6577f286-2dc0-4f74-a08c-a2536e86a87d",
-				publisher: "spiegel",
+					'https://www.spiegel.de/wirtschaft/unternehmen/affaere-um-philipp-amthor-geschaeftsfuehrer-von-augustus-intelligence-laesst-amt-ruhen-a-6577f286-2dc0-4f74-a08c-a2536e86a87d',
+				publisher: 'spiegel',
 			},
 			{
 				label:
-					"Für diese merkwürdige Firma hat sich Philipp Amthor engagiert",
+					'Für diese merkwürdige Firma hat sich Philipp Amthor engagiert',
 				image:
-					"https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg",
+					'https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg',
 				url:
-					"https://www.handelsblatt.com/politik/deutschland/augustus-intelligence-fuer-diese-merkwuerdige-firma-hat-sich-philipp-amthor-engagiert/25914246.html?ticket=ST-630502-PMl5Lfyb2kItmkRSq1QJ-ap6",
-				publisher: "handelsblatt",
+					'https://www.handelsblatt.com/politik/deutschland/augustus-intelligence-fuer-diese-merkwuerdige-firma-hat-sich-philipp-amthor-engagiert/25914246.html?ticket=ST-630502-PMl5Lfyb2kItmkRSq1QJ-ap6',
+				publisher: 'handelsblatt',
 			},
 			{
-				label: "Verfahren gegen Philipp Amthor eingestellt",
+				label: 'Verfahren gegen Philipp Amthor eingestellt',
 				image:
-					"https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop",
+					'https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop',
 				url:
-					"https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt",
-				publisher: "zeit-online",
+					'https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt',
+				publisher: 'zeit-online',
 			},
 
 		],
@@ -72,6 +72,7 @@ const kontros = [
 		label: '"Hey Rezo, du alter Zerstörer!"',
 		articles: [
 			{
+<<<<<<< HEAD
 				label: 'Amthor zur fehlenden Videoantwort der CDU auf Rezo',
 				image:
 					"https://i.ytimg.com/vi/DEKzmztBZNI/maxresdefault.jpg",
@@ -110,6 +111,12 @@ const kontros = [
 				url:
 					"https://www.wz.de/politik/cdu-antwort-an-rezo-doch-nicht-im-netz-amthor-bleibt-video-schuldig_aid-45960339",
 				publisher: "westdeutsche-zeitung",
+=======
+				label: 'Article 1',
+				image: 'Image url',
+				url: 'article url',
+				publisher: 'spiegel',
+>>>>>>> develop
 			},
 		],
 	},
@@ -117,20 +124,19 @@ const kontros = [
 
 /*Hardcoded politician header for now*/
 const politician = {
-	name: "Philipp Amthor",
-	chips: ["CDU/CSU", "Mitglied des Bundestags"],
+	name: 'Philipp Amthor',
+	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
 	image:
-		"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
-	party: "CDU/CSU",
+		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
+	party: 'CDU/CSU',
 };
 
-{
-	/* Hardcoded for now until passed in from the API */
-}
+/* Hardcoded for now until passed in from the API */
+
 const nebens = [
 	{
-		subtitle: "Mitglied des Verwaltungsrates",
-		title: "Sparkasse Uecker-Randow",
+		subtitle: 'Mitglied des Verwaltungsrates',
+		title: 'Sparkasse Uecker-Randow',
 	},
 ];
 
@@ -141,11 +147,21 @@ const votes = [
 		title: 'Bundeswehreinsatz in Afghanistan',
 		candidateVote: 'yes',
 		chip: {
+<<<<<<< HEAD
 			name: 'Verteidigung',
 			icon: 'assets/icon/shield-light.svg'
 		},
 		abstract: 'Beschlussempfehlung des auswärtigen Ausschusses zum Antrag der Regierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am Nato-geführten Einsatz. Support für die Ausbildung, Beratung und Unterstützung der afghanischen Verteidigung- und Sicherheitskräfte im Land.',
 		reason: 'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
+=======
+			name: 'Auswärtiges',
+			icon: 'assets/icon/handshake-light.svg',
+		},
+		abstract:
+			'Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.',
+		reason:
+			'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
+>>>>>>> develop
 		result: {
 			total: {
 				yes: 356,
@@ -155,39 +171,40 @@ const votes = [
 			},
 			partyResult: [
 				{
+<<<<<<< HEAD
 					partyName:  'CDU/CSU',
+=======
+					partyName: 'CDU/CSU',
+>>>>>>> develop
 					yes: 200,
 					no: 0,
 					abstain: 0,
 					none: 46,
-					partyTotal: 246
+					partyTotal: 246,
 				},
-			]
+			],
 		},
 	},
 ];
 
-
-
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	const { name } = useParams<{ name: string }>();
+	//const { name } = useParams<{ name: string }>();
+	const { id } = useParams<{ id: string }>();
 
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			{" "}
+			{' '}
 			{/* Page Tag */}
 			<IonHeader>
-				{" "}
-				{/* Header Tag */}{" "}
+				{' '}
+				{/* Header Tag */}{' '}
 				{/* Toolbar tag, this is the title bar / top bar */}
 			</IonHeader>
 			{/* Here the content of our page starts */}
 			<IonContent>
-
-				
 				{/* ProfileImg component that holds all the images of the politicians. 
 				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 				to make our life easier when we add the profiles images of new politicians.
@@ -207,7 +224,7 @@ const Profile: React.FC = () => {
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
-						buttonAction="/politician/:id/votes"
+						buttonAction={`/politician/${id}/votes`}
 					/>
 				</div>
 
@@ -216,7 +233,6 @@ const Profile: React.FC = () => {
 					{votes.map((vote, index) => {
 						return <VoteCard vote={vote} key={index} />;
 					})}
-
 				</div>
 
 				{/* Pass name to Subheading to be in control of the sub heading text */}
