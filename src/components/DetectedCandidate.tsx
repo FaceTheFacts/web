@@ -16,7 +16,7 @@ import {Candidate} from '../Types';
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
-	candidate: Candidate | null;
+	candidate: Candidate;
 }
 
 const DetectedCandidate: React.FC<ContainerProps> = ({
@@ -40,10 +40,9 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 			<IonGrid className="detected-candidate-grid">
 				<IonRow className="constituency-row">
 					<IonCol size="6">
-						<p className="constituency-number">Wahlkreis 016</p>
+						<p className="constituency-number">{candidate.constituency.numberLabel}</p>
 						<p className="constituency-label">
-							Mecklenburgische Seenplatte I -
-							Vorpommern-Greifswald II
+						{candidate.constituency.label}
 						</p>
 					</IonCol>
 					<IonCol size="6">
@@ -51,7 +50,9 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 							Postleitzahlen im Wahlkreis
 						</p>
 						<p className="constituency-postcodes">
-							98559, 99102, 99189, 99310
+							{candidate.constituency.postcodes.map((postcode) => {
+								return(postcode)
+							})}
 						</p>
 					</IonCol>
 				</IonRow>
@@ -64,16 +65,16 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 							<div className="detected-candidate-image-container">
 								<IonImg
 									className="detected-candidate-image"
-									src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
+									src={String(candidate.image)}
 								/>
 							</div>
 						</IonCol>
 						<IonCol size="8">
 							<h3 className="detected-candidate-name">
-								Philipp Amthor
+								{candidate.name}
 							</h3>
 							<IonChip className="detected-candidate-chip">
-								CDU/CSU
+								{candidate.party}
 							</IonChip>
 							{/* <IonIcon
 							className="detected-candidate-icon"
