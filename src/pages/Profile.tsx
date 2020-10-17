@@ -10,7 +10,7 @@ import './Page.css';
 import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
 import MenuButton from '../components/MenuButton';
-import NebenCard from '../components/NebenCard';
+import SideJobCard from '../components/SideJobCard';
 import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
@@ -96,12 +96,7 @@ const kontros = [
 
 /* Hardcoded for now until passed in from the API */
 
-const nebens = [
-	{
-		subtitle: 'Mitglied des Verwaltungsrates',
-		title: 'Sparkasse Uecker-Randow',
-	},
-];
+
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -186,8 +181,8 @@ const Profile: React.FC<ProfileProps> = ({
 
 				<div className="last-grey-back">
 					{/* For each item in title, render a NebenCard component */}
-					{nebens.map((neben, index) => {
-						return <NebenCard neben={neben} key={index} />;
+					{candidate.sideJobs.map((sideJob, index) => {
+						return <SideJobCard sideJob={sideJob} key={index} />;
 					})}
 				</div>
 			</IonContent>
