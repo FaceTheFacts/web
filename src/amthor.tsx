@@ -1,4 +1,5 @@
 export const amthor = {
+    id: 1,
     name: 'Philipp Amthor',
 	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
 	image:
