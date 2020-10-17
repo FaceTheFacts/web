@@ -2,6 +2,7 @@ import React from 'react';
 import { IonButton, IonFabButton, IonFab, IonRouterOutlet } from '@ionic/react';
 import { useHistory } from 'react-router';
 import './SubHeading.css';
+import PropTypes from 'prop-types'
 
 interface SubheadingProps {
 	icon?: string;
@@ -61,5 +62,11 @@ const SubHeading: React.FC<SubheadingProps> = ({ name, buttonAction, icon }) => 
 		);
 	}
 };
+
+SubHeading.propTypes = {
+	icon: PropTypes.string,
+	buttonAction: PropTypes.string,
+	name: PropTypes.string.isRequired
+}
 
 export default SubHeading;
