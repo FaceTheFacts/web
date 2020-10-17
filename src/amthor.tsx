@@ -15,7 +15,7 @@ export const amthor = {
         {
             subtitle: 'Beschlussempfehlung',
             title: 'Bundeswehreinsatz in Afghanistan',
-            candidateVote: 'yes',
+            candidateVote: 'yes' as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Verteidigung',
                 icon: 'assets/icon/shield-light.svg'
@@ -44,7 +44,7 @@ export const amthor = {
         {
             subtitle: 'Beschlussempfehlung',
             title: 'Geflüchtete aus Moria in Deutschland aufnehmen',
-            candidateVote: 'no',
+            candidateVote: 'no' as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Heimat',
                 icon: 'assets/icon/landmark-light.svg'
@@ -73,7 +73,7 @@ export const amthor = {
         {
             subtitle: '',
             title: 'Finanzielle Entlastung für Kommunen',
-            candidateVote: 'yes',
+            candidateVote: 'yes' as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Finanzen',
                 icon: 'assets/icon/sack-dollar-light.svg'
@@ -102,7 +102,7 @@ export const amthor = {
         {
             subtitle: 'Gesetzesentwurf',
             title: 'Verkleinerung des Bundestages',
-            candidateVote: 'no',
+            candidateVote: 'no'  as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Justiz',
                 icon: 'assets/icon/balance-scale-left-light.svg'
@@ -131,7 +131,7 @@ export const amthor = {
         {
             subtitle: 'Antrag',
             title: 'Regelsatz der Grundsicherung erhöhen',
-            candidateVote: 'no',
+            candidateVote: 'no' as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Soziales',
                 icon: 'assets/icon/user-friends-light.svg'
@@ -160,7 +160,7 @@ export const amthor = {
         {
             subtitle: 'Gesetzesentwürfe ',
             title: 'Organspenden-Reform: Zustimmungslösung',
-            candidateVote: 'no',
+            candidateVote: 'no'  as "yes" | "no" | "abstain" | "none",
             chip: {
                 name: 'Gesundheit',
                 icon: 'assets/icon/heartbeat-light.svg'

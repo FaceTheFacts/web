@@ -1,18 +1,18 @@
 // SideJob Type
 export type SideJob = {
-	organisation: String;
-	position: String;
+	organisation: string;
+	position: string;
 };
 
 export type ControversyArticle = {
-    label: String;
+    label: string;
     image: URL;
     url: URL;
-    publisher: String;
+    publisher: string;
 }
 
 export type Controversy = {
-    label: String;
+    label: string;
     articles: Array<ControversyArticle>;
 }
 
@@ -20,10 +20,10 @@ export type Controversy = {
 // Candidate Type
 export type Candidate = {
     id: number;
-	name: String;
+	name: string;
 	chips: Array<string>;
 	image: URL; // maybe we can make a url type based on regex?
-	party: String;
+	party: string;
     sideJobs: Array<SideJob>;
     polls: Array<Poll>;
     controversies: Array<Controversy>;
@@ -38,21 +38,26 @@ export type CoreVoteResult = {
     none: number;
 }
 
+export interface PartyVoteResult extends CoreVoteResult {
+    partyName: string;
+    partyTotal: number;
+}
+
 export type VoteResult = {
     total: CoreVoteResult
-    partyResult: Array<CoreVoteResult>;
+    partyResult: Array<PartyVoteResult>;
 }
 
 // Poll Type
 export type Poll = {
-	title: String;
-	subtitle: String;
-    candidateVote: String;
+	title: string;
+	subtitle: string;
+    candidateVote: "yes" | "no" | "abstain" | "none";
     chip: {
-        name: String,
-        icon: String
+        name: string,
+        icon: string
     };
-    abstract: String;
-    reason: String;
+    abstract: string;
+    reason: string;
     result: VoteResult;
 };
