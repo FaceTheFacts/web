@@ -11,15 +11,34 @@ export type Candidate = {
 	chips: Array<string>;
 	image: URL; // maybe we can make a url type based on regex?
 	party: String;
-	sideJobs: Array<SideJob>;
+    sideJobs: Array<SideJob>;
+    polls: Array<Poll>;
 };
 
-// Vote Type
-type Vote = 'yes' | 'no' | 'abstain' | 'none';
+
+
+export type CoreVoteResult = {
+    yes: number;
+    no: number;
+    abstain: number;
+    none: number;
+}
+
+export type VoteResult = {
+    total: CoreVoteResult
+    partyResult: Array<CoreVoteResult>;
+}
 
 // Poll Type
-type Poll = {
+export type Poll = {
 	title: String;
 	subtitle: String;
-	candidateVote: Vote;
+    candidateVote: String;
+    chip: {
+        name: String,
+        icon: String
+    };
+    abstract: String;
+    reason: String;
+    result: VoteResult;
 };
