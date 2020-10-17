@@ -9,6 +9,8 @@ import 'jest-canvas-mock';
 
 import Profile from './Profile';
 
+import {amthor} from '../amthor';
+
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
@@ -26,20 +28,7 @@ afterEach(() => {
 	}
 });
 
-const candidate = {
-	id: '1',
-	name: 'Philipp Amthor',
-	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
-	image:
-		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
-	party: 'CDU/CSU',
-	sideJobs: [
-		{
-			organisation: 'Sparkasse Uecker-Randow',
-			position: 'Mitglied des Verwaltungsrates',
-		},
-	],
-};
+const candidate = amthor;
 
 test('renders with correct profile header', () => {
 	// this will change after we remove the hard coded data
@@ -63,7 +52,7 @@ test('renders with correct profile header', () => {
 
 		expect(
 			getByTestId(container, 'profile-img-url').getAttribute('src')
-		).toBe(candidate.image);
+		).toBe(String(candidate.image));
 	}
 });
 
