@@ -112,13 +112,44 @@ const kontros = [
 	},
 ];
 
+// Candidate Type
+type Candidate = {
+	name: String;
+	chips: Array<string>;
+	image: String; // maybe we can make a url type based on regex?
+	party: String;
+	sideJobs: Array<SideJob>;
+};
+
+// SideJob Type
+type SideJob = {
+	organisation: String;
+	position: String;
+};
+
+// Vote Type
+type Vote = 'yes' | 'no' | 'abstain' | 'none';
+
+// Poll Type
+type Poll = {
+	title: String;
+	subtitle: String;
+	candidateVote: Vote;
+};
+
 /*Hardcoded politician header for now*/
-const politician = {
+const politician: Candidate = {
 	name: 'Philipp Amthor',
 	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
 	image:
 		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
 	party: 'CDU/CSU',
+	sideJobs: [
+		{
+			organisation: 'Sparkasse Uecker-Randow',
+			position: 'Mitglied des Verwaltungsrates',
+		},
+	],
 };
 
 /* Hardcoded for now until passed in from the API */
