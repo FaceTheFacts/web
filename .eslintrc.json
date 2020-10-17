@@ -26,6 +26,6 @@
 		"import/extensions": ["warn", "ignorePackages"],
 		"quotes": ["warn", "single"],
 		"no-restricted-syntax": ["off"],
-		"semi-style": ["warning", "last"]
+		"semi-style": ["warn", "last"]
 	}
 }
