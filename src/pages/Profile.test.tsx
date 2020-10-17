@@ -29,9 +29,16 @@ afterEach(() => {
 const candidate = {
 	id: '1',
 	name: 'Philipp Amthor',
+	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
 	image:
 		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
 	party: 'CDU/CSU',
+	sideJobs: [
+		{
+			organisation: 'Sparkasse Uecker-Randow',
+			position: 'Mitglied des Verwaltungsrates',
+		},
+	],
 };
 
 test('renders with correct profile header', () => {
@@ -44,7 +51,7 @@ test('renders with correct profile header', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile />
+			<Profile candidate={candidate}/>
 		</Router>,
 		container
 	);
@@ -70,7 +77,7 @@ test('renders with correct subheadings', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile />
+			<Profile candidate={candidate}/>
 		</Router>,
 		container
 	);
@@ -109,7 +116,7 @@ test('renders with correct sidejobs', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile />
+			<Profile candidate={candidate}/>
 		</Router>,
 		container
 	);
