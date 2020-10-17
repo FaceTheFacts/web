@@ -122,40 +122,6 @@ const nebens = [
 	},
 ];
 
-// Hardcoded votes until we connect to our API
-const votes = [
-	{
-		subtitle: 'Beschlussempfehlung',
-		title: 'Bundeswehreinsatz in Afghanistan',
-		candidateVote: 'yes',
-		chip: {
-			name: 'Verteidigung',
-			icon: 'assets/icon/shield-light.svg',
-		},
-		abstract:
-			'Beschlussempfehlung des auswärtigen Ausschusses zum Antrag der Regierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am Nato-geführten Einsatz. Support für die Ausbildung, Beratung und Unterstützung der afghanischen Verteidigung- und Sicherheitskräfte im Land.',
-		reason:
-			'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
-		result: {
-			total: {
-				yes: 356,
-				no: 159,
-				abstain: 21,
-				none: 173,
-			},
-			partyResult: [
-				{
-					partyName: 'CDU/CSU',
-					yes: 200,
-					no: 0,
-					abstain: 0,
-					none: 46,
-					partyTotal: 246,
-				},
-			],
-		},
-	},
-];
 interface ProfileProps {
 	candidate: Candidate;
 }
@@ -167,8 +133,6 @@ const Profile: React.FC<ProfileProps> = ({
 	
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
-
-	const [polls, setPolls] = useState(votes);
 
 	/* This is returned when using this component */
 	return (
@@ -209,8 +173,12 @@ const Profile: React.FC<ProfileProps> = ({
 				</div>
 
 				<div className="grey-back">
-					{/* For each vote in votes, render a VoteCard component */}
-					{polls.map((poll, index) => {
+					{/* 
+					For each vote in votes, render a VoteCard component 
+					Only the first vote for now, until we display them horizontally
+					*/}
+					{candidate.polls.map((poll, index) => {
+						if (index === 0)
 						return <VoteCard vote={poll} key={index} />;
 					})}
 				</div>
