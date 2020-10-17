@@ -19,7 +19,7 @@ import {
 	IonFabButton,
 	IonRouterOutlet,
 } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { IonReactRouter } from '@ionic/react-router';
 import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 import { useParams } from 'react-router';
@@ -201,6 +201,8 @@ const Profile: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	//const { name } = useParams<{ name: string }>();
 	const { id } = useParams<{ id: string }>();
+	const [candidate, setCandidate] = useState(politician);
+	const [polls, setPolls] = useState(votes);
 
 	/* This is returned when using this component */
 	return (
@@ -219,7 +221,7 @@ const Profile: React.FC = () => {
 				to make our life easier when we add the profiles images of new politicians.
 				The politicans name is included on the ProfileImg */}
 				<div className="profile-header">
-					<PoliticianProfile politician={politician} />
+					<PoliticianProfile politician={candidate} />
 
 					{/* Here we include the Fab menu button */}
 					<IonFab vertical="top" horizontal="end">
@@ -242,8 +244,8 @@ const Profile: React.FC = () => {
 
 				<div className="grey-back">
 					{/* For each vote in votes, render a VoteCard component */}
-					{votes.map((vote, index) => {
-						return <VoteCard vote={vote} key={index} />;
+					{polls.map((poll, index) => {
+						return <VoteCard vote={poll} key={index} />;
 					})}
 				</div>
 
