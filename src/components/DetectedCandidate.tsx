@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	IonGrid,
 	IonRow,
 	IonCol,
 	IonImg,
 	IonChip,
-	IonIcon,
 	IonItem,
 } from '@ionic/react';
-import { chevronForwardOutline } from 'ionicons/icons';
 import './DetectedCandidate.css';
 import { useHistory } from 'react-router';
 import log from 'loglevel';
