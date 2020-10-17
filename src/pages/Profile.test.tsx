@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import {renderHook} from '@testing-library/react-hooks'
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -39,7 +40,7 @@ test('renders with correct profile header', () => {
 	// we will also have to mock the API responses
 
 	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/votes`],
+		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
 	render(
 		<Router history={history}>
@@ -65,7 +66,7 @@ test('renders with correct subheadings', () => {
 	// we will also have to mock the API responses
 
 	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/votes`],
+		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
 	render(
 		<Router history={history}>
@@ -90,5 +91,36 @@ test('renders with correct subheadings', () => {
 		expect(
 			getByTestId(container, 'profile-subheading-sidejobs').textContent
 		).toBe('Bekannte Nebentätigkeiten');
+	}
+});
+
+test('renders with correct sidejobs', () => {
+	// this will change after we remove the hard coded data
+	// we can probably skip most of this and test for the correct API calls
+	// we will also have to mock the API responses
+
+	const sidejob = {
+		position: 'Mitglied des Verwaltungsrates',
+		organisation: 'Sparkasse Uecker-Randow',
+	};
+
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile />
+		</Router>,
+		container
+	);
+
+	if (container !== null) {
+		expect(getByTestId(container, 'profile-sidejob-organisation').textContent).toBe(
+			sidejob.organisation
+		);
+
+		expect(
+			getByTestId(container, 'profile-sidejob-position').textContent
+		).toBe(sidejob.position);
 	}
 });
