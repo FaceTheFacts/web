@@ -2,7 +2,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Menu from './components/Menu';
 import Page from './pages/Page';
 import Discover from './pages/Discover';
@@ -31,10 +31,10 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Global Types */
-import {Candidate} from './Types'
+import { Candidate } from './Types';
 
 /* Hardcoded Amthor */
-import {amthor} from './amthor'
+import { amthor } from './amthor';
 
 const politician: Candidate = amthor;
 
@@ -56,10 +56,12 @@ const App: React.FC = () => {
 						<Route path="/discover" component={Discover} exact />
 						{/* <Route path="/scan" component={Scan} exact /> */}
 						<Route path="/search" component={Search} exact />
-						<Route
-							path="/politician/:id/profile"
-							exact
-						><Profile candidate={candidate as Candidate} setCandidate={setCandidate}></Profile></Route>
+						<Route path="/politician/:id/profile" exact>
+							<Profile
+								candidate={candidate as Candidate}
+								setCandidate={setCandidate}
+							></Profile>
+						</Route>
 						<Route
 							path="/politician/:id/votes"
 							component={Votes}
