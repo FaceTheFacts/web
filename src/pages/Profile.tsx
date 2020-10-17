@@ -158,12 +158,11 @@ const votes = [
 ];
 interface ProfileProps {
 	candidate: Candidate;
-	setCandidate: Function;
 }
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC<ProfileProps> = ({
-	candidate, setCandidate
+	candidate
 }) => {
 	
 	/* Here we define the variable 'name' to be used as a parameter in components */
