@@ -262,5 +262,15 @@ export const amthor = {
                 },
             ],
         },
-    ]
+    ],
+    constituency: {
+        numberLabel: 'Wahlkreis 016',
+        label: 'Mecklenburgische Seenplatte I - Vorpommern-Greifswald II',
+        postcodes: [
+            '98559',
+            '99102',
+            '99189',
+            '99310'
+        ]
+    }
 }

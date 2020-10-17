@@ -27,6 +27,7 @@ export type Candidate = {
     sideJobs: Array<SideJob>;
     polls: Array<Poll>;
     controversies: Array<Controversy>;
+    constituency: Constituency;
 };
 
 
@@ -61,3 +62,9 @@ export type Poll = {
     reason: string;
     result: VoteResult;
 };
+
+export type Constituency = {
+    numberLabel: string;
+    label: string;
+    postcodes: Array<string>;
+}
