@@ -6,6 +6,7 @@ export type SideJob = {
 
 // Candidate Type
 export type Candidate = {
+    id: number;
 	name: String;
 	chips: Array<string>;
 	image: URL; // maybe we can make a url type based on regex?
