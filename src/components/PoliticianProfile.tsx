@@ -1,16 +1,9 @@
 import React from 'react';
 import {
-	IonList,
-	IonItem,
-	IonThumbnail,
-	IonImg,
-	IonLabel,
-	IonContent,
 	IonChip,
-	IonIcon,
-	IonAvatar,
 } from '@ionic/react';
 import './PoliticianProfile.css';
+import PropTypes from 'prop-types';
 
 interface ContainerProps {
 	politician: any;
@@ -37,5 +30,9 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }) => {
 		</div>
 	);
 };
+
+PoliticianProfile.propTypes = {
+	politician: PropTypes.any.isRequired
+}
 
 export default PoliticianProfile;
