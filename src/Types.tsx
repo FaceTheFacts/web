@@ -4,6 +4,19 @@ export type SideJob = {
 	position: String;
 };
 
+export type ControversyArticle = {
+    label: String;
+    image: URL;
+    url: URL;
+    publisher: String;
+}
+
+export type Controversy = {
+    label: String;
+    articles: Array<ControversyArticle>;
+}
+
+
 // Candidate Type
 export type Candidate = {
     id: number;
@@ -13,6 +26,7 @@ export type Candidate = {
 	party: String;
     sideJobs: Array<SideJob>;
     polls: Array<Poll>;
+    controversies: Array<Controversy>;
 };
 
 
