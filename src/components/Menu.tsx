@@ -101,6 +101,9 @@ const Menu: React.FC = () => {
 						);
 					})}
 				</IonList>
+				<IonNote className='menu-footer'>
+					Built with &#10084;&#65039; &nbsp;in Berlin
+				</IonNote>
 			</IonContent>
 		</IonMenu>
 	);
