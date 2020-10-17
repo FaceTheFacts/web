@@ -167,7 +167,7 @@ const Profile: React.FC<ProfileProps> = ({
 
 				<div className="grey-back">
 					{/* For each item in kontro, render a KontroCard component */}
-					{kontros.map((kontro, index) => {
+					{candidate.controversies.map((kontro, index) => {
 						return <KontroCard kontro={kontro} key={index} />;
 					})}
 				</div>
