@@ -14,15 +14,12 @@ import { useParams } from 'react-router';
 import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
-import {Candidate} from '../Types';
+import { Candidate } from '../Types';
 interface DiscoverProps {
 	candidate: Candidate;
 	setCandidate: Function;
 }
-const Discover: React.FC<DiscoverProps> = ({
-	candidate,
-	setCandidate
-}) => {
+const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }) => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
@@ -47,24 +44,12 @@ const Discover: React.FC<DiscoverProps> = ({
 					>
 						<IonIcon icon={closeOutline}></IonIcon>
 					</IonFabButton>
-					<CameraView
-						setShowPopover={setShowPopover}
-						setCandidate={setCandidate}
-					/>
+					<CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
 				</IonModal>
 				<div className="discover-page">
-					<div
-						className="camera-icon-background"
-						onClick={() => setShowCamera(true)}
-					>
-						<IonImg
-							id="camera-square"
-							src="../assets/icon/camera-square.svg"
-						></IonImg>
-						<IonImg
-							id="camera-icon"
-							src="../assets/icon/camera-solid.svg"
-						></IonImg>
+					<div className="camera-icon-background" onClick={() => setShowCamera(true)}>
+						<IonImg id="camera-square" src="../assets/icon/camera-square.svg"></IonImg>
+						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
 					</div>
 
 					<IonInput

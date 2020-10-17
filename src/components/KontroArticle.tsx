@@ -1,7 +1,7 @@
-import React from "react";
-import { IonCard, IonCardHeader, IonCardSubtitle } from "@ionic/react";
-import {ControversyArticle} from '../Types';
-import "./KontroArticle.css";
+import React from 'react';
+import { IonCard, IonCardHeader, IonCardSubtitle } from '@ionic/react';
+import { ControversyArticle } from '../Types';
+import './KontroArticle.css';
 interface ContainerProps {
 	article: ControversyArticle;
 }
@@ -13,9 +13,7 @@ const KontroArticle: React.FC<ContainerProps> = ({ article }) => {
 			<img className="publisher-image" src={publisher_logo}></img>
 			<img className="article-image" src={String(article.image)}></img>
 			<IonCardHeader className="article-header">
-				<IonCardSubtitle className="article-label">
-					{article.label}
-				</IonCardSubtitle>
+				<IonCardSubtitle className="article-label">{article.label}</IonCardSubtitle>
 			</IonCardHeader>
 		</IonCard>
 	);

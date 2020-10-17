@@ -1,14 +1,7 @@
-import React from "react";
-import {
-	IonButton,
-	IonIcon,
-	IonContent,
-	IonThumbnail,
-	IonLabel,
-	IonItem,
-} from "@ionic/react";
-import { star } from "ionicons/icons";
-import "./PartyMatch.css";
+import React from 'react';
+import { IonButton, IonIcon, IonContent, IonThumbnail, IonLabel, IonItem } from '@ionic/react';
+import { star } from 'ionicons/icons';
+import './PartyMatch.css';
 interface ContainerProps {
 	name: string;
 }
@@ -16,34 +9,34 @@ interface ContainerProps {
 /* Hardcode parties and percentages until the api can answer this question */
 const parties = [
 	{
-		name: "CDU",
-		image: "assets/image/cdu.png",
-		filter: "",
-		percentage: "96%",
+		name: 'CDU',
+		image: 'assets/image/cdu.png',
+		filter: '',
+		percentage: '96%',
 	},
 	{
-		name: "SPD",
-		image: "assets/image/spd.png",
-		filter: "",
-		percentage: "96%",
+		name: 'SPD',
+		image: 'assets/image/spd.png',
+		filter: '',
+		percentage: '96%',
 	},
 	{
-		name: "FDP",
-		image: "assets/image/fdp.png",
-		filter: "",
-		percentage: "73%",
+		name: 'FDP',
+		image: 'assets/image/fdp.png',
+		filter: '',
+		percentage: '73%',
 	},
 	{
-		name: "Die Grünen",
-		image: "assets/image/gruen.png",
-		filter: "",
-		percentage: "63%",
+		name: 'Die Grünen',
+		image: 'assets/image/gruen.png',
+		filter: '',
+		percentage: '63%',
 	},
 	{
-		name: "Alternative für Deutschland",
-		image: "assets/image/afd.png",
-		filter: "",
-		percentage: "3%",
+		name: 'Alternative für Deutschland',
+		image: 'assets/image/afd.png',
+		filter: '',
+		percentage: '3%',
 	},
 ];
 
@@ -60,9 +53,7 @@ const PartyMatch: React.FC<ContainerProps> = ({ name }) => {
 							<IonThumbnail className="party-thumbnail">
 								<img src={party.image}></img>
 							</IonThumbnail>
-							<IonLabel className="party-percentage">
-								{party.percentage}
-							</IonLabel>
+							<IonLabel className="party-percentage">{party.percentage}</IonLabel>
 						</div>
 					);
 				})}

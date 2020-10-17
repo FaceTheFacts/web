@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
 	IonList,
 	IonItem,
@@ -9,8 +9,8 @@ import {
 	IonChip,
 	IonIcon,
 	IonAvatar,
-} from "@ionic/react";
-import "./PoliticianProfile.css";
+} from '@ionic/react';
+import './PoliticianProfile.css';
 
 interface ContainerProps {
 	politician: any;

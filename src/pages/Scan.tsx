@@ -7,32 +7,29 @@ import {
 	IonPage,
 	IonTitle,
 	IonToolbar,
-} from "@ionic/react";
-import React from "react";
-import { withRouter, RouteComponentProps } from "react-router-dom";
-import {
-	useCamera,
-	availableFeatures,
-} from "@capacitor-community/react-hooks/camera";
-import { CameraResultType, Camera } from "@capacitor/core";
+} from '@ionic/react';
+import React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useCamera, availableFeatures } from '@capacitor-community/react-hooks/camera';
+import { CameraResultType, Camera } from '@capacitor/core';
 import {
 	CameraPreview,
 	CameraPreviewPictureOptions,
 	CameraPreviewOptions,
 	CameraPreviewDimensions,
-} from "@ionic-native/camera-preview";
+} from '@ionic-native/camera-preview';
 
-import { Plugins } from "@capacitor/core";
+import { Plugins } from '@capacitor/core';
 //import "capacitor-plugin-camera-preview"
 
-import { useParams } from "react-router";
-import ExploreContainer from "../components/ExploreContainer";
-import "./Page.css";
-import CameraView from "../components/CameraView";
+import { useParams } from 'react-router';
+import ExploreContainer from '../components/ExploreContainer';
+import './Page.css';
+import CameraView from '../components/CameraView';
 
 class Scan extends React.PureComponent<RouteComponentProps> {
 	//name = useParams<{ name: string }>();
-	name = "Scan";
+	name = 'Scan';
 	/* photo = useCamera();
 	getPhoto = useCamera(); */
 
@@ -52,7 +49,7 @@ class Scan extends React.PureComponent<RouteComponentProps> {
 		y: 0,
 		width: window.screen.width,
 		height: window.screen.height * 0.8,
-		camera: "rear",
+		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
 		toBack: true,
@@ -128,9 +125,7 @@ class Scan extends React.PureComponent<RouteComponentProps> {
 								Take Snapshot
 							</IonButton>
 							*/}
-					<IonButton onClick={this.showCamera}>
-						Start Camera Preview
-					</IonButton>
+					<IonButton onClick={this.showCamera}>Start Camera Preview</IonButton>
 
 					{/* { this.state.showingCamera ? <CameraView /> : null } */}
 				</IonContent>

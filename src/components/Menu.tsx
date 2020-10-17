@@ -8,10 +8,10 @@ import {
 	IonMenu,
 	IonMenuToggle,
 	IonNote,
-} from "@ionic/react";
+} from '@ionic/react';
 
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import {
 	searchOutline,
 	searchSharp,
@@ -20,8 +20,8 @@ import {
 	homeSharp,
 	cameraOutline,
 	cameraSharp,
-} from "ionicons/icons";
-import "./Menu.css";
+} from 'ionicons/icons';
+import './Menu.css';
 
 /* Interface is how types are defined in typescript. This should appear throughout the app and makes it typesafe */
 interface AppPage {
@@ -34,31 +34,30 @@ interface AppPage {
 /* Hardcoded app pages, this might not need to change. */
 const appPages: AppPage[] = [
 	{
-		title: "Scan",
-		url: "/discover",
+		title: 'Scan',
+		url: '/discover',
 		iosIcon: cameraOutline,
 		mdIcon: cameraSharp,
 	},
 	{
-		title: "Search",
-		url: "/discover",
+		title: 'Search',
+		url: '/discover',
 		iosIcon: searchOutline,
 		mdIcon: searchSharp,
 	},
 	{
-		title: "Profile",
-		url: "/politician/1/profile",
+		title: 'Profile',
+		url: '/politician/1/profile',
 		iosIcon: homeOutline,
 		mdIcon: homeSharp,
 	},
 	{
-		title: "Votes",
-		url: "/politician/1/votes",
+		title: 'Votes',
+		url: '/politician/1/votes',
 		iosIcon: homeOutline,
 		mdIcon: homeSharp,
 	},
 ];
-
 
 /* Menu component. */
 const Menu: React.FC = () => {
@@ -77,11 +76,7 @@ const Menu: React.FC = () => {
 							<IonMenuToggle key={index} autoHide={false}>
 								<IonItem
 									/* Hightlight selected page */
-									className={
-										location.pathname === appPage.url
-											? "selected"
-											: ""
-									}
+									className={location.pathname === appPage.url ? 'selected' : ''}
 									/* connect to router from App.tsx */
 									routerLink={appPage.url}
 									routerDirection="none"
@@ -101,7 +96,7 @@ const Menu: React.FC = () => {
 						);
 					})}
 				</IonList>
-				<IonNote className='menu-footer'>
+				<IonNote className="menu-footer">
 					Built with &#10084;&#65039; &nbsp;in Berlin
 				</IonNote>
 			</IonContent>

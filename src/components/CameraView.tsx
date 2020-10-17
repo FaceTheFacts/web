@@ -4,18 +4,14 @@ import log from 'loglevel';
 
 //import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
-import {
-	BlazeFaceModel,
-	load,
-	NormalizedFace,
-} from '@tensorflow-models/blazeface';
+import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazeface';
 
 import { createWorker, createScheduler } from 'tesseract.js';
 import Fuse from 'fuse.js';
 
 import './CameraView.css';
 
-import {amthor} from '../amthor'
+import { amthor } from '../amthor';
 
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
@@ -126,8 +122,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		this.stream = await this.getVideoStream();
 		await this.setAspectRatio();
-		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings()
-			.height as number;
+		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
 
 		this.initVideo();
 		this.initCanvas();
@@ -146,12 +141,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		if (this.videoRef.current !== null) {
 			this.videoRef.current.width = this.cameraOpts.width;
 			this.videoRef.current.height = this.cameraOpts.height;
-			this.videoRef.current.style.width = String(
-				`${this.cameraOpts.width}px`
-			);
-			this.videoRef.current.style.height = String(
-				`${this.cameraOpts.height}px`
-			);
+			this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
+			this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
 			this.videoRef.current.srcObject = this.stream as MediaStream;
 
 			// add event listeners for play and onloadedmetadata events
@@ -228,10 +219,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			await this.initializeTesseract();
 		}
 
-		const result = await this.scheduler.addJob(
-			'recognize',
-			this.canvasOCRRef.current
-		);
+		const result = await this.scheduler.addJob('recognize', this.canvasOCRRef.current);
 		const results = result.data.text.split('\n');
 
 		return new Promise((resolve, reject) => {
@@ -243,9 +231,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	async fuseSearchResults(
-		results: String[]
-	): Promise<{ result: {}; query: string; id: number }> {
+	async fuseSearchResults(results: String[]): Promise<{ result: {}; query: string; id: number }> {
 		const candidates = [
 			{
 				name: 'philipp amthor',
@@ -392,9 +378,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	showDetections = (predictions: NormalizedFace[]) => {
 		const ua = navigator.userAgent.toLowerCase();
 		const isSafari = ua.includes('safari') && ua.indexOf('chrome') == -1;
-		const ctx = this.canvasRef.current?.getContext(
-			'2d'
-		) as CanvasRenderingContext2D;
+		const ctx = this.canvasRef.current?.getContext('2d') as CanvasRenderingContext2D;
 		if (ctx) {
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -410,14 +394,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			}
 
 			predictions.forEach((prediction) => {
-				const start: [number, number] = prediction.topLeft as [
-					number,
-					number
-				];
-				const end: [number, number] = prediction.bottomRight as [
-					number,
-					number
-				];
+				const start: [number, number] = prediction.topLeft as [number, number];
+				const end: [number, number] = prediction.bottomRight as [number, number];
 
 				var probability = prediction.probability as number;
 

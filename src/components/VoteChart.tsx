@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./VoteChart.css";
+import React, { useState, useEffect } from 'react';
+import './VoteChart.css';
 import {
 	IonContent,
 	IonHeader,
@@ -17,8 +17,8 @@ import {
 	IonButton,
 	ViewStacks,
 	useIonViewWillEnter,
-} from "@ionic/react";
-import { HorizontalBar } from "react-chartjs-2";
+} from '@ionic/react';
+import { HorizontalBar } from 'react-chartjs-2';
 
 /* 
 Register the ChartProps interface so we can pass properties to the component. 
@@ -52,13 +52,15 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 				{
 					ticks: {
 						display: false, //hide the horizontal axis and it's values
-						max: //set the max so the chart always fills the whole bar
+						//set the max so the chart always fills the whole bar
+						max:
 							vote.result.total.yes +
 							vote.result.total.no +
 							vote.result.total.abstain +
 							vote.result.total.none,
 					},
-					gridLines: { // hide gridlines
+					gridLines: {
+						// hide gridlines
 						display: false,
 						drawBorder: false,
 					},
@@ -70,7 +72,8 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 			],
 			yAxes: [
 				{
-					gridLines: { // hide gridlines
+					gridLines: {
+						// hide gridlines
 						display: false,
 						drawBorder: false,
 					},
@@ -91,30 +94,30 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 			datasets: [
 				{
 					label: `Ja: ${vote.result.total.yes}`,
-					backgroundColor: "#14B83A",
+					backgroundColor: '#14B83A',
 					borderWidth: 0,
-					hoverBackgroundColor: "#14B83A",
+					hoverBackgroundColor: '#14B83A',
 					data: [vote.result.total.yes],
 				},
 				{
-					label: "Nein",
-					backgroundColor: "#DE2B5E",
+					label: 'Nein',
+					backgroundColor: '#DE2B5E',
 					borderWidth: 0,
-					hoverBackgroundColor: "#DE2B5E",
+					hoverBackgroundColor: '#DE2B5E',
 					data: [vote.result.total.no],
 				},
 				{
-					label: "Enthalten",
-					backgroundColor: "#16A6CA",
+					label: 'Enthalten',
+					backgroundColor: '#16A6CA',
 					borderWidth: 0,
-					hoverBackgroundColor: "#16A6CA",
+					hoverBackgroundColor: '#16A6CA',
 					data: [vote.result.total.abstain],
 				},
 				{
-					label: "Nicht abg.",
-					backgroundColor: "#808080",
+					label: 'Nicht abg.',
+					backgroundColor: '#808080',
 					borderWidth: 0,
-					hoverBackgroundColor: "#808080",
+					hoverBackgroundColor: '#808080',
 					data: [vote.result.total.none],
 				},
 			],

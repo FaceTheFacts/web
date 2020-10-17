@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-	IonGrid,
-	IonRow,
-	IonCol,
-	IonImg,
-	IonChip,
-	IonItem,
-} from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonImg, IonChip, IonItem } from '@ionic/react';
 import './DetectedCandidate.css';
 import { useHistory } from 'react-router';
 import log from 'loglevel';
-import {Candidate} from '../Types';
+import { Candidate } from '../Types';
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
@@ -20,18 +13,17 @@ interface ContainerProps {
 const DetectedCandidate: React.FC<ContainerProps> = ({
 	setShowPopover,
 	setShowCamera,
-	candidate
+	candidate,
 }) => {
 	const history = useHistory();
 
 	const navigateToProfile = () => {
-		if (candidate !== null){
+		if (candidate !== null) {
 			log.debug(`navigating to profile ${candidate.id}`);
 			history.push(`/politician/${candidate.id}/profile`);
 			setShowCamera(false);
 			setShowPopover(false);
 		}
-
 	};
 	return (
 		<div className="detected-candidate-popover">
@@ -39,26 +31,19 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 				<IonRow className="constituency-row">
 					<IonCol size="6">
 						<p className="constituency-number">{candidate.constituency.numberLabel}</p>
-						<p className="constituency-label">
-						{candidate.constituency.label}
-						</p>
+						<p className="constituency-label">{candidate.constituency.label}</p>
 					</IonCol>
 					<IonCol size="6">
-						<p className="postcode-label">
-							Postleitzahlen im Wahlkreis
-						</p>
+						<p className="postcode-label">Postleitzahlen im Wahlkreis</p>
 						<p className="constituency-postcodes">
 							{candidate.constituency.postcodes.map((postcode) => {
-								return(postcode)
+								return postcode;
 							})}
 						</p>
 					</IonCol>
 				</IonRow>
 				<IonRow className="candidate-row">
-					<IonItem
-						className="candidate-item"
-						onClick={navigateToProfile}
-					>
+					<IonItem className="candidate-item" onClick={navigateToProfile}>
 						<IonCol size="4">
 							<div className="detected-candidate-image-container">
 								<IonImg
@@ -68,12 +53,8 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 							</div>
 						</IonCol>
 						<IonCol size="8">
-							<h3 className="detected-candidate-name">
-								{candidate.name}
-							</h3>
-							<IonChip className="detected-candidate-chip">
-								{candidate.party}
-							</IonChip>
+							<h3 className="detected-candidate-name">{candidate.name}</h3>
+							<IonChip className="detected-candidate-chip">{candidate.party}</IonChip>
 							{/* <IonIcon
 							className="detected-candidate-icon"
 							icon={chevronForwardOutline}

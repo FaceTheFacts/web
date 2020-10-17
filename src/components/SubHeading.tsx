@@ -12,11 +12,7 @@ interface SubheadingProps {
 }
 
 /* This is just a simple component to repeat the subheading wherever we need it */
-const SubHeading: React.FC<SubheadingProps> = ({
-	name,
-	buttonAction,
-	icon,
-}) => {
+const SubHeading: React.FC<SubheadingProps> = ({ name, buttonAction, icon }) => {
 	var heading = null;
 	var headingIcon = null;
 
