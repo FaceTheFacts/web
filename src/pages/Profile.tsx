@@ -229,7 +229,10 @@ const Profile: React.FC = () => {
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 
-				<div className="subheading-button-underlay">
+				<div
+					className="subheading-button-underlay"
+					data-testid="profile-subheading-votes"
+				>
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
@@ -246,7 +249,7 @@ const Profile: React.FC = () => {
 
 				{/* Pass name to Subheading to be in control of the sub heading text */}
 
-				<div>
+				<div data-testid="profile-subheading-controversies">
 					<SubHeading name="Kontroversen" icon="infobutton.svg" />
 				</div>
 
@@ -257,7 +260,7 @@ const Profile: React.FC = () => {
 					})}
 				</div>
 
-				<div>
+				<div data-testid="profile-subheading-sidejobs">
 					<SubHeading
 						name="Bekannte Nebentätigkeiten"
 						icon="infobutton.svg"
