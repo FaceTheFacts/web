@@ -2,36 +2,17 @@ import {
 	IonContent,
 	IonHeader,
 	IonPage,
-	IonTitle,
-	IonToolbar,
-	IonCard,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
-	IonCardContent,
-	IonItem,
-	IonIcon,
-	IonLabel,
-	IonButton,
-	IonButtons,
-	IonMenuButton,
 	IonFab,
-	IonFabButton,
-	IonRouterOutlet,
 } from '@ionic/react';
-import React, { useState } from 'react';
-import { IonReactRouter } from '@ionic/react-router';
-import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
+import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
 import SubHeading from '../components/SubHeading';
-import Menu from '../components/Menu';
 import VoteCard from '../components/VoteCard';
 import MenuButton from '../components/MenuButton';
 import NebenCard from '../components/NebenCard';
 import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
-import Votes from '../pages/Votes';
 import './Profile.css';
 import {Candidate} from '../Types'
 
