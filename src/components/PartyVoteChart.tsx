@@ -1,23 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./VoteChart.css";
-import {
-	IonContent,
-	IonHeader,
-	IonPage,
-	IonTitle,
-	IonToolbar,
-	IonCard,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
-	IonCardContent,
-	IonItem,
-	IonIcon,
-	IonLabel,
-	IonButton,
-	ViewStacks,
-	useIonViewWillEnter,
-} from "@ionic/react";
 import { PieChart } from 'react-minimal-pie-chart';
 import {PartyVoteResult} from '../Types'
 
