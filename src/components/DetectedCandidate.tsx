@@ -12,24 +12,28 @@ import { chevronForwardOutline } from 'ionicons/icons';
 import './DetectedCandidate.css';
 import { useHistory } from 'react-router';
 import log from 'loglevel';
+import {Candidate} from '../Types';
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
-	candidateId: number;
+	candidate: Candidate | null;
 }
 
 const DetectedCandidate: React.FC<ContainerProps> = ({
 	setShowPopover,
 	setShowCamera,
-	candidateId,
+	candidate
 }) => {
 	const history = useHistory();
 
 	const navigateToProfile = () => {
-		log.debug(`navigating to profile ${candidateId}`);
-		history.push(`/politician/${candidateId}/profile`);
-		setShowCamera(false);
-		setShowPopover(false);
+		if (candidate !== null){
+			log.debug(`navigating to profile ${candidate.id}`);
+			history.push(`/politician/${candidate.id}/profile`);
+			setShowCamera(false);
+			setShowPopover(false);
+		}
+
 	};
 	return (
 		<div className="detected-candidate-popover">

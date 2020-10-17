@@ -53,7 +53,9 @@ const App: React.FC = () => {
 							This works by defining a path and telling the router which component
 							(page) to render for that path. */}
 						<Route path="/page/:name" component={Page} exact />
-						<Route path="/discover" component={Discover} exact />
+						<Route path="/discover" exact >
+							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
+						</Route>
 						{/* <Route path="/scan" component={Scan} exact /> */}
 						<Route path="/search" component={Search} exact />
 						<Route path="/politician/:id/profile" exact>
