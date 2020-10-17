@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonContent, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import './NebenCard.css';
 
 import { SideJob } from '../Types';

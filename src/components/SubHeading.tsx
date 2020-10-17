@@ -1,8 +1,6 @@
 import React from 'react';
 import { IonButton, IonFabButton, IonFab, IonRouterOutlet } from '@ionic/react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import Votes from '../pages/Votes';
 import './SubHeading.css';
 
 interface SubheadingProps {

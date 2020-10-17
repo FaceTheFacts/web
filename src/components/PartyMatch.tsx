@@ -1,6 +1,5 @@
 import React from 'react';
-import { IonButton, IonIcon, IonContent, IonThumbnail, IonLabel, IonItem } from '@ionic/react';
-import { star } from 'ionicons/icons';
+import { IonThumbnail, IonLabel } from '@ionic/react';
 import './PartyMatch.css';
 interface ContainerProps {
 	name: string;

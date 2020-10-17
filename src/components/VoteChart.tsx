@@ -1,23 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './VoteChart.css';
-import {
-	IonContent,
-	IonHeader,
-	IonPage,
-	IonTitle,
-	IonToolbar,
-	IonCard,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
-	IonCardContent,
-	IonItem,
-	IonIcon,
-	IonLabel,
-	IonButton,
-	ViewStacks,
-	useIonViewWillEnter,
-} from '@ionic/react';
 import { HorizontalBar } from 'react-chartjs-2';
 
 /* 
