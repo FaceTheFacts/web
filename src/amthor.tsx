@@ -200,8 +200,7 @@ export const amthor = {
 			label: 'Lobbyismus-Affäre',
 			articles: [
 				{
-					label:
-						'Geschäftsführer von Augustus Intelligence lässt Amt ruhen',
+					label: 'Geschäftsführer von Augustus Intelligence lässt Amt ruhen',
 					image: new URL(
 						'https://cdn.prod.www.spiegel.de/images/e4f16506-cc40-4023-a068-8c33a57bf098_w948_r1.77_fpx39.81_fpy49.98.jpg'
 					),
@@ -211,8 +210,7 @@ export const amthor = {
 					publisher: 'spiegel',
 				},
 				{
-					label:
-						'Für diese merkwürdige Firma hat sich Philipp Amthor engagiert',
+					label: 'Für diese merkwürdige Firma hat sich Philipp Amthor engagiert',
 					image: new URL(
 						'https://www.handelsblatt.com/images/philipp-amthor/25914394/3-format2020.jpg'
 					),
@@ -238,9 +236,7 @@ export const amthor = {
 			articles: [
 				{
 					label: 'Amthor zur fehlenden Videoantwort der CDU auf Rezo',
-					image: new URL(
-						'https://i.ytimg.com/vi/DEKzmztBZNI/maxresdefault.jpg'
-					),
+					image: new URL('https://i.ytimg.com/vi/DEKzmztBZNI/maxresdefault.jpg'),
 					url: new URL('https://www.youtube.com/watch?v=DEKzmztBZNI'),
 					publisher: 'tagesschau',
 				},

@@ -1,9 +1,8 @@
 import React from 'react';
-import { IonButton, IonFabButton, IonFab, IonRouterOutlet } from '@ionic/react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { IonButton, IonFabButton, IonFab } from '@ionic/react';
 import { useHistory } from 'react-router';
-import Votes from '../pages/Votes';
 import './SubHeading.css';
+import PropTypes from 'prop-types'
 
 interface SubheadingProps {
 	icon?: string;
@@ -12,17 +11,13 @@ interface SubheadingProps {
 }
 
 /* This is just a simple component to repeat the subheading wherever we need it */
-const SubHeading: React.FC<SubheadingProps> = ({
-	name,
-	buttonAction,
-	icon,
-}) => {
-	var heading = null;
-	var headingIcon = null;
+const SubHeading: React.FC<SubheadingProps> = ({ name, buttonAction, icon }) => {
+	let heading = null;
+	let headingIcon = null;
 
 	const history = useHistory();
 
-	const executeButtonAction = () => {
+	const executeButtonAction = (): void => {
 		history.push(buttonAction as string);
 	};
 
@@ -45,7 +40,7 @@ const SubHeading: React.FC<SubheadingProps> = ({
 		headingIcon = (
 			<IonFab horizontal="end" slot="fixed" className="scrollhidden">
 				<IonFabButton className="info-button">
-					<img src={iconSrc} data-testid="subheading-icon" />
+					<img src={iconSrc} alt={`icon for ${name}`} data-testid="subheading-icon" />
 				</IonFabButton>
 			</IonFab>
 		);
@@ -67,5 +62,11 @@ const SubHeading: React.FC<SubheadingProps> = ({
 		);
 	}
 };
+
+SubHeading.propTypes = {
+	icon: PropTypes.string,
+	buttonAction: PropTypes.string,
+	name: PropTypes.string.isRequired
+}
 
 export default SubHeading;
