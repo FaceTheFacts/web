@@ -65,3 +65,10 @@ export type Constituency = {
 	label: string;
 	postcodes: Array<string>;
 };
+
+export type PartyMatchType = {
+	name: string;
+	image: URL;
+	filter: string;
+	percentage: string
+}
