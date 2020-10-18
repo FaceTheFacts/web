@@ -14,10 +14,10 @@ const DetectedCandidate: React.FC<ContainerProps> = ({
 	setShowPopover,
 	setShowCamera,
 	candidate,
-}) => {
+}: ContainerProps) => {
 	const history = useHistory();
 
-	const navigateToProfile = () => {
+	const navigateToProfile = (): void => {
 		if (candidate !== null) {
 			log.debug(`navigating to profile ${candidate.id}`);
 			history.push(`/politician/${candidate.id}/profile`);
