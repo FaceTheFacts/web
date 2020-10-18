@@ -10,8 +10,8 @@ const KontroArticle: React.FC<ContainerProps> = ({ article }: ContainerProps) =>
 	const publisherLogo = `../assets/image/${article.publisher}.png`;
 	return (
 		<IonCard className="article-card" href={String(article.url)}>
-			<img className="publisher-image" src={publisherLogo}></img>
-			<img className="article-image" src={String(article.image)}></img>
+			<img className="publisher-image" src={publisherLogo} alt={article.publisher}></img>
+			<img className="article-image" src={String(article.image)} alt={article.label}></img>
 			<IonCardHeader className="article-header">
 				<IonCardSubtitle className="article-label">{article.label}</IonCardSubtitle>
 			</IonCardHeader>
