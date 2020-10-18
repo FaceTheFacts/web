@@ -71,5 +71,5 @@ export type PartyMatchType = {
 	name: string;
 	image: string;
 	filter: string;
-	percentage: string
+	percentage: string;
 }

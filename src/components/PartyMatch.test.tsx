@@ -23,8 +23,7 @@ afterEach(() => {
 });
 
 it('renders with correct parties', () => {
-	// given
-	const subheading = 'Sub Heading';
+	// given data from amthor.tsx
 
 	// when
 	act(() => {
