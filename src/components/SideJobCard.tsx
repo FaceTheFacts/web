@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-import './NebenCard.css';
+import './SideJobCard.css';
 
 import { SideJob } from '../Types';
 
