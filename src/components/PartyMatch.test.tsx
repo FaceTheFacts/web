@@ -2,10 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import PartyMatch from './PartyMatch';
-import {amthor} from '../amthor';
+import { amthor } from '../amthor';
 let container: HTMLDivElement | null = null;
-
-
 
 beforeEach(() => {
 	// setup a DOM element as a render target
@@ -33,9 +31,11 @@ it('renders with correct parties', () => {
 	// then
 	if (container !== null) {
 		const firstParty = container.getElementsByClassName('party-item')[0];
-		expect(firstParty.getElementsByTagName('img')[0].src).toContain(amthor.partyMatches[0].image);
-		expect(container.getElementsByClassName('party-item').length).toBe(amthor.partyMatches.length);
+		expect(firstParty.getElementsByTagName('img')[0].src).toContain(
+			amthor.partyMatches[0].image
+		);
+		expect(container.getElementsByClassName('party-item').length).toBe(
+			amthor.partyMatches.length
+		);
 	}
 });
-
-

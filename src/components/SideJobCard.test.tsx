@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { amthor } from '../amthor';
-import {getByTestId} from '@testing-library/react';
+import { getByTestId } from '@testing-library/react';
 import SideJobCard from './SideJobCard';
 
 let container: HTMLDivElement | null = null;
@@ -24,7 +24,7 @@ afterEach(() => {
 
 it('renders with correct position', () => {
 	// given
-	const sideJob = amthor.sideJobs[0]
+	const sideJob = amthor.sideJobs[0];
 
 	// when
 	act(() => {
@@ -41,7 +41,7 @@ it('renders with correct position', () => {
 
 it('renders with correct organisation', () => {
 	// given
-	const sideJob = amthor.sideJobs[0]
+	const sideJob = amthor.sideJobs[0];
 
 	// when
 	act(() => {

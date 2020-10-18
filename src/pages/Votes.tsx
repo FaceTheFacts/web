@@ -1,10 +1,4 @@
-import {
-	IonButtons,
-	IonContent,
-	IonPage,
-	IonTitle,
-	IonBackButton,
-} from '@ionic/react';
+import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton } from '@ionic/react';
 import React from 'react';
 import TopicFilter from '../components/TopicFilter';
 import PartyMatch from '../components/PartyMatch';
@@ -38,7 +32,6 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				<div data-testid="votes-subheading-topics">
 					<SubHeading name="Filtern Nach Themen" />
 				</div>
-				
 
 				{/* TopicFilter component that holds all the filters for the topics of polls. 
 				Right now the name property is not being used, maybe it's an Idea to dynamically pass in the topics, 
@@ -47,21 +40,22 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<TopicFilter />
 				</div>
 				<div data-testid="votes-subheading-parties">
-					<SubHeading name="Übereinstimmung mit anderen Fraktionen" icon="infobutton.svg" />
+					<SubHeading
+						name="Übereinstimmung mit anderen Fraktionen"
+						icon="infobutton.svg"
+					/>
 				</div>
-				
 
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
 				the politician id so we can retrieve the match percentage from our api */}
 				<div className="grey-back-scroll">
-					<PartyMatch parties={candidate.partyMatches}/>
+					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 
 				<div data-testid="votes-subheading-votes">
-					<SubHeading name="Abstimmungen"/>
+					<SubHeading name="Abstimmungen" />
 				</div>
-				
 
 				{/* For each vote in votes, render a VoteCard component */}
 				<div className="last-grey-back">

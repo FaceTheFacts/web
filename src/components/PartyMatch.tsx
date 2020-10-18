@@ -1,15 +1,14 @@
 import React from 'react';
 import { IonThumbnail, IonLabel } from '@ionic/react';
 import './PartyMatch.css';
-import {PartyMatchType} from '../Types';
-
+import { PartyMatchType } from '../Types';
 
 interface PartyMatchProps {
 	parties: Array<PartyMatchType>;
 }
 /* The PartyMatch component. The property name is also not being used currently. 
 It would make sense to pass politician ID into this component so we can load results from db */
-const PartyMatch: React.FC<PartyMatchProps> = ({parties}: PartyMatchProps) => {
+const PartyMatch: React.FC<PartyMatchProps> = ({ parties }: PartyMatchProps) => {
 	return (
 		<div className="party-matches">
 			<div className="party-match-row">

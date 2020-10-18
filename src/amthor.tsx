@@ -1,4 +1,4 @@
-import {Candidate} from './Types'
+import { Candidate } from './Types';
 
 export const amthor: Candidate = {
 	id: 1,

@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-	IonCardContent,
-	IonCard,
-	IonCardHeader,
-	IonCardTitle,
-} from '@ionic/react';
+import { IonCardContent, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 
 import KontroArticle from './KontroArticle';
 import './KontroCard.css';

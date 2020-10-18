@@ -37,8 +37,6 @@ const voteStrings = {
 	none: 'Nicht Abg.',
 };
 
-
-
 test('renders with correct votes', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
@@ -73,7 +71,6 @@ test('renders with correct votes', () => {
 });
 
 test('renders with correct subheadings', () => {
-
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
@@ -143,6 +140,8 @@ test('renders with correct other parties', () => {
 		const partyMatches = container.getElementsByClassName('party-item');
 		expect(partyMatches.length).toBe(candidate.partyMatches.length);
 		expect(partyMatches[0].textContent).toBe(candidate.partyMatches[0].percentage);
-		expect(partyMatches[0].getElementsByTagName('img')[0].src).toContain(candidate.partyMatches[0].image);
+		expect(partyMatches[0].getElementsByTagName('img')[0].src).toContain(
+			candidate.partyMatches[0].image
+		);
 	}
 });

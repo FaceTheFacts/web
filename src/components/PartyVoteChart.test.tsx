@@ -2,10 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import PartyVoteChart from './PartyVoteChart';
-import {amthor} from '../amthor';
+import { amthor } from '../amthor';
 let container: HTMLDivElement | null = null;
-
-
 
 beforeEach(() => {
 	// setup a DOM element as a render target
@@ -34,11 +32,9 @@ it('renders with correct paths', () => {
 	// then
 	if (container !== null) {
 		const paths = container.getElementsByTagName('path');
-		expect(paths[0].getAttribute('d')).toBe("M 11.75 50.00000000000001 A 38.25 38.25 0 1 0 35.249609488328815 14.70852114527927");
+		expect(paths[0].getAttribute('d')).toBe(
+			'M 11.75 50.00000000000001 A 38.25 38.25 0 1 0 35.249609488328815 14.70852114527927'
+		);
 		// expect(paths[0].getAttribute('stroke')).toBe(partyVote.colour)
-
 	}
 });
-
-
-

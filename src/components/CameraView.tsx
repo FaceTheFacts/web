@@ -410,8 +410,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				} else {
 					ctx.rect(start[0], start[1], size[0], size[1]);
 				}
-
-				
 			});
 			ctx.stroke();
 			if (!isSafari) {
@@ -448,6 +446,5 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		);
 	}
 }
-
 
 export default withRouter(CameraView);
