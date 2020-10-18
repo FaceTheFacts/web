@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './VoteChart.css';
 import { HorizontalBar } from 'react-chartjs-2';
-
+import {Poll} from '../Types'
 /* 
 Register the ChartProps interface so we can pass properties to the component. 
 To be more TypeScripty, we should create a vote type which we can reuse throughout the app.
 */
 interface ChartProps {
-	vote: any;
+	vote: Poll;
 }
 
 /* Create the VoteChart component and pass in the vote property from VoteCard */
-const VoteChart: React.FC<ChartProps> = ({ vote }) => {
+const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
 	/*imports: [
         ChartsModule
       ]*/
@@ -70,7 +70,7 @@ const VoteChart: React.FC<ChartProps> = ({ vote }) => {
 			display: false, // do not display the legend, we built this ourselves in VoteCard.tsx
 		},
 	};
-	const loadData = (vote: any) => {
+	const loadData = (vote: Poll): void => {
 		setChartData({
 			//labels: [vote.name],
 			datasets: [
