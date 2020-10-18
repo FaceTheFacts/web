@@ -40,7 +40,7 @@ const SubHeading: React.FC<SubheadingProps> = ({ name, buttonAction, icon }) => 
 		headingIcon = (
 			<IonFab horizontal="end" slot="fixed" className="scrollhidden">
 				<IonFabButton className="info-button">
-					<img src={iconSrc} data-testid="subheading-icon" />
+					<img src={iconSrc} alt={`icon for ${name}`} data-testid="subheading-icon" />
 				</IonFabButton>
 			</IonFab>
 		);
