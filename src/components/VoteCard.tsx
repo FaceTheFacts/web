@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PartyVoteChart from './PartyVoteChart';
 import VoteChart from './VoteChart';
 import './VoteCard.css';
@@ -14,7 +14,6 @@ import {
 	IonModal,
 	IonButton,
 	IonContent,
-	IonBackdrop,
 	IonChip,
 	IonText,
 	IonIcon,
@@ -26,7 +25,7 @@ interface ContainerProps {
 	vote: Poll;
 }
 
-const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
+const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	/* 
 	Internationalisation to keep the code in English but print the national language
 	*/
@@ -74,7 +73,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 
 	return (
 		<div className="grey-background">
-			<IonCard className="vote-card" onClick={() => setShowDetails(!showDetails)}>
+			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
