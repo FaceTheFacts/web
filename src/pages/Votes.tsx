@@ -35,7 +35,10 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				</div>
 
 				{/* Pass name to the SubHeading component to be in control of the sub heading text */}
-				<SubHeading name="Filtern Nach Themen" />
+				<div data-testid="votes-subheading-topics">
+					<SubHeading name="Filtern Nach Themen" />
+				</div>
+				
 
 				{/* TopicFilter component that holds all the filters for the topics of polls. 
 				Right now the name property is not being used, maybe it's an Idea to dynamically pass in the topics, 
@@ -43,8 +46,10 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				<div className="grey-back-scroll">
 					<TopicFilter />
 				</div>
-
-				<SubHeading name="Übereinstimmung mit anderen Fraktionen" icon="infobutton.svg" />
+				<div data-testid="votes-subheading-parties">
+					<SubHeading name="Übereinstimmung mit anderen Fraktionen" icon="infobutton.svg" />
+				</div>
+				
 
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
@@ -53,7 +58,10 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<PartyMatch />
 				</div>
 
-				<SubHeading name="Abstimmungen" />
+				<div data-testid="votes-subheading-votes">
+					<SubHeading name="Abstimmungen"/>
+				</div>
+				
 
 				{/* For each vote in votes, render a VoteCard component */}
 				<div className="last-grey-back">
