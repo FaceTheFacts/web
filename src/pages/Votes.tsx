@@ -43,7 +43,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				Right now the name property is not being used, maybe it's an Idea to dynamically pass in the topics, 
 				to make our life easier in case a new topic is added or we want to translate for other countries and languages */}
 				<div className="grey-back-scroll">
-					<TopicFilter name={name} />
+					<TopicFilter />
 				</div>
 
 				<SubHeading name="Übereinstimmung mit anderen Fraktionen" icon="infobutton.svg" />
