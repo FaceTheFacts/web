@@ -18,7 +18,7 @@ interface VoteProps {
 	candidate: Candidate;
 }
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Votes: React.FC<VoteProps> = ({ candidate }) => {
+const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { name } = useParams<{ name: string }>();
 
@@ -60,7 +60,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }) => {
 				{/* For each vote in votes, render a VoteCard component */}
 				<div className="last-grey-back">
 					{candidate.polls.map((vote, index) => {
-						return <VoteCard vote={vote} />;
+						return <VoteCard vote={vote} key={`poll-${index}`} />;
 					})}
 				</div>
 			</IonContent>
