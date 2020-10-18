@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import log from 'loglevel';
 
-//import { CameraPreviewOptions } from "@ionic-native/camera-preview";
+// import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
 import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazeface';
 
@@ -12,7 +12,7 @@ import Fuse from 'fuse.js';
 import './CameraView.css';
 
 import { amthor } from '../amthor';
-import { CameraPreview } from '@ionic-native/camera-preview';
+// import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
@@ -154,7 +154,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				},
 				false
 			);
-			this.videoRef.current.onloadedmetadata = (e): void => {
+			this.videoRef.current.onloadedmetadata = (): void => {
 				this.videoRef.current?.play();
 			};
 		}
@@ -252,7 +252,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			includeScore: true,
 		};
 		const fuse = new Fuse(results, options);
-		let match = {
+		const match = {
 			query: '',
 			id: 0,
 			result: {},
@@ -363,7 +363,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		log.debug('stopping camera');
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
-			for (let track of tracks) {
+			for (const track of tracks) {
 				track.stop();
 			}
 		}
@@ -399,7 +399,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				const start: [number, number] = prediction.topLeft as [number, number];
 				const end: [number, number] = prediction.bottomRight as [number, number];
 
-				var probability = prediction.probability as number;
+				/* const probability = prediction.probability as number;
+				const prob = (probability * 100).toPrecision(5).toString(); */
 
 				const size = [end[0] - start[0], end[1] - start[1]];
 
@@ -410,7 +411,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 					ctx.rect(start[0], start[1], size[0], size[1]);
 				}
 
-				var prob = (probability * 100).toPrecision(5).toString();
+				
 			});
 			ctx.stroke();
 			if (!isSafari) {
