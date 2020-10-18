@@ -10,7 +10,6 @@ import {
 } from '@ionic/react';
 import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
-import { useParams } from 'react-router';
 import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
@@ -21,7 +20,6 @@ interface DiscoverProps {
 	setCandidate: Function;
 }
 const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
-	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
@@ -40,14 +38,14 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 				<IonModal isOpen={showCamera} cssClass="my-custom-class">
 					<IonFabButton
 						className="camera-close-button"
-						onClick={() => setShowCamera(false)}
+						onClick={(): void => setShowCamera(false)}
 					>
 						<IonIcon icon={closeOutline}></IonIcon>
 					</IonFabButton>
 					<CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
 				</IonModal>
 				<div className="discover-page">
-					<div className="camera-icon-background" onClick={() => setShowCamera(true)}>
+					<div className="camera-icon-background" onClick={(): void => setShowCamera(true)}>
 						<IonImg id="camera-square" src="../assets/icon/camera-square.svg"></IonImg>
 						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
 					</div>
@@ -57,12 +55,12 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						value={text}
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
 						disabled={true}
-						onIonChange={(e) => setText(e.detail.value!)}
+						onIonChange={(e): void => setText(e.detail.value as string)}
 					></IonInput>
 					<IonPopover
 						isOpen={showPopover}
 						cssClass="popover"
-						onDidDismiss={(e) => setShowPopover(false)}
+						onDidDismiss={(): void => setShowPopover(false)}
 						translucent={true}
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */
