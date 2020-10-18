@@ -11,7 +11,7 @@ interface ChartProps {
 	partyVote: PartyVoteResult;
 }
 
-const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
+const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }: ChartProps) => {
 	console.log(partyVote);
 	return (
 		<div>
