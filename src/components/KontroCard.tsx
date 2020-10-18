@@ -41,6 +41,7 @@ const KontroCard: React.FC<ContainerProps> = ({ kontro }: ContainerProps) => {
 								? '../assets/icon/ausgeklappt.png'
 								: '../assets/icon/eingeklappt.png'
 						}
+						alt={`${kontro.label}`}
 					></img>
 				}
 			</IonCardHeader>
