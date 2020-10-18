@@ -15,7 +15,6 @@ import { useLocation } from 'react-router-dom';
 import {
 	searchOutline,
 	searchSharp,
-	bookmarkOutline,
 	homeOutline,
 	homeSharp,
 	cameraOutline,
