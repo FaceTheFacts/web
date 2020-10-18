@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import log from 'loglevel';
 
@@ -12,6 +12,7 @@ import Fuse from 'fuse.js';
 import './CameraView.css';
 
 import { amthor } from '../amthor';
+import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
@@ -51,7 +52,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	scheduler = createScheduler();
 
-	async componentDidMount() {
+	async componentDidMount(): Promise<void> {
 		await this.initialiseCamera()
 			.then((res) => {
 				log.debug(res);
@@ -67,12 +68,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.initializeTesseract();
 	}
 
-	async componentWillUnmount() {
+	async componentWillUnmount(): Promise<void> {
 		log.debug('stopping camera preview');
 		await this.stop();
 	}
 
-	async getVideoStream() {
+	async getVideoStream(): Promise<MediaStream> {
 		const stream = await navigator.mediaDevices.getUserMedia({
 			video: {
 				facingMode: 'environment',
@@ -84,7 +85,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		return stream;
 	}
 
-	setFullscreen(track: MediaStreamTrack) {
+	setFullscreen(track: MediaStreamTrack): Promise<void> {
 		return track.applyConstraints({
 			aspectRatio: {
 				exact: this.cameraOpts.width / this.cameraOpts.height,
@@ -92,7 +93,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	set4by3(track: MediaStreamTrack) {
+	set4by3(track: MediaStreamTrack): Promise<void> {
 		const height = this.cameraOpts.width * (4 / 3);
 		return track.applyConstraints({
 			height: height,
@@ -101,7 +102,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	async setAspectRatio() {
+	async setAspectRatio(): Promise<void> {
 		const videoTrack = this.stream?.getVideoTracks()[0];
 
 		this.setFullscreen(videoTrack as MediaStreamTrack)
@@ -116,7 +117,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 	}
 
-	async initialiseCamera() {
+	async initialiseCamera(): Promise<string> {
 		// get media tracks
 		log.debug(navigator.userAgent);
 
@@ -136,7 +137,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	initVideo() {
+	initVideo(): void {
 		// initialise video element
 		if (this.videoRef.current !== null) {
 			this.videoRef.current.width = this.cameraOpts.width;
@@ -153,13 +154,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				},
 				false
 			);
-			this.videoRef.current.onloadedmetadata = (e) => {
+			this.videoRef.current.onloadedmetadata = (e): void => {
 				this.videoRef.current?.play();
 			};
 		}
 	}
 
-	initCanvas() {
+	initCanvas(): void {
 		// initialise canvas for drawing
 		const ctx = this.canvasRef.current?.getContext('2d');
 		if (ctx) {
@@ -175,7 +176,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 	}
 
-	initializeTesseract = async () => {
+	initializeTesseract = async (): Promise<void> => {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
 				logger: (m) => log.debug(m),
@@ -184,6 +185,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			await worker.loadLanguage('deu');
 			await worker.initialize('deu');
 			await worker.setParameters({
+				// eslint-disable-next-line @typescript-eslint/camelcase
 				tessedit_char_whitelist:
 					'abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ',
 			});
@@ -192,7 +194,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	};
 
 	// detect faces and characters
-	async detectFaces() {
+	async detectFaces(): Promise<NormalizedFace[]> {
 		if (this.model === undefined) {
 			log.debug('Loading BlazeFace Model');
 			this.model = await load();
@@ -213,7 +215,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	async recogniseCharacters() {
+	async recogniseCharacters(): Promise<string[]> {
 		this.drawVideoOnCanvas();
 		if (this.scheduler.getNumWorkers() === 0) {
 			await this.initializeTesseract();
@@ -231,7 +233,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	async fuseSearchResults(results: String[]): Promise<{ result: {}; query: string; id: number }> {
+	async fuseSearchResults(results: string[]): Promise<{ result: {}; query: string; id: number }> {
 		const candidates = [
 			{
 				name: 'philipp amthor',
@@ -276,7 +278,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	// display results
-	async drawLoop() {
+	async drawLoop(): Promise<void> {
 		// detect faces and draw bbox
 		await this.detectFaces()
 			.then((predictions) => {
@@ -287,7 +289,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 
 		// recognize characters and show progress
-		const results = (await this.recogniseCharacters()) as String[];
+		const results = (await this.recogniseCharacters()) as string[];
 
 		await this.fuseSearchResults(results)
 			.then((match) => {
@@ -305,7 +307,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	drawVideoOnCanvas() {
+	drawVideoOnCanvas(): void {
 		const ctx = this.canvasOCRRef.current?.getContext('2d');
 		ctx?.drawImage(
 			this.videoRef.current as HTMLVideoElement,
@@ -318,7 +320,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	// terminate processes
 
-	async stop() {
+	async stop(): Promise<void> {
 		cancelAnimationFrame(this.animationFrameID as number);
 
 		await this.stopOCR()
@@ -339,7 +341,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 	}
 
-	async stopOCR() {
+	async stopOCR(): Promise<string> {
 		log.debug('terminating workers');
 		await this.scheduler.terminate();
 		return new Promise((resolve, reject) => {
@@ -351,13 +353,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	stopFaceDetection() {
+	stopFaceDetection(): void {
 		log.debug('stopping face detection');
 		delete this.model;
 	}
 	// Old Code starts here
 
-	async stopCamera() {
+	async stopCamera(): Promise<string> {
 		log.debug('stopping camera');
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
@@ -367,7 +369,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 
 		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState == 'ended') {
+			if (this.stream?.getTracks()[0].readyState === 'ended') {
 				resolve('successfully stopped camera stream');
 			} else {
 				reject('failed to stop camera stream');
@@ -375,9 +377,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	showDetections = (predictions: NormalizedFace[]) => {
+	showDetections = (predictions: NormalizedFace[]): void => {
 		const ua = navigator.userAgent.toLowerCase();
-		const isSafari = ua.includes('safari') && ua.indexOf('chrome') == -1;
+		const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
 		const ctx = this.canvasRef.current?.getContext('2d') as CanvasRenderingContext2D;
 		if (ctx) {
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -418,7 +420,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 	};
 
-	render() {
+	render(): ReactNode {
 		return (
 			<div className="camera-container">
 				<div className="camera">
@@ -444,4 +446,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		);
 	}
 }
+
+
 export default withRouter(CameraView);
