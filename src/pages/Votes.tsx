@@ -6,7 +6,6 @@ import {
 	IonBackButton,
 } from '@ionic/react';
 import React from 'react';
-import { useParams } from 'react-router';
 import TopicFilter from '../components/TopicFilter';
 import PartyMatch from '../components/PartyMatch';
 import SubHeading from '../components/SubHeading';
@@ -20,7 +19,6 @@ interface VoteProps {
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	const { name } = useParams<{ name: string }>();
 
 	/* This is returned when using this component */
 	return (
