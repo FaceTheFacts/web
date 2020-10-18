@@ -13,7 +13,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 	return (
 		<div>
 			<div className="imgContainer">
-				<img src={String(politician.image)} data-testid="profile-img-url"></img>
+				<img src={String(politician.image)} alt={politician.name} data-testid="profile-img-url"></img>
 			</div>
 
 			<div className="politician-name" data-testid="profile-name">
