@@ -37,38 +37,7 @@ const voteStrings = {
 	none: 'Nicht Abg.',
 };
 
-const parties = [
-	{
-		name: 'CDU',
-		image: 'assets/image/cdu.png',
-		filter: '',
-		percentage: '96%',
-	},
-	{
-		name: 'SPD',
-		image: 'assets/image/spd.png',
-		filter: '',
-		percentage: '96%',
-	},
-	{
-		name: 'FDP',
-		image: 'assets/image/fdp.png',
-		filter: '',
-		percentage: '73%',
-	},
-	{
-		name: 'Die Grünen',
-		image: 'assets/image/gruen.png',
-		filter: '',
-		percentage: '63%',
-	},
-	{
-		name: 'Alternative für Deutschland',
-		image: 'assets/image/afd.png',
-		filter: '',
-		percentage: '3%',
-	},
-];
+
 
 test('renders with correct votes', () => {
 	// this will change after we remove the hard coded data
@@ -172,8 +141,8 @@ test('renders with correct other parties', () => {
 
 	if (container !== null) {
 		const partyMatches = container.getElementsByClassName('party-item');
-		expect(partyMatches.length).toBe(parties.length);
-		expect(partyMatches[0].textContent).toBe(parties[0].percentage);
-		expect(partyMatches[0].getElementsByTagName('img')[0].src).toContain(parties[0].image);
+		expect(partyMatches.length).toBe(candidate.partyMatches.length);
+		expect(partyMatches[0].textContent).toBe(candidate.partyMatches[0].percentage);
+		expect(partyMatches[0].getElementsByTagName('img')[0].src).toContain(candidate.partyMatches[0].image);
 	}
 });
