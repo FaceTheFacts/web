@@ -104,9 +104,6 @@ test('renders with correct votes', () => {
 });
 
 test('renders with correct subheadings', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
 
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
