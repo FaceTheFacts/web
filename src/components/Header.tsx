@@ -5,7 +5,7 @@ interface ContainerProps {
 	name: string;
 }
 
-const Header: React.FC<ContainerProps> = ({ name }) => {
+const Header: React.FC<ContainerProps> = ({ name }: ContainerProps) => {
 	return (
 		<div className="Header">
 			<strong>{name}</strong>
