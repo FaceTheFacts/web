@@ -4,11 +4,11 @@ import './NebenCard.css';
 
 import { SideJob } from '../Types';
 
-interface sideJobCardProps {
+interface SideJobCardProps {
 	sideJob: SideJob;
 }
 
-const SideJobCard: React.FC<sideJobCardProps> = ({ sideJob }) => {
+const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) => {
 	return (
 		<IonCard className="neben-layout">
 			<IonCardHeader>
