@@ -6,7 +6,13 @@
 	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react/recommended"],
 	"globals": {
 		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
+		"SharedArrayBuffer": "readonly",
+		"beforeEach": "readonly",
+		"afterEach": "readonly",
+		"test": "readonly",
+		"act": "readonly",
+		"it": "readonly",
+		"expect": "readonly"
 	},
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
