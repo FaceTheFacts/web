@@ -15,16 +15,16 @@ import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
 import { Candidate } from '../Types';
+
 interface DiscoverProps {
 	candidate: Candidate;
 	setCandidate: Function;
 }
-const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }) => {
+const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
-	// const [candidate, setCandidate] = useState<number>(0);
 
 	// animation for the popover
 	/* const popoverAnimation = (baseEl: any) => {
