@@ -1,14 +1,16 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
-
-import SubHeading from "./SubHeading";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
+import { getByTestId } from '@testing-library/react';
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
+import SubHeading from './SubHeading';
 
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
 	// setup a DOM element as a render target
-	container = document.createElement("div");
+	container = document.createElement('div');
 	document.body.appendChild(container);
 });
 
@@ -21,9 +23,9 @@ afterEach(() => {
 	}
 });
 
-it("renders with correct heading", () => {
+it('renders with correct heading', () => {
 	// given
-	const subheading = "Sub Heading";
+	const subheading = 'Sub Heading';
 
 	// when
 	act(() => {
@@ -36,10 +38,10 @@ it("renders with correct heading", () => {
 	}
 });
 
-it("renders with a button", () => {
+it('renders with a button', () => {
 	// given
-	const subheading = "test";
-	const buttonAction = "votes";
+	const subheading = 'test';
+	const buttonAction = 'votes';
 
 	// when
 	act(() => {
@@ -51,14 +53,14 @@ it("renders with a button", () => {
 
 	// then
 	if (container !== null) {
-		expect(container.getElementsByTagName("ion-button").length).toBe(1);
+		expect(container.getElementsByTagName('ion-button').length).toBe(1);
 	}
 });
 
-it("renders with an icon", () => {
+it('renders with an icon', () => {
 	// given
-	const subheading = "test";
-	const icon = "infobutton.svg";
+	const subheading = 'test';
+	const icon = 'infobutton.svg';
 
 	// when
 	act(() => {
@@ -67,8 +69,39 @@ it("renders with an icon", () => {
 
 	// then
 	if (container !== null) {
-		expect(container.getElementsByTagName("img")[0].src).toContain(
-			`/assets/icon/${icon}`
+		expect(
+			(getByTestId(container, 'subheading-icon') as HTMLImageElement).src
+		).toContain(`/assets/icon/${icon}`);
+	}
+});
+
+it('redirects to correct path', () => {
+	// given
+	const subheading = 'test';
+	const icon = 'infobutton.svg';
+	const actionUrl = '/politician/1/votes';
+
+	const history = createMemoryHistory();
+
+	// when
+	act(() => {
+		render(
+			<Router history={history}>
+				<SubHeading
+					name={subheading}
+					icon={icon}
+					buttonAction={actionUrl}
+				/>
+			</Router>,
+			container
 		);
+		if (container !== null) {
+			getByTestId(container, 'subheading-button').click();
+		}
+	});
+
+	// then
+	if (container !== null) {
+		expect(history.location.pathname).toBe(actionUrl);
 	}
 });

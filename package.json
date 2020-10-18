@@ -64,7 +64,7 @@
     "node-pre-gyp": "^0.15.0",
     "npm-merge-driver": "^2.3.6",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-accessible-accordion": "^3.3.3",
     "react-chartjs-2": "^2.10.0",
     "react-collapse": "^5.0.1",
@@ -91,6 +91,7 @@
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-react-hooks": "^2.5.1",
     "jest-canvas-mock": "^2.3.0",
-    "prettier": "2.1.1"
+    "prettier": "2.1.1",
+    "react-test-renderer": "^16.14.0"
   }
 }

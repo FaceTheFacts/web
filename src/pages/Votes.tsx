@@ -15,6 +15,7 @@ import PartyMatch from "../components/PartyMatch";
 import SubHeading from "../components/SubHeading";
 import VoteCard from "../components/VoteCard";
 import "./Votes.css";
+import {Candidate} from '../Types'
 
 // Hardcoded votes until we connect to our API
 const votes = [
@@ -194,8 +195,11 @@ const votes = [
 	},
 ];
 
+interface VoteProps {
+	candidate: Candidate
+}
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Votes: React.FC = () => {
+const Votes: React.FC<VoteProps> = ({candidate}) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { name } = useParams<{ name: string }>();
 

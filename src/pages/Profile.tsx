@@ -19,7 +19,7 @@ import {
 	IonFabButton,
 	IonRouterOutlet,
 } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { IonReactRouter } from '@ionic/react-router';
 import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 import { useParams } from 'react-router';
@@ -33,6 +33,7 @@ import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
 import Votes from '../pages/Votes';
 import './Profile.css';
+import {Candidate} from '../Types'
 
 // Hardcoded Kontroversen until we connect to our API
 const kontros = [
@@ -112,15 +113,6 @@ const kontros = [
 	},
 ];
 
-/*Hardcoded politician header for now*/
-const politician = {
-	name: 'Philipp Amthor',
-	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
-	image:
-		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr',
-	party: 'CDU/CSU',
-};
-
 /* Hardcoded for now until passed in from the API */
 
 const nebens = [
@@ -164,12 +156,19 @@ const votes = [
 		},
 	},
 ];
+interface ProfileProps {
+	candidate: Candidate;
+}
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Profile: React.FC = () => {
+const Profile: React.FC<ProfileProps> = ({
+	candidate
+}) => {
+	
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	//const { name } = useParams<{ name: string }>();
 	const { id } = useParams<{ id: string }>();
+
+	const [polls, setPolls] = useState(votes);
 
 	/* This is returned when using this component */
 	return (
@@ -188,7 +187,7 @@ const Profile: React.FC = () => {
 				to make our life easier when we add the profiles images of new politicians.
 				The politicans name is included on the ProfileImg */}
 				<div className="profile-header">
-					<PoliticianProfile politician={politician} />
+					<PoliticianProfile politician={candidate} />
 
 					{/* Here we include the Fab menu button */}
 					<IonFab vertical="top" horizontal="end">
@@ -198,7 +197,10 @@ const Profile: React.FC = () => {
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 
-				<div className="subheading-button-underlay">
+				<div
+					className="subheading-button-underlay"
+					data-testid="profile-subheading-votes"
+				>
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
@@ -208,14 +210,14 @@ const Profile: React.FC = () => {
 
 				<div className="grey-back">
 					{/* For each vote in votes, render a VoteCard component */}
-					{votes.map((vote, index) => {
-						return <VoteCard vote={vote} key={index} />;
+					{polls.map((poll, index) => {
+						return <VoteCard vote={poll} key={index} />;
 					})}
 				</div>
 
 				{/* Pass name to Subheading to be in control of the sub heading text */}
 
-				<div>
+				<div data-testid="profile-subheading-controversies">
 					<SubHeading name="Kontroversen" icon="infobutton.svg" />
 				</div>
 
@@ -226,7 +228,7 @@ const Profile: React.FC = () => {
 					})}
 				</div>
 
-				<div>
+				<div data-testid="profile-subheading-sidejobs">
 					<SubHeading
 						name="Bekannte Nebentätigkeiten"
 						icon="infobutton.svg"
