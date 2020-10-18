@@ -61,6 +61,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 					*/}
 					{candidate.polls.map((poll, index) => {
 						if (index === 0) return <VoteCard vote={poll} key={index} />;
+						else return null
 					})}
 				</div>
 
