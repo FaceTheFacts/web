@@ -20,11 +20,12 @@ import {
 	IonIcon,
 	IonLabel,
 } from "@ionic/react";
+import {Poll} from '../Types'
 
 
 
 interface ContainerProps {
-	vote: any;
+	vote: Poll
 	
 }
 
@@ -67,8 +68,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 	Let Typescript know that candidateVote will always have one of these four values. 
 	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
 	predefined to only have one of these four values.
+	
+	Absolutely need to figure out how to use this datatype, currently it is different from string which causes problems
 	*/
-	const voteString: "yes" | "no" | "abstain" | "none" = vote.candidateVote
+	// const voteString = vote.candidateVote;
+	const voteString = vote.candidateVote
+	
 
 
 	
