@@ -113,7 +113,7 @@ const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
 	*/
 	useEffect(() => {
 		loadData(vote);
-	}, []);
+	}, [vote]);
 
 	return (
 		<div className="bar-chart">
