@@ -48,7 +48,7 @@ const PartyMatch: React.FC = () => {
 					return (
 						<div className="party-item" key={`party-match-${index}`}>
 							<IonThumbnail className="party-thumbnail">
-								<img src={party.image}></img>
+								<img src={party.image} alt={party.name}></img>
 							</IonThumbnail>
 							<IonLabel className="party-percentage">{party.percentage}</IonLabel>
 						</div>
