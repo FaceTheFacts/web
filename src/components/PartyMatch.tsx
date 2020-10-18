@@ -3,39 +3,6 @@ import { IonThumbnail, IonLabel } from '@ionic/react';
 import './PartyMatch.css';
 import {PartyMatchType} from '../Types';
 
-/* Hardcode parties and percentages until the api can answer this question */
-const parties = [
-	{
-		name: 'CDU',
-		image: 'assets/image/cdu.png',
-		filter: '',
-		percentage: '96%',
-	},
-	{
-		name: 'SPD',
-		image: 'assets/image/spd.png',
-		filter: '',
-		percentage: '96%',
-	},
-	{
-		name: 'FDP',
-		image: 'assets/image/fdp.png',
-		filter: '',
-		percentage: '73%',
-	},
-	{
-		name: 'Die Grünen',
-		image: 'assets/image/gruen.png',
-		filter: '',
-		percentage: '63%',
-	},
-	{
-		name: 'Alternative für Deutschland',
-		image: 'assets/image/afd.png',
-		filter: '',
-		percentage: '3%',
-	},
-];
 
 interface PartyMatchProps {
 	parties: Array<PartyMatchType>;

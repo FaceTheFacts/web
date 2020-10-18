@@ -1,4 +1,6 @@
-export const amthor = {
+import {Candidate} from './Types'
+
+export const amthor: Candidate = {
 	id: 1,
 	name: 'Philipp Amthor',
 	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
@@ -288,4 +290,36 @@ export const amthor = {
 		label: 'Mecklenburgische Seenplatte I - Vorpommern-Greifswald II',
 		postcodes: ['98559', '99102', '99189', '99310'],
 	},
+	partyMatches: [
+		{
+			name: 'CDU',
+			image: 'assets/image/cdu.png',
+			filter: '',
+			percentage: '96%',
+		},
+		{
+			name: 'SPD',
+			image: 'assets/image/spd.png',
+			filter: '',
+			percentage: '96%',
+		},
+		{
+			name: 'FDP',
+			image: 'assets/image/fdp.png',
+			filter: '',
+			percentage: '73%',
+		},
+		{
+			name: 'Die Grünen',
+			image: 'assets/image/gruen.png',
+			filter: '',
+			percentage: '63%',
+		},
+		{
+			name: 'Alternative für Deutschland',
+			image: 'assets/image/afd.png',
+			filter: '',
+			percentage: '3%',
+		},
+	],
 };
