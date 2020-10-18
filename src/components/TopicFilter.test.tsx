@@ -23,7 +23,7 @@ afterEach(() => {
 
 it('renders with all topic filters', () => {
 	act(() => {
-		render(<TopicFilter name="TopicFilter" />, container);
+		render(<TopicFilter />, container);
 	});
 	if (container !== null) {
 		expect(container.textContent).toBe(
