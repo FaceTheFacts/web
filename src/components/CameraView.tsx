@@ -425,6 +425,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		return (
 			<div className="camera-container">
 				<div className="camera">
+					{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
 					<video
 						ref={this.videoRef}
 						id="camera-video"
