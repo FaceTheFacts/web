@@ -1,9 +1,6 @@
 import React from 'react';
 import { IonButton, IonIcon } from '@ionic/react';
 import './TopicFilter.css';
-interface ContainerProps {
-	name: string;
-}
 
 /* Hard code filters until we load them from api */
 const topicFilters = {
@@ -80,7 +77,7 @@ const topicFilters = {
 	],
 };
 
-const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
+const TopicFilter: React.FC = () => {
 	return (
 		<div className="topic-filters">
 			{/* For each item in each row create a button with the icon and the name of the topic and the topic-filter-button CSS class */}
