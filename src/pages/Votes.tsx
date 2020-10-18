@@ -52,7 +52,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				Currently the name property is not being used, here we should at the least pass in 
 				the politician id so we can retrieve the match percentage from our api */}
 				<div className="grey-back-scroll">
-					<PartyMatch name={name} />
+					<PartyMatch />
 				</div>
 
 				<SubHeading name="Abstimmungen" />
