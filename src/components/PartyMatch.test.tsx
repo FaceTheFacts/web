@@ -1,9 +1,8 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-
-import TopicFilter from './TopicFilter';
-
+import PartyMatch from './PartyMatch';
+import { amthor } from '../amthor';
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
@@ -21,13 +20,22 @@ afterEach(() => {
 	}
 });
 
-it('renders with all topic filters', () => {
+it('renders with correct parties', () => {
+	// given data from amthor.tsx
+
+	// when
 	act(() => {
-		render(<TopicFilter />, container);
+		render(<PartyMatch parties={amthor.partyMatches} />, container);
 	});
+
+	// then
 	if (container !== null) {
-		expect(container.textContent).toBe(
-			'FinanzenHeimatAuswärtigesWirtschaft und EnergieJustizSozialesVerteidigungLandwirtschaftFamilieGesundheitInfrastrukturUmweltBildung/Forschung'
+		const firstParty = container.getElementsByClassName('party-item')[0];
+		expect(firstParty.getElementsByTagName('img')[0].src).toContain(
+			amthor.partyMatches[0].image
+		);
+		expect(container.getElementsByClassName('party-item').length).toBe(
+			amthor.partyMatches.length
 		);
 	}
 });
