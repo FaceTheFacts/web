@@ -413,7 +413,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				}
 			});
 			ctx.stroke();
-			if (!isSafari) {
+			if (!isSafari && predictions.length > 0) {
 				ctx.fillStyle = 'rgba(0,0,0,0.5)';
 				ctx.fill();
 			}
