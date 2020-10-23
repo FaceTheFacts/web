@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tests
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the develop branch
+on: [pull_request]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    unittests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Generate coverage report
+              run: |
+                  npm ci
+                  npm test -- --coverage
+              env:
+                  CI: true
+
+            - uses: codecov/codecov-action@v1
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+                  flags: unittests # optional
+                  name: codecov-umbrella # optional
+                  fail_ci_if_error: true # optional (default = false)
+
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install dependencies & build
+              run: |
+                  npm ci
+                  npm run build
+              env:
+                  CI: true

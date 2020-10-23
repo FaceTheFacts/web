@@ -1,14 +1,14 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
-import TopicFilter from "./TopicFilter";
+import TopicFilter from './TopicFilter';
 
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
 	// setup a DOM element as a render target
-	container = document.createElement("div");
+	container = document.createElement('div');
 	document.body.appendChild(container);
 });
 
@@ -21,13 +21,13 @@ afterEach(() => {
 	}
 });
 
-it("renders with all topic filters", () => {
+it('renders with all topic filters', () => {
 	act(() => {
-		render(<TopicFilter name="TopicFilter" />, container);
+		render(<TopicFilter />, container);
 	});
 	if (container !== null) {
 		expect(container.textContent).toBe(
-			"FinanzenHeimatAuswärtigesWirtschaft und EnergieJustizSozialesVerteidigungLandwirtschaftFamilieGesundheitInfrastrukturUmweltBildung/Forschung"
+			'FinanzenHeimatAuswärtigesWirtschaft und EnergieJustizSozialesVerteidigungLandwirtschaftFamilieGesundheitInfrastrukturUmweltBildung/Forschung'
 		);
 	}
 });

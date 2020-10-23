@@ -1,61 +1,49 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import React, { ReactNode } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import log from 'loglevel';
 
-//import { CameraPreviewOptions } from "@ionic-native/camera-preview";
-import { IonButton } from "@ionic/react";
+// import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
-import {
-	BlazeFaceModel,
-	load,
-	NormalizedFace,
-} from "@tensorflow-models/blazeface";
+import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazeface';
 
-import { createWorker, createScheduler } from "tesseract.js";
-import Fuse from "fuse.js";
+import { createWorker, createScheduler } from 'tesseract.js';
+import Fuse from 'fuse.js';
 
-import "./CameraView.css";
+import './CameraView.css';
 
-// TODO: Refactor to properly make use of async functions and promises
-// DetectFace should return a promise,
-// upon resolve we detect Characters,
-// upon resolve we fuzzy search for the politicians name,
-// upon resolve we redirect
+import { amthor } from '../amthor';
+// import { CameraPreview } from '@ionic-native/camera-preview';
 
-// Pseudo Code ideal structure component
+interface CameraViewProps extends RouteComponentProps {
+	setShowPopover: Function;
+	setCandidate: Function;
+}
 
-// async componentDidMount(){
-//   await this.startCamera().then
-//
-//	 await this.detectFaceFromVideoFrame().then
-
-//	 await this.detectTextFromVideoFrame().then
-
-//	 this.redirectToProfile(candidateId)
-
-// detectFaceFromVideoFrame(){
-//model.detect()
-// for i in results.length
-// 	this.setState(faces[i]: results[i])
-//}
-
-class CameraView extends React.PureComponent<RouteComponentProps> {
-	constructor(props: RouteComponentProps) {
+class CameraView extends React.PureComponent<CameraViewProps> {
+	/* constructor(props: CameraViewProps) {
 		super(props);
-	}
-	state = {
-		politicianDetected: false,
-	};
+	} */
 
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+
+	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+
 	videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
+
 	stream?: MediaStream;
+
+	model?: BlazeFaceModel;
+
+	animationFrameID?: number;
+
+	candidates?: Array<string>;
 
 	cameraOpts = {
 		x: 0,
 		y: 0,
-		width: window.screen.width,
-		height: window.screen.height * 0.8,
-		camera: "rear",
+		width: window.innerWidth,
+		height: window.innerHeight,
+		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
 		toBack: true,
@@ -64,232 +52,399 @@ class CameraView extends React.PureComponent<RouteComponentProps> {
 
 	scheduler = createScheduler();
 
-	async componentDidMount() {
-		await this.startCamera()
+	async componentDidMount(): Promise<void> {
+		await this.initialiseCamera()
 			.then((res) => {
-				console.log("started camera");
+				log.debug(res);
 			})
 			.catch((err) => {
-				console.log(err);
+				log.error(err);
+			});
+
+		// load BlazeFaceModel for face detetction
+		this.model = await load();
+
+		// initialise Tesseract for OCR
+		await this.initializeTesseract();
+	}
+
+	async componentWillUnmount(): Promise<void> {
+		log.debug('stopping camera preview');
+		await this.stop();
+	}
+
+	async getVideoStream(): Promise<MediaStream> {
+		const stream = await navigator.mediaDevices.getUserMedia({
+			video: {
+				facingMode: 'environment',
+				width: { exact: this.cameraOpts.width },
+				height: { exact: this.cameraOpts.height },
+			},
+			audio: false,
+		});
+		return stream;
+	}
+
+	setFullscreen(track: MediaStreamTrack): Promise<void> {
+		return track.applyConstraints({
+			aspectRatio: {
+				exact: this.cameraOpts.width / this.cameraOpts.height,
+			},
+		});
+	}
+
+	set4by3(track: MediaStreamTrack): Promise<void> {
+		const height = this.cameraOpts.width * (4 / 3);
+		return track.applyConstraints({
+			height: height,
+			width: this.cameraOpts.width,
+			aspectRatio: 4 / 3,
+		});
+	}
+
+	async setAspectRatio(): Promise<void> {
+		const videoTrack = this.stream?.getVideoTracks()[0];
+
+		this.setFullscreen(videoTrack as MediaStreamTrack)
+			.then(() => {
+				log.debug('set video to fullscreen');
+			})
+			.catch((err) => {
+				log.info(err);
+				this.set4by3(videoTrack as MediaStreamTrack).then(() => {
+					log.debug('set video to 4:3');
+				});
 			});
 	}
 
-	detectFaceFromVideoFrame = (
-		model: BlazeFaceModel,
-		video: React.RefObject<HTMLVideoElement>
-	) => {
-		if (video.current !== null) {
-			model.estimateFaces(video.current, false).then(
-				(predictions) => {
-					this.showDetections(predictions);
+	async initialiseCamera(): Promise<string> {
+		// get media tracks
+		log.debug(navigator.userAgent);
 
-					requestAnimationFrame(() => {
-						this.detectFaceFromVideoFrame(model, video);
-					});
+		this.stream = await this.getVideoStream();
+		await this.setAspectRatio();
+		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
+
+		this.initVideo();
+		this.initCanvas();
+
+		return new Promise((resolve, reject) => {
+			if (this.stream?.getTracks()[0].readyState === 'live') {
+				resolve('successfully started camera');
+			} else {
+				reject('error starting camera');
+			}
+		});
+	}
+
+	initVideo(): void {
+		// initialise video element
+		if (this.videoRef.current !== null) {
+			this.videoRef.current.width = this.cameraOpts.width;
+			this.videoRef.current.height = this.cameraOpts.height;
+			this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
+			this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
+			this.videoRef.current.srcObject = this.stream as MediaStream;
+
+			// add event listeners for play and onloadedmetadata events
+			this.videoRef.current.addEventListener(
+				'play',
+				() => {
+					this.drawLoop();
 				},
-				(error) => {
-					console.log("Couldn't start the webcam");
-					console.error(error);
-				}
+				false
 			);
+			this.videoRef.current.onloadedmetadata = (): void => {
+				this.videoRef.current?.play();
+			};
 		}
-	};
+	}
 
-	initializeTesseract = async () => {
+	initCanvas(): void {
+		// initialise canvas for drawing
+		const ctx = this.canvasRef.current?.getContext('2d');
+		if (ctx) {
+			ctx.canvas.width = this.cameraOpts.width;
+			ctx.canvas.height = this.cameraOpts.height;
+		}
+
+		// initialise canvas for OCR
+		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
+		if (ctxOCR) {
+			ctxOCR.canvas.width = this.cameraOpts.width;
+			ctxOCR.canvas.height = this.cameraOpts.height;
+		}
+	}
+
+	initializeTesseract = async (): Promise<void> => {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
-				logger: (m) => console.log(m),
+				logger: (m) => log.debug(m),
 			});
 			await worker.load();
-			await worker.loadLanguage("deu");
-			await worker.initialize("deu");
+			await worker.loadLanguage('deu');
+			await worker.initialize('deu');
 			await worker.setParameters({
+				// eslint-disable-next-line @typescript-eslint/camelcase
 				tessedit_char_whitelist:
-					"abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ",
+					'abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ',
 			});
 			this.scheduler.addWorker(worker);
 		}
 	};
 
-	detectTextFromVideoFrame = async (
-		canvas: React.RefObject<HTMLCanvasElement>,
-		video: React.RefObject<HTMLVideoElement>
-	) => {
+	// detect faces and characters
+	async detectFaces(): Promise<NormalizedFace[]> {
+		if (this.model === undefined) {
+			log.debug('Loading BlazeFace Model');
+			this.model = await load();
+		}
+
+		const predictions = await this.model.estimateFaces(
+			this.canvasOCRRef.current as HTMLCanvasElement,
+			false
+		);
+
+		return new Promise<NormalizedFace[]>((resolve, reject) => {
+			// maybe only resolve if predictions.length > 0
+			if (predictions !== undefined) {
+				resolve(predictions);
+			} else {
+				reject('could not detect faces');
+			}
+		});
+	}
+
+	async recogniseCharacters(): Promise<string[]> {
+		this.drawVideoOnCanvas();
 		if (this.scheduler.getNumWorkers() === 0) {
 			await this.initializeTesseract();
 		}
-		const start = new Date();
 
-		if (video.current) {
-			canvas.current
-				?.getContext("2d")
-				?.drawImage(
-					video.current,
-					0,
-					0,
-					canvas.current.width,
-					canvas.current.height
-				);
+		const result = await this.scheduler.addJob('recognize', this.canvasOCRRef.current);
+		const results = result.data.text.split('\n');
 
-			await this.scheduler
-				.addJob("recognize", canvas.current)
-				.then((result) => {
-					console.log(result.data.text);
-					result.data.text.split("\n").forEach((line: String) => {
-						console.log(line);
-					});
-					const list = result.data.text.split("\n");
-					const options = {
-						includeScore: true,
-					};
+		return new Promise((resolve, reject) => {
+			if (results.length > 0) {
+				resolve(results);
+			} else {
+				reject('could not detect characters');
+			}
+		});
+	}
 
-					const fuse = new Fuse(list, options);
+	async fuseSearchResults(results: string[]): Promise<{ result: {}; query: string; id: number }> {
+		const candidates = [
+			{
+				name: 'philipp amthor',
+				id: 1,
+			},
+			{
+				name: 'renate künast',
+				id: 2,
+			},
+			{
+				name: 'angela merkel',
+				id: 3,
+			},
+		];
+		const options = {
+			includeScore: true,
+		};
+		const fuse = new Fuse(results, options);
+		const match = {
+			query: '',
+			id: 0,
+			result: {},
+		};
 
-					const res = fuse.search("philipp amthor");
-					console.log(res);
-					if (res.length > 0) {
-						this.redirectToProfile();
-						return new Promise((resolve, reject) => {});
-						/* this.setState({politicianDetected: true}) */
-					}
-					const end = new Date();
-					console.log(
-						`[${start.getMinutes()}:${start.getSeconds()} - ${end.getMinutes()}:${end.getSeconds()}], ${
-							(end.getTime() - start.getTime()) / 1000
-						} s`
-					);
-					requestAnimationFrame(() => {
-						this.detectTextFromVideoFrame(canvas, video);
-					});
-				});
+		for (const candidate of candidates) {
+			const res = fuse.search(candidate.name as string);
+			console.log(res);
+			if (res.length > 0) {
+				match.result = res;
+				match.query = candidate.name;
+				match.id = candidate.id;
+			}
 		}
-	};
 
-	redirectToProfile = async () => {
-		console.log("terminating workers");
+		return new Promise((resolve, reject) => {
+			if (match.query !== '') {
+				resolve(match);
+			} else {
+				reject('no candidate found');
+			}
+		});
+	}
+
+	// display results
+	async drawLoop(): Promise<void> {
+		// detect faces and draw bbox
+		await this.detectFaces()
+			.then((predictions) => {
+				this.showDetections(predictions);
+			})
+			.catch((err) => {
+				log.error(err);
+			});
+
+		// recognize characters and show progress
+		const results = (await this.recogniseCharacters()) as string[];
+
+		await this.fuseSearchResults(results)
+			.then((match) => {
+				log.debug(`Detected candidate ${match.query}`);
+				this.props.setCandidate(amthor);
+				this.props.setShowPopover(true);
+			})
+			.catch((err) => {
+				log.debug(err);
+			});
+
+		// repeat
+		this.animationFrameID = requestAnimationFrame(async () => {
+			await this.drawLoop();
+		});
+	}
+
+	drawVideoOnCanvas(): void {
+		const ctx = this.canvasOCRRef.current?.getContext('2d');
+		ctx?.drawImage(
+			this.videoRef.current as HTMLVideoElement,
+			0,
+			0,
+			this.cameraOpts.width,
+			this.cameraOpts.height
+		);
+	}
+
+	// terminate processes
+
+	async stop(): Promise<void> {
+		cancelAnimationFrame(this.animationFrameID as number);
+
+		await this.stopOCR()
+			.then((msg) => {
+				log.debug(msg);
+			})
+			.catch((err) => {
+				log.error(err);
+			});
+
+		this.stopFaceDetection();
+		await this.stopCamera()
+			.then((msg) => {
+				log.debug(msg);
+			})
+			.catch((err) => {
+				log.error(err);
+			});
+	}
+
+	async stopOCR(): Promise<string> {
+		log.debug('terminating workers');
 		await this.scheduler.terminate();
+		return new Promise((resolve, reject) => {
+			if (this.scheduler.getNumWorkers.length === 0) {
+				resolve('successfully stopped camera stream');
+			} else {
+				reject('failed to stop camera stream');
+			}
+		});
+	}
 
-		console.log("stopping camera");
+	stopFaceDetection(): void {
+		log.debug('stopping face detection');
+		delete this.model;
+	}
+	// Old Code starts here
+
+	async stopCamera(): Promise<string> {
+		log.debug('stopping camera');
 		const tracks = this.stream?.getTracks();
 		if (tracks !== undefined) {
-			for (let track of tracks) {
+			for (const track of tracks) {
 				track.stop();
 			}
 		}
 
-		console.log("redirecting");
-		this.props.history.push("/politician/1");
-	};
-
-	showDetections = (predictions: NormalizedFace[]) => {
-		const ctx = this.canvasRef.current?.getContext(
-			"2d"
-		) as CanvasRenderingContext2D;
-
-		ctx.canvas.width = this.cameraOpts.width;
-		ctx.canvas.height = this.cameraOpts.height;
-		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-		predictions.forEach((prediction) => {
-			const start: [number, number] = prediction.topLeft as [
-				number,
-				number
-			];
-			const end: [number, number] = prediction.bottomRight as [
-				number,
-				number
-			];
-			var probability = prediction.probability as number;
-
-			const size = [end[0] - start[0], end[1] - start[1]];
-
-			// Render a rectangle over each detected face.
-			ctx.beginPath();
-			ctx.strokeStyle = "green";
-			ctx.lineWidth = 4;
-			ctx.rect(start[0], start[1], size[0], size[1]);
-			ctx.stroke();
-			var prob = (probability * 100).toPrecision(5).toString();
-			var text = prob + "%";
-			ctx.fillStyle = "red";
-			ctx.font = "13pt sans-serif";
-			ctx.fillText(text, start[0] + 5, start[1] + 20);
-		});
-	};
-
-	async startCamera() {
-		if (this.videoRef.current !== null) {
-			this.videoRef.current.style.width = String(this.cameraOpts.width);
-			this.videoRef.current.style.height = String(this.cameraOpts.height);
-			this.videoRef.current.addEventListener(
-				"play",
-				() => {
-					this.draw();
-				},
-				false
-			);
-		}
-
-		await navigator.mediaDevices
-			.getUserMedia({
-				video: { facingMode: "environment" },
-				audio: false,
-			})
-			.then((stream: MediaStream) => {
-				console.log(this.videoRef);
-				if (this.videoRef.current !== null) {
-					this.stream = stream;
-					this.videoRef.current.srcObject = stream;
-					this.videoRef.current.onloadedmetadata = (e) => {
-						if (this.videoRef.current !== null) {
-							console.log(e);
-							console.log(this);
-							this.videoRef.current.play();
-						}
-					};
-					console.log(this.videoRef.current);
-				}
-			})
-			.catch((err: {}) => {
-				console.log(err);
-			});
 		return new Promise((resolve, reject) => {
-			if (
-				this.videoRef.current !== null &&
-				typeof this.videoRef.current.srcObject !== "undefined"
-			) {
-				resolve({ value: "success" });
+			if (this.stream?.getTracks()[0].readyState === 'ended') {
+				resolve('successfully stopped camera stream');
 			} else {
-				reject("error");
+				reject('failed to stop camera stream');
 			}
 		});
 	}
 
-	async draw() {
-		console.log("Drawing");
+	showDetections = (predictions: NormalizedFace[]): void => {
+		const ua = navigator.userAgent.toLowerCase();
+		const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
+		const ctx = this.canvasRef.current?.getContext('2d') as CanvasRenderingContext2D;
+		if (ctx) {
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-		// This broke everything, it was added because we got the error 'no backend set'
-		//console.log('Using TensorFlow backend: ', tf.getBackend());
+			// Render a rectangle over each detected face.
+			ctx.beginPath();
+			ctx.strokeStyle = 'white';
+			ctx.lineWidth = 6;
 
-		//const context = this.canvasRef.current?.getContext("2d");
-		const model = await load();
-		console.log(model);
-		const video = this.videoRef;
-		this.detectFaceFromVideoFrame(model, video);
-		await this.detectTextFromVideoFrame(this.canvasRef, video);
-	}
-	render() {
+			// draw full screen clockwise, then face bbox counter clockwise
+			// to darken everything but the face
+			if (!isSafari) {
+				ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			}
+
+			predictions.forEach((prediction) => {
+				const start: [number, number] = prediction.topLeft as [number, number];
+				const end: [number, number] = prediction.bottomRight as [number, number];
+
+				/* const probability = prediction.probability as number;
+				const prob = (probability * 100).toPrecision(5).toString(); */
+
+				const size = [end[0] - start[0], end[1] - start[1]];
+
+				if (!isSafari) {
+					// counter clockwise
+					ctx.rect(end[0], start[1], -size[0], size[1]);
+				} else {
+					ctx.rect(start[0], start[1], size[0], size[1]);
+				}
+			});
+			ctx.stroke();
+			if (!isSafari) {
+				ctx.fillStyle = 'rgba(0,0,0,0.5)';
+				ctx.fill();
+			}
+		}
+	};
+
+	render(): ReactNode {
 		return (
-			<div>
-				{/* <IonButton onClick={this.startCamera.bind(this)}>
-					Start Camera Preview
-				</IonButton> */}
-				{/* { this.state.politicianDetected ? <IonButton id='profile-button' routerLink='/politician/1' >Detected Philipp Amthor, view?</IonButton> : null } */}
-
-				<video ref={this.videoRef} playsInline autoPlay></video>
-				<canvas ref={this.canvasRef} id="camera-canvas"></canvas>
+			<div className="camera-container">
+				<div className="camera">
+					{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+					<video
+						ref={this.videoRef}
+						id="camera-video"
+						className="video-element"
+						playsInline
+						autoPlay
+					></video>
+					<canvas
+						ref={this.canvasRef}
+						id="camera-canvas"
+						className="video-element"
+					></canvas>
+					<canvas
+						ref={this.canvasOCRRef}
+						id="ocr-canvas"
+						className="video-element"
+					></canvas>
+				</div>
 			</div>
 		);
 	}
 }
+
 export default withRouter(CameraView);

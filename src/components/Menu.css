@@ -112,3 +112,11 @@ ion-note {
 ion-item.selected {
 	--color: var(--ion-color-primary);
 }
+
+.menu-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
