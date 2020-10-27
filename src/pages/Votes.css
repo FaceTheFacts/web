@@ -1,12 +1,13 @@
 .votes-toolbar {
 	height: 95px;
-	background-color: #a1c5ff;
+	background-color: #4C4C4C;
 }
 
 .back-button {
 	margin-top: 50px;
 	margin-left: 10px;
 	size: 1px;
+	color: #ffffff;
 }
 
 .page-title {
@@ -14,10 +15,11 @@
 	height: 55px;
 	font-size: 15px;
 	width: fit-content;
+	color: #ffffff;
 }
 
 .grey-back-scroll {
-	background-color: #e3e3e3;
+	background-color: #1f1f1f;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	overflow-x: scroll;
@@ -25,7 +27,7 @@
 }
 
 .last-grey-back {
-	background-color: #e3e3e3;
+	background-color: #d4d4d4;
 	padding-top: 5px;
 	padding-bottom: 30px;
 }

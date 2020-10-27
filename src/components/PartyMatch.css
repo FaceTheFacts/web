@@ -1,5 +1,5 @@
 .party-matches {
-	background-color: #e3e3e3;
+	background-color: #1f1f1f;
 	width: 250%;
 	margin-bottom: 10px;
 }
@@ -27,4 +27,7 @@
 .party-match-row {
 	overflow-x: scroll;
 	white-space: nowrap;
+}
+.party-percentage {
+	color: #ffffff;
 }
