@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import './SideJobCard.css';
-
+import '../index.css';
 import { SideJob } from '../Types';
 
 interface SideJobCardProps {

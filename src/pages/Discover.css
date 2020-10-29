@@ -36,6 +36,17 @@
 	height: 50px;
 	border-radius: 10px;
 	padding-left: 18px !important;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: rgb(31, 31, 31);
+}
+.search-bar-icon {
+	position: fixed;
+	margin-left: 20px;
+	margin-right: 20px;
+	top: 55%;
+	padding-left: 18px !important;
 }
 
 .popover {

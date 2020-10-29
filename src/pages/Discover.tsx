@@ -56,13 +56,17 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
 					</div>
 
+					
 					<IonInput
 						className="search-bar"
 						value={text}
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
 						disabled={true}
 						onIonChange={(e): void => setText(e.detail.value as string)}
-					></IonInput>
+					></IonInput>		
+					<IonIcon className='search-bar' icon='../assets/icon/long-arrow-right-light.svg' slot= 'end'/>		
+				
+
 					<IonPopover
 						isOpen={showPopover}
 						cssClass="popover"

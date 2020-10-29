@@ -1,6 +1,7 @@
 import React from 'react';
 import './MenuButton.css';
 import { IonContent, IonFab, IonFabButton, IonMenuButton } from '@ionic/react';
+import '../index.css';
 
 const MenuButton: React.FC = () => (
 	<IonContent>

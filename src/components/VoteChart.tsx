@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './VoteChart.css';
 import { HorizontalBar } from 'react-chartjs-2';
 import { Poll } from '../Types';
+import '../index.css';
+
 /* 
 Register the ChartProps interface so we can pass properties to the component. 
 To be more TypeScripty, we should create a vote type which we can reuse throughout the app.

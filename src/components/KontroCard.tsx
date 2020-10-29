@@ -4,6 +4,7 @@ import { IonCardContent, IonCard, IonCardHeader, IonCardTitle } from '@ionic/rea
 import KontroArticle from './KontroArticle';
 import './KontroCard.css';
 import { Controversy } from '../Types';
+import '../index.css';
 
 interface Article {
 	image: string;
