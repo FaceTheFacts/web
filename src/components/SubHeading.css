@@ -2,7 +2,6 @@
 	text-align: left;
 	height: 40px;
 	background-color: #1f1f1f;
-
 	padding-top: 7px;
 	position: relative;
 }
@@ -12,8 +11,8 @@
 	font-size: 13px;
 	font-weight: 600;
 	line-height: 26px;
-	text-transform: uppercase;
 	margin-left: 10px;
+	padding-top: 10px;
 }
 
 /*Button Background*/

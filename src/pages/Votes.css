@@ -4,24 +4,27 @@
 }
 
 .back-button {
-	margin-top: 50px;
-	margin-left: 10px;
-	size: 1px;
+	margin-top: 15%;
+	margin-left: 4%;
+	height: 10px;
+	width: 10px;
 	color: #ffffff;
 }
 
 .page-title {
-	margin-top: 50px;
+	margin-top: 12%;
 	height: 55px;
 	font-size: 15px;
 	width: fit-content;
+	margin-left: 6%;
 	color: #ffffff;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .grey-back-scroll {
 	background-color: #1f1f1f;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	overflow-x: scroll;
 	scrollbar-width: none;
 }
@@ -29,7 +32,7 @@
 .last-grey-back {
 	background-color: #d4d4d4;
 	padding-top: 5px;
-	padding-bottom: 30px;
+	padding-bottom: 5px;
 }
 
 .hide-scrollbar {

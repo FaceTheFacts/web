@@ -25,12 +25,12 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					</IonButtons>
 					{/* Add a page title */}
 
-					<IonTitle className="page-title">ABSTIMMUNGSVERHALTEN</IonTitle>
+					<IonTitle className="page-title">Abstimmungsverhalten</IonTitle>
 				</div>
 
 				{/* Pass name to the SubHeading component to be in control of the sub heading text */}
 				<div data-testid="votes-subheading-topics">
-					<SubHeading name="Filtern Nach Themen" />
+					<SubHeading name="Filtern nach Themen" />
 				</div>
 
 				{/* TopicFilter component that holds all the filters for the topics of polls. 

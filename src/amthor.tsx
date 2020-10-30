@@ -224,7 +224,7 @@ export const amthor: Candidate = {
 				{
 					label: 'Verfahren gegen Philipp Amthor eingestellt',
 					image: new URL(
-						'https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop'
+						'https://images.derstandard.at/img/2020/07/22/amthor.jpg?w=750&s=02c71673'
 					),
 					url: new URL(
 						'https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt'

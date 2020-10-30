@@ -64,7 +64,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						disabled={true}
 						onIonChange={(e): void => setText(e.detail.value as string)}
 					></IonInput>		
-					<IonIcon className='search-bar' icon='../assets/icon/long-arrow-right-light.svg' slot= 'end'/>		
+	
 				
 
 					<IonPopover
