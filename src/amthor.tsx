@@ -77,7 +77,7 @@ export const amthor: Candidate = {
 			},
 		},
 		{
-			subtitle: '',
+			subtitle: 'Antrag',
 			title: 'Finanzielle Entlastung für Kommunen',
 			candidateVote: 'yes' as 'yes' | 'no' | 'abstain' | 'none',
 			chip: {

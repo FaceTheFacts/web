@@ -92,14 +92,14 @@
 }
 .title-div {
 	height: 115px;
-	background-color: #e3e3e3;
+	background-color: #000000;
 }
 .subtitle-styling {
 	margin-top: 21px;
 	margin-left: 20px;
 	height: 14px;
 	overflow: visible;
-	color: #000000;
+	color: #ffffff;
 	font-size: 12px;
 	letter-spacing: 0.5px;
 	line-height: 1.2px;
@@ -110,7 +110,7 @@
 	margin-left: 20px;
 	height: 16px;
 	overflow: visible;
-	color: #000000;
+	color: #ffffff;
 	font-size: 16px;
 	letter-spacing: 0px;
 	line-height: 1px;
