@@ -32,9 +32,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 
 	const voteStrings = {
-		yes: 'JA',
-		no: 'NEIN',
-		abstain: 'ENTHALTEN',
+		yes: 'Ja',
+		no: 'Nein',
+		abstain: 'Enthalten',
 		none: 'Nicht Abg.',
 	};
 

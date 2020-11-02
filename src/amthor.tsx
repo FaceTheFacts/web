@@ -13,6 +13,18 @@ export const amthor: Candidate = {
 			organisation: 'Sparkasse Uecker-Randow',
 			position: 'Mitglied des Verwaltungsrates',
 		},
+		{
+			organisation: 'Augustus Intelligence Inc.',
+			position: 'Board Member',
+		},
+		{
+			organisation: 'Landkreis Vorpommern-Greifswald',
+			position: 'Mitglied des Kreistages',
+		},
+		{
+			organisation: 'AMEOS Krankenhausgesellschaft Vorpommern',
+			position: 'Mitglied des Regionalbeirates',
+		},
 	],
 	polls: [
 		{
@@ -48,7 +60,7 @@ export const amthor: Candidate = {
 		},
 		{
 			subtitle: 'Beschlussempfehlung',
-			title: 'Geflüchtete aus Moria in Deutschland aufnehmen',
+			title: 'Geflüchtete aus Moria aufnehmen',
 			candidateVote: 'no' as 'yes' | 'no' | 'abstain' | 'none',
 			chip: {
 				name: 'Heimat',

@@ -24,6 +24,9 @@
 	text-align: center;
 	font-weight: 600;
 	font-size: 15px;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .vote-yes {
@@ -54,6 +57,8 @@
 	font-weight: 600;
 	color: #000000;
 	padding-bottom: 20px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .vote-card ion-col {
@@ -76,9 +81,14 @@
 .vote-card-title {
 	font-size: 16px;
 	height: 40px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .vote-card-subtitle {
 	font-size: 14px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	text-transform: capitalize;
 }
 .bottom-group {
 	margin-bottom: 10px;
@@ -92,7 +102,7 @@
 }
 .title-div {
 	height: 115px;
-	background-color: #000000;
+	background-color: #1f1f1f;
 }
 .subtitle-styling {
 	margin-top: 21px;
@@ -104,6 +114,9 @@
 	letter-spacing: 0.5px;
 	line-height: 1.2px;
 	font-weight: 500;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	text-transform: capitalize;
 }
 .title-styling {
 	margin-top: 0px;
@@ -115,6 +128,8 @@
 	letter-spacing: 0px;
 	line-height: 1px;
 	font-weight: 400;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .chip-styling {
 	margin-left: 20px;
@@ -126,6 +141,8 @@
 	font-weight: 500;
 	border-radius: 5px;
 	box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .abstract-div {
@@ -143,6 +160,8 @@
 	line-height: 1.2;
 	font-weight: 600;
 	color: #000000;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .abstract-text {
 	width: 345px;
@@ -154,6 +173,8 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	color: #000000;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .abstract-button {
 	padding-top: 3px;
@@ -173,6 +194,8 @@
 	text-align: center;
 	border-radius: 5px;
 	box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .first-line-style {
@@ -202,11 +225,15 @@
 	line-height: 65px;
 	box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .reason-vote-text {
 	display: inline-block;
 	vertical-align: middle;
 	line-height: normal;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .reason-reason {
@@ -217,6 +244,8 @@
 	overflow-y: scroll;
 	scrollbar-width: none;
 	color: #000000;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .reason-title {
 	margin-top: 3px;
@@ -226,6 +255,8 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	font-weight: 600;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .reason-text {
 	margin-top: 0px;
@@ -234,6 +265,8 @@
 	font-size: 13px;
 	letter-spacing: 0.3px;
 	line-height: 1.2;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .second-line-style {
@@ -257,6 +290,8 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	font-weight: 500;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .result-vote-members {
 	margin-top: 0px;
@@ -265,6 +300,8 @@
 	letter-spacing: -0.2px;
 	line-height: 1.2;
 	font-weight: 600;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .result-row-spacing {
 	margin-top: 0px;
@@ -294,6 +331,8 @@
 	font-size: 13px;
 	font-weight: 600;
 	color: #000000;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .round-chart-div {
@@ -322,6 +361,8 @@
 	letter-spacing: -0.4px;
 	line-height: 1.2;
 	font-weight: 600;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .chart-vote-members {
 	margin-top: 0px;
@@ -330,4 +371,6 @@
 	letter-spacing: -0.2px;
 	line-height: 1.2;
 	font-weight: 600;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }

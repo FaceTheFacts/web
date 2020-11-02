@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton } from '@ionic/react';
+import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton, IonText } from '@ionic/react';
 import React from 'react';
 import TopicFilter from '../components/TopicFilter';
 import PartyMatch from '../components/PartyMatch';
@@ -42,7 +42,6 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				<div data-testid="votes-subheading-parties">
 					<SubHeading
 						name="Übereinstimmung mit anderen Fraktionen"
-						icon="infobutton.svg"
 					/>
 				</div>
 
@@ -53,8 +52,8 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 
-				<div data-testid="votes-subheading-votes">
-					<SubHeading name="Abstimmungen" />
+				<div className="votes-title">
+					<IonText>Abstimmungen</IonText>
 				</div>
 
 				{/* For each vote in votes, render a VoteCard component */}

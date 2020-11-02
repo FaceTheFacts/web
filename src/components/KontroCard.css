@@ -26,6 +26,8 @@
 .kontro-title {
 	float: left;
 	font-size: 16px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .kontro-expand-icon {
@@ -49,6 +51,8 @@
 	letter-spacing: 0px;
 	line-height: 1;
 	font-weight: 600;
+	font-style: normal;
+	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
 

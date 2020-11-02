@@ -28,10 +28,24 @@
 	overflow-x: scroll;
 	scrollbar-width: none;
 }
+.votes-title{
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #d4d4d4;
+	color: #1f1f1f;
+	height: 22px;
+	font-size: 18px;
+	letter-spacing: 0.5px;
+	line-height: 1.2;
+	font-weight: 600;
+	padding-left: 20px;
+	padding-top: 15px;
+}
 
 .last-grey-back {
 	background-color: #d4d4d4;
-	padding-top: 5px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 }
 

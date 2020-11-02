@@ -83,7 +83,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				</div>
 
 				<div data-testid="profile-subheading-sidejobs">
-					<SubHeading name="Bekannte Nebentätigkeiten" icon="infobutton.svg" />
+					<SubHeading name="Bekannte Nebentätigkeiten"/>
 				</div>
 
 				<div className="last-grey-back">
