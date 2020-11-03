@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton } from '@ionic/react';
+import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton, IonText } from '@ionic/react';
 import React from 'react';
 import TopicFilter from '../components/TopicFilter';
 import PartyMatch from '../components/PartyMatch';
@@ -25,12 +25,12 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					</IonButtons>
 					{/* Add a page title */}
 
-					<IonTitle className="page-title">ABSTIMMUNGSVERHALTEN</IonTitle>
+					<IonTitle className="page-title">Abstimmungsverhalten</IonTitle>
 				</div>
 
 				{/* Pass name to the SubHeading component to be in control of the sub heading text */}
 				<div data-testid="votes-subheading-topics">
-					<SubHeading name="Filtern Nach Themen" />
+					<SubHeading name="Filtern nach Themen" />
 				</div>
 
 				{/* TopicFilter component that holds all the filters for the topics of polls. 
@@ -42,7 +42,6 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				<div data-testid="votes-subheading-parties">
 					<SubHeading
 						name="Übereinstimmung mit anderen Fraktionen"
-						icon="infobutton.svg"
 					/>
 				</div>
 
@@ -53,8 +52,8 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 
-				<div data-testid="votes-subheading-votes">
-					<SubHeading name="Abstimmungen" />
+				<div className="votes-title">
+					<IonText>Abstimmungen</IonText>
 				</div>
 
 				{/* For each vote in votes, render a VoteCard component */}

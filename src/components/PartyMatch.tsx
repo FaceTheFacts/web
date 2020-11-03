@@ -2,6 +2,7 @@ import React from 'react';
 import { IonThumbnail, IonLabel } from '@ionic/react';
 import './PartyMatch.css';
 import { PartyMatchType } from '../Types';
+import '../index.css';
 
 interface PartyMatchProps {
 	parties: Array<PartyMatchType>;

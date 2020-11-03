@@ -2,6 +2,7 @@ import React from 'react';
 import './VoteChart.css';
 import { PieChart } from 'react-minimal-pie-chart';
 import { PartyVoteResult } from '../Types';
+import '../index.css';
 
 /* 
 Register the ChartProps interface so we can pass properties to the component. 

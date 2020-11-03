@@ -2,6 +2,7 @@ import React from 'react';
 import { IonChip } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
+import '../index.css';
 
 interface ContainerProps {
 	politician: Candidate;

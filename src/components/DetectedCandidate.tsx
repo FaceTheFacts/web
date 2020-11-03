@@ -4,6 +4,8 @@ import './DetectedCandidate.css';
 import { useHistory } from 'react-router';
 import log from 'loglevel';
 import { Candidate } from '../Types';
+import '../index.css';
+
 interface ContainerProps {
 	setShowPopover: Function;
 	setShowCamera: Function;
