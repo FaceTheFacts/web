@@ -2,6 +2,7 @@
 	background-color: #1f1f1f;
 	height: 100vh;
 	width: 100vw;
+	overflow: hidden;;
 }
 
 .camera-icon-background {
@@ -10,8 +11,8 @@
 	width: 130px;
 	height: 130px;
 	border-radius: 20px;
-	top: 37%;
-	left: 33%;
+	top: 30%;
+	left: calc((100% - 130px) / 2);
 }
 
 #camera-square {
@@ -28,11 +29,11 @@
 
 .search-bar {
 	position: fixed;
-	top: 55%;
+	top: 60%;
 	background-color: rgba(212, 212, 212, 0.7);
-	margin-left: 20px;
-	margin-right: 20px;
-	width: 335px;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
 	height: 50px;
 	border-radius: 10px;
 	padding-left: 18px !important;
