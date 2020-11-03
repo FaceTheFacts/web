@@ -20,6 +20,7 @@ import {
 	IonLabel,
 } from '@ionic/react';
 import { Poll } from '../Types';
+import '../index.css';
 
 interface ContainerProps {
 	vote: Poll;
@@ -31,9 +32,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 
 	const voteStrings = {
-		yes: 'JA',
-		no: 'NEIN',
-		abstain: 'ENTHALTEN',
+		yes: 'Ja',
+		no: 'Nein',
+		abstain: 'Enthalten',
 		none: 'Nicht Abg.',
 	};
 
@@ -134,6 +135,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					</IonGrid>
 				</IonCardContent>
 			</IonCard>
+
+
+
 
 			{/*Vote Detail Modal*/}
 
