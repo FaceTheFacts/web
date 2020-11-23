@@ -2,8 +2,21 @@
 
 [![codecov](https://codecov.io/gh/Face-the-Facts/mobile-app/branch/develop/graph/badge.svg)](https://codecov.io/gh/Face-the-Facts/mobile-app)
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/facethefacts/app?label=build&logo=docker)](https://hub.docker.com/r/facethefacts/app)
-![Dependency status](https://img.shields.io/david/face-the-facts/mobile-app)
-![Development dependency status](https://img.shields.io/david/dev/face-the-facts/mobile-app)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/face-the-facts/mobile-app/eslint?label=ESLint&logo=eslint)
+
+Face the Facts is a mobile web application enabling users to access information about the political candidates runnning for office in their constituency directly on the election poster.
+
+Check it out here: [https://facethefacts.app](https://facethefacts.app)
+
+## Technologies
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/typescript?logo=typescript)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/ionic?logo=ionic)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/react?logo=react)
+
+The application is built using the [Ionic Framework](https://ionicframework.com/) on top of [React](https://reactjs.org/). The scanning feature utilises the WebRTC API to gain access to the device camera alongside the machine learning library Tensorflow with its Blazeface model for face detection and the optical character recognition engine Tesseract.js.
+
+## Contributing
+This project is still in a very early stage. If you are interested in contributing, feel free to reach out to [info@facethefacts.app](mailto:info@facethefacts.app).
 
 ## Development
 
@@ -12,8 +25,8 @@ npm needs to be installed to run this project
 ### Run locally
 
 ```zsh
-git clone
-cd face-the-facts
+git clone https://github.com/Face-the-Facts/mobile-app.git
+cd mobile-app
 npm install
 ionic serve
 ```
