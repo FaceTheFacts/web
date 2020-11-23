@@ -8,6 +8,8 @@ Face the Facts is a mobile web application enabling users to access information 
 
 Check it out here: [https://facethefacts.app](https://facethefacts.app)
 
+For testing the scanning feature, point your device's camera at [this image](.github/media/philipp_amthor_poster.jpeg).
+
 ## Technologies
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/typescript?logo=typescript)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/ionic?logo=ionic)
