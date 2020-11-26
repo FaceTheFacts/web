@@ -4,6 +4,7 @@ Pytest Configuration
 
 import inspect
 import os
+import subprocess
 
 import numpy as np
 from PIL import Image
@@ -16,8 +17,8 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import pytest
 
 #from selenium.webdriver import SafariOptions
-INNER_HEIGHT = 926
-INNER_WIDTH = 1792
+INNER_HEIGHT = 812
+INNER_WIDTH = 450 
 
 def pytest_addoption(parser):
     """
@@ -73,6 +74,8 @@ def pytest_collection_modifyitems(config, items):
         elif "android" in item.keywords and not 'android' in platform:
             item.add_marker(skip_android)
 
+
+
 @pytest.fixture(scope='class')
 def init_chrome(request):
     """
@@ -90,6 +93,7 @@ def init_chrome(request):
     chrome_options.add_argument('--use-fake-ui-for-media-stream')
     chrome_options.add_argument('--use-file-for-fake-video-capture=./test_scan_video.mjpeg')
     chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--disable-web-extensions')
     chrome_driver = webdriver.Chrome(options=chrome_options)
     chrome_driver.set_window_position(0, 0)
     chrome_driver.set_window_size(INNER_WIDTH, INNER_HEIGHT + delta_height)
@@ -106,7 +110,10 @@ def init_firefox(request):
     #windowHeight=1049
     #windowWidth=1790
     #innerHeight=975
-    delta_height = 74
+    check_for_test_webcam()
+    delta_height = 74 # MacOS
+    #delta_height = 74 # Ubuntu
+    #delta_width = 76
     firefox_options = FirefoxOptions()
     profile = FirefoxProfile()
     profile.set_preference('media.navigator.streams.fake', True)
@@ -224,7 +231,7 @@ def get_test_slug(request):
     class_file = class_path[-1]
     screen = class_file.replace('test_', '').replace('.py', '')
 
-    testname = f"{screen}_{platform}_{request.node.name}"
+    testname = f"{screen}_{platform}_{request.node.name}_{INNER_WIDTH}x{INNER_HEIGHT}"
 
     return testname
 
