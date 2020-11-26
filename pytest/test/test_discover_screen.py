@@ -8,8 +8,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-INNER_HEIGHT = 926
-INNER_WIDTH = 1792
+INNER_HEIGHT = 812
+INNER_WIDTH = 450
 
 class DiscoverTest:
     # pylint: disable=no-member
@@ -57,7 +57,7 @@ class DiscoverTest:
         take screenshot and compare to baseline
         """
         self.driver.get(url + self.path)
-        WebDriverWait(self.driver, timeout=10).until(
+        WebDriverWait(self.driver, timeout=5).until(
             expected_conditions.element_to_be_clickable((By.CLASS_NAME, 'camera-icon-background'))
             )
         # The screenshots only work if browser has the same inner dimensions
