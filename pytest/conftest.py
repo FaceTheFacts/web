@@ -43,6 +43,7 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "safari: mark test to run on safari")
     config.addinivalue_line("markers", "ios: mark test to run on ios")
     config.addinivalue_line("markers", "android: mark test to run on android")
+    config.addinivalue_line("markers", "scan: mark test requiring test webcam")
 
 
 def pytest_collection_modifyitems(config, items):
@@ -73,6 +74,11 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(skip_ios)
         elif "android" in item.keywords and not 'android' in platform:
             item.add_marker(skip_android)
+        elif "scan" in item.keywords and not check_for_test_webcam():
+            item.add_marker(pytest.mark.skip(reason="need 'scan-test-webcam' video device to run"))
+    
+
+
 
 def check_for_test_webcam():
     process = subprocess.Popen(['v4l2-ctl', '--list-devices'],
