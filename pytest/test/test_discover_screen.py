@@ -47,7 +47,24 @@ class DiscoverTest:
         WebDriverWait(self.driver, timeout=10).until(
             expected_conditions.presence_of_element_located((By.CLASS_NAME, 'camera-container'))
             )
-        assert self.driver.find_element(By.CLASS_NAME, 'camera-container') != 'undefined', "Screenshot does not match baseline"
+        assert self.driver.find_element(By.CLASS_NAME, 'camera-container') != 'undefined'
+
+    @pytest.mark.scan
+    def test_scan_feature(self, url):
+        """
+        Test if the scan feature works
+        """
+        self.driver.get(url + self.path)
+        WebDriverWait(self.driver, timeout=10).until(
+            expected_conditions.element_to_be_clickable((By.CLASS_NAME, 'camera-icon-background'))
+            )
+        element = self.driver.find_element_by_class_name('camera-icon-background')
+        element.click()
+        WebDriverWait(self.driver, timeout=30).until(
+            expected_conditions.presence_of_element_located((By.CLASS_NAME, 'detected-candidate-popover'))
+            )
+        assert self.driver.find_element(By.CLASS_NAME, 'detected-candidate-name').text == "Philipp Amthor"
+        
 
     # @pytest.mark.parameterize("window_size, inner_size", [
     #     ([])
