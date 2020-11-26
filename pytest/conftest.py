@@ -74,7 +74,15 @@ def pytest_collection_modifyitems(config, items):
         elif "android" in item.keywords and not 'android' in platform:
             item.add_marker(skip_android)
 
-
+def check_for_test_webcam():
+    process = subprocess.Popen(['v4l2-ctl', '--list-devices'],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT)
+    stdout, stderr = process.communicate()
+    if 'scan-test-webcam' in str(stdout).lower():
+        return True
+    else:
+        return False
 
 @pytest.fixture(scope='class')
 def init_chrome(request):
@@ -110,13 +118,15 @@ def init_firefox(request):
     #windowHeight=1049
     #windowWidth=1790
     #innerHeight=975
-    check_for_test_webcam()
+    
+
     delta_height = 74 # MacOS
     #delta_height = 74 # Ubuntu
     #delta_width = 76
     firefox_options = FirefoxOptions()
     profile = FirefoxProfile()
-    profile.set_preference('media.navigator.streams.fake', True)
+    if not check_for_test_webcam():
+        profile.set_preference('media.navigator.streams.fake', True)
     profile.set_preference('media.navigator.permission.disabled', True)
     firefox_options.profile = profile
     firefox_driver = webdriver.Firefox(options=firefox_options)
