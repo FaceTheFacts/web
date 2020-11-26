@@ -129,13 +129,14 @@ def init_firefox(request):
     delta_height = 74 # MacOS
     #delta_height = 74 # Ubuntu
     #delta_width = 76
+    firefox_capabilities = DesiredCapabilities.FIREFOX.copy()
     firefox_options = FirefoxOptions()
     profile = FirefoxProfile()
     if not check_for_test_webcam():
         profile.set_preference('media.navigator.streams.fake', True)
     profile.set_preference('media.navigator.permission.disabled', True)
     firefox_options.profile = profile
-    firefox_driver = webdriver.Firefox(options=firefox_options)
+    firefox_driver = webdriver.Firefox(options=firefox_options, capabilities=firefox_capabilities)
     firefox_driver.set_window_position(0, 0)
     firefox_driver.set_window_size(INNER_WIDTH, INNER_HEIGHT + delta_height)
     request.cls.driver = firefox_driver
