@@ -61,7 +61,7 @@ class DiscoverTest:
         element = self.driver.find_element_by_class_name('camera-icon-background')
         element.click()
         WebDriverWait(self.driver, timeout=30).until(
-            expected_conditions.presence_of_element_located((By.CLASS_NAME, 'detected-candidate-popover'))
+            expected_conditions.presence_of_element_located((By.CLASS_NAME, 'detected-candidate-name'))
             )
         assert self.driver.find_element(By.CLASS_NAME, 'detected-candidate-name').text == "Philipp Amthor"
         
