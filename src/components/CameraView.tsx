@@ -12,6 +12,7 @@ import '../index.css';
 import './CameraView.css';
 import { amthor } from '../amthor';
 import FeedbackCanvas from './CameraView/FeedbackCanvas';
+import DetectionCanvas from './CameraView/DetectionCanvas';
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
@@ -27,6 +28,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
 	feedbackCanvasRef: React.RefObject<FeedbackCanvas> = React.createRef();
+
+	detectionCanvasRef: React.RefObject<DetectionCanvas> = React.createRef();
 
 	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
@@ -173,11 +176,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		this.feedbackCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
 
 		// initialise canvas for OCR
-		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
-		if (ctxOCR) {
-			ctxOCR.canvas.width = this.cameraOpts.width;
-			ctxOCR.canvas.height = this.cameraOpts.height;
-		}
+		this.detectionCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
+		// const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
+		// if (ctxOCR) {
+		// 	ctxOCR.canvas.width = this.cameraOpts.width;
+		// 	ctxOCR.canvas.height = this.cameraOpts.height;
+		// }
 	}
 
 	initializeTesseract = async (): Promise<void> => {
@@ -205,7 +209,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 
 		const predictions = await this.model.estimateFaces(
-			this.canvasOCRRef.current as HTMLCanvasElement,
+			// this.canvasOCRRef.current as HTMLCanvasElement
+			this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement,
 			false
 		);
 
@@ -220,12 +225,16 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	async recogniseCharacters(): Promise<string[]> {
-		this.drawVideoOnCanvas();
+		//this.drawVideoOnCanvas();
+		this.detectionCanvasRef.current?.draw(this.videoRef.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
 		if (this.scheduler.getNumWorkers() === 0) {
 			await this.initializeTesseract();
 		}
 
-		const result = await this.scheduler.addJob('recognize', this.canvasOCRRef.current);
+		const result = await this.scheduler.addJob(
+			'recognize',
+			this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement
+			);//this.canvasOCRRef.current);
 		const results = result.data.text.split('\n');
 
 		return new Promise((resolve, reject) => {
@@ -444,11 +453,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 						id="camera-canvas"
 						className="video-element"
 					></canvas> */}
-					<canvas
+					<DetectionCanvas
+						ref={this.detectionCanvasRef}
+					></DetectionCanvas>
+					{/* <canvas
 						ref={this.canvasOCRRef}
 						id="ocr-canvas"
 						className="video-element"
-					></canvas>
+					></canvas> */}
 				</div>
 			</div>
 		);
