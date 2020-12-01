@@ -1,4 +1,3 @@
-import React from 'react';
 import AbstractCanvas from './AbstractCanvas';
 
 import {NormalizedFace} from '@tensorflow-models/blazeface';
