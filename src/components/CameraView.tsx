@@ -285,7 +285,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		// detect faces and draw bbox
 		await this.detectFaces()
 			.then((predictions) => {
-				this.showDetections(predictions);
+				this.feedbackCanvas.draw(predictions)
+				//this.showDetections(predictions);
 			})
 			.catch((err) => {
 				log.error(err);
@@ -435,7 +436,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 						autoPlay
 					></video>
 					<canvas
-						ref={this.canvasRef}
+						ref={this.feedbackCanvas.ref}
 						id="camera-canvas"
 						className="video-element"
 					></canvas>
