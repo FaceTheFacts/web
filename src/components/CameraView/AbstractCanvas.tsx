@@ -26,7 +26,7 @@ class AbstractCanvas implements Canvas {
         }
 
         return new Promise<string>((resolve, reject) => {
-            if (ctx?.canvas.width == width && ctx?.canvas.height == height) {
+            if (ctx?.canvas.width === width && ctx?.canvas.height === height) {
                 resolve('successfully initialised canvas')
             } else {
                 reject('could not initialise canvas')
