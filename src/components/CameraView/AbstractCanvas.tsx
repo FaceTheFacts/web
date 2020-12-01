@@ -3,9 +3,17 @@ import React from 'react'
 interface Canvas {
     ref: React.RefObject<HTMLCanvasElement>
     init: Function
-    draw: Function
+    //draw: Function
 
 }
+
+type CanvasImage = {
+    source: HTMLVideoElement | HTMLImageElement;
+    width: number;
+    height: number;
+}
+
+
 
 class AbstractCanvas implements Canvas {
     ref: React.RefObject<HTMLCanvasElement> = React.createRef();
@@ -26,16 +34,16 @@ class AbstractCanvas implements Canvas {
         })
     }
 
-    draw(image: HTMLVideoElement | HTMLImageElement, width: number, height: number) {
-        const ctx = this.ref.current?.getContext('2d');
-        ctx?.drawImage(
-            image,
-            0,
-            0,
-            width,
-            height
-        )
-    }
+    // draw(image?: CanvasImage) {
+    //     const ctx = this.ref.current?.getContext('2d');
+    //     ctx?.drawImage(
+    //         image?.source as HTMLVideoElement,
+    //         0,
+    //         0,
+    //         image?.width as number,
+    //         image?.height as number
+    //     )
+    // }
 }
 
 export default AbstractCanvas
