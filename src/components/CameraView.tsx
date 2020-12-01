@@ -26,7 +26,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
-	feedbackCanvas: FeedbackCanvas = new FeedbackCanvas();
+	feedbackCanvasRef: React.RefObject<FeedbackCanvas> = React.createRef();
 
 	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
@@ -170,7 +170,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		// 	ctx.canvas.width = this.cameraOpts.width;
 		// 	ctx.canvas.height = this.cameraOpts.height;
 		// }
-		this.feedbackCanvas.init(this.cameraOpts.width, this.cameraOpts.height);
+		this.feedbackCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
 
 		// initialise canvas for OCR
 		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
@@ -286,7 +286,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		// detect faces and draw bbox
 		await this.detectFaces()
 			.then((predictions) => {
-				this.feedbackCanvas.draw(predictions)
+				this.feedbackCanvasRef.current?.draw(predictions)
 				//this.showDetections(predictions);
 			})
 			.catch((err) => {
@@ -436,11 +436,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 						playsInline
 						autoPlay
 					></video>
-					<canvas
+					<FeedbackCanvas
+						ref={this.feedbackCanvasRef}
+					></FeedbackCanvas>
+					{/* <canvas
 						ref={this.feedbackCanvas.ref}
 						id="camera-canvas"
 						className="video-element"
-					></canvas>
+					></canvas> */}
 					<canvas
 						ref={this.canvasOCRRef}
 						id="ocr-canvas"
