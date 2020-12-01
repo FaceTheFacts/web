@@ -165,11 +165,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	initCanvas(): void {
 		// initialise canvas for drawing
-		const ctx = this.canvasRef.current?.getContext('2d');
-		if (ctx) {
-			ctx.canvas.width = this.cameraOpts.width;
-			ctx.canvas.height = this.cameraOpts.height;
-		}
+		// const ctx = this.canvasRef.current?.getContext('2d');
+		// if (ctx) {
+		// 	ctx.canvas.width = this.cameraOpts.width;
+		// 	ctx.canvas.height = this.cameraOpts.height;
+		// }
+		this.feedbackCanvas.init(this.cameraOpts.width, this.cameraOpts.height);
 
 		// initialise canvas for OCR
 		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
