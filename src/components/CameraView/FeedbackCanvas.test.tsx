@@ -26,15 +26,58 @@ describe('unittest', () => {
 		const ref: React.RefObject<FeedbackCanvas> = React.createRef()
 		const width: number = 100;
 		const height: number = 100;
+
+		//when
 		act(() => {
 			render(<FeedbackCanvas ref={ref}></FeedbackCanvas>, container);
 			ref.current?.init(width, height)
 		})
 	
+		// then
 		if (container !== null) {
 			const canvas = container.getElementsByTagName('canvas')[0];
 			expect(canvas.width).toBe(width);
 			expect(canvas.height).toBe(height);
 		}
+	})
+	it('draws without errors', () => {
+		// given 
+		const ref: React.RefObject<FeedbackCanvas> = React.createRef()
+		const predictions: Array<{topLeft: [number, number], bottomRight:[number, number]}> = [
+			{topLeft: [20, 50], bottomRight: [80, 100]}
+		]
+		const width: number = 100;
+		const height: number = 100;
+
+		// when
+		act(() => {
+			render(<FeedbackCanvas ref={ref}></FeedbackCanvas>, container);
+			ref.current?.init(width, height)
+			
+		})
+
+		// then
+		expect(() => ref.current?.draw(predictions)).not.toThrow();
+	})
+
+	it('draws detections correctly', () => {
+		// given 
+		const ref: React.RefObject<FeedbackCanvas> = React.createRef()
+		const predictions: Array<{topLeft: [number, number], bottomRight:[number, number]}> = [
+			{topLeft: [20, 50], bottomRight: [80, 100]}
+		]
+		const width: number = 100;
+		const height: number = 100;
+
+		// when
+		act(() => {
+			render(<FeedbackCanvas ref={ref}></FeedbackCanvas>, container);
+			ref.current?.init(width, height)
+			ref.current?.draw(predictions);
+		})
+
+		// then
+		const path = ref.current?.ref.current?.getContext('2d')?.__getPath;
+		expect(path).toMatchSnapshot();
 	})
 })
