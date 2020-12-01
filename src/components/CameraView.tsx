@@ -11,6 +11,7 @@ import Fuse from 'fuse.js';
 import '../index.css';
 import './CameraView.css';
 import { amthor } from '../amthor';
+import FeedbackCanvas from './CameraView/FeedbackCanvas';
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
@@ -24,6 +25,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	} */
 
 	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+
+	feedbackCanvas: FeedbackCanvas = new FeedbackCanvas();
 
 	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
