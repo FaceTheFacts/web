@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ReactNode} from 'react'
 
 interface Canvas {
     ref: React.RefObject<HTMLCanvasElement>
@@ -15,7 +15,7 @@ type CanvasImage = {
 
 
 
-class AbstractCanvas implements Canvas {
+class AbstractCanvas extends React.Component implements Canvas {
     ref: React.RefObject<HTMLCanvasElement> = React.createRef();
 
     init(width: number, height: number): Promise<string> {
@@ -32,6 +32,17 @@ class AbstractCanvas implements Canvas {
                 reject('could not initialise canvas')
             }
         })
+    }
+
+    render(): ReactNode {
+        return (
+            <canvas
+                ref={this.ref}
+                id="camera-canvas"
+                className="video-element"
+            >
+            </canvas>
+        )
     }
 
     // draw(image?: CanvasImage) {
