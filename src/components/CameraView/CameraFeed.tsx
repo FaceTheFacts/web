@@ -7,7 +7,7 @@ interface CameraFeedProps {
         y: number,
         width: number,
         height: number,
-        camera: 'rear' | 'front',
+        camera: string,
         tapPhoto: boolean,
         previewDrag: boolean,
         toBack: boolean,
@@ -49,7 +49,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 		const isAndroid = ua.includes('android');
 		const height = isAndroid ? this.props.cameraOpts.width : this.props.cameraOpts.height;
 		const width = isAndroid? this.props.cameraOpts.height : this.props.cameraOpts.width;
-
+        console.log(width)
 		return videoTrack?.applyConstraints({
 			height: height,
 			width: width,
@@ -66,14 +66,6 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 			this.ref.current.style.height = String(`${this.props.cameraOpts.height}px`);
 			this.ref.current.srcObject = this.stream as MediaStream;
 
-			// add event listeners for play and onloadedmetadata events
-			// this.ref.current.addEventListener(
-			// 	'play',
-			// 	() => {
-			// 		super().drawLoop();
-			// 	},
-			// 	false
-			// );
 			this.ref.current.onloadedmetadata = (): void => {
 				this.ref.current?.play();
 			};
@@ -81,9 +73,8 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
     }
     
     async start(): Promise<string> {
-		// get media tracks
-		//log.debug(navigator.userAgent);
-
+        
+        // get media tracks
 		this.stream = await this.getVideoStream();
 		await this.setAspectRatio();
 		this.props.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
