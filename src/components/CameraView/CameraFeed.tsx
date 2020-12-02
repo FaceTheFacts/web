@@ -37,6 +37,12 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
         })
     }
 
+    async componentWillUnmount(): Promise<void> {
+        await this.stop().then((res) => {
+            console.log(res);
+        })
+    }
+
     async getVideoStream(): Promise<MediaStream> {
 		const stream = await navigator.mediaDevices.getUserMedia({
 			video: {
