@@ -23,9 +23,13 @@ interface CameraViewProps extends RouteComponentProps {
 }
 
 class CameraView extends React.PureComponent<CameraViewProps> {
-	/* constructor(props: CameraViewProps) {
+	constructor(props: CameraViewProps) {
 		super(props);
-	} */
+		this.state = {
+			cameraReady: false
+		}
+		this.setCameraReady = this.setCameraReady.bind(this)
+	}
 
 	//canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
@@ -59,29 +63,43 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		alpha: 1,
 	};
 
+
 	scheduler = createScheduler();
 
 	async componentDidMount(): Promise<void> {
-		await this.cameraFeedRef.current?.start()
-			.then((res) => {
-				log.debug(res);
-				this.initCanvas();
-				this.cameraFeedRef.current?.ref.current?.addEventListener(
-					'play',
-					() => {
-						this.drawLoop();
-					}
-				)
-			})
-			.catch((err) => {
-				log.error(err);
-			});
+		
+		console.log(this.cameraFeedRef.current)
+		
+		// await this.cameraFeedRef.current?.start()
+		// 	.then((res) => {
+		// 		log.debug(res);
+		// 		this.initCanvas();
+		// 		this.cameraFeedRef.current?.ref.current?.addEventListener(
+		// 			'play',
+		// 			() => {
+		// 				this.drawLoop();
+		// 			}
+		// 		)
+		// 	})
+		// 	.catch((err) => {
+		// 		log.error(err);
+		// 	});
 
 		// load BlazeFaceModel for face detetction
 		this.model = await load();
 
 		// initialise Tesseract for OCR
 		await this.initializeTesseract();
+	}
+
+	async componentDidUpdate(): Promise<void> {
+		this.initCanvas();
+		this.cameraFeedRef.current?.ref.current?.addEventListener(
+			'play',
+			() => {
+				this.drawLoop();
+			}
+		)
 	}
 
 	async componentWillUnmount(): Promise<void> {
@@ -176,6 +194,10 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// 		};
 	// 	}
 	// }
+
+	setCameraReady(): void {
+		this.setState({cameraReady: true})
+	}
 
 	initCanvas(): void {
 		// initialise canvas for drawing
@@ -459,6 +481,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 					<CameraFeed
 						ref={this.cameraFeedRef}
 						cameraOpts={this.cameraOpts}
+						setCameraReady={this.setCameraReady}
 					></CameraFeed>
 					<FeedbackCanvas
 						ref={this.feedbackCanvasRef}

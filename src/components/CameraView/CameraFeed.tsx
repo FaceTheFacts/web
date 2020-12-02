@@ -12,8 +12,8 @@ interface CameraFeedProps {
         previewDrag: boolean,
         toBack: boolean,
         alpha: number, 
-    }
-  
+    };
+    setCameraReady: Function;
 }
 
 interface Camera {
@@ -30,6 +30,24 @@ interface Camera {
 class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
     ref: React.RefObject<HTMLVideoElement> = React.createRef();
     stream?: MediaStream;
+    
+
+    constructor(props: CameraFeedProps){
+        super(props);
+        // this.state = {
+        //     cameraReady: false
+        // }
+    }
+
+    async componentDidMount(): Promise<void> {
+        await this.start().then((res) => {
+            console.log(res)
+        })
+    }
+
+    async componentDidUpdate(): Promise<void> {
+        console.log(this.state)
+    }
 
     async getVideoStream(): Promise<MediaStream> {
 		const stream = await navigator.mediaDevices.getUserMedia({
@@ -83,6 +101,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 
 		return new Promise((resolve, reject) => {
 			if (this.stream?.getTracks()[0].readyState === 'live') {
+                this.props.setCameraReady();
 				resolve('successfully started camera');
 			} else {
 				reject('error starting camera');
