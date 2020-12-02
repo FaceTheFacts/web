@@ -1,4 +1,3 @@
-import React from 'react';
 import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazeface';
 import log from 'loglevel';
 
