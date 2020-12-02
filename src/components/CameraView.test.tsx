@@ -8,13 +8,6 @@ import { act } from 'react-dom/test-utils';
 import 'jest-canvas-mock';
 import CameraView from './CameraView';
 
-
-
-
-
-
-
-
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
