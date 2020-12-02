@@ -21,7 +21,7 @@ class CharacterRecognition implements CharacterRecognitionInterface {
     scheduler: Scheduler = createScheduler();
     results: string[] = []
 
-    initialise = async (): Promise<void> => {
+    async initialise(): Promise<void> {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
 				logger: (m) => log.debug(m),
@@ -39,8 +39,6 @@ class CharacterRecognition implements CharacterRecognitionInterface {
     };
     
     async start(imageSource: HTMLCanvasElement): Promise<string[]> {
-		//this.drawVideoOnCanvas();
-		//this.detectionCanvasRef.current?.draw(this.cameraFeedRef.current?.ref.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
 		if (this.scheduler.getNumWorkers() === 0) {
 			await this.initialise();
 		}
@@ -48,7 +46,7 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 		const result = await this.scheduler.addJob(
 			'recognize',
 			imageSource
-            );//this.canvasOCRRef.current);
+            );
             
 		this.results = result.data.text.split('\n');
 
