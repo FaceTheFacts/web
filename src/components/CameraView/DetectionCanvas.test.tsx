@@ -44,7 +44,7 @@ describe('unittest', () => {
 		// given 
 		const ref: React.RefObject<DetectionCanvas> = React.createRef()
         const image: HTMLVideoElement = document.createElement('video');
-        image.src = "./test_scan_video_large.mp4";
+        image.src = "./__mocks__/test_scan_video_large.mp4";
     
 		const width: number = 100;
 		const height: number = 100;
