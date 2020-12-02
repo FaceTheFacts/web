@@ -13,6 +13,8 @@ import './CameraView.css';
 import { amthor } from '../amthor';
 import FeedbackCanvas from './CameraView/FeedbackCanvas';
 import DetectionCanvas from './CameraView/DetectionCanvas';
+import CameraFeed from './CameraView/CameraFeed';
+
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
@@ -33,7 +35,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	//canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
-	videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
+	//videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
+
+	cameraFeedRef: React.RefObject<CameraFeed> = React.createRef();
 
 	stream?: MediaStream;
 
@@ -58,7 +62,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	scheduler = createScheduler();
 
 	async componentDidMount(): Promise<void> {
-		await this.initialiseCamera()
+		await this.cameraFeedRef.current?.start()
 			.then((res) => {
 				log.debug(res);
 			})
@@ -123,48 +127,48 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 	}
 
-	async initialiseCamera(): Promise<string> {
-		// get media tracks
-		log.debug(navigator.userAgent);
+	// async initialiseCamera(): Promise<string> {
+	// 	// get media tracks
+	// 	log.debug(navigator.userAgent);
 
-		this.stream = await this.getVideoStream();
-		await this.setAspectRatio();
-		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
+	// 	this.stream = await this.getVideoStream();
+	// 	await this.setAspectRatio();
+	// 	this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
 
-		this.initVideo();
-		this.initCanvas();
+	// 	this.initVideo();
+	// 	this.initCanvas();
 
-		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState === 'live') {
-				resolve('successfully started camera');
-			} else {
-				reject('error starting camera');
-			}
-		});
-	}
+	// 	return new Promise((resolve, reject) => {
+	// 		if (this.stream?.getTracks()[0].readyState === 'live') {
+	// 			resolve('successfully started camera');
+	// 		} else {
+	// 			reject('error starting camera');
+	// 		}
+	// 	});
+	// }
 
-	initVideo(): void {
-		// initialise video element
-		if (this.videoRef.current !== null) {
-			this.videoRef.current.width = this.cameraOpts.width;
-			this.videoRef.current.height = this.cameraOpts.height;
-			this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
-			this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
-			this.videoRef.current.srcObject = this.stream as MediaStream;
+	// initVideo(): void {
+	// 	// initialise video element
+	// 	if (this.videoRef.current !== null) {
+	// 		this.videoRef.current.width = this.cameraOpts.width;
+	// 		this.videoRef.current.height = this.cameraOpts.height;
+	// 		this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
+	// 		this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
+	// 		this.videoRef.current.srcObject = this.stream as MediaStream;
 
-			// add event listeners for play and onloadedmetadata events
-			this.videoRef.current.addEventListener(
-				'play',
-				() => {
-					this.drawLoop();
-				},
-				false
-			);
-			this.videoRef.current.onloadedmetadata = (): void => {
-				this.videoRef.current?.play();
-			};
-		}
-	}
+	// 		// add event listeners for play and onloadedmetadata events
+	// 		this.videoRef.current.addEventListener(
+	// 			'play',
+	// 			() => {
+	// 				this.drawLoop();
+	// 			},
+	// 			false
+	// 		);
+	// 		this.videoRef.current.onloadedmetadata = (): void => {
+	// 			this.videoRef.current?.play();
+	// 		};
+	// 	}
+	// }
 
 	initCanvas(): void {
 		// initialise canvas for drawing
@@ -226,7 +230,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	async recogniseCharacters(): Promise<string[]> {
 		//this.drawVideoOnCanvas();
-		this.detectionCanvasRef.current?.draw(this.videoRef.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
+		this.detectionCanvasRef.current?.draw(this.cameraFeedRef.current?.ref.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
 		if (this.scheduler.getNumWorkers() === 0) {
 			await this.initializeTesseract();
 		}
@@ -438,13 +442,17 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			<div className="camera-container">
 				<div className="camera">
 					{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-					<video
+					{/* <video
 						ref={this.videoRef}
 						id="camera-video"
 						className="video-element"
 						playsInline
 						autoPlay
-					></video>
+					></video> */}
+					<CameraFeed
+						ref={this.cameraFeedRef}
+						cameraOpts={this.cameraOpts}
+					></CameraFeed>
 					<FeedbackCanvas
 						ref={this.feedbackCanvasRef}
 					></FeedbackCanvas>
