@@ -14,7 +14,7 @@ import { amthor } from '../amthor';
 import FeedbackCanvas from './CameraView/FeedbackCanvas';
 import DetectionCanvas from './CameraView/DetectionCanvas';
 import CameraFeed from './CameraView/CameraFeed';
-
+import FaceDetection from './CameraView/FaceDetection'
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
@@ -37,9 +37,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	cameraFeedRef: React.RefObject<CameraFeed> = React.createRef();
 
+	faceDetection: FaceDetection = new FaceDetection();
 
-
-	model?: BlazeFaceModel;
+	//model?: BlazeFaceModel;
 
 	animationFrameID?: number;
 
@@ -63,7 +63,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	async componentDidMount(): Promise<void> {
 		
 		// load BlazeFaceModel for face detetction
-		this.model = await load();
+		//this.model = await load();
+		await this.faceDetection.loadModel();
 
 		// initialise Tesseract for OCR
 		await this.initializeTesseract();
@@ -117,27 +118,27 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	};
 
 	// detect faces and characters
-	async detectFaces(): Promise<NormalizedFace[]> {
-		if (this.model === undefined) {
-			log.debug('Loading BlazeFace Model');
-			this.model = await load();
-		}
+	// async detectFaces(): Promise<NormalizedFace[]> {
+	// 	if (this.model === undefined) {
+	// 		log.debug('Loading BlazeFace Model');
+	// 		this.model = await load();
+	// 	}
 
-		const predictions = await this.model.estimateFaces(
-			// this.canvasOCRRef.current as HTMLCanvasElement
-			this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement,
-			false
-		);
+	// 	const predictions = await this.model.estimateFaces(
+	// 		// this.canvasOCRRef.current as HTMLCanvasElement
+	// 		this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement,
+	// 		false
+	// 	);
 
-		return new Promise<NormalizedFace[]>((resolve, reject) => {
-			// maybe only resolve if predictions.length > 0
-			if (predictions !== undefined) {
-				resolve(predictions);
-			} else {
-				reject('could not detect faces');
-			}
-		});
-	}
+	// 	return new Promise<NormalizedFace[]>((resolve, reject) => {
+	// 		// maybe only resolve if predictions.length > 0
+	// 		if (predictions !== undefined) {
+	// 			resolve(predictions);
+	// 		} else {
+	// 			reject('could not detect faces');
+	// 		}
+	// 	});
+	// }
 
 	async recogniseCharacters(): Promise<string[]> {
 		//this.drawVideoOnCanvas();
@@ -208,7 +209,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// display results
 	async drawLoop(): Promise<void> {
 		// detect faces and draw bbox
-		await this.detectFaces()
+		await this.faceDetection.detectFaces(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)
 			.then((predictions) => {
 				this.feedbackCanvasRef.current?.draw(predictions)
 				//this.showDetections(predictions);
@@ -273,7 +274,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	stopFaceDetection(): void {
 		log.debug('stopping face detection');
-		delete this.model;
+		this.faceDetection.stop()
+		//delete this.model;
 	}
 
 
