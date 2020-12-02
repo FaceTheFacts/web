@@ -5,7 +5,8 @@ import log from 'loglevel';
 interface FaceDetectionInterface {
     model?: BlazeFaceModel;
     loadModel(): void;
-    detectFaces(imageSource: HTMLCanvasElement): Promise<NormalizedFace[]>;
+    start(imageSource: HTMLCanvasElement): Promise<NormalizedFace[]>;
+    stop(): void;
 
 }
 class FaceDetection implements FaceDetectionInterface {
@@ -15,7 +16,7 @@ class FaceDetection implements FaceDetectionInterface {
         this.model = await load();
     }
 
-    async detectFaces(imageSource: HTMLCanvasElement): Promise<NormalizedFace[]> {
+    async start(imageSource: HTMLCanvasElement): Promise<NormalizedFace[]> {
 		if (this.model === undefined) {
 			log.debug('Loading BlazeFace Model');
 			this.model = await load();
@@ -34,6 +35,10 @@ class FaceDetection implements FaceDetectionInterface {
 				reject('could not detect faces');
 			}
 		});
+    }
+
+    stop(){
+        delete this.model;
     }
 }
 

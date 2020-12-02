@@ -39,7 +39,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	faceDetection: FaceDetection = new FaceDetection();
 
-	//model?: BlazeFaceModel;
 
 	animationFrameID?: number;
 
@@ -63,7 +62,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	async componentDidMount(): Promise<void> {
 		
 		// load BlazeFaceModel for face detetction
-		//this.model = await load();
 		await this.faceDetection.loadModel();
 
 		// initialise Tesseract for OCR
@@ -117,28 +115,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		}
 	};
 
-	// detect faces and characters
-	// async detectFaces(): Promise<NormalizedFace[]> {
-	// 	if (this.model === undefined) {
-	// 		log.debug('Loading BlazeFace Model');
-	// 		this.model = await load();
-	// 	}
-
-	// 	const predictions = await this.model.estimateFaces(
-	// 		// this.canvasOCRRef.current as HTMLCanvasElement
-	// 		this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement,
-	// 		false
-	// 	);
-
-	// 	return new Promise<NormalizedFace[]>((resolve, reject) => {
-	// 		// maybe only resolve if predictions.length > 0
-	// 		if (predictions !== undefined) {
-	// 			resolve(predictions);
-	// 		} else {
-	// 			reject('could not detect faces');
-	// 		}
-	// 	});
-	// }
 
 	async recogniseCharacters(): Promise<string[]> {
 		//this.drawVideoOnCanvas();
@@ -209,7 +185,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	// display results
 	async drawLoop(): Promise<void> {
 		// detect faces and draw bbox
-		await this.faceDetection.detectFaces(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)
+		await this.faceDetection.start(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)
 			.then((predictions) => {
 				this.feedbackCanvasRef.current?.draw(predictions)
 				//this.showDetections(predictions);
@@ -250,7 +226,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				log.error(err);
 			});
 
-		this.stopFaceDetection();
+		this.faceDetection.stop();
 		await this.cameraFeedRef.current?.stop()
 			.then((msg) => {
 				log.debug(msg);
@@ -270,12 +246,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				reject('failed to stop camera stream');
 			}
 		});
-	}
-
-	stopFaceDetection(): void {
-		log.debug('stopping face detection');
-		this.faceDetection.stop()
-		//delete this.model;
 	}
 
 
