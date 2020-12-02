@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react'
 
 interface Canvas {
     ref: React.RefObject<HTMLCanvasElement>
+    id: string;
     init: Function
     //draw: Function
 
@@ -17,6 +18,7 @@ type CanvasImage = {
 
 class AbstractCanvas extends React.Component implements Canvas {
     ref: React.RefObject<HTMLCanvasElement> = React.createRef();
+    id: string = '';
 
     init(width: number, height: number): Promise<string> {
         const ctx = this.ref.current?.getContext('2d');
@@ -38,7 +40,7 @@ class AbstractCanvas extends React.Component implements Canvas {
         return (
             <canvas
                 ref={this.ref}
-                id="camera-canvas"
+                id={this.id}
                 className="video-element"
             >
             </canvas>
