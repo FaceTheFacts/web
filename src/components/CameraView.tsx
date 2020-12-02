@@ -62,9 +62,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	async componentDidMount(): Promise<void> {
 		
-		console.log(this.cameraFeedRef.current)
-		
-
 		// load BlazeFaceModel for face detetction
 		this.model = await load();
 
