@@ -3,6 +3,7 @@ import AbstractCanvas from './AbstractCanvas';
 import {NormalizedFace} from '@tensorflow-models/blazeface';
 
 class FeedbackCanvas extends AbstractCanvas {
+    id = 'camera-canvas'
     draw = (predictions: NormalizedFace[]): void => {
 		const ua = navigator.userAgent.toLowerCase();
 		const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
