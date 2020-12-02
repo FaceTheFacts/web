@@ -21,16 +21,32 @@ beforeEach(() => {
 
     characterRecognition = new CharacterRecognition(candidates);
 })
+
+describe('unittest', () => {
+    it('receives the right candidates', () => {
+        // given
+        const candidates = [{name: 'test', id: 22}]
+
+        // when
+        const charRec = new CharacterRecognition(candidates)
+
+        // then
+        expect(charRec.candidates).toEqual(candidates)
+    })
+})
 describe('integration test', () => {
     it('creates the tesseract scheduler', () => {
         expect(typeof characterRecognition?.scheduler).not.toBe(null)
     })
-    // it('creates the tesseract workers', async () =>{
-    //     // given
+    it('creates the tesseract workers', async () =>{
+        // given
+        expect.assertions(1)
 
-    //     // when
-    //     await characterRecognition?.initialise()
-    //     // then
+        // when
+        await characterRecognition?.initialise()
+
+        // then
+        expect(characterRecognition?.scheduler.getNumWorkers()).toStrictEqual(1)
         
-    // })
+    })
 })
