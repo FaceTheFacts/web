@@ -4,9 +4,6 @@ import log from 'loglevel';
 
 // import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
-
-import { createWorker, createScheduler } from 'tesseract.js';
-import Fuse from 'fuse.js';
 import '../index.css';
 import './CameraView.css';
 import { amthor } from '../amthor';
@@ -74,7 +71,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	};
 
 
-	// scheduler = createScheduler();
 
 	async componentDidMount(): Promise<void> {
 		
@@ -115,90 +111,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	}
 
-	// initializeTesseract = async (): Promise<void> => {
-	// 	for (let i = 0; i < 1; i++) {
-	// 		const worker = createWorker({
-	// 			logger: (m) => log.debug(m),
-	// 		});
-	// 		await worker.load();
-	// 		await worker.loadLanguage('deu');
-	// 		await worker.initialize('deu');
-	// 		await worker.setParameters({
-	// 			// eslint-disable-next-line @typescript-eslint/camelcase
-	// 			tessedit_char_whitelist:
-	// 				'abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ',
-	// 		});
-	// 		this.scheduler.addWorker(worker);
-	// 	}
-	// };
-
-
-	// async recogniseCharacters(): Promise<string[]> {
-	// 	//this.drawVideoOnCanvas();
-	// 	this.detectionCanvasRef.current?.draw(this.cameraFeedRef.current?.ref.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
-	// 	if (this.scheduler.getNumWorkers() === 0) {
-	// 		await this.initializeTesseract();
-	// 	}
-
-	// 	const result = await this.scheduler.addJob(
-	// 		'recognize',
-	// 		this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement
-	// 		);//this.canvasOCRRef.current);
-	// 	const results = result.data.text.split('\n');
-
-	// 	return new Promise((resolve, reject) => {
-	// 		if (results.length > 0) {
-	// 			resolve(results);
-	// 		} else {
-	// 			reject('could not detect characters');
-	// 		}
-	// 	});
-	// }
-
-	// async fuseSearchResults(results: string[]): Promise<{ result: {}; query: string; id: number }> {
-	// 	const candidates = [
-	// 		{
-	// 			name: 'philipp amthor',
-	// 			id: 1,
-	// 		},
-	// 		{
-	// 			name: 'renate künast',
-	// 			id: 2,
-	// 		},
-	// 		{
-	// 			name: 'angela merkel',
-	// 			id: 3,
-	// 		},
-	// 	];
-	// 	const options = {
-	// 		includeScore: true,
-	// 	};
-	// 	const fuse = new Fuse(results, options);
-	// 	const match = {
-	// 		query: '',
-	// 		id: 0,
-	// 		result: {},
-	// 	};
-
-	// 	for (const candidate of candidates) {
-	// 		const res = fuse.search(candidate.name as string);
-	// 		console.log(res);
-	// 		if (res.length > 0) {
-	// 			match.result = res;
-	// 			match.query = candidate.name;
-	// 			match.id = candidate.id;
-	// 		}
-	// 	}
-
-	// 	return new Promise((resolve, reject) => {
-	// 		if (match.query !== '') {
-	// 			resolve(match);
-	// 		} else {
-	// 			reject('no candidate found');
-	// 		}
-	// 	});
-	// }
-
 	// display results
 	async drawLoop(): Promise<void> {
 		this.detectionCanvasRef.current?.draw(this.cameraFeedRef.current?.ref.current as HTMLVideoElement, this.cameraOpts.width, this.cameraOpts.height)
@@ -206,7 +118,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.faceDetection.start(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)
 			.then((predictions) => {
 				this.feedbackCanvasRef.current?.draw(predictions)
-				//this.showDetections(predictions);
+
 			})
 			.catch((err) => {
 				log.error(err);
@@ -255,18 +167,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				log.error(err);
 			});
 	}
-
-	// async stopOCR(): Promise<string> {
-	// 	log.debug('terminating workers');
-	// 	await this.scheduler.terminate();
-	// 	return new Promise((resolve, reject) => {
-	// 		if (this.scheduler.getNumWorkers.length === 0) {
-	// 			resolve('successfully stopped camera stream');
-	// 		} else {
-	// 			reject('failed to stop camera stream');
-	// 		}
-	// 	});
-	// }
 
 
 	render(): ReactNode {
