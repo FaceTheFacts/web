@@ -39,7 +39,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	cameraFeedRef: React.RefObject<CameraFeed> = React.createRef();
 
-	stream?: MediaStream;
+	//stream?: MediaStream;
 
 	model?: BlazeFaceModel;
 
@@ -65,6 +65,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.cameraFeedRef.current?.start()
 			.then((res) => {
 				log.debug(res);
+				this.initCanvas();
+				this.cameraFeedRef.current?.ref.current?.addEventListener(
+					'play',
+					() => {
+						this.drawLoop();
+					}
+				)
 			})
 			.catch((err) => {
 				log.error(err);
@@ -82,50 +89,50 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.stop();
 	}
 
-	async getVideoStream(): Promise<MediaStream> {
-		const stream = await navigator.mediaDevices.getUserMedia({
-			video: {
-				facingMode: 'environment',
-				width: { ideal: this.cameraOpts.width },
-				height: { ideal: this.cameraOpts.height },
-			},
-			audio: false,
-		});
-		return stream;
-	}
+	// async getVideoStream(): Promise<MediaStream> {
+	// 	const stream = await navigator.mediaDevices.getUserMedia({
+	// 		video: {
+	// 			facingMode: 'environment',
+	// 			width: { ideal: this.cameraOpts.width },
+	// 			height: { ideal: this.cameraOpts.height },
+	// 		},
+	// 		audio: false,
+	// 	});
+	// 	return stream;
+	// }
 
-	setFullscreen(track: MediaStreamTrack): Promise<void> {
-		return track.applyConstraints({
-			aspectRatio: {
-				exact: this.cameraOpts.width / this.cameraOpts.height,
-			},
-		});
-	}
+	// setFullscreen(track: MediaStreamTrack): Promise<void> {
+	// 	return track.applyConstraints({
+	// 		aspectRatio: {
+	// 			exact: this.cameraOpts.width / this.cameraOpts.height,
+	// 		},
+	// 	});
+	// }
 
-	set4by3(track: MediaStreamTrack): Promise<void> {
-		const ua = navigator.userAgent.toLowerCase();
-		const isAndroid = ua.includes('android');
-		const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
-		const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
+	// set4by3(track: MediaStreamTrack): Promise<void> {
+	// 	const ua = navigator.userAgent.toLowerCase();
+	// 	const isAndroid = ua.includes('android');
+	// 	const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
+	// 	const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
 
-		return track.applyConstraints({
-			height: height,
-			width: width,
-			aspectRatio: 4 / 3,
-		});
-	}
+	// 	return track.applyConstraints({
+	// 		height: height,
+	// 		width: width,
+	// 		aspectRatio: 4 / 3,
+	// 	});
+	// }
 
-	async setAspectRatio(): Promise<void> {
-		const videoTrack = this.stream?.getVideoTracks()[0];
+	// async setAspectRatio(): Promise<void> {
+	// 	const videoTrack = this.stream?.getVideoTracks()[0];
 
-		this.set4by3(videoTrack as MediaStreamTrack)
-			.then(() => {
-				log.debug('set video to 4:3');
-			})
-			.catch((err) => {
-				log.info(err);
-			});
-	}
+	// 	this.set4by3(videoTrack as MediaStreamTrack)
+	// 		.then(() => {
+	// 			log.debug('set video to 4:3');
+	// 		})
+	// 		.catch((err) => {
+	// 			log.info(err);
+	// 		});
+	// }
 
 	// async initialiseCamera(): Promise<string> {
 	// 	// get media tracks
@@ -350,7 +357,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			});
 
 		this.stopFaceDetection();
-		await this.stopCamera()
+		await this.cameraFeedRef.current?.stop()
 			.then((msg) => {
 				log.debug(msg);
 			})
@@ -377,23 +384,23 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 	// Old Code starts here
 
-	async stopCamera(): Promise<string> {
-		log.debug('stopping camera');
-		const tracks = this.stream?.getTracks();
-		if (tracks !== undefined) {
-			for (const track of tracks) {
-				track.stop();
-			}
-		}
+	// async stopCamera(): Promise<string> {
+	// 	log.debug('stopping camera');
+	// 	const tracks = this.cameraFeedRef.current?.stream?.getTracks();
+	// 	if (tracks !== undefined) {
+	// 		for (const track of tracks) {
+	// 			track.stop();
+	// 		}
+	// 	}
 
-		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState === 'ended') {
-				resolve('successfully stopped camera stream');
-			} else {
-				reject('failed to stop camera stream');
-			}
-		});
-	}
+	// 	return new Promise((resolve, reject) => {
+	// 		if (this.stream?.getTracks()[0].readyState === 'ended') {
+	// 			resolve('successfully stopped camera stream');
+	// 		} else {
+	// 			reject('failed to stop camera stream');
+	// 		}
+	// 	});
+	// }
 
 	// showDetections = (predictions: NormalizedFace[]): void => {
 	// 	const ua = navigator.userAgent.toLowerCase();
