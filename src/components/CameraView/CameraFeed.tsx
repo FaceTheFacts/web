@@ -30,12 +30,6 @@ interface Camera {
 class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
     ref: React.RefObject<HTMLVideoElement> = React.createRef();
     stream?: MediaStream;
-    
-
-    constructor(props: CameraFeedProps){
-        super(props);
-
-    }
 
     async componentDidMount(): Promise<void> {
         await this.start().then((res) => {
