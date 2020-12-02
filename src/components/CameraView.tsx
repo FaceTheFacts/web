@@ -31,19 +31,13 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		this.setCameraReady = this.setCameraReady.bind(this)
 	}
 
-	//canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
-
 	feedbackCanvasRef: React.RefObject<FeedbackCanvas> = React.createRef();
 
 	detectionCanvasRef: React.RefObject<DetectionCanvas> = React.createRef();
 
-	//canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
-
-	//videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
-
 	cameraFeedRef: React.RefObject<CameraFeed> = React.createRef();
 
-	//stream?: MediaStream;
+
 
 	model?: BlazeFaceModel;
 
@@ -70,20 +64,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		
 		console.log(this.cameraFeedRef.current)
 		
-		// await this.cameraFeedRef.current?.start()
-		// 	.then((res) => {
-		// 		log.debug(res);
-		// 		this.initCanvas();
-		// 		this.cameraFeedRef.current?.ref.current?.addEventListener(
-		// 			'play',
-		// 			() => {
-		// 				this.drawLoop();
-		// 			}
-		// 		)
-		// 	})
-		// 	.catch((err) => {
-		// 		log.error(err);
-		// 	});
 
 		// load BlazeFaceModel for face detetction
 		this.model = await load();
@@ -107,93 +87,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.stop();
 	}
 
-	// async getVideoStream(): Promise<MediaStream> {
-	// 	const stream = await navigator.mediaDevices.getUserMedia({
-	// 		video: {
-	// 			facingMode: 'environment',
-	// 			width: { ideal: this.cameraOpts.width },
-	// 			height: { ideal: this.cameraOpts.height },
-	// 		},
-	// 		audio: false,
-	// 	});
-	// 	return stream;
-	// }
-
-	// setFullscreen(track: MediaStreamTrack): Promise<void> {
-	// 	return track.applyConstraints({
-	// 		aspectRatio: {
-	// 			exact: this.cameraOpts.width / this.cameraOpts.height,
-	// 		},
-	// 	});
-	// }
-
-	// set4by3(track: MediaStreamTrack): Promise<void> {
-	// 	const ua = navigator.userAgent.toLowerCase();
-	// 	const isAndroid = ua.includes('android');
-	// 	const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
-	// 	const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
-
-	// 	return track.applyConstraints({
-	// 		height: height,
-	// 		width: width,
-	// 		aspectRatio: 4 / 3,
-	// 	});
-	// }
-
-	// async setAspectRatio(): Promise<void> {
-	// 	const videoTrack = this.stream?.getVideoTracks()[0];
-
-	// 	this.set4by3(videoTrack as MediaStreamTrack)
-	// 		.then(() => {
-	// 			log.debug('set video to 4:3');
-	// 		})
-	// 		.catch((err) => {
-	// 			log.info(err);
-	// 		});
-	// }
-
-	// async initialiseCamera(): Promise<string> {
-	// 	// get media tracks
-	// 	log.debug(navigator.userAgent);
-
-	// 	this.stream = await this.getVideoStream();
-	// 	await this.setAspectRatio();
-	// 	this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
-
-	// 	this.initVideo();
-	// 	this.initCanvas();
-
-	// 	return new Promise((resolve, reject) => {
-	// 		if (this.stream?.getTracks()[0].readyState === 'live') {
-	// 			resolve('successfully started camera');
-	// 		} else {
-	// 			reject('error starting camera');
-	// 		}
-	// 	});
-	// }
-
-	// initVideo(): void {
-	// 	// initialise video element
-	// 	if (this.videoRef.current !== null) {
-	// 		this.videoRef.current.width = this.cameraOpts.width;
-	// 		this.videoRef.current.height = this.cameraOpts.height;
-	// 		this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
-	// 		this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
-	// 		this.videoRef.current.srcObject = this.stream as MediaStream;
-
-	// 		// add event listeners for play and onloadedmetadata events
-	// 		this.videoRef.current.addEventListener(
-	// 			'play',
-	// 			() => {
-	// 				this.drawLoop();
-	// 			},
-	// 			false
-	// 		);
-	// 		this.videoRef.current.onloadedmetadata = (): void => {
-	// 			this.videoRef.current?.play();
-	// 		};
-	// 	}
-	// }
 
 	setCameraReady(): void {
 		this.setState({cameraReady: true})
@@ -201,20 +94,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	initCanvas(): void {
 		// initialise canvas for drawing
-		// const ctx = this.canvasRef.current?.getContext('2d');
-		// if (ctx) {
-		// 	ctx.canvas.width = this.cameraOpts.width;
-		// 	ctx.canvas.height = this.cameraOpts.height;
-		// }
+
 		this.feedbackCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
 
 		// initialise canvas for OCR
 		this.detectionCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
-		// const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
-		// if (ctxOCR) {
-		// 	ctxOCR.canvas.width = this.cameraOpts.width;
-		// 	ctxOCR.canvas.height = this.cameraOpts.height;
-		// }
+
 	}
 
 	initializeTesseract = async (): Promise<void> => {
@@ -354,17 +239,6 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		});
 	}
 
-	// drawVideoOnCanvas(): void {
-	// 	const ctx = this.canvasOCRRef.current?.getContext('2d');
-	// 	ctx?.drawImage(
-	// 		this.videoRef.current as HTMLVideoElement,
-	// 		0,
-	// 		0,
-	// 		this.cameraOpts.width,
-	// 		this.cameraOpts.height
-	// 	);
-	// }
-
 	// terminate processes
 
 	async stop(): Promise<void> {
@@ -404,80 +278,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		log.debug('stopping face detection');
 		delete this.model;
 	}
-	// Old Code starts here
 
-	// async stopCamera(): Promise<string> {
-	// 	log.debug('stopping camera');
-	// 	const tracks = this.cameraFeedRef.current?.stream?.getTracks();
-	// 	if (tracks !== undefined) {
-	// 		for (const track of tracks) {
-	// 			track.stop();
-	// 		}
-	// 	}
-
-	// 	return new Promise((resolve, reject) => {
-	// 		if (this.stream?.getTracks()[0].readyState === 'ended') {
-	// 			resolve('successfully stopped camera stream');
-	// 		} else {
-	// 			reject('failed to stop camera stream');
-	// 		}
-	// 	});
-	// }
-
-	// showDetections = (predictions: NormalizedFace[]): void => {
-	// 	const ua = navigator.userAgent.toLowerCase();
-	// 	const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
-	// 	const ctx = this.canvasRef.current?.getContext('2d') as CanvasRenderingContext2D;
-	// 	if (ctx) {
-	// 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-	// 		// Render a rectangle over each detected face.
-	// 		ctx.beginPath();
-	// 		ctx.strokeStyle = 'white';
-	// 		ctx.lineWidth = 6;
-
-	// 		// draw full screen clockwise, then face bbox counter clockwise
-	// 		// to darken everything but the face
-	// 		if (!isSafari) {
-	// 			ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
-	// 		}
-
-	// 		predictions.forEach((prediction) => {
-	// 			const start: [number, number] = prediction.topLeft as [number, number];
-	// 			const end: [number, number] = prediction.bottomRight as [number, number];
-
-	// 			/* const probability = prediction.probability as number;
-	// 			const prob = (probability * 100).toPrecision(5).toString(); */
-
-	// 			const size = [end[0] - start[0], end[1] - start[1]];
-
-	// 			if (!isSafari) {
-	// 				// counter clockwise
-	// 				ctx.rect(end[0], start[1], -size[0], size[1]);
-	// 			} else {
-	// 				ctx.rect(start[0], start[1], size[0], size[1]);
-	// 			}
-	// 		});
-	// 		ctx.stroke();
-	// 		if (!isSafari && predictions.length > 0) {
-	// 			ctx.fillStyle = 'rgba(0,0,0,0.5)';
-	// 			ctx.fill();
-	// 		}
-	// 	}
-	// };
 
 	render(): ReactNode {
 		return (
 			<div className="camera-container">
 				<div className="camera">
-					{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-					{/* <video
-						ref={this.videoRef}
-						id="camera-video"
-						className="video-element"
-						playsInline
-						autoPlay
-					></video> */}
 					<CameraFeed
 						ref={this.cameraFeedRef}
 						cameraOpts={this.cameraOpts}
@@ -486,19 +292,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 					<FeedbackCanvas
 						ref={this.feedbackCanvasRef}
 					></FeedbackCanvas>
-					{/* <canvas
-						ref={this.feedbackCanvas.ref}
-						id="camera-canvas"
-						className="video-element"
-					></canvas> */}
 					<DetectionCanvas
 						ref={this.detectionCanvasRef}
 					></DetectionCanvas>
-					{/* <canvas
-						ref={this.canvasOCRRef}
-						id="ocr-canvas"
-						className="video-element"
-					></canvas> */}
 				</div>
 			</div>
 		);
