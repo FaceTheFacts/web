@@ -75,10 +75,18 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	async componentDidMount(): Promise<void> {
 		
 		// load BlazeFaceModel for face detetction
-		await this.faceDetection.loadModel();
+		await this.faceDetection.loadModel().then((res) => {
+			log.debug(res);
+		}).catch((err) => {
+			log.debug(err)
+		});
 
 		// initialise Tesseract for OCR
-		await this.characterRecognition.initialise();
+		await this.characterRecognition.initialise().then((res) => {
+			log.debug(res);
+		}).catch((err) => {
+			log.debug(err)
+		});;
 	}
 
 	async componentDidUpdate(): Promise<void> {
@@ -93,7 +101,11 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 	async componentWillUnmount(): Promise<void> {
 		log.debug('stopping camera preview');
-		await this.stop();
+		await this.stop().then((res) => {
+			log.debug(res);
+		}).catch((err) => {
+			log.debug(err)
+		});;
 	}
 
 
@@ -141,7 +153,11 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 
 		// repeat
 		this.animationFrameID = requestAnimationFrame(async () => {
-			await this.drawLoop();
+			await this.drawLoop().then((res) => {
+				log.debug(res);
+			}).catch((err) => {
+				log.debug(err)
+			});;
 		});
 	}
 
