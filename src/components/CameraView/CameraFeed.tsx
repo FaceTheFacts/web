@@ -34,19 +34,13 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 
     constructor(props: CameraFeedProps){
         super(props);
-        // this.state = {
-        //     cameraReady: false
-        // }
+
     }
 
     async componentDidMount(): Promise<void> {
         await this.start().then((res) => {
             console.log(res)
         })
-    }
-
-    async componentDidUpdate(): Promise<void> {
-        console.log(this.state)
     }
 
     async getVideoStream(): Promise<MediaStream> {
