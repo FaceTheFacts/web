@@ -12,7 +12,13 @@ class FaceDetection implements FaceDetectionInterface {
     model?: BlazeFaceModel;
 
     async loadModel(): Promise<BlazeFaceModel> {
-        this.model = await load();
+        try {
+            this.model = await load();
+        }
+        catch(err) {
+            log.debug(err)
+        }
+        
         return new Promise((resolve, reject) => {
             if(typeof this.model === typeof BlazeFaceModel){
                 resolve(this.model)

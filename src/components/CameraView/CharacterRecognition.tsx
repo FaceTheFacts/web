@@ -40,7 +40,11 @@ class CharacterRecognition implements CharacterRecognitionInterface {
     
     async start(imageSource: HTMLCanvasElement): Promise<string[]> {
 		if (this.scheduler.getNumWorkers() === 0) {
-			await this.initialise();
+			await this.initialise().then((res) => {
+                log.debug(res);
+            }).catch((err) => {
+                log.debug(err)
+            });;
 		}
 
 		const result = await this.scheduler.addJob(

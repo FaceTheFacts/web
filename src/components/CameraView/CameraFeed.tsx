@@ -33,26 +33,38 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 
     async componentDidMount(): Promise<void> {
         await this.start().then((res) => {
-            console.log(res)
+            log.debug(res)
+        }).catch((err) => {
+            log.debug(err)
         })
     }
 
     async componentWillUnmount(): Promise<void> {
         await this.stop().then((res) => {
-            console.log(res);
+            log.debug(res);
+        }).catch((err) => {
+            log.debug(err)
         })
     }
 
     async getVideoStream(): Promise<MediaStream> {
-		const stream = await navigator.mediaDevices.getUserMedia({
-			video: {
-				facingMode: 'environment',
-				width: { ideal: this.props.cameraOpts.width },
-				height: { ideal: this.props.cameraOpts.height },
-			},
-			audio: false,
-		});
-		return stream;
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: 'environment',
+                width: { ideal: this.props.cameraOpts.width },
+                height: { ideal: this.props.cameraOpts.height },
+            },
+            audio: false,
+        });
+        return new Promise((resolve, reject) => {
+            if(stream){
+                resolve(stream);
+            } else {
+                reject()
+            }
+        })
+            
     }
     
     async setAspectRatio(): Promise<void> {
@@ -88,7 +100,11 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
         
         // get media tracks
 		this.stream = await this.getVideoStream();
-		await this.setAspectRatio();
+		await this.setAspectRatio().then((res) => {
+            log.debug(res)
+        }).catch((err) => {
+            log.debug(err)
+        });
 		this.props.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
 
 		this.initVideoElement();
