@@ -215,8 +215,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		// recognize characters and show progress
 
 		const results = (await this.characterRecognition.start(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)) as string[];
-
-		await this.characterRecognition.matchResults()
+		if(results.length > 0){
+			await this.characterRecognition.matchResults()
 			.then((match) => {
 				log.debug(`Detected candidate ${match.query}`);
 				this.props.setCandidate(amthor);
@@ -225,6 +225,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 			.catch((err) => {
 				log.debug(err);
 			});
+		}
 
 		// repeat
 		this.animationFrameID = requestAnimationFrame(async () => {
