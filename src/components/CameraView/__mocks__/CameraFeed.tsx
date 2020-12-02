@@ -20,9 +20,7 @@ class CameraFeed extends React.Component<CameraFeedProps> {
     ref: React.RefObject<HTMLVideoElement> = React.createRef();
 
     async componentDidMount(): Promise<void> {
-        await this.start().then((res) => {
-            console.log(res)
-        })
+        await this.start()
     }
 
 
