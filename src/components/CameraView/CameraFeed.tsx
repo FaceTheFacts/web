@@ -139,7 +139,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 
 	render(): ReactNode {
 		return (
-		/* eslint-disable-next-line jsx-a11y/media-has-caption */
+			/* eslint-disable-next-line jsx-a11y/media-has-caption */
 			<video
 				ref={this.ref}
 				id="camera-video"
