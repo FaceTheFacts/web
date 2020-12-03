@@ -20,7 +20,7 @@ afterEach(() => {
 		container = null;
 	}
 });
-describe('unittest', () => {
+describe('integration test', () => {
 	it('renders with correct size', () => {
 		// given
 		const ref: React.RefObject<FeedbackCanvas> = React.createRef();
