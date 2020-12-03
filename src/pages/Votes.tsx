@@ -50,7 +50,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 
-				<div className="votes-title">
+				<div className="votes-title" data-testid="votes-subheading-votes">
 					<IonText>Abstimmungen</IonText>
 				</div>
 
