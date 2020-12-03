@@ -46,7 +46,12 @@ class CameraFeed extends React.Component<CameraFeedProps> {
 		this.initVideoElement();
 
 		return new Promise((resolve, reject) => {
-			resolve('successfully started camera');
+            if(this.ref.current){
+                resolve('successfully started camera');    
+            } else {
+                reject('failed to start camera')
+            }
+			
 		});
     }
     render = jest.fn().mockImplementation(() => {
