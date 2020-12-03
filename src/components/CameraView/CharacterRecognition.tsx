@@ -3,7 +3,7 @@ import log from 'loglevel';
 import Fuse from 'fuse.js';
 
 interface CharacterRecognitionInterface {
-    scheduler: Scheduler;
+    //private scheduler: Scheduler;
     candidates: {name: string, id: number}[];
     results?: string[]
     initialise(): Promise<string>;
@@ -16,9 +16,10 @@ class CharacterRecognition implements CharacterRecognitionInterface {
     constructor(candidates: {name: string, id: number}[]){
         this.candidates = candidates
     }
-
+	private scheduler: Scheduler = createScheduler();
+	
     candidates: {name: string, id: number}[];
-    scheduler: Scheduler = createScheduler();
+    
     results: string[] = []
 
     async initialise(): Promise<string> {
