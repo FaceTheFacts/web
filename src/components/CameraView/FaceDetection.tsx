@@ -2,14 +2,13 @@ import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazefa
 import log from 'loglevel';
 
 interface FaceDetectionInterface {
-    model?: BlazeFaceModel;
     loadModel(): Promise<BlazeFaceModel>;
     start(imageSource: HTMLCanvasElement): Promise<NormalizedFace[]>;
     stop(): void;
 
 }
 class FaceDetection implements FaceDetectionInterface {
-    model?: BlazeFaceModel;
+    private model?: BlazeFaceModel;
 
     async loadModel(): Promise<BlazeFaceModel> {
         try {
