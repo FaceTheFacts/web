@@ -15,7 +15,7 @@ type CanvasImage = {
 
 class AbstractCanvas extends React.Component implements Canvas {
 	ref: React.RefObject<HTMLCanvasElement> = React.createRef();
-	id: string = '';
+	id = '';
 
 	init(width: number, height: number): Promise<string> {
 		const ctx = this.ref.current?.getContext('2d');
