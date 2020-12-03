@@ -34,7 +34,7 @@ afterEach(() => {
 
 jest.mock('./CameraView/CameraFeed');
 
-describe('unittest', () => {
+describe('integration test', () => {
 	it('renders with all components', () => {
 		// given
 		const history = createMemoryHistory({
