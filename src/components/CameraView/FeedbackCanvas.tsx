@@ -1,10 +1,10 @@
 import AbstractCanvas from './AbstractCanvas';
 
-import {NormalizedFace} from '@tensorflow-models/blazeface';
+import { NormalizedFace } from '@tensorflow-models/blazeface';
 
 class FeedbackCanvas extends AbstractCanvas {
-    id = 'camera-canvas'
-    draw = (predictions: NormalizedFace[]): void => {
+	id = 'camera-canvas';
+	draw = (predictions: NormalizedFace[]): void => {
 		const ua = navigator.userAgent.toLowerCase();
 		const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
 		const ctx = this.ref.current?.getContext('2d') as CanvasRenderingContext2D;
@@ -45,7 +45,6 @@ class FeedbackCanvas extends AbstractCanvas {
 			}
 		}
 	};
-    
 }
 
 export default FeedbackCanvas;

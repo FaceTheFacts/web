@@ -19,32 +19,31 @@ afterEach(() => {
 	}
 });
 
-jest.mock('./CameraFeed')
+jest.mock('./CameraFeed');
 
 describe('unittest', () => {
-    it('renders correctly', () => {
-        // given
-        const cameraOpts = {
-            x: 0,
-            y: 0,
-            width: window.innerWidth,
-            height: window.innerWidth * 4 / 3,
-            camera: 'rear',
-            tapPhoto: true,
-            previewDrag: false,
-            toBack: true,
-            alpha: 1,
-        }
-        const setCameraReady = jest.fn()
+	it('renders correctly', () => {
+		// given
+		const cameraOpts = {
+			x: 0,
+			y: 0,
+			width: window.innerWidth,
+			height: (window.innerWidth * 4) / 3,
+			camera: 'rear',
+			tapPhoto: true,
+			previewDrag: false,
+			toBack: true,
+			alpha: 1,
+		};
+		const setCameraReady = jest.fn();
 
-        // when
-        render(
-            <CameraFeed 
-                cameraOpts={cameraOpts} 
-                setCameraReady={setCameraReady}
-            ></CameraFeed>, container)
+		// when
+		render(
+			<CameraFeed cameraOpts={cameraOpts} setCameraReady={setCameraReady}></CameraFeed>,
+			container
+		);
 
-        // then
-        expect(container?.getElementsByTagName('video')[0]).toBeInTheDocument();
-    })
-})
+		// then
+		expect(container?.getElementsByTagName('video')[0]).toBeInTheDocument();
+	});
+});

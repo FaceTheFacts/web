@@ -12,7 +12,7 @@ let faceDetection: FaceDetection | null;
 
 afterEach(() => {
 	// cleanup on exiting
-	faceDetection = null
+	faceDetection = null;
 });
 
 // it('loads the blazeface model', async () => {
@@ -25,11 +25,8 @@ afterEach(() => {
 //     console.log(model)
 //     //then
 //     expect(faceDetection.model).toBeInstanceOf(BlazeFaceModel)
-    
 
 // })
 // describe('integration test', () => {
-
-        
 
 // })

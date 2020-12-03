@@ -11,7 +11,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { amthor } from '../amthor';
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
 import CameraView from './CameraView';
 
@@ -34,60 +34,55 @@ afterEach(() => {
 
 jest.mock('./CameraView/CameraFeed');
 
-
 describe('unittest', () => {
+	it('renders with all components', () => {
+		// given
+		const history = createMemoryHistory({
+			initialEntries: [`/discover`],
+		});
+		const setShowPopover = jest.fn();
+		const setCandidate = jest.fn();
 
-    it('renders with all components', () => {
-        // given
-        const history = createMemoryHistory({
-            initialEntries: [`/discover`],
-        });
-        const setShowPopover = jest.fn()
-        const setCandidate = jest.fn()
+		// when
+		act(() => {
+			render(
+				<Router history={history}>
+					<CameraView
+						setShowPopover={setShowPopover}
+						setCandidate={setCandidate}
+					></CameraView>
+				</Router>,
+				container
+			);
+		});
 
-        // when
-        act(() => {
-            render(
-            <Router history={history}>
-                <CameraView
-                    setShowPopover={setShowPopover}
-                    setCandidate={setCandidate}
-                ></CameraView>
-            </Router>, container)
-        })
-
-        // then
-        if(container) {
-            expect(container.getElementsByTagName('canvas').length).toBe(2)
-            expect(container.getElementsByTagName('video').length).toBe(1)
-        }
-        
-    })
-
-})
+		// then
+		if (container) {
+			expect(container.getElementsByTagName('canvas').length).toBe(2);
+			expect(container.getElementsByTagName('video').length).toBe(1);
+		}
+	});
+});
 
 describe('integration test', () => {
-    test.skip('shows popover', () => {
+	test.skip('shows popover', () => {
+		// given
+		const history = createMemoryHistory({
+			initialEntries: [`/discover`],
+		});
 
-        // given
-        const history = createMemoryHistory({
-            initialEntries: [`/discover`],
-        });
+		const setCandidate = jest.fn();
+		const setShowPopover = jest.fn();
 
-        const setCandidate = jest.fn()
-        const setShowPopover = jest.fn()
+		// when
+		const page = mount(
+			<Router history={history}>
+				<CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
+			</Router>
+		);
+		console.log(page.children().invoke('setShowPopover'));
 
-        // when
-        const page = mount((
-                <Router history={history}>
-                    <CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
-                </Router>
-        ))
-        console.log(page.children().invoke('setShowPopover'))
- 
-
-        // then
-        expect(page.find('.detected-candidate-popover').length).toEqual(1);
-
-    })
-})
+		// then
+		expect(page.find('.detected-candidate-popover').length).toEqual(1);
+	});
+});

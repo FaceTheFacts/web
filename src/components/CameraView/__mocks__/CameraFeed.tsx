@@ -1,32 +1,28 @@
 import React from 'react';
 
 interface CameraFeedProps {
-    cameraOpts: {
-        x: number,
-        y: number,
-        width: number,
-        height: number,
-        camera: string,
-        tapPhoto: boolean,
-        previewDrag: boolean,
-        toBack: boolean,
-        alpha: number, 
-    };
-    setCameraReady: Function;
+	cameraOpts: {
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		camera: string;
+		tapPhoto: boolean;
+		previewDrag: boolean;
+		toBack: boolean;
+		alpha: number;
+	};
+	setCameraReady: Function;
 }
 
 class CameraFeed extends React.Component<CameraFeedProps> {
+	ref: React.RefObject<HTMLVideoElement> = React.createRef();
 
-    ref: React.RefObject<HTMLVideoElement> = React.createRef();
+	async componentDidMount(): Promise<void> {
+		await this.start();
+	}
 
-    async componentDidMount(): Promise<void> {
-        await this.start()
-    }
-
-
-    
-    
-    initVideoElement(): void {
+	initVideoElement(): void {
 		// initialise video element
 		if (this.ref.current !== null) {
 			this.ref.current.width = this.props.cameraOpts.width;
@@ -39,32 +35,30 @@ class CameraFeed extends React.Component<CameraFeedProps> {
 				this.ref.current?.play();
 			};
 		}
-    }
-    
-    async start(): Promise<string> {
-        
+	}
+
+	async start(): Promise<string> {
 		this.initVideoElement();
 
 		return new Promise((resolve, reject) => {
-            if(this.ref.current){
-                resolve('successfully started camera');    
-            } else {
-                reject('failed to start camera')
-            }
-			
+			if (this.ref.current) {
+				resolve('successfully started camera');
+			} else {
+				reject('failed to start camera');
+			}
 		});
-    }
-    render = jest.fn().mockImplementation(() => {
-        return (
-            <video
-                ref={this.ref}
-                id="camera-video"
-                className="video-element"
-                playsInline
-                autoPlay
-            ></video>
-        )
-    })
+	}
+	render = jest.fn().mockImplementation(() => {
+		return (
+			<video
+				ref={this.ref}
+				id="camera-video"
+				className="video-element"
+				playsInline
+				autoPlay
+			></video>
+		);
+	});
 }
 
-export default CameraFeed
+export default CameraFeed;

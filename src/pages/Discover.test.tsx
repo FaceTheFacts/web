@@ -25,56 +25,52 @@ afterEach(() => {
 	}
 });
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
+// navigator.getUserMedia() is not available in testing environment
 jest.mock('../components/CameraView/CameraFeed');
 
 describe('integration test', () => {
-    it('renders page correctly', () => {
+	it('renders page correctly', () => {
+		// given
+		const history = createMemoryHistory({
+			initialEntries: [`/discover`],
+		});
 
-        // given
-        const history = createMemoryHistory({
-            initialEntries: [`/discover`],
-        });
+		const setCandidate = jest.fn();
 
-        const setCandidate = jest.fn()
+		// when
+		render(
+			<Router history={history}>
+				<Discover candidate={amthor} setCandidate={setCandidate} />
+			</Router>,
+			container
+		);
 
-        // when
-        render(
-            <Router history={history}>
-                <Discover candidate={amthor} setCandidate={setCandidate} />
-            </Router>,
-            container
-        );
+		// then
 
-        // then
-    
-        if (container !== null) {
-            expect(container).toMatchSnapshot();
+		if (container !== null) {
+			expect(container).toMatchSnapshot();
+		}
+	});
 
-        }
-    })
+	it('opens camera view', () => {
+		// given
+		const history = createMemoryHistory({
+			initialEntries: [`/discover`],
+		});
 
-    it('opens camera view', () => {
+		const setCandidate = jest.fn();
 
-        // given
-        const history = createMemoryHistory({
-            initialEntries: [`/discover`],
-        });
+		// when
+		const page = mount(
+			<Router history={history}>
+				<Discover candidate={amthor} setCandidate={setCandidate} />
+			</Router>
+		);
+		page.find('.camera-icon-background').simulate('click');
 
-        const setCandidate = jest.fn()
-
-        // when
-        const page = mount((
-            <Router history={history}>
-                <Discover candidate={amthor} setCandidate={setCandidate} />
-            </Router>
-        ))
-        page.find('.camera-icon-background').simulate('click')
- 
-
-        // then
-        expect(page.find('.camera-container').length).toEqual(1);
-
-    })
-})
+		// then
+		expect(page.find('.camera-container').length).toEqual(1);
+	});
+});

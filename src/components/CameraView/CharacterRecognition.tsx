@@ -3,26 +3,26 @@ import log from 'loglevel';
 import Fuse from 'fuse.js';
 
 interface CharacterRecognitionInterface {
-    //private scheduler: Scheduler;
-    candidates: {name: string, id: number}[];
-    results?: string[]
-    initialise(): Promise<string>;
-    start(imageSource: HTMLCanvasElement): Promise<string[]>;
-    matchResults(): Promise<{ result: {}; query: string; id: number }>;
-    stop(): Promise<string>;
+	//private scheduler: Scheduler;
+	candidates: { name: string; id: number }[];
+	results?: string[];
+	initialise(): Promise<string>;
+	start(imageSource: HTMLCanvasElement): Promise<string[]>;
+	matchResults(): Promise<{ result: {}; query: string; id: number }>;
+	stop(): Promise<string>;
 }
 
 class CharacterRecognition implements CharacterRecognitionInterface {
-    constructor(candidates: {name: string, id: number}[]){
-        this.candidates = candidates
-    }
+	constructor(candidates: { name: string; id: number }[]) {
+		this.candidates = candidates;
+	}
 	private scheduler: Scheduler = createScheduler();
-	
-    candidates: {name: string, id: number}[];
-    
-    results: string[] = []
 
-    async initialise(): Promise<string> {
+	candidates: { name: string; id: number }[];
+
+	results: string[] = [];
+
+	async initialise(): Promise<string> {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
 				logger: (m) => log.debug(m),
@@ -39,28 +39,27 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 		}
 
 		return new Promise((resolve, reject) => {
-			if(this.scheduler.getNumWorkers() > 0){
-				resolve('successfully initialised Tesseract')
+			if (this.scheduler.getNumWorkers() > 0) {
+				resolve('successfully initialised Tesseract');
 			} else {
-				reject('failed to initialise Tesseract')
+				reject('failed to initialise Tesseract');
 			}
-		})
-    };
-    
-    async start(imageSource: HTMLCanvasElement): Promise<string[]> {
+		});
+	}
+
+	async start(imageSource: HTMLCanvasElement): Promise<string[]> {
 		if (this.scheduler.getNumWorkers() === 0) {
-			await this.initialise().then((res) => {
-                log.debug(res);
-            }).catch((err) => {
-                log.debug(err)
-            });;
+			await this.initialise()
+				.then((res) => {
+					log.debug(res);
+				})
+				.catch((err) => {
+					log.debug(err);
+				});
 		}
 
-		const result = await this.scheduler.addJob(
-			'recognize',
-			imageSource
-            );
-            
+		const result = await this.scheduler.addJob('recognize', imageSource);
+
 		this.results = result.data.text.split('\n');
 
 		return new Promise((resolve, reject) => {
@@ -70,10 +69,9 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 				reject('could not detect characters');
 			}
 		});
-    }
-    
-    async matchResults(): Promise<{ result: {}; query: string; id: number }> {
-        
+	}
+
+	async matchResults(): Promise<{ result: {}; query: string; id: number }> {
 		const options = {
 			includeScore: true,
 		};
@@ -101,9 +99,9 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 				reject('no candidate found');
 			}
 		});
-    }
-    
-    async stop(): Promise<string> {
+	}
+
+	async stop(): Promise<string> {
 		log.debug('terminating workers');
 		await this.scheduler.terminate();
 		return new Promise((resolve, reject) => {
@@ -116,4 +114,4 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 	}
 }
 
-export default CharacterRecognition
+export default CharacterRecognition;
