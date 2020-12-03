@@ -32,26 +32,16 @@ npm needs to be installed to run this project
 git clone https://github.com/Face-the-Facts/mobile-app.git
 cd mobile-app
 npm install
-ionic serve
-```
-
-If you want to try out the app on an actual phone use the `external` flag
-
-on iPhone you also need the `https` flag. You will have to ignore the certificate error.
-
-```zsh
-ionic serve --https --external
+npm start
 ```
 
 ## Automated Tests
 
 We use a combination of testing frameworks to ensure functionality accross platforms and browsers
 
-### Unit Tests
+### Unit & Integration Tests
 
 We use the jest testing framework. Run these tests with `npm test`
-
-### Integration Tests
 
 ### E2E Tests
 
