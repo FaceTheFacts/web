@@ -108,9 +108,9 @@ test('render with party images', () => {
 	);
 
 	if (container !== null) {
-	expect(
-		getByTestId(container, 'votes-party-matches').getElementsByTagName('img').length
-	).toBeGreaterThan(0);
+		expect(
+			getByTestId(container, 'votes-party-matches').getElementsByTagName('img').length
+		).toBeGreaterThan(0);
 	}
 })
 
