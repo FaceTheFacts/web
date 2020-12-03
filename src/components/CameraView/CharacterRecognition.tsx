@@ -6,7 +6,7 @@ interface CharacterRecognitionInterface {
     scheduler: Scheduler;
     candidates: {name: string, id: number}[];
     results?: string[]
-    initialise(): Promise<void>;
+    initialise(): Promise<string>;
     start(imageSource: HTMLCanvasElement): Promise<string[]>;
     matchResults(): Promise<{ result: {}; query: string; id: number }>;
     stop(): Promise<string>;
@@ -21,7 +21,7 @@ class CharacterRecognition implements CharacterRecognitionInterface {
     scheduler: Scheduler = createScheduler();
     results: string[] = []
 
-    async initialise(): Promise<void> {
+    async initialise(): Promise<string> {
 		for (let i = 0; i < 1; i++) {
 			const worker = createWorker({
 				logger: (m) => log.debug(m),
@@ -36,6 +36,14 @@ class CharacterRecognition implements CharacterRecognitionInterface {
 			});
 			this.scheduler.addWorker(worker);
 		}
+
+		return new Promise((resolve, reject) => {
+			if(this.scheduler.getNumWorkers() > 0){
+				resolve('successfully initialised Tesseract')
+			} else {
+				reject('failed to initialise Tesseract')
+			}
+		})
     };
     
     async start(imageSource: HTMLCanvasElement): Promise<string[]> {
