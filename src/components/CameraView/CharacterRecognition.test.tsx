@@ -34,23 +34,23 @@ describe('unittest', () => {
 		expect(charRec.candidates).toEqual(candidates);
 	});
 });
-describe('integration test', () => {
-	it('creates the tesseract scheduler', () => {
-		expect(characterRecognition?.scheduler).not.toBe(undefined);
-	});
-	it('creates the tesseract workers', async () => {
-		// given
-		expect.assertions(1);
+// describe('integration test', () => {
+// 	it('creates the tesseract scheduler', () => {
+// 		expect(characterRecognition?.scheduler).not.toBe(undefined);
+// 	});
+// 	it('creates the tesseract workers', async () => {
+// 		// given
+// 		expect.assertions(1);
 
-		// when
-		const res = await characterRecognition?.initialise();
-		await characterRecognition?.initialise().then((res) => {
-			// then
-			expect(res).toEqual('successfully initialised Tesseract');
-			expect(characterRecognition?.scheduler.getNumWorkers()).toStrictEqual(1);
-		});
+// 		// when
+// 		const res = await characterRecognition?.initialise();
+// 		await characterRecognition?.initialise().then((res) => {
+// 			// then
+// 			expect(res).toEqual('successfully initialised Tesseract');
+// 			expect(characterRecognition?.scheduler.getNumWorkers()).toStrictEqual(1);
+// 		});
 
-		// then
-		expect(res).toEqual('successfully initialised Tesseract');
-	});
-});
+// 		// then
+// 		expect(res).toEqual('successfully initialised Tesseract');
+// 	});
+// });
