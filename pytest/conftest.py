@@ -4,6 +4,7 @@ Pytest Configuration
 
 import inspect
 import os
+import subprocess
 
 import numpy as np
 from PIL import Image
@@ -16,8 +17,8 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import pytest
 
 #from selenium.webdriver import SafariOptions
-INNER_HEIGHT = 926
-INNER_WIDTH = 1792
+INNER_HEIGHT = 812
+INNER_WIDTH = 450 
 
 def pytest_addoption(parser):
     """
@@ -42,6 +43,7 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "safari: mark test to run on safari")
     config.addinivalue_line("markers", "ios: mark test to run on ios")
     config.addinivalue_line("markers", "android: mark test to run on android")
+    config.addinivalue_line("markers", "scan: mark test requiring test webcam")
 
 
 def pytest_collection_modifyitems(config, items):
@@ -72,6 +74,21 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(skip_ios)
         elif "android" in item.keywords and not 'android' in platform:
             item.add_marker(skip_android)
+        elif "scan" in item.keywords and not check_for_test_webcam():
+            item.add_marker(pytest.mark.skip(reason="need 'scan-test-webcam' video device to run"))
+    
+
+
+
+def check_for_test_webcam():
+    process = subprocess.Popen(['v4l2-ctl', '--list-devices'],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT)
+    stdout, stderr = process.communicate()
+    if 'scan-test-webcam' in str(stdout).lower():
+        return True
+    else:
+        return False
 
 @pytest.fixture(scope='class')
 def init_chrome(request):
@@ -90,6 +107,7 @@ def init_chrome(request):
     chrome_options.add_argument('--use-fake-ui-for-media-stream')
     chrome_options.add_argument('--use-file-for-fake-video-capture=./test_scan_video.mjpeg')
     chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--disable-web-extensions')
     chrome_driver = webdriver.Chrome(options=chrome_options)
     chrome_driver.set_window_position(0, 0)
     chrome_driver.set_window_size(INNER_WIDTH, INNER_HEIGHT + delta_height)
@@ -106,13 +124,19 @@ def init_firefox(request):
     #windowHeight=1049
     #windowWidth=1790
     #innerHeight=975
-    delta_height = 74
+    
+
+    delta_height = 74 # MacOS
+    #delta_height = 74 # Ubuntu
+    #delta_width = 76
+    firefox_capabilities = DesiredCapabilities.FIREFOX.copy()
     firefox_options = FirefoxOptions()
     profile = FirefoxProfile()
-    profile.set_preference('media.navigator.streams.fake', True)
+    if not check_for_test_webcam():
+        profile.set_preference('media.navigator.streams.fake', True)
     profile.set_preference('media.navigator.permission.disabled', True)
     firefox_options.profile = profile
-    firefox_driver = webdriver.Firefox(options=firefox_options)
+    firefox_driver = webdriver.Firefox(options=firefox_options, capabilities=firefox_capabilities)
     firefox_driver.set_window_position(0, 0)
     firefox_driver.set_window_size(INNER_WIDTH, INNER_HEIGHT + delta_height)
     request.cls.driver = firefox_driver
@@ -224,7 +248,7 @@ def get_test_slug(request):
     class_file = class_path[-1]
     screen = class_file.replace('test_', '').replace('.py', '')
 
-    testname = f"{screen}_{platform}_{request.node.name}"
+    testname = f"{screen}_{platform}_{request.node.name}_{INNER_WIDTH}x{INNER_HEIGHT}"
 
     return testname
 
