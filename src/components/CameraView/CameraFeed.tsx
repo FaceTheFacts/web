@@ -18,7 +18,7 @@ interface CameraFeedProps {
 
 interface Camera {
     ref: React.RefObject<HTMLVideoElement>;
-    stream?: MediaStream;
+
     getVideoStream(): Promise<MediaStream>;
     setAspectRatio(): Promise<void>;
     initVideoElement(): void;
@@ -29,7 +29,7 @@ interface Camera {
 
 class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
     ref: React.RefObject<HTMLVideoElement> = React.createRef();
-    stream?: MediaStream;
+    private stream?: MediaStream;
 
     async componentDidMount(): Promise<void> {
         await this.start().then((res) => {
