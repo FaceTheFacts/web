@@ -46,7 +46,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
 				the politician id so we can retrieve the match percentage from our api */}
-				<div className="grey-back-scroll">
+				<div className="grey-back-scroll" data-testid="votes-party-matches">
 					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 

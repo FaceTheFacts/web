@@ -85,18 +85,34 @@ test('renders with correct subheadings', () => {
 		expect(getByTestId(container, 'votes-subheading-votes').textContent).toBe('Abstimmungen');
 
 		expect(getByTestId(container, 'votes-subheading-topics').textContent).toBe(
-			'Filtern Nach Themen'
+			'Filtern nach Themen'
 		);
 
 		expect(getByTestId(container, 'votes-subheading-parties').textContent).toBe(
 			'Übereinstimmung mit anderen Fraktionen'
 		);
 
-		expect(
-			getByTestId(container, 'votes-subheading-parties').getElementsByTagName('img').length
-		).toBeGreaterThan(0);
+
 	}
 });
+
+test('render with party images', () => {
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Votes candidate={candidate} />
+		</Router>,
+		container
+	);
+
+	if (container !== null) {
+	expect(
+		getByTestId(container, 'votes-party-matches').getElementsByTagName('img').length
+	).toBeGreaterThan(0);
+	}
+})
 
 test('renders with correct topic filters', () => {
 	// this will change after we remove the hard coded data
