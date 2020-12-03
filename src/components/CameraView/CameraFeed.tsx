@@ -19,9 +19,6 @@ interface CameraFeedProps {
 interface Camera {
     ref: React.RefObject<HTMLVideoElement>;
 
-    getVideoStream(): Promise<MediaStream>;
-    setAspectRatio(): Promise<void>;
-    initVideoElement(): void;
     start(): Promise<string>;
     stop(): Promise<string>;
 
@@ -47,7 +44,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
         })
     }
 
-    async getVideoStream(): Promise<MediaStream> {
+    private async getVideoStream(): Promise<MediaStream> {
 
         const stream = await navigator.mediaDevices.getUserMedia({
             video: {
@@ -67,7 +64,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
             
     }
     
-    async setAspectRatio(): Promise<void> {
+    private async setAspectRatio(): Promise<void> {
 		const videoTrack = this.stream?.getVideoTracks()[0];
 		const ua = navigator.userAgent.toLowerCase();
 		const isAndroid = ua.includes('android');
@@ -81,7 +78,7 @@ class CameraFeed extends React.Component<CameraFeedProps> implements Camera {
 		});
     }
     
-    initVideoElement(): void {
+    private initVideoElement(): void {
 		// initialise video element
 		if (this.ref.current !== null) {
 			this.ref.current.width = this.props.cameraOpts.width;
