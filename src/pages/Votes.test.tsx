@@ -91,8 +91,6 @@ test('renders with correct subheadings', () => {
 		expect(getByTestId(container, 'votes-subheading-parties').textContent).toBe(
 			'Übereinstimmung mit anderen Fraktionen'
 		);
-
-
 	}
 });
 
@@ -108,11 +106,11 @@ test('render with party images', () => {
 	);
 
 	if (container !== null) {
-	expect(
-		getByTestId(container, 'votes-party-matches').getElementsByTagName('img').length
-	).toBeGreaterThan(0);
+		expect(
+			getByTestId(container, 'votes-party-matches').getElementsByTagName('img').length
+		).toBeGreaterThan(0);
 	}
-})
+});
 
 test('renders with correct topic filters', () => {
 	// this will change after we remove the hard coded data

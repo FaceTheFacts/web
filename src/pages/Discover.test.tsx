@@ -34,7 +34,7 @@ describe('integration test', () => {
 	it('renders page correctly', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: [`/discover`],
+			initialEntries: ['/discover'],
 		});
 
 		const setCandidate = jest.fn();
@@ -57,7 +57,7 @@ describe('integration test', () => {
 	it('opens camera view', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: [`/discover`],
+			initialEntries: ['/discover'],
 		});
 
 		const setCandidate = jest.fn();

@@ -24,8 +24,8 @@ describe('unittest', () => {
 	it('renders with correct size', () => {
 		// given
 		const ref: React.RefObject<DetectionCanvas> = React.createRef();
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		//when
 		act(() => {
@@ -46,8 +46,8 @@ describe('unittest', () => {
 		const image: HTMLVideoElement = document.createElement('video');
 		image.src = './__mocks__/test_scan_video_large.mp4';
 
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		// when
 		act(() => {
@@ -64,8 +64,8 @@ describe('unittest', () => {
 		const ref: React.RefObject<DetectionCanvas> = React.createRef();
 		const image: HTMLVideoElement = document.createElement('video');
 		image.src = './test_scan_video_large.mp4';
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		// when
 		act(() => {

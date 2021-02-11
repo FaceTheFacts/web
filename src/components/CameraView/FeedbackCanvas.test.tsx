@@ -24,8 +24,8 @@ describe('integration test', () => {
 	it('renders with correct size', () => {
 		// given
 		const ref: React.RefObject<FeedbackCanvas> = React.createRef();
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		//when
 		act(() => {
@@ -46,8 +46,8 @@ describe('integration test', () => {
 		const predictions: Array<{ topLeft: [number, number]; bottomRight: [number, number] }> = [
 			{ topLeft: [20, 50], bottomRight: [80, 100] },
 		];
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		// when
 		act(() => {
@@ -65,8 +65,8 @@ describe('integration test', () => {
 		const predictions: Array<{ topLeft: [number, number]; bottomRight: [number, number] }> = [
 			{ topLeft: [20, 50], bottomRight: [80, 100] },
 		];
-		const width: number = 100;
-		const height: number = 100;
+		const width = 100;
+		const height = 100;
 
 		// when
 		act(() => {

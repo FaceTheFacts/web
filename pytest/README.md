@@ -1,18 +1,18 @@
 # E2E Testing <!-- omit in TOC -->
 
-- [Running tests](#running-tests)
-- [Platforms](#platforms)
-  - [Chrome](#chrome)
-  - [Firefox](#firefox)
-  - [Safari](#safari)
-  - [Android](#android)
-    - [Emulated](#emulated)
-    - [Real Device](#real-device)
-  - [iOS](#ios)
-- [Scanning Feature Tests](#scanning-feature-tests)
-  - [v4l2loopback (Fake Webcam)](#v4l2loopback-fake-webcam)
-  - [Video file as fake webcam](#video-file-as-fake-webcam)
-  - [Run only scan feature test inside VM against dev server on host machine](#run-only-scan-feature-test-inside-vm-against-dev-server-on-host-machine)
+-   [Running tests](#running-tests)
+-   [Platforms](#platforms)
+    -   [Chrome](#chrome)
+    -   [Firefox](#firefox)
+    -   [Safari](#safari)
+    -   [Android](#android)
+        -   [Emulated](#emulated)
+        -   [Real Device](#real-device)
+    -   [iOS](#ios)
+-   [Scanning Feature Tests](#scanning-feature-tests)
+    -   [v4l2loopback (Fake Webcam)](#v4l2loopback-fake-webcam)
+    -   [Video file as fake webcam](#video-file-as-fake-webcam)
+    -   [Run only scan feature test inside VM against dev server on host machine](#run-only-scan-feature-test-inside-vm-against-dev-server-on-host-machine)
 
 ## Running tests
 
@@ -34,7 +34,6 @@ pytest --platform=firefox,chrome,safari,ios,android
 # (e.g. when testing inside VM against server outside VM)
 pytest --url="https://192.168.178.87:3000"
 ```
-
 
 ## Platforms
 
@@ -61,13 +60,15 @@ Android tests can be run on any operating system. First download and install And
 The Android tests can also be run on a real Android device, once it's plugged in to your development machine via USB.
 
 ### iOS
-iOS tests can only be run on MacOS. Download and Install Xcode to enable the iOS emulator. The emulator has the limitation that 
+
+iOS tests can only be run on MacOS. Download and Install Xcode to enable the iOS emulator. The emulator has the limitation that
 
 ## Scanning Feature Tests
 
 The e2e tests for the scanning feature have to be run inside a virtual machine, because the webcam needs to be faked. If you haven't set up the fake webcam, follow these instructions. In the future we will provide a VM image you can use out of the box.
 
 ### v4l2loopback (Fake Webcam)
+
 ```bash
 # 1. Install v4l2loopback kernel module and v4l-utils from apt
 sudo apt install v4l2loopback-dkms v4l-utils
@@ -77,6 +78,7 @@ sudo modprobe v4l2loopback devices=1 card_label="scan-test-webcam" exclusive_cap
 ```
 
 ### Video file as fake webcam
+
 ```bash
 # Install ffmpeg
 sudo apt-get install ffmpeg
@@ -85,6 +87,7 @@ ffmpeg -stream_loop -1 -re -i ./test_scan_video.mp4 -vcodec rawvideo -pix_fmt yu
 ```
 
 ### Run only scan feature test inside VM against dev server on host machine
+
 ```bash
 pytest test/test_discover_screen.py -k 'test_scan_feature' --platform=firefox --url="https://192.168.178.87:3000"
 ```
