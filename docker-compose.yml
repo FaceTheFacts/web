@@ -1,37 +1,36 @@
 version: '3.3'
 
 services:
-  app:
-    image: facethefacts/app:latest
-    networks:
-      - traefik-public
-    ports:
-      - 1337:80
-    deploy:
-      mode: global
-      placement:
-        constraints:
-          - node.role == manager
-      update_config:
-        parallelism: 1
-        delay: 10s
-        #order: stop-first
-      restart_policy:
-        condition: on-failure
-      labels:
-        #- "traefik.http.middlewares.auth.basicauth.users=admin:$apr1$giexeY58$nEtjvoxrgHtpl8OHLJRAB."
-        - "traefik.enable=true"
-        - "traefik.http.routers.api-http.rule=Host(`facethefacts.app`)"
-        - "traefik.http.routers.api-http.entrypoints=web"
-        - "traefik.http.routers.api-http.middlewares=redirect-web-to-websecure@internal"
-        - "traefik.http.routers.api-https.rule=Host(`facethefacts.app`)"
-        - "traefik.http.routers.api-https.entrypoints=websecure"
-        - "traefik.http.routers.api-https.tls=true"
-        - "traefik.http.routers.api-https.service=api@internal"
-        - "traefik.http.routers.api-https.tls.certresolver=le"
-        - "traefik.http.services.api.loadbalancer.server.port=3000"
+    app:
+        image: facethefacts/app:latest
+        networks:
+            - traefik-public
+        ports:
+            - 1337:80
+        deploy:
+            mode: global
+            placement:
+                constraints:
+                    - node.role == manager
+            update_config:
+                parallelism: 1
+                delay: 10s
+                #order: stop-first
+            restart_policy:
+                condition: on-failure
+            labels:
+                #- "traefik.http.middlewares.auth.basicauth.users=admin:$apr1$giexeY58$nEtjvoxrgHtpl8OHLJRAB."
+                - 'traefik.enable=true'
+                - 'traefik.http.routers.api-http.rule=Host(`facethefacts.app`)'
+                - 'traefik.http.routers.api-http.entrypoints=web'
+                - 'traefik.http.routers.api-http.middlewares=redirect-web-to-websecure@internal'
+                - 'traefik.http.routers.api-https.rule=Host(`facethefacts.app`)'
+                - 'traefik.http.routers.api-https.entrypoints=websecure'
+                - 'traefik.http.routers.api-https.tls=true'
+                - 'traefik.http.routers.api-https.service=api@internal'
+                - 'traefik.http.routers.api-https.tls.certresolver=le'
+                - 'traefik.http.services.api.loadbalancer.server.port=3000'
 
-  
 networks:
-  traefik-public:
-    external: true
+    traefik-public:
+        external: true

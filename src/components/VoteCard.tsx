@@ -136,9 +136,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 				</IonCardContent>
 			</IonCard>
 
-
-
-
 			{/*Vote Detail Modal*/}
 
 			<IonContent>

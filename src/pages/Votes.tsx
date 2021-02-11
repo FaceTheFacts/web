@@ -40,9 +40,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<TopicFilter />
 				</div>
 				<div data-testid="votes-subheading-parties">
-					<SubHeading
-						name="Übereinstimmung mit anderen Fraktionen"
-					/>
+					<SubHeading name="Übereinstimmung mit anderen Fraktionen" />
 				</div>
 
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
