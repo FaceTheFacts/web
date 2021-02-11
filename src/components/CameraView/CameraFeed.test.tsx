@@ -1,8 +1,12 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import CameraFeed from './CameraFeed';
 
 let container: HTMLDivElement | null = null;
+
+Enzyme.configure({ adapter: new Adapter() });
 
 beforeEach(() => {
 	// setup a DOM element as a render target
@@ -19,7 +23,7 @@ afterEach(() => {
 	}
 });
 
-jest.mock('./CameraFeed');
+//jest.mock('./CameraFeed');
 
 describe('unittest', () => {
 	it('renders correctly', () => {
@@ -38,12 +42,12 @@ describe('unittest', () => {
 		const setCameraReady = jest.fn();
 
 		// when
-		render(
+		const componenent = mount(
 			<CameraFeed cameraOpts={cameraOpts} setCameraReady={setCameraReady}></CameraFeed>,
-			container
 		);
 
 		// then
-		expect(container?.getElementsByTagName('video')[0]).toBeInTheDocument();
+		//console.log(componenent.html())
+		expect(componenent.instance().componentDidMount).toHaveBeenCalled();
 	});
 });
