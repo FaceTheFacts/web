@@ -7,11 +7,6 @@ import {
 	IonPage,
 	IonIcon,
 	IonPopover,
-	IonCard,
-	IonCardContent,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
 } from '@ionic/react';
 import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
@@ -57,6 +52,7 @@ type SearchResult = {
 const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
 	const [text, setText] = useState<string>();
 	const [showResults, setShowResults] = useState<boolean>(false);
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);

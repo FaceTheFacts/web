@@ -50,6 +50,7 @@ class CameraFeed extends React.Component<CameraFeedProps> {
 	}
 	render = jest.fn().mockImplementation(() => {
 		return (
+			// eslint-disable-next-line jsx-a11y/media-has-caption
 			<video
 				ref={this.ref}
 				id="camera-video"

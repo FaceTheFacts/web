@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import Enzyme, { shallow, mount } from 'enzyme';
+import { unmountComponentAtNode } from 'react-dom';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import CameraFeed from './CameraFeed';
 
