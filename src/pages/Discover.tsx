@@ -94,7 +94,6 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
 					</div>
 
-					
 					<IonInput
 						className="search-bar"
 						value={text}

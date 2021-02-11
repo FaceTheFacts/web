@@ -34,3 +34,10 @@ geckodriver.log
 
 # fake media stream
 pytest/test_scan_video*
+
+
+#temp stuff
+public/assets/font/
+src/components/CameraView/CameraView.puml
+src/components/CameraView/Plan.md
+src/components/mediaDevices.mock.tsx
