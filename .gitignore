@@ -33,4 +33,4 @@ __pycache__
 geckodriver.log
 
 # fake media stream
-pytest/test_scan_video.*
+pytest/test_scan_video*
