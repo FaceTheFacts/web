@@ -41,7 +41,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		x: 0,
 		y: 0,
 		width: window.innerWidth,
-		height: window.innerWidth * 4 / 3,
+		height: (window.innerWidth * 4) / 3,
 		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
@@ -96,7 +96,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		const ua = navigator.userAgent.toLowerCase();
 		const isAndroid = ua.includes('android');
 		const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
-		const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
+		const width = isAndroid ? this.cameraOpts.height : this.cameraOpts.width;
 
 		return track.applyConstraints({
 			height: height,
