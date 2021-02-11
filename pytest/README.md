@@ -1,18 +1,18 @@
 # E2E Testing <!-- omit in TOC -->
 
-- [Running tests](#running-tests)
-- [Platforms](#platforms)
-  - [Chrome](#chrome)
-  - [Firefox](#firefox)
-  - [Safari](#safari)
-  - [Android](#android)
-    - [Emulated](#emulated)
-    - [Real Device](#real-device)
-  - [iOS](#ios)
-- [Scanning Feature Tests](#scanning-feature-tests)
-  - [v4l2loopback (Fake Webcam)](#v4l2loopback-fake-webcam)
-  - [Video file as fake webcam](#video-file-as-fake-webcam)
-  - [Run only scan feature test inside VM against dev server on host machine](#run-only-scan-feature-test-inside-vm-against-dev-server-on-host-machine)
+-   [Running tests](#running-tests)
+-   [Platforms](#platforms)
+    -   [Chrome](#chrome)
+    -   [Firefox](#firefox)
+    -   [Safari](#safari)
+    -   [Android](#android)
+        -   [Emulated](#emulated)
+        -   [Real Device](#real-device)
+    -   [iOS](#ios)
+-   [Scanning Feature Tests](#scanning-feature-tests)
+    -   [v4l2loopback (Fake Webcam)](#v4l2loopback-fake-webcam)
+    -   [Video file as fake webcam](#video-file-as-fake-webcam)
+    -   [Run only scan feature test inside VM against dev server on host machine](#run-only-scan-feature-test-inside-vm-against-dev-server-on-host-machine)
 
 ## Running tests
 

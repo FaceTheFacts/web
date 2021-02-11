@@ -43,7 +43,7 @@ describe('unittest', () => {
 
 		// when
 		const componenent = mount(
-			<CameraFeed cameraOpts={cameraOpts} setCameraReady={setCameraReady}></CameraFeed>,
+			<CameraFeed cameraOpts={cameraOpts} setCameraReady={setCameraReady}></CameraFeed>
 		);
 
 		// then
