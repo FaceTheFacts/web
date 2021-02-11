@@ -7,6 +7,11 @@ import {
 	IonPage,
 	IonIcon,
 	IonPopover,
+	IonCard,
+	IonCardContent,
+	IonCardHeader,
+	IonCardSubtitle,
+	IonCardTitle
 } from '@ionic/react';
 import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
@@ -14,13 +19,45 @@ import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
 import { Candidate } from '../Types';
+import SearchResults from '../components/SearchResults';
 
 interface DiscoverProps {
 	candidate: Candidate;
 	setCandidate: Function;
 }
+
+type SearchResult = {
+		id: number,
+		entity_type: "politician",
+		label: string,
+		api_url: string,
+		abgeordnetenwatch_url: string,
+		first_name: string,
+		last_name: string,
+		birth_name: string | null,
+		sex: "m" | "f" | "d",
+		year_of_birth: number,
+		party: {
+			id: number,
+			entity_type: "party",
+			label: string,
+			api_url: string
+		},
+		party_past: null,
+		deceased: null,
+		deceased_date: null,
+		education: null,
+		residence: string,
+		occupation: string,
+		statistic_questions: null,
+		statistic_questions_answered: null,
+		qid_wikidata: null,
+		field_title: null
+}
 const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
 	const [text, setText] = useState<string>();
+	const [showResults, setShowResults] = useState<boolean>(false);
+	const [searchResults, setSearchResults] = useState<Array<any>>([]);
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
 
@@ -31,6 +68,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 		.duration(500)
 		.fromTo("bottom", "-20%", "20%")
 	} */
+
 
 	return (
 		<IonPage>
@@ -61,9 +99,22 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						className="search-bar"
 						value={text}
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
-						disabled={true}
-						onIonChange={(e): void => setText(e.detail.value as string)}
-					></IonInput>		
+						disabled={false}
+						onIonChange={async (e): Promise<void> => {
+							setText(e.detail.value as string);
+							setTimeout(async () => {
+								const url = "https://www.abgeordnetenwatch.de/api/v2/politicians/?label[cn]="
+								const res = await fetch(`${url}${text}&range_end=20`);
+								const data = await res.json();
+								console.log(data.data);
+								setSearchResults(data.data);
+								setShowResults(true);
+							}, 400)
+
+						}}
+					></IonInput>
+					{showResults ?  <SearchResults results={searchResults}/> : null }
+
 	
 				
 
