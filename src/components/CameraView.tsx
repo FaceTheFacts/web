@@ -4,13 +4,14 @@ import log from 'loglevel';
 
 // import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
-import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazeface';
-
-import { createWorker, createScheduler } from 'tesseract.js';
-import Fuse from 'fuse.js';
 import '../index.css';
 import './CameraView.css';
 import { amthor } from '../amthor';
+import FeedbackCanvas from './CameraView/FeedbackCanvas';
+import DetectionCanvas from './CameraView/DetectionCanvas';
+import CameraFeed from './CameraView/CameraFeed';
+import FaceDetection from './CameraView/FaceDetection';
+import CharacterRecognition from './CameraView/CharacterRecognition';
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
 interface CameraViewProps extends RouteComponentProps {
@@ -19,19 +20,36 @@ interface CameraViewProps extends RouteComponentProps {
 }
 
 class CameraView extends React.PureComponent<CameraViewProps> {
-	/* constructor(props: CameraViewProps) {
+	constructor(props: CameraViewProps) {
 		super(props);
-	} */
+		this.state = {
+			cameraReady: false,
+		};
+		this.setCameraReady = this.setCameraReady.bind(this);
+	}
 
-	canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+	feedbackCanvasRef: React.RefObject<FeedbackCanvas> = React.createRef();
 
-	canvasOCRRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+	detectionCanvasRef: React.RefObject<DetectionCanvas> = React.createRef();
 
-	videoRef: React.RefObject<HTMLVideoElement> = React.createRef();
+	cameraFeedRef: React.RefObject<CameraFeed> = React.createRef();
 
-	stream?: MediaStream;
+	faceDetection: FaceDetection = new FaceDetection();
 
-	model?: BlazeFaceModel;
+	characterRecognition: CharacterRecognition = new CharacterRecognition([
+		{
+			name: 'philipp amthor',
+			id: 1,
+		},
+		{
+			name: 'renate künast',
+			id: 2,
+		},
+		{
+			name: 'angela merkel',
+			id: 3,
+		},
+	]);
 
 	animationFrameID?: number;
 
@@ -41,7 +59,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		x: 0,
 		y: 0,
 		width: window.innerWidth,
-		height: window.innerWidth * 4 / 3,
+		height: (window.innerWidth * 4) / 3,
 		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
@@ -49,273 +67,104 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		alpha: 1,
 	};
 
-	scheduler = createScheduler();
-
 	async componentDidMount(): Promise<void> {
-		await this.initialiseCamera()
+		// load BlazeFaceModel for face detetction
+		await this.faceDetection
+			.loadModel()
 			.then((res) => {
 				log.debug(res);
 			})
 			.catch((err) => {
-				log.error(err);
+				log.debug(err);
 			});
 
-		// load BlazeFaceModel for face detetction
-		this.model = await load();
-
 		// initialise Tesseract for OCR
-		await this.initializeTesseract();
+		await this.characterRecognition
+			.initialise()
+			.then((res) => {
+				log.debug(res);
+			})
+			.catch((err) => {
+				log.debug(err);
+			});
+	}
+
+	async componentDidUpdate(): Promise<void> {
+		this.initCanvas();
+		this.cameraFeedRef.current?.ref.current?.addEventListener('play', () => {
+			this.drawLoop();
+		});
 	}
 
 	async componentWillUnmount(): Promise<void> {
 		log.debug('stopping camera preview');
-		await this.stop();
-	}
-
-	async getVideoStream(): Promise<MediaStream> {
-		const stream = await navigator.mediaDevices.getUserMedia({
-			video: {
-				facingMode: 'environment',
-				width: { ideal: this.cameraOpts.width },
-				height: { ideal: this.cameraOpts.height },
-			},
-			audio: false,
-		});
-		return stream;
-	}
-
-	setFullscreen(track: MediaStreamTrack): Promise<void> {
-		return track.applyConstraints({
-			aspectRatio: {
-				exact: this.cameraOpts.width / this.cameraOpts.height,
-			},
-		});
-	}
-
-	set4by3(track: MediaStreamTrack): Promise<void> {
-		const ua = navigator.userAgent.toLowerCase();
-		const isAndroid = ua.includes('android');
-		const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
-		const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
-
-		return track.applyConstraints({
-			height: height,
-			width: width,
-			aspectRatio: 4 / 3,
-		});
-	}
-
-	async setAspectRatio(): Promise<void> {
-		const videoTrack = this.stream?.getVideoTracks()[0];
-
-		this.set4by3(videoTrack as MediaStreamTrack)
-			.then(() => {
-				log.debug('set video to 4:3');
+		await this.stop()
+			.then((res) => {
+				log.debug(res);
 			})
 			.catch((err) => {
-				log.info(err);
+				log.debug(err);
 			});
 	}
 
-	async initialiseCamera(): Promise<string> {
-		// get media tracks
-		log.debug(navigator.userAgent);
-
-		this.stream = await this.getVideoStream();
-		await this.setAspectRatio();
-		this.cameraOpts.height = this.stream?.getVideoTracks()[0].getSettings().height as number;
-
-		this.initVideo();
-		this.initCanvas();
-
-		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState === 'live') {
-				resolve('successfully started camera');
-			} else {
-				reject('error starting camera');
-			}
-		});
-	}
-
-	initVideo(): void {
-		// initialise video element
-		if (this.videoRef.current !== null) {
-			this.videoRef.current.width = this.cameraOpts.width;
-			this.videoRef.current.height = this.cameraOpts.height;
-			this.videoRef.current.style.width = String(`${this.cameraOpts.width}px`);
-			this.videoRef.current.style.height = String(`${this.cameraOpts.height}px`);
-			this.videoRef.current.srcObject = this.stream as MediaStream;
-
-			// add event listeners for play and onloadedmetadata events
-			this.videoRef.current.addEventListener(
-				'play',
-				() => {
-					this.drawLoop();
-				},
-				false
-			);
-			this.videoRef.current.onloadedmetadata = (): void => {
-				this.videoRef.current?.play();
-			};
-		}
+	setCameraReady(): void {
+		this.setState({ cameraReady: true });
 	}
 
 	initCanvas(): void {
 		// initialise canvas for drawing
-		const ctx = this.canvasRef.current?.getContext('2d');
-		if (ctx) {
-			ctx.canvas.width = this.cameraOpts.width;
-			ctx.canvas.height = this.cameraOpts.height;
-		}
+
+		this.feedbackCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
 
 		// initialise canvas for OCR
-		const ctxOCR = this.canvasOCRRef.current?.getContext('2d');
-		if (ctxOCR) {
-			ctxOCR.canvas.width = this.cameraOpts.width;
-			ctxOCR.canvas.height = this.cameraOpts.height;
-		}
-	}
-
-	initializeTesseract = async (): Promise<void> => {
-		for (let i = 0; i < 1; i++) {
-			const worker = createWorker({
-				logger: (m) => log.debug(m),
-			});
-			await worker.load();
-			await worker.loadLanguage('deu');
-			await worker.initialize('deu');
-			await worker.setParameters({
-				// eslint-disable-next-line @typescript-eslint/camelcase
-				tessedit_char_whitelist:
-					'abcdefghijklmnopqrstuvwxyzäöüABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ',
-			});
-			this.scheduler.addWorker(worker);
-		}
-	};
-
-	// detect faces and characters
-	async detectFaces(): Promise<NormalizedFace[]> {
-		if (this.model === undefined) {
-			log.debug('Loading BlazeFace Model');
-			this.model = await load();
-		}
-
-		const predictions = await this.model.estimateFaces(
-			this.canvasOCRRef.current as HTMLCanvasElement,
-			false
-		);
-
-		return new Promise<NormalizedFace[]>((resolve, reject) => {
-			// maybe only resolve if predictions.length > 0
-			if (predictions !== undefined) {
-				resolve(predictions);
-			} else {
-				reject('could not detect faces');
-			}
-		});
-	}
-
-	async recogniseCharacters(): Promise<string[]> {
-		this.drawVideoOnCanvas();
-		if (this.scheduler.getNumWorkers() === 0) {
-			await this.initializeTesseract();
-		}
-
-		const result = await this.scheduler.addJob('recognize', this.canvasOCRRef.current);
-		const results = result.data.text.split('\n');
-
-		return new Promise((resolve, reject) => {
-			if (results.length > 0) {
-				resolve(results);
-			} else {
-				reject('could not detect characters');
-			}
-		});
-	}
-
-	async fuseSearchResults(results: string[]): Promise<{ result: {}; query: string; id: number }> {
-		const candidates = [
-			{
-				name: 'philipp amthor',
-				id: 1,
-			},
-			{
-				name: 'renate künast',
-				id: 2,
-			},
-			{
-				name: 'angela merkel',
-				id: 3,
-			},
-		];
-		const options = {
-			includeScore: true,
-		};
-		const fuse = new Fuse(results, options);
-		const match = {
-			query: '',
-			id: 0,
-			result: {},
-		};
-
-		for (const candidate of candidates) {
-			const res = fuse.search(candidate.name as string);
-			console.log(res);
-			if (res.length > 0) {
-				match.result = res;
-				match.query = candidate.name;
-				match.id = candidate.id;
-			}
-		}
-
-		return new Promise((resolve, reject) => {
-			if (match.query !== '') {
-				resolve(match);
-			} else {
-				reject('no candidate found');
-			}
-		});
+		this.detectionCanvasRef.current?.init(this.cameraOpts.width, this.cameraOpts.height);
 	}
 
 	// display results
 	async drawLoop(): Promise<void> {
+		this.detectionCanvasRef.current?.draw(
+			this.cameraFeedRef.current?.ref.current as HTMLVideoElement,
+			this.cameraOpts.width,
+			this.cameraOpts.height
+		);
 		// detect faces and draw bbox
-		await this.detectFaces()
+		await this.faceDetection
+			.start(this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement)
 			.then((predictions) => {
-				this.showDetections(predictions);
+				this.feedbackCanvasRef.current?.draw(predictions);
 			})
 			.catch((err) => {
 				log.error(err);
 			});
 
 		// recognize characters and show progress
-		const results = (await this.recogniseCharacters()) as string[];
 
-		await this.fuseSearchResults(results)
-			.then((match) => {
-				log.debug(`Detected candidate ${match.query}`);
-				this.props.setCandidate(amthor);
-				this.props.setShowPopover(true);
-			})
-			.catch((err) => {
-				log.debug(err);
-			});
+		const results = (await this.characterRecognition.start(
+			this.detectionCanvasRef.current?.ref.current as HTMLCanvasElement
+		)) as string[];
+		if (results.length > 0) {
+			await this.characterRecognition
+				.matchResults()
+				.then((match) => {
+					log.debug(`Detected candidate ${match.query}`);
+					this.props.setCandidate(amthor);
+					this.props.setShowPopover(true);
+				})
+				.catch((err) => {
+					log.debug(err);
+				});
+		}
 
 		// repeat
 		this.animationFrameID = requestAnimationFrame(async () => {
-			await this.drawLoop();
+			await this.drawLoop()
+				.then((res) => {
+					log.debug(res);
+				})
+				.catch((err) => {
+					log.debug(err);
+				});
 		});
-	}
-
-	drawVideoOnCanvas(): void {
-		const ctx = this.canvasOCRRef.current?.getContext('2d');
-		ctx?.drawImage(
-			this.videoRef.current as HTMLVideoElement,
-			0,
-			0,
-			this.cameraOpts.width,
-			this.cameraOpts.height
-		);
 	}
 
 	// terminate processes
@@ -323,7 +172,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	async stop(): Promise<void> {
 		cancelAnimationFrame(this.animationFrameID as number);
 
-		await this.stopOCR()
+		await this.characterRecognition
+			.stop()
 			.then((msg) => {
 				log.debug(msg);
 			})
@@ -331,8 +181,9 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				log.error(err);
 			});
 
-		this.stopFaceDetection();
-		await this.stopCamera()
+		this.faceDetection.stop();
+		await this.cameraFeedRef.current
+			?.stop()
 			.then((msg) => {
 				log.debug(msg);
 			})
@@ -340,107 +191,18 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				log.error(err);
 			});
 	}
-
-	async stopOCR(): Promise<string> {
-		log.debug('terminating workers');
-		await this.scheduler.terminate();
-		return new Promise((resolve, reject) => {
-			if (this.scheduler.getNumWorkers.length === 0) {
-				resolve('successfully stopped camera stream');
-			} else {
-				reject('failed to stop camera stream');
-			}
-		});
-	}
-
-	stopFaceDetection(): void {
-		log.debug('stopping face detection');
-		delete this.model;
-	}
-	// Old Code starts here
-
-	async stopCamera(): Promise<string> {
-		log.debug('stopping camera');
-		const tracks = this.stream?.getTracks();
-		if (tracks !== undefined) {
-			for (const track of tracks) {
-				track.stop();
-			}
-		}
-
-		return new Promise((resolve, reject) => {
-			if (this.stream?.getTracks()[0].readyState === 'ended') {
-				resolve('successfully stopped camera stream');
-			} else {
-				reject('failed to stop camera stream');
-			}
-		});
-	}
-
-	showDetections = (predictions: NormalizedFace[]): void => {
-		const ua = navigator.userAgent.toLowerCase();
-		const isSafari = ua.includes('safari') && ua.indexOf('chrome') === -1;
-		const ctx = this.canvasRef.current?.getContext('2d') as CanvasRenderingContext2D;
-		if (ctx) {
-			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-			// Render a rectangle over each detected face.
-			ctx.beginPath();
-			ctx.strokeStyle = 'white';
-			ctx.lineWidth = 6;
-
-			// draw full screen clockwise, then face bbox counter clockwise
-			// to darken everything but the face
-			if (!isSafari) {
-				ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			}
-
-			predictions.forEach((prediction) => {
-				const start: [number, number] = prediction.topLeft as [number, number];
-				const end: [number, number] = prediction.bottomRight as [number, number];
-
-				/* const probability = prediction.probability as number;
-				const prob = (probability * 100).toPrecision(5).toString(); */
-
-				const size = [end[0] - start[0], end[1] - start[1]];
-
-				if (!isSafari) {
-					// counter clockwise
-					ctx.rect(end[0], start[1], -size[0], size[1]);
-				} else {
-					ctx.rect(start[0], start[1], size[0], size[1]);
-				}
-			});
-			ctx.stroke();
-			if (!isSafari && predictions.length > 0) {
-				ctx.fillStyle = 'rgba(0,0,0,0.5)';
-				ctx.fill();
-			}
-		}
-	};
 
 	render(): ReactNode {
 		return (
 			<div className="camera-container">
 				<div className="camera">
-					{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-					<video
-						ref={this.videoRef}
-						id="camera-video"
-						className="video-element"
-						playsInline
-						autoPlay
-					></video>
-					<canvas
-						ref={this.canvasRef}
-						id="camera-canvas"
-						className="video-element"
-					></canvas>
-					<canvas
-						ref={this.canvasOCRRef}
-						id="ocr-canvas"
-						className="video-element"
-					></canvas>
+					<CameraFeed
+						ref={this.cameraFeedRef}
+						cameraOpts={this.cameraOpts}
+						setCameraReady={this.setCameraReady}
+					></CameraFeed>
+					<FeedbackCanvas ref={this.feedbackCanvasRef}></FeedbackCanvas>
+					<DetectionCanvas ref={this.detectionCanvasRef}></DetectionCanvas>
 				</div>
 			</div>
 		);

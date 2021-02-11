@@ -17,7 +17,7 @@ h2 {
 }
 
 p {
-    color: black;
+	color: black;
 }
 
 a {
@@ -34,7 +34,7 @@ table {
 
 #environment td {
 	padding: 5px;
-	border: 1px solid #E6E6E6;
+	border: 1px solid #e6e6e6;
 }
 
 #environment tr:nth-child(odd) {
@@ -44,16 +44,26 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result {
+span.passed,
+.passed .col-result {
 	color: green;
 }
-span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
 	color: orange;
 }
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
 	color: red;
 }
-
 
 /******************************
  * RESULTS TABLE
@@ -72,16 +82,17 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
 	border: 1px solid #e6e6e6;
 	color: #999;
 	font-size: 12px;
-	width: 100%
+	width: 100%;
 }
 
-#results-table th, #results-table td {
+#results-table th,
+#results-table td {
 	padding: 5px;
-	border: 1px solid #E6E6E6;
-	text-align: left
+	border: 1px solid #e6e6e6;
+	text-align: left;
 }
 #results-table th {
-	font-weight: bold
+	font-weight: bold;
 }
 
 /*------------------
@@ -89,18 +100,18 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
  *------------------*/
 
 .log:only-child {
-	height: inherit
+	height: inherit;
 }
 .log {
 	background-color: #e6e6e6;
 	border: 1px solid #e6e6e6;
 	color: black;
 	display: block;
-	font-family: "Courier New", Courier, monospace;
+	font-family: 'Courier New', Courier, monospace;
 	height: 230px;
 	overflow-y: scroll;
 	padding: 5px;
-	white-space: pre-wrap
+	white-space: pre-wrap;
 }
 div.image {
 	border: 1px solid #e6e6e6;
@@ -108,10 +119,10 @@ div.image {
 	height: 240px;
 	margin-left: 5px;
 	overflow: hidden;
-	width: 320px
+	width: 320px;
 }
 div.image img {
-	width: 320px
+	width: 320px;
 }
 div.video {
 	border: 1px solid #e6e6e6;
@@ -119,25 +130,25 @@ div.video {
 	height: 240px;
 	margin-left: 5px;
 	overflow: hidden;
-	width: 320px
+	width: 320px;
 }
 div.video video {
 	overflow: hidden;
 	width: 320px;
-    height: 240px;
+	height: 240px;
 }
 .collapsed {
 	display: none;
 }
 .expander::after {
-	content: " (show details)";
-	color: #BBB;
+	content: ' (show details)';
+	color: #bbb;
 	font-style: italic;
 	cursor: pointer;
 }
 .collapser::after {
-	content: " (hide details)";
-	color: #BBB;
+	content: ' (hide details)';
+	color: #bbb;
 	font-style: italic;
 	cursor: pointer;
 }
@@ -163,7 +174,7 @@ div.video video {
 
 .inactive .sort-icon {
 	/*finish triangle*/
-	border-top: 8px solid #E6E6E6;
+	border-top: 8px solid #e6e6e6;
 }
 
 .asc.active .sort-icon {
