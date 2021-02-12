@@ -6,11 +6,11 @@ import WahlchancenCard from '../components/WahlchancenCard';
 import './Votes.css';
 import { Candidate } from '../Types';
 
-interface VoteProps {
+interface WahlchancenProps {
 	candidate: Candidate;
 }
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Wahlchancen: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
+const Wahlchancen: React.FC<WahlchancenProps> = ({ candidate }: WahlchancenProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 
 	/* This is returned when using this component */
@@ -37,6 +37,12 @@ const Wahlchancen: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 
 				<div className="votes-title" data-testid="votes-subheading-votes">
 					<IonText>Wahlergebnis</IonText>
+				</div>
+
+                <div className="last-grey-back">
+					{candidate.electionResults.map((Election, index) => {
+						return <WahlchancenCard vote={Election} key={`electionResults-${index}`}/>;
+					})}
 				</div>
 			</IonContent>
 		</IonPage>
