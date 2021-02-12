@@ -209,6 +209,23 @@ export const amthor: Candidate = {
 			},
 		},
 	],
+	electionResults: [
+		{
+			candidate: 'Philip Amthor',
+				party: 'CDU',
+				percentage: 34.7,
+		},
+		{
+			candidate: 'Enrico Komning',
+				party: 'AFD',
+				percentage: 23.5,
+		},
+		{
+			candidate: 'Toni Jaschinski',
+				party: 'Die Linke',
+				percentage: 19.1,
+		}
+	],
 	controversies: [
 		{
 			label: 'Lobbyismus-Affäre',

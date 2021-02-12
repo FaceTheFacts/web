@@ -28,6 +28,7 @@ export type Candidate = {
 	controversies: Array<Controversy>;
 	constituency: Constituency;
 	partyMatches: Array<PartyMatchType>;
+	electionResults: Array<Election>;
 };
 
 export type CoreVoteResult = {
@@ -59,6 +60,12 @@ export type Poll = {
 	abstract: string;
 	reason: string;
 	result: VoteResult;
+};
+
+export type Election = {
+		candidate: string;
+		party: string;
+		percentage: number;
 };
 
 export type Constituency = {
