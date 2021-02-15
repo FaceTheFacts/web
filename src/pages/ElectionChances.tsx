@@ -9,7 +9,6 @@ import { Candidate } from '../Types';
 interface ElectionchancesProps {
 	candidate: Candidate;
 }
-
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
@@ -21,8 +20,21 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 		<IonPage>
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
+				<div className="votes-toolbar">
+					<IonButtons slot="start">
+						<IonBackButton className="back-button" defaultHref="profile" text="" />
+					</IonButtons>
+					{/* Add a page title */}
+					<IonTitle className="page-title">Wahlchancen</IonTitle>
+				</div>
+
 				<div data-testid="votes-subheading-parties">
-					{/* <SegmentButtons tab={tab} setTab={setTab} /> */}
+                <IonToolbar>
+                    <IonSegment /*onIonChange={e => }*/>
+                        <IonSegmentButton value="FirstVote">Erststimme</IonSegmentButton>
+                        <IonSegmentButton value="SecondVote">Zweitstimme</IonSegmentButton>
+                    </IonSegment>
+                    </IonToolbar>
 				</div>
 
 				<div className="election-chances-title" data-testid="votes-subheading-votes">
