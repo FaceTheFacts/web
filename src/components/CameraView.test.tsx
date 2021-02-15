@@ -6,10 +6,10 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { act } from 'react-dom/test-utils';
 import 'jest-canvas-mock';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { amthor } from '../amthor';
+//import { amthor } from '../amthor';
 
 import CameraView from './CameraView';
 

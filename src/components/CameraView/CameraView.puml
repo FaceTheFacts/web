@@ -1,0 +1,72 @@
+@startuml
+
+interface React.RouteComponentProps {
+
+}
+class React.PureComponent {
+    props: React.RouteComponentProps
+    componentDidMount()
+    componentWillUnmount()
+}
+
+class App.CameraView extends React.PureComponent {
+    props: App.CameraViewProps
+    camera: App.Camera
+    ocr: App.OCR
+    feedbackCanvas: App.FeedbackCanvas
+    drawLoop(): void
+    stopLoop(): void
+
+}
+interface App.CameraViewProps extends React.RouteComponentProps {
+    setshowPopover: Function
+    setCandidate: Function
+}
+
+class App.Camera extends App.AbstractCanvas{
+    stream: MediaStream
+    videoRef: React.RefObject
+    init(): void
+    initVideo(): void
+    initCanvas(): void
+    getVideoStream(): MediaStream
+    setAspectRatio(): void
+    drawVideoOnCanvas(): void
+    stop(): void
+}
+
+
+abstract class App.AbstractCanvas {
+    canvasRef: React.RefObject
+    draw(): void
+}
+
+class App.FeedbackCanvas extends App.AbstractCanvas {
+
+}
+
+class App.FaceDetection {
+    model: BlazeFaceModel
+    detect(): NormalizedFace[]
+    stop(): void
+}
+
+class App.OCR extends App.AbstractCanvas {
+    scheduler: Tesseract.Scheduler
+    init(): void
+    recognise(): string[]
+    fuseSearchResults(): 
+    stop():
+}
+
+App.CameraView *-- App.CameraViewProps
+
+App.CameraView *-- App.Camera
+App.CameraView *-- App.OCR
+App.CameraView *-- App.FeedbackCanvas
+
+App.OCR *-- Tesseract.Scheduler
+App.FaceDetection *-- TensorFlow.BlazeFaceModel
+
+
+@enduml
