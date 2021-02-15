@@ -1,10 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonFab } from '@ionic/react';
+import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
 import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
-import MenuButton from '../components/MenuButton';
 import SideJobCard from '../components/SideJobCard';
 import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
@@ -38,13 +37,13 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				<div className="profile-header">
 					<PoliticianProfile politician={candidate} />
 
-					{/*	
-					Here we include the Fab menu button - DISABLED as part of redesign
+					{/*
+                    Here we include the Fab menu button - DISABLED as part of redesign
 
-					<IonFab vertical="top" horizontal="end">
-						<MenuButton />
-					</IonFab>
-				*/}
+                    <IonFab vertical="top" horizontal="end">
+                        <MenuButton />
+                    </IonFab>
+                */}
 				</div>
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
