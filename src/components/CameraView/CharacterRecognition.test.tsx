@@ -1,6 +1,7 @@
 import CharacterRecognition from './CharacterRecognition';
 import 'tesseract.js';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let characterRecognition: CharacterRecognition | null = null;
 
 beforeEach(() => {
@@ -35,22 +36,22 @@ describe('unittest', () => {
 	});
 });
 // describe('integration test', () => {
-// 	it('creates the tesseract scheduler', () => {
-// 		expect(characterRecognition?.scheduler).not.toBe(undefined);
-// 	});
-// 	it('creates the tesseract workers', async () => {
-// 		// given
-// 		expect.assertions(1);
+//     it('creates the tesseract scheduler', () => {
+//         expect(characterRecognition?.scheduler).not.toBe(undefined);
+//     });
+//     it('creates the tesseract workers', async () => {
+//         // given
+//         expect.assertions(1);
 
-// 		// when
-// 		const res = await characterRecognition?.initialise();
-// 		await characterRecognition?.initialise().then((res) => {
-// 			// then
-// 			expect(res).toEqual('successfully initialised Tesseract');
-// 			expect(characterRecognition?.scheduler.getNumWorkers()).toStrictEqual(1);
-// 		});
+//         // when
+//         const res = await characterRecognition?.initialise();
+//         await characterRecognition?.initialise().then((res) => {
+//             // then
+//             expect(res).toEqual('successfully initialised Tesseract');
+//             expect(characterRecognition?.scheduler.getNumWorkers()).toStrictEqual(1);
+//         });
 
-// 		// then
-// 		expect(res).toEqual('successfully initialised Tesseract');
-// 	});
+//         // then
+//         expect(res).toEqual('successfully initialised Tesseract');
+//     });
 // });

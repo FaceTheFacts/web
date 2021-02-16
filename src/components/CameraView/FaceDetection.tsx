@@ -43,7 +43,7 @@ class FaceDetection implements FaceDetectionInterface {
 		});
 	}
 
-	stop() {
+	stop(): void {
 		delete this.model;
 	}
 }
