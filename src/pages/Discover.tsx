@@ -50,7 +50,7 @@ type SearchResult = {
 	field_title: null;
 };
 const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
-	const [text, setText] = useState<string>();
+	const [text, setText] = useState<string>('');
 	const [showResults, setShowResults] = useState<boolean>(false);
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
@@ -94,20 +94,28 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						value={text}
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
 						disabled={false}
+						clearInput={true}
+						debounce={400}
 						onIonChange={async (e): Promise<void> => {
+							//const query = e.detail.value;
 							setText(e.detail.value as string);
-							setTimeout(async () => {
+							console.log(text);
+							if (e.detail.value !== undefined && e.detail.value !== '') {
+								console.log(text);
 								const url =
 									'https://www.abgeordnetenwatch.de/api/v2/politicians/?label[cn]=';
 								const res = await fetch(`${url}${text}&range_end=20`);
 								const data = await res.json();
-								console.log(data.data);
 								setSearchResults(data.data);
 								setShowResults(true);
-							}, 400);
+							} else {
+								setShowResults(false);
+							}
 						}}
 					></IonInput>
-					{showResults ? <SearchResults results={searchResults} /> : null}
+					<div className="ShowResults">
+						{showResults ? <SearchResults results={searchResults} /> : null}
+					</div>
 
 					<IonPopover
 						isOpen={showPopover}
