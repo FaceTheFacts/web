@@ -61,3 +61,8 @@
 	left: 5% !important;
 	top: 65% !important;
 }
+
+.ShowResults {
+	height: 60vh;
+	overflow: auto;
+}
