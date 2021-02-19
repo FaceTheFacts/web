@@ -95,16 +95,16 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
 						disabled={false}
 						clearInput={true}
-						debounce={400}
+						debounce={250}
 						onIonChange={async (e): Promise<void> => {
-							//const query = e.detail.value;
+							const query = e.detail.value;
 							setText(e.detail.value as string);
-							console.log(text);
+							console.log(e.detail.value);
 							if (e.detail.value !== undefined && e.detail.value !== '') {
 								console.log(text);
 								const url =
 									'https://www.abgeordnetenwatch.de/api/v2/politicians/?label[cn]=';
-								const res = await fetch(`${url}${text}&range_end=20`);
+								const res = await fetch(`${url}${query}&range_end=20`);
 								const data = await res.json();
 								setSearchResults(data.data);
 								setShowResults(true);
