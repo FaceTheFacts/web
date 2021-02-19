@@ -41,7 +41,7 @@ const appPages: AppPage[] = [
 	},
 	{
 		title: 'Search',
-		url: '/discover',
+		url: '/search-screen',
 		iosIcon: searchOutline,
 		mdIcon: searchSharp,
 	},
