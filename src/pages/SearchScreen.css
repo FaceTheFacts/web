@@ -1,0 +1,28 @@
+.searchScreen-header {
+	position: sticky;
+	top: 0;
+	display: flex;
+	align-items: center;
+	height: 130px;
+	background-color: #1f1f1f;
+	z-index: 9999;
+}
+
+.searchScreen-bar {
+	background-color: rgba(212, 212, 212, 0.7);
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	height: 50px;
+	border-radius: 10px;
+	padding-left: 18px !important;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: rgb(31, 31, 31);
+}
+
+.searchScreen-showResults {
+	background-color: rgba(212, 212, 212, 0.7);
+	overflow: auto;
+}
