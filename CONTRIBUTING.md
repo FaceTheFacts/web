@@ -3,24 +3,23 @@
 We are happy to see your interest in conteributing to the project.
 
 ## Contents <!-- omit in TOC -->
-
--   [Issues](#issues)
-    -   [Labels](#labels)
--   [Branches](#branches)
-    -   [Temporary branches](#temporary-branches)
-        -   [Feature branches](#feature-branches)
-        -   [Bug fix branches](#bug-fix-branches)
-        -   [Hot fix branches](#hot-fix-branches)
-        -   [Documentation](#documentation)
-        -   [Experimental](#experimental)
-        -   [Work in progress](#work-in-progress)
-    -   [Stable branches](#stable-branches)
-        -   [Develop](#develop)
-        -   [Main](#main)
-        -   [Release](#release)
--   [Pull Requests](#pull-requests)
-    -   [Areas](#areas)
-
+- [Issues](#issues)
+  - [Labels](#labels)
+- [Branches](#branches)
+  - [Temporary branches](#temporary-branches)
+    - [Feature branches](#feature-branches)
+    - [Bug fix branches](#bug-fix-branches)
+    - [Hot fix branches](#hot-fix-branches)
+    - [Documentation](#documentation)
+    - [Experimental](#experimental)
+    - [Work in progress](#work-in-progress)
+  - [Stable branches](#stable-branches)
+    - [Develop](#develop)
+    - [Main](#main)
+    - [Release](#release)
+- [Pull Requests](#pull-requests)
+  - [Preparing your branch](#preparing-your-branch)
+  - [Areas](#areas)
 ## Issues
 
 All development is tracked through GitHub issues in the repository.
@@ -97,6 +96,40 @@ Branches containing longer term work in progress, that has been started on but w
 #### Release
 
 ## Pull Requests
+
+### Preparing your branch
+
+Merging a feature branch back into develop after completion
+
+```bash
+# If you haven't already checkout the feature branch (here aptly 
+# named 'feature-branch') that you want to merge
+git checkout feature-branch
+
+# git status is always a good idea
+git status
+
+# commit everything untracked or staged
+# then checkout the develop branch
+git checkout develop
+
+# pull the latest changes
+git pull
+
+# go back to your feature branch
+git checkout feature-branch
+
+# now merge the latest version of the develop branch into your feature branch
+git merge develop
+
+# depending on how many changes you and other devs have made,
+# there will be a few merge conflicts you have to resolve
+# VSCode has a built in ui for this.
+
+# after that's done, all that's left is pushing your latest commits to origin
+# and you're ready to submit a pull request
+git push origin feature-branch
+```
 
 After you have developed your contribution, it is time to create a pull request. Pull requests follow a similar naming scheme to branches, only with different formatting and the omission of the issue number (the pull request will be linked to the issue directly). In addition to the category, please include the area you worked on in the pull request title as well. The areas are separated into the different screens and components used. When working on a whole screen, the screen name as outlined below suffices, when your work is concentrated on a specific part of this screen, please use the part names as outlined below.
 
