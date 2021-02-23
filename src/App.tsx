@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Menu from './components/Menu';
+import Tabs from './components/Tabs'
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
+						<Route path="/candidate" render={() => <Tabs candidate={candidate as Candidate }/>} />
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>
 						</Route>
