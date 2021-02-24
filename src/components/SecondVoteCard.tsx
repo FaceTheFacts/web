@@ -3,9 +3,9 @@ import {IonCard, IonCardHeader, IonCardTitle} from '@ionic/react'
 
 interface VoteResultsProps {
   results: Array<any>;
-};
+}
 
-const SecondVoteCard: React.FC<VoteResultsProps> = ({results}:VoteResultsProps) => {
+const SecondVoteCard: React.FC<VoteResultsProps> = ({results}: VoteResultsProps) => {
   return (
     <div>
       {results.map( (result,index) =>{
