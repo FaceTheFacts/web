@@ -9,7 +9,7 @@ interface ProfileProps {
   candidate: Candidate;
 }
 
-const secondVoteResults = [
+const secondVote = [
   {
     "Name":"Thomas Racheal",
     "electionChance":9.4
@@ -40,12 +40,21 @@ const secondVoteResults = [
   },
 ]
 
+const sortCandidateHandler = (electionResult: Array<any>) => {
+  const sortedCandidates = electionResult.sort ((a,b) => {
+    return b.electionChance - a.electionChance
+  });
+  return sortedCandidates
+}
+
+const sortedSecondVote = sortCandidateHandler (secondVote);
+
 const SecondVote: React.FC<ProfileProps> = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
         <div className = "secondvote-black-back">
-          <SecondVoteCard results = {secondVoteResults}/>
+          <SecondVoteCard results = {sortedSecondVote}/>
         </div>
       </IonContent>
     </IonPage>
