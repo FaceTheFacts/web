@@ -1,6 +1,8 @@
 import React from 'react';
 import {IonCard, IonCardHeader, IonCardTitle} from '@ionic/react'
 
+import './SecondVoteCard.css';
+
 interface VoteResultsProps {
   results: Array<any>;
 }
@@ -10,12 +12,17 @@ const SecondVoteCard: React.FC<VoteResultsProps> = ({results}: VoteResultsProps)
     <div>
       {results.map( (result,index) =>{
         return(
-          <IonCard key = {`result=${index}`}>
-            <IonCardHeader>
-                <IonCardTitle>
+          <IonCard
+            className = "secondvote-card"
+            key = {`result=${index}`}>
+            <IonCardHeader
+              className = "secondvote-header">
+                <IonCardTitle
+                  className = "secondvote-title">
                   #{index+1}  {result.Name}
                 </IonCardTitle>
-                <IonCardTitle>
+                <IonCardTitle
+                  className = "secondvote-title">
                   {result.electionChance}%
                 </IonCardTitle>
             </IonCardHeader>

@@ -1,0 +1,12 @@
+.secondvote-card {
+  background-color: rgb(48, 48, 48);
+}
+
+.secondvote-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondvote-title {
+  color: white
+}
