@@ -1,0 +1,17 @@
+ion-toolbar {
+	padding-top: 2%;
+	--background: #181924;
+}
+
+ion-segment {
+	width: 99%;
+	background-color:#181924;
+}
+
+ion-segment-button {
+	
+	--indicator-color: #3969f5;
+	--color: #ffffff;
+	--color-selected: #ffffff;
+	--border-radius: 20px;
+}
