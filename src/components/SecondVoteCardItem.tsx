@@ -10,11 +10,12 @@ interface CandidateInfoProps {
     rank: number;//Pass the index from sorted array => rank = index+1
   };
   //These props can be changed by state
+  cardColor: 'clear'|'faded';//Whether a card font color is clear (white) or not
   screenPosition: 'away'|'touched';//Whether a user touches the card or not
   lastCandidate: 'notlast'|'last';// if a politician is the last candidate, the politician's card should be blueish
 }
 
-const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screenPosition, lastCandidate}: CandidateInfoProps) => {
+const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, cardColor, screenPosition, lastCandidate}: CandidateInfoProps) => {
   return (
     <div className = {["secondvote-carditem-frame", screenPosition].join(" ")}>
       <IonCard
@@ -23,7 +24,7 @@ const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screen
         <IonCardHeader
           className = "secondvote-carditem-header">
             <IonCardTitle
-              className = "secondvote-carditem-name">
+              className = {["secondvote-carditem-name", cardColor].join(" ")}>
               #{candidateInfo.rank+1}  {candidateInfo.name}
             </IonCardTitle>
             {
