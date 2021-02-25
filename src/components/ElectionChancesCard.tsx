@@ -22,10 +22,6 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	Internationalisation to keep the code in English but print the national language
 	*/
 
-	//State Hook to alter state when clicked and open vote detail modal
-	const [showDetails, setShowDetails] = React.useState(false);
-
-
 	/* 
 	Dynamically create the className for the candidate's name
 	*/
@@ -34,7 +30,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	/* 
 	Dynamically create the className for the candidate's party
 	*/
-	const partyClassName = `${vote.party.toLowerCase()}`;
+	const partyClassName = `${vote.party.replace(/\s/g, '').toLowerCase()}`;
 
 	/* 
 	Dynamically create the className for the candidate's election result
@@ -51,8 +47,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	// const voteString = vote.candidateVote;
 
 	return (
-		<div className="grey-background">
-			<IonCard className="election-chances-card" onClick={(): void => setShowDetails(!showDetails)}>
+			<IonCard className="election-chances-card">
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
@@ -62,27 +57,30 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 						<IonRow>
 							<IonCol size="3">
 							<div className="election-chances-card-image">
-								<img src={String(vote.image)}></img>
+								<img id="img" src={String(vote.image)}></img>
 							</div>
 							</IonCol>
 							<IonCol size="6">
-								<IonCardSubtitle className="election-chances-card-subtitle">
-									{vote.party}
-								</IonCardSubtitle>
+								<div id="center-column">
 								<IonCardTitle className="election-chances-card-title">
 									{vote.candidate}
 								</IonCardTitle>
+								<IonCardSubtitle className={["election-chances-card-subtitle", partyClassName].join(" ")}>
+									<span>{vote.party}</span>
+								</IonCardSubtitle>
+								</div>
 							</IonCol>
 							<IonCol size="3">
+								<div id="center-column">
 							<IonCardTitle className="election-chances-card-title">
 									{vote.percentage}%
 								</IonCardTitle>
+								</div>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
 				</IonCardHeader>
 			</IonCard>
-		</div>
 	);
 };
 

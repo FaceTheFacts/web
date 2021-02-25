@@ -1,49 +1,31 @@
-.imgContainer {
-	width: 10%;
-    height: 100%;
-}
 
-.imgContainer:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 50%;
-	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-}
-
-.election-chances-card-content {
-	padding-left: 10px;
-	padding-right: 10px;
+.election-chances-card {
+ 	background-color:#4c4c4c;
 }
 
 .election-chances-card ion-col {
 	padding-bottom: 0px;
-	padding-top: 2px;
+
 }
 
-.election-chances-card {
-	margin-top: 10px;
-	margin-bottom: 10px;
-    height: 10%;
-	background-color: #ffffff;
-}
+
 .election-chances-card-header {
 	padding-top: 1%;
 	padding-bottom: 1%;
 	padding-left: 2%;
 	padding-right: 2%;
 }
-.election-chances-card-title {
-	font-size: 16px;
-	height: 40px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
+
+
+#img {
+	height: 70px;
+	max-width: 100%;
+    border: 0;
+    object-position: 45% 35%;
+    object-fit: cover;
+	border-radius: 50%;
 }
-.election-chances-card-subtitle {
-	font-size: 14px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-	text-transform: capitalize;
+
+#center-column {
+	padding-top: 15px;
 }

@@ -7,7 +7,7 @@ import Menu from './components/Menu';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
-import Wahlchancen from './pages/Wahlchancen';
+import Electionchances from './pages/ElectionChances';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -59,8 +59,8 @@ const App: React.FC = () => {
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate}></Votes>
 						</Route>
-						<Route path="/politician/:id/wahlchancen" exact>
-							<Wahlchancen candidate={candidate as Candidate}></Wahlchancen>
+						<Route path="/politician/:id/electionchances" exact>
+							<Electionchances candidate={candidate as Candidate}></Electionchances>
 						</Route>
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
