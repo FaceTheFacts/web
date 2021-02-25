@@ -1,0 +1,11 @@
+.secondvote-carditem {
+  border-right: transparent
+}
+
+.away {
+  border-right: transparent
+}
+
+.touched {
+  border-right: 5px solid blue;
+}
