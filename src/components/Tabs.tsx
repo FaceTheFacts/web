@@ -43,16 +43,16 @@ Use the component prop when your component depends on the RouterComponentProps p
             </Route>
             </IonRouterOutlet>
             <IonTabBar slot="top" className="tabbar" selectedTab="profile">
-                <IonTabButton tab="profile" href="profile">
+                <IonTabButton className="tabbutton" tab="profile" href="profile">
                     <IonIcon icon={person} />
                 </IonTabButton>
-                <IonTabButton tab="votes" href="votes" >
+                <IonTabButton className="tabbutton" tab="votes" href="votes" >
                     <IonIcon icon={home} />
                 </IonTabButton>
-                <IonTabButton tab="controversies" >
+                <IonTabButton className="tabbutton" tab="controversies" >
                     <IonIcon icon={chatbubbles} />
                 </IonTabButton>
-                <IonTabButton tab="electionchances" href="electionchances">
+                <IonTabButton className="tabbutton" tab="electionchances" href="electionchances">
                     <IonIcon icon={archive} />
                 </IonTabButton>
             </IonTabBar>
