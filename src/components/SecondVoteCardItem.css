@@ -22,6 +22,14 @@
 
 
 /* Changeable */
+.clear {
+  opacity:1.0;
+}
+
+.faded {
+  opacity:0.3;
+}
+
 .away {
   border-right: transparent
 }
