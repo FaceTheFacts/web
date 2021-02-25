@@ -7,17 +7,18 @@ interface CandidateInfoProps {
   candidateInfo: {
     name: string;
     electionChance: number;
-    rank: number;//Pass the index from sorted array
-    // touchPosition: boolean;//Position that a user is touching
+    rank: number;//Pass the index from sorted array => rank = index+1
   };
+  //These props can be changed by state
   screenPosition: 'away'|'touched';//Whether a user touches the card or not
+  lastCandidate: 'notlast'|'last';// if a politician is the last candidate, the politician's card should be blueish
 }
 
-const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screenPosition}: CandidateInfoProps) => {
+const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screenPosition, lastCandidate}: CandidateInfoProps) => {
   return (
     <div className = {["secondvote-carditem-frame", screenPosition].join(" ")}>
       <IonCard
-        className = "secondvote-carditem"
+        className = {["secondvote-carditem", lastCandidate].join(" ")}
         key = {`rank=${candidateInfo.rank}`}>
         <IonCardHeader
           className = "secondvote-carditem-header">
@@ -25,10 +26,13 @@ const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screen
               className = "secondvote-carditem-name">
               #{candidateInfo.rank+1}  {candidateInfo.name}
             </IonCardTitle>
-            <IonCardTitle
-              className = "secondvote-carditem-chance">
-              {candidateInfo.electionChance}%
-            </IonCardTitle>        
+            {
+            screenPosition === "touched"?
+              <IonCardTitle
+                className = "secondvote-carditem-chance">
+                {candidateInfo.electionChance}%
+              </IonCardTitle> :null
+            }
         </IonCardHeader>
       </IonCard>   
     </div>
