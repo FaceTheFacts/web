@@ -3,6 +3,11 @@ import {IonCard, IonCardHeader, IonCardTitle} from '@ionic/react'
 
 import './SecondVoteCardItem.css';
 
+// interface sortedCandidatesProps {
+//   name: string;
+//   rank: number;
+// }
+
 interface CandidateInfoProps {
   candidateInfo: {
     name: string;
