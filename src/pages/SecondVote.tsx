@@ -99,10 +99,17 @@ const candidateEight = {
 // const sortedSecondVote = sortCandidateHandler (secondVote);
 
 const SecondVote: React.FC<ProfileProps> = () => {
+
+  const screenPositionSetHandler = () => {
+    const votesHeight = document.getElementById('second-vote-results')?.clientHeight
+    console.log(votesHeight)
+  }
+
   return (
     <IonPage>
       <IonContent fullscreen>
-        <div className = "secondvote-black-back">
+        <button onClick ={screenPositionSetHandler}>Click</button>
+        <div className = "secondvote-black-back" id="second-vote-results">
           {/* <SecondVoteCard results = {sortedSecondVote}/> */}
           <SecondVoteCardItem candidateInfo = {candidateOne} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
           <SecondVoteCardItem candidateInfo = {candidateTwo} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
