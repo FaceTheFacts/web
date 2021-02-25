@@ -20,10 +20,19 @@
   color:white
 }
 
+
+/* Changeable */
 .away {
   border-right: transparent
 }
 
 .touched {
   border-right: 5px solid blue;
+}
+
+.notlast {
+  background-color: rgb(48, 48, 48);
+}
+.last {
+  background-color: rgb(1, 73, 121);
 }
