@@ -15,14 +15,18 @@ interface CandidateInfoProps {
 
 const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, screenPosition}: CandidateInfoProps) => {
   return (
-    <div className = {["secondvote-carditem", screenPosition].join(" ")}>
+    <div className = {["secondvote-carditem-frame", screenPosition].join(" ")}>
       <IonCard
+        className = "secondvote-carditem"
         key = {`rank=${candidateInfo.rank}`}>
-        <IonCardHeader>
-            <IonCardTitle>
+        <IonCardHeader
+          className = "secondvote-carditem-header">
+            <IonCardTitle
+              className = "secondvote-carditem-name">
               #{candidateInfo.rank+1}  {candidateInfo.name}
             </IonCardTitle>
-            <IonCardTitle>
+            <IonCardTitle
+              className = "secondvote-carditem-chance">
               {candidateInfo.electionChance}%
             </IonCardTitle>        
         </IonCardHeader>

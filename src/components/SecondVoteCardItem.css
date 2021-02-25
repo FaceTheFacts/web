@@ -1,5 +1,23 @@
+.secondvote-carditem-frame {
+  border-right: transparent;
+}
+
 .secondvote-carditem {
-  border-right: transparent
+  background-color: rgb(48, 48, 48);
+}
+
+.secondvote-carditem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secondvote-carditem-name {
+  color:white
+}
+
+.secondvote-carditem-chance {
+  color:white
 }
 
 .away {
