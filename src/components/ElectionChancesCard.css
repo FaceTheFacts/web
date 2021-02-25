@@ -13,15 +13,12 @@
 	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
-.election-chances-card-content {
-	padding-left: 10px;
-	padding-right: 10px;
+.election-chances-card {
+ 	background-color:#4c4c4c;
 }
 
 .election-chances-card ion-col {
 	padding-bottom: 0px;
-	padding-top: 2px;
-}
 
 .election-chances-card {
 	margin-top: 10px;
@@ -29,17 +26,23 @@
 	height: 10%;
 	background-color: #ffffff;
 }
+
+
 .election-chances-card-header {
 	padding-top: 1%;
 	padding-bottom: 1%;
 	padding-left: 2%;
 	padding-right: 2%;
 }
-.election-chances-card-title {
-	font-size: 16px;
-	height: 40px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
+
+
+#img {
+	height: 70px;
+	max-width: 100%;
+    border: 0;
+    object-position: 45% 35%;
+    object-fit: cover;
+	border-radius: 50%;
 }
 .election-chances-card-subtitle {
 	font-size: 14px;

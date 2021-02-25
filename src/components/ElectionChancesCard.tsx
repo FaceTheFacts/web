@@ -52,23 +52,26 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 								</div>
 							</IonCol>
 							<IonCol size="6">
-								<IonCardSubtitle className="election-chances-card-subtitle">
-									{vote.party}
-								</IonCardSubtitle>
+								<div id="center-column">
 								<IonCardTitle className="election-chances-card-title">
 									{vote.candidate}
 								</IonCardTitle>
+								<IonCardSubtitle className={["election-chances-card-subtitle", partyClassName].join(" ")}>
+									<span>{vote.party}</span>
+								</IonCardSubtitle>
+								</div>
 							</IonCol>
 							<IonCol size="3">
-								<IonCardTitle className="election-chances-card-title">
+								<div id="center-column">
+							<IonCardTitle className="election-chances-card-title">
 									{vote.percentage}%
 								</IonCardTitle>
+								</div>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
 				</IonCardHeader>
 			</IonCard>
-		</div>
 	);
 };
 
