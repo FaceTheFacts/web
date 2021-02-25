@@ -1,10 +1,11 @@
-import { IonContent, IonPage, IonText } from '@ionic/react';
+import { IonButtons, IonContent, IonPage, IonTabs, IonTabBar, IonTabButton, IonIcon, IonTitle, IonBackButton, IonText, IonToolbar, IonSegment, IonSegmentButton, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import React from 'react';
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import StateListCard from '../components/StateListCard';
+import SegmentButtons from '../components/SegmentButtons';
 import './ElectionChances.css';
 import { Candidate } from '../Types';
-/* import SegmentButtons from '../components/SegmentButtons'; */
+import { person, home, chatbubbles, archive } from 'ionicons/icons';
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -12,34 +13,42 @@ interface ElectionchancesProps {
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
+	const [firstTab, setFirstTab] = React.useState("");
+	/* function ShowFirstTab(segment) {
+			setFirstTab(segment);
+	} */
 
 	const [tab, setTab] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 
 	/* This is returned when using this component */
 	return (
 		<IonPage>
+			
 			{/* Here the content of our page starts */}
-			<IonContent fullscreen>
-				<div className="votes-toolbar">
-					<IonButtons slot="start">
-						<IonBackButton className="back-button" defaultHref="profile" text="" />
-					</IonButtons>
-					{/* Add a page title */}
-					<IonTitle className="page-title">Wahlchancen</IonTitle>
-				</div>
-
-				<div data-testid="votes-subheading-parties">
-                <IonToolbar>
-                    <IonSegment /*onIonChange={e => }*/>
-                        <IonSegmentButton value="FirstVote">Erststimme</IonSegmentButton>
-                        <IonSegmentButton value="SecondVote">Zweitstimme</IonSegmentButton>
-                    </IonSegment>
-                    </IonToolbar>
-				</div>
-
-				<div className="election-chances-title" data-testid="votes-subheading-votes">
-					<IonText>Wahlergebnis</IonText>
-				</div>
+				<SegmentButtons />
+				
+				{/* {firstTab=='FirstVote' ?  */}
+					<div className="election-chances-title">
+						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
+					</div>
+				{/* :
+					<div className="election-chances-title">
+						
+					<IonCardSubtitle>Wie funktioniert die Zweitstimme?</IonCardSubtitle>
+					<IonBackButton className="forward-button" defaultHref="profile" text="" />
+					
+					
+					<IonCardSubtitle>Landesliste</IonCardSubtitle>
+					<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
+					</div>
+					} */}
+						<IonContent>
+			<div className="grey-back">		
+           
+					{firstTab ?
+					<ElectionchancesCard vote={candidate.electionResults[0]} />
+					: null
+					}
 
 				<div className="last-grey-back">
 					{tab === '0'
