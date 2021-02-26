@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {IonPage, IonContent} from '@ionic/react'
 
 import './SecondVote.css';
 import {Candidate} from '../Types';
-import SecondVoteCard from '../components/SecondVoteCard';
+
 import SecondVoteCardItem from '../components/SecondVoteCardItem';
 
 //Add Scroll Event listener
@@ -85,32 +85,40 @@ const candidateEight = {
   rank:7,
 }
 
-// 'List will be sorted'
-// => percentage per seat; 
 
-
-// const sortCandidateHandler = (electionResult: Array<any>) => {
-//   const sortedCandidates = electionResult.sort ((a,b) => {
-//     return b.electionChance - a.electionChance
-//   });
-//   return sortedCandidates
-// }
-
-// const sortedSecondVote = sortCandidateHandler (secondVote);
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
-
-  const screenPositionSetHandler = () => {
-    const votesHeight = document.getElementById('second-vote-results')?.clientHeight
-    console.log(votesHeight)
+  const [swipePosition, setswipePosition] = useState<number|undefined>(function initialSwipePositionHandler(){
+    const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
+    const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
+    if(typeof windowHeight === "number"  && typeof cardHeight === "number"){
+      const halfWindowHeight = windowHeight/2;
+      const cardNums = Math.round(halfWindowHeight/cardHeight);
+      //pass it as an index
+      return cardNums 
+   } 
+  });
+  // const initialSwipePositionHandler = () => {
+  //   const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
+  //   const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
+  //   if(typeof windowHeight === "number"  && typeof cardHeight === "number"){
+  //     const halfWindowHeight = windowHeight/2;
+  //     const cardNums = Math.round(halfWindowHeight/cardHeight);
+  //     //pass it as an index
+  //     return cardNums 
+  //  }
+  // };
+  const testHandler = () => {
+    console.log(setswipePosition)
   }
-
+  
+  
   return (
     <IonPage>
       <IonContent fullscreen>
-        <button onClick ={screenPositionSetHandler}>Click</button>
+        <button onClick = {testHandler}>Click</button>
+        <h1>{setswipePosition}</h1>
         <div className = "secondvote-black-back" id="second-vote-results">
-          {/* <SecondVoteCard results = {sortedSecondVote}/> */}
           <SecondVoteCardItem candidateInfo = {candidateOne} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
           <SecondVoteCardItem candidateInfo = {candidateTwo} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
           <SecondVoteCardItem candidateInfo = {candidateThree} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
