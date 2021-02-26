@@ -9,36 +9,37 @@ import './SecondVoteCardItem.css';
 // }
 
 interface CandidateInfoProps {
-  candidateInfo: {
-    name: string;
-    electionChance: number;
-    rank: number;//Pass the index from sorted array => rank = index+1
-  };
+  candidateName: string;
+  electionChance: number;
+  rank: number;//Pass the index from sorted array => rank = index+1
   //These props can be changed by state
   cardColor: 'clear'|'faded';//Whether a card font color is clear (white) or not
-  screenPosition: 'away'|'touched';//Whether a user touches the card or not
+  // screenPosition: 'away'|'touched';//Whether a user touches the card or not
+  setFixedPosition: any;//Whether a user touches the card or not
   lastCandidate: 'notlast'|'last';// if a politician is the last candidate, the politician's card should be blueish
 }
 
-const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateInfo, cardColor, screenPosition, lastCandidate}: CandidateInfoProps) => {
+const SecondVoteCardItem: React.FC<CandidateInfoProps> = ({candidateName,electionChance,rank, cardColor, setFixedPosition, lastCandidate}: CandidateInfoProps) => {
   return (
-    <div className = {["secondvote-carditem-frame", screenPosition].join(" ")}>
+    <div className = {["secondvote-carditem-frame"].join(" ")} id="second-vote-card">
       <IonCard
         className = {["secondvote-carditem", lastCandidate].join(" ")}
-        key = {`rank=${candidateInfo.rank}`}>
+        key = {`rank=${rank}`}>
         <IonCardHeader
           className = "secondvote-carditem-header">
             <IonCardTitle
               className = {["secondvote-carditem-name", cardColor].join(" ")}>
-              #{candidateInfo.rank+1}  {candidateInfo.name}
+              #{rank}  {candidateName}
             </IonCardTitle>
-            {
-            screenPosition === "touched"?
-              <IonCardTitle
+            {setFixedPosition === rank ? <IonCardTitle
                 className = "secondvote-carditem-chance">
-                {candidateInfo.electionChance}%
-              </IonCardTitle> :null
-            }
+                {electionChance}%
+              </IonCardTitle> :null}
+            {/* <IonCardTitle
+                className = "secondvote-carditem-chance">
+                {setFixedPosition}%
+              </IonCardTitle>  */}
+         
         </IonCardHeader>
       </IonCard>   
     </div>
