@@ -61,9 +61,9 @@ const StateListCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					<IonGrid>
 						<IonRow>
 							<IonCol size="3">
-							<div className="election-chances-card-image">
-								<img src={String(vote.image)}></img>
-							</div>
+								<div className="election-chances-card-image">
+									<img src={String(vote.image)}></img>
+								</div>
 							</IonCol>
 							<IonCol size="6">
 								<IonCardSubtitle className="election-chances-card-subtitle">
@@ -74,7 +74,7 @@ const StateListCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								</IonCardTitle>
 							</IonCol>
 							<IonCol size="3">
-							<IonCardTitle className="election-chances-card-title">
+								<IonCardTitle className="election-chances-card-title">
 									
 								</IonCardTitle>
 							</IonCol>

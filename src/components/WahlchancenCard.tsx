@@ -181,7 +181,7 @@ const WahlchancenCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => 
 											Abstimmungsergebnis
 										</span>
 										<span className="result-vote-members">
-										XoXo
+											XoXo
 											
 										</span>
 									</IonText>

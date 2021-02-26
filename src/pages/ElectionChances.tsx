@@ -14,7 +14,7 @@ interface ElectionchancesProps {
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 
-	const [tab, setTab] = React.useState("0");
+	const [tab, setTab] = React.useState('0');
 
 	/* This is returned when using this component */
 	return (
@@ -22,21 +22,21 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
 				<div data-testid="votes-subheading-parties">
-                <SegmentButtons tab={tab} setTab={setTab}/>
+					<SegmentButtons tab={tab} setTab={setTab}/>
 				</div>
 
 				<div className="election-chances-title" data-testid="votes-subheading-votes">
 					<IonText>Wahlergebnis</IonText>
 				</div>
 
-                <div className="last-grey-back">
-					{tab=="0" ? 
-					candidate.electionResults.map((Election, index) => {
-						return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>})
+				<div className="last-grey-back">
+					{tab=='0' ? 
+						candidate.electionResults.map((Election, index) => {
+							return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>})
 						:
 						candidate.electionResults.map((Election, index) => {
 							return <StateListCard vote={Election} key={`electionResults-${index}`}/>})
-				}
+					}
 			
 				</div>
 			</IonContent>

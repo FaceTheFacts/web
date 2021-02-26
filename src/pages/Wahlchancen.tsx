@@ -27,19 +27,19 @@ const Wahlchancen: React.FC<WahlchancenProps> = ({ candidate }: WahlchancenProps
 				</div>
 
 				<div data-testid="votes-subheading-parties">
-                <IonToolbar>
-                    <IonSegment value="all">
-                        <IonSegmentButton value="all">Erststimme</IonSegmentButton>
-                        <IonSegmentButton value="favorites">Zweitstimme</IonSegmentButton>
-                    </IonSegment>
-                    </IonToolbar>
+					<IonToolbar>
+						<IonSegment value="all">
+							<IonSegmentButton value="all">Erststimme</IonSegmentButton>
+							<IonSegmentButton value="favorites">Zweitstimme</IonSegmentButton>
+						</IonSegment>
+					</IonToolbar>
 				</div>
 
 				<div className="votes-title" data-testid="votes-subheading-votes">
 					<IonText>Wahlergebnis</IonText>
 				</div>
 
-                <div className="last-grey-back">
+				<div className="last-grey-back">
 					{candidate.electionResults.map((Election, index) => {
 						return <WahlchancenCard vote={Election} key={`electionResults-${index}`}/>;
 					})}
