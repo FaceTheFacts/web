@@ -63,10 +63,10 @@ export type Poll = {
 };
 
 export type Election = {
-		candidate: string;
-		party: string;
-		percentage: number;
-		image: URL;
+	candidate: string;
+	party: string;
+	percentage: number;
+	image: URL;
 };
 
 export type Constituency = {

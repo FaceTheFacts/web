@@ -214,57 +214,66 @@ export const amthor: Candidate = {
 			candidate: 'Philip Amthor',
 			party: 'CDU',
 			percentage: 34.7,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Enrico Komning',
 			party: 'AFD',
 			percentage: 23.5,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Toni Jaschinski',
 			party: 'Die Linke',
 			percentage: 19.1,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Heiko Fred Max Miraß',
 			party: 'SPD',
 			percentage: 13.9,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Christian Bartelt',
 			party: 'FDP',
 			percentage: 5.8,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Timo Elias Pfarr',
 			party: 'Die Grünen',
 			percentage: 2.5,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Michael Andrejewski',
 			party: 'NPD',
 			percentage: 2.0,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
 		},
 		{
 			candidate: 'Klaus-Dieter Gabbert',
 			party: 'Freie Wähler',
 			percentage: 1.3,
-			image: new URL('https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr')
-		
-		}
+			image: new URL(
+				'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+			),
+		},
 	],
 	controversies: [
 		{
