@@ -2,10 +2,9 @@ import { IonButtons, IonContent, IonPage, IonTabs, IonTabBar, IonTabButton, IonI
 import React from 'react';
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import StateListCard from '../components/StateListCard';
-import SegmentButtons from '../components/SegmentButtons';
+/* import SegmentButtons from '../components/SegmentButtons'; */
 import './ElectionChances.css';
 import { Candidate } from '../Types';
-import { person, home, chatbubbles, archive } from 'ionicons/icons';
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -23,7 +22,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 		<IonPage>
 			
 			{/* Here the content of our page starts */}
-				<SegmentButtons />
+				{/* <SegmentButtons /> */}
 				
 				{/* {firstTab=='FirstVote' ?  */}
 					<div className="election-chances-title">

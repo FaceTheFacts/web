@@ -47,7 +47,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	// const voteString = vote.candidateVote;
 
 	return (
-			<IonCard className="election-chances-card">
+			<IonCard className={["election-chances-card", partyClassName].join(" ")}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
