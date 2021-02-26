@@ -13,13 +13,38 @@
 }
 .fdp span{
 	background-color: #FFE926;
+	color: black;
 }
 .afd span{
 	background-color: #3AA6F4;
 }
-.piraten{
+.piraten span{
 	background-color: #DDA22E;
   }
+
+.election-chances-card.cdu {
+	background-color: rgba(99, 99, 99, 50%);
+} 
+
+.election-chances-card.afd {
+	background-color: rgba(58, 166, 244, 30%);
+}
+
+.election-chances-card.dielinke {
+	background-color: rgba(194, 66, 113, 30%);
+}
+
+.election-chances-card.spd {
+	background-color: rgba(194, 66, 66, 30%);
+}
+
+.election-chances-card.diegrünen {
+	background-color: rgba(89, 153, 81, 30%);
+}
+
+.election-chances-card.fdp {
+	background-color: rgba(255, 233, 38, 30%);
+}
 
 .votes-toolbar {
 	height: 95px;
@@ -84,9 +109,18 @@
 	margin-top: 0px;
 	margin-bottom: 5%;
     height: 10%;
-	background-color: #2B2C36;
-	--border-color: white;
+	border: 1px white solid;
 	
+}
+
+.election-chances-card:first-child #img{
+	height: 70px;
+	max-width: 100%;
+    border: 0;
+    object-position: 45% 35%;
+    object-fit: cover;
+	border-radius: 50%;
+	visibility: visible;
 }
 
 .election-chances-card:first-child .election-chances-card-title {
@@ -119,4 +153,8 @@
 
 ion-content {
 	--background: #1f1f1f;
+}
+
+.election-chances-card {
+	background-color:#4c4c4c;
 }
