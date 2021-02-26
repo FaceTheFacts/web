@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
 import {IonPage, IonContent} from '@ionic/react'
 
 import './SecondVote.css';
@@ -12,121 +13,77 @@ interface ProfileProps {
   candidate: Candidate;
 }
 
+//Just for testing
 const secondVote = [
   {
-    "Name":"Thomas Racheal",
-    "electionChance":9.4
+    "name":"Thomas Racheal",
+    "electionChance":60.4
   },
   {
-    "Name":"Dr.Günter Krings",
-    "electionChance":19.4
+    "name":"Dr.Günter Krings",
+    "electionChance":50.4
   },
   {
-    "Name":"Hermann Gröhe",
-    "electionChance":66.4
+    "name":"Hermann Gröhe",
+    "electionChance":30.4
   },
   {
-    "Name":"Oliver Wittke",
-    "electionChance":36.6
+    "name":"Oliver Wittke",
+    "electionChance":28.6
   },
   {
-    "Name":"Micheala Noll",
-    "electionChance":24.4
+    "name":"Micheala Noll",
+    "electionChance":19.6
   },
   {
-    "Name":"Karl-Josef Laumann",
-    "electionChance":54.4
+    "name":"Karl-Josef Laumann",
+    "electionChance":12.4
   },
   {
-    "Name":"Elisabeth Winkelmeier-Becker",
-    "electionChance":40.6
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
   },
 ]
 
-//Just for meeting
-const candidateOne = {
-  name:'Thomas Racheal',
-  electionChance: 56,
-  rank:0,
-}
-const candidateTwo = {
-  name:'Dr.Günter Krings',
-  electionChance: 40,
-  rank:1,
-}
-const candidateThree = {
-  name:'Hermann Gröhe',
-  electionChance: 30,
-  rank:2,
-}
-const candidateFour = {
-  name:'Oliver Wittke',
-  electionChance: 29,
-  rank:3,
-}
-const candidateFive = {
-  name:'Micheala Noll',
-  electionChance: 28.8,
-  rank:4,
-}
-const candidateSix = {
-  name:'Karl-Josef Laumann',
-  electionChance: 25.6,
-  rank:5,
-}
-const candidateSeven = {
-  name:'Elisabeth Winkelmeier-Becker',
-  electionChance: 19.0,
-  rank:6,
-}
-const candidateEight = {
-  name:'Ralph Brinkhaus',
-  electionChance: 9.4,
-  rank:7,
-}
-
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
-  const [swipePosition, setswipePosition] = useState<number|undefined>(function initialSwipePositionHandler(){
+  
+  const initialSwipePositionHandler = () => {
     const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
     const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
+    console.log(cardHeight, windowHeight)
     if(typeof windowHeight === "number"  && typeof cardHeight === "number"){
       const halfWindowHeight = windowHeight/2;
       const cardNums = Math.round(halfWindowHeight/cardHeight);
-      //pass it as an index
       return cardNums 
-   } 
-  });
-  // const initialSwipePositionHandler = () => {
-  //   const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
-  //   const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
-  //   if(typeof windowHeight === "number"  && typeof cardHeight === "number"){
-  //     const halfWindowHeight = windowHeight/2;
-  //     const cardNums = Math.round(halfWindowHeight/cardHeight);
-  //     //pass it as an index
-  //     return cardNums 
-  //  }
-  // };
-  const testHandler = () => {
-    console.log(setswipePosition)
+      } 
   }
+  const [fixedPosition, setFixedPosition] = useState<number|undefined>()
+  useEffect(()=>{
+    console.log('mounted');
+    const delayedFixedPosition = setTimeout(()=>setFixedPosition(initialSwipePositionHandler()),100);
+  },[])
   
-  
+  const testingResult = secondVote.map((candidate, index) => {
+    return(
+      <SecondVoteCardItem
+      key = {`secondvote-${index}`} 
+      candidateName = {candidate.name} 
+      electionChance = {candidate.electionChance}
+      rank = {index + 1}
+      cardColor = "clear"
+      setFixedPosition = {fixedPosition}
+      lastCandidate = 'notlast' 
+      />
+    )
+  })
+ 
   return (
     <IonPage>
       <IonContent fullscreen>
-        <button onClick = {testHandler}>Click</button>
-        <h1>{setswipePosition}</h1>
+        <button onClick = {initialSwipePositionHandler}>Click</button>
         <div className = "secondvote-black-back" id="second-vote-results">
-          <SecondVoteCardItem candidateInfo = {candidateOne} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateTwo} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateThree} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateFour} cardColor = "clear" screenPosition = "away" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateFive} cardColor = "clear" screenPosition = "away" lastCandidate= "last"/>
-          <SecondVoteCardItem candidateInfo = {candidateSix} cardColor = "clear" screenPosition = "touched" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateSeven} cardColor = "faded" screenPosition = "away" lastCandidate= "notlast"/>
-          <SecondVoteCardItem candidateInfo = {candidateEight} cardColor = "faded" screenPosition = "away" lastCandidate= "notlast"/>
+          {testingResult}  
         </div>
       </IonContent>
     </IonPage>
