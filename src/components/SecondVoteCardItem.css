@@ -3,7 +3,8 @@
 }
 
 .secondvote-carditem {
-  background-color: rgb(48, 48, 48);
+  background: #2B2C36;
+  height: 57px;
 }
 
 .secondvote-carditem-header {
@@ -13,11 +14,16 @@
 }
 
 .secondvote-carditem-name {
-  color:white
+  color:white;
+  font-family: 'protipo', sans-serif;
+  font-size: 17px;
 }
 
 .secondvote-carditem-chance {
-  color:white
+  color:white;
+  font-family: 'protipo', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
 }
 
 
