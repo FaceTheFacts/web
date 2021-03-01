@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {IonPage, IonContent} from '@ionic/react'
+import {IonPage, IonContent, useIonViewDidEnter, IonCard, IonCardHeader, IonCardTitle, IonHeader} from '@ionic/react'
 
 import './SecondVote.css';
 import {Candidate} from '../Types';
@@ -43,26 +43,93 @@ const secondVote = [
     "name":"Elisabeth Winkelmeier-Becker",
     "electionChance": 9.4
   },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
+  {
+    "name":"Elisabeth Winkelmeier-Becker",
+    "electionChance": 9.4
+  },
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
+  const [fixedPosition, setFixedPosition] = useState<number|undefined>()
   
-  const initialSwipePositionHandler = () => {
+  const initialFixedPositionHandler = () => {
     const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
     const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
     console.log(cardHeight, windowHeight)
     if(typeof windowHeight === "number"  && typeof cardHeight === "number"){
       const halfWindowHeight = windowHeight/2;
       const cardNums = Math.round(halfWindowHeight/cardHeight);
-      return cardNums 
+      return cardNums + 1
       } 
   }
-  const [fixedPosition, setFixedPosition] = useState<number|undefined>()
-  useEffect(()=>{
-    console.log('mounted');
-    const delayedFixedPosition = setTimeout(()=>setFixedPosition(initialSwipePositionHandler()),100);
-  },[])
+  
+  const setFixedPositionHandler = () => {
+    // const y = document.getElementById("second-vote-results")?.scrollTop
+    const voteResults = document.getElementById("second-vote-results")
+    
+    
+    if (voteResults !== null){
+      const scrollHeight = voteResults.scrollTop 
+      const cardHeight = 57;
+      const cardblank =10;
+      console.log(scrollHeight)
+      if (Math.ceil(scrollHeight) === cardHeight + cardblank && fixedPosition) {
+        setFixedPosition( fixedPosition +1 );
+      }
+    }
+    
+
+  }
+  useIonViewDidEnter(()=>setTimeout(()=>setFixedPosition(initialFixedPositionHandler()),100))
   
   const testingResult = secondVote.map((candidate, index) => {
     return(
@@ -80,11 +147,17 @@ const SecondVote: React.FC<ProfileProps> = () => {
  
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <button onClick = {initialSwipePositionHandler}>Click</button>
-        <div className = "secondvote-black-back" id="second-vote-results">
-          {testingResult}  
-        </div>
+      <IonContent 
+        fullscreen
+        >
+          <IonContent
+           className = "secondvote-black-back" 
+           id="second-vote-results"
+          
+           onScroll = {setFixedPositionHandler}>
+            {testingResult}
+          </IonContent>
+         
       </IonContent>
     </IonPage>
     
