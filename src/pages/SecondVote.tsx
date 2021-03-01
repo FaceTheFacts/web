@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useRef, createRef} from 'react';
 
 import {IonPage, IonContent, useIonViewDidEnter, IonCard, IonCardHeader, IonCardTitle, IonHeader} from '@ionic/react'
 
@@ -99,6 +99,8 @@ const secondVote = [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
+  // const contentRef = useRef<HTMLIonContentElement>(null);
+  const contentRef: React.RefObject<HTMLIonContentElement> = createRef()
   const [fixedPosition, setFixedPosition] = useState<number|undefined>()
   
   const initialFixedPositionHandler = () => {
@@ -115,8 +117,8 @@ const SecondVote: React.FC<ProfileProps> = () => {
   const setFixedPositionHandler = () => {
     // const y = document.getElementById("second-vote-results")?.scrollTop
     const voteResults = document.getElementById("second-vote-results")
-    
-    
+    const x = contentRef.current!.getScrollElement()
+    console.log(x)
     if (voteResults !== null){
       const scrollHeight = voteResults.scrollTop 
       const cardHeight = 57;
@@ -126,9 +128,21 @@ const SecondVote: React.FC<ProfileProps> = () => {
         setFixedPosition( fixedPosition +1 );
       }
     }
-    
-
   }
+  const scrollToTop= () => {
+    contentRef.current && contentRef.current.scrollToTop();
+  };
+  const scrollToBottom= () => {
+    contentRef.current && contentRef.current.scrollToBottom();
+  };
+  const scrollByPoint = (e: any) => {
+    console.log("Scrolling")
+    console.log(e)
+    const voteResult = document.getElementById("second-vote-results")
+
+    contentRef.current && contentRef.current.scrollByPoint(0,67, 0)
+  }
+
   useIonViewDidEnter(()=>setTimeout(()=>setFixedPosition(initialFixedPositionHandler()),100))
   
   const testingResult = secondVote.map((candidate, index) => {
@@ -144,21 +158,32 @@ const SecondVote: React.FC<ProfileProps> = () => {
       />
     )
   })
+
+ 
+  
  
   return (
     <IonPage>
-      <IonContent 
-        fullscreen
-        >
-          <IonContent
+      
+          {/* <button onClick = {scrollByPoint}>Move One Card</button> */}
+      <div
+        className = "secondvote-black-back" 
+        id="second-vote-results">
+        {testingResult}
+      </div>
+          {/* <IonContent
+           fullscreen
+           scrollEvents={true}
+           ref={contentRef}
            className = "secondvote-black-back" 
            id="second-vote-results"
-          
-           onScroll = {setFixedPositionHandler}>
+           onIonScroll = {scrollByPoint}
+           >
             {testingResult}
-          </IonContent>
+          </IonContent> */}
+
          
-      </IonContent>
+     
     </IonPage>
     
   )
