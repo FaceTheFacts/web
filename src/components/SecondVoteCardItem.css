@@ -1,9 +1,12 @@
 .secondvote-carditem-frame {
   border-right: transparent;
+  scroll-snap-align: start;
 }
 
 .secondvote-carditem {
   background: #2B2C36;
+  margin-top:10px;
+  margin-bottom: 0px;
   height: 57px;
 }
 
