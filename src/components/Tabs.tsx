@@ -18,10 +18,6 @@ const Tabs: React.FC<TabsProps> = ({ candidate }: TabsProps) => {
 	return (
 		<div>
 			<IonTabs>
-				{/*	
-Using the render method prop cuts down the number of renders your components will have due to route changes.
-Use the component prop when your component depends on the RouterComponentProps passed in automatically.
-	*/}{' '}
 				<IonRouterOutlet>
 					<Route path="/candidate/:id/profile" exact>
 						<Profile candidate={candidate as Candidate}></Profile>
@@ -43,11 +39,7 @@ Use the component prop when your component depends on the RouterComponentProps p
 					<IonTabButton className="tabbutton" tab="controversies">
 						<IonIcon icon={chatbubbles} />
 					</IonTabButton>
-					<IonTabButton
-						className="tabbutton"
-						tab="electionchances"
-						href="electionchances"
-					>
+					<IonTabButton className="tabbutton" tab="electionchances" href="electionchances">
 						<IonIcon icon={archive} />
 					</IonTabButton>
 				</IonTabBar>
