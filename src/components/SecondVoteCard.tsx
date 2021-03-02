@@ -3,32 +3,33 @@ import {IonCard, IonCardHeader, IonCardTitle} from '@ionic/react'
 
 import './SecondVoteCard.css';
 
-interface VoteResultsProps {
-  results: Array<any>;
+interface CandidateInfoProps {
+  candidateName: string;
+  electionChance: number;
+  rank: number;
+  cardColor: 'clear'|'faded';
+  setFixedPosition: any;
+  lastCandidate: 'notlast'|'last';
 }
 
-const SecondVoteCard: React.FC<VoteResultsProps> = ({results}: VoteResultsProps) => {
+const SecondVoteCard: React.FC<CandidateInfoProps> = ({candidateName,electionChance,rank, cardColor, setFixedPosition, lastCandidate}: CandidateInfoProps) => {
   return (
-    <div>
-      {results.map( (result,index) =>{
-        return(
-          <IonCard
-            className = "secondvote-card"
-            key = {`result=${index}`}>
-            <IonCardHeader
-              className = "secondvote-header">
-                <IonCardTitle
-                  className = "secondvote-title">
-                  #{index+1}  {result.Name}
-                </IonCardTitle>
-                <IonCardTitle
-                  className = "secondvote-title">
-                  {result.electionChance}%
-                </IonCardTitle>
-            </IonCardHeader>
-          </IonCard>
-        )
-      })}
+    <div className = {"secondvote-cards"} id="second-vote-card">
+      <IonCard
+        className = {["secondvote-card", lastCandidate].join(" ")}
+        key = {`rank=${rank}`}>
+        <IonCardHeader
+          className = "secondvote-card-header">
+            <IonCardTitle
+              className = {["secondvote-card-name", cardColor].join(" ")}>
+              #{rank}  {candidateName}
+            </IonCardTitle>
+            {setFixedPosition === rank ? <IonCardTitle
+                className = "secondvote-card-chance">
+                {electionChance}%
+            </IonCardTitle> :null}   
+        </IonCardHeader>
+      </IonCard>   
     </div>
   )
 };
