@@ -48,8 +48,8 @@
 }
 
 .notlast {
-  background-color: rgb(48, 48, 48);
+  background: #2B2C36;
 }
 .last {
-  background-color: rgb(1, 73, 121);
+  background: #1D2541;
 }
