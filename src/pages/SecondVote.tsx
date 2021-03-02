@@ -1,11 +1,11 @@
-import React, {useState, useRef, createRef} from 'react';
+import React, {useState} from 'react';
+import {IonPage,useIonViewDidEnter } from '@ionic/react'
 
-import {IonPage, IonContent, useIonViewDidEnter, IonCard, IonCardHeader, IonCardTitle, IonHeader} from '@ionic/react'
 
 import './SecondVote.css';
 import {Candidate} from '../Types';
 
-import SecondVoteCardItem from '../components/SecondVoteCardItem';
+import SecondVoteCardItem from '../components/SecondVoteCard';
 
 //Add Scroll Event listener
 
@@ -99,10 +99,7 @@ const secondVote = [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
-  // const contentRef = useRef<HTMLIonContentElement>(null);
-  const contentRef: React.RefObject<HTMLIonContentElement> = createRef()
   const [fixedPosition, setFixedPosition] = useState<number|undefined>()
-  
   const initialFixedPositionHandler = () => {
     const windowHeight: number | undefined = document.getElementById("second-vote-results")?.clientHeight;
     const cardHeight: number|undefined = document.getElementById("second-vote-card")?.clientHeight;
@@ -115,36 +112,20 @@ const SecondVote: React.FC<ProfileProps> = () => {
   }
   
   const setFixedPositionHandler = () => {
-    // const y = document.getElementById("second-vote-results")?.scrollTop
     const voteResults = document.getElementById("second-vote-results")
-    const x = contentRef.current!.getScrollElement()
-    console.log(x)
     if (voteResults !== null){
-      const scrollHeight = voteResults.scrollTop 
+      const scrollHeight = voteResults.scrollTop -10
       const cardHeight = 57;
       const cardblank =10;
+      const oneScroll = cardHeight +cardblank
       console.log(scrollHeight)
-      if (Math.ceil(scrollHeight) === cardHeight + cardblank && fixedPosition) {
-        setFixedPosition( fixedPosition +1 );
-      }
+      if (Math.ceil(scrollHeight % oneScroll) ===0 && fixedPosition) {
+          setFixedPosition( fixedPosition + 1 );
+      }    
     }
-  }
-  const scrollToTop= () => {
-    contentRef.current && contentRef.current.scrollToTop();
-  };
-  const scrollToBottom= () => {
-    contentRef.current && contentRef.current.scrollToBottom();
-  };
-  const scrollByPoint = (e: any) => {
-    console.log("Scrolling")
-    console.log(e)
-    const voteResult = document.getElementById("second-vote-results")
-
-    contentRef.current && contentRef.current.scrollByPoint(0,67, 0)
   }
 
   useIonViewDidEnter(()=>setTimeout(()=>setFixedPosition(initialFixedPositionHandler()),100))
-  
   const testingResult = secondVote.map((candidate, index) => {
     return(
       <SecondVoteCardItem
@@ -154,38 +135,20 @@ const SecondVote: React.FC<ProfileProps> = () => {
       rank = {index + 1}
       cardColor = "clear"
       setFixedPosition = {fixedPosition}
-      lastCandidate = 'notlast' 
+      lastCandidate = 'notlast' // or last === need a state control
       />
     )
   })
 
- 
-  
- 
   return (
     <IonPage>
-      
-          {/* <button onClick = {scrollByPoint}>Move One Card</button> */}
       <div
         className = "secondvote-black-back" 
-        id="second-vote-results">
+        id="second-vote-results"
+        onScroll={setFixedPositionHandler}>
         {testingResult}
       </div>
-          {/* <IonContent
-           fullscreen
-           scrollEvents={true}
-           ref={contentRef}
-           className = "secondvote-black-back" 
-           id="second-vote-results"
-           onIonScroll = {scrollByPoint}
-           >
-            {testingResult}
-          </IonContent> */}
-
-         
-     
-    </IonPage>
-    
+    </IonPage>  
   )
 };
 export default SecondVote;
