@@ -1,55 +1,54 @@
 .secondvote-cards {
-  border-right: transparent;
-  scroll-snap-align: start;
+	border-right: transparent;
+	scroll-snap-align: start;
 }
 
 .secondvote-card {
-  background: #2B2C36;
-  margin-top:10px;
-  margin-bottom: 0px;
-  height: 57px;
+	background: #2b2c36;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	height: 57px;
 }
 
 .secondvote-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .secondvote-card-name {
-  color:white;
-  font-family: 'protipo', sans-serif;
-  font-size: 17px;
+	color: white;
+	font-family: 'protipo', sans-serif;
+	font-size: 17px;
 }
 
 .secondvote-card-chance {
-  color:white;
-  font-family: 'protipo', sans-serif;
-  font-size: 17px;
-  font-weight: normal;
+	color: white;
+	font-family: 'protipo', sans-serif;
+	font-size: 17px;
+	font-weight: normal;
 }
-
 
 /* Changeable */
 .clear {
-  opacity:1.0;
+	opacity: 1;
 }
 
 .faded {
-  opacity:0.3;
+	opacity: 0.3;
 }
 
 .away {
-  border-right: transparent
+	border-right: transparent;
 }
 
 .touched {
-  border-right: 8px solid #3969F5;
+	border-right: 8px solid #3969f5;
 }
 
 .notlast {
-  background: #2B2C36;
+	background: #2b2c36;
 }
 .last {
-  background: #1D2541;
+	background: #1d2541;
 }
