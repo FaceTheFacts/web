@@ -1,10 +1,10 @@
-import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton, IonText, IonToolbar, IonSegment, IonSegmentButton } from '@ionic/react';
+import { IonContent, IonPage, IonText } from '@ionic/react';
 import React from 'react';
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import StateListCard from '../components/StateListCard';
 import './ElectionChances.css';
 import { Candidate } from '../Types';
-import SegmentButtons from '../components/SegmentButtons';
+/* import SegmentButtons from '../components/SegmentButtons'; */
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -22,7 +22,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 			{/* Here the content of our page starts */}
 			<IonContent fullscreen>
 				<div data-testid="votes-subheading-parties">
-					<SegmentButtons tab={tab} setTab={setTab}/>
+					{/* <SegmentButtons tab={tab} setTab={setTab} /> */}
 				</div>
 
 				<div className="election-chances-title" data-testid="votes-subheading-votes">
@@ -30,14 +30,23 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				</div>
 
 				<div className="last-grey-back">
-					{tab=='0' ? 
-						candidate.electionResults.map((Election, index) => {
-							return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>})
-						:
-						candidate.electionResults.map((Election, index) => {
-							return <StateListCard vote={Election} key={`electionResults-${index}`}/>})
+					{tab === '0'
+						? candidate.electionResults.map((Election, index) => {
+							return (
+								<ElectionchancesCard
+									vote={Election}
+									key={`electionResults-${index}`}
+								/>
+							);
+						})
+						: candidate.electionResults.map((Election, index) => {
+							return (
+								<StateListCard
+									vote={Election}
+									key={`electionResults-${index}`}
+								/>
+							);})
 					}
-			
 				</div>
 			</IonContent>
 		</IonPage>

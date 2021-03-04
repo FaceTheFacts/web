@@ -5,7 +5,6 @@ import {
 	IonCardHeader,
 	IonCardSubtitle,
 	IonCardTitle,
-	IonCardContent,
 	IonGrid,
 	IonCol,
 	IonRow,
@@ -25,21 +24,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
-
-	/* 
-	Dynamically create the className for the candidate's name
-	*/
-	const candidateElectionClassName = `${vote.candidate.toLowerCase()}`;
-
 	/* 
 	Dynamically create the className for the candidate's party
 	*/
 	const partyClassName = `${vote.party.toLowerCase()}`;
-
-	/* 
-	Dynamically create the className for the candidate's election result
-	*/
-	const percentageElectionClassName = `${vote.percentage}`;
 
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
@@ -52,7 +40,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 
 	return (
 		<div className="grey-background">
-			<IonCard className="election-chances-card" onClick={(): void => setShowDetails(!showDetails)}>
+			<IonCard
+				className="election-chances-card"
+				onClick={(): void => setShowDetails(!showDetails)}
+			>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
@@ -62,7 +53,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 						<IonRow>
 							<IonCol size="3">
 								<div className="election-chances-card-image">
-									<img src={String(vote.image)}></img>
+									<img alt="candidate" src={String(vote.image)}></img>
 								</div>
 							</IonCol>
 							<IonCol size="6">

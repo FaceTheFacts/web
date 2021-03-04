@@ -1,8 +1,8 @@
 .tabbar {
-    margin-top: 30%;
-    --background: #181924;
+	margin-top: 30%;
+	--background: #181924;
 }
 
-.tabbutton {
-    --color-selected: white;
+ion-tab-button{
+	--color-selected: white;
 }

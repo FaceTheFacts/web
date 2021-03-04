@@ -1,6 +1,6 @@
 .imgContainer {
 	width: 10%;
-    height: 100%;
+	height: 100%;
 }
 
 .imgContainer:after {
@@ -26,7 +26,7 @@
 .election-chances-card {
 	margin-top: 10px;
 	margin-bottom: 10px;
-    height: 10%;
+	height: 10%;
 	background-color: #ffffff;
 }
 .election-chances-card-header {
