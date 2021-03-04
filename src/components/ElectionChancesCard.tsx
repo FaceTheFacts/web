@@ -27,7 +27,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	/* 
 	Dynamically create the className for the candidate's party
 	*/
-	const partyClassName = `${vote.party.toLowerCase()}`;
+	//const partyClassName = `${vote.party.toLowerCase()}`;
 
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 

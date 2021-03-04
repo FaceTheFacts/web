@@ -14,7 +14,7 @@ interface ElectionchancesProps {
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 
-	const [tab, setTab] = React.useState('0');
+	const [tab, setTab] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 
 	/* This is returned when using this component */
 	return (
