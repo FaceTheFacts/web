@@ -4,9 +4,11 @@ import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Menu from './components/Menu';
+import Tabs from './components/Tabs';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
+import Electionchances from './pages/ElectionChances';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -52,11 +54,17 @@ const App: React.FC = () => {
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
+						<Route path="/candidate">
+							<Tabs candidate={candidate as Candidate} />
+						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>
 						</Route>
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate}></Votes>
+						</Route>
+						<Route path="/politician/:id/electionchances" exact>
+							<Electionchances candidate={candidate as Candidate}></Electionchances>
 						</Route>
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
