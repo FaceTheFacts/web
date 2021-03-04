@@ -2,8 +2,8 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/react';
 
 interface SearchResultsProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    results: Array<any>;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	results: Array<any>;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results }: SearchResultsProps) => {
