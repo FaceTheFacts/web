@@ -13,6 +13,8 @@ interface ElectionchancesProps {
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const [firstTab, setFirstTab] = React.useState("");
+	const [firstCandidate, setFirstCandidate] = React.useState();
+	
 	/* function ShowFirstTab(segment) {
 			setFirstTab(segment);
 	} */
@@ -43,7 +45,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 			<div className="grey-back">		
            
 					{firstTab ?
-					<ElectionchancesCard vote={candidate.electionResults[0]} />
+					<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
 					: null
 					}
 
@@ -52,8 +54,9 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 						return <StateListCard vote={Election} key={`electionResults-${index}`}/>;
 					})
 					:
-					candidate.electionResults.map((Election, index) => {
-						return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>;
+					candidate.electionResults.slice(1).map((Election, index) => {
+						
+						return <ElectionchancesCard firstCandidate={false} vote={Election} key={`electionResults-${index}`}/>;
 					})	
 					}
 			</div>
