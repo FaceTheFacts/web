@@ -99,6 +99,8 @@ const secondVote = [
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
 	const [fixedPosition, setFixedPosition] = useState<number | undefined>();
+	const [previousScrollHeight, setpreviousScrollHeight] = useState<number>(0);
+
 	const initialFixedPositionHandler = (): undefined | number => {
 		const windowHeight: number | undefined = document.getElementById('second-vote-results')
 			?.clientHeight;
@@ -116,13 +118,21 @@ const SecondVote: React.FC<ProfileProps> = () => {
 		const voteResults = document.getElementById('second-vote-results');
 		if (voteResults !== null) {
 			const scrollHeight = voteResults.scrollTop - 10;
+			let direction 
+			if (previousScrollHeight<scrollHeight) {
+				direction = 1
+			} else {
+				direction = -1
+			}
 			const cardHeight = 57;
 			const cardblank = 10;
 			const oneScroll = cardHeight + cardblank;
 			console.log(scrollHeight);
 			if (Math.ceil(scrollHeight % oneScroll) === 0 && fixedPosition) {
-				setFixedPosition(fixedPosition + 1);
+				// const movesDownNum = Math.ceil(scrollHeight / oneScroll)
+				setFixedPosition(fixedPosition +1*direction);
 			}
+			setpreviousScrollHeight(scrollHeight)
 		}
 	};
 
