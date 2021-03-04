@@ -54,10 +54,9 @@ const App: React.FC = () => {
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
-						<Route
-							path="/candidate"
-							render={() => <Tabs candidate={candidate as Candidate} />}
-						/>
+						<Route path="/candidate">
+							<Tabs candidate={candidate as Candidate} />
+						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>
 						</Route>

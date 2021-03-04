@@ -32,20 +32,20 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				<div className="last-grey-back">
 					{tab === '0'
 						? candidate.electionResults.map((Election, index) => {
-								return (
-									<ElectionchancesCard
-										vote={Election}
-										key={`electionResults-${index}`}
-									/>
-								);
+							return (
+								<ElectionchancesCard
+									vote={Election}
+									key={`electionResults-${index}`}
+								/>
+							);
 						})
 						: candidate.electionResults.map((Election, index) => {
-								return (
-									<StateListCard
-										vote={Election}
-										key={`electionResults-${index}`}
-									/>
-								);})
+							return (
+								<StateListCard
+									vote={Election}
+									key={`electionResults-${index}`}
+								/>
+							);})
 					}
 				</div>
 			</IonContent>
