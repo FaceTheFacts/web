@@ -1,13 +1,11 @@
-.secondvote-cards {
-	border-right: transparent;
-	scroll-snap-align: start;
-}
+
 
 .secondvote-card {
 	background: #2b2c36;
 	margin-top: 10px;
 	margin-bottom: 0px;
 	height: 57px;
+	scroll-snap-align: start;
 }
 
 .secondvote-card-header {
