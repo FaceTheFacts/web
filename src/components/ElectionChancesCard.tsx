@@ -14,9 +14,10 @@ import '../index.css';
 
 interface ContainerProps {
 	vote: Election;
+	firstCandidate: boolean;
 }
 
-const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
+const ElectionchancesCard: React.FC<ContainerProps> = ({ vote, firstCandidate }: ContainerProps) => {
 	/* 
 	Internationalisation to keep the code in English but print the national language
 	*/
@@ -42,11 +43,16 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 				<IonCardHeader className="election-chances-card-header">
 					<IonGrid>
 						<IonRow>
-							<IonCol size="3">
-								<div className="election-chances-card-image">
-									<img alt="candidate" src={String(vote.image)}></img>
-								</div>
-							</IonCol>
+							{firstCandidate ? 
+								<IonCol size="3">
+									<div className="election-chances-card-image">
+										<img id="img" src={String(vote.image)}></img>
+									</div>
+								</IonCol>
+							: 
+								<IonCol size="0">
+									<p>IF</p>
+								</IonCol>}
 							<IonCol size="6">
 								<div id="center-column">
 								<IonCardTitle className="election-chances-card-title">
