@@ -4,7 +4,7 @@ import { IonPage, useIonViewDidEnter } from '@ionic/react';
 import './SecondVote.css';
 import { Candidate } from '../Types';
 
-import SecondVoteCardItem from '../components/SecondVoteCard';
+import SecondVoteCard from './SecondVoteCard';
 
 //Add Scroll Event listener
 
@@ -171,7 +171,7 @@ const SecondVote: React.FC<ProfileProps> = () => {
 
 	const testingResult = secondVote.map((candidate, index) => {
 		return (
-			<SecondVoteCardItem
+			<SecondVoteCard
 				key={`secondvote-${index}`}
 				candidateName={candidate.name}
 				electionChance={candidate.electionChance}
