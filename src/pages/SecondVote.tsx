@@ -115,26 +115,38 @@ const SecondVote: React.FC<ProfileProps> = () => {
 	};
 
 	const setFixedPositionHandler = (): void => {
+		const cardNums = cardNumsHandler(secondVote)
 		const voteResults = document.getElementById('second-vote-results');
-		if (voteResults !== null) {
-			const scrollHeight = voteResults.scrollTop - 10;
-			let direction 
-			if (previousScrollHeight<scrollHeight) {
-				direction = 1
-			} else {
-				direction = -1
-			}
-			const cardHeight = 57;
-			const cardblank = 10;
-			const oneScroll = cardHeight + cardblank;
-			console.log(scrollHeight);
-			if (Math.ceil(scrollHeight % oneScroll) === 0 && fixedPosition) {
-				// const movesDownNum = Math.ceil(scrollHeight / oneScroll)
-				setFixedPosition(fixedPosition +1*direction);
-			}
+		const cardHeight = 57;
+		const cardblank = 10;
+		const oneScroll = cardHeight + cardblank;
+
+		if (!fixedPosition || !voteResults) {
+			return
+		}
+
+		const scrollHeight = voteResults.scrollTop - 10;
+		let direction 
+		if (previousScrollHeight<scrollHeight) {
+			direction = 1
+		} else {
+			direction = -1
+		}
+		
+		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight)
+		console.log(scrollDistance)
+		if (fixedPosition<cardNums  && scrollDistance >= oneScroll) {
 			setpreviousScrollHeight(scrollHeight)
+			const scrollNums = (scrollDistance/oneScroll)>>0
+			setFixedPosition(fixedPosition + scrollNums * direction)
 		}
 	};
+
+
+	const cardNumsHandler = (voteRes: { name: string; electionChance: number }[]): number => {
+		const cardNums = voteRes.length;
+		return cardNums
+	}
 
 	useIonViewDidEnter(() =>
 		setTimeout(() => setFixedPosition(initialFixedPositionHandler()), 100)
