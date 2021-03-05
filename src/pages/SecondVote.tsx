@@ -117,11 +117,12 @@ const SecondVote: React.FC<ProfileProps> = () => {
 	const setFixedPositionHandler = (): void => {
 		const cardNums = cardNumsHandler(secondVote)
 		const voteResults = document.getElementById('second-vote-results');
+		const initialPosition = initialFixedPositionHandler()
 		const cardHeight = 57;
 		const cardblank = 10;
 		const oneScroll = cardHeight + cardblank;
 
-		if (!fixedPosition || !voteResults) {
+		if (!fixedPosition || !voteResults|| !initialPosition) {
 			return
 		}
 
@@ -135,6 +136,10 @@ const SecondVote: React.FC<ProfileProps> = () => {
 		
 		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight)
 		console.log(scrollDistance)
+		if (fixedPosition<initialPosition) {
+			setFixedPosition(initialPosition)
+		}
+
 		if (fixedPosition<cardNums  && scrollDistance >= oneScroll) {
 			setpreviousScrollHeight(scrollHeight)
 			const scrollNums = (scrollDistance/oneScroll)>>0
