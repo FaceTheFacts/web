@@ -62,7 +62,7 @@ const App: React.FC = () => {
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate}></Votes>
 						</Route>
-					
+
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>
