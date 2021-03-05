@@ -113,6 +113,15 @@ const SecondVote: React.FC<ProfileProps> = () => {
 			return cardNums + 1;
 		}
 	};
+	
+	useIonViewDidEnter(() =>
+		setTimeout(() => setFixedPosition(initialFixedPositionHandler()), 100)
+	);
+
+	const cardNumsHandler = (voteRes: { name: string; electionChance: number }[]): number => {
+		const cardNums = voteRes.length;
+		return cardNums
+	}
 
 	const setFixedPositionHandler = (): void => {
 		const cardNums = cardNumsHandler(secondVote)
@@ -148,14 +157,7 @@ const SecondVote: React.FC<ProfileProps> = () => {
 	};
 
 
-	const cardNumsHandler = (voteRes: { name: string; electionChance: number }[]): number => {
-		const cardNums = voteRes.length;
-		return cardNums
-	}
 
-	useIonViewDidEnter(() =>
-		setTimeout(() => setFixedPosition(initialFixedPositionHandler()), 100)
-	);
 	const testingResult = secondVote.map((candidate, index) => {
 		return (
 			<SecondVoteCardItem
@@ -163,7 +165,6 @@ const SecondVote: React.FC<ProfileProps> = () => {
 				candidateName={candidate.name}
 				electionChance={candidate.electionChance}
 				rank={index + 1}
-				cardColor="clear"
 				setFixedPosition={fixedPosition}
 				lastCandidate="notlast" // or last === need a state control
 			/>
