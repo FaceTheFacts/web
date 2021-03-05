@@ -100,6 +100,7 @@ const secondVote = [
 const SecondVote: React.FC<ProfileProps> = () => {
 	const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 	const [previousScrollHeight, setpreviousScrollHeight] = useState<number>(0);
+	const [lastCandidate, setLastcandidate] = useState<number>(0);
 
 	const initialFixedPositionHandler = (): undefined | number => {
 		const windowHeight: number | undefined = document.getElementById('second-vote-results')
@@ -113,50 +114,52 @@ const SecondVote: React.FC<ProfileProps> = () => {
 			return cardNums + 1;
 		}
 	};
-	
+
 	useIonViewDidEnter(() =>
-		setTimeout(() => setFixedPosition(initialFixedPositionHandler()), 100)
+		setTimeout(function () {
+			setFixedPosition(initialFixedPositionHandler());
+			setLastCandidateHandler();
+		}, 100)
 	);
 
 	const cardNumsHandler = (voteRes: { name: string; electionChance: number }[]): number => {
 		const cardNums = voteRes.length;
-		return cardNums
-	}
+		return cardNums;
+	};
 
 	const setFixedPositionHandler = (): void => {
-		const cardNums = cardNumsHandler(secondVote)
+		const cardNums = cardNumsHandler(secondVote);
 		const voteResults = document.getElementById('second-vote-results');
-		const initialPosition = initialFixedPositionHandler()
 		const cardHeight = 57;
 		const cardblank = 10;
 		const oneScroll = cardHeight + cardblank;
 
-		if (!fixedPosition || !voteResults|| !initialPosition) {
-			return
+		if (!fixedPosition || !voteResults) {
+			return;
 		}
-
+		//margin top 10px
 		const scrollHeight = voteResults.scrollTop - 10;
-		let direction 
-		if (previousScrollHeight<scrollHeight) {
-			direction = 1
+		let direction;
+		if (previousScrollHeight < scrollHeight) {
+			direction = 1;
 		} else {
-			direction = -1
-		}
-		
-		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight)
-		console.log(scrollDistance)
-		if (fixedPosition<initialPosition) {
-			setFixedPosition(initialPosition)
+			direction = -1;
 		}
 
-		if (fixedPosition<cardNums  && scrollDistance >= oneScroll) {
-			setpreviousScrollHeight(scrollHeight)
-			const scrollNums = (scrollDistance/oneScroll)>>0
-			setFixedPosition(fixedPosition + scrollNums * direction)
+		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight);
+	
+		if (fixedPosition < cardNums && scrollDistance >= oneScroll) {
+			setpreviousScrollHeight(scrollHeight);
+			const scrollNums = (scrollDistance / oneScroll) >> 0;
+			setFixedPosition(fixedPosition + scrollNums * direction);
 		}
 	};
-
-
+	const setLastCandidateHandler = (): void => {
+		//if we get deta from backend, we should write calculation logic here
+		//But now I detemine last candidate is rank #4
+		//this function should excute after rendering this page
+		setLastcandidate(4);
+	};
 
 	const testingResult = secondVote.map((candidate, index) => {
 		return (
@@ -166,7 +169,7 @@ const SecondVote: React.FC<ProfileProps> = () => {
 				electionChance={candidate.electionChance}
 				rank={index + 1}
 				setFixedPosition={fixedPosition}
-				lastCandidate="notlast" // or last === need a state control
+				lastCandidate={lastCandidate}
 			/>
 		);
 	});
