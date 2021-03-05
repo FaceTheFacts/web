@@ -96,7 +96,6 @@ const secondVote = [
 	},
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SecondVote: React.FC<ProfileProps> = () => {
 	const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 	const [previousScrollHeight, setpreviousScrollHeight] = useState<number>(0);
@@ -134,27 +133,35 @@ const SecondVote: React.FC<ProfileProps> = () => {
 		const cardHeight = 57;
 		const cardblank = 10;
 		const oneScroll = cardHeight + cardblank;
-
-		if (!fixedPosition || !voteResults||!initialPos) {
+		if (!fixedPosition || !voteResults || !initialPos) {
 			return;
 		}
 		//margin top 10px
 		const scrollHeight = voteResults.scrollTop - 10;
+		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight);
+
 		let direction;
 		if (previousScrollHeight < scrollHeight) {
 			direction = 1;
 		} else {
 			direction = -1;
 		}
+		//If a user scroll at the bottom of screen
+		if (fixedPosition === cardNums && scrollDistance >= oneScroll) {
+			setFixedPosition(fixedPosition - 1);
+		}
 
-		const scrollDistance = Math.abs(scrollHeight - previousScrollHeight);
-	
-		if (fixedPosition>= initialPos && fixedPosition < cardNums && scrollDistance >= oneScroll) {
+		if (fixedPosition < cardNums && scrollDistance >= oneScroll) {
 			setpreviousScrollHeight(scrollHeight);
 			const scrollNums = (scrollDistance / oneScroll) >> 0;
 			setFixedPosition(fixedPosition + scrollNums * direction);
 		}
+		//If a user try to scroll up above the initial position
+		if (fixedPosition < initialPos) {
+			setFixedPosition(fixedPosition + 1);
+		}
 	};
+
 	const setLastCandidateHandler = (): void => {
 		//if we get deta from backend, we should write calculation logic here
 		//But now I detemine last candidate is rank #4
