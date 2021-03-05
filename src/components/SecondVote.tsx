@@ -6,6 +6,8 @@ import { Candidate } from '../Types';
 
 import SecondVoteCard from './SecondVoteCard';
 
+//Add Scroll Event listener
+
 interface ProfileProps {
 	candidate: Candidate;
 }
