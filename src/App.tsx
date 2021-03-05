@@ -7,7 +7,6 @@ import Menu from './components/Menu';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
-import SecondVote from './pages/SecondVote';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -59,9 +58,7 @@ const App: React.FC = () => {
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate}></Votes>
 						</Route>
-						<Route path="/candidate/:id/second-vote" exact>
-							<SecondVote candidate={candidate}></SecondVote>
-						</Route>
+					
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>
