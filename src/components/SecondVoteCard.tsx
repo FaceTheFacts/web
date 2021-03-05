@@ -9,7 +9,8 @@ interface CandidateInfoProps {
 	rank: number;
 	// cardColor: 'clear' | 'faded';
 	setFixedPosition: number | undefined;
-	lastCandidate: 'notlast' | 'last';
+	// lastCandidate: 'notlast' | 'last';
+	lastCandidate: number;
 }
 
 const postionChanger = (rank: number, fixedPosition: number | undefined): string => {
@@ -23,14 +24,21 @@ const postionChanger = (rank: number, fixedPosition: number | undefined): string
 const cardColorChanger = (rank: number, fixedPosition: number | undefined): string => {
 	let cardColor = 'faded';
 	if (!fixedPosition) {
-		return cardColor
+		return cardColor;
 	}
 	if (rank <= fixedPosition) {
-		cardColor = 'clear'
+		cardColor = 'clear';
 	}
-	return cardColor
+	return cardColor;
+};
 
-}
+const lastCandidateHandler = (rank: number, lastCandidate: number): string => {
+	let isLastCandidate = 'notlast';
+	if (rank === lastCandidate) {
+		isLastCandidate = 'last';
+	}
+	return isLastCandidate;
+};
 
 const SecondVoteCard: React.FC<CandidateInfoProps> = ({
 	candidateName,
@@ -41,21 +49,25 @@ const SecondVoteCard: React.FC<CandidateInfoProps> = ({
 }: CandidateInfoProps) => {
 	const isTouched = postionChanger(rank, setFixedPosition);
 	const cardColor = cardColorChanger(rank, setFixedPosition);
+	const isLast = lastCandidateHandler(rank, lastCandidate);
+
 	return (
-		<div className={['secondvote-card', isTouched].join(' ')} id="second-vote-card">
-			<IonCard className={['secondvote-card', lastCandidate].join(' ')} key={`rank=${rank}`}>
-				<IonCardHeader className="secondvote-card-header">
-					<IonCardTitle className={['secondvote-card-name', cardColor].join(' ')}>
-						#{rank} {candidateName}
+		<IonCard
+			className={['secondvote-card', isTouched, isLast].join(' ')}
+			id="second-vote-card"
+			key={`rank=${rank}`}
+		>
+			<IonCardHeader className="secondvote-card-header">
+				<IonCardTitle className={['secondvote-card-name', cardColor].join(' ')}>
+					#{rank} {candidateName}
+				</IonCardTitle>
+				{setFixedPosition === rank ? (
+					<IonCardTitle className="secondvote-card-chance">
+						{electionChance}%
 					</IonCardTitle>
-					{setFixedPosition === rank ? (
-						<IonCardTitle className="secondvote-card-chance">
-							{electionChance}%
-						</IonCardTitle>
-					) : null}
-				</IonCardHeader>
-			</IonCard>
-		</div>
+				) : null}
+			</IonCardHeader>
+		</IonCard>
 	);
 };
 export default SecondVoteCard;
