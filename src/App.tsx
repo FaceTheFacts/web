@@ -8,12 +8,7 @@ import Tabs from './components/Tabs'
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
-<<<<<<< HEAD
 import Electionchances from './pages/ElectionChances';
-||||||| merged common ancestors
-import SecondVote from './pages/SecondVote';
-=======
->>>>>>> removed route for second vote
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
