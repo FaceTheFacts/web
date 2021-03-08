@@ -1,0 +1,10 @@
+ion-card {
+	background-color: #ffffff;
+}
+
+.bar-chart {
+	width: 106.5%;
+	position: absolute;
+	top: -140%;
+	left: -6%;
+}
