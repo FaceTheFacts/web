@@ -69,26 +69,31 @@
 .vote-card {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	height: 130px;
-	background-color: #ffffff;
+	width: 343px;
+	height: 121px;
+	background: #2B2C36;
 }
 .vote-card-header {
-	padding-top: 2px;
+	padding-top: 6px;
 	padding-bottom: 0px;
-	padding-left: 10px;
+	padding-left: 16px;
 	padding-right: 10px;
 }
-.vote-card-title {
-	font-size: 16px;
-	height: 40px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-}
 .vote-card-subtitle {
-	font-size: 14px;
+	color:#ffffff;
+	font-weight: normal;
+	font-size: 12px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	text-transform: capitalize;
+}
+
+.vote-card-title {
+	color:#ffffff;
+	font-size: 14px;
+	height: 35px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .bottom-group {
 	margin-bottom: 10px;

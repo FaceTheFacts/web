@@ -73,7 +73,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	const voteString = vote.candidateVote;
 
 	return (
-		<div className="grey-background">
+		<div>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
@@ -89,6 +89,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								<IonCardTitle className="vote-card-title">
 									{vote.title}
 								</IonCardTitle>
+								{/* Vote Result will show here e.g., Antrag abgelehnt */}
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
