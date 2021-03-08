@@ -1,0 +1,24 @@
+/*Button Background*/
+.sub-heading-button {
+	text-align: left;
+	height: 16px;
+    --background:transparent;  
+	margin-left: -2px;
+	--box-shadow:none;
+	--border-style:none;
+}
+
+/*Button Text*/
+.sub-heading-button strong {
+    color: white;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 26px;
+	text-transform: uppercase;
+}
+
+.scrollhidden {
+	overflow:hidden;
+	z-index: 1;
+}
+

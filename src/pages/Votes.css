@@ -1,13 +1,27 @@
-:root {
+
+.votes-toolbar {
+	height: 95px;
 	--ion-background-color: #e3e3e3;
 	--ion-toolbar-background: #a1c5ff;
 	--ion-toolbar-color: #14345a;
+
 }
 
-.votes-header {
-	height: 95px;
-}
 
 .page-title {
+	
 	height: 55px;
+}
+
+
+.grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.last-grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 30px;
 }
