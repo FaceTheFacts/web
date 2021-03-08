@@ -15,7 +15,6 @@ const Profile: React.FC = () => {
 
   return (
     <IonPage>
-
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
