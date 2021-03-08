@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonChip } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonChip } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
 import '../index.css';
@@ -10,18 +10,19 @@ interface ContainerProps {
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerProps) => {
 	return (
-		<div>
-			<div className="imgContainer">
-				<img
-					src={String(politician.image)}
-					alt={politician.name}
-					data-testid="profile-img-url"
-				></img>
-			</div>
-
-			<div className="politician-name" data-testid="profile-name">
+		<div className="header">
+			<IonGrid>
+				<IonRow>
+					<IonCol size="3">
+						<img
+							src={String(politician.image)}
+							alt={politician.name}
+							data-testid="profile-img-url"
+						></img>
+					</IonCol>
+					<IonCol size="6">
 				{politician.name}
-			</div>
+			
 
 			{politician.chips.map((chip: string, index: number) => {
 				return (
@@ -30,6 +31,9 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 					</IonChip>
 				);
 			})}
+					</IonCol>
+				</IonRow>
+			</IonGrid>
 		</div>
 	);
 };
