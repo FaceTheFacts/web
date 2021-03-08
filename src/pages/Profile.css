@@ -1,0 +1,48 @@
+
+.profile-header {
+        max-height: 300px;
+}
+
+.subheading-button-underlay {
+	text-align: left;
+	height: 40px;
+	background-color: #14345A;
+	padding-top: 7px;
+}
+
+.grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.last-grey-back {
+	background-color: #e3e3e3;;
+	padding-top: 5px;
+	padding-bottom: 30px;
+}
+
+
+ion-col {
+	padding-bottom: 0px;
+	padding-top: 2px;
+}
+
+ion-card {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #ffffff;
+	height: 128px;
+}
+ion-card-header {
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+ion-card-title {
+	font-size: 16px;
+}
+ion-card-subtitle {
+	font-size: 14px;
+}

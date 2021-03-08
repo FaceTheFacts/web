@@ -1,0 +1,10 @@
+.politician-name {
+    position: relative;
+    bottom: 80px;
+    left: 16px;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    z-index: 2; 
+
+  }

@@ -1,26 +1,6 @@
-ion-col {
-	padding-bottom: 0px;
-	padding-top: 2px;
-}
-
-ion-card {
-	background-color: #ffffff;
-	height: 128px;
-}
-ion-card-header {
-	padding-top: 2px;
-	padding-bottom: 0px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-ion-card-title {
-	font-size: 16px;
-}
-ion-card-subtitle {
-	font-size: 14px;
-}
 
 .vote-card-content {
+	
 	padding-left: 10px !important;
 	padding-right: 10px;
 }
@@ -48,11 +28,11 @@ ion-card-subtitle {
 	font-size: 16px;
 }
 
-.vote-yes {
+.vote-ja {
 	background-color: #14b83a;
 }
 
-.vote-no {
+.vote-nein {
 	background-color: #de2b5e;
 }
 
@@ -72,7 +52,7 @@ ion-card-subtitle {
 	margin-right: 5px;
 }
 .vote-legend-text {
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 600;
 	color: #000000;
 }
