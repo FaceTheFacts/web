@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonChip } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle, IonCardSubtitle } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
 import '../index.css';
@@ -20,17 +20,19 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 							data-testid="profile-img-url"
 						></img>
 					</IonCol>
-					<IonCol size="6">
-				{politician.name}
-			
+					<IonCol size="9">
+						<div className="politician-name"><IonCardTitle>{politician.name} <span className="politician-age">29</span></IonCardTitle></div>
+						<div className="politican-details">
 
-			{politician.chips.map((chip: string, index: number) => {
-				return (
-					<IonChip className="politician-details" key={index}>
-						{chip}
-					</IonChip>
-				);
-			})}
+							{politician.chips.map((chip: string, index: number) => {
+								return (
+										<IonChip className="politician-detail" key={index}>
+											{chip}
+										</IonChip>
+									
+								);
+							})}
+						</div>
 					</IonCol>
 				</IonRow>
 			</IonGrid>
