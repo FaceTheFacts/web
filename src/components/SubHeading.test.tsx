@@ -21,18 +21,17 @@ afterEach(() => {
 	}
 });
 
-it("renders with all topic filters", () => {
-	act(() => {
-		render(<SubHeading name="Sub Heading" />, container);
-	});
-	if (container !== null) {
-		expect(container.textContent).toBe("Sub Heading");
-	}
+it("renders with correct heading", () => {
+	// given
+	const subheading = "Sub Heading";
 
+	// when
 	act(() => {
-		render(<SubHeading name="Test Case Title" />, container);
+		render(<SubHeading name={subheading} />, container);
 	});
+
+	// then
 	if (container !== null) {
-		expect(container.textContent).toBe("Test Case Title");
+		expect(container.textContent).toBe(subheading);
 	}
 });
