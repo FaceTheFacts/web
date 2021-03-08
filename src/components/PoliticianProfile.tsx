@@ -14,7 +14,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 			<IonGrid>
 				<IonRow>
 					<IonCol size="3">
-						<img
+						<img className="politician-image"
 							src={String(politician.image)}
 							alt={politician.name}
 							data-testid="profile-img-url"
