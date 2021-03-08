@@ -16,33 +16,37 @@
 
 .candidate-vote {
 	position: absolute;
-	width: 89px;
-	height: 35px;
+	width: 54px;
+	height: 24px;
+	border-radius: 4px;
 	color: white;
-	padding-top: 10px;
 	right: 0px;
 	text-align: center;
-	font-weight: 600;
-	font-size: 15px;
+	padding-top: 6px;
+	font-size: 12px;
 	font-family: 'protipo', sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
 
 .vote-yes {
-	background-color: #14b83a;
+	text-transform: uppercase;
+	background-color: #6FAD5A;
 }
 
 .vote-no {
-	background-color: #de2b5e;
+	text-transform: uppercase;
+	background-color: #D74769;
 }
 
 .vote-abstain {
-	background-color: #19ace6;
+	text-transform: uppercase;
+	background-color: #3969F5;
 }
 
 .vote-none {
-	background-color: #c4c4c4;
+	text-transform: uppercase;
+	background-color: #C4C4C4;
 }
 
 .vote-legend-circle {
