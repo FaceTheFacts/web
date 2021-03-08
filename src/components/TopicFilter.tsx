@@ -81,7 +81,6 @@ const topicFilters = {
 	],
 };
 
-
 const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
 	return (
 		<div className="topic-filters">
@@ -89,7 +88,11 @@ const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
 			<div className="topic-filter-row">
 				{topicFilters.row0.map((topicFilter, index) => {
 					return (
-						<IonButton fill="clear" className="topic-filter-button">
+						<IonButton
+							fill="clear"
+							className="topic-filter-button"
+							key={`0-${index}`}
+						>
 							<IonIcon slot="start" src={topicFilter.icon} />
 							{topicFilter.name}
 						</IonButton>
@@ -99,7 +102,11 @@ const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
 			<div className="topic-filter-row">
 				{topicFilters.row1.map((topicFilter, index) => {
 					return (
-						<IonButton fill="clear" className="topic-filter-button">
+						<IonButton
+							fill="clear"
+							className="topic-filter-button"
+							key={`1-${index}`}
+						>
 							<IonIcon slot="start" icon={topicFilter.icon} />
 							{topicFilter.name}
 						</IonButton>
@@ -109,7 +116,11 @@ const TopicFilter: React.FC<ContainerProps> = ({ name }) => {
 			<div className="topic-filter-row">
 				{topicFilters.row2.map((topicFilter, index) => {
 					return (
-						<IonButton fill="clear" className="topic-filter-button">
+						<IonButton
+							fill="clear"
+							className="topic-filter-button"
+							key={`2-${index}`}
+						>
 							<IonIcon slot="start" icon={topicFilter.icon} />
 							{topicFilter.name}
 						</IonButton>
