@@ -1,0 +1,78 @@
+ion-col {
+	padding-bottom: 0px;
+	padding-top: 2px;
+}
+
+ion-card {
+	background-color: #ffffff;
+	height: 128px;
+}
+ion-card-header {
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+ion-card-title {
+	font-size: 16px;
+}
+ion-card-subtitle {
+	font-size: 14px;
+}
+
+.vote-card-content {
+	padding-left: 10px !important;
+	padding-right: 10px;
+}
+.vote-chart-container {
+	position: relative;
+	justify-content: center;
+	align-content: center;
+	height: 20px;
+	overflow: hidden;
+	border-radius: 20px;
+	border-width: 1px;
+	border-style: solid;
+	width: 103.5%;
+}
+
+.candidate-vote {
+	position: absolute;
+	width: 89px;
+	height: 35px;
+	color: white;
+	padding: 10px;
+	right: 0px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.vote-yes {
+	background-color: #14b83a;
+}
+
+.vote-no {
+	background-color: #de2b5e;
+}
+
+.vote-abstain {
+	background-color: #19ace6;
+}
+
+.vote-none {
+	background-color: #c4c4c4;
+}
+
+.vote-legend-circle {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+.vote-legend-text {
+	font-size: 12px;
+	font-weight: 600;
+	color: #000000;
+}

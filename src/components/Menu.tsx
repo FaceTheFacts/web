@@ -1,41 +1,63 @@
 import {
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-} from '@ionic/react';
+	IonContent,
+	IonIcon,
+	IonItem,
+	IonLabel,
+	IonList,
+	IonListHeader,
+	IonMenu,
+	IonMenuToggle,
+	IonNote,
+} from "@ionic/react";
 
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, homeOutline, homeSharp } from 'ionicons/icons';
-import './Menu.css';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import {
+	searchOutline,
+	searchSharp,
+	bookmarkOutline,
+	homeOutline,
+	homeSharp,
+	cameraOutline,
+	cameraSharp,
+} from "ionicons/icons";
+import "./Menu.css";
 
+/* Interface is how types are defined in typescript. This should appear throughout the app and makes it typesafe */
 interface AppPage {
-  url: string;
-  iosIcon: string;
-  mdIcon: string;
-  title: string;
+	url: string;
+	iosIcon: string;
+	mdIcon: string;
+	title: string;
 }
 
+/* Hardcoded app pages, this might not need to change. */
 const appPages: AppPage[] = [
-  {
-    title: 'Profile',
-    url: '/profile',
-    iosIcon: homeOutline,
-    mdIcon: homeSharp
-  },
-  {
-    title: 'Votes',
-    url: '/votes',
-    iosIcon: homeOutline,
-    mdIcon: homeSharp
-  },
-  /* {
+	{
+		title: "Scan",
+		url: "/scan",
+		iosIcon: cameraOutline,
+		mdIcon: cameraSharp,
+	},
+	{
+		title: "Search",
+		url: "/search",
+		iosIcon: searchOutline,
+		mdIcon: searchSharp,
+	},
+	{
+		title: "Profile",
+		url: "/politician/1",
+		iosIcon: homeOutline,
+		mdIcon: homeSharp,
+	},
+	{
+		title: "Votes",
+		url: "/politician/1/votes",
+		iosIcon: homeOutline,
+		mdIcon: homeSharp,
+	},
+	/* {
     title: 'Inbox',
     url: '/page/Inbox',
     iosIcon: mailOutline,
@@ -73,30 +95,51 @@ const appPages: AppPage[] = [
   } */
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = ["Family", "Friends", "Notes", "Work", "Travel", "Reminders"];
 
+/* Menu component. */
 const Menu: React.FC = () => {
-  const location = useLocation();
+	const location = useLocation();
 
-  return (
-    <IonMenu contentId="main" type="overlay">
-      <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
-          {appPages.map((appPage, index) => {
-            return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            );
-          })}
-        </IonList>
+	return (
+		<IonMenu side="end" contentId="main" type="overlay">
+			<IonContent>
+				<IonList id="inbox-list">
+					<IonListHeader>Face the Facts</IonListHeader>
+					{/* <IonNote>hi@ionicframework.com</IonNote> */}
 
-        <IonList id="labels-list">
+					{/* For each appPage, create an entry in the menu */}
+					{appPages.map((appPage, index) => {
+						return (
+							<IonMenuToggle key={index} autoHide={false}>
+								<IonItem
+								/* Hightlight selected page */
+									className={
+										location.pathname === appPage.url
+											? "selected"
+											: ""
+									}
+									/* connect to router from App.tsx */
+									routerLink={appPage.url}
+									routerDirection="none"
+									lines="none"
+									detail={false}
+								>
+									{/* Add the icon */}
+									<IonIcon
+										slot="start"
+										ios={appPage.iosIcon}
+										md={appPage.mdIcon}
+									/>
+									{/* Name */}
+									<IonLabel>{appPage.title}</IonLabel>
+								</IonItem>
+							</IonMenuToggle>
+						);
+					})}
+				</IonList>
+
+				{/*  <IonList id="labels-list">
           <IonListHeader>Labels</IonListHeader>
           {labels.map((label, index) => (
             <IonItem lines="none" key={index}>
@@ -104,10 +147,10 @@ const Menu: React.FC = () => {
               <IonLabel>{label}</IonLabel>
             </IonItem>
           ))}
-        </IonList>
-      </IonContent>
-    </IonMenu>
-  );
+        </IonList> */}
+			</IonContent>
+		</IonMenu>
+	);
 };
 
 export default Menu;

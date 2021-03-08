@@ -12,7 +12,7 @@ import { useParams } from "react-router";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
 
-const Page: React.FC = () => {
+const Search: React.FC = () => {
 	const { name } = useParams<{ name: string }>();
 
 	return (
@@ -38,4 +38,4 @@ const Page: React.FC = () => {
 	);
 };
 
-export default Page;
+export default Search;
