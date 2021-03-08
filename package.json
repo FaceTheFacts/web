@@ -74,7 +74,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "reactstrap": "^8.6.0",
-    "rxjs": "^5.5.0",
+    "rxjs": "^5.5.12",
     "seedrandom": "^2.4.4",
     "smart-webcomponents-react": "^8.0.0",
     "tesseract.js": "^2.1.3",
