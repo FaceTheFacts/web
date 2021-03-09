@@ -47,7 +47,7 @@ If you want to work on something that is not yet reflected in an issue, please c
 
 To easily identify branches, we encourage you to use the following branch naming convention. Start with the category (outlined below), followed by the issue number (if available), and finally a descriptive name for the branch.
 
-`category/issue_number/branch_name`
+`issue_number/category/branch_name`
 
 These are the categories.
 
@@ -57,19 +57,19 @@ These are the categories.
 
 Used for new features, that do not exist yet.
 
-`feature/123/user-login`
+`123/feature/user-login`
 
 #### Bug fix branches
 
 Used for bugs that will be fixed in an upcoming release.
 
-`bugfix/1342/picture-not-displayed`
+`1342/bugfix/picture-not-displayed`
 
 #### Hot fix branches
 
 Used for bugs that need to be fixed immediately and cannot wait until next release.
 
-`hotfix/1523/login-issue`
+`1523/hotfix//login-issue`
 
 #### Documentation
 
@@ -104,6 +104,9 @@ Branches containing longer term work in progress, that has been started on but w
 #### Linting and Style Guides
 
 We use eslint and prettier to automagically format our code. ESlint also lints the code for Typescript errors.
+There is a npm script for this purpose. Simply run `npm run lint` and you're good to go.
+
+If you want more control over the process, you can always run eslint and prettier manually like so:
 
 ```bash
 # From the project root
