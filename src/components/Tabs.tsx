@@ -16,7 +16,6 @@ interface TabsProps {
 const Tabs: React.FC<TabsProps> = ({ candidate }: TabsProps) => {
 	/* This is returned when using this component */
 	return (
-		<div>
 			<IonTabs>
 				<IonRouterOutlet>
 					<Route path="/candidate/:id/profile" exact>
@@ -48,7 +47,6 @@ const Tabs: React.FC<TabsProps> = ({ candidate }: TabsProps) => {
 					</IonTabButton>
 				</IonTabBar>
 			</IonTabs>
-		</div>
 	);
 };
 

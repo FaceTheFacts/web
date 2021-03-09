@@ -10,7 +10,7 @@ interface ContainerProps {
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerProps) => {
 	return (
-		<div className="header">
+		<div className="header" ion-fixed>
 			<IonGrid>
 				<IonRow>
 					<IonCol size="3">

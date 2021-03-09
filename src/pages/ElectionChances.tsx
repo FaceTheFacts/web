@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
+import PoliticianProfile from '../components/PoliticianProfile'
 import './ElectionChances.css';
 import { Candidate, StateList } from '../Types';
 
@@ -12,8 +13,7 @@ interface ElectionchancesProps {
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	const [firstTab, setFirstTab] = React.useState("");
-	const [firstCandidate, setFirstCandidate] = React.useState();
+	const [firstTab, setFirstTab] = React.useState('0');
 	
 	function ShowFirstTab(segment: any) {
 			setFirstTab(segment);
@@ -98,8 +98,8 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			
 			{/* Here the content of our page starts */}
+				<PoliticianProfile politician={candidate} />
 				<SegmentButtons tab="0" setTab={ShowFirstTab}/>
 				
 				{/* {firstTab=='FirstVote' ?  */}
