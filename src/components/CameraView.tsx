@@ -42,7 +42,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		x: 0,
 		y: 0,
 		width: window.innerWidth,
-		height: window.innerHeight,
+		height: window.innerWidth * 4 / 3,
 		camera: 'rear',
 		tapPhoto: true,
 		previewDrag: false,
@@ -94,10 +94,14 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	}
 
 	set4by3(track: MediaStreamTrack): Promise<void> {
-		const height = this.cameraOpts.width * (4 / 3);
+		const ua = navigator.userAgent.toLowerCase();
+		const isAndroid = ua.includes('android');
+		const height = isAndroid ? this.cameraOpts.width : this.cameraOpts.height;
+		const width = isAndroid? this.cameraOpts.height : this.cameraOpts.width;
+
 		return track.applyConstraints({
 			height: height,
-			width: this.cameraOpts.width,
+			width: width,
 			aspectRatio: 4 / 3,
 		});
 	}
@@ -105,15 +109,12 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 	async setAspectRatio(): Promise<void> {
 		const videoTrack = this.stream?.getVideoTracks()[0];
 
-		this.setFullscreen(videoTrack as MediaStreamTrack)
+		this.set4by3(videoTrack as MediaStreamTrack)
 			.then(() => {
-				console.log('set video to fullscreen');
+				log.debug('set video to 4:3');
 			})
 			.catch((err) => {
 				log.info(err);
-				this.set4by3(videoTrack as MediaStreamTrack).then(() => {
-					console.log('set video to 4:3');
-				});
 			});
 	}
 
@@ -414,7 +415,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 				}
 			});
 			ctx.stroke();
-			if (!isSafari) {
+			if (!isSafari && predictions.length > 0) {
 				ctx.fillStyle = 'rgba(0,0,0,0.5)';
 				ctx.fill();
 			}
