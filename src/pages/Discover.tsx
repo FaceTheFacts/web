@@ -10,24 +10,19 @@ import {
 } from '@ionic/react';
 import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
-import { useParams } from 'react-router';
 import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
-import {Candidate} from '../Types';
+import { Candidate } from '../Types';
+
 interface DiscoverProps {
 	candidate: Candidate;
 	setCandidate: Function;
 }
-const Discover: React.FC<DiscoverProps> = ({
-	candidate,
-	setCandidate
-}) => {
-	const { name } = useParams<{ name: string }>();
+const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
-	// const [candidate, setCandidate] = useState<number>(0);
 
 	// animation for the popover
 	/* const popoverAnimation = (baseEl: any) => {
@@ -43,28 +38,22 @@ const Discover: React.FC<DiscoverProps> = ({
 				<IonModal isOpen={showCamera} cssClass="my-custom-class">
 					<IonFabButton
 						className="camera-close-button"
-						onClick={() => setShowCamera(false)}
+						onClick={(): void => setShowCamera(false)}
 					>
 						<IonIcon icon={closeOutline}></IonIcon>
 					</IonFabButton>
-					<CameraView
-						setShowPopover={setShowPopover}
-						setCandidate={setCandidate}
-					/>
+					<CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
 				</IonModal>
 				<div className="discover-page">
 					<div
 						className="camera-icon-background"
-						onClick={() => setShowCamera(true)}
+						onClick={(): void => setShowCamera(true)}
+						onKeyPress={(): void => setShowCamera(true)}
+						role="link"
+						tabIndex={0}
 					>
-						<IonImg
-							id="camera-square"
-							src="../assets/icon/camera-square.svg"
-						></IonImg>
-						<IonImg
-							id="camera-icon"
-							src="../assets/icon/camera-solid.svg"
-						></IonImg>
+						<IonImg id="camera-square" src="../assets/icon/camera-square.svg"></IonImg>
+						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
 					</div>
 
 					<IonInput
@@ -72,12 +61,12 @@ const Discover: React.FC<DiscoverProps> = ({
 						value={text}
 						placeholder="Kandidat:in, PLZ oder Ort suchen"
 						disabled={true}
-						onIonChange={(e) => setText(e.detail.value!)}
+						onIonChange={(e): void => setText(e.detail.value as string)}
 					></IonInput>
 					<IonPopover
 						isOpen={showPopover}
 						cssClass="popover"
-						onDidDismiss={(e) => setShowPopover(false)}
+						onDidDismiss={(): void => setShowPopover(false)}
 						translucent={true}
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */

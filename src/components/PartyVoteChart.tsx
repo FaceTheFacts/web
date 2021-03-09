@@ -1,9 +1,7 @@
-import React from "react";
-import "./VoteChart.css";
+import React from 'react';
+import './VoteChart.css';
 import { PieChart } from 'react-minimal-pie-chart';
-import {PartyVoteResult} from '../Types'
-
-
+import { PartyVoteResult } from '../Types';
 
 /* 
 Register the ChartProps interface so we can pass properties to the component. 
@@ -13,26 +11,23 @@ interface ChartProps {
 	partyVote: PartyVoteResult;
 }
 
-
-const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
-	console.log(partyVote)
+const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }: ChartProps) => {
+	console.log(partyVote);
 	return (
 		<div>
 			<PieChart
-				data = {[
+				data={[
 					{ title: 'yes', value: partyVote.yes, color: '#14b83a' },
 					{ title: 'no', value: partyVote.no, color: '#de2b5e' },
 					{ title: 'abstain', value: partyVote.abstain, color: '#19ace6' },
-					{ title: 'none', value: partyVote.none, color: '#c4c4c4' }
+					{ title: 'none', value: partyVote.none, color: '#c4c4c4' },
 				]}
-
-				radius = {45}
-				lineWidth = {30}
-				lengthAngle = {-360}
-				startAngle = {180}
-			/>;	
-
-
+				radius={45}
+				lineWidth={30}
+				lengthAngle={-360}
+				startAngle={180}
+			/>
+			;
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import {renderHook} from '@testing-library/react-hooks'
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
@@ -9,7 +9,7 @@ import 'jest-canvas-mock';
 
 import Profile from './Profile';
 
-import {amthor} from '../amthor';
+import { amthor } from '../amthor';
 
 let container: HTMLDivElement | null = null;
 
@@ -40,19 +40,17 @@ test('renders with correct profile header', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate}/>
+			<Profile candidate={candidate} />
 		</Router>,
 		container
 	);
 
 	if (container !== null) {
-		expect(getByTestId(container, 'profile-name').textContent).toBe(
-			candidate.name
-		);
+		expect(getByTestId(container, 'profile-name').textContent).toBe(candidate.name);
 
-		expect(
-			getByTestId(container, 'profile-img-url').getAttribute('src')
-		).toBe(String(candidate.image));
+		expect(getByTestId(container, 'profile-img-url').getAttribute('src')).toBe(
+			String(candidate.image)
+		);
 	}
 });
 
@@ -66,27 +64,24 @@ test('renders with correct subheadings', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate}/>
+			<Profile candidate={candidate} />
 		</Router>,
 		container
 	);
 
 	if (container !== null) {
 		expect(
-			getByTestId(
-				getByTestId(container, 'profile-subheading-votes'),
-				'subheading-button'
-			).textContent
+			getByTestId(getByTestId(container, 'profile-subheading-votes'), 'subheading-button')
+				.textContent
 		).toBe('Abstimmungsverhalten >');
 
-		expect(
-			getByTestId(container, 'profile-subheading-controversies')
-				.textContent
-		).toBe('Kontroversen');
+		expect(getByTestId(container, 'profile-subheading-controversies').textContent).toBe(
+			'Kontroversen'
+		);
 
-		expect(
-			getByTestId(container, 'profile-subheading-sidejobs').textContent
-		).toBe('Bekannte Nebentätigkeiten');
+		expect(getByTestId(container, 'profile-subheading-sidejobs').textContent).toBe(
+			'Bekannte Nebentätigkeiten'
+		);
 	}
 });
 
@@ -105,7 +100,7 @@ test('renders with correct sidejobs', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate}/>
+			<Profile candidate={candidate} />
 		</Router>,
 		container
 	);
@@ -115,8 +110,8 @@ test('renders with correct sidejobs', () => {
 			sidejob.organisation
 		);
 
-		expect(
-			getByTestId(container, 'profile-sidejob-position').textContent
-		).toBe(sidejob.position);
+		expect(getByTestId(container, 'profile-sidejob-position').textContent).toBe(
+			sidejob.position
+		);
 	}
 });

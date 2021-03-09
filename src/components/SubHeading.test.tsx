@@ -45,10 +45,7 @@ it('renders with a button', () => {
 
 	// when
 	act(() => {
-		render(
-			<SubHeading name={subheading} buttonAction={buttonAction} />,
-			container
-		);
+		render(<SubHeading name={subheading} buttonAction={buttonAction} />, container);
 	});
 
 	// then
@@ -69,9 +66,9 @@ it('renders with an icon', () => {
 
 	// then
 	if (container !== null) {
-		expect(
-			(getByTestId(container, 'subheading-icon') as HTMLImageElement).src
-		).toContain(`/assets/icon/${icon}`);
+		expect((getByTestId(container, 'subheading-icon') as HTMLImageElement).src).toContain(
+			`/assets/icon/${icon}`
+		);
 	}
 });
 
@@ -87,11 +84,7 @@ it('redirects to correct path', () => {
 	act(() => {
 		render(
 			<Router history={history}>
-				<SubHeading
-					name={subheading}
-					icon={icon}
-					buttonAction={actionUrl}
-				/>
+				<SubHeading name={subheading} icon={icon} buttonAction={actionUrl} />
 			</Router>,
 			container
 		);
