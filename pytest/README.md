@@ -1,5 +1,6 @@
 # E2E Testing <!-- omit in TOC -->
 
+- [Running tests](#running-tests)
 - [Platforms](#platforms)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
@@ -8,24 +9,56 @@
     - [Emulated](#emulated)
     - [Real Device](#real-device)
   - [iOS](#ios)
+- [Scanning Feature Tests](#scanning-feature-tests)
+  - [v4l2loopback (Fake Webcam)](#v4l2loopback-fake-webcam)
+  - [Video file as fake webcam](#video-file-as-fake-webcam)
+  - [Run only scan feature test inside VM against dev server on host machine](#run-only-scan-feature-test-inside-vm-against-dev-server-on-host-machine)
+
+## Running tests
+
+```bash
+cd pytest
+
+# Run all tests on local dev server
+pytest
+
+# Run specific tests
+# pytest <path_to_test_file> -k <test_name>
+pytest test/test_discover_screen.py -k 'test_scan_feature'
+
+# Run tests on specific platform(s)
+# pytest --platform=[platform(s)]
+pytest --platform=firefox,chrome,safari,ios,android
+
+# Run tests against url other than localhost
+# (e.g. when testing inside VM against server outside VM)
+pytest --url="https://192.168.178.87:3000"
+```
+
 
 ## Platforms
 
 ### Chrome
+
 Chrome tests can be run locally on any operating system. Simply download and install the chromedriver and selenium will autodiscover the driver.
 
 ### Firefox
+
 Firefox tests can be run locally on any operating system. Simply download and install the geckodriver and selenium will autodiscover the driver.
 
 ### Safari
+
 Safari tests can only be run on MacOS. The safari driver comes pre-installed so there should be no further configuration necessary. Currently, Safari does not support using fake devices for media streams, hence we cannot test for everything.
 
 ### Android
+
 #### Emulated
+
 Android tests can be run on any operating system. First download and install Android Studio and the latest Android SDK. You will also need to download selendroid
 
 #### Real Device
-The Android tests can also be run on a real Android device, once it's plugged in to your development machine via USB. 
+
+The Android tests can also be run on a real Android device, once it's plugged in to your development machine via USB.
 
 ### iOS
 iOS tests can only be run on MacOS. Download and Install Xcode to enable the iOS emulator. The emulator has the limitation that 
@@ -51,6 +84,10 @@ sudo apt-get install ffmpeg
 ffmpeg -stream_loop -1 -re -i ./test_scan_video.mp4 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2
 ```
 
+### Run only scan feature test inside VM against dev server on host machine
+```bash
+pytest test/test_discover_screen.py -k 'test_scan_feature' --platform=firefox --url="https://192.168.178.87:3000"
+```
 
 Adapted from:
 https://stackoverflow.com/questions/31859459/how-can-i-pass-a-fake-media-stream-to-firefox-from-command-line
