@@ -16,8 +16,8 @@ const NebenCard: React.FC<ContainerProps> = ({ neben }) => {
 	
 			<IonCard className = "neben-layout">
 				<IonCardHeader>
-					<IonCardTitle className="neben-minor">{neben.subtitle}</IonCardTitle>
-					<IonCardTitle className="neben-major">{neben.title}</IonCardTitle>
+					<IonCardTitle className="neben-minor" data-testid="profile-sidejob-position">{neben.subtitle}</IonCardTitle>
+					<IonCardTitle className="neben-major" data-testid="profile-sidejob-organisation">{neben.title}</IonCardTitle>
 				</IonCardHeader>
 			</IonCard>
 
