@@ -1,0 +1,86 @@
+@startuml CameraView Sequence Diagram
+skinparam BoxPadding 10
+title CamaraView Sequence Diagram
+
+actor User
+participant DiscoverScreen << (P, #A9DCDF) >>
+participant CameraView << (C, #ADD1B2) >>
+box "Camera Input"
+participant DeviceCamera
+participant CameraCanvas
+end box
+box "Face Detection"
+participant FeedbackCanvas
+participant TensorFlow
+end box
+box "OCR"
+participant Tesseract
+participant Fuse.js
+end box
+
+
+User -> DiscoverScreen : navigates to
+activate DiscoverScreen
+group Initialise Scanning
+DiscoverScreen -> CameraView : showCamera()
+activate CameraView
+CameraView -> DeviceCamera : getUserMedia()
+activate DeviceCamera
+CameraView <-- DeviceCamera : MediaStream
+
+CameraView -> CameraCanvas : initCameraCanvas()
+activate CameraCanvas
+CameraView -> FeedbackCanvas : initFeedbackCanvas()
+activate FeedbackCanvas
+CameraView -> TensorFlow : loadModel()
+activate TensorFlow
+
+end
+
+loop until candidate detected
+CameraView -> CameraCanvas : drawVideoOnCanvas()
+group Face Detection
+CameraView -> TensorFlow : detectFaces()
+
+CameraCanvas <-> TensorFlow : detectFacesFromCanvas()
+CameraView <-- TensorFlow: detectedFaces
+
+CameraView -> FeedbackCanvas : showDetections()
+User <- FeedbackCanvas : visualise detected faces
+end
+group Optical Character Recognition
+CameraView -> Tesseract : initialiseOCR()
+activate Tesseract
+Tesseract <-> CameraCanvas : detectCharacters()
+Tesseract -> CameraView : detectedCharacters
+
+CameraView -> Fuse.js : fuseSearchResults()
+activate Fuse.js
+
+
+CameraView <-- Fuse.js : detectedCandidate
+deactivate Fuse.js
+end
+
+
+group Show Detected candidate
+CameraView -> DiscoverScreen : showCandidatePopover()
+CameraView -> User : show detected candidate popover
+end
+end
+User -> DiscoverScreen : leaves
+
+group Stop Scanning
+DiscoverScreen -> CameraView : hideCameraView()
+deactivate DiscoverScreen
+CameraView -> TensorFlow !! : stopFaceDetection()
+CameraView -> Tesseract !! : stopOCR()
+CameraView -> CameraCanvas !!
+CameraView -> FeedbackCanvas !!
+CameraView -> DeviceCamera !! : stopCamera()
+deactivate CameraView
+
+end
+
+[<- User : navigate to\nCandidateProfile screen
+@enduml
