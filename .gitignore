@@ -24,3 +24,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# pytest stuff
+venv
+__pycache__
+.pytest_cache
+geckodriver.log
+
+# fake media stream
+pytest/test_scan_video.*
