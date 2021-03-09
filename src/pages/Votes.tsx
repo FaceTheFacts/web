@@ -19,15 +19,15 @@ import "./Votes.css";
 // Hardcoded votes until we connect to our API
 const votes = [
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "yes",
+		subtitle: 'Beschlussempfehlung',
+		title: 'Bundeswehreinsatz in Afghanistan',
+		candidateVote: 'yes',
 		chip: {
-			name: "Auswärtiges",
-			icon: "assets/icon/handshake-light.svg"
+			name: 'Verteidigung',
+			icon: 'assets/icon/shield-light.svg'
 		},
-		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
-		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
+		abstract: 'Beschlussempfehlung des auswärtigen Ausschusses zum Antrag der Regierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am Nato-geführten Einsatz. Support für die Ausbildung, Beratung und Unterstützung der afghanischen Verteidigung- und Sicherheitskräfte im Land.',
+		reason: 'Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.',
 		result: {
 			total: {
 				yes: 356,
@@ -37,7 +37,7 @@ const votes = [
 			},
 			partyResult: [
 				{
-					partyName:  "CDU/CSU",
+					partyName:  'CDU/CSU',
 					yes: 200,
 					no: 0,
 					abstain: 0,
@@ -48,27 +48,56 @@ const votes = [
 		},
 	},
 	{
-		subtitle: "Änderungsantrag",
-		title: "Kohleausstiegsgesetz",
-		candidateVote: "no",
+		subtitle: 'Beschlussempfehlung',
+		title: 'Geflüchtete aus Moria in Deutschland aufnehmen',
+		candidateVote: 'no',
 		chip: {
-			name: "",
-			icon: ""
+			name: 'Heimat',
+			icon: 'assets/icon/landmark-light.svg'
 		},
-		abstract: "",
-		reason: "",
+		abstract: 'Antrag der Fraktion DIE LINKE, die Geflüchteten aus dem EU-Hotspot Moria in Deutschland aufzunehmen und sich auf EU-Ebene für die Abschaffung von EU-Hotspots einzusetzen.',
+		reason: 'keine Begründung',
 		result: {
 			total: {
-				yes: 120,
-				no: 539,
-				abstain: 0,
-				none: 50,
+				yes: 59,
+				no: 476,
+				abstain: 61,
+				none: 113,
 			},
 			partyResult: [
 				{
-					partyName: "CDU/CSU",
+					partyName:  'CDU/CSU',
 					yes: 0,
-					no: 234,
+					no: 212,
+					abstain: 0,
+					none: 34,
+					partyTotal: 246
+				},
+			]
+		},
+	},
+	{
+		subtitle: '',
+		title: 'Finanzielle Entlastung für Kommunen',
+		candidateVote: 'yes',
+		chip: {
+			name: 'Finanzen',
+			icon: 'assets/icon/sack-dollar-light.svg'
+		},
+		abstract: 'Mit einer Änderung des Grundgesetzes beabsichtigen die Regierungsfraktionen CDU/CSU und SPD die stärkere finanzielle Entlastung der Kommunen während der COVID-19-Pandemie.',
+		reason: 'keine Begründung',
+		result: {
+			total: {
+				yes: 571,
+				no: 67,
+				abstain: 0,
+				none: 71,
+			},
+			partyResult: [
+				{
+					partyName:  'CDU/CSU',
+					yes: 234,
+					no: 0,
 					abstain: 0,
 					none: 12,
 					partyTotal: 246
@@ -77,64 +106,92 @@ const votes = [
 		},
 	},
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Corona-Konjunkturpaket",
-		candidateVote: "no",
+		subtitle: 'Gesetzesentwurf',
+		title: 'Verkleinerung des Bundestages',
+		candidateVote: 'no',
 		chip: {
-			name: "",
-			icon: ""
+			name: 'Justiz',
+			icon: 'assets/icon/balance-scale-left-light.svg'
 		},
-		abstract: "",
-		reason: "",
+		abstract: 'Gesetzesentwurf von Grünen, Linken und FDP, das Wahlrecht so zu verändern, dass ein weiteres Anwachsen der Abgeordnetenzahl im deutschen Bundestag bei der nächsten Bundestagswahl verhindert werde.',
+		reason: 'keine Begründung',
 		result: {
 			total: {
-				yes: 87,
-				no: 580,
-				abstain: 3,
-				none: 39,
+				yes: 261,
+				no: 367,
+				abstain: 7,
+				none: 74,
 			},
 			partyResult: [
 				{
-					partyName: "CDU/CSU",
+					partyName:  'CDU/CSU',
 					yes: 0,
-					no: 237,
+					no: 229,
 					abstain: 0,
-					none: 9,
+					none: 17,
 					partyTotal: 246
 				},
 			]
 		},
 	},
 	{
-		subtitle: "Beschlussempfehlung",
-		title: "Bundeswehreinsatz Libanon (UNIFIL)",
-		candidateVote: "none",
+		subtitle: 'Antrag',
+		title: 'Regelsatz der Grundsicherung erhöhen',
+		candidateVote: 'no',
 		chip: {
-			name: "",
-			icon: ""
+			name: 'Soziales',
+			icon: 'assets/icon/user-friends-light.svg'
 		},
-		abstract: "",
-		reason: "",
+		abstract: 'Mit ihrem Antrag fordert die Fraktion Bündnis 90/Die Grünen die Bundesregierung auf, den Regelsatz der Grundsicherung zu erhöhen, um Personen ärmerer Bevölkerungsschichten vor finanziellen Notlagen zu schützen.',
+		reason: 'keine Begründung',
 		result: {
 			total: {
-				yes: 515,
-				no: 149,
-				abstain: 4,
-				none: 41,
+				yes: 128,
+				no: 451,
+				abstain: 70,
+				none: 60,
 			},
 			partyResult: [
 				{
-					partyName: "CDU/CSU",
-					yes: 246,
-					no: 0,
+					partyName:  'CDU/CSU',
+					yes: 0,
+					no: 229,
 					abstain: 0,
-					none: 13,
-					partyTotal: 259
+					none: 17,
+					partyTotal: 246
 				},
 			]
 		},
 	},
-	
+	{
+		subtitle: 'Gesetzesentwürfe ',
+		title: 'Organspenden-Reform: Zustimmungslösung',
+		candidateVote: 'no',
+		chip: {
+			name: 'Gesundheit',
+			icon: 'assets/icon/heartbeat-light.svg'
+		},
+		abstract: 'Überfraktionell Gesetzesentwurf das Organspendemodell in Deutschland zu reformieren. Die Abgeordneten entscheiden über die Einführung einer Widerspruchslösung oder einer Zustimmungslösung.',
+		reason: 'keine Begründung',
+		result: {
+			total: {
+				yes: 432,
+				no: 200,
+				abstain: 37,
+				none: 40,
+			},
+			partyResult: [
+				{
+					partyName:  'CDU/CSU',
+					yes: 160,
+					no: 66,
+					abstain: 9,
+					none: 11,
+					partyTotal: 246
+				},
+			]
+		},
+	},
 ];
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
