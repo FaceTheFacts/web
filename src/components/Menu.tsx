@@ -21,6 +21,7 @@ import {
 	cameraSharp,
 } from 'ionicons/icons';
 import './Menu.css';
+import '../index.css';
 
 /* Interface is how types are defined in typescript. This should appear throughout the app and makes it typesafe */
 interface AppPage {

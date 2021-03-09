@@ -38,10 +38,14 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				<div className="profile-header">
 					<PoliticianProfile politician={candidate} />
 
-					{/* Here we include the Fab menu button */}
+				{/*	
+					Here we include the Fab menu button - DISABLED as part of redesign
+
 					<IonFab vertical="top" horizontal="end">
 						<MenuButton />
 					</IonFab>
+				*/}	
+				
 				</div>
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
@@ -79,7 +83,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				</div>
 
 				<div data-testid="profile-subheading-sidejobs">
-					<SubHeading name="Bekannte Nebentätigkeiten" icon="infobutton.svg" />
+					<SubHeading name="Bekannte Nebentätigkeiten"/>
 				</div>
 
 				<div className="last-grey-back">
