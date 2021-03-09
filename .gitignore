@@ -34,3 +34,13 @@ geckodriver.log
 
 # fake media stream
 pytest/test_scan_video.*
+
+
+#temp stuff
+public/assets/font/
+pytest/test_scan_video_iphone_x.mp4
+pytest/test_scan_video_iphone_x_large.mp4
+pytest/test_scan_video_large.mp4
+src/components/CameraView/CameraView.puml
+src/components/CameraView/Plan.md
+src/components/mediaDevices.mock.tsx

@@ -3,7 +3,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { getByTestId } from '@testing-library/react';
+import { getByTestId, getAllByTestId } from '@testing-library/react';
 // import { act } from "react-dom/test-utils";
 import 'jest-canvas-mock';
 
@@ -106,11 +106,11 @@ test('renders with correct sidejobs', () => {
 	);
 
 	if (container !== null) {
-		expect(getByTestId(container, 'profile-sidejob-organisation').textContent).toBe(
+		expect(getAllByTestId(container, 'profile-sidejob-organisation')[0].textContent).toBe(
 			sidejob.organisation
 		);
 
-		expect(getByTestId(container, 'profile-sidejob-position').textContent).toBe(
+		expect(getAllByTestId(container, 'profile-sidejob-position')[0].textContent).toBe(
 			sidejob.position
 		);
 	}

@@ -40,19 +40,17 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					<TopicFilter />
 				</div>
 				<div data-testid="votes-subheading-parties">
-					<SubHeading
-						name="Übereinstimmung mit anderen Fraktionen"
-					/>
+					<SubHeading name="Übereinstimmung mit anderen Fraktionen" />
 				</div>
 
 				{/* The PartyMatch component shows how the candidate's votes match with those of the political parties
 				Currently the name property is not being used, here we should at the least pass in 
 				the politician id so we can retrieve the match percentage from our api */}
-				<div className="grey-back-scroll">
+				<div className="grey-back-scroll" data-testid="votes-party-matches">
 					<PartyMatch parties={candidate.partyMatches} />
 				</div>
 
-				<div className="votes-title">
+				<div className="votes-title" data-testid="votes-subheading-votes">
 					<IonText>Abstimmungen</IonText>
 				</div>
 
