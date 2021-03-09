@@ -15,25 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  test:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Installs dependencies and runs tests
-      - name: Install Dependencies & Test 
-        run: |
-          npm ci
-          npm test
-        env:
-          CI: true
           
-  codecov:
+  unittests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -47,8 +30,26 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          #file: ./coverage/lcov-report # optional
-          #files: ./coverage1.xml,./coverage2.xml # optional
           flags: unittests # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
+          
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bradennapier/eslint-plus-action@v3.4.2
+        with:
+          issueSummaryType: full
+          extensions: .tsx
+          npmInstall: true
+      #- id: eslint
+      #- name: Run ESLint
+      #  run: |
+      #    # Install dependencies
+      #    npm ci
+      #    # Run eslint with max warnings of 0
+      #    npx eslint ./src --ext .tsx --max-warnings 0
+      #  env:
+      #    CI: true
+
