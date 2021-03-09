@@ -83,6 +83,7 @@ const politician = {
 	chips: ["CDU/CSU", "Mitglied des Bundestags"],
 	image:
 		"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
+	party: "CDU/CSU",
 };
 
 {
@@ -100,15 +101,35 @@ const votes = [
 	{
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "JA",
+		candidateVote: "yes",
+		chip: {
+			name: "Auswärtiges",
+			icon: "assets/icon/handshake-light.svg"
+		},
+		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
+		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
 		result: {
-			yes: 356,
-			no: 159,
-			abstain: 21,
-			none: 173,
+			total: {
+				yes: 356,
+				no: 159,
+				abstain: 21,
+				none: 173,
+			},
+			partyResult: [
+				{
+					partyName:  "CDU/CSU",
+					yes: 200,
+					no: 0,
+					abstain: 0,
+					none: 46,
+					partyTotal: 246
+				},
+			]
 		},
 	},
 ];
+
+
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC = () => {
@@ -127,6 +148,8 @@ const Profile: React.FC = () => {
 			</IonHeader>
 			{/* Here the content of our page starts */}
 			<IonContent>
+
+				
 				{/* ProfileImg component that holds all the images of the politicians. 
 				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 				to make our life easier when we add the profiles images of new politicians.
@@ -155,6 +178,7 @@ const Profile: React.FC = () => {
 					{votes.map((vote, index) => {
 						return <VoteCard vote={vote} key={index} />;
 					})}
+
 				</div>
 
 				{/* Pass name to Subheading to be in control of the sub heading text */}

@@ -21,25 +21,120 @@ const votes = [
 	{
 		subtitle: "Beschlussempfehlung",
 		title: "Bundeswehreinsatz in Afghanistan",
-		candidateVote: "JA",
+		candidateVote: "yes",
+		chip: {
+			name: "Auswärtiges",
+			icon: "assets/icon/handshake-light.svg"
+		},
+		abstract: "Beschlussempfehlung des Auswärtigen Ausschusses (3. Ausschuss) zum Antrag der Bundesregierung: Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte am NATO-geführten Einsatz Resolute Support für die Ausbildung, Beratung und Unterstützung der afghanischen nationalen Verteidigungs- und Sicherheitskräfte in Afghanistan.",
+		reason: "Dem Beschluss wird zugestimmt, da ein strategisches Interesse vorliegt. Zudem stärkt der Einsatz der Bundeswehr die Demokratie in der Region.",
 		result: {
-			yes: 356,
-			no: 159,
-			abstain: 21,
-			none: 173,
+			total: {
+				yes: 356,
+				no: 159,
+				abstain: 21,
+				none: 173,
+			},
+			partyResult: [
+				{
+					partyName:  "CDU/CSU",
+					yes: 200,
+					no: 0,
+					abstain: 0,
+					none: 46,
+					partyTotal: 246
+				},
+			]
 		},
 	},
 	{
 		subtitle: "Änderungsantrag",
 		title: "Kohleausstiegsgesetz",
-		candidateVote: "NEIN",
+		candidateVote: "no",
+		chip: {
+			name: "",
+			icon: ""
+		},
+		abstract: "",
+		reason: "",
 		result: {
-			yes: 120,
-			no: 539,
-			abstain: 0,
-			none: 50,
+			total: {
+				yes: 120,
+				no: 539,
+				abstain: 0,
+				none: 50,
+			},
+			partyResult: [
+				{
+					partyName: "CDU/CSU",
+					yes: 0,
+					no: 234,
+					abstain: 0,
+					none: 12,
+					partyTotal: 246
+				},
+			]
 		},
 	},
+	{
+		subtitle: "Beschlussempfehlung",
+		title: "Corona-Konjunkturpaket",
+		candidateVote: "no",
+		chip: {
+			name: "",
+			icon: ""
+		},
+		abstract: "",
+		reason: "",
+		result: {
+			total: {
+				yes: 87,
+				no: 580,
+				abstain: 3,
+				none: 39,
+			},
+			partyResult: [
+				{
+					partyName: "CDU/CSU",
+					yes: 0,
+					no: 237,
+					abstain: 0,
+					none: 9,
+					partyTotal: 246
+				},
+			]
+		},
+	},
+	{
+		subtitle: "Beschlussempfehlung",
+		title: "Bundeswehreinsatz Libanon (UNIFIL)",
+		candidateVote: "none",
+		chip: {
+			name: "",
+			icon: ""
+		},
+		abstract: "",
+		reason: "",
+		result: {
+			total: {
+				yes: 515,
+				no: 149,
+				abstain: 4,
+				none: 41,
+			},
+			partyResult: [
+				{
+					partyName: "CDU/CSU",
+					yes: 246,
+					no: 0,
+					abstain: 0,
+					none: 13,
+					partyTotal: 259
+				},
+			]
+		},
+	},
+	
 ];
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
