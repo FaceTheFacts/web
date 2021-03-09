@@ -1,6 +1,7 @@
 import React from 'react';
 import { IonButton, IonIcon } from '@ionic/react';
 import './TopicFilter.css';
+import '../index.css';
 
 /* Hard code filters until we load them from api */
 const topicFilters = {

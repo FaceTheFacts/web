@@ -1,5 +1,5 @@
 .party-matches {
-	background-color: #e3e3e3;
+	background-color: #1f1f1f;
 	width: 250%;
 	margin-bottom: 10px;
 }
@@ -9,6 +9,8 @@
 	text-align: center;
 	font-size: 19px;
 	font-weight: 700;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 
 .party-thumbnail {
@@ -27,4 +29,7 @@
 .party-match-row {
 	overflow-x: scroll;
 	white-space: nowrap;
+}
+.party-percentage {
+	color: #ffffff;
 }

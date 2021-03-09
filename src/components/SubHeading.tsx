@@ -3,6 +3,7 @@ import { IonButton, IonFabButton, IonFab } from '@ionic/react';
 import { useHistory } from 'react-router';
 import './SubHeading.css';
 import PropTypes from 'prop-types';
+import '../index.css';
 
 interface SubheadingProps {
 	icon?: string;

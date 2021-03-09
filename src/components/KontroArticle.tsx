@@ -2,6 +2,8 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardSubtitle } from '@ionic/react';
 import { ControversyArticle } from '../Types';
 import './KontroArticle.css';
+import '../index.css';
+
 interface ContainerProps {
 	article: ControversyArticle;
 }

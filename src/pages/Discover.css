@@ -7,7 +7,7 @@
 
 .camera-icon-background {
 	position: fixed;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(212, 212, 212, 0.5);
 	width: 130px;
 	height: 130px;
 	border-radius: 20px;
@@ -30,12 +30,23 @@
 .search-bar {
 	position: fixed;
 	top: 60%;
-	background-color: #d4d4d4;
+	background-color: rgba(212, 212, 212, 0.7);
 	margin-left: 5%;
 	margin-right: 5%;
 	width: 90%;
 	height: 50px;
 	border-radius: 10px;
+	padding-left: 18px !important;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: rgb(31, 31, 31);
+}
+.search-bar-icon {
+	position: fixed;
+	margin-left: 20px;
+	margin-right: 20px;
+	top: 55%;
 	padding-left: 18px !important;
 }
 

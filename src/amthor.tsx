@@ -13,6 +13,18 @@ export const amthor: Candidate = {
 			organisation: 'Sparkasse Uecker-Randow',
 			position: 'Mitglied des Verwaltungsrates',
 		},
+		{
+			organisation: 'Augustus Intelligence Inc.',
+			position: 'Board Member',
+		},
+		{
+			organisation: 'Landkreis Vorpommern-Greifswald',
+			position: 'Mitglied des Kreistages',
+		},
+		{
+			organisation: 'AMEOS Krankenhausgesellschaft Vorpommern',
+			position: 'Mitglied des Regionalbeirates',
+		},
 	],
 	polls: [
 		{
@@ -48,7 +60,7 @@ export const amthor: Candidate = {
 		},
 		{
 			subtitle: 'Beschlussempfehlung',
-			title: 'Geflüchtete aus Moria in Deutschland aufnehmen',
+			title: 'Geflüchtete aus Moria aufnehmen',
 			candidateVote: 'no' as 'yes' | 'no' | 'abstain' | 'none',
 			chip: {
 				name: 'Heimat',
@@ -77,7 +89,7 @@ export const amthor: Candidate = {
 			},
 		},
 		{
-			subtitle: '',
+			subtitle: 'Antrag',
 			title: 'Finanzielle Entlastung für Kommunen',
 			candidateVote: 'yes' as 'yes' | 'no' | 'abstain' | 'none',
 			chip: {
@@ -224,7 +236,7 @@ export const amthor: Candidate = {
 				{
 					label: 'Verfahren gegen Philipp Amthor eingestellt',
 					image: new URL(
-						'https://img.zeit.de/politik/deutschland/2020-07/philipp-amthor-staatsanwaltschaft-lobbyismus-bestechlichkeit-ermittlungen-eingestellt-bild/wide__820x461__desktop'
+						'https://images.derstandard.at/img/2020/07/22/amthor.jpg?w=750&s=02c71673'
 					),
 					url: new URL(
 						'https://www.zeit.de/politik/deutschland/2020-07/philipp-amthor-lobby-affaere-staatsanwaltschaft-bestechlichkeit-ermittlungen-eingestellt'

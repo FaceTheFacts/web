@@ -9,8 +9,8 @@ import { createWorker, createScheduler } from 'tesseract.js';
 import Fuse from 'fuse.js';
 import log from 'loglevel';
 
+import '../index.css';
 import './CameraView.css';
-
 import { amthor } from '../amthor';
 // import { CameraPreview } from '@ionic-native/camera-preview';
 

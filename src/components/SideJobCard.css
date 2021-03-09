@@ -5,6 +5,7 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	font-weight: 400;
+	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
 
@@ -15,7 +16,9 @@
 	letter-spacing: 0px;
 	line-height: 1;
 	font-weight: 600;
+	font-family: 'protipo', sans-serif;
 	font-style: normal;
+	margin-bottom: 5px;
 }
 
 .neben-layout {
@@ -25,4 +28,8 @@
 	border-radius: 10px;
 	margin-top: 10px;
 	position: relative;
+}
+
+.neben-position {
+	padding-top: 15px;
 }
