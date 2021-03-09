@@ -77,8 +77,8 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		const stream = await navigator.mediaDevices.getUserMedia({
 			video: {
 				facingMode: 'environment',
-				width: { exact: this.cameraOpts.width },
-				height: { exact: this.cameraOpts.height },
+				width: { ideal: this.cameraOpts.width },
+				height: { ideal: this.cameraOpts.height },
 			},
 			audio: false,
 		});
