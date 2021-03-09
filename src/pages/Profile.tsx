@@ -28,13 +28,11 @@ import SubHeadingInfo from "../components/SubHeadingInfo";
 import Menu from "../components/Menu";
 import PartyMatch from "../components/PartyMatch";
 import VoteCard from "../components/VoteCard";
-import ProfileImage from "../components/ProfileImage";
 import MenuButton from "../components/MenuButton";
-import ProfileChip from "../components/ProfileChip";
-import ProfileName from "../components/ProfileName";
 import NebenCard from "../components/NebenCard";
 import SubHeadingButtonInfo from "../components/SubHeadingButtonInfo";
 import KontroCard from "../components/KontroCard";
+import PoliticianProfile from "../components/PoliticianProfile";
 import "./Profile.css";
 
 // Hardcoded Kontroversen until we connect to our API
@@ -83,8 +81,13 @@ const kontros = [
 	},
 ];
 
-// Hardcoded chips until we connect to our API
-const chips = ["CDU/CSU", "Mitglied des Bundestags"];
+/*Hardcoded politician header for now*/
+const politician = {
+	name: "Philipp Amthor",
+	chips: ["CDU/CSU", "Mitglied des Bundestags"],
+	image:
+		"https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr",
+};
 
 {
 	/* Hardcoded for now until passed in from the API */
@@ -133,13 +136,8 @@ const Profile: React.FC = () => {
 				to make our life easier when we add the profiles images of new politicians.
 				The politicans name is included on the ProfileImg */}
 				<div className="profile-header">
-					{/* ProfileImage needs a gradient overlay added! */}
-					<ProfileImage name={name} />
-					<ProfileName name={name} />
-					{/* For each vote in votes, render a VoteCard component */}
-					{chips.map((chip, index) => {
-						return <ProfileChip chip={chip} key={index} />;
-					})}
+					<PoliticianProfile politician={politician} />
+
 					{/* Here we include the Fab menu button */}
 					<IonFab vertical="top" horizontal="end">
 						<MenuButton />
