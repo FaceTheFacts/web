@@ -7,6 +7,7 @@ import { BlazeFaceModel, load, NormalizedFace } from '@tensorflow-models/blazefa
 
 import { createWorker, createScheduler } from 'tesseract.js';
 import Fuse from 'fuse.js';
+import log from 'loglevel';
 
 import './CameraView.css';
 
