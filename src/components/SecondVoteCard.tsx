@@ -1,11 +1,10 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-
+import { StateList } from '../Types';
 import './SecondVoteCard.css';
 
 interface CandidateInfoProps {
-	candidateName: string;
-	electionChance: number;
+	secondVote: StateList;
 	rank: number;
 	// cardColor: 'clear' | 'faded';
 	setFixedPosition: number | undefined;
@@ -41,8 +40,7 @@ const lastCandidateHandler = (rank: number, lastCandidate: number): string => {
 };
 
 const SecondVoteCard: React.FC<CandidateInfoProps> = ({
-	candidateName,
-	electionChance,
+	secondVote,
 	rank,
 	setFixedPosition,
 	lastCandidate,
@@ -59,11 +57,11 @@ const SecondVoteCard: React.FC<CandidateInfoProps> = ({
 		>
 			<IonCardHeader className="secondvote-card-header">
 				<IonCardTitle className={['secondvote-card-name', cardColor].join(' ')}>
-					#{rank} {candidateName}
+					#{rank} {secondVote.name}
 				</IonCardTitle>
 				{setFixedPosition === rank ? (
 					<IonCardTitle className="secondvote-card-chance">
-						{electionChance}%
+						{secondVote.electionChance}%
 					</IonCardTitle>
 				) : null}
 			</IonCardHeader>

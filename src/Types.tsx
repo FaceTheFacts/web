@@ -29,6 +29,7 @@ export type Candidate = {
 	constituency: Constituency;
 	partyMatches: Array<PartyMatchType>;
 	electionResults: Array<Election>;
+	secondVote: Array<StateList>;
 };
 
 export type CoreVoteResult = {
@@ -67,6 +68,11 @@ export type Election = {
 	party: string;
 	percentage: number;
 	image: URL;
+};
+
+export type StateList = {
+	name: string;
+	electionChance: number;
 };
 
 export type Constituency = {

@@ -275,6 +275,56 @@ export const amthor: Candidate = {
 			),
 		},
 	],
+	secondVote: [
+		{
+			name: 'Thomas Racheal',
+			electionChance: 60.4,
+		},
+		{
+			name: 'Dr.Günter Krings',
+			electionChance: 50.4,
+		},
+		{
+			name: 'Hermann Gröhe',
+			electionChance: 30.4,
+		},
+		{
+			name: 'Oliver Wittke',
+			electionChance: 28.6,
+		},
+		{
+			name: 'Micheala Noll',
+			electionChance: 19.6,
+		},
+		{
+			name: 'Karl-Josef Laumann',
+			electionChance: 12.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		},
+		{
+			name: 'Elisabeth Winkelmeier-Becker',
+			electionChance: 9.4,
+		}		
+	],
 	controversies: [
 		{
 			label: 'Lobbyismus-Affäre',
