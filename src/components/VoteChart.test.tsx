@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-
-import TopicFilter from './TopicFilter';
-
+import VoteChart from './VoteChart';
+import { amthor } from '../amthor';
+import 'jest-canvas-mock';
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
@@ -21,13 +21,19 @@ afterEach(() => {
 	}
 });
 
-it('renders with all topic filters', () => {
+it('renders with chart canvas', () => {
+	// given data from amthor.tsx
+	const vote = amthor.polls[0];
+
+	// when
 	act(() => {
-		render(<TopicFilter />, container);
+		render(<VoteChart vote={vote} />, container);
 	});
+
+	// then
 	if (container !== null) {
-		expect(container.textContent).toBe(
-			'FinanzenHeimatAuswärtigesWirtschaft und EnergieJustizSozialesVerteidigungLandwirtschaftFamilieGesundheitInfrastrukturUmweltBildung/Forschung'
-		);
+		const canvas = container.getElementsByTagName('canvas')[0];
+		expect(canvas).toBeInTheDocument();
+		// expect(paths[0].getAttribute('stroke')).toBe(partyVote.colour)
 	}
 });
