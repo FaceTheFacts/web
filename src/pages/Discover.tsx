@@ -7,20 +7,27 @@ import {
 	IonPage,
 	IonIcon,
 	IonPopover,
-} from "@ionic/react";
-import { closeOutline } from "ionicons/icons";
-import React, { useState } from "react";
-import { useParams } from "react-router";
-import CameraView from "../components/CameraView";
-import DetectedCandidate from "../components/DetectedCandidate";
-import "./Discover.css";
-
-const Discover: React.FC = () => {
+} from '@ionic/react';
+import { closeOutline } from 'ionicons/icons';
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import CameraView from '../components/CameraView';
+import DetectedCandidate from '../components/DetectedCandidate';
+import './Discover.css';
+import {Candidate} from '../Types';
+interface DiscoverProps {
+	candidate: Candidate;
+	setCandidate: Function;
+}
+const Discover: React.FC<DiscoverProps> = ({
+	candidate,
+	setCandidate
+}) => {
 	const { name } = useParams<{ name: string }>();
 	const [text, setText] = useState<string>();
 	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
-	const [candidate, setCandidate] = useState<number>(0);
+	// const [candidate, setCandidate] = useState<number>(0);
 
 	// animation for the popover
 	/* const popoverAnimation = (baseEl: any) => {
@@ -78,7 +85,7 @@ const Discover: React.FC = () => {
 						<DetectedCandidate
 							setShowPopover={setShowPopover}
 							setShowCamera={setShowCamera}
-							candidateId={candidate}
+							candidate={candidate}
 						/>
 					</IonPopover>
 				</div>

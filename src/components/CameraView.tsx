@@ -14,6 +14,8 @@ import Fuse from 'fuse.js';
 
 import './CameraView.css';
 
+import {amthor} from '../amthor'
+
 interface CameraViewProps extends RouteComponentProps {
 	setShowPopover: Function;
 	setCandidate: Function;
@@ -304,7 +306,7 @@ class CameraView extends React.PureComponent<CameraViewProps> {
 		await this.fuseSearchResults(results)
 			.then((match) => {
 				log.debug(`Detected candidate ${match.query}`);
-				this.props.setCandidate(match.id);
+				this.props.setCandidate(amthor);
 				this.props.setShowPopover(true);
 			})
 			.catch((err) => {
