@@ -9,7 +9,7 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 import React from "react";
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import {
 	useCamera,
 	availableFeatures,
@@ -30,11 +30,9 @@ import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
 import CameraView from "../components/CameraView";
 
-
 class Scan extends React.PureComponent<RouteComponentProps> {
-
 	//name = useParams<{ name: string }>();
-	name = 'Scan'
+	name = "Scan";
 	/* photo = useCamera();
 	getPhoto = useCamera(); */
 
@@ -85,13 +83,12 @@ class Scan extends React.PureComponent<RouteComponentProps> {
 	};
 
 	state = {
-		showingCamera :false
+		showingCamera: false,
 	};
-	
 
 	showCamera = () => {
-		this.setState({showingCamera: true});
-	}
+		this.setState({ showingCamera: true });
+	};
 
 	render() {
 		return (
@@ -135,7 +132,7 @@ class Scan extends React.PureComponent<RouteComponentProps> {
 						Start Camera Preview
 					</IonButton>
 
-					{ this.state.showingCamera ? <CameraView /> : null }
+					{/* { this.state.showingCamera ? <CameraView /> : null } */}
 				</IonContent>
 			</IonPage>
 		);
