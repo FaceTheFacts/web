@@ -1,6 +1,7 @@
 import Menu from "./components/Menu";
 import Page from "./pages/Page";
-import Scan from "./pages/Scan";
+import Discover from "./pages/Discover";
+//import Scan from "./pages/Scan";
 import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import Votes from "./pages/Votes";
@@ -28,41 +29,40 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
-
-
 const App: React.FC = () => {
 	return (
 		<IonApp>
-				<IonReactRouter>
-					<IonSplitPane contentId="main">
-						{/* Include the side menu */}
-						<Menu />
-						<IonRouterOutlet id="main">
-							{/* Register each page with the router
+			<IonReactRouter>
+				<IonSplitPane contentId="main">
+					{/* Include the side menu */}
+					<Menu />
+					<IonRouterOutlet id="main">
+						{/* Register each page with the router
 							This works by defining a path and telling the router which component (page) to render for that path. */}
-							<Route path="/page/:name" component={Page} exact />
-							<Route path="/scan" component={Scan} exact />
-							<Route path="/search" component={Search} exact />
-							<Route
-								path="/politician/:id/profile"
-								component={Profile}
-								exact
-							/>
-							<Route
-								path="/politician/:id/votes"
-								component={Votes}
-								exact
-							/>
-							<Route
-								path="/politician/:id/votes/:id"
-								component={Votes}
-								exact
-							/>
-							{/* Redirect '/' to '/scan', since that will be our starting point */}
-							<Redirect from="/" to="/scan" exact />
-						</IonRouterOutlet>
-					</IonSplitPane>
-				</IonReactRouter>
+						<Route path="/page/:name" component={Page} exact />
+						<Route path="/discover" component={Discover} exact />
+						{/* <Route path="/scan" component={Scan} exact /> */}
+						<Route path="/search" component={Search} exact />
+						<Route
+							path="/politician/:id/profile"
+							component={Profile}
+							exact
+						/>
+						<Route
+							path="/politician/:id/votes"
+							component={Votes}
+							exact
+						/>
+						<Route
+							path="/politician/:id/votes/:id"
+							component={Votes}
+							exact
+						/>
+						{/* Redirect '/' to '/scan', since that will be our starting point */}
+						<Redirect from="/" to="/discover" exact />
+					</IonRouterOutlet>
+				</IonSplitPane>
+			</IonReactRouter>
 		</IonApp>
 	);
 };
