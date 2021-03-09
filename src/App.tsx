@@ -4,10 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Menu from './components/Menu';
-import Page from './pages/Page';
 import Discover from './pages/Discover';
-//import Scan from "./pages/Scan";
-import Search from './pages/Search';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
 
@@ -50,11 +47,11 @@ const App: React.FC = () => {
 					<Menu />
 					<IonRouterOutlet id="main">
 						{/* Register each page with the router
-							This works by defining a path and telling the router which component (page) to render for that path. */}
-						<Route path="/page/:name" component={Page} exact />
-						<Route path="/discover" component={Discover} exact />
-						{/* <Route path="/scan" component={Scan} exact /> */}
-						<Route path="/search" component={Search} exact />
+							This works by defining a path and telling the router which component
+							(page) to render for that path. */}
+						<Route path="/discover" exact >
+							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
+						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile
 								candidate={candidate as Candidate}
@@ -64,11 +61,6 @@ const App: React.FC = () => {
 							path="/politician/:id/votes"
 							exact
 						><Votes candidate={candidate}></Votes></Route>
-						<Route
-							path="/politician/:id/votes/:id"
-							component={Votes}
-							exact
-						/>
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>

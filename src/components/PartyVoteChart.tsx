@@ -1,25 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./VoteChart.css";
-import {
-	IonContent,
-	IonHeader,
-	IonPage,
-	IonTitle,
-	IonToolbar,
-	IonCard,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
-	IonCardContent,
-	IonItem,
-	IonIcon,
-	IonLabel,
-	IonButton,
-	ViewStacks,
-	useIonViewWillEnter,
-} from "@ionic/react";
 import { PieChart } from 'react-minimal-pie-chart';
-
+import {PartyVoteResult} from '../Types'
 
 
 
@@ -28,17 +10,9 @@ Register the ChartProps interface so we can pass properties to the component.
 To be more TypeScripty, we should create a vote type which we can reuse throughout the app.
 */
 interface ChartProps {
-	partyVote: voteResult;
+	partyVote: PartyVoteResult;
 }
 
-interface voteResult {
-	partyName: string,
-	yes: number,
-	no: number,
-	abstain: number,
-	none: number
-	partyTotal: string
-}
 
 const PartyVoteChart: React.FC<ChartProps> = ({ partyVote }) => {
 	console.log(partyVote)

@@ -11,6 +11,7 @@ import {
 import KontroArticle from "./KontroArticle";
 import "./KontroCard.css";
 import { imag } from "@tensorflow/tfjs-core";
+import { Controversy } from '../Types';
 
 interface Article {
 	image: string;
@@ -19,10 +20,7 @@ interface Article {
 	publisher: string;
 }
 interface ContainerProps {
-	kontro: {
-		label: string;
-		articles: Array<Article>;
-	};
+	kontro: Controversy;
 }
 
 const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
