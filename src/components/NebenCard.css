@@ -1,32 +1,28 @@
 .neben-minor {
-    overflow: visible;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0.3px;
-    line-height: 1.2;
-    font-weight: 400;
-    font-style: normal;
+	overflow: visible;
+	color: #000000;
+	font-size: 12px;
+	letter-spacing: 0.3px;
+	line-height: 1.2;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .neben-major {
-
-    overflow: visible;
-    color: #000000;
-    font-size: 16px;
-    letter-spacing: 0px;
-    line-height: 1;
-    font-weight: 600;
-    font-style: normal;
-    
-
+	overflow: visible;
+	color: #000000;
+	font-size: 16px;
+	letter-spacing: 0px;
+	line-height: 1;
+	font-weight: 600;
+	font-style: normal;
 }
 
-.neben-layout{
-    padding-top: 15px;
-    height: 65px;
-    overflow: hidden;
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-top: 10px;
-    position: relative;
+.neben-layout {
+	height: 65px;
+	overflow: hidden;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin-top: 10px;
+	position: relative;
 }

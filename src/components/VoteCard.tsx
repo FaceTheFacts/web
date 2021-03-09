@@ -17,26 +17,29 @@ interface ContainerProps {
 }
 
 const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
-
 	/* 
 	Dynamically create the className for the candidate's vote, so we have all the colours.
 	In VoteCard.css these correspond to vote-yes, vote-no, vote-abstain, and vote-none
 	*/
 	const candidateVoteClassName = `candidate-vote vote-${vote.candidateVote.toLowerCase()}`;
-	
+
 	return (
 		<div className="grey-background">
-				<IonCard>
+			<IonCard className="vote-card">
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 				It's inside a css grid so we can more easily arrange the items.
 				*/}
-				<IonCardHeader>
+				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
 							<IonCol size="8">
-								<IonCardSubtitle>{vote.subtitle}</IonCardSubtitle>
-								<IonCardTitle>{vote.title}</IonCardTitle>
+								<IonCardSubtitle className="vote-card-subtitle">
+									{vote.subtitle}
+								</IonCardSubtitle>
+								<IonCardTitle className="vote-card-title">
+									{vote.title}
+								</IonCardTitle>
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
@@ -48,10 +51,8 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 				</IonCardHeader>
 
 				<IonCardContent className="vote-card-content">
-
 					{/* We also use a grid here to more easily arrange the indivdual components. */}
 					<IonGrid>
-						
 						{/* Vote Result Chart */}
 						<IonRow>
 							<IonCol size="12">
@@ -75,18 +76,21 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }) => {
 							</IonCol>
 							<IonCol size="3">
 								<div className="vote-legend-circle vote-abstain"></div>
-								<span className="vote-legend-text">Enthalten</span>
+								<span className="vote-legend-text">
+									Enthalten
+								</span>
 							</IonCol>
 							<IonCol size="4">
 								<div className="vote-legend-circle vote-none"></div>
-								<span className="vote-legend-text">Nicht Abg.</span>
+								<span className="vote-legend-text">
+									Nicht Abg.
+								</span>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
 				</IonCardContent>
 			</IonCard>
 		</div>
-		
 	);
 };
 

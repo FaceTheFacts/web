@@ -35,7 +35,7 @@ const KontroCard: React.FC<ContainerProps> = ({ kontro }) => {
 	return (
 		<IonCard className={kontroClassName}>
 			<IonCardHeader
-				className="accordion"
+				className="accordion kontro-card-header"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				<IonCardTitle className="kontro-title">
