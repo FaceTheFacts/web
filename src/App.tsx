@@ -49,18 +49,15 @@ const App: React.FC = () => {
 						{/* Register each page with the router
 							This works by defining a path and telling the router which component
 							(page) to render for that path. */}
-						<Route path="/discover" exact >
+						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
 						<Route path="/politician/:id/profile" exact>
-							<Profile
-								candidate={candidate as Candidate}
-							></Profile>
+							<Profile candidate={candidate as Candidate}></Profile>
 						</Route>
-						<Route
-							path="/politician/:id/votes"
-							exact
-						><Votes candidate={candidate}></Votes></Route>
+						<Route path="/politician/:id/votes" exact>
+							<Votes candidate={candidate}></Votes>
+						</Route>
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>

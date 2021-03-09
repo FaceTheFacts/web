@@ -1,16 +1,16 @@
-import React from "react";
-import "./ExploreContainer.css";
+import React from 'react';
+import './ExploreContainer.css';
 
 interface ContainerProps {
 	name: string;
 }
 
-const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
+const ExploreContainer: React.FC<ContainerProps> = ({ name }: ContainerProps) => {
 	return (
 		<div className="container">
 			<strong>{name}</strong>
 			<p>
-				Explore{" "}
+				Explore{' '}
 				<a
 					target="_blank"
 					rel="noopener noreferrer"

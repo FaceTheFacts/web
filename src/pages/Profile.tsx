@@ -1,9 +1,4 @@
-import {
-	IonContent,
-	IonHeader,
-	IonPage,
-	IonFab,
-} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonFab } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
@@ -14,18 +9,14 @@ import SideJobCard from '../components/SideJobCard';
 import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
-import {Candidate} from '../Types'
-
+import { Candidate } from '../Types';
 
 interface ProfileProps {
 	candidate: Candidate;
 }
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Profile: React.FC<ProfileProps> = ({
-	candidate
-}) => {
-	
+const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
 
@@ -35,9 +26,8 @@ const Profile: React.FC<ProfileProps> = ({
 			{" "}
 			{/* Page Tag */}
 			<IonHeader>
-				{" "}
-				{/* Header Tag */}{" "}
-				{/* Toolbar tag, this is the title bar / top bar */}
+				{' '}
+				{/* Header Tag */} {/* Toolbar tag, this is the title bar / top bar */}
 			</IonHeader>
 			{/* Here the content of our page starts */}
 			<IonContent>
@@ -56,10 +46,7 @@ const Profile: React.FC<ProfileProps> = ({
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 
-				<div
-					className="subheading-button-underlay"
-					data-testid="profile-subheading-votes"
-				>
+				<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
@@ -73,8 +60,8 @@ const Profile: React.FC<ProfileProps> = ({
 					Only the first vote for now, until we display them horizontally
 					*/}
 					{candidate.polls.map((poll, index) => {
-						if (index === 0)
-						return <VoteCard vote={poll} key={index} />;
+						if (index === 0) return <VoteCard vote={poll} key={index} />;
+						else return null
 					})}
 				</div>
 
@@ -92,10 +79,7 @@ const Profile: React.FC<ProfileProps> = ({
 				</div>
 
 				<div data-testid="profile-subheading-sidejobs">
-					<SubHeading
-						name="Bekannte Nebentätigkeiten"
-						icon="infobutton.svg"
-					/>
+					<SubHeading name="Bekannte Nebentätigkeiten" icon="infobutton.svg" />
 				</div>
 
 				<div className="last-grey-back">
