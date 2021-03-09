@@ -1,41 +1,53 @@
-.imgContainer {
-	width: 700px;
-	height: 300px;
-	overflow: hidden;
-	margin: -20px 0 0 -120px;
-	position: relative;
-	z-index: 1;
+.header {
+	background-color: #2b2c36;
+	padding-top: 2vh;
+	padding-bottom: 1vh;
+	
 }
 
-.imgContainer:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 50%;
-	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+.politician-image {
+	height: 10vh;
+	max-width: 100%;
+    border: 0;
+    object-position: 45% 35%;
+    object-fit: cover;
+	border-radius: 50%;
+	visibility: visible;
 }
 
-.politician-details {
-	margin-left: 10px;
-	bottom: 80px;
-	font-size: 14px;
-	font-weight: 200;
+/* Have to use ion-card-title to overwrite inherited css from :host */
+.politician-name ion-card-title{
+	font-size: 20px;
+	font-weight: bold;
 	color: white;
-	background-color: #555555ab;
 	z-index: 2;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
+	padding-left: 5px;
 }
 
-.politician-name {
-	position: relative;
-	bottom: 80px;
-	left: 16px;
-	font-size: 32px;
-	font-weight: 600;
+.politician-age {
+	font-weight:100;
+	font-size: 15px;
+}
+
+.politician-job ion-card-subtitle{
+	font-size: 15px;
+	font-weight: 100;
 	color: white;
+	z-index: 2;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	padding-left: 5px;
+	/* to overwrite inherited capitalised text-transform from :host */
+	text-transform: none;
+}
+
+.politician-detail {
+	font-size: 12px;
+	font-weight: 200;
+	color: white;
+	background-color: rgba(255, 255, 255, 0.16);
 	z-index: 2;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
