@@ -13,7 +13,6 @@ For testing the scanning feature, point your device's camera at [this image](.gi
 ## Technologies
 
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/typescript?logo=typescript)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/ionic?logo=ionic)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/react?logo=react)
 
 The application is built using the [Ionic Framework](https://ionicframework.com/) on top of [React](https://reactjs.org/). The scanning feature utilises the WebRTC API to gain access to the device camera alongside the machine learning library Tensorflow with its Blazeface model for face detection and the optical character recognition engine Tesseract.js.
