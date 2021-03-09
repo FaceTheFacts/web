@@ -17,8 +17,10 @@ import {
 	IonMenuButton,
 	IonFab,
 	IonFabButton,
+	IonRouterOutlet,
 } from "@ionic/react";
 import React from "react";
+import { IonReactRouter } from "@ionic/react-router";
 import { pin, wifi, wine, warning, walk } from "ionicons/icons";
 import { useParams } from "react-router";
 import "./Page.css";
@@ -29,6 +31,7 @@ import MenuButton from "../components/MenuButton";
 import NebenCard from "../components/NebenCard";
 import KontroCard from "../components/KontroCard";
 import PoliticianProfile from "../components/PoliticianProfile";
+import Votes from "../pages/Votes";
 import "./Profile.css";
 
 // Hardcoded Kontroversen until we connect to our API
@@ -169,7 +172,7 @@ const Profile: React.FC = () => {
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
-						buttonAction="votes"
+						buttonAction="/politician/:id/votes"
 					/>
 				</div>
 
