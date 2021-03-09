@@ -49,10 +49,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote, firstCandidate }:
 										<img id="img" src={String(vote.image)}></img>
 									</div>
 								</IonCol>
-							: 
-								<IonCol size="0">
-									<p>IF</p>
-								</IonCol>}
+							: null}
 							<IonCol size="6">
 								<div id="center-column">
 								<IonCardTitle className="election-chances-card-title">
