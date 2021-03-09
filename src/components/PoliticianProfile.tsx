@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-	IonChip,
-} from '@ionic/react';
+import { IonChip } from '@ionic/react';
 import './PoliticianProfile.css';
-import {Candidate} from '../Types'
+import { Candidate } from '../Types';
 
 interface ContainerProps {
 	politician: Candidate;
@@ -13,7 +11,11 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 	return (
 		<div>
 			<div className="imgContainer">
-				<img src={String(politician.image)} alt={politician.name} data-testid="profile-img-url"></img>
+				<img
+					src={String(politician.image)}
+					alt={politician.name}
+					data-testid="profile-img-url"
+				></img>
 			</div>
 
 			<div className="politician-name" data-testid="profile-name">
@@ -30,6 +32,5 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 		</div>
 	);
 };
-
 
 export default PoliticianProfile;
