@@ -2,7 +2,7 @@ import { IonButtons, IonContent, IonPage, IonTabs, IonTabBar, IonTabButton, IonI
 import React from 'react';
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import StateListCard from '../components/StateListCard';
-/* import SegmentButtons from '../components/SegmentButtons'; */
+import SegmentButtons from '../components/SegmentButtons';
 import './ElectionChances.css';
 import { Candidate } from '../Types';
 
@@ -15,9 +15,9 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	const [firstTab, setFirstTab] = React.useState("");
 	const [firstCandidate, setFirstCandidate] = React.useState();
 	
-	/* function ShowFirstTab(segment) {
+	function ShowFirstTab(segment: any) {
 			setFirstTab(segment);
-	} */
+	}
 
 	const [tab, setTab] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 
@@ -26,7 +26,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 		<IonPage>
 			
 			{/* Here the content of our page starts */}
-				{/* <SegmentButtons /> */}
+				<SegmentButtons tab="0" setTab={ShowFirstTab}/>
 				
 				{/* {firstTab=='FirstVote' ?  */}
 					<div className="election-chances-title">
