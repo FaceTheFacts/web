@@ -22,7 +22,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 	/* This is returned when using this component */
 	return (
 		<IonPage>
-			{" "}
+			{' '}
 			{/* Page Tag */}
 			<IonHeader>
 				{' '}
