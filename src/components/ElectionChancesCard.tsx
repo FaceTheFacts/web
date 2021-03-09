@@ -32,7 +32,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote, firstCandidate }:
 	
 	Absolutely need to figure out how to use this datatype, currently it is different from string which causes problems
 	*/
-	// const voteString = vote.candidateVote;
+	const partyClassName = vote.party.toLowerCase().replace(/\s/g, '');
 
 	return (
 			<IonCard className={["election-chances-card", partyClassName].join(" ")}>
