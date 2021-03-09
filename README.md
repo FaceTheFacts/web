@@ -25,3 +25,24 @@ on iPhone you also need the `https` flag. You will have to ignore the certificat
 ```zsh
 ionic serve --https --external
 ```
+
+## Automated Tests
+
+We use a combination of testing frameworks to ensure functionality accross platforms and browsers
+
+### Unit Tests
+We use the jest testing framework. Run these tests with `npm test`
+
+### Integration Tests
+
+### E2E Tests
+We use selenium for browser autmation in conjunction with the pytest framework. To run these tests, `cd` into the `pytest` directory. If you've never run the tests you'll need to configure the virtual environment and install dependencies:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+After this initial setup you can run the whole test suite with the command `pytest`
+
+For more detailed information on supported platforms see [E2E Testing](./pytest/README.md)
