@@ -66,20 +66,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 						else return null;
 					})}
 				</div>
-
-				{/* Pass name to Subheading to be in control of the sub heading text */}
-
-				<div data-testid="profile-subheading-controversies">
-					<SubHeading name="Kontroversen" icon="infobutton.svg" />
-				</div>
-
-				<div className="grey-back">
-					{/* For each item in kontro, render a KontroCard component */}
-					{candidate.controversies.map((kontro, index) => {
-						return <KontroCard kontro={kontro} key={index} />;
-					})}
-				</div>
-
+				
 				<div data-testid="profile-subheading-sidejobs">
 					<SubHeading name="Bekannte Nebentätigkeiten" />
 				</div>
