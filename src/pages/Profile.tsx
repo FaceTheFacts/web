@@ -71,7 +71,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 					<SubHeading name="Bekannte Nebentätigkeiten" />
 				</div>
 
-				<div className="last-grey-back">
+				<div className="last-black-back">
 					{/* For each item in title, render a NebenCard component */}
 					{candidate.sideJobs.map((sideJob, index) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;
