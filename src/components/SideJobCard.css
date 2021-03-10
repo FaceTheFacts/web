@@ -1,4 +1,4 @@
-.neben-minor {
+.sideJob-minor {
 	overflow: visible;
 	color: #000000;
 	font-size: 12px;
@@ -9,7 +9,7 @@
 	font-style: normal;
 }
 
-.neben-major {
+.sideJob-major {
 	overflow: visible;
 	color: #000000;
 	font-size: 16px;
@@ -21,7 +21,7 @@
 	margin-bottom: 5px;
 }
 
-.neben-layout {
+.sideJob-layout {
 	height: 65px;
 	overflow: hidden;
 	background-color: #ffffff;
@@ -30,6 +30,6 @@
 	position: relative;
 }
 
-.neben-position {
+.sideJob-position {
 	padding-top: 15px;
 }
