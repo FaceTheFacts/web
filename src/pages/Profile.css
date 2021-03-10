@@ -5,7 +5,7 @@
 .subheading-button-underlay {
 	text-align: left;
 	height: 40px;
-	background-color: #1f1f1f;
+	background-color: #181924;
 	padding-top: 7px;
 }
 
@@ -22,15 +22,15 @@
 }
 
 .black-back {
-	overflow-x:auto;
-	background-color: #000000;
+	overflow-x: auto;
+	background-color: #181924;
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
 
 .last-black-back {
 	/* height:100%;//need calc */
-	background-color: #000000;
+	background-color: #181924;
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
