@@ -48,18 +48,17 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
 				{/* <div className="subheading-button-underlay" data-testid="profile-subheading-votes">
 				</div> */}
-
-
 				<div className="black-back">
 					<div className = "category-container">
 						<div className = "category-items">Kürzliche Abstimmungen</div>
 						<ArrowLinkButton linkTo= {`/politician/${id}/votes`} />
 					</div>
-					{candidate.polls.map((poll, index) => {
-						if (index === 0) return <VoteCard vote={poll} key={index} />;
-						else return null;
-					})}
-	
+					<div className ="profile-vote-card">
+						{candidate.polls.map((poll, index) => {
+							if (index === 0) return <VoteCard vote={poll} key={index} />;
+							else return null;
+						})}
+					</div>
 					<div className = "category-container">
 						<div className = "category-items">bezahlte Tätigkeiten</div>
 					</div>

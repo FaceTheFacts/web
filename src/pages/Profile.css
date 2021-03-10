@@ -2,13 +2,11 @@
 	max-height: 300px;
 }
 
-.subheading-button-underlay {
-	text-align: left;
-	height: 40px;
+.black-back {
 	background-color: #181924;
-	padding-top: 7px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
-
 .category-container {
 	display: flex;
 	align-items: center;
@@ -23,9 +21,6 @@
 	text-transform: uppercase;
 }
 
-.black-back {
+.profile-vote-card {
 	overflow-x: auto;
-	background-color: #181924;
-	padding-top: 6px;
-	padding-bottom: 6px;
 }
