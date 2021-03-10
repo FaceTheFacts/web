@@ -5,7 +5,6 @@ import './Page.css';
 import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
-import KontroCard from '../components/KontroCard';
 import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
 import { Candidate } from '../Types';
@@ -57,10 +56,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				</div>
 
 				<div className="black-back">
-					{/* 
-					For each vote in votes, render a VoteCard component 
-					Only the first vote for now, until we display them horizontally
-					*/}
 					{candidate.polls.map((poll, index) => {
 						if (index === 0) return <VoteCard vote={poll} key={index} />;
 						else return null;

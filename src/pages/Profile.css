@@ -22,6 +22,7 @@
 }
 
 .black-back {
+	overflow-x:auto;
 	background-color: #000000;
 	padding-top: 6px;
 	padding-bottom: 6px;
