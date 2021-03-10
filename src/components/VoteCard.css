@@ -31,22 +31,22 @@
 
 .vote-yes {
 	text-transform: uppercase;
-	background-color: #6FAD5A;
+	background-color: #6fad5a;
 }
 
 .vote-no {
 	text-transform: uppercase;
-	background-color: #D74769;
+	background-color: #d74769;
 }
 
 .vote-abstain {
 	text-transform: uppercase;
-	background-color: #3969F5;
+	background-color: #3969f5;
 }
 
 .vote-none {
 	text-transform: uppercase;
-	background-color: #C4C4C4;
+	background-color: #c4c4c4;
 }
 
 .vote-legend-circle {
@@ -75,7 +75,7 @@
 	margin-bottom: 10px;
 	width: 343px;
 	height: 121px;
-	background: #2B2C36;
+	background: #2b2c36;
 }
 .vote-card-header {
 	padding-top: 6px;
@@ -84,7 +84,7 @@
 	padding-right: 10px;
 }
 .vote-card-subtitle {
-	color:#ffffff;
+	color: #ffffff;
 	font-weight: normal;
 	font-size: 12px;
 	font-family: 'protipo', sans-serif;
@@ -93,7 +93,7 @@
 }
 
 .vote-card-title {
-	color:#ffffff;
+	color: #ffffff;
 	font-size: 14px;
 	height: 35px;
 	font-family: 'protipo', sans-serif;

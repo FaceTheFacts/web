@@ -9,11 +9,11 @@ import 'jest-canvas-mock';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import CameraView from './CameraView';
+
 //import { amthor } from '../amthor';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-import CameraView from './CameraView';
 
 let container: HTMLDivElement | null = null;
 
@@ -38,7 +38,7 @@ describe('integration test', () => {
 	it('renders with all components', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: [`/discover`],
+			initialEntries: ['/discover'],
 		});
 		const setShowPopover = jest.fn();
 		const setCandidate = jest.fn();
@@ -68,7 +68,7 @@ describe('integration test', () => {
 	test.skip('shows popover', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: [`/discover`],
+			initialEntries: ['/discover'],
 		});
 
 		const setCandidate = jest.fn();

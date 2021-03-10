@@ -39,7 +39,11 @@ const Tabs: React.FC<TabsProps> = ({ candidate }: TabsProps) => {
 					<IonTabButton className="tabbutton" tab="controversies">
 						<IonIcon icon={chatbubbles} />
 					</IonTabButton>
-					<IonTabButton className="tabbutton" tab="electionchances" href="electionchances">
+					<IonTabButton
+						className="tabbutton"
+						tab="electionchances"
+						href="electionchances"
+					>
 						<IonIcon icon={archive} />
 					</IonTabButton>
 				</IonTabBar>
