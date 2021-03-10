@@ -59,10 +59,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 						if (index === 0) return <VoteCard vote={poll} key={index} />;
 						else return null;
 					})}
-				</div>
-		
-
-				<div className="last-black-back">
+	
 					<div className = "category-container">
 						<div className = "category-items">bezahlte Tätigkeiten</div>
 					</div>
