@@ -2,12 +2,12 @@ import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
-import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
 import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
 import { Candidate } from '../Types';
+import ArrowLinkButton from '../components/ArrowLinkButton';
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -46,27 +46,26 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				</div>
 
 				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
+				{/* <div className="subheading-button-underlay" data-testid="profile-subheading-votes">
+				</div> */}
 
-				<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
-					<SubHeading
-						name="Abstimmungsverhalten >"
-						icon="infobutton.svg"
-						buttonAction={`/politician/${id}/votes`}
-					/>
-				</div>
 
 				<div className="black-back">
+					<div className = "category-container">
+						<div className = "category-items">Kürzliche Abstimmungen</div>
+						<ArrowLinkButton linkTo= {`/politician/${id}/votes`} />
+					</div>
 					{candidate.polls.map((poll, index) => {
 						if (index === 0) return <VoteCard vote={poll} key={index} />;
 						else return null;
 					})}
 				</div>
-				
-				<div data-testid="profile-subheading-sidejobs">
-					<SubHeading name="Bekannte Nebentätigkeiten" />
-				</div>
+		
 
 				<div className="last-black-back">
+					<div className = "category-container">
+						<div className = "category-items">bezahlte Tätigkeiten</div>
+					</div>
 					{/* For each item in title, render a NebenCard component */}
 					{candidate.sideJobs.map((sideJob, index) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;

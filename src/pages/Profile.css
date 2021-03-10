@@ -9,16 +9,18 @@
 	padding-top: 7px;
 }
 
-.grey-back {
-	background-color: #e3e3e3;
-	padding-top: 6px;
-	padding-bottom: 6px;
+.category-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #181924;
+	padding: 0px 19px;
 }
-
-.last-grey-back {
-	background-color: #e3e3e3;
-	padding-top: 5px;
-	padding-bottom: 30px;
+.category-items{
+	font-family: 'protipo' sans-serif;
+	color: #ffffff;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .black-back {
