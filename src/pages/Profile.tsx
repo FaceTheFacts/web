@@ -56,7 +56,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 					/>
 				</div>
 
-				<div className="grey-back">
+				<div className="black-back">
 					{/* 
 					For each vote in votes, render a VoteCard component 
 					Only the first vote for now, until we display them horizontally

@@ -20,3 +20,9 @@
 	padding-top: 5px;
 	padding-bottom: 30px;
 }
+
+.black-back {
+	background-color: #000000;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
