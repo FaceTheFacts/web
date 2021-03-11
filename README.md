@@ -34,6 +34,16 @@ npm install
 npm start
 ```
 
+### Git Hooks
+
+There are a series of Git Hooks defined in the `.githooks` directory. The following hooks are included:
+
+- pre-commit: Enforce branch naming convention
+- post-merge: Run npm install after change to `package.json`
+
+To enable the githooks on your machine, simply run `git config core.hooksPath .githooks && chmod -r +x .githooks`.
+This will configure your current git repo to use the hooks in `.githooks` and make the hooks executable.
+
 ## Automated Tests
 
 We use a combination of testing frameworks to ensure functionality accross platforms and browsers
