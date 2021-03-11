@@ -63,13 +63,13 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	}`;
 
 	const voteJudgeHandler = (): string => {
-		let judgement = 'abgelehnt'//rejected
-		if( vote.result.total.yes > +totalvotes/2) {
-			judgement = 'angenommen'//accepted
-			return judgement
+		let judgement = 'abgelehnt'; //rejected
+		if (vote.result.total.yes > +totalvotes / 2) {
+			judgement = 'angenommen'; //accepted
+			return judgement;
 		}
-		return judgement
-	}
+		return judgement;
+	};
 
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
@@ -80,7 +80,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 	// const voteString = vote.candidateVote;
 	const voteString = vote.candidateVote;
-	const judgeStatement = vote.subtitle +' '+ voteJudgeHandler();
+	const judgeStatement = vote.subtitle + ' ' + voteJudgeHandler();
 	return (
 		<div>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
