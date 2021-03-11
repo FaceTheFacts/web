@@ -62,6 +62,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.none
 	}`;
 
+	const voteJudgeHandler = (): string => {
+		let judgement = 'abgelehnt'//rejected
+		if( vote.result.total.yes > +totalvotes/2) {
+			judgement = 'angenommen'//accepted
+			return judgement
+		}
+		return judgement
+	}
+
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
 	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
@@ -71,7 +80,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 	// const voteString = vote.candidateVote;
 	const voteString = vote.candidateVote;
-
+	const judgeStatement = vote.subtitle +' '+ voteJudgeHandler();
 	return (
 		<div>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
@@ -89,12 +98,18 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								<IonCardTitle className="vote-card-title">
 									{vote.title}
 								</IonCardTitle>
+
 								{/* Vote Result will show here e.g., Antrag abgelehnt */}
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
 									{voteStrings[voteString]}
 								</div>
+							</IonCol>
+							<IonCol size="12">
+								<IonCardSubtitle className="vote-card-subtitle">
+									{judgeStatement}
+								</IonCardSubtitle>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
