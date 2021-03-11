@@ -13,11 +13,6 @@ interface ElectionchancesProps {
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
-	const [firstTab, setFirstTab] = React.useState('0');
-	
-	function ShowFirstTab(segment: any) {
-			setFirstTab(segment);
-	}
 
 	const [tab, setTab] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 /* Second Vote Code */
@@ -100,12 +95,13 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 		<IonPage className="black-back">
 			{/* Here the content of our page starts */}
 				<PoliticianProfile politician={candidate} />
-				<SegmentButtons tab="0" setTab={ShowFirstTab}/>
+				<SegmentButtons tab={tab} setTab={setTab}/>
 				
-				{firstTab=='0' ? 
+				{tab=='0' ? 
 					<div className="election-chances-title">
 						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
 					</div>
+					
 				:
 					<div className="election-chances-title">
 						
@@ -119,7 +115,7 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 				}
 							
            
-				{firstTab=="0" ?
+				{tab=="0" ?
 					<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
 					: null
 					}
