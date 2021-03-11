@@ -97,16 +97,16 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 
 	/* This is returned when using this component */
 	return (
-		<IonPage>
+		<IonPage className="black-back">
 			{/* Here the content of our page starts */}
 				<PoliticianProfile politician={candidate} />
 				<SegmentButtons tab="0" setTab={ShowFirstTab}/>
 				
-				{/* {firstTab=='FirstVote' ?  */}
+				{firstTab=='0' ? 
 					<div className="election-chances-title">
 						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
 					</div>
-				{/* :
+				:
 					<div className="election-chances-title">
 						
 					<IonCardSubtitle>Wie funktioniert die Zweitstimme?</IonCardSubtitle>
@@ -116,11 +116,10 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 					<IonCardSubtitle>Landesliste</IonCardSubtitle>
 					<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
 					</div>
-					} */}
-						<IonContent>
-			<div className="black-back">		
+				}
+							
            
-					{firstTab=="0" ?
+				{firstTab=="0" ?
 					<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
 					: null
 					}
