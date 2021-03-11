@@ -105,15 +105,27 @@
 	background-color: #181924;
 }
 
-.election-chances-card:first-child {
-	margin-top: 0px;
+.blue-back {
+	background-color: #181924;
+}
+
+.black-back > .election-chances-card:first-of-type {
 	margin-bottom: 5%;
-    height: 10%;
+    height: 13%;
 	border: 1px white solid;
 	
 }
 
-.election-chances-card:first-child #img{
+.black-back > .election-chances-card:first-of-type .election-chances-card-title{
+	padding-top: 10px;
+	
+}
+
+.election-chances-card > .center-column:first-of-type > .election-chances-card-title {
+	padding-top: 1 rem;
+}
+
+.election-chances-card:first-of-type #img{
 	height: 70px;
 	max-width: 100%;
     border: 0;
@@ -123,9 +135,7 @@
 	visibility: visible;
 }
 
-.election-chances-card:first-child .election-chances-card-title {
-	color: white;
-}
+
 
 
 .election-chances-card-title {
