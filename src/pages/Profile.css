@@ -21,6 +21,6 @@
 	text-transform: uppercase;
 }
 
-.profile-vote-card {
+.horizontal-scroll {
 	overflow-x: auto;
 }

@@ -8,6 +8,7 @@ import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
 import { Candidate } from '../Types';
 import ArrowLinkButton from '../components/ArrowLinkButton';
+import TopicFilter from '../components/TopicFilter';
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -50,10 +51,17 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				</div> */}
 				<div className="black-back">
 					<div className = "category-container">
+						<div className = "category-items">Politische Schwerpunkte</div>
+					</div>
+					<div className ="horizontal-scroll">
+						<TopicFilter />
+					</div>
+
+					<div className = "category-container">
 						<div className = "category-items">Kürzliche Abstimmungen</div>
 						<ArrowLinkButton linkTo= {`/politician/${id}/votes`} />
 					</div>
-					<div className ="profile-vote-card">
+					<div className ="horizontal-scroll">
 						{candidate.polls.map((poll, index) => {
 							if (index === 0) return <VoteCard vote={poll} key={index} />;
 							else return null;
