@@ -3,6 +3,7 @@
 We are happy to see your interest in conteributing to the project.
 
 ## Contents <!-- omit in TOC -->
+
 - [Issues](#issues)
   - [Labels](#labels)
 - [Branches](#branches)
@@ -43,6 +44,7 @@ If you want to work on something that is not yet reflected in an issue, please c
 - invalid
 - question
 - wontfix
+
 ## Branches
 
 To easily identify branches, we encourage you to use the following branch naming convention. Start with the category (outlined below), followed by the issue number (if available), and finally a descriptive name for the branch.
@@ -151,7 +153,7 @@ git push origin feature-branch
 
 After you have developed your contribution, it is time to create a pull request. Pull requests follow a similar naming scheme to branches, only with different formatting and the omission of the issue number (the pull request will be linked to the issue directly). In addition to the category, please include the area you worked on in the pull request title as well. The areas are separated into the different screens and components used. When working on a whole screen, the screen name as outlined below suffices, when your work is concentrated on a specific part of this screen, please use the part names as outlined below.
 
-Example pull request titles: 
+Example pull request titles:
 
 - `[Feature] Controversies: Random Spotlight`
 - `[Bug] Scan: Merkel scanned as Amthor`
