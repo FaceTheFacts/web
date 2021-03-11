@@ -47,9 +47,9 @@ If you want to work on something that is not yet reflected in an issue, please c
 
 ## Branches
 
-To easily identify branches, we encourage you to use the following branch naming convention. Start with the category (outlined below), followed by the issue number (if available), and finally a descriptive name for the branch.
+To easily identify branches, we encourage you to use the following branch naming convention. Start with the category (outlined below), if available, add an area, followed by a descriptive name for the branch, and finally the issue number (if available).
 
-`issue_number/category/branch_name`
+`category/[area/]label[-#issue_number]`
 
 These are the categories.
 
@@ -59,19 +59,19 @@ These are the categories.
 
 Used for new features, that do not exist yet.
 
-`123/feature/user-login`
+`feature/user-login-#123`
 
 #### Bug fix branches
 
 Used for bugs that will be fixed in an upcoming release.
 
-`1342/bugfix/picture-not-displayed`
+`bugfix/picture-not-displayed-#1342`
 
 #### Hot fix branches
 
 Used for bugs that need to be fixed immediately and cannot wait until next release.
 
-`1523/hotfix//login-issue`
+`hotfix//login-issue-#1523`
 
 #### Documentation
 
