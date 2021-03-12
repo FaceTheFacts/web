@@ -98,12 +98,17 @@
 	font-weight: 400;
 	font-size: 12px;
 	font-family: 'protipo', sans-serif;
+	margin-top: 6px;
+	padding-top: 0px;
+	box-sizing: border-box;
 }
 
 .vote-card-title {
 	color: #ffffff;
 	font-size: 14px;
 	height: 35px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
