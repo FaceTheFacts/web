@@ -8,7 +8,7 @@ import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
 import { Candidate } from '../Types';
 import ArrowLinkButton from '../components/ArrowLinkButton';
-import TopicFilter from '../components/TopicFilter';
+import TopicCard from '../components/TopicCard';
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -54,7 +54,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 						<div className="category-items">Politische Schwerpunkte</div>
 					</div>
 					<div className="horizontal-scroll">
-						<TopicFilter />
+						{/* <TopicFilter /> */}
+						<TopicCard />
 					</div>
 
 					<div className="category-container">
