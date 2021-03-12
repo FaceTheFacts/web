@@ -87,11 +87,17 @@
 }
 .vote-card-subtitle {
 	color: #ffffff;
-	font-weight: normal;
+	font-weight: 400;
 	font-size: 12px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	text-transform: capitalize;
+}
+.judgement {
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
 }
 
 .vote-card-title {

@@ -107,9 +107,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								</div>
 							</IonCol>
 							<IonCol size="12">
-								<IonCardSubtitle className="vote-card-subtitle">
-									{judgeStatement}
-								</IonCardSubtitle>
+								{/* <IonCardSubtitle className="vote-card-subtitle"> */}
+								{/* </IonCardSubtitle> */}
+								<div className="judgement">{judgeStatement}</div>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
