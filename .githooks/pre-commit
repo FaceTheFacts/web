@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 LC_ALL=C
 
+# Branch naming convention
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 valid_branch_regex="^(feature|bugfix|improvement|release|hotfix|wip|exp)(\/[a-z0-9._-]+)*\/[a-z0-9._-]+(-#[0-9]+){0,1}$"
@@ -15,3 +16,15 @@ then
     echo "$message"
     exit 1
 fi
+
+# Prettier
+# FILES=$(git diff --cached --name-only --diff-filter=ACMR "*.js" "*.jsx" | sed 's| |\\ |g')
+# [ -z "$FILES" ] && exit 0
+
+# # Prettify all selected files
+# echo "$FILES" | xargs ./node_modules/.bin/prettier --config .prettierrc.json --write
+
+# # Add back the modified/prettified files to staging
+# echo "$FILES" | xargs git add
+
+# exit 0
