@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Menu from './components/Menu';
-import Tabs from './components/Tabs';
+import ElectionChances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
@@ -33,6 +33,7 @@ import { Candidate } from './Types';
 
 /* Hardcoded Amthor */
 import { amthor } from './amthor';
+import Electionchances from './pages/ElectionChances';
 
 const politician: Candidate = amthor;
 
@@ -53,8 +54,8 @@ const App: React.FC = () => {
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
-						<Route path="/candidate">
-							<Tabs candidate={candidate as Candidate} />
+						<Route path="/politician/:id/election">
+							<Electionchances candidate={candidate as Candidate} />
 						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>

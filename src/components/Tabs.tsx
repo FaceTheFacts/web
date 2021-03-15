@@ -1,11 +1,6 @@
-import { IonRouterOutlet, IonTabs, IonTabBar, IonTabButton, IonIcon } from '@ionic/react';
+import { IonButton } from '@ionic/react';
 import React from 'react';
-import { Route } from 'react-router';
 import { Candidate } from '../Types';
-import { person, home, chatbubbles, archive } from 'ionicons/icons';
-import Votes from '../pages/Votes';
-import Electionchances from '../pages/ElectionChances';
-import Profile from '../pages/Profile';
 import './Tabs.css';
 
 interface TabsProps {

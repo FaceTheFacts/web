@@ -4,8 +4,9 @@ import ElectionchancesCard from '../components/ElectionChancesCard';
 import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
 import PoliticianProfile from '../components/PoliticianProfile'
+import Tabs from '../components/Tabs'
 import './ElectionChances.css';
-import { Candidate, StateList } from '../Types';
+import { Candidate } from '../Types';
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -95,6 +96,7 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 		<IonPage className="black-back">
 			{/* Here the content of our page starts */}
 				<PoliticianProfile politician={candidate} />
+				<Tabs candidate={candidate}></Tabs>
 				<SegmentButtons tab={tab} setTab={setTab}/>
 				
 				{tab=='0' ? 
