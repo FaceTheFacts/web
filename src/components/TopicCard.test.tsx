@@ -26,8 +26,6 @@ it('renders with all topic cards', () => {
 		render(<TopicCard />, container);
 	});
 	if (container !== null) {
-		expect(container.textContent).toBe(
-			'FinanzenSozialesVerteidigung'
-		);
+		expect(container.textContent).toBe('FinanzenSozialesVerteidigung');
 	}
 });

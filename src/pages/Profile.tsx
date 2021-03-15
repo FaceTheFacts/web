@@ -40,14 +40,18 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 
 				<div className="black-back">
 					<div className="category-container">
-						<div className="category-items" data-testid="candidate-priorities">Politische Schwerpunkte</div>
+						<div className="category-items" data-testid="candidate-priorities">
+							Politische Schwerpunkte
+						</div>
 					</div>
 					<div className="horizontal-scroll">
 						<TopicCard />
 					</div>
 
 					<div className="category-container">
-						<div className="category-items" data-testid="candidate-recent-votes">Kürzliche Abstimmungen</div>
+						<div className="category-items" data-testid="candidate-recent-votes">
+							Kürzliche Abstimmungen
+						</div>
 						<ArrowLinkButton linkTo={`/politician/${id}/votes`} />
 					</div>
 
@@ -62,7 +66,9 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 					</ul>
 
 					<div className="category-container">
-						<div className="category-items" data-testid = "candidate-activities">Bezahlte Tätigkeiten</div>
+						<div className="category-items" data-testid="candidate-activities">
+							Bezahlte Tätigkeiten
+						</div>
 					</div>
 					{/* For each item in title, render a NebenCard component */}
 					{candidate.sideJobs.map((sideJob, index) => {

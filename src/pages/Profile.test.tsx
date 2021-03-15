@@ -44,9 +44,9 @@ test('renders with correct profile header', () => {
 		</Router>,
 		container
 	);
-
+	const profileName = `${candidate.name} 29`;
 	if (container !== null) {
-		expect(getByTestId(container, 'profile-name').textContent).toBe(candidate.name+" "+"29");
+		expect(getByTestId(container, 'profile-name').textContent).toBe(profileName);
 
 		expect(getByTestId(container, 'profile-img-url').getAttribute('src')).toBe(
 			String(candidate.image)
@@ -66,9 +66,15 @@ test('renders with the correct titles', () => {
 	);
 
 	if (container !== null) {
-		expect(getByTestId(container, 'candidate-priorities').textContent).toBe("Politische Schwerpunkte"); 
-		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe("Kürzliche Abstimmungen"); 
-		expect(getByTestId(container, 'candidate-activities').textContent).toBe("Bezahlte Tätigkeiten"); 
+		expect(getByTestId(container, 'candidate-priorities').textContent).toBe(
+			'Politische Schwerpunkte'
+		);
+		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe(
+			'Kürzliche Abstimmungen'
+		);
+		expect(getByTestId(container, 'candidate-activities').textContent).toBe(
+			'Bezahlte Tätigkeiten'
+		);
 	}
 });
 
@@ -82,24 +88,20 @@ test('renders with the correct vote card', () => {
 		</Router>,
 		container
 	);
-	const poll = candidate.polls[0]
-
+	const poll = candidate.polls[0];
+	const pollResult = `${poll.subtitle} angenommen`;
 	if (container !== null) {
-		expect(getAllByTestId(container, 'vote-card-subtitle')[0].textContent).toBe(
-			poll.subtitle
-		);
-		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(
-			poll.subtitle + " " + "angenommen"
-		);
+		expect(getAllByTestId(container, 'vote-card-subtitle')[0].textContent).toBe(poll.subtitle);
+		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(pollResult);
 	}
-})
+});
 
 test('renders with the correct topic card', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
 	// we will also have to mock the API responses
 
-	const cardTitle = "Finanzen"
+	const cardTitle = 'Finanzen';
 
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
@@ -112,9 +114,7 @@ test('renders with the correct topic card', () => {
 	);
 
 	if (container !== null) {
-		expect(getAllByTestId(container, 'topic-name')[0].textContent).toBe(
-			cardTitle
-		);
+		expect(getAllByTestId(container, 'topic-name')[0].textContent).toBe(cardTitle);
 	}
 });
 test('renders with correct sidejobs', () => {
