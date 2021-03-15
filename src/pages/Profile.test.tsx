@@ -54,6 +54,25 @@ test('renders with correct profile header', () => {
 	}
 });
 
+test('renders with the correct titles', () => {
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile candidate={candidate} />
+		</Router>,
+		container
+	);
+
+	if (container !== null) {
+		expect(getByTestId(container, 'candidate-priorities').textContent).toBe("Politische Schwerpunkte"); 
+		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe("Kürzliche Abstimmungen"); 
+		expect(getByTestId(container, 'candidate-activities').textContent).toBe("Bezahlte Tätigkeiten"); 
+
+	}
+})
+
 test('renders with correct sidejobs', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
