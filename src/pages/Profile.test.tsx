@@ -70,9 +70,31 @@ test('renders with the correct titles', () => {
 		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe("Kürzliche Abstimmungen"); 
 		expect(getByTestId(container, 'candidate-activities').textContent).toBe("Bezahlte Tätigkeiten"); 
 	}
+});
+
+test('renders with the correct vote card', () => {
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile candidate={candidate} />
+		</Router>,
+		container
+	);
+	const poll = candidate.polls[0]
+
+	if (container !== null) {
+		expect(getAllByTestId(container, 'vote-card-subtitle')[0].textContent).toBe(
+			poll.subtitle
+		);
+		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(
+			poll.subtitle + " " + "angenommen"
+		);
+	}
 })
 
-test('renders with correct topic card', () => {
+test('renders with the correct topic card', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
 	// we will also have to mock the API responses
