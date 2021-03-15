@@ -4,7 +4,13 @@ import { useParams } from 'react-router';
 import './Page.css';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
+<<<<<<< HEAD
 import PoliticianProfile from '../components/PoliticianProfile';
+=======
+import KontroCard from '../components/KontroCard';
+import Tabs from '../components/Tabs';
+import PoliticianProfile from '../components/PoliticianProfile'
+>>>>>>> Add styling for Tabs
 import './Profile.css';
 import { Candidate } from '../Types';
 import ArrowLinkButton from '../components/ArrowLinkButton';
@@ -29,7 +35,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				{/* Header Tag */} {/* Toolbar tag, this is the title bar / top bar */}
 			</IonHeader>
 			{/* Here the content of our page starts */}
-			<IonContent>
+			
 				{/* ProfileImg component that holds all the images of the politicians. 
 				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 				to make our life easier when we add the profiles images of new politicians.

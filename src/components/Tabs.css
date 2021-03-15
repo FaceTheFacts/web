@@ -1,7 +1,16 @@
 .tabbar {
-	--background: #181924;
+	background: #181924;
 }
 
-.tabbutton {
-	--color-selected: white;
+.tabs {
+	--background: #181924;
+	--background-activated: #181924;
+	--color: rgba(255,255,255, 0.3);
+	--color-activated: white;
+	font-size: 15px;
 }
+
+.activated {
+	border-bottom: 2px solid white;
+	--color: white;
+};
