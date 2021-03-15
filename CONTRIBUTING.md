@@ -1,175 +1,68 @@
-# Contributing <!-- omit in TOC -->
+# Contributing to Face the Facts <!-- omit in TOC -->
 
-We are happy to see your interest in conteributing to the project.
+Thank you for your interest in contributing to Face the Facts! We welcome all people who want to contribute in a healthy and constructive manner within our community. To help us create a safe and positive community experience for all, we require all participants to adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+This document is a guide to help you through the process of contributing to Face the Facts.
 
 ## Contents <!-- omit in TOC -->
 
-- [Issues](#issues)
-  - [Labels](#labels)
-- [Branches](#branches)
-  - [Temporary branches](#temporary-branches)
-    - [Feature branches](#feature-branches)
-    - [Bug fix branches](#bug-fix-branches)
-    - [Hot fix branches](#hot-fix-branches)
-    - [Documentation](#documentation)
-    - [Experimental](#experimental)
-    - [Work in progress](#work-in-progress)
-  - [Stable branches](#stable-branches)
-    - [Develop](#develop)
-    - [Main](#main)
-    - [Release](#release)
-- [Pull Requests](#pull-requests)
-  - [Preparing your branch](#preparing-your-branch)
-    - [Linting and Style Guides](#linting-and-style-guides)
-    - [Merging a feature branch back into develop after completion](#merging-a-feature-branch-back-into-develop-after-completion)
-  - [Areas](#areas)
+- [Become a Contributor](#become-a-contributor)
+- [Report bugs](#report-bugs)
+  - [Security issues](#security-issues)
+- [Suggest enhancements](#suggest-enhancements)
+- [Triage issues](#triage-issues)
+- [Your first contribution](#your-first-contribution)
+- [Where do I go from here?](#where-do-i-go-from-here)
 
-## Issues
+## Become a Contributor
 
-All development is tracked through GitHub issues in the repository.
+You can contribute to Face the Facts in several ways. Here are some examples:
 
-If this is your first contribution, we encourage you to choose an issue with the `good first issue` label.
+- Contribute to the Face the Facts codebase.
+- Report and triage bugs.
+- Write technical documentation and blog posts, for users and contributors.
+- For more ways to contribute, check out the [Open Source Guides](https://opensource.guide/how-to-contribute/).
 
-If you want to work on something that is not yet reflected in an issue, please create one first to discuss the idea with the community. Add as many of the labels below as you see fit.
+## Report bugs
 
-### Labels
+Before submitting a new issue, try to make sure someone hasn't already reported the problem. Look through the [existing issues](https://github.com/FaceTheFacts/web/issues) for similar issues.
 
-- bug
-- dependencies
-- documentation
-- duplicate
-- enhancement
-- good first issue
-- help wanted
-- invalid
-- question
-- wontfix
+Report a bug by submitting a [bug report](https://github.com/FaceTheFacts/web/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBug%5D+Area%3A+Description). Make sure that you provide as much information as possible on how to reproduce the bug.
 
-## Branches
+Follow the issue template and add additional information that will help us replicate the problem.
 
-To easily identify branches, we encourage you to use the following branch naming convention. Start with the category (outlined below), if available, add an area, followed by a descriptive name for the branch, and finally the issue number (if available).
+### Security issues
 
-`category/[area/]label[-#issue_number]`
+If you believe you've found a security vulnerability, please read our [security policy](/FaceTheFacts/web/security/policy) for more details.
 
-These are the categories.
+## Suggest enhancements
 
-### Temporary branches
+If you have an idea of how to improve Face the Facts, submit an [enhancement request](https://github.com/FaceTheFacts/web/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFeature%5D+Area%3A+Description).
 
-#### Feature branches
+We want to make Face the Facts accessible to even more people. Submit an [accessibility issue]() to help us understand what we can improve.
 
-Used for new features, that do not exist yet.
+## Triage issues
 
-`feature/user-login-#123`
+If you don't have the knowledge or time to code, consider helping with issue triage. The community will thank you for saving them time by spending some of yours.
 
-#### Bug fix branches
+Read more about the ways you can [Triage issues](https://github.com/FaceTheFacts/web/wiki/Issue-Triage).
 
-Used for bugs that will be fixed in an upcoming release.
+## Your first contribution
 
-`bugfix/picture-not-displayed-#1342`
+Unsure where to begin contributing to Grafana? Start by browsing issues labeled beginner friendly or help wanted.
 
-#### Hot fix branches
+[Good first issue](https://github.com/FaceTheFacts/web/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) issues are generally straightforward to complete.
 
-Used for bugs that need to be fixed immediately and cannot wait until next release.
+[Help wanted](https://github.com/FaceTheFacts/web/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) issues are problems we would like the community to help us with regardless of complexity.
 
-`hotfix//login-issue-#1523`
+If you're looking to make a code change, see how to set up your environment for [local development](https://github.com/FaceTheFacts/web/wiki/Development-Environment).
 
-#### Documentation
+When you're ready to contribute, it's time to [Create a pull request](https://github.com/FaceTheFacts/web/wiki/Pull-Requests).
 
-Used for branches concerning solely the documentation of the project. Ideally documentation changes are carried out together with the implementation of what is documented, but in case that is not possible, use the docs category.
+## Where do I go from here?
 
-`docs/add-contributing-guidelines`
+Set up your [development environment](https://github.com/FaceTheFacts/web/wiki/Development-Environment).
 
-#### Experimental
+Look through the resources in the [wiki](https://github.com/FaceTheFacts/web/wiki).
 
-Branches with experimental features, that will most likely not be merged. Once a feature in and experimental branch has been validated, it can be moved to a feature branch.
-
-`exp/implement-flux-capacitor`
-
-#### Work in progress
-
-Branches containing longer term work in progress, that has been started on but will not be finished anytime soon.
-
-`wip/add-camera-tests`
-
-### Stable branches
-
-#### Develop
-
-#### Main
-
-#### Release
-
-## Pull Requests
-
-### Preparing your branch
-
-#### Linting and Style Guides
-
-We use eslint and prettier to automagically format our code. ESlint also lints the code for Typescript errors.
-There is a npm script for this purpose. Simply run `npm run lint` and you're good to go.
-
-If you want more control over the process, you can always run eslint and prettier manually like so:
-
-```bash
-# From the project root
-# To use eslint run
-npx eslint . --fix --ext .tsx
-
-# To use prettier run
-npx prettier --config .prettierrc.json -w .
-```
-
-#### Merging a feature branch back into develop after completion
-
-```bash
-# If you haven't already checkout the feature branch (here aptly 
-# named 'feature-branch') that you want to merge
-git checkout feature-branch
-
-# git status is always a good idea
-git status
-
-# commit everything untracked or staged
-# then checkout the develop branch
-git checkout develop
-
-# pull the latest changes
-git pull
-
-# go back to your feature branch
-git checkout feature-branch
-
-# now merge the latest version of the develop branch into your feature branch
-git merge develop
-
-# depending on how many changes you and other devs have made,
-# there will be a few merge conflicts you have to resolve
-# VSCode has a built in ui for this.
-
-# after that's done, all that's left is pushing your latest commits to origin
-# and you're ready to submit a pull request
-git push origin feature-branch
-```
-
-After you have developed your contribution, it is time to create a pull request. Pull requests follow a similar naming scheme to branches, only with different formatting and the omission of the issue number (the pull request will be linked to the issue directly). In addition to the category, please include the area you worked on in the pull request title as well. The areas are separated into the different screens and components used. When working on a whole screen, the screen name as outlined below suffices, when your work is concentrated on a specific part of this screen, please use the part names as outlined below.
-
-Example pull request titles:
-
-- `[Feature] Controversies: Random Spotlight`
-- `[Bug] Scan: Merkel scanned as Amthor`
-
-### Areas
-
-- Profile
-  - Controversies
-  - Biography
-  - SideJobs
-- Votes
-  - Overview
-  - Details
-- Discover
-  - Scan
-  - Search
-- ElectionChances
-  - FirstVote
-  - SecondVote
+These contributing guidelines were inspired by [Grafana's contributing guidelines](https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md)
