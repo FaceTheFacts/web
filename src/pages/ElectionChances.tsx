@@ -1,5 +1,6 @@
-import { IonButtons, IonContent, IonPage, IonTabs, IonTabBar, IonTabButton, IonIcon, IonTitle, IonBackButton, IonText, IonToolbar, IonSegment, IonSegmentButton, IonCardSubtitle, IonCardTitle, useIonViewDidEnter } from '@ionic/react';
+import {IonContent, IonPage, IonBackButton, IonCardSubtitle, IonCardTitle, useIonViewDidEnter } from '@ionic/react';
 import React, { useState } from 'react';
+import { useParams } from 'react-router'
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
@@ -14,6 +15,7 @@ interface ElectionchancesProps {
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
+	const { id } = useParams<{ id: string }>();
 
 	const [tab, setTab] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 /* Second Vote Code */
@@ -95,7 +97,7 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 	return (
 		<IonPage className="black-back">
 			{/* Here the content of our page starts */}
-				<PoliticianProfile politician={candidate} />
+				<PoliticianProfile candidate={candidate} />
 				<Tabs candidate={candidate}></Tabs>
 				<SegmentButtons tab={tab} setTab={setTab}/>
 				

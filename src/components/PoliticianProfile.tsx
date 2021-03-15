@@ -5,33 +5,27 @@ import { Candidate } from '../Types';
 import '../index.css';
 
 interface ContainerProps {
-	politician: Candidate;
+	candidate: Candidate;
 }
 
-const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerProps) => {
+const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
 	return (
 		<div className="header" ion-fixed>
 			<IonGrid>
 				<IonRow>
 					<IonCol size="3">
-						<img
-							className="politician-image"
-							src={String(politician.image)}
-							alt={politician.name}
+						<img className="politician-image"
+							src={String(candidate.image)}
+							alt={candidate.name}
 							data-testid="profile-img-url"
 						></img>
 					</IonCol>
 					<IonCol size="9">
-						<div className="politician-name">
-							<IonCardTitle data-testid="profile-name">
-								{politician.name} <span className="politician-age">29</span>
-							</IonCardTitle>
-						</div>
-						<div className="politician-job">
-							<IonCardSubtitle>Jurist</IonCardSubtitle>
-						</div>
+						<div className="politician-name"><IonCardTitle>{candidate.name} <span className="politician-age">29</span></IonCardTitle></div>
+						<div className="politician-job"><IonCardSubtitle>Jurist</IonCardSubtitle></div>
 						<div className="politican-details">
-							{politician.chips.map((chip: string, index: number) => {
+
+							{candidate.chips.map((chip: string, index: number) => {
 								return (
 									<IonChip className="politician-detail" key={index}>
 										{chip}

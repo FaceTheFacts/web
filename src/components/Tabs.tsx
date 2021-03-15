@@ -1,47 +1,39 @@
 import { IonButton } from '@ionic/react';
-import React from 'react';
-import { Candidate } from '../Types';
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom'
 import './Tabs.css';
+import { Candidate } from '../Types';
 
 interface TabsProps {
 	candidate: Candidate;
 }
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Tabs: React.FC<TabsProps> = ({ candidate }: TabsProps) => {
+const Tabs: React.FC<TabsProps> = ({  }: TabsProps) => {
 	/* This is returned when using this component */
+	const { id } = useParams<{ id: string }>();
+	const [selectedTab, setSelectedTab] = React.useState('0'); 
+
 	return (
-			<IonTabs>
-				<IonRouterOutlet>
-					<Route path="/candidate/:id/profile" exact>
-						<Profile candidate={candidate as Candidate}></Profile>
-					</Route>
-					<Route path="/candidate/:id/votes" exact>
-						<Votes candidate={candidate as Candidate}></Votes>
-					</Route>
-					<Route path="/candidate/:id/electionchances" exact>
-						<Electionchances candidate={candidate as Candidate}></Electionchances>
-					</Route>
-				</IonRouterOutlet>
-				<IonTabBar slot="top" className="tabbar" selectedTab="profile">
-					<IonTabButton className="tabbutton" tab="profile" href="profile">
-						<IonIcon icon={person} />
-					</IonTabButton>
-					<IonTabButton className="tabbutton" tab="votes" href="votes">
-						<IonIcon icon={home} />
-					</IonTabButton>
-					<IonTabButton className="tabbutton" tab="controversies">
-						<IonIcon icon={chatbubbles} />
-					</IonTabButton>
-					<IonTabButton
-						className="tabbutton"
-						tab="electionchances"
-						href="electionchances"
-					>
-						<IonIcon icon={archive} />
-					</IonTabButton>
-				</IonTabBar>
-			</IonTabs>
+		<div className="tabbar">
+			<Link to={`/politician/${id}/profile`}>
+				{selectedTab == '0' ? 
+					<IonButton className="tabs acticated" onClick={(e) => setSelectedTab('0')} >PROFIL<br />SEITE</IonButton>
+				:
+					<IonButton className="tabs" onClick={(e) => setSelectedTab('0')} >PROFIL<br />SEITE</IonButton>
+				}
+			</Link>
+				<IonButton className="tabs">LEBENS<br />LAUF</IonButton>
+				<IonButton className="tabs">KONTRO<br />VERSEN</IonButton>
+			<Link to={`/politician/${id}/election`}>
+			{selectedTab == '4' ?
+				<IonButton className="tabs activated" onClick={(e) => setSelectedTab('4')}>WAHL<br />CHANCEN</IonButton>
+			:
+			<IonButton className="tabs" onClick={(e) => setSelectedTab('4')}>WAHL<br />CHANCEN</IonButton>
+			}
+			</Link>
+		</div>	
 	);
 };
 

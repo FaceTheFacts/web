@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Menu from './components/Menu';
-import ElectionChances from './pages/ElectionChances';
+import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
@@ -33,7 +33,6 @@ import { Candidate } from './Types';
 
 /* Hardcoded Amthor */
 import { amthor } from './amthor';
-import Electionchances from './pages/ElectionChances';
 
 const politician: Candidate = amthor;
 
@@ -61,7 +60,7 @@ const App: React.FC = () => {
 							<Profile candidate={candidate as Candidate}></Profile>
 						</Route>
 						<Route path="/politician/:id/votes" exact>
-							<Votes candidate={candidate}></Votes>
+							<Votes candidate={candidate as Candidate}></Votes>
 						</Route>
 
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
