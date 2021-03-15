@@ -11,7 +11,7 @@ interface ArrowLinkButtonProps {
 
 const ArrowLinkButton: React.FC<ArrowLinkButtonProps> = ({ linkTo }: ArrowLinkButtonProps) => (
 	<Link to={linkTo}>
-		<IonButton className = "ArrowLinkButton" size="small">
+		<IonButton className="ArrowLinkButton" size="small">
 			<IonIcon slot="icon-only" icon={arrowForwardOutline} />
 		</IonButton>
 	</Link>
