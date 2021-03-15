@@ -6,7 +6,7 @@
 	position: relative;
 	justify-content: center;
 	align-content: center;
-	height: 20px;
+	height: 12px;
 	overflow: hidden;
 	border-radius: 20px;
 	border-width: 1px;
@@ -16,32 +16,36 @@
 
 .candidate-vote {
 	position: absolute;
-	width: 89px;
-	height: 35px;
+	width: 54px;
+	height: 24px;
+	border-radius: 4px;
 	color: white;
-	padding-top: 10px;
 	right: 0px;
 	text-align: center;
-	font-weight: 600;
-	font-size: 15px;
+	padding-top: 6px;
+	font-size: 12px;
 	font-family: 'protipo', sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
 
 .vote-yes {
-	background-color: #14b83a;
+	text-transform: uppercase;
+	background-color: #6fad5a;
 }
 
 .vote-no {
-	background-color: #de2b5e;
+	text-transform: uppercase;
+	background-color: #d74769;
 }
 
 .vote-abstain {
-	background-color: #19ace6;
+	text-transform: uppercase;
+	background-color: #3969f5;
 }
 
 .vote-none {
+	text-transform: uppercase;
 	background-color: #c4c4c4;
 }
 
@@ -69,26 +73,44 @@
 .vote-card {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	height: 130px;
-	background-color: #ffffff;
+	margin-left: 16px;
+	margin-right: 0px;
+	width: 343px;
+	height: 121px;
+	background: #2b2c36;
 }
 .vote-card-header {
-	padding-top: 2px;
+	padding-top: 6px;
 	padding-bottom: 0px;
-	padding-left: 10px;
+	padding-left: 16px;
 	padding-right: 10px;
 }
-.vote-card-title {
-	font-size: 16px;
-	height: 40px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-}
 .vote-card-subtitle {
-	font-size: 14px;
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 12px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	text-transform: capitalize;
+}
+.judgement {
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
+	margin-top: 6px;
+	padding-top: 0px;
+	box-sizing: border-box;
+}
+
+.vote-card-title {
+	color: #ffffff;
+	font-size: 14px;
+	height: 35px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
 }
 .bottom-group {
 	margin-bottom: 10px;

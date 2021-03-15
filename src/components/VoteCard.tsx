@@ -62,6 +62,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.none
 	}`;
 
+	const voteJudgeHandler = (): string => {
+		let judgement = 'abgelehnt'; //rejected
+		if (vote.result.total.yes > +totalvotes / 2) {
+			judgement = 'angenommen'; //accepted
+			return judgement;
+		}
+		return judgement;
+	};
+
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
 	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
@@ -71,9 +80,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 	// const voteString = vote.candidateVote;
 	const voteString = vote.candidateVote;
-
+	const judgeStatement = vote.subtitle + ' ' + voteJudgeHandler();
 	return (
-		<div className="grey-background">
+		<div>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
@@ -83,16 +92,31 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					<IonGrid>
 						<IonRow>
 							<IonCol size="8">
-								<IonCardSubtitle className="vote-card-subtitle">
+								<IonCardSubtitle
+									className="vote-card-subtitle"
+									data-testid="vote-card-subtitle"
+								>
 									{vote.subtitle}
 								</IonCardSubtitle>
-								<IonCardTitle className="vote-card-title">
+								<IonCardTitle
+									className="vote-card-title"
+									data-testid="vote-card-title"
+								>
 									{vote.title}
 								</IonCardTitle>
+
+								{/* Vote Result will show here e.g., Antrag abgelehnt */}
 							</IonCol>
 							<IonCol size="4">
 								<div className={candidateVoteClassName}>
 									{voteStrings[voteString]}
+								</div>
+							</IonCol>
+							<IonCol size="12">
+								{/* <IonCardSubtitle className="vote-card-subtitle"> */}
+								{/* </IonCardSubtitle> */}
+								<div className="judgement" data-testid="vote-card-judgement">
+									{judgeStatement}
 								</div>
 							</IonCol>
 						</IonRow>
@@ -109,27 +133,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 									{/* Render a VoteChart component for the vote result */}
 									<VoteChart vote={vote} />
 								</div>
-							</IonCol>
-						</IonRow>
-
-						{/* Vote Result Legend */}
-						<IonRow>
-							<IonCol size="1"></IonCol>
-							<IonCol size="2">
-								<div className="vote-legend-circle vote-yes"></div>
-								<span className="vote-legend-text">Ja</span>
-							</IonCol>
-							<IonCol size="2">
-								<div className="vote-legend-circle vote-no"></div>
-								<span className="vote-legend-text">Nein</span>
-							</IonCol>
-							<IonCol size="3">
-								<div className="vote-legend-circle vote-abstain"></div>
-								<span className="vote-legend-text">Enthalten</span>
-							</IonCol>
-							<IonCol size="4">
-								<div className="vote-legend-circle vote-none"></div>
-								<span className="vote-legend-text">Nicht abg.</span>
 							</IonCol>
 						</IonRow>
 					</IonGrid>

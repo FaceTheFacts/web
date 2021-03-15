@@ -2,21 +2,43 @@
 	max-height: 300px;
 }
 
-.subheading-button-underlay {
-	text-align: left;
-	height: 40px;
-	background-color: #1f1f1f;
-	padding-top: 7px;
-}
-
-.grey-back {
-	background-color: #e3e3e3;
+.black-back {
+	background-color: #181924;
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
+.category-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #181924;
+	padding: 0px 19px;
+}
+.category-items {
+	font-family: 'protipo' sans-serif;
+	color: #ffffff;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 400;
+}
 
-.last-grey-back {
-	background-color: #e3e3e3;
-	padding-top: 5px;
-	padding-bottom: 30px;
+.horizontal-scroll {
+	overflow-x: auto;
+}
+
+.vote-card-lists {
+	display: flex;
+}
+
+ul.vote-card-lists,
+ul.vote-card-lists li {
+	margin: 0;
+	padding: 0;
+	overflow: x;
+}
+
+ul.vote-card-lists {
+	list-style-type: none;
+	overflow: auto;
+	margin: 0 auto;
 }

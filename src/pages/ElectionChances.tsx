@@ -45,8 +45,8 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 									vote={Election}
 									key={`electionResults-${index}`}
 								/>
-							);})
-					}
+							);
+						})}
 				</div>
 			</IonContent>
 		</IonPage>

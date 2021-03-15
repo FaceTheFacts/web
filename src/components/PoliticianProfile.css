@@ -2,21 +2,20 @@
 	background-color: #2b2c36;
 	padding-top: 2vh;
 	padding-bottom: 1vh;
-	
 }
 
 .politician-image {
 	height: 10vh;
 	max-width: 100%;
-    border: 0;
-    object-position: 45% 35%;
-    object-fit: cover;
+	border: 0;
+	object-position: 45% 35%;
+	object-fit: cover;
 	border-radius: 50%;
 	visibility: visible;
 }
 
 /* Have to use ion-card-title to overwrite inherited css from :host */
-.politician-name ion-card-title{
+.politician-name ion-card-title {
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
@@ -27,11 +26,11 @@
 }
 
 .politician-age {
-	font-weight:100;
+	font-weight: 100;
 	font-size: 15px;
 }
 
-.politician-job ion-card-subtitle{
+.politician-job ion-card-subtitle {
 	font-size: 15px;
 	font-weight: 100;
 	color: white;

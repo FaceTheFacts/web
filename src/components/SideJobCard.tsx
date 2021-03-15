@@ -10,12 +10,12 @@ interface SideJobCardProps {
 
 const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) => {
 	return (
-		<IonCard className="neben-layout">
-			<IonCardHeader className="neben-position">
-				<IonCardTitle className="neben-major" data-testid="profile-sidejob-position">
+		<IonCard className="sideJob-layout">
+			<IonCardHeader className="sideJob-position">
+				<IonCardTitle className="sideJob-major" data-testid="profile-sidejob-position">
 					{sideJob.position}
 				</IonCardTitle>
-				<IonCardTitle className="neben-minor" data-testid="profile-sidejob-organisation">
+				<IonCardTitle className="sideJob-minor" data-testid="profile-sidejob-organisation">
 					{sideJob.organisation}
 				</IonCardTitle>
 			</IonCardHeader>

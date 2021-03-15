@@ -44,9 +44,9 @@ test('renders with correct profile header', () => {
 		</Router>,
 		container
 	);
-
+	const profileName = `${candidate.name} 29`;
 	if (container !== null) {
-		expect(getByTestId(container, 'profile-name').textContent).toBe(candidate.name);
+		expect(getByTestId(container, 'profile-name').textContent).toBe(profileName);
 
 		expect(getByTestId(container, 'profile-img-url').getAttribute('src')).toBe(
 			String(candidate.image)
@@ -54,10 +54,54 @@ test('renders with correct profile header', () => {
 	}
 });
 
-test('renders with correct subheadings', () => {
+test('renders with the correct titles', () => {
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile candidate={candidate} />
+		</Router>,
+		container
+	);
+
+	if (container !== null) {
+		expect(getByTestId(container, 'candidate-priorities').textContent).toBe(
+			'Politische Schwerpunkte'
+		);
+		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe(
+			'Kürzliche Abstimmungen'
+		);
+		expect(getByTestId(container, 'candidate-activities').textContent).toBe(
+			'Bezahlte Tätigkeiten'
+		);
+	}
+});
+
+test('renders with the correct vote card', () => {
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile candidate={candidate} />
+		</Router>,
+		container
+	);
+	const poll = candidate.polls[0];
+	const pollResult = `${poll.subtitle} angenommen`;
+	if (container !== null) {
+		expect(getAllByTestId(container, 'vote-card-subtitle')[0].textContent).toBe(poll.subtitle);
+		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(pollResult);
+	}
+});
+
+test('renders with the correct topic card', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
 	// we will also have to mock the API responses
+
+	const cardTitle = 'Finanzen';
 
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
@@ -70,21 +114,9 @@ test('renders with correct subheadings', () => {
 	);
 
 	if (container !== null) {
-		expect(
-			getByTestId(getByTestId(container, 'profile-subheading-votes'), 'subheading-button')
-				.textContent
-		).toBe('Abstimmungsverhalten >');
-
-		expect(getByTestId(container, 'profile-subheading-controversies').textContent).toBe(
-			'Kontroversen'
-		);
-
-		expect(getByTestId(container, 'profile-subheading-sidejobs').textContent).toBe(
-			'Bekannte Nebentätigkeiten'
-		);
+		expect(getAllByTestId(container, 'topic-name')[0].textContent).toBe(cardTitle);
 	}
 });
-
 test('renders with correct sidejobs', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
