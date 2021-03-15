@@ -23,7 +23,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ politician }: ContainerPr
 					</IonCol>
 					<IonCol size="9">
 						<div className="politician-name">
-							<IonCardTitle>
+							<IonCardTitle data-testid="profile-name">
 								{politician.name} <span className="politician-age">29</span>
 							</IonCardTitle>
 						</div>

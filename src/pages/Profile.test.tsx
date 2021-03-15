@@ -46,7 +46,7 @@ test('renders with correct profile header', () => {
 	);
 
 	if (container !== null) {
-		expect(getByTestId(container, 'profile-name').textContent).toBe(candidate.name);
+		expect(getByTestId(container, 'profile-name').textContent).toBe(candidate.name+" "+"29");
 
 		expect(getByTestId(container, 'profile-img-url').getAttribute('src')).toBe(
 			String(candidate.image)
