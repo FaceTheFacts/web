@@ -21,7 +21,6 @@ You can contribute to Face the Facts in several ways. Here are some examples:
 
 - Contribute to the Face the Facts codebase.
 - Report and triage bugs.
-- Write technical documentation and blog posts, for users and contributors.
 - For more ways to contribute, check out the [Open Source Guides](https://opensource.guide/how-to-contribute/).
 
 ## Report bugs
