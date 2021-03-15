@@ -19,7 +19,7 @@ The application is built using the [Ionic Framework](https://ionicframework.com/
 
 ## Contributing
 
-This project is still in a very early stage. If you are interested in contributing, feel free to reach out to [info@facethefacts.app](mailto:info@facethefacts.app).
+If you are interested in contributing, checkout [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
 
 ## Development
 
