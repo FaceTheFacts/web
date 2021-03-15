@@ -27,12 +27,12 @@ const TopicCard: React.FC = () => {
 				return (
 					<IonChip className="topic-card" key={`topic-${index}`}>
 						<IonIcon src={topic.icon} color="light" />
-						<IonLabel>{topic.name}</IonLabel>
+						<IonLabel data-testid = "topic-name">{topic.name}</IonLabel>
 					</IonChip>
 				);
 			})}
 		</div>
-	);
+	); 
 };
 
 export default TopicCard;

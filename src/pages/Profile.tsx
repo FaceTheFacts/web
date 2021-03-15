@@ -36,25 +36,13 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				The politicans name is included on the ProfileImg */}
 				<div className="profile-header">
 					<PoliticianProfile politician={candidate} />
-
-					{/*
-                    Here we include the Fab menu button - DISABLED as part of redesign
-
-                    <IonFab vertical="top" horizontal="end">
-                        <MenuButton />
-                    </IonFab>
-                */}
 				</div>
 
-				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
-				{/* <div className="subheading-button-underlay" data-testid="profile-subheading-votes">
-				</div> */}
 				<div className="black-back">
 					<div className="category-container">
 						<div className="category-items" data-testid="candidate-priorities">Politische Schwerpunkte</div>
 					</div>
 					<div className="horizontal-scroll">
-						{/* <TopicFilter /> */}
 						<TopicCard />
 					</div>
 
@@ -62,12 +50,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 						<div className="category-items" data-testid="candidate-recent-votes">Kürzliche Abstimmungen</div>
 						<ArrowLinkButton linkTo={`/politician/${id}/votes`} />
 					</div>
-					{/* <div className ="horizontal-scroll"> */}
-					{/* {candidate.polls.map((poll, index) => {
-							if (index === 0) return <VoteCard vote={poll} key={index} />;
-							else return null;
-						})} */}
-					{/* </div> */}
 
 					<ul className="vote-card-lists">
 						{candidate.polls.map((poll, index) => {
