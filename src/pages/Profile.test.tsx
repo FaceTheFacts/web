@@ -69,7 +69,6 @@ test('renders with the correct titles', () => {
 		expect(getByTestId(container, 'candidate-priorities').textContent).toBe("Politische Schwerpunkte"); 
 		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe("Kürzliche Abstimmungen"); 
 		expect(getByTestId(container, 'candidate-activities').textContent).toBe("Bezahlte Tätigkeiten"); 
-
 	}
 })
 
