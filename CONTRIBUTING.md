@@ -13,6 +13,7 @@ This document is a guide to help you through the process of contributing to Face
 - [Triage issues](#triage-issues)
 - [Your first contribution](#your-first-contribution)
 - [Where do I go from here?](#where-do-i-go-from-here)
+      - [These contributing guidelines were inspired by Grafana's contributing guidelines](#these-contributing-guidelines-were-inspired-by-grafanas-contributing-guidelines)
 
 ## Become a Contributor
 
@@ -65,4 +66,6 @@ Set up your [development environment](https://github.com/FaceTheFacts/web/wiki/D
 
 Look through the resources in the [wiki](https://github.com/FaceTheFacts/web/wiki).
 
-These contributing guidelines were inspired by [Grafana's contributing guidelines](https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md)
+<hr>
+
+##### These contributing guidelines were inspired by [Grafana's contributing guidelines](https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md)
