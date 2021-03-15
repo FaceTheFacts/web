@@ -54,37 +54,6 @@ test('renders with correct profile header', () => {
 	}
 });
 
-test('renders with correct subheadings', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
-
-	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/profile`],
-	});
-	render(
-		<Router history={history}>
-			<Profile candidate={candidate} />
-		</Router>,
-		container
-	);
-
-	if (container !== null) {
-		expect(
-			getByTestId(getByTestId(container, 'profile-subheading-votes'), 'subheading-button')
-				.textContent
-		).toBe('Abstimmungsverhalten >');
-
-		expect(getByTestId(container, 'profile-subheading-controversies').textContent).toBe(
-			'Kontroversen'
-		);
-
-		expect(getByTestId(container, 'profile-subheading-sidejobs').textContent).toBe(
-			'Bekannte Nebentätigkeiten'
-		);
-	}
-});
-
 test('renders with correct sidejobs', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
