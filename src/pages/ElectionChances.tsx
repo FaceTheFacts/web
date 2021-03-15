@@ -105,16 +105,16 @@ const [fixedPosition, setFixedPosition] = useState<number | undefined>();
 				:
 					<div className="election-chances-title">
 						
+					<div>
 					<IonCardSubtitle>Wie funktioniert die Zweitstimme?</IonCardSubtitle>
 					<IonBackButton className="forward-button" defaultHref="profile" text="" />
-					
-					
+					</div>
+
 					<IonCardSubtitle>Landesliste</IonCardSubtitle>
 					<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
 					</div>
 				}
 							
-           
 				{tab=="0" ?
 					<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
 					: null
