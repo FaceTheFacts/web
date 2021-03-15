@@ -59,13 +59,6 @@
 	color: #ffffff;
 }
 
-.forward-button {
-	margin-left: 90%;
-	height: 10px;
-	width: 10px;
-	color: #ffffff;
-	transform: rotate(180deg);
-}
 
 .page-title {
 	margin-top: 12%;
@@ -110,19 +103,7 @@
 }
 
 .black-back > .election-chances-card:first-of-type {
-	margin-bottom: 5%;
-    height: 13%;
 	border: 1px white solid;
-	
-}
-
-.black-back > .election-chances-card:first-of-type .election-chances-card-title{
-	padding-top: 10px;
-	
-}
-
-.election-chances-card > .center-column:first-of-type > .election-chances-card-title {
-	padding-top: 1 rem;
 }
 
 .election-chances-card:first-of-type #img{
@@ -135,17 +116,14 @@
 	visibility: visible;
 }
 
-
-
-
 .election-chances-card-title {
 	font-size: 16px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	color:white;
-	padding-bottom: 5%;
-	
+	padding-bottom: 5%;	
 }
+
 .election-chances-card-subtitle {
 	font-size: 14px;
 	font-family: 'protipo', sans-serif;
@@ -159,10 +137,8 @@
 	border-radius: 5px;
 }
 
-
-
 ion-content {
-	--background: #1f1f1f;
+	--background: #181924;
 }
 
 .election-chances-card {
