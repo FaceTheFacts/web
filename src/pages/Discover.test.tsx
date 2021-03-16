@@ -74,7 +74,6 @@ describe('integration test', () => {
 			page.find('.camera-icon-background').simulate('click');
 			// then
 			expect(page.find('.camera-container').length).toEqual(1);
-		})	
-
-	})
+		});
+	});
 });
