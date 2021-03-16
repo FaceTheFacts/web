@@ -5,7 +5,9 @@ exports[`integration test renders page correctly 1`] = `
   <div
     class="ion-page"
   >
-    <ion-content>
+    <ion-content
+      fullscreen="true"
+    >
       <div
         class="discover-page"
       >
@@ -25,6 +27,7 @@ exports[`integration test renders page correctly 1`] = `
         </div>
         <ion-input
           class="search-bar"
+          disabled="false"
           placeholder="Kandidat:in, PLZ oder Ort suchen"
         />
       </div>
