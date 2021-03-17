@@ -1,7 +1,7 @@
 .kontro-layout {
 	/* height: 50px; */
 	overflow: hidden;
-	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.08);
 	margin-top: 10px;
 	margin-bottom: 10px;
 	position: relative;
@@ -24,8 +24,9 @@
 }
 
 .kontro-title {
+	color: white;
 	float: left;
-	font-size: 16px;
+	font-size: 14px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
@@ -64,11 +65,7 @@
 	white-space: nowrap;
 }
 
-.kontro-layout {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background-color: #ffffff;
-}
+
 .kontro-card-header {
 	padding-top: 2px;
 	padding-bottom: 0px;
