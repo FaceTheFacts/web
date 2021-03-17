@@ -5,6 +5,7 @@ import { Candidate } from '../Types';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
 import './Profile.css'
+import TitleHeader from './TitleHeader';
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -13,22 +14,29 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => (
 	<React.Fragment>
 		<div className="profile-black-back">
-			<div className="category-container">
+			{/* <div className="category-container">
 				<div className="category-items" data-testid="candidate-priorities">
 					Politische Schwerpunkte
 				</div>
-			</div>
-			<div className="horizontal-scroll">
-				<TopicCard />
-			</div>
-
+			</div> 
 			<div className="category-container">
 				<div className="category-items" data-testid="candidate-recent-votes">
 					Kürzliche Abstimmungen
 				</div>
-				<ArrowLinkButton linkTo={`/politician/${profileId}/votes`} />
 			</div>
+			<div className="category-container">
+				<div className="category-items" data-testid="candidate-activities">
+					Bezahlte Tätigkeiten
+				</div>
+			</div> */}
 
+			<TitleHeader title="Politische Schwerpunkte" />
+			<div className="horizontal-scroll">
+				<TopicCard />
+			</div>
+			<TitleHeader title="Kürzliche Abstimmungen">
+				<ArrowLinkButton linkTo={`/politician/${profileId}/votes`} />
+			</TitleHeader>
 			<ul className="vote-card-lists">
 				{candidate.polls.map((poll, index) => {
 					return (
@@ -38,13 +46,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					);
 				})}
 			</ul>
-
-			<div className="category-container">
-				<div className="category-items" data-testid="candidate-activities">
-					Bezahlte Tätigkeiten
-				</div>
-			</div>
-			{/* For each item in title, render a NebenCard component */}
+			
+			<TitleHeader title="Bezahlte Tätigkeiten"/>
 			{candidate.sideJobs.map((sideJob, index) => {
 				return <SideJobCard sideJob={sideJob} key={index} />;
 			})}

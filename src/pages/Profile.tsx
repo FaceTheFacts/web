@@ -2,8 +2,6 @@ import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
-import VoteCard from '../components/VoteCard';
-import SubHeading from '../components/SubHeading'
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile'
 import './Profile.css';
