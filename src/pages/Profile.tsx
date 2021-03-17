@@ -3,16 +3,12 @@ import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
 import VoteCard from '../components/VoteCard';
-import SideJobCard from '../components/SideJobCard';
-import KontroCard from '../components/KontroCard';
 import SubHeading from '../components/SubHeading'
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile'
 import './Profile.css';
 import { Candidate } from '../Types';
-import ArrowLinkButton from '../components/ArrowLinkButton';
-import TopicCard from '../components/TopicCard';
-
+import ProfileComponent from '../components/Profile';
 interface ProfileProps {
 	candidate: Candidate;
 }
@@ -59,39 +55,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 						else return null;
 					})}
 				</div>
-
-				{/* Pass name to Subheading to be in control of the sub heading text */}
-
-				<div data-testid="profile-subheading-controversies">
-					<SubHeading name="Kontroversen" icon="infobutton.svg" />
-				</div>
-
-					<div className="category-container">
-						<div className="category-items" data-testid="candidate-recent-votes">
-							Kürzliche Abstimmungen
-						</div>
-						<ArrowLinkButton linkTo={`/politician/${id}/votes`} />
-					</div>
-
-					<ul className="vote-card-lists">
-						{candidate.polls.map((poll, index) => {
-							return (
-								<li key={index}>
-									<VoteCard vote={poll} />
-								</li>
-							);
-						})}
-					</ul>
-
-					<div className="category-container">
-						<div className="category-items" data-testid="candidate-activities">
-							Bezahlte Tätigkeiten
-						</div>
-					</div>
-					{/* For each item in title, render a NebenCard component */}
-					{candidate.sideJobs.map((sideJob, index) => {
-						return <SideJobCard sideJob={sideJob} key={index} />;
-					})}
+				<ProfileComponent candidate = {candidate} profileId = {id}/>
 			</IonContent>
 		</IonPage>
 	);
