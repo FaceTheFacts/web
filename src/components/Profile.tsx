@@ -7,6 +7,7 @@ import SideJobCard from '../components/SideJobCard';
 import './Profile.css'
 import TitleHeader from './TitleHeader';
 
+import './Profile.css';
 interface ProfileProps {
 	candidate: Candidate;
 	profileId: string;
