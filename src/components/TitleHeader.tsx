@@ -1,4 +1,5 @@
 import React from 'react';
+import './TitleHeader.css';
 
 interface TitleHeaderProps {
 	title: string;
