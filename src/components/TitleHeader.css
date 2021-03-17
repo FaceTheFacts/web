@@ -1,0 +1,17 @@
+.category-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #181924;
+	padding: 0px 19px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.category-items {
+	font-family: 'protipo' sans-serif;
+	color: #ffffff;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 400;
+}
