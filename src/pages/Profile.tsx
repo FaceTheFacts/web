@@ -7,6 +7,7 @@ import PoliticianProfile from '../components/PoliticianProfile'
 import './Profile.css';
 import { Candidate } from '../Types';
 import ProfileComponent from '../components/Profile';
+import News from '../components/News';
 interface ProfileProps {
 	candidate: Candidate;
 }
