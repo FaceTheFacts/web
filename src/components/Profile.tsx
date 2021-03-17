@@ -47,8 +47,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					);
 				})}
 			</ul>
-			
-			<TitleHeader title="Bezahlte Tätigkeiten"/>
+
+			<TitleHeader title="Bezahlte Tätigkeiten" />
 			{candidate.sideJobs.map((sideJob, index) => {
 				return <SideJobCard sideJob={sideJob} key={index} />;
 			})}
