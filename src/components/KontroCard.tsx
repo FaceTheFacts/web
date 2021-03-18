@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonCardContent, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-
+import { IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
+import { chevronDownOutline, chevronUpOutline } from 'ionicons/icons';
 import KontroArticle from './KontroArticle';
 import './KontroCard.css';
 import { Controversy } from '../Types';
@@ -27,19 +27,13 @@ const KontroCard: React.FC<ContainerProps> = ({ kontro }: ContainerProps) => {
 				className="accordion kontro-card-header"
 				onClick={(): void => setIsOpen(!isOpen)}
 			>
-				<IonCardTitle className="kontro-title">{kontro.label}</IonCardTitle>
-
-				{
-					<img
-						className="kontro-expand-icon"
-						src={
-							isOpen
-								? '../assets/icon/ausgeklappt.png'
-								: '../assets/icon/eingeklappt.png'
-						}
-						alt={`${kontro.label}`}
-					></img>
-				}
+				<div className="kontro-title-container">
+					<IonCardTitle className="kontro-title">{kontro.label}</IonCardTitle>
+					<IonIcon
+						className="kontro-title"
+						icon={isOpen ? chevronUpOutline : chevronDownOutline}
+					/>
+				</div>
 			</IonCardHeader>
 			<IonCardContent className="kontro-card-content">
 				<div className="article-row">
