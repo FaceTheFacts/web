@@ -36,32 +36,38 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 			</IonHeader>
 			{/* Here the content of our page starts */}
 			
-				{/* ProfileImg component that holds all the images of the politicians. 
-				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
-				to make our life easier when we add the profiles images of new politicians.
-				The politicans name is included on the ProfileImg */}
+			{/* ProfileImg component that holds all the images of the politicians. 
+			Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
+			to make our life easier when we add the profiles images of new politicians.
+			The politicans name is included on the ProfileImg */}
 
-				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
-				<PoliticianProfile candidate={candidate}/>
-				<Tabs />
-				<IonContent>
-					<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
+			{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
+			<PoliticianProfile candidate={candidate}/>
+			<Tabs />
+			<IonContent>
+				<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
 					<SubHeading
 						name="Abstimmungsverhalten >"
 						icon="infobutton.svg"
 						buttonAction={`/politician/${id}/votes`}
 					/>
 				</div>
+				<div className="grey-back">
+					{/* 
+				For each vote in votes, render a VoteCard component 
+				Only the first vote for now, until we display them horizontally
+				*/}
+					{candidate.polls.map((poll, index) => {
+						if (index === 0) return <VoteCard vote={poll} key={index} />;
+						else return null;
+					})}
+				</div>
 
-				<div className="black-back">
-					<div className="category-container">
-						<div className="category-items" data-testid="candidate-priorities">
-							Politische Schwerpunkte
-						</div>
-					</div>
-					<div className="horizontal-scroll">
-						<TopicCard />
-					</div>
+				{/* Pass name to Subheading to be in control of the sub heading text */}
+
+				<div data-testid="profile-subheading-controversies">
+					<SubHeading name="Kontroversen" icon="infobutton.svg" />
+				</div>
 
 					<div className="category-container">
 						<div className="category-items" data-testid="candidate-recent-votes">
