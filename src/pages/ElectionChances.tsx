@@ -6,6 +6,7 @@ import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
 import PoliticianProfile from '../components/PoliticianProfile'
 import Tabs from '../components/Tabs'
+import VoteExplainerCard from '../components/VoteExplainerCard'
 import './ElectionChances.css';
 import { Candidate } from '../Types';
 
@@ -31,19 +32,15 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				
 				{segment=='0' ? 
 					<div className="election-chances-title">
+						<VoteExplainerCard vote="Erststimme" />
 						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
 					</div>
 					
 				:
 					<div className="election-chances-title">
-						
-					<div>
-					<IonCardSubtitle>Wie funktioniert die Zweitstimme?</IonCardSubtitle>
-					<IonBackButton className="forward-button" defaultHref="profile" text="" />
-					</div>
-
-					<IonCardSubtitle>Landesliste</IonCardSubtitle>
-					<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
+						<VoteExplainerCard vote="Zweitstimme" />	
+						<IonCardSubtitle>Landesliste</IonCardSubtitle>
+						<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
 					</div>
 				}
 							
