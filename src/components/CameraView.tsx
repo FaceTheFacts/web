@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import log from 'loglevel';
+import log from 'loglevel'
 // import { CameraPreviewOptions } from "@ionic-native/camera-preview";
 
 import '../index.css';

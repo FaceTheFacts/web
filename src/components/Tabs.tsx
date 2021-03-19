@@ -23,7 +23,7 @@ const Tabs: React.FC = () => {
 			<NavLink to={`/politician/${id}/election`} className="tabs" activeClassName="tabs activated">
 				<div>WAHL</div>
 			</NavLink>
-		</div>	
+		</div>
 	);
 };
 
