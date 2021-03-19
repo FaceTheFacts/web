@@ -1,10 +1,13 @@
 .election-chances-card ion-col {
 	padding-bottom: 0px;
+	display: flex;
+    align-items: center;
 }
+
 .election-chances-card {
 	margin-top: 10px;
 	margin-bottom: 0px;
-	height: 10%;
+	height: 75px;
 	background-color: #ffffff;
 }
 
@@ -16,9 +19,33 @@
 	padding-right: 2%;
 }
 
-.election-chances-card-subtitle {
-	font-size: 14px;
+.election-chances-card-title {
+	font-size: 17px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	text-transform: capitalize;
+	color:white;
+	padding-bottom: 8px;	
 }
+
+.election-chances-card-subtitle {
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	color: white;
+}
+
+.election-chances-card-subtitle span {
+	padding: 2%;
+	border-radius: 5px;
+}
+
+.percentage {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.percentage .election-chances-card-title {
+	font-weight: 400;
+}
+
+

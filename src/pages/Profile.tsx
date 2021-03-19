@@ -40,8 +40,17 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
 				to make our life easier when we add the profiles images of new politicians.
 				The politicans name is included on the ProfileImg */}
-				<div className="profile-header">
-					<PoliticianProfile politician={candidate} />
+
+				{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
+				<PoliticianProfile candidate={candidate}/>
+				<Tabs />
+				<IonContent>
+					<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
+					<SubHeading
+						name="Abstimmungsverhalten >"
+						icon="infobutton.svg"
+						buttonAction={`/politician/${id}/votes`}
+					/>
 				</div>
 
 				<div className="black-back">

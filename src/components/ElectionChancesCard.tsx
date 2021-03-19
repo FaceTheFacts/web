@@ -44,7 +44,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote, firstCandidate }:
 					<IonGrid>
 						<IonRow> 
 							<IonCol size="9">
-								<div id="center-column">
+								<div >
 								<IonCardTitle className="election-chances-card-title">
 									{vote.candidate}
 								</IonCardTitle>
@@ -53,12 +53,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote, firstCandidate }:
 								</IonCardSubtitle>
 								</div>
 							</IonCol>
-							<IonCol size="3">
-								<div id="center-column">
-							<IonCardTitle className="election-chances-card-title">
+							<IonCol className="percentage" size="3">
+								<IonCardTitle className="election-chances-card-title">
 									{vote.percentage}%
 								</IonCardTitle>
-								</div>
 							</IonCol>
 							</IonRow>
 					</IonGrid>

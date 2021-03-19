@@ -1,17 +1,20 @@
-ion-toolbar {
-	padding-top: 2%;
+.toolbar {
 	--background: #181924;
+	display: flex;
+	align-items: center;
+	height: 60px;
 }
 
-ion-segment {
+.segment {
 	width: 99%;
+	height: 40px;
 	background-color: #181924;
 }
 
-ion-segment-button {
+.segment-button {
 	--indicator-color: #3969f5;
 	--color: #ffffff;
 	--color-selected: #ffffff;
 	--color-checked: #ffffff;
-	--border-radius: 20px;
+	--border-radius: 25px;
 }
