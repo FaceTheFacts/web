@@ -42,7 +42,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 					</div>
 				</div>
 			}
-			{segment==='0"' ?
+			{segment==='0' ?
 				<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
 				: null}
 			<IonContent>

@@ -4,13 +4,9 @@ import { useParams } from 'react-router';
 import './Page.css';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
-<<<<<<< HEAD
-import PoliticianProfile from '../components/PoliticianProfile';
-=======
 import KontroCard from '../components/KontroCard';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile'
->>>>>>> Add styling for Tabs
 import './Profile.css';
 import { Candidate } from '../Types';
 import ArrowLinkButton from '../components/ArrowLinkButton';
