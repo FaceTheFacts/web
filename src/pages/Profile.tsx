@@ -5,6 +5,7 @@ import './Page.css';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
 import KontroCard from '../components/KontroCard';
+import SubHeading from '../components/SubHeading'
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile'
 import './Profile.css';
@@ -91,7 +92,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 					{candidate.sideJobs.map((sideJob, index) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;
 					})}
-				</div>
 			</IonContent>
 		</IonPage>
 	);
