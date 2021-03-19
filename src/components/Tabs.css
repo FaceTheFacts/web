@@ -1,16 +1,23 @@
 .tabbar {
-	background: #181924;
+	background: rgba(43,44,54,0.8);
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .tabs {
-	--background: #181924;
-	--background-activated: #181924;
-	--color: rgba(255,255,255, 0.3);
-	--color-activated: white;
+	background: rgba(43,44,54,0.8);
+	color: rgba(255,255,255, 0.3);
 	font-size: 15px;
+	text-decoration: none;
 }
 
 .activated {
 	border-bottom: 2px solid white;
-	--color: white;
+	color: white;
 };
+
+

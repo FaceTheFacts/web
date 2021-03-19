@@ -1,38 +1,28 @@
-import { IonButton } from '@ionic/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Tabs.css';
-import { Candidate } from '../Types';
 
-interface TabsProps {
-	candidate: Candidate;
-}
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Tabs: React.FC<TabsProps> = ({  }: TabsProps) => {
+const Tabs: React.FC = () => {
 	/* This is returned when using this component */
 	const { id } = useParams<{ id: string }>();
-	const [selectedTab, setSelectedTab] = React.useState('0'); 
 
 	return (
 		<div className="tabbar">
-			<Link to={`/politician/${id}/profile`}>
-				{selectedTab == '0' ? 
-					<IonButton className="tabs acticated" onClick={(e) => setSelectedTab('0')} >PROFIL<br />SEITE</IonButton>
-				:
-					<IonButton className="tabs" onClick={(e) => setSelectedTab('0')} >PROFIL<br />SEITE</IonButton>
-				}
-			</Link>
-				<IonButton className="tabs">LEBENS<br />LAUF</IonButton>
-				<IonButton className="tabs">KONTRO<br />VERSEN</IonButton>
-			<Link to={`/politician/${id}/election`}>
-			{selectedTab == '4' ?
-				<IonButton className="tabs activated" onClick={(e) => setSelectedTab('4')}>WAHL<br />CHANCEN</IonButton>
-			:
-			<IonButton className="tabs" onClick={(e) => setSelectedTab('4')}>WAHL<br />CHANCEN</IonButton>
-			}
-			</Link>
+			<NavLink to={`/politician/${id}/profile`} className="tabs" activeClassName="tabs activated"> 
+				<div>PROFIL</div>
+			</NavLink>
+			<NavLink to={`/politician/${id}/votes`} className="tabs" activeClassName="tabs activated">
+				<div>BIO</div>
+			</NavLink>
+			<NavLink to={`/politician/${id}/votes`} className="tabs" activeClassName="tabs activated">
+				<div>NEWS</div>
+			</NavLink>
+			<NavLink to={`/politician/${id}/election`} className="tabs" activeClassName="tabs activated">
+				<div>WAHL</div>
+			</NavLink>
 		</div>	
 	);
 };
