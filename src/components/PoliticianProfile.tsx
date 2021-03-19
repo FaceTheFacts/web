@@ -13,15 +13,15 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 		<div className="header" ion-fixed>
 			<IonGrid>
 				<IonRow>
-					<IonCol size="3">
+					<IonCol className="profile-image">
 						<img className="politician-image"
 							src={String(candidate.image)}
 							alt={candidate.name}
 							data-testid="profile-img-url"
 						></img>
 					</IonCol>
-					<IonCol size="9">
-						<div className="politician-name"><IonCardTitle>{candidate.name} <span className="politician-age">29</span></IonCardTitle></div>
+					<IonCol className="profile-details">
+						<div className="politician-name"><IonCardTitle>{candidate.name}</IonCardTitle></div>
 						<div className="politician-job"><IonCardSubtitle>Jurist</IonCardSubtitle></div>
 						<div className="politican-details">
 

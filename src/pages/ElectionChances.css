@@ -22,6 +22,14 @@
 	background-color: #DDA22E;
   }
 
+.npd span{
+	background-color: #636363;
+  }
+
+.freiewähler span{
+	background-color: #636363;
+  }
+
 .election-chances-card.cdu {
 	background-color: rgba(99, 99, 99, 50%);
 } 
@@ -46,19 +54,18 @@
 	background-color: rgba(255, 233, 38, 30%);
 }
 
+.election-chances-card.npd {
+	background-color: rgba(99, 99, 99, 50%);
+}
+
+.election-chances-card.freiewähler {
+	background-color: rgba(99, 99, 99, 50%);
+}
+
 .votes-toolbar {
 	height: 95px;
 	background-color: #4c4c4c;
 }
-
-.back-button {
-	margin-top: 15%;
-	margin-left: 4%;
-	height: 10px;
-	width: 10px;
-	color: #ffffff;
-}
-
 
 .page-title {
 	margin-top: 12%;
@@ -82,16 +89,18 @@
 	background-color: #181924;
 	color: #d4d4d4;
 	padding-top: 5%;
+}
+
+.election-chances-title {
+	color: #d4d4d4;
 	padding-left: 5%;
 }
 
-.election-chances-title ion-card-subtitle {
-	--color: #d4d4d4;
-}
 
 .election-chances-title ion-card-title {
 	--color: #d4d4d4;
 	font-size: 130%;
+	padding-bottom: 2%;
 }
 
 .black-back {
@@ -106,41 +115,24 @@
 	border: 1px white solid;
 }
 
-.election-chances-card:first-of-type #img{
-	height: 70px;
-	max-width: 100%;
-    border: 0;
-    object-position: 45% 35%;
-    object-fit: cover;
-	border-radius: 50%;
-	visibility: visible;
+
+.election-chances-title ion-card-subtitle {
+	--color: white;
+	font-weight: 400;
 }
 
-.election-chances-card-title {
-	font-size: 16px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-	color:white;
-	padding-bottom: 5%;	
+.party {
+	font-weight: 800;
 }
 
-.election-chances-card-subtitle {
+.statelist {
+	opacity: 70%;
+}
+
+.state {
 	font-size: 14px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-	text-transform: capitalize;
-	color: white;
-}
-
-.election-chances-card-subtitle span{
-	padding: 2%;
-	border-radius: 5px;
 }
 
 ion-content {
 	--background: #181924;
-}
-
-.election-chances-card {
-	background-color:#4c4c4c;
 }

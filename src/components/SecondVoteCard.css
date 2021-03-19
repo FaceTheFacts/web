@@ -1,26 +1,22 @@
 .secondvote-card {
 	background: #2b2c36;
-	margin-top: 10px;
+	margin-top: 8px;
 	margin-bottom: 0px;
-	height: 57px;
-	scroll-snap-align: start;
+	height: 50px;
 }
 
 .secondvote-card-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	padding: 16px 16px 16px;
 }
 
 .secondvote-card-name {
 	color: white;
 	font-family: 'protipo', sans-serif;
+	font-weight: 700;
 	font-size: 17px;
 }
 
-.secondvote-card-chance {
-	color: white;
-	font-family: 'protipo', sans-serif;
-	font-size: 17px;
-	font-weight: normal;
+.rank {
+	font-weight: 400;
+	padding-right: 10px;
 }

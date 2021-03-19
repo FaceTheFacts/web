@@ -3,7 +3,7 @@ import { Candidate } from './Types';
 export const amthor: Candidate = {
 	id: 1,
 	name: 'Philipp Amthor',
-	chips: ['CDU/CSU', 'Mitglied des Bundestags'],
+	chips: ['CDU/CSU', 'MdB'],
 	image: new URL(
 		'https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
 	),

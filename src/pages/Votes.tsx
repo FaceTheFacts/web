@@ -4,6 +4,7 @@ import TopicFilter from '../components/TopicFilter';
 import PartyMatch from '../components/PartyMatch';
 import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
+import Tabs from '../components/Tabs'
 import './Votes.css';
 import { Candidate } from '../Types';
 
@@ -32,7 +33,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 				<div data-testid="votes-subheading-topics">
 					<SubHeading name="Filtern nach Themen" />
 				</div>
-
+				<Tabs />
 				{/* TopicFilter component that holds all the filters for the topics of polls. 
 				Right now the name property is not being used, maybe it's an Idea to dynamically pass in the topics, 
 				to make our life easier in case a new topic is added or we want to translate for other countries and languages */}

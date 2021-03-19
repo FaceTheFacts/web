@@ -17,7 +17,6 @@ interface ElectionchancesProps {
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
-	const [tab, setTab] = React.useState(0)
 	const [segment, setSegment] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 /* Second Vote Code */
 
@@ -31,16 +30,19 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				<SegmentButtons tab={segment} setTab={setSegment}/>
 				
 				{segment=='0' ? 
-					<div className="election-chances-title">
+					<div>
 						<VoteExplainerCard vote="Erststimme" />
-						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
+						<div className="election-chances-title">
+							<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
+						</div>
 					</div>
-					
 				:
-					<div className="election-chances-title">
+					<div>
 						<VoteExplainerCard vote="Zweitstimme" />	
-						<IonCardSubtitle>Landesliste</IonCardSubtitle>
-						<IonCardTitle>CDU Mecklenburg-Vorpommern</IonCardTitle>
+						<div className="election-chances-title">
+							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
+							<IonCardSubtitle className="state"><span className="party">CDU</span> Mecklenburg-Vorpommern</IonCardSubtitle>
+						</div>
 					</div>
 				}
 							
