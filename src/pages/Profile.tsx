@@ -23,18 +23,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 		<IonPage>
 			{' '}
 			{/* Page Tag */}
-			<IonHeader>
-				{' '}
-				{/* Header Tag */} {/* Toolbar tag, this is the title bar / top bar */}
-			</IonHeader>
-			{/* Here the content of our page starts */}
-			
-			{/* ProfileImg component that holds all the images of the politicians. 
-			Right now the name property is not being used, maybe it's an idea to dynamically pass in images 
-			to make our life easier when we add the profiles images of new politicians.
-			The politicans name is included on the ProfileImg */}
-
-			{/* Subheading-button created by using a div for the background color and placing a button over part of it*/}
+		
 			<PoliticianProfile candidate={candidate}/>
 			<Tabs />
 			<IonContent>
