@@ -8,14 +8,11 @@ interface CandidateInfoProps {
 	rank: number;
 }
 
-const SecondVoteCard: React.FC<CandidateInfoProps> = ({
-	secondVote,
-	rank
-}: CandidateInfoProps) => {
+const SecondVoteCard: React.FC<CandidateInfoProps> = ({ secondVote, rank }: CandidateInfoProps) => {
 	return (
-		<IonCard className='secondvote-card'>
+		<IonCard className="secondvote-card">
 			<IonCardHeader className="secondvote-card-header">
-				<IonCardTitle className='secondvote-card-name'>
+				<IonCardTitle className="secondvote-card-name">
 					<span className="rank">#{rank}</span> {secondVote.name}
 				</IonCardTitle>
 			</IonCardHeader>

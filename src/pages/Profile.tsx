@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import './Page.css';
 import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile'
+import PoliticianProfile from '../components/PoliticianProfile';
 import './Profile.css';
 import { Candidate } from '../Types';
 import ProfileComponent from '../components/Profile';
@@ -22,11 +22,10 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 		<IonPage>
 			{' '}
 			{/* Page Tag */}
-		
-			<PoliticianProfile candidate={candidate}/>
+			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
-				<ProfileComponent candidate = {candidate} profileId = {id}/>
+				<ProfileComponent candidate={candidate} profileId={id} />
 			</IonContent>
 		</IonPage>
 	);

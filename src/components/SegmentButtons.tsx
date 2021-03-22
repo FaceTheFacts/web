@@ -13,13 +13,25 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 	return (
 		<IonToolbar class="toolbar">
 			<IonSegment class="segment" value={props.tab}>
-				<IonSegmentButton class="segment-button" value="0" onClick={(e) => props.setTab('0')}>
+				<IonSegmentButton
+					class="segment-button"
+					value="0"
+					onClick={(e) => props.setTab('0')}
+				>
 					Erststimme
 				</IonSegmentButton>
-				<IonSegmentButton class="segment-button" value="1" onClick={(e) => props.setTab('1')}>
+				<IonSegmentButton
+					class="segment-button"
+					value="1"
+					onClick={(e) => props.setTab('1')}
+				>
 					Zweitstimme
 				</IonSegmentButton>
-				<IonSegmentButton class="segment-button" value="2" onClick={(e) => props.setTab('2')}>
+				<IonSegmentButton
+					class="segment-button"
+					value="2"
+					onClick={(e) => props.setTab('2')}
+				>
 					Wahlkreis
 				</IonSegmentButton>
 			</IonSegment>

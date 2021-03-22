@@ -1,38 +1,38 @@
 .cdu span {
-    background-color: #636363;
+	background-color: #636363;
 }
-.spd span{
-	background-color: #C24242;
+.spd span {
+	background-color: #c24242;
 }
 
-.dielinke span{
-	background-color: #C24271;
+.dielinke span {
+	background-color: #c24271;
 }
-.diegrünen span{
+.diegrünen span {
 	background-color: #599951;
 }
-.fdp span{
-	background-color: #FFE926;
+.fdp span {
+	background-color: #ffe926;
 	color: black;
 }
-.afd span{
-	background-color: #3AA6F4;
+.afd span {
+	background-color: #3aa6f4;
 }
-.piraten span{
-	background-color: #DDA22E;
-  }
+.piraten span {
+	background-color: #dda22e;
+}
 
-.npd span{
+.npd span {
 	background-color: #636363;
-  }
+}
 
-.freiewähler span{
+.freiewähler span {
 	background-color: #636363;
-  }
+}
 
 .election-chances-card.cdu {
 	background-color: rgba(99, 99, 99, 50%);
-} 
+}
 
 .election-chances-card.afd {
 	background-color: rgba(58, 166, 244, 30%);
@@ -96,7 +96,6 @@
 	padding-left: 5%;
 }
 
-
 .election-chances-title ion-card-title {
 	--color: #d4d4d4;
 	font-size: 130%;
@@ -114,7 +113,6 @@
 .black-back > .election-chances-card:first-of-type {
 	border: 1px white solid;
 }
-
 
 .election-chances-title ion-card-subtitle {
 	--color: white;

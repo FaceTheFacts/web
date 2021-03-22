@@ -4,7 +4,7 @@ import ArrowLinkButton from './ArrowLinkButton';
 import { Candidate } from '../Types';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
-import './Profile.css'
+import './Profile.css';
 import TitleHeader from './TitleHeader';
 
 import './Profile.css';

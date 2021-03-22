@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import './Tabs.css';
-
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Tabs: React.FC = () => {
@@ -11,16 +10,32 @@ const Tabs: React.FC = () => {
 
 	return (
 		<div className="tabbar">
-			<NavLink to={`/politician/${id}/profile`} className="tabs" activeClassName="tabs activated"> 
+			<NavLink
+				to={`/politician/${id}/profile`}
+				className="tabs"
+				activeClassName="tabs activated"
+			>
 				<div>PROFIL</div>
 			</NavLink>
-			<NavLink to={`/politician/${id}/votes`} className="tabs" activeClassName="tabs activated">
+			<NavLink
+				to={`/politician/${id}/votes`}
+				className="tabs"
+				activeClassName="tabs activated"
+			>
 				<div>BIO</div>
 			</NavLink>
-			<NavLink to={`/politician/${id}/votes`} className="tabs" activeClassName="tabs activated">
+			<NavLink
+				to={`/politician/${id}/votes`}
+				className="tabs"
+				activeClassName="tabs activated"
+			>
 				<div>NEWS</div>
 			</NavLink>
-			<NavLink to={`/politician/${id}/election`} className="tabs" activeClassName="tabs activated">
+			<NavLink
+				to={`/politician/${id}/election`}
+				className="tabs"
+				activeClassName="tabs activated"
+			>
 				<div>WAHL</div>
 			</NavLink>
 		</div>
