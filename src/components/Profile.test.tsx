@@ -27,7 +27,7 @@ afterEach(() => {
 });
 
 const candidate = amthor;
-const id = String(candidate.id)
+const id = String(candidate.id);
 
 test('renders with the correct vote card', () => {
 	const history = createMemoryHistory({
@@ -35,7 +35,7 @@ test('renders with the correct vote card', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} profileId={id}/>
+			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
@@ -59,7 +59,7 @@ test('renders with the correct topic card', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} profileId={id}/>
+			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
@@ -81,7 +81,7 @@ test('renders with the correct topic card', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} profileId={id}/>
+			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
