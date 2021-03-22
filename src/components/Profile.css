@@ -3,3 +3,28 @@
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
+
+.profile-header {
+	max-height: 300px;
+}
+
+.horizontal-scroll {
+	overflow-x: auto;
+}
+
+.vote-card-lists {
+	display: flex;
+}
+
+ul.vote-card-lists,
+ul.vote-card-lists li {
+	margin: 0;
+	padding: 0;
+	overflow: x;
+}
+
+ul.vote-card-lists {
+	list-style-type: none;
+	overflow: auto;
+	margin: 0 auto;
+}
