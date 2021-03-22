@@ -2,11 +2,6 @@
 	max-height: 300px;
 }
 
-.black-back {
-	background-color: #181924;
-	padding-top: 6px;
-	padding-bottom: 6px;
-}
 .category-container {
 	display: flex;
 	align-items: center;

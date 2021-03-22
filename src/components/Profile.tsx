@@ -4,6 +4,7 @@ import ArrowLinkButton from './ArrowLinkButton';
 import { Candidate } from '../Types';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
+import './Profile.css'
 
 interface ProfileProps {
 	candidate: Candidate;
@@ -11,7 +12,7 @@ interface ProfileProps {
 }
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => (
 	<React.Fragment>
-		<div className="black-back">
+		<div className="profile-black-back">
 			<div className="category-container">
 				<div className="category-items" data-testid="candidate-priorities">
 					Politische Schwerpunkte
