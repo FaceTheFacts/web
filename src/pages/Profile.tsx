@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
-import './Profile.css';
 import { Candidate } from '../Types';
 import ProfileComponent from '../components/Profile';
 interface ProfileProps {
