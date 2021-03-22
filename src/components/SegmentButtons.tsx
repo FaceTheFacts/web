@@ -16,21 +16,21 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 				<IonSegmentButton
 					class="segment-button"
 					value="0"
-					onClick={(e) => props.setTab('0')}
+					onClick={(e): JSX.Element => props.setTab('0')}
 				>
 					Erststimme
 				</IonSegmentButton>
 				<IonSegmentButton
 					class="segment-button"
 					value="1"
-					onClick={(e) => props.setTab('1')}
+					onClick={(e): JSX.Element => props.setTab('1')}
 				>
 					Zweitstimme
 				</IonSegmentButton>
 				<IonSegmentButton
 					class="segment-button"
 					value="2"
-					onClick={(e) => props.setTab('2')}
+					onClick={(e): JSX.Element => props.setTab('2')}
 				>
 					Wahlkreis
 				</IonSegmentButton>
