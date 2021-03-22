@@ -323,7 +323,8 @@ export const amthor: Candidate = {
 		{
 			name: 'Elisabeth Winkelmeier-Becker',
 			electionChance: 9.4,
-		}],
+		},
+	],
 	controversies: [
 		{
 			label: 'Lobbyismus-Affäre',

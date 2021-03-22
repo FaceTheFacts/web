@@ -1,7 +1,7 @@
 .election-chances-card ion-col {
 	padding-bottom: 0px;
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .election-chances-card {
@@ -10,7 +10,6 @@
 	height: 75px;
 	background-color: #ffffff;
 }
-
 
 .election-chances-card-header {
 	padding-top: 1%;
@@ -23,8 +22,8 @@
 	font-size: 17px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	color:white;
-	padding-bottom: 8px;	
+	color: white;
+	padding-bottom: 8px;
 }
 
 .election-chances-card-subtitle {
@@ -47,5 +46,3 @@
 .percentage .election-chances-card-title {
 	font-weight: 400;
 }
-
-

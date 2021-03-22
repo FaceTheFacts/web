@@ -1,23 +1,23 @@
 .vote-explainer-card {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 20px;
-    border-top: 1px solid rgba(76,78,98,1);
-    border-bottom: 1px solid rgba(76,78,98,1);
-    padding-left: 5%;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 20px;
+	border-top: 1px solid rgba(76, 78, 98, 1);
+	border-bottom: 1px solid rgba(76, 78, 98, 1);
+	padding-left: 5%;
 }
 
 .forward-button {
-    transform: rotate(180deg);
-    color: white;
-    width: 10px;
+	transform: rotate(180deg);
+	color: white;
+	width: 10px;
 }
 
 .vote-explainer-card ion-card-subtitle {
-    --color: white;
-    margin-bottom: 0px;
-    font-weight: 400;
-    text-transform: none;
+	--color: white;
+	margin-bottom: 0px;
+	font-weight: 400;
+	text-transform: none;
 }
