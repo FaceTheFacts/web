@@ -1,10 +1,8 @@
 import React from 'react';
-// import {renderHook} from '@testing-library/react-hooks'
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { getByTestId, getAllByTestId } from '@testing-library/react';
-// import { act } from "react-dom/test-utils";
+import { getAllByTestId } from '@testing-library/react';
 import 'jest-canvas-mock';
 
 import Profile from './Profile';
@@ -29,54 +27,7 @@ afterEach(() => {
 });
 
 const candidate = amthor;
-
-test('renders with correct profile header', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
-
-	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/profile`],
-	});
-	render(
-		<Router history={history}>
-			<Profile candidate={candidate} />
-		</Router>,
-		container
-	);
-	const profileName = `${candidate.name} 29`;
-	if (container !== null) {
-		expect(getByTestId(container, 'profile-name').textContent).toBe(profileName);
-
-		expect(getByTestId(container, 'profile-img-url').getAttribute('src')).toBe(
-			String(candidate.image)
-		);
-	}
-});
-
-test('renders with the correct titles', () => {
-	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/profile`],
-	});
-	render(
-		<Router history={history}>
-			<Profile candidate={candidate} />
-		</Router>,
-		container
-	);
-
-	if (container !== null) {
-		expect(getByTestId(container, 'candidate-priorities').textContent).toBe(
-			'Politische Schwerpunkte'
-		);
-		expect(getByTestId(container, 'candidate-recent-votes').textContent).toBe(
-			'Kürzliche Abstimmungen'
-		);
-		expect(getByTestId(container, 'candidate-activities').textContent).toBe(
-			'Bezahlte Tätigkeiten'
-		);
-	}
-});
+const id = String(candidate.id)
 
 test('renders with the correct vote card', () => {
 	const history = createMemoryHistory({
@@ -84,7 +35,7 @@ test('renders with the correct vote card', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} />
+			<Profile candidate={candidate} profileId={id}/>
 		</Router>,
 		container
 	);
@@ -101,6 +52,28 @@ test('renders with the correct topic card', () => {
 	// we can probably skip most of this and test for the correct API calls
 	// we will also have to mock the API responses
 
+	const titleInput = 'Politische Schwerpunkte';
+
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidate.id}/profile`],
+	});
+	render(
+		<Router history={history}>
+			<Profile candidate={candidate} profileId={id}/>
+		</Router>,
+		container
+	);
+
+	if (container !== null) {
+		expect(getAllByTestId(container, 'category-title')[0].textContent).toBe(titleInput);
+	}
+});
+
+test('renders with the correct topic card', () => {
+	// this will change after we remove the hard coded data
+	// we can probably skip most of this and test for the correct API calls
+	// we will also have to mock the API responses
+
 	const cardTitle = 'Finanzen';
 
 	const history = createMemoryHistory({
@@ -108,7 +81,7 @@ test('renders with the correct topic card', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} />
+			<Profile candidate={candidate} profileId={id}/>
 		</Router>,
 		container
 	);
@@ -132,7 +105,7 @@ test('renders with correct sidejobs', () => {
 	});
 	render(
 		<Router history={history}>
-			<Profile candidate={candidate} />
+			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
