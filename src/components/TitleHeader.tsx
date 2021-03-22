@@ -8,7 +8,9 @@ interface TitleHeaderProps {
 
 const TitleHeader: React.FC<TitleHeaderProps> = ({ title, children }: TitleHeaderProps) => (
 	<div className="category-container">
-		<div className="category-items" data-testid="category-title">{title}</div>
+		<div className="category-items" data-testid="category-title">
+			{title}
+		</div>
 		{children}
 	</div>
 );

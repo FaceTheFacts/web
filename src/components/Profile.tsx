@@ -14,7 +14,7 @@ interface ProfileProps {
 }
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => (
 	<React.Fragment>
-		<div className="profile-black-back">		
+		<div className="profile-black-back">
 			<TitleHeader title="Politische Schwerpunkte" />
 			<div className="horizontal-scroll">
 				<TopicCard />

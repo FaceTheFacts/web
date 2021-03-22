@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { getByTestId} from '@testing-library/react';
+import { getByTestId } from '@testing-library/react';
 import 'jest-canvas-mock';
 
 import TitleHeader from './TitleHeader';
@@ -29,13 +29,13 @@ it('renders with correct title', () => {
 
 	// when
 	act(() => {
-		render(<TitleHeader title = {titleInput}/>, container);
+		render(<TitleHeader title={titleInput} />, container);
 	});
 
 	// then
 	if (container !== null) {
 		expect(getByTestId(container, 'category-title').textContent).toBe(
-      'Politische Schwerpunkte'
+			'Politische Schwerpunkte'
 		);
 	}
 });
