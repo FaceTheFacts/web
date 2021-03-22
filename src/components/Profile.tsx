@@ -14,23 +14,7 @@ interface ProfileProps {
 }
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => (
 	<React.Fragment>
-		<div className="profile-black-back">
-			{/* <div className="category-container">
-				<div className="category-items" data-testid="candidate-priorities">
-					Politische Schwerpunkte
-				</div>
-			</div> 
-			<div className="category-container">
-				<div className="category-items" data-testid="candidate-recent-votes">
-					Kürzliche Abstimmungen
-				</div>
-			</div>
-			<div className="category-container">
-				<div className="category-items" data-testid="candidate-activities">
-					Bezahlte Tätigkeiten
-				</div>
-			</div> */}
-
+		<div className="profile-black-back">		
 			<TitleHeader title="Politische Schwerpunkte" />
 			<div className="horizontal-scroll">
 				<TopicCard />
