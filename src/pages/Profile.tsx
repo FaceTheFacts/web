@@ -38,23 +38,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 			<PoliticianProfile candidate={candidate}/>
 			<Tabs />
 			<IonContent>
-				<div className="subheading-button-underlay" data-testid="profile-subheading-votes">
-					<SubHeading
-						name="Abstimmungsverhalten >"
-						icon="infobutton.svg"
-						buttonAction={`/politician/${id}/votes`}
-					/>
-				</div>
-				<div className="grey-back">
-					{/* 
-				For each vote in votes, render a VoteCard component 
-				Only the first vote for now, until we display them horizontally
-				*/}
-					{candidate.polls.map((poll, index) => {
-						if (index === 0) return <VoteCard vote={poll} key={index} />;
-						else return null;
-					})}
-				</div>
 				<ProfileComponent candidate = {candidate} profileId = {id}/>
 			</IonContent>
 		</IonPage>
