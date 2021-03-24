@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
+import NewsComponent from '../components/News';
 import { Candidate } from '../Types';
 interface ProfileProps {
 	candidate: Candidate;
@@ -22,7 +23,7 @@ const News: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
-			
+				<NewsComponent candidate = {candidate}/>
 			</IonContent>
 		</IonPage>
 	);
