@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
 	IonCardContent,
@@ -19,6 +19,7 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ news }: NewsCardProps) => {
+	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<React.Fragment>
 			{news.map((newsItem, index) => {
@@ -29,31 +30,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }: NewsCardProps) => {
 							<IonCardTitle className="news-card-title">
 								{newsItem.newsTitle}
 							</IonCardTitle>
+							<IonIcon
+								className="news-card-icon"
+								icon={isOpen ? chevronUpOutline : chevronDownOutline}
+							/>
 						</IonHeader>
 					</IonCard>
 				);
 			})}
 		</React.Fragment>
 
-		// <IonCard>
-		// 	<IonCardHeader>
-		// 		<div>
-		// 			<IonCardTitle>{news.title}</IonCardTitle>
-		// 			<IonIcon
-		// 				className="kontro-title"
-		// 				icon={isOpen ? chevronUpOutline : chevronDownOutline}
-		// 			/>
-		// 		</div>
-		// 	</IonCardHeader>
-		// 	<IonCardContent className="kontro-card-content">
-		// 		<div className="article-row">
-		// 			{kontro.articles.map((article, index) => {
-		// 				const key = `${kontro.label}-${index}`;
-		// 				return <KontroArticle article={article} key={key}></KontroArticle>;
-		// 			})}
-		// 		</div>
-		// 	</IonCardContent>
-		// </IonCard>
 	);
 };
 
