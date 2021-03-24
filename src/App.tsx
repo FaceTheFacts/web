@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
+import News from './pages/News';
 import Votes from './pages/Votes';
 
 /* Core CSS required for Ionic components to work properly */
@@ -58,6 +59,9 @@ const App: React.FC = () => {
 						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>
+						</Route>
+						<Route path="/politician/:id/news" exact>
+							<News candidate={candidate as Candidate}></News>
 						</Route>
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate as Candidate}></Votes>
