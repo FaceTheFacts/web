@@ -47,7 +47,7 @@ test('renders with the correct vote card', () => {
 	}
 });
 
-test('renders with the correct topic card', () => {
+test('renders with the correct Title Header', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
 	// we will also have to mock the API responses
