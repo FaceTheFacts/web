@@ -1,6 +1,8 @@
+import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { amotherNews } from '../amother_news';
+
 let container: HTMLDivElement | null = null;
 import NewsCard from './NewsCard';
 
@@ -24,8 +26,8 @@ it('renders with correct title', () => {
 		render(<NewsCard news={amotherNews} />, container);
 	});
 	if (container !== null) {
-		expect(container.getElementsByClassName('news-card-title')[0]).toBe(
+		expect(container.getElementsByClassName('news-card-title')[0].textContent).toBe(
 			amotherNews[0].newsTitle
-		)
+		);
 	}
 });
