@@ -43,7 +43,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				</div>
 			}
 			{segment==='0' ?
-				<ElectionchancesCard firstCandidate={true} vote={candidate.electionResults[0]} />
+				<ElectionchancesCard vote={candidate.electionResults[0]} />
 				: null}
 			<IonContent>
 				<div className="blue-back">
@@ -58,7 +58,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 						:
 						candidate.electionResults.slice(1).map((Election, index) => {
 						
-							return <ElectionchancesCard firstCandidate={false} vote={Election} key={`electionResults-${index}`}/>;
+							return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>;
 						})
 					}
 				</div>
