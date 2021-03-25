@@ -4,7 +4,6 @@ import TitleHeader from './TitleHeader';
 
 import NewsCard from './NewsCard';
 
-
 interface NewsProps {
 	candidate: Candidate;
 	news: Array<NewsInput>;
