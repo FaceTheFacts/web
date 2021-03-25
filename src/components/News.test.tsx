@@ -7,7 +7,6 @@ import 'jest-canvas-mock';
 import { amthor } from '../amthor';
 import News from './News';
 
-
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
@@ -30,7 +29,7 @@ test('renders with the correct Title Header', () => {
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/news`],
 	});
-  const titleInput = "kontroversen"
+	const titleInput = 'kontroversen';
 	render(
 		<Router history={history}>
 			<News candidate={candidate} />

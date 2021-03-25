@@ -6,6 +6,7 @@ import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
 import NewsComponent from '../components/News';
 import { Candidate } from '../Types';
+import { amotherNews } from '../amother_news';
 interface ProfileProps {
 	candidate: Candidate;
 }
@@ -23,7 +24,7 @@ const News: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
-				<NewsComponent candidate = {candidate}/>
+				<NewsComponent candidate={candidate} news={amotherNews} />
 			</IonContent>
 		</IonPage>
 	);
