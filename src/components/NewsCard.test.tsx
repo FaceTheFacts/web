@@ -22,12 +22,13 @@ afterEach(() => {
 });
 
 it('renders with correct title', () => {
+	const firstNewsData = amotherNews[0];
 	act(() => {
-		render(<NewsCard news={amotherNews} />, container);
+		render(<NewsCard newsData={firstNewsData} />, container);
 	});
 	if (container !== null) {
 		expect(container.getElementsByClassName('news-card-title')[0].textContent).toBe(
-			amotherNews[0].newsTitle
+			firstNewsData.newsTitle
 		);
 	}
 });
