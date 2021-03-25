@@ -11,15 +11,14 @@ import {
 import { chevronDownOutline, chevronUpOutline } from 'ionicons/icons';
 
 interface NewsCardProps {
-	key: string;
 	newsData: NewsInput;
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ key, newsData }: NewsCardProps) => {
+const NewsCard: React.FC<NewsCardProps> = ({ newsData }: NewsCardProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<React.Fragment>
-			<IonCard key={key}>
+			<IonCard>
 				<IonHeader onClick={(): void => setIsOpen(!isOpen)}>
 					<IonCardTitle className="news-card-title">{newsData.newsTitle}</IonCardTitle>
 					<IonIcon
