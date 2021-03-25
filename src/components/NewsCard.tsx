@@ -20,17 +20,23 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsData }: NewsCardProps) => {
 	const NewsCardClassName = `newscard-layout ${isOpen ? 'news-open' : 'news-closed'}`;
 	return (
 		<React.Fragment>
-			<IonCard  className = {NewsCardClassName}>
-				<IonHeader onClick={(): void => setIsOpen(!isOpen)}>
-					<div className = "news-title-container">
-					<IonCardTitle className="news-card-title">{newsData.newsTitle}</IonCardTitle>
-					<IonIcon
-						className="news-card-icon"
-						icon={isOpen ? chevronUpOutline : chevronDownOutline}
-					/>
-
-					</div>
-				</IonHeader>
+			<IonCard className={NewsCardClassName}>
+				<IonCardHeader
+					className="accordion news-card-header"
+					onClick={(): void => setIsOpen(!isOpen)}
+				>
+					<IonHeader onClick={(): void => setIsOpen(!isOpen)}>
+						<div className="news-title-container">
+							<IonCardTitle className="news-card-title">
+								{newsData.newsTitle}
+							</IonCardTitle>
+							<IonIcon
+								className="news-card-icon"
+								icon={isOpen ? chevronUpOutline : chevronDownOutline}
+							/>
+						</div>
+					</IonHeader>
+				</IonCardHeader>
 			</IonCard>
 		</React.Fragment>
 	);
