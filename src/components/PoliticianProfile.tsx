@@ -18,17 +18,16 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 							className="politician-image"
 							src={String(candidate.image)}
 							alt={candidate.name}
-							data-testid="profile-img-url"
 						></img>
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
-							<IonCardTitle>{candidate.name}</IonCardTitle>
+							<IonCardTitle data-testid="profile-name">{candidate.name}</IonCardTitle>
 						</div>
 						<div className="politican-details">
 							{candidate.chips.map((chip: string, index: number) => {
 								return (
-									<IonChip className="politician-detail" key={index}>
+									<IonChip className="politician-detail" key={index} data-testid="profile-detail">
 										{chip}
 									</IonChip>
 								);
