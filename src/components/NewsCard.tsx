@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NewsInput } from '../Types';
+import './NewsCard.css';
 import {
 	IonCardContent,
 	IonCard,
@@ -16,15 +17,19 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ newsData }: NewsCardProps) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const NewsCardClassName = `newscard-layout ${isOpen ? 'news-open' : 'news-closed'}`;
 	return (
 		<React.Fragment>
-			<IonCard>
+			<IonCard  className = {NewsCardClassName}>
 				<IonHeader onClick={(): void => setIsOpen(!isOpen)}>
+					<div className = "news-title-container">
 					<IonCardTitle className="news-card-title">{newsData.newsTitle}</IonCardTitle>
 					<IonIcon
 						className="news-card-icon"
 						icon={isOpen ? chevronUpOutline : chevronDownOutline}
 					/>
+
+					</div>
 				</IonHeader>
 			</IonCard>
 		</React.Fragment>
