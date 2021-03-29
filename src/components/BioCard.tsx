@@ -7,10 +7,14 @@ interface BioCardProps {
 }
 
 const BioCard: React.FC<BioCardProps> = ({ bio }: BioCardProps) => {
+    console.log(bio);
+    function FormatBio(bio: string) {
+        const text = bio.split('\n').map((item, i) => <p key={i}>{item}</p>);
+        return text
+    }
 	return (
-		<IonCard >
-			${bio}
-		</IonCard>
+        <div className="bio-content">{FormatBio(bio)}</div>
+               
 	);
 };
 
