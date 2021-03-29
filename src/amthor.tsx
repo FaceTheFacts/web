@@ -9,21 +9,26 @@ export const amthor: Candidate = {
 	),
 	party: 'CDU/CSU',
 	sideJobs: [
-		{
+		{	id: 2,
 			organisation: 'Sparkasse Uecker-Randow',
-			position: 'Mitglied des Verwaltungsrates',
+			label: 'Mitglied des Verwaltungsrates',
+			candidate: 1
 		},
-		{
+		{	id: 2,
 			organisation: 'Augustus Intelligence Inc.',
-			position: 'Board Member',
+			label: 'Board Member',
+			candidate: 1
+
 		},
-		{
+		{	id: 2,
 			organisation: 'Landkreis Vorpommern-Greifswald',
-			position: 'Mitglied des Kreistages',
+			label: 'Mitglied des Kreistages',
+			candidate: 1
 		},
-		{
+		{	id: 2,
 			organisation: 'AMEOS Krankenhausgesellschaft Vorpommern',
-			position: 'Mitglied des Regionalbeirates',
+			label: 'Mitglied des Regionalbeirates',
+			candidate: 1
 		},
 	],
 	polls: [

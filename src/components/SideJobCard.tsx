@@ -13,7 +13,7 @@ const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) 
 		<IonCard className="sideJob-layout">
 			<IonCardHeader className="sideJob-position">
 				<IonCardTitle className="sideJob-major" data-testid="profile-sidejob-position">
-					{sideJob.position}
+					{sideJob.label}
 				</IonCardTitle>
 				<IonCardTitle className="sideJob-minor" data-testid="profile-sidejob-organisation">
 					{sideJob.organisation}
