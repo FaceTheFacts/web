@@ -15,16 +15,16 @@ interface BioProps {
 const Bio: React.FC<BioProps> = ({ candidate }: BioProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
-    const [bio, setBio] = useState("");
-	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4-1/candidates/${id}`
+	const [bio, setBio] = useState('');
+	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4-1/candidates/${id}`;
 	const loadData = async () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		setBio(data.bio);
-	}
+	};
 	useEffect(() => {
-		loadData()
-	})
+		loadData();
+	});
 
 	/* This is returned when using this component */
 	return (
