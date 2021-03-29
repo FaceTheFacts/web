@@ -14,16 +14,11 @@ interface ProfileProps {
 }
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
 	const [sideJob, setSideJob] = useState<SideJob>();
-	const [sideJobLabel, setSideJobLabel] = useState();
-	const [sideJobOrganisation, setSideJobOrganisation] = useState();
 	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4/candidates/${profileId}/sidejobs`
-
 	const loadData = async () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		setSideJob(data[0]);
-		setSideJobLabel(data[0].label);
-		setSideJobOrganisation(data[0].organisation)
 	}
 	useEffect(() => {
 		loadData()
