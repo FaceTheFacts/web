@@ -8,6 +8,7 @@ import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
+import Bio from './pages/Bio'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -58,6 +59,9 @@ const App: React.FC = () => {
 						</Route>
 						<Route path="/politician/:id/profile" exact>
 							<Profile candidate={candidate as Candidate}></Profile>
+						</Route>
+						<Route path="/politician/:id/bio" exact>
+							<Bio candidate={candidate as Candidate}></Bio>
 						</Route>
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate as Candidate}></Votes>
