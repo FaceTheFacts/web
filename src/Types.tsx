@@ -18,6 +18,7 @@ export type Controversy = {
 	articles: Array<ControversyArticle>;
 };
 
+
 // Candidate Type
 export type Candidate = {
 	id: number;
@@ -89,3 +90,13 @@ export type PartyMatchType = {
 	filter: string;
 	percentage: string;
 };
+
+/* export type Bio = {
+	id: number;
+	name: string;
+	image: Array<string>
+	party: number;
+	office: string;
+	focus_topics: Array<string>;
+	bio: string;
+}; */
