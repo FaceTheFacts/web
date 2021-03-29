@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import TopicCard from './TopicCard';
 import ArrowLinkButton from './ArrowLinkButton';
-import { Candidate } from '../Types';
+import { Candidate, SideJob } from '../Types';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
 import './Profile.css';
@@ -12,10 +12,27 @@ interface ProfileProps {
 	candidate: Candidate;
 	profileId: string;
 }
-const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => (
+const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
+	const [sideJob, setSideJob] = useState<SideJob>();
+	const [sideJobLabel, setSideJobLabel] = useState();
+	const [sideJobOrganisation, setSideJobOrganisation] = useState();
+	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4/candidates/${profileId}/sidejobs`
+
+	const loadData = async () => {
+		const response = await fetch(url);
+		const data = await response.json();
+		setSideJob(data[0]);
+		setSideJobLabel(data[0].label);
+		setSideJobOrganisation(data[0].organisation)
+	}
+	useEffect(() => {
+		loadData()
+	},[])
+
+	return(
 	<React.Fragment>
 		<div className="profile-black-back">
-			<TitleHeader title="Politische Schwerpunkte" />
+			<TitleHeader title="[0]Politische Schwerpunkte" />
 			<div className="horizontal-scroll">
 				<TopicCard />
 			</div>
@@ -33,10 +50,12 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			</ul>
 
 			<TitleHeader title="Bezahlte Tätigkeiten" />
+			{ (sideJob!=undefined) ? <SideJobCard sideJob={sideJob} /> : null }
 			{candidate.sideJobs.map((sideJob, index) => {
 				return <SideJobCard sideJob={sideJob} key={index} />;
 			})}
 		</div>
 	</React.Fragment>
-);
+	)
+};
 export default Profile;

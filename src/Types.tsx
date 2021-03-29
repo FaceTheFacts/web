@@ -1,7 +1,9 @@
 // SideJob Type
 export type SideJob = {
+	id: number;
 	organisation: string;
-	position: string;
+	label: string;
+	candidate:number;
 };
 
 export type ControversyArticle = {
