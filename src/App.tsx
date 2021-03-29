@@ -8,7 +8,7 @@ import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import Votes from './pages/Votes';
-import Bio from './pages/Bio'
+import Bio from './pages/Bio';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
