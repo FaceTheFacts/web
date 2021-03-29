@@ -9,7 +9,7 @@ import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes';
-import Bio from './pages/Bio'
+import Bio from './pages/Bio';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';

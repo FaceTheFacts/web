@@ -17,11 +17,7 @@ const Tabs: React.FC = () => {
 			>
 				<div>PROFIL</div>
 			</NavLink>
-			<NavLink
-				to={`/politician/${id}/bio`}
-				className="tabs"
-				activeClassName="tabs activated"
-			>
+			<NavLink to={`/politician/${id}/bio`} className="tabs" activeClassName="tabs activated">
 				<div>BIO</div>
 			</NavLink>
 			<NavLink

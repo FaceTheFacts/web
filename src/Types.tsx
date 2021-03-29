@@ -3,7 +3,7 @@ export type SideJob = {
 	id: number;
 	organisation: string;
 	label: string;
-	candidate:number;
+	candidate: number;
 };
 
 export type ControversyArticle = {
@@ -17,7 +17,6 @@ export type Controversy = {
 	label: string;
 	articles: Array<ControversyArticle>;
 };
-
 
 // Candidate Type
 export type Candidate = {
