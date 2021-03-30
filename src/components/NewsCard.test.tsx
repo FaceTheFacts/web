@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { amotherNews } from '../amother_news';
+import { amotherNews } from '../amther_news';
+import NewsCard from './NewsCard';
 
 let container: HTMLDivElement | null = null;
-import NewsCard from './NewsCard';
 
 beforeEach(() => {
 	// setup a DOM element as a render target
