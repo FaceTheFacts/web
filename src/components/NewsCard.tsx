@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NewsInput } from '../Types';
 import './NewsCard.css';
 import {
-	IonCardContent,
+	// IonCardContent,
 	IonCard,
 	IonCardHeader,
 	IonCardTitle,
