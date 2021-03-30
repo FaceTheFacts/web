@@ -17,7 +17,7 @@ const Bio: React.FC<BioProps> = ({ candidate }: BioProps) => {
 	const { id } = useParams<{ id: string }>();
 	const [bio, setBio] = useState('');
 	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4-1/candidates/${id}`;
-	const loadData = async () => {
+	const loadData = async (): Promise<void> => {
 		const response = await fetch(url);
 		const data = await response.json();
 		setBio(data.bio);
