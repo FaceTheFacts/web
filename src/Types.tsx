@@ -87,8 +87,3 @@ export type PartyMatchType = {
 	filter: string;
 	percentage: string;
 };
-
-export type NewsInput = {
-	newsTitle: string;
-	articles: Array<string>;
-};
