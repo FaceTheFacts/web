@@ -34,7 +34,7 @@ it('renders with correct position', () => {
 	// then
 	if (container !== null) {
 		expect(getByTestId(container, 'profile-sidejob-position').textContent).toBe(
-			sideJob.position
+			sideJob.label
 		);
 	}
 });
