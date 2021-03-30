@@ -14,7 +14,6 @@ interface ArticleData {
 	imageUrl: string | undefined;
 }
 
-
 const News: React.FC<NewsProps> = ({ candidate, news }: NewsProps) => {
 	return (
 		<React.Fragment>

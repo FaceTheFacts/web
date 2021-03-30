@@ -46,7 +46,7 @@
 	padding: 10px 0;
 }
 
-/* .accordion {
+.accordion {
 	overflow: hidden;
 	--background: transparent;
 	--background-activated: transparent;
@@ -60,7 +60,7 @@
 	font-style: normal;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-} */
+}
 
 .article-row {
 	width: 100%;
