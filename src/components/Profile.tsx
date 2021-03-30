@@ -15,7 +15,7 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
 	const [sideJob, setSideJob] = useState<SideJob>();
 	const url = `https://virtserver.swaggerhub.com/Face-the-Facts/REST-API/0.0.4/candidates/${profileId}/sidejobs`;
-	const loadData = async () => {
+	const loadData = async (): Promise<void> => {
 		const response = await fetch(url);
 		const data = await response.json();
 		setSideJob(data[0]);
