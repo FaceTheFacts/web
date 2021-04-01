@@ -20,11 +20,12 @@ ul.vote-card-lists,
 ul.vote-card-lists li {
 	margin: 0;
 	padding: 0;
-	overflow: x;
+	scroll-snap-align: start;
 }
 
 ul.vote-card-lists {
 	list-style-type: none;
 	overflow: auto;
 	margin: 0 auto;
+	scroll-snap-type: x mandatory;
 }
