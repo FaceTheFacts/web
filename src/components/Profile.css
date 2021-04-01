@@ -8,10 +8,6 @@
 	max-height: 300px;
 }
 
-.horizontal-scroll {
-	overflow-x: auto;
-}
-
 .vote-card-lists {
 	display: flex;
 }
