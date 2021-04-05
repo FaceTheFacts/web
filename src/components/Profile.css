@@ -10,6 +10,7 @@
 
 .vote-card-lists {
 	display: flex;
+	padding: 0px;
 }
 
 ul.vote-card-lists,
