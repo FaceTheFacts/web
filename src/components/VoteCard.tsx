@@ -92,12 +92,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					<IonGrid>
 						<IonRow>
 							<IonCol size="8">
-								<IonCardSubtitle
-									className="vote-card-subtitle"
-									data-testid="vote-card-subtitle"
-								>
-									{vote.subtitle}
-								</IonCardSubtitle>
 								<IonCardTitle
 									className="vote-card-title"
 									data-testid="vote-card-title"
