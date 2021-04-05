@@ -1,5 +1,7 @@
 .vote-card {
 	box-sizing: border-box;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	width: 343px;
 	height: 112px;
 	padding:0px;
