@@ -12,6 +12,10 @@
 	display: flex;
 	padding: 0px;
 }
+.vote-card-lists li {
+	/* 343+12 = 355 */
+	width: 355px;
+}
 
 ul.vote-card-lists,
 ul.vote-card-lists li {
