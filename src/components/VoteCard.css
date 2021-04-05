@@ -15,6 +15,10 @@
 }
 .vote-card-header ion-grid {
 	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.vote-card-header ion-col {
+	padding-bottom: 0px;
 }
 
 .vote-card-title {
@@ -32,9 +36,21 @@
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
+.judgement {
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
+	margin-top: 6px;
+	padding-top: 0px;
+	box-sizing: border-box;
+}
 .vote-card-content {
 	padding-left: 10px;
 	padding-right: 10px;
+}
+.vote-card-content ion-grid {
+	padding-top: 0px;
 }
 .vote-chart-container {
 	position: relative;
@@ -96,15 +112,6 @@
 	padding-bottom: 20px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-}
-.judgement {
-	color: #ffffff;
-	font-weight: 400;
-	font-size: 12px;
-	font-family: 'protipo', sans-serif;
-	margin-top: 6px;
-	padding-top: 0px;
-	box-sizing: border-box;
 }
 
 .bottom-group {
