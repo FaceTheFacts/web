@@ -10,7 +10,7 @@
 	overflow: hidden;
 	border-radius: 20px;
 	border-width: 1px;
-	width: 103.5%;
+	width: 100%;
 }
 
 .candidate-vote {
@@ -91,6 +91,11 @@
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	text-transform: capitalize;
+}
+.vote-card-border {
+	border-top: 1px solid #ffffff;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .judgement {
 	color: #ffffff;

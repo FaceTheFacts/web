@@ -113,8 +113,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								</div>
 							</IonCol>
 							<IonCol size="12">
-								{/* <IonCardSubtitle className="vote-card-subtitle"> */}
-								{/* </IonCardSubtitle> */}
+								<div className ="vote-card-border"></div>
 								<div className="judgement" data-testid="vote-card-judgement">
 									{judgeStatement}
 								</div>
