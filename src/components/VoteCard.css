@@ -1,3 +1,29 @@
+.vote-card {
+	box-sizing: border-box;
+	width: 343px;
+	height: 112px;
+	padding:0px;
+	background: #2b2c36;
+}
+.vote-card-header {
+	padding-top: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-bottom: 0px;
+}
+.vote-card-header ion-grid {
+	padding-top: 0px;
+}
+
+.vote-card-subtitle {
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	text-transform: capitalize;
+}
+
 .vote-card-content {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -62,35 +88,6 @@
 	padding-bottom: 20px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-}
-
-.vote-card ion-col {
-	padding-bottom: 0px;
-	padding-top: 2px;
-}
-
-.vote-card {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 6px;
-	margin-right: 0px;
-	width: 343px;
-	height: 121px;
-	background: #2b2c36;
-}
-.vote-card-header {
-	padding-top: 6px;
-	padding-bottom: 0px;
-	padding-left: 16px;
-	padding-right: 10px;
-}
-.vote-card-subtitle {
-	color: #ffffff;
-	font-weight: 400;
-	font-size: 12px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-	text-transform: capitalize;
 }
 .vote-card-border {
 	border-top: 1px solid #ffffff;
