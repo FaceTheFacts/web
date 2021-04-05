@@ -17,15 +17,21 @@
 	padding-top: 0px;
 }
 
-.vote-card-subtitle {
+.vote-card-title {
 	color: #ffffff;
-	font-weight: 400;
-	font-size: 12px;
+	font-size: 14px;
+	height: 35px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	text-transform: capitalize;
 }
 
+.vote-card-border {
+	border-top: 1px solid #ffffff;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
 .vote-card-content {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -91,11 +97,6 @@
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
-.vote-card-border {
-	border-top: 1px solid #ffffff;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
 .judgement {
 	color: #ffffff;
 	font-weight: 400;
@@ -106,15 +107,6 @@
 	box-sizing: border-box;
 }
 
-.vote-card-title {
-	color: #ffffff;
-	font-size: 14px;
-	height: 35px;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-}
 .bottom-group {
 	margin-bottom: 10px;
 }
