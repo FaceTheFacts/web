@@ -30,3 +30,7 @@ ul.vote-card-lists {
 	margin: 0 auto;
 	scroll-snap-type: x mandatory;
 }
+
+ul.vote-card-lists::-webkit-scrollbar {
+	display: none;
+}
