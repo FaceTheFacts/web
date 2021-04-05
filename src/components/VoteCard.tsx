@@ -82,7 +82,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	const voteString = vote.candidateVote;
 	const judgeStatement = vote.subtitle + ' ' + voteJudgeHandler();
 	return (
-		<div>
+		<React.Fragment>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
 				{/* 
 				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
@@ -307,7 +307,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					</div>
 				</IonModal>
 			</IonContent>
-		</div>
+		</React.Fragment>
 	);
 };
 
