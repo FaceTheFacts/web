@@ -17,7 +17,7 @@ class FaceDetection implements FaceDetectionInterface {
 		}
 
 		return new Promise((resolve, reject) => {
-			if (typeof this.model === typeof BlazeFaceModel) {
+			if (typeof this.model === typeof BlazeFaceModel && this.model !== undefined) {
 				resolve(this.model);
 			} else {
 				reject();
