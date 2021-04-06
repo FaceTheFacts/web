@@ -1,10 +1,11 @@
 .header {
 	height: 120px;
-	background-color: rgba(43, 44, 54, 0.8);
+	background-color: rgba(42, 43, 54, 1);
 	padding-top: 15px;
 	padding-bottom: 15px;
 	display: flex;
 	align-items: center;
+	border-bottom: 1px solid rgba(76, 78, 98, 1);
 }
 
 .politician-image {
@@ -24,37 +25,28 @@
 	z-index: 2;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	padding-left: 5px;
-}
-
-.politician-job ion-card-subtitle {
-	font-size: 14px;
-	font-weight: 400;
-	color: white;
-	z-index: 2;
-	font-family: 'protipo', sans-serif;
-	font-style: normal;
-	padding-left: 5px;
-	/* to overwrite inherited capitalised text-transform from :host */
-	text-transform: none;
+	padding-left: 2.5px;
 }
 
 .politician-detail {
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 400;
 	color: white;
 	background-color: rgba(255, 255, 255, 0.16);
 	z-index: 2;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	border-radius: 8px;
+	border-radius: 4px;
+	margin-inline: 2.5px;
+	margin-top: 3px;
+	padding: 5px 8px;
 }
 
 .profile-image {
 	max-width: 100px;
 	padding: 0;
 	margin-left: 16px;
-	margin-right: 16px;
+	margin-right: 13.5px;
 }
 
 .profile-details {
