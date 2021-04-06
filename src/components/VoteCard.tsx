@@ -20,7 +20,6 @@ import {
 	IonLabel,
 } from '@ionic/react';
 import { Poll } from '../Types';
-import '../index.css';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 
 interface ContainerProps {
