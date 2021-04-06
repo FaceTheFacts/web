@@ -42,7 +42,6 @@ test('renders with the correct vote card', () => {
 	const poll = candidate.polls[0];
 	const pollResult = `${poll.subtitle} angenommen`;
 	if (container !== null) {
-		expect(getAllByTestId(container, 'vote-card-subtitle')[0].textContent).toBe(poll.subtitle);
 		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(pollResult);
 	}
 });
