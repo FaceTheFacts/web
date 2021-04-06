@@ -21,6 +21,7 @@ import {
 } from '@ionic/react';
 import { Poll } from '../Types';
 import '../index.css';
+import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 
 interface ContainerProps {
 	vote: Poll;
@@ -62,14 +63,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.none
 	}`;
 
-	const voteJudgeHandler = (): string => {
-		let judgement = 'abgelehnt'; //rejected
-		if (vote.result.total.yes > +totalvotes / 2) {
-			judgement = 'angenommen'; //accepted
-			return judgement;
-		}
-		return judgement;
-	};
 
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
@@ -80,7 +73,8 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	*/
 	// const voteString = vote.candidateVote;
 	const voteString = vote.candidateVote;
-	const judgeStatement = vote.subtitle + ' ' + voteJudgeHandler();
+	const judgeStatement =
+		vote.subtitle + ' ' + voteJudgeHandler(vote.result.total.yes, +totalvotes);
 	return (
 		<React.Fragment>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
@@ -107,7 +101,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								</div>
 							</IonCol>
 							<IonCol size="12">
-								<div className ="vote-card-border"></div>
+								<div className="vote-card-border"></div>
 								<div className="judgement" data-testid="vote-card-judgement">
 									{judgeStatement}
 								</div>
