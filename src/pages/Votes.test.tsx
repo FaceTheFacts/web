@@ -54,9 +54,6 @@ test('renders with correct votes', () => {
 
 	if (container !== null) {
 		const firstVote = container.getElementsByClassName('vote-card')[0];
-		expect(firstVote.getElementsByClassName('vote-card-subtitle')[0].textContent).toBe(
-			candidate.polls[0].subtitle
-		);
 
 		expect(firstVote.getElementsByClassName('vote-card-title')[0].textContent).toBe(
 			candidate.polls[0].title
