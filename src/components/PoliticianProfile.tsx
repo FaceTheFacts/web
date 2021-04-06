@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle, IonCardSubtitle } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
 import '../index.css';
@@ -24,9 +24,6 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 					<IonCol className="profile-details">
 						<div className="politician-name">
 							<IonCardTitle>{candidate.name}</IonCardTitle>
-						</div>
-						<div className="politician-job">
-							<IonCardSubtitle>Jurist</IonCardSubtitle>
 						</div>
 						<div className="politican-details">
 							{candidate.chips.map((chip: string, index: number) => {
