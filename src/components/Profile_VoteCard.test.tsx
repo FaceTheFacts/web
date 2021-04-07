@@ -29,6 +29,10 @@ afterEach(() => {
 
 const candidate = amthor;
 const id = String(candidate.id);
+//given
+const poll = candidate.polls[0];
+const title = poll.title;
+
 //Integration Test
 //Card Title
 test('renders with the correct judge statement', () => {
@@ -43,9 +47,6 @@ test('renders with the correct judge statement', () => {
 		</Router>,
 		container
 	);
-	//given
-	const poll = candidate.polls[0];
-	const title = poll.title;
 	//then
 	if (container !== null) {
 		expect(getAllByTestId(container, 'vote-card-title')[0].textContent).toBe(title);
@@ -68,7 +69,6 @@ test('renders with the correct judge statement', () => {
 		container
 	);
 	//given
-	const poll = candidate.polls[0];
 	const numberOfYes = +poll.result.total.yes;
 	const numberOfNo = +poll.result.total.no;
 	const numberOfAbstain = +poll.result.total.abstain;
