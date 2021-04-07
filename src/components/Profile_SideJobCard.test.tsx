@@ -30,25 +30,22 @@ const candidate = amthor;
 const id = String(candidate.id);
 
 test('renders with correct sidejobs', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
-
+	//given
 	const sidejob = {
 		position: 'Mitglied des Verwaltungsrates',
 		organisation: 'Sparkasse Uecker-Randow',
 	};
-
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
+	//when
 	render(
 		<Router history={history}>
 			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
-
+	//then
 	if (container !== null) {
 		expect(getAllByTestId(container, 'profile-sidejob-organisation')[0].textContent).toBe(
 			sidejob.organisation
