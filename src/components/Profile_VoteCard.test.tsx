@@ -8,6 +8,7 @@ import 'jest-canvas-mock';
 import Profile from './Profile';
 
 import { amthor } from '../amthor';
+import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 
 let container: HTMLDivElement | null = null;
 
@@ -28,55 +29,55 @@ afterEach(() => {
 
 const candidate = amthor;
 const id = String(candidate.id);
-
-test('renders with the correct topic card', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
-
-	const cardTitle = 'Finanzen';
-
+//Integration Test
+//Card Title
+test('renders with the correct judge statement', () => {
+	//given
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
+	//when
 	render(
 		<Router history={history}>
 			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
-
+	//given
+	const poll = candidate.polls[0];
+	const title = poll.title;
+	//then
 	if (container !== null) {
-		expect(getAllByTestId(container, 'topic-name')[0].textContent).toBe(cardTitle);
+		expect(getAllByTestId(container, 'vote-card-title')[0].textContent).toBe(title);
 	}
 });
-test('renders with correct sidejobs', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
 
-	const sidejob = {
-		position: 'Mitglied des Verwaltungsrates',
-		organisation: 'Sparkasse Uecker-Randow',
-	};
 
+
+//judge statement
+test('renders with the correct judge statement', () => {
+	//given
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
+	//when
 	render(
 		<Router history={history}>
 			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
-
+	//given
+	const poll = candidate.polls[0];
+	const numberOfYes = +poll.result.total.yes;
+	const numberOfNo = +poll.result.total.no;
+	const numberOfAbstain = +poll.result.total.abstain;
+	const numberOfNone = +poll.result.total.none;
+	const TotalVote = numberOfYes + numberOfNo + numberOfAbstain + numberOfNone;
+	const voteJudge = voteJudgeHandler(numberOfYes, TotalVote)
+	const pollResult = `${poll.subtitle} ${voteJudge}`;
+	//then
 	if (container !== null) {
-		expect(getAllByTestId(container, 'profile-sidejob-organisation')[0].textContent).toBe(
-			sidejob.organisation
-		);
-
-		expect(getAllByTestId(container, 'profile-sidejob-position')[0].textContent).toBe(
-			sidejob.position
-		);
+		expect(getAllByTestId(container, 'vote-card-judgement')[0].textContent).toBe(pollResult);
 	}
 });
