@@ -46,28 +46,6 @@ test('renders with the correct vote card', () => {
 	}
 });
 
-test('renders with the correct Title Header', () => {
-	// this will change after we remove the hard coded data
-	// we can probably skip most of this and test for the correct API calls
-	// we will also have to mock the API responses
-
-	const titleInput = 'Politische Schwerpunkte';
-
-	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/profile`],
-	});
-	render(
-		<Router history={history}>
-			<Profile candidate={candidate} profileId={id} />
-		</Router>,
-		container
-	);
-
-	if (container !== null) {
-		expect(getAllByTestId(container, 'category-title')[0].textContent).toBe(titleInput);
-	}
-});
-
 test('renders with the correct topic card', () => {
 	// this will change after we remove the hard coded data
 	// we can probably skip most of this and test for the correct API calls
