@@ -43,7 +43,7 @@ test('renders with the correct Title Header', () => {
 		</Router>,
 		container
 	);
-		//then
+	//then
 	if (container !== null) {
 		expect(getAllByTestId(container, 'category-title')[0].textContent).toBe(titleInput);
 	}

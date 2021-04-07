@@ -35,14 +35,14 @@ test('renders with the correct topic card', () => {
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/profile`],
 	});
-  //when
+	//when
 	render(
 		<Router history={history}>
 			<Profile candidate={candidate} profileId={id} />
 		</Router>,
 		container
 	);
-  //then
+	//then
 	if (container !== null) {
 		expect(getAllByTestId(container, 'topic-name')[0].textContent).toBe(cardTitle);
 	}

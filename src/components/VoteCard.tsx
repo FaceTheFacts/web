@@ -62,7 +62,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.none
 	}`;
 
-
 	/* 
 	Let Typescript know that candidateVote will always have one of these four values. 
 	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
