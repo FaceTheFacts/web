@@ -53,8 +53,6 @@ test('renders with the correct judge statement', () => {
 	}
 });
 
-
-
 //judge statement
 test('renders with the correct judge statement', () => {
 	//given
@@ -74,7 +72,7 @@ test('renders with the correct judge statement', () => {
 	const numberOfAbstain = +poll.result.total.abstain;
 	const numberOfNone = +poll.result.total.none;
 	const TotalVote = numberOfYes + numberOfNo + numberOfAbstain + numberOfNone;
-	const voteJudge = voteJudgeHandler(numberOfYes, TotalVote)
+	const voteJudge = voteJudgeHandler(numberOfYes, TotalVote);
 	const pollResult = `${poll.subtitle} ${voteJudge}`;
 	//then
 	if (container !== null) {

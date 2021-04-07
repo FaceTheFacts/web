@@ -36,22 +36,22 @@ it('renders with the correct title', () => {
 
 	// then
 	if (container !== null) {
-    expect(getAllByTestId(container, 'vote-card-title')[0].textContent).toBe(title);
+		expect(getAllByTestId(container, 'vote-card-title')[0].textContent).toBe(title);
 	}
 });
 //Test for judgement
 it('renders with the correct judge statement', () => {
-  // when
+	// when
 	act(() => {
 		render(<VoteCard vote={poll} />, container);
 	});
-  //given
+	//given
 	const numberOfYes = +poll.result.total.yes;
 	const numberOfNo = +poll.result.total.no;
 	const numberOfAbstain = +poll.result.total.abstain;
 	const numberOfNone = +poll.result.total.none;
 	const TotalVote = numberOfYes + numberOfNo + numberOfAbstain + numberOfNone;
-	const voteJudge = voteJudgeHandler(numberOfYes, TotalVote)
+	const voteJudge = voteJudgeHandler(numberOfYes, TotalVote);
 	const pollResult = `${poll.subtitle} ${voteJudge}`;
 	//then
 	if (container !== null) {
