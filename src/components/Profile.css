@@ -29,6 +29,7 @@ ul.vote-card-lists {
 	overflow: auto;
 	margin: 0 auto;
 	scroll-snap-type: x mandatory;
+	overflow-y: hidden;
 }
 
 ul.vote-card-lists::-webkit-scrollbar {
