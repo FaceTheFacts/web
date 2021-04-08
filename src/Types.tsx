@@ -90,8 +90,81 @@ export type PartyMatchType = {
 	percentage: string;
 };
 
+<<<<<<< HEAD
 export type Position = {
 	title: string;
 	answer: string;
 	reason: string;
 };
+=======
+/* export type Bio = {
+	id: number;
+	name: string;
+	image: Array<string>
+	party: number;
+	office: string;
+	focus_topics: Array<string>;
+	bio: string;
+}; */
+
+export type Politician = {
+        "id": number;
+        "entity_type": string;
+        "label": string;
+        "api_url": string;
+        "abgeordnetenwatch_url": string;
+        "first_name": string;
+        "last_name": string;
+        "birth_name": string;
+        "sex": string;
+        "year_of_birth": number;
+        "party": Party;
+        "party_past": string;
+        "deceased": string;
+        "deceased_date": string;
+        "education": string;
+        "residence": string;
+        "occupation": string;
+        "statistic_questions": number;
+        "statistic_questions_answered": number;
+        "qid_wikidata": string;
+        "field_title": string;
+        "related_data": {
+            "mandates": {
+                "meta": {
+                    "description": string;
+                },
+                "api_path": string;
+                "api_path_include": string;
+            },
+            "candidacies": {
+                "meta": {
+                    "description": string;
+                },
+                "api_path": string;
+                "api_path_include": string;
+            },
+            "all_candidacies_mandates": {
+                "meta": {
+                    "description": string;
+                },
+                "api_path": string;
+                "api_path_include": string;
+            },
+            "votes": {
+                "meta": {
+                    "description": string;
+                },
+                "api_path": string;
+                "api_path_include": string;
+            }
+        }
+};
+
+export type Party = {
+	"id": number;
+	"entity_type": string;
+	"label": string;
+	"api_url": string;
+};
+>>>>>>> Create Type for AbgeordnetenWatch API
