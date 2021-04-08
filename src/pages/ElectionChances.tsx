@@ -27,7 +27,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	return (
 		<IonPage className="Profile-Mobile">
 			{/* Here the content of our page starts */}
-			<PoliticianProfile candidate={candidate} />
+			{/* <PoliticianProfile candidate={candidate} /> */}
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
 			<IonContent>
