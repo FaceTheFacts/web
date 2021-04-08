@@ -31,7 +31,7 @@ const Bio: React.FC<BioProps> = ({ candidate }: BioProps) => {
 		<IonPage>
 			{' '}
 			{/* Page Tag */}
-			<PoliticianProfile candidate={candidate} />
+			{/* <PoliticianProfile candidate={candidate} /> */}
 			<Tabs />
 			<IonContent>
 				<BioCard bio={bio} />
