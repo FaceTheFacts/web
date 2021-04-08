@@ -2,11 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import './PoliticianProfile.css';
-import { Candidate } from '../Types';
+import { Politician } from '../Types';
 import '../index.css';
 
 interface ContainerProps {
-	candidate: Candidate;
+	candidate: Politician;
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
@@ -19,12 +19,19 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 					<IonCol className="profile-image">
 						<img
 							className="politician-image"
+<<<<<<< HEAD
 							src={String(candidate.image)}
 							alt={candidate.name}
+=======
+							src='https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+							alt={candidate.label}
+							data-testid="profile-img-url"
+>>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
 						></img>
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
+<<<<<<< HEAD
 							<IonCardTitle data-testid="profile-name">{candidate.name}</IonCardTitle>
 						</div>
 						<div className="politican-details">
@@ -42,6 +49,20 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 									</IonChip>
 								);
 							})}
+=======
+							<IonCardTitle>{candidate.label}</IonCardTitle>
+						</div>
+						<div className="politican-details">
+							<IonChip className="politician-detail">
+								{candidate.party.label}
+							</IonChip>
+							{candidate.occupation !== null ?
+								<IonChip className="politician-detail">
+									{candidate.occupation}
+								</IonChip>
+							: null
+							}
+>>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
 						</div>
 					</IonCol>
 				</IonRow>
