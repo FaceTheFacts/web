@@ -16,7 +16,7 @@ const News: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 		<IonPage>
 			{' '}
 			{/* Page Tag */}
-			<PoliticianProfile candidate={amthor} />
+			{/* <PoliticianProfile candidate={amthor} /> */}
 			<Tabs />
 			<IonContent>
 				{candidate.controversies.map((kontro, index) => {
