@@ -3,7 +3,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './ArrowLinkButton.css';
+import './LinkButton.css';
 
 interface ArrowLinkButtonProps {
 	linkTo: string;
