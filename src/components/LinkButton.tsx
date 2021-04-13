@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 
 import './LinkButton.css';
 
-interface ArrowLinkButtonProps {
+interface LinkButtonProps {
 	linkTo: string;
 }
 
-const ArrowLinkButton: React.FC<ArrowLinkButtonProps> = ({ linkTo }: ArrowLinkButtonProps) => (
+const LinkButton: React.FC<LinkButtonProps> = ({ linkTo }: LinkButtonProps) => (
 	<Link to={linkTo}>
-		<IonButton className="ArrowLinkButton" size="small">
+		<IonButton className="LinkButton" size="small">
 			<IonIcon slot="icon-only" icon={arrowForwardOutline} />
 		</IonButton>
 	</Link>
 );
 
-export default ArrowLinkButton;
+export default LinkButton;
