@@ -27,7 +27,11 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						<div className="politican-details">
 							{candidate.chips.map((chip: string, index: number) => {
 								return (
-									<IonChip className="politician-detail" key={index} data-testid="profile-detail">
+									<IonChip
+										className="politician-detail"
+										key={index}
+										data-testid="profile-detail"
+									>
 										{chip}
 									</IonChip>
 								);
