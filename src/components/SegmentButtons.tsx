@@ -15,6 +15,7 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 			<IonSegment class="segment" value={props.tab}>
 				<IonSegmentButton
 					class="segment-button"
+					id="ErstStimme"
 					value="0"
 					onClick={(e): JSX.Element => props.setTab('0')}
 				>
@@ -22,6 +23,7 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 				</IonSegmentButton>
 				<IonSegmentButton
 					class="segment-button"
+					id="ZweitStimme"
 					value="1"
 					onClick={(e): JSX.Element => props.setTab('1')}
 				>
