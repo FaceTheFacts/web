@@ -16,7 +16,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 	return (
 		<IonPage>
 			<IonContent>
-				<div className="last-grey-back">
+				<div className="votes-black-back">
 					{candidate.polls.map((vote, index) => {
 						return <VoteCard vote={vote} key={`poll-${index}`} />;
 					})}
