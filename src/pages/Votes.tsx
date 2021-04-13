@@ -1,4 +1,4 @@
-import {IonContent, IonPage} from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
 import VoteCard from '../components/VoteCard';
 import './Votes.css';
