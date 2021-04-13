@@ -1,10 +1,6 @@
-import { IonButtons, IonContent, IonPage, IonTitle, IonBackButton, IonText } from '@ionic/react';
+import {IonContent, IonPage} from '@ionic/react';
 import React from 'react';
-import TopicFilter from '../components/TopicFilter';
-import PartyMatch from '../components/PartyMatch';
-import SubHeading from '../components/SubHeading';
 import VoteCard from '../components/VoteCard';
-import Tabs from '../components/Tabs';
 import './Votes.css';
 import { Candidate } from '../Types';
 
