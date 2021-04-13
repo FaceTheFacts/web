@@ -8,6 +8,7 @@ import './Profile.css';
 import TitleHeader from './TitleHeader';
 
 import './Profile.css';
+import { iconEnum } from '../enums/icon.enum';
 interface ProfileProps {
 	candidate: Candidate;
 	profileId: string;
@@ -30,7 +31,10 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				<TitleHeader title="Politische Schwerpunkte" />
 				<TopicCard />
 				<TitleHeader title="Kürzliche Abstimmungen">
-					<LinkButton linkTo={`/politician/${profileId}/votes`} />
+					<LinkButton
+						linkTo={`/politician/${profileId}/votes`}
+						icon={iconEnum.ARROW_FORWARD}
+					/>
 				</TitleHeader>
 				<ul className="vote-card-lists">
 					{candidate.polls.map((poll, index) => {
