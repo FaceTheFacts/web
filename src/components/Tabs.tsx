@@ -11,6 +11,7 @@ const Tabs: React.FC = () => {
 	return (
 		<div className="tabbar">
 			<NavLink
+				id="Profile"
 				to={`/politician/${id}/profile`}
 				className="tabs"
 				activeClassName="tabs activated"
