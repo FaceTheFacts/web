@@ -16,9 +16,7 @@ interface ContainerProps {
 	vote: Election;
 }
 
-const ElectionchancesCard: React.FC<ContainerProps> = ({
-	vote
-}: ContainerProps) => {
+const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	/* 
 	Internationalisation to keep the code in English but print the national language
 	*/
@@ -36,7 +34,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({
 					<IonRow>
 						<IonCol size="9">
 							<div>
-								<IonCardTitle className="election-chances-card-title" data-testid="election-chances-card-title">
+								<IonCardTitle
+									className="election-chances-card-title"
+									data-testid="election-chances-card-title"
+								>
 									{vote.candidate}
 								</IonCardTitle>
 								<IonCardSubtitle
@@ -51,7 +52,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({
 							</div>
 						</IonCol>
 						<IonCol className="percentage" size="3">
-							<IonCardTitle className="election-chances-card-title" data-testid="election-chances-card-percentage">
+							<IonCardTitle
+								className="election-chances-card-title"
+								data-testid="election-chances-card-percentage"
+							>
 								{vote.percentage}%
 							</IonCardTitle>
 						</IonCol>

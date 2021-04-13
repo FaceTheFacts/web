@@ -31,17 +31,19 @@ const id = String(candidate.id);
 
 test('renders with the correct ElectionChancesCard', () => {
 	const history = createMemoryHistory({
-		initialEntries: [`/politician/${candidate.id}/election`],
+		initialEntries: [`/politician/${id}/election`],
 	});
 	render(
 		<Router history={history}>
-			<SecondVoteCard secondVote={candidate.secondVote[0]} rank={1}/>
+			<SecondVoteCard secondVote={candidate.secondVote[0]} rank={1} />
 		</Router>,
 		container
 	);
-    const secondVote = candidate.secondVote[0]
-    const rank = 1
+	const secondVote = candidate.secondVote[0];
+	const rank = 1;
 	if (container !== null) {
-		expect(getAllByTestId(container, 'rank-secondVote')[0].textContent).toBe(`#${rank} ${secondVote.name}`);
+		expect(getAllByTestId(container, 'rank-secondVote')[0].textContent).toBe(
+			`#${rank} ${secondVote.name}`
+		);
 	}
 });
