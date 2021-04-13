@@ -1,0 +1,7 @@
+export enum iconEnum {
+	ARROW_FORWARD,
+	CHEVRON_BACK,
+  SEARCH,
+  CLOSE,
+  CLOSE_CIRCLE,
+}
