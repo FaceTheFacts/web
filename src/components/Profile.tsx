@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TopicCard from './TopicCard';
-import ArrowLinkButton from './ArrowLinkButton';
+import LinkButton from './LinkButton';
 import { Candidate, SideJob } from '../Types';
 import VoteCard from '../components/VoteCard';
 import SideJobCard from '../components/SideJobCard';
@@ -30,7 +30,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				<TitleHeader title="Politische Schwerpunkte" />
 				<TopicCard />
 				<TitleHeader title="Kürzliche Abstimmungen">
-					<ArrowLinkButton linkTo={`/politician/${profileId}/votes`} />
+					<LinkButton linkTo={`/politician/${profileId}/votes`} />
 				</TitleHeader>
 				<ul className="vote-card-lists">
 					{candidate.polls.map((poll, index) => {
