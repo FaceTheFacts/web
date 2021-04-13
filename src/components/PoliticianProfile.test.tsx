@@ -9,7 +9,7 @@ import PoliticianProfile from './PoliticianProfile';
 
 import { amthor } from '../amthor';
 
-let container: HTMLDivElement | null = null;
+let container: HTMLDivElement;
 
 beforeEach(() => {
 	// setup a DOM element as a render target
@@ -22,7 +22,6 @@ afterEach(() => {
 	if (container !== null) {
 		unmountComponentAtNode(container);
 		container.remove();
-		container = null;
 	}
 });
 
@@ -40,8 +39,7 @@ test('renders with the correct ElectionChancesCard', () => {
 		container
 	);
 
-	if (container !== null) {
-		expect(getAllByTestId(container, 'profile-name')[0].textContent).toBe(candidate.name);
-        expect(getAllByTestId(container, 'profile-detail')[0].textContent).toBe(candidate.chips[0]);
-	}
+	expect(getAllByTestId(container, 'profile-name')[0].textContent).toBe(candidate.name);
+    expect(getAllByTestId(container, 'profile-detail')[0].textContent).toBe(candidate.chips[0]);
+	
 });
