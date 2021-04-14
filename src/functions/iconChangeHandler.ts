@@ -6,8 +6,8 @@ import {
 	searchOutline,
 } from 'ionicons/icons';
 import { iconEnum } from '../enums/icon.enum';
-export const iconChangeHandler = (icon: iconEnum) => {
-	let iconName;
+export const iconChangeHandler = (icon: iconEnum): string => {
+	let iconName: string;
 	switch (icon) {
 		case iconEnum.ARROW_FORWARD:
 			iconName = arrowForwardOutline;
