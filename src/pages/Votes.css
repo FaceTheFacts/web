@@ -6,8 +6,10 @@
 	align-items: center;
 	color: #FFFFFF;
 	background: #181924;
-
-
+	font-family: 'protipo', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
 }
 .votes-black-back {
 	background-color: #181924;
