@@ -4,7 +4,7 @@
 	height: 60px;
 	width: 375px;
 	align-items: center;
-	color: #FFFFFF;
+	color: #ffffff;
 	background: #181924;
 	font-family: 'protipo', sans-serif;
 	font-size: 14px;
@@ -13,4 +13,8 @@
 }
 .votes-black-back {
 	background-color: #181924;
+}
+
+.votes-vote-card {
+	margin-bottom: 10px;
 }
