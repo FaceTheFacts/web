@@ -5,3 +5,6 @@ node_modules
 electron
 public
 resources
+
+src/functions/iconChangeHandler.ts
+src/pages/ElectionChances.tsx
