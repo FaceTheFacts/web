@@ -1,3 +1,7 @@
+.votes-header-container {
+	display: flex;
+	justify-content: space-between;
+}
 .votes-black-back {
 	background-color: #181924;
 }
