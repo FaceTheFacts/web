@@ -1,6 +1,9 @@
 .votes-header-container {
 	display: flex;
 	justify-content: space-between;
+	height: 60px;
+	width: 375px;
+	align-items: center;
 }
 .votes-black-back {
 	background-color: #181924;
