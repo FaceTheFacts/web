@@ -15,18 +15,25 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 	return (
 		<IonPage>
 			<IonContent>
-				<div className = "votes-header-container">
+				<div className="votes-header-container">
 					<LinkButton
 						linkTo={`/politician/${candidateId}/profile`}
 						icon={iconEnum.CHEVRON_BACK}
 					/>
 					<div>wichtige Abstimmungen</div>
 					{/* Since filter screen doesn't exist yet, Search button is routed to votes screen */}
-					<LinkButton linkTo={`/politician/${candidateId}/votes`} icon={iconEnum.SEARCH} />
+					<LinkButton
+						linkTo={`/politician/${candidateId}/votes`}
+						icon={iconEnum.SEARCH}
+					/>
 				</div>
 				<div className="votes-black-back">
 					{candidate.polls.map((vote, index) => {
-						return <VoteCard vote={vote} key={`poll-${index}`} />;
+						return (
+							<div className="votes-vote-card" key={`poll-${index}`}>
+								<VoteCard vote={vote} />
+							</div>
+						);
 					})}
 				</div>
 			</IonContent>
