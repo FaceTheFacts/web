@@ -1,4 +1,5 @@
 .votes-header-container {
+	margin-top: 50px;
 	display: flex;
 	justify-content: space-between;
 	height: 60px;
