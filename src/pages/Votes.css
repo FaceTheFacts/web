@@ -1,7 +1,6 @@
 .votes-header-container {
 	margin-top: 50px;
 	display: flex;
-	justify-content: space-between;
 	height: 60px;
 	width: 375px;
 	align-items: center;
@@ -11,6 +10,12 @@
 	font-size: 14px;
 	font-weight: 400;
 	font-style: normal;
+}
+.votes-header-container > :second-child {
+	margin-left: 20px;
+}
+.votes-header-container > :last-child {
+	margin-left: 110px;
 }
 .votes-black-back {
 	background-color: #181924;
