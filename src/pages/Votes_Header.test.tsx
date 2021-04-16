@@ -6,6 +6,7 @@ import { createMemoryHistory } from 'history';
 import Votes from './Votes';
 
 import { amthor } from '../amthor';
+import { getByTestId } from '@testing-library/dom';
 
 let container: HTMLDivElement | null = null;
 
@@ -24,7 +25,7 @@ afterEach(() => {
 
 const candidate = amthor;
 
-test('', () => {
+test('render the correct title', () => {
 	const history = createMemoryHistory({
 		initialEntries: [`/politician/${candidate.id}/votes`],
 	});
@@ -35,4 +36,10 @@ test('', () => {
 		</Router>,
 		container
 	);
+	//then
+	if (container !== null) {
+		expect(getByTestId(container, 'votes-header').textContent).toBe(
+			'wichtige Abstimmungen'
+		);
+	}
 });
