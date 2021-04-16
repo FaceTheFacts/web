@@ -19,7 +19,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					linkTo={`/politician/${candidateId}/profile`}
 					icon={iconEnum.CHEVRON_BACK}
 				/>
-				<div>wichtige Abstimmungen</div>
+				<div data-testid="votes-header">wichtige Abstimmungen</div>
 				{/* Since filter screen doesn't exist yet, Search button is routed to votes screen */}
 				<LinkButton linkTo={`/politician/${candidateId}/votes`} icon={iconEnum.SEARCH} />
 			</div>
