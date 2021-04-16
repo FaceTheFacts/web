@@ -13,7 +13,7 @@ interface VoteProps {
 const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 	const candidateId = candidate.id;
 	return (
-		<IonPage>
+		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
 				<LinkButton
 					linkTo={`/politician/${candidateId}/profile`}
