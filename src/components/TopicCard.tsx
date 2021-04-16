@@ -1,8 +1,9 @@
 import React from 'react';
 import { IonChip, IonIcon, IonLabel } from '@ionic/react';
 import './TopicCard.css';
+import { Topics } from '../Types'
 
-const topics = [
+/* const topics = [
 	{
 		name: 'Finanzen',
 		icon: 'assets/icon/sack-dollar-light.svg',
@@ -18,12 +19,16 @@ const topics = [
 		icon: 'assets/icon/shield-light.svg',
 		filter: '',
 	},
-];
+]; */
 
-const TopicCard: React.FC = () => {
+interface TopicCardProps {
+	topics: Topics;
+}
+
+const TopicCard: React.FC<TopicCardProps> = ({ topics }: TopicCardProps) => {
 	return (
 		<div>
-			{topics.map((topic, index) => {
+			{topics.topic.map((topic, index) => {
 				return (
 					<IonChip className="topic-card" key={`topic-${index}`}>
 						<IonIcon src={topic.icon} color="light" />

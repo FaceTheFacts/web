@@ -167,4 +167,12 @@ export type Party = {
 	"label": string;
 	"api_url": string;
 };
->>>>>>> Create Type for AbgeordnetenWatch API
+
+export type Topics = {
+	topic: Array<Topic>;
+};
+
+export type Topic = {
+	name: string;
+	icon: string;
+};>>>>>>> Create Type for AbgeordnetenWatch API
