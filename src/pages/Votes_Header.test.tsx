@@ -38,8 +38,6 @@ test('render the correct title', () => {
 	);
 	//then
 	if (container !== null) {
-		expect(getByTestId(container, 'votes-header').textContent).toBe(
-			'wichtige Abstimmungen'
-		);
+		expect(getByTestId(container, 'votes-header').textContent).toBe('wichtige Abstimmungen');
 	}
 });
