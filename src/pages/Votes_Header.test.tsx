@@ -2,7 +2,6 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import 'jest-canvas-mock';
 
 import Votes from './Votes';
 
