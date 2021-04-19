@@ -2,7 +2,7 @@
 	--background: #181924;
 	display: flex;
 	align-items: center;
-	height: 60px;
+	height: 65px;
 }
 
 .segment {
@@ -16,5 +16,5 @@
 	--color: #ffffff;
 	--color-selected: #ffffff;
 	--color-checked: #ffffff;
-	--border-radius: 25px;
+	--border-radius: 4px;
 }
