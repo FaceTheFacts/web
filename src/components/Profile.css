@@ -13,8 +13,14 @@
 	padding: 0px;
 }
 .vote-card-lists li {
-	/* 343+12 = 355 */
-	width: 355px;
+	/* 296 + 4  = 300 */
+	width: 300px;
+}
+@media screen and (min-width: 360px) {
+	.vote-card-lists li {
+		/* 343+12 = 355 */
+		width: 355px;
+	}
 }
 
 ul.vote-card-lists,
