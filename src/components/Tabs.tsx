@@ -11,13 +11,23 @@ const Tabs: React.FC = () => {
 	return (
 		<div className="tabbar">
 			<NavLink
+				id="Position"
+				// directing to bio until Position Page is ready
+				to={`/politician/${id}/bio`}
+				className="tabs"
+				activeClassName="tabs activated"
+			>
+				<div>Positionen</div>
+			</NavLink>
+			<NavLink
 				id="Profile"
 				to={`/politician/${id}/profile`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>
-				<div>PROFIL</div>
+				<div>Profilseite</div>
 			</NavLink>
+{/* 		BIO and NEWS not part of current MVP	
 			<NavLink to={`/politician/${id}/bio`} className="tabs" activeClassName="tabs activated">
 				<div>BIO</div>
 			</NavLink>
@@ -27,13 +37,13 @@ const Tabs: React.FC = () => {
 				activeClassName="tabs activated"
 			>
 				<div>NEWS</div>
-			</NavLink>
+			</NavLink> */}
 			<NavLink
 				to={`/politician/${id}/election`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>
-				<div>WAHL</div>
+				<div>Wahlchancen</div>
 			</NavLink>
 		</div>
 	);
