@@ -1,21 +1,47 @@
 .tabbar {
 	background: rgba(42, 43, 54, 1);
-	height: 50px;
+	height: 45px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-right: 30px;
-	padding-left: 30px;
+	padding-right: 24px;
+	padding-left: 24px;
 }
 
 .tabs {
 	background: rgba(42, 43, 54, 1);
 	color: rgba(255, 255, 255, 0.3);
-	font-size: 15px;
+	font-size: 14px;
 	text-decoration: none;
 }
 
 .activated {
-	border-bottom: 2px solid white;
 	color: white;
+	/* Not supported for Safari on iOS devices
+	text-decoration: underline white;
+    text-underline-position: below;
+    text-underline-offset: 11px; */
+	text-decoration: none; 
+    position: relative; 
+}
+
+.activated:after {
+	position: absolute;
+    content: '';
+    height: 3px;
+    bottom: -13px; 
+	width: 103.67px;
+	background: white;
+	border-radius: 3px 3px 0px 0px;
+}
+
+.tabtext {
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	width: 103.67px;
+	display: flex;
+	justify-content: center;
 }
