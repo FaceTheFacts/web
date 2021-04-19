@@ -4,6 +4,10 @@
 	padding-bottom: 6px;
 }
 
+.profile-topic {
+	margin-left: 12px;
+}
+
 .profile-header {
 	max-height: 300px;
 }

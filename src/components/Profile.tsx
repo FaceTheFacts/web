@@ -29,7 +29,9 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 		<React.Fragment>
 			<div className="profile-black-back">
 				<TitleHeader title="Politische Schwerpunkte" />
-				<TopicCard />
+				<div className="profile-topic">
+					<TopicCard />
+				</div>
 				<TitleHeader title="Kürzliche Abstimmungen">
 					<LinkButton
 						linkTo={`/politician/${profileId}/votes`}
