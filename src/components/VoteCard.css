@@ -8,10 +8,17 @@
 	background: #2b2c36;
 }
 .vote-card-header {
-	padding-top: 16px;
-	padding-left: 16px;
-	padding-right: 16px;
+	padding-top: 12px;
+	padding-left: 12px;
+	padding-right: 12px;
 	padding-bottom: 0px;
+}
+@media screen and (min-width: 360px) {
+	.vote-card-header {
+		padding-top: 16px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 }
 .vote-card-header ion-grid {
 	padding-top: 0px;
