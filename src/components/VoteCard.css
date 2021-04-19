@@ -2,8 +2,8 @@
 	box-sizing: border-box;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	width: 343px;
-	height: 112px;
+	width: 296px;
+	height: 104px;
 	padding: 0px;
 	background: #2b2c36;
 }
@@ -14,6 +14,10 @@
 	padding-bottom: 0px;
 }
 @media screen and (min-width: 360px) {
+	.vote-card {
+		width: 343px;
+		height: 112px;
+	}
 	.vote-card-header {
 		padding-top: 16px;
 		padding-left: 16px;
