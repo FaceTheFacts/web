@@ -19,7 +19,7 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 					value="0"
 					onClick={(e): JSX.Element => props.setTab('0')}
 				>
-					Erststimme
+					ERSTSTIMME
 				</IonSegmentButton>
 				<IonSegmentButton
 					class="segment-button"
@@ -27,15 +27,17 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 					value="1"
 					onClick={(e): JSX.Element => props.setTab('1')}
 				>
-					Zweitstimme
+					ZWEITSTIMME
 				</IonSegmentButton>
+				
+				{/* Wahlkreis Feature currently not part of MVP
 				<IonSegmentButton
 					class="segment-button"
 					value="2"
 					onClick={(e): JSX.Element => props.setTab('2')}
 				>
 					Wahlkreis
-				</IonSegmentButton>
+				</IonSegmentButton> */}
 			</IonSegment>
 		</IonToolbar>
 	);
