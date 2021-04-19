@@ -8,8 +8,8 @@
 }
 
 .segment {
-	width: 99%;
-	height: 39px;
+	width: 100%;
+	height: 43px;
 	background-color: #181924;
 }
 
@@ -18,4 +18,10 @@
 	--color: rgba(255, 255, 255, 0.5);
 	--color-checked: rgba(255, 255, 255, 1);
 	--border-radius: 4px;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.7px;
 }
