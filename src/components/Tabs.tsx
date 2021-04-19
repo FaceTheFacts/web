@@ -17,7 +17,7 @@ const Tabs: React.FC = () => {
 				className="tabs"
 				activeClassName="tabs activated"
 			>
-				<div>Positionen</div>
+				<div className="tabtext">Positionen</div>
 			</NavLink>
 			<NavLink
 				id="Profile"
@@ -25,7 +25,7 @@ const Tabs: React.FC = () => {
 				className="tabs"
 				activeClassName="tabs activated"
 			>
-				<div>Profilseite</div>
+				<div className="tabtext">Profilseite</div>
 			</NavLink>
 {/* 		BIO and NEWS not part of current MVP	
 			<NavLink to={`/politician/${id}/bio`} className="tabs" activeClassName="tabs activated">
@@ -43,7 +43,7 @@ const Tabs: React.FC = () => {
 				className="tabs"
 				activeClassName="tabs activated"
 			>
-				<div>Wahlchancen</div>
+				<div className="tabtext">Wahlchancen</div>
 			</NavLink>
 		</div>
 	);
