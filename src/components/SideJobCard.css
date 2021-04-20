@@ -1,5 +1,4 @@
 .sideJob-minor {
-	overflow: visible;
 	color: #ffffff;
 	font-size: 12px;
 	letter-spacing: 0.3px;
@@ -10,7 +9,6 @@
 }
 
 .sideJob-major {
-	overflow: visible;
 	color: #ffffff;
 	font-size: 14px;
 	letter-spacing: 0px;
@@ -22,11 +20,9 @@
 }
 
 .sideJob-layout {
-	overflow: hidden;
 	background: #2b2c36;
 	border-radius: 10px;
 	margin-top: 10px;
 	position: relative;
 	margin-bottom: 0;
 }
-
