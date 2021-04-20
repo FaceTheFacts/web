@@ -6,6 +6,7 @@ electron
 public
 resources
 PULL_REQUEST_TEMPLATE.md
+.github
 
 src/functions/iconChangeHandler.ts
 src/pages/ElectionChances.tsx
