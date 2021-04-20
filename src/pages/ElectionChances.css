@@ -146,6 +146,10 @@
 	color: #FFFFFF;
 }
 
+.secondvote-card:first-of-type {
+	background-color:rgba(45, 93, 234, 1);
+}
+
 ion-content {
 	--background: #181924;
 }
