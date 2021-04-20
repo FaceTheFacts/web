@@ -25,6 +25,12 @@
 	}
 }
 
+@media screen and (min-width: 414px) {
+	.vote-card-lists li {
+		width: calc(414px - 16px * 2 + 12px);
+	}
+}
+
 ul.vote-card-lists,
 ul.vote-card-lists li {
 	margin: 0;
