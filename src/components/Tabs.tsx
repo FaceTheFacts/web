@@ -27,7 +27,7 @@ const Tabs: React.FC = () => {
 			>
 				<div className="tabtext">Profilseite</div>
 			</NavLink>
-{/* 		BIO and NEWS not part of current MVP	
+			{/* BIO and NEWS not part of current MVP
 			<NavLink to={`/politician/${id}/bio`} className="tabs" activeClassName="tabs activated">
 				<div>BIO</div>
 			</NavLink>
