@@ -23,11 +23,10 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	*/
 
 	const partyClassName = vote.party.toLowerCase().replace(/\s/g, '');
-	const electionChancesCardClass = className('election-chances-card', partyClassName)
 	const electionChancesCardSubtitleClass = className('election-chances-card-subtitle', partyClassName)	
 
 	return (
-		<IonCard className={electionChancesCardClass}>
+		<IonCard className='election-chances-card'>
 			{/* 
 			Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
 			It's inside a css grid so we can more easily arrange the items.
