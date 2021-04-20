@@ -214,7 +214,7 @@ export const amthor: Candidate = {
 	],
 	electionResults: [
 		{
-			candidate: 'Philip Amthor',
+			candidate: 'Philipp Amthor',
 			party: 'CDU',
 			percentage: 34.7,
 			image: new URL(
@@ -280,6 +280,10 @@ export const amthor: Candidate = {
 	],
 	secondVote: [
 		{
+			name: 'Philipp Amthor',
+			electionChance: 60.4,
+		},
+		{
 			name: 'Thomas Racheal',
 			electionChance: 60.4,
 		},
@@ -302,26 +306,6 @@ export const amthor: Candidate = {
 		{
 			name: 'Karl-Josef Laumann',
 			electionChance: 12.4,
-		},
-		{
-			name: 'Elisabeth Winkelmeier-Becker',
-			electionChance: 9.4,
-		},
-		{
-			name: 'Elisabeth Winkelmeier-Becker',
-			electionChance: 9.4,
-		},
-		{
-			name: 'Elisabeth Winkelmeier-Becker',
-			electionChance: 9.4,
-		},
-		{
-			name: 'Elisabeth Winkelmeier-Becker',
-			electionChance: 9.4,
-		},
-		{
-			name: 'Elisabeth Winkelmeier-Becker',
-			electionChance: 9.4,
 		},
 		{
 			name: 'Elisabeth Winkelmeier-Becker',
