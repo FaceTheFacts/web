@@ -62,73 +62,88 @@
 	background-color: rgba(99, 99, 99, 50%);
 }
 
-.votes-toolbar {
-	height: 95px;
-	background-color: #4c4c4c;
+.election-chances-firstVote {
+	border-top: 1px solid rgba(76, 78, 98, 1);
+	padding-left: 19px;
+	padding-top: 12px;
 }
 
-.page-title {
-	margin-top: 12%;
-	height: 55px;
-	font-size: 130%;
-	color: #ffffff;
-	font-family: 'protipo', sans-serif;
-	font-weight: 400;
+.election-chances-secondVote {
+	background-color: rgba(42, 43, 54, 1);
+	padding-left: 19px;
+	padding-top: 16px;
+}
+
+.electionresult {
+	font-family: IBM Plex Serif;
 	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.3px;
+	color: rgba(256, 256, 256, 0.7);
+	text-transform: none;
+	margin-bottom: 2px;
 }
 
-.grey-back-scroll {
-	background-color: #1f1f1f;
-	overflow-x: scroll;
-	scrollbar-width: none;
-}
-.election-chances-title {
-	font-family: 'protipo', sans-serif;
-	font-weight: 200;
+.constituency {
+	font-family: Protipo;
 	font-style: normal;
-	background-color: #181924;
-	color: #d4d4d4;
-	padding-top: 5%;
-}
-
-.election-chances-title {
-	color: #d4d4d4;
-	padding-left: 5%;
-}
-
-.election-chances-title ion-card-title {
-	--color: #d4d4d4;
-	font-size: 130%;
-	padding-bottom: 2%;
-}
-
-.black-back {
-	background-color: #181924;
-}
-
-.blue-back {
-	background-color: #181924;
-}
-
-.black-back > .election-chances-card:first-of-type {
-	border: 1px white solid;
-}
-
-.election-chances-title ion-card-subtitle {
-	--color: white;
-	font-weight: 400;
-}
-
-.party {
-	font-weight: 800;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: white;
 }
 
 .statelist {
-	opacity: 70%;
+	color: white;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
 }
 
 .state {
+	color: white;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 14px;
+	padding-bottom: 21px;
+}
+
+.state span {
+	padding: 5px 8px;
+	border-radius: 5px;
+}
+
+.result-text {
+	padding-top: 12px;
+	padding-left: 16px;
+	font-family: IBM Plex Serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.3px;
+	color: rgba(255, 255, 255, 0.7);
+	text-transform: none;
+}
+
+.result-total {
+	padding-bottom: 10px;
+	padding-left: 16px;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
 	font-size: 14px;
+	line-height: 17px;
+	color: #FFFFFF;
 }
 
 ion-content {
