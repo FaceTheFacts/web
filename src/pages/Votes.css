@@ -20,6 +20,9 @@
 }
 .votes-black-back {
 	background-color: #181924;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .votes-vote-card {
