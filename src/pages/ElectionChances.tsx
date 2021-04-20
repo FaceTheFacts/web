@@ -1,5 +1,6 @@
-import {IonContent, IonPage, IonCardSubtitle} from '@ionic/react';
+import {IonContent, IonPage, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 import React from 'react';
+import className from 'classnames'
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
@@ -16,39 +17,42 @@ interface ElectionchancesProps {
 const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const [segment, setSegment] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
-	/* Second Vote Code */
+	const partyClassName = candidate.party.toLowerCase().replace(/\s/g, '');
+	const stateListClass = className('state', partyClassName)
 
 
 	/* This is returned when using this component */
 	return (
-		<IonPage className="black-back">
+		<IonPage>
 			{/* Here the content of our page starts */}
 			<PoliticianProfile candidate={candidate} />
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
+			<IonContent>
 			{segment==='0' ? 
 				<div>
 					<VoteExplainerCard vote="Erststimme" />
-					<div className="election-chances-title">
-						<IonCardSubtitle>Wahlergebnis 2017</IonCardSubtitle>
+					<div className="election-chances-firstVote">
+						<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
+						<IonCardTitle className="constituency">Wahlkreis - {candidate.constituency.label}</IonCardTitle>
 					</div>
 				</div>
 				:
 				<div>
 					<VoteExplainerCard vote="Zweitstimme" />
-					<div className="election-chances-title">
+					<div className="election-chances-secondVote">
 						<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-						<IonCardSubtitle className="state"><span className="party">CDU</span> Mecklenburg-Vorpommern</IonCardSubtitle>
+						<IonCardTitle className={stateListClass}><span>CDU Mecklenburg-Vorpommern</span></IonCardTitle>
 					</div>
+					<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
+					<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
 				</div>
 			}
-			{segment==='0' ?
-				<ElectionchancesCard vote={candidate.electionResults[0]} />
-				: null}
-			<IonContent>
-				<div className="blue-back">
+
+			
+				<div>
 					{segment==='1' ?
-						candidate.secondVote.slice(1).map((StateList, index) => {
+						candidate.secondVote.map((StateList, index) => {
 							return <SecondVoteCard
 								secondVote={StateList}
 								key={`secondvote-${index}`}
@@ -56,7 +60,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 							/>;
 						})
 						:
-						candidate.electionResults.slice(1).map((Election, index) => {
+						candidate.electionResults.map((Election, index) => {
 						
 							return <ElectionchancesCard vote={Election} key={`electionResults-${index}`}/>;
 						})
