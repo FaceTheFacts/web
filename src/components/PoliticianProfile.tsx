@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
@@ -9,6 +10,9 @@ interface ContainerProps {
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
+
+	const partyClassName = candidate.party.toLowerCase().replace(/\s/g, '');
+	
 	return (
 		<div className="header">
 			<IonGrid>
@@ -28,7 +32,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 							{candidate.chips.map((chip: string, index: number) => {
 								return (
 									<IonChip
-										className="politician-detail"
+										className={classnames('politician-detail', `${partyClassName+index}` )}
 										key={index}
 										data-testid="profile-detail"
 									>
