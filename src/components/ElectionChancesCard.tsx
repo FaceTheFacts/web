@@ -55,7 +55,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 								className="election-chances-card-title"
 								data-testid="election-chances-card-percentage"
 							>
-								{vote.percentage}%
+								{vote.percentage} %
 							</IonCardTitle>
 						</IonCol>
 					</IonRow>
