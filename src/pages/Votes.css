@@ -15,7 +15,8 @@
 	margin-left: 20px;
 }
 .votes-header-container > :last-child {
-	margin-left: 110px;
+	position: absolute;
+	right: 19px;
 }
 .votes-black-back {
 	background-color: #181924;
