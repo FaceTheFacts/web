@@ -24,6 +24,18 @@
 		padding-right: 16px;
 	}
 }
+
+@media screen and (min-width: 414px) {
+	.vote-card {
+		width: calc(414px - 16px * 2);
+	}
+	.vote-card-header {
+		padding-top: 16px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
+
 .vote-card-header ion-grid {
 	padding-top: 0px;
 	padding-bottom: 0px;
