@@ -17,6 +17,11 @@
 }
 
 .rank {
-	font-weight: 400;
-	padding-right: 10px;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	padding-right: 15px;
+	opacity: 0.7;
 }
