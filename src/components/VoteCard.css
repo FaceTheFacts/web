@@ -3,7 +3,6 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 	width: calc(100vw - 12px * 2);
-	height: 104px;
 	padding: 0px;
 	background: #2b2c36;
 }
@@ -16,7 +15,6 @@
 @media screen and (min-width: 360px) {
 	.vote-card {
 		width: calc(100vw - 16px * 2);
-		height: 112px;
 	}
 	.vote-card-header {
 		padding-top: 16px;
