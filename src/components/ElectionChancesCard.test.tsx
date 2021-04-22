@@ -49,6 +49,6 @@ test('renders with the correct ElectionChancesCard', () => {
 		electionResult.party
 	);
 	expect(getAllByTestId(container, 'election-chances-card-percentage')[0].textContent).toBe(
-		`${electionResult.percentage}%`
+		`${electionResult.percentage} %`
 	);
 });
