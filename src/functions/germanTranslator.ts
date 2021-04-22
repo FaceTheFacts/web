@@ -1,7 +1,7 @@
 export const germanTranslator = (word: string): string => {
 	let translated: string;
 	switch (word) {
-    // eslint-disable-next-line
+		// eslint-disable-next-line
 		case 'yes':
 			translated = 'ja';
 			break;
