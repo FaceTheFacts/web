@@ -19,28 +19,28 @@ const PositionCard: React.FC<PostionCardProps> = ({
 }: PostionCardProps) => {
 	return (
 		<IonCard className="position-card">
-			<IonCardHeader>
-				<IonGrid>
-					<IonRow className="ion-justify-content-center">
-						<IonCol size="7">
-							<IonCardTitle
-								className="position-card-title"
-								data-testid="position-card-title"
-							>
-								{title}
-							</IonCardTitle>
-						</IonCol>
-						<IonCol size="5" className="position-sub-col">
-							<div className="position-card-subcontent">
-								<Positioning positioning={answer} />
-								<LinkButton
-									linkTo={`/politician/${candidateId}/position`}
-									icon={iconEnum.CHEVRON_FORWARD}
-								/>
-							</div>
-						</IonCol>
-					</IonRow>
-				</IonGrid>
+			<IonCardHeader className="position-card-header">
+				<div className="position-card-container">
+					<div className="position-card-title">
+						<IonCardTitle
+							className="position-card-title"
+							data-testid="position-card-title"
+						>
+							{title}
+						</IonCardTitle>
+					</div>
+					<div className="position-card-sub-content">
+						<div>
+							<Positioning positioning={answer} />
+						</div>
+						<div>
+							<LinkButton
+								linkTo={`/politician/${candidateId}/position`}
+								icon={iconEnum.CHEVRON_FORWARD}
+							/>
+						</div>
+					</div>
+				</div>
 			</IonCardHeader>
 		</IonCard>
 	);

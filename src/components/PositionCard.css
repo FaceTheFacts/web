@@ -1,6 +1,11 @@
 .position-card {
 	background: #2a2b36;
 }
+
+.position-card-header {
+	padding: 12px;
+}
+
 .position-card-title {
 	font-family: 'protipo', sans-serif;
 	font-size: 14px;
@@ -8,7 +13,14 @@
 	font-weight: 400;
 	color: #ffffff;
 }
-.position-card-subcontent {
+
+.position-card-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.position-card-sub-content {
 	display: flex;
 	align-items: center;
 }
