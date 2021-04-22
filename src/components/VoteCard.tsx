@@ -21,6 +21,7 @@ import {
 } from '@ionic/react';
 import { Poll } from '../Types';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
+import Positioning from './Positioning';
 
 interface ContainerProps {
 	vote: Poll;
@@ -40,13 +41,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
-
-	/* 
-	Dynamically create the className for the candidate's vote, so we have all the colours.
-	In VoteCard.css these correspond to vote-yes, vote-no, vote-abstain, and vote-none
-	*/
-	const candidateVoteClassName = `candidate-vote vote-${vote.candidateVote.toLowerCase()}`;
-
 	/* 
 	Dynamically create the className for the candidate's reason for voting
 	*/
@@ -61,25 +55,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.abstain +
 		vote.result.total.none
 	}`;
-
-	/* 
-	Let Typescript know that candidateVote will always have one of these four values. 
-	The cleaner refactored version of this would be to change "vote" into it's own datatype where vote.candidateVote is 
-	predefined to only have one of these four values.
-	
-	Absolutely need to figure out how to use this datatype, currently it is different from string which causes problems
-	*/
-	// const voteString = vote.candidateVote;
 	const voteString = vote.candidateVote;
 	const judgeStatement =
 		vote.subtitle + ' ' + voteJudgeHandler(vote.result.total.yes, +totalvotes);
 	return (
 		<React.Fragment>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
-				{/* 
-				Card header with Vote name, vote subtitle which holds the type of vote it was and the candidate's vote.
-				It's inside a css grid so we can more easily arrange the items.
-				*/}
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
@@ -90,12 +71,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 								>
 									{vote.title}
 								</IonCardTitle>
-
-								{/* Vote Result will show here e.g., Antrag abgelehnt */}
 							</IonCol>
 							<IonCol size="4">
-								<div className={candidateVoteClassName}>
-									{voteStrings[voteString]}
+								<div className="candidate-vote">
+									<Positioning positioning={vote.candidateVote} />
 								</div>
 							</IonCol>
 							<IonCol size="12">
