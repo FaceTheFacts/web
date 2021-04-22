@@ -1,10 +1,25 @@
+:root {
+	--fontsize: 12px;
+	--height: 40px;
+	--padding: 16px;
+	--line-height: 14.34px;
+}
+@media screen and (min-width: 360px) {
+	:root {
+	--fontsize: 14px;
+	--height: 43px;
+	--padding: 24px;
+	--line-height: 16.73px;
+	}
+}
+
 .toolbar {
 	--background: #181924;
 	display: flex;
 	align-items: center;
 	height: 65px;
-	padding-left: 24px;
-	padding-right: 24px;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
 }
 
 .segment {
@@ -21,7 +36,7 @@
 	font-family: Protipo;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: var(--fontsize);
+	line-height: var(--line-height);
 	letter-spacing: 0.7px;
 }
