@@ -1,6 +1,8 @@
+import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { getByTestId } from '@testing-library/react';
+import PositionCard from './PositionCard';
 
 let container: HTMLDivElement | null = null;
 
@@ -20,16 +22,16 @@ afterEach(() => {
 });
 
 it('renders with correct title', () => {
-  // given
-	const cardTitle = "Pfleger:innen aus dem Ausland"
+	// given
+	const cardTitle = 'Pfleger:innen aus dem Ausland';
 
 	// when
 	act(() => {
-		render(<PositionCard title = {cardTitle} />, container);
+		render(<PositionCard title={cardTitle} />, container);
 	});
 
 	// then
 	if (container !== null) {
-		expect(getByTestId(container, 'postion-card-title').textContent).toBe(cardTitle);
+		expect(getByTestId(container, 'position-card-title').textContent).toBe(cardTitle);
 	}
 });
