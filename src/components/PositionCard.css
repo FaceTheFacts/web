@@ -7,6 +7,12 @@
 	padding-left: 16px;
 }
 
+@media screen and (min-width: 360px) {
+	.position-card-header {
+		padding: 16px;
+	}
+}
+
 .position-card-title {
 	font-family: 'protipo', sans-serif;
 	font-size: 14px;
