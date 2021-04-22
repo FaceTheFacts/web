@@ -24,14 +24,16 @@ afterEach(() => {
 it('renders with correct title', () => {
 	// given
 	const cardTitle = 'Pfleger:innen aus dem Ausland';
+	const cardAnswer = 'yes';
 
 	// when
 	act(() => {
-		render(<PositionCard title={cardTitle} />, container);
+		render(<PositionCard title={cardTitle} answer={cardAnswer} />, container);
 	});
 
 	// then
 	if (container !== null) {
 		expect(getByTestId(container, 'position-card-title').textContent).toBe(cardTitle);
+		expect(getByTestId(container, 'positioning').textContent).toBe('ja');
 	}
 });
