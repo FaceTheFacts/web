@@ -22,7 +22,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 			<IonCardHeader>
 				<IonGrid>
 					<IonRow className="ion-justify-content-center">
-						<IonCol size="8">
+						<IonCol size="7">
 							<IonCardTitle
 								className="position-card-title"
 								data-testid="position-card-title"
@@ -30,7 +30,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 								{title}
 							</IonCardTitle>
 						</IonCol>
-						<IonCol size="4" className="ion-align-self-end">
+						<IonCol size="5" className="position-sub-col">
 							<div className="position-card-subcontent">
 								<Positioning positioning={answer} />
 								<LinkButton
