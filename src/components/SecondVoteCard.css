@@ -1,12 +1,25 @@
+:root {
+	--margintop-secondvote-card: 0px;
+	--marginleft-secondvote-card: 12px
+}
+@media screen and (min-width: 360px) {
+	:root {
+		--margintop-secondvote-card: 2px;
+		--marginleft-secondvote-card: 16px
+	}
+}
+
 .secondvote-card {
 	background: #2b2c36;
-	margin-top: 8px;
-	margin-bottom: 0px;
+	margin-top: var(--margintop-secondvote-card);
+	margin-bottom: calc(8px - var(--margintop-secondvote-card));
+	margin-left: var(--marginleft-secondvote-card);
+	margin-right: var(--marginleft-secondvote-card);
 	height: 41px;
 }
 
 .secondvote-card-header {
-	padding: 12px 16px 12px 16px;
+	padding: 12px 16px;
 }
 
 .secondvote-card-name {
