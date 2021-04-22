@@ -1,5 +1,9 @@
 .position-card {
 	background: #2a2b36;
+	margin-top: 8px;
+	margin-bottom: 0px;
+	margin-left: 16px;
+	margin-right: 16px;
 }
 
 .position-card-header {
