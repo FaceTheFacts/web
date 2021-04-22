@@ -90,12 +90,7 @@ export type PartyMatchType = {
 	percentage: string;
 };
 
-/* export type Bio = {
-	id: number;
-	name: string;
-	image: Array<string>
-	party: number;
-	office: string;
-	focus_topics: Array<string>;
-	bio: string;
-}; */
+export type Position = {
+	title: string;
+	answer: string;
+}
