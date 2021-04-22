@@ -1,11 +1,13 @@
 :root {
 	--width: 90.33px;
 	--fontsize: 12px;
+	--padding: 16px;
 }
 @media screen and (min-width: 360px) {
 	:root {
 	--width: 103.67px;
 	--fontsize: 14px;
+	--padding: 24px;
 	}
 }
 .tabbar {
@@ -14,8 +16,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-right: 24px;
-	padding-left: 24px;
+	padding-right: var(--padding);
+	padding-left: var(--padding);
 }
 
 .tabs {
