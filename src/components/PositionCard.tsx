@@ -18,7 +18,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 	answer,
 }: PostionCardProps) => {
 	return (
-		<IonCard>
+		<IonCard className="position-card">
 			<IonCardHeader>
 				<IonGrid>
 					<IonRow>
