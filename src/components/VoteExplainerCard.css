@@ -1,21 +1,21 @@
 :root {
-	--padding: 16px;
-	--height: 48px;
+	--padding-explainer-card: 16px;
+	--height-explainer-card: 48px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--padding: 19px;
-	--height: 55px;
+	--padding-explainer-card: 19px;
+	--height-explainer-card: 55px;
 	}
 }
 
 .vote-explainer-card {
-	height: var(--height);
+	height: var(--height-explainer-card);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-left: var(--padding);
-	padding-right: var(--padding);
+	padding-left: var(--padding-explainer-card);
+	padding-right: var(--padding-explainer-card);
 	border-top: 1px solid rgba(76, 78, 98, 1);
 	
 }

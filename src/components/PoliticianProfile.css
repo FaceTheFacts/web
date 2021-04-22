@@ -1,32 +1,32 @@
 :root {
-	--imagesize: 70px;
-	--height: 106px;
-	--max-width: 76px;
-	--padding: 11px;
-	--padding-bottom: 0px;
+	--imagesize-politician-profile: 70px;
+	--height-politician-profile: 106px;
+	--max-width-politician-profile: 76px;
+	--padding-politician-profile: 11px;
+	--padding-bottom-politician-profile: 0px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--imagesize: 80px;
-	--height: 116px;
-	--max-width: 90px;
-	--padding: 19px;
-	--padding-bottom: 12px;
+	--imagesize-politician-profile: 80px;
+	--height-politician-profile: 116px;
+	--max-width-politician-profile: 90px;
+	--padding-politician-profile: 19px;
+	--padding-bottom-politician-profile: 12px;
 	}
 }
 
 .header {
-	height: var(--height);
+	height: var(--height-politician-profile);
 	background-color: rgba(42, 43, 54, 1);
-	padding-top: var(--padding);
-	padding-bottom: var(--padding-bottom);
+	padding-top: var(--padding-politician-profile);
+	padding-bottom: var(--padding-bottom-politician-profile);
 	display: flex;
 	align-items: center;
 }
 
 .politician-image {
-	height: var(--imagesize);
-	width: var(--imagesize);
+	height: var(--imagesize-politician-profile);
+	width: var(--imagesize-politician-profile);
 	border: 0;
 	object-position: 45% 35%;
 	object-fit: cover;
@@ -62,9 +62,9 @@
 }
 
 .profile-image {
-	max-width: var(--max-width);
+	max-width: var(--max-width-politician-profile);
 	padding: 0;
-	margin-left: var(--padding);
+	margin-left: var(--padding-politician-profile);
 }
 
 .profile-details {

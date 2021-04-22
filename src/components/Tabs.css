@@ -1,13 +1,13 @@
 :root {
-	--width: 90.33px;
-	--fontsize: 12px;
-	--padding: 16px;
+	--width-tabs: 90.33px;
+	--fontsize-tabs: 12px;
+	--padding-tabs: 16px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--width: 103.67px;
-	--fontsize: 14px;
-	--padding: 24px;
+	--width-tabs: 103.67px;
+	--fontsize-tabs: 14px;
+	--padding-tabs: 24px;
 	}
 }
 .tabbar {
@@ -16,14 +16,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-right: var(--padding);
-	padding-left: var(--padding);
+	padding-right: var(--padding-tabs);
+	padding-left: var(--padding-tabs);
 }
 
 .tabs {
 	background: rgba(42, 43, 54, 1);
 	color: rgba(255, 255, 255, 0.3);
-	font-size: var(--fontsize);
+	font-size: var(--fontsize-tabs);
 	text-decoration: none;
 }
 
@@ -42,7 +42,7 @@
     content: '';
     height: 3px;
     bottom: -13px; 
-	width: var(--width);
+	width: var(--width-tabs);
 	background: white;
 	border-radius: 3px 3px 0px 0px;
 }
@@ -51,9 +51,9 @@
 	font-family: Protipo;
 	font-style: normal;
 	font-weight: normal;
-	font-size: var(--fontsize);
+	font-size: var(--fontsize-tabs);
 	line-height: 17px;
-	width: var(--width);
+	width: var(--width-tabs);
 	display: flex;
 	justify-content: center;
 }
