@@ -33,7 +33,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 						<div>
 							<Positioning positioning={answer} />
 						</div>
-						<div>
+						<div className="position-card-button">
 							<LinkButton
 								linkTo={`/politician/${candidateId}/position`}
 								icon={iconEnum.CHEVRON_FORWARD}
