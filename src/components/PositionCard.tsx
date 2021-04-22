@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCol, IonGrid, IonRow } from '@ionic/react';
 import Positioning from './Positioning';
 import LinkButton from './LinkButton';
 import { iconEnum } from '../enums/icon.enum';
@@ -18,12 +18,20 @@ const PositionCard: React.FC<PostionCardProps> = ({
 	return (
 		<IonCard>
 			<IonCardHeader>
-				<IonCardTitle data-testid="position-card-title">{title}</IonCardTitle>
-				<Positioning positioning={answer} />
-				<LinkButton
-					linkTo={`/politician/${candidateId}/position`}
-					icon={iconEnum.CHEVRON_FORWARD}
-				/>
+				<IonGrid>
+					<IonRow>
+						<IonCol size="8">
+							<IonCardTitle data-testid="position-card-title">{title}</IonCardTitle>
+						</IonCol>
+						<IonCol size="4">
+							<Positioning positioning={answer} />
+							<LinkButton
+								linkTo={`/politician/${candidateId}/position`}
+								icon={iconEnum.CHEVRON_FORWARD}
+							/>
+						</IonCol>
+					</IonRow>
+				</IonGrid>
 			</IonCardHeader>
 		</IonCard>
 	);
