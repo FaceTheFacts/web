@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle, IonCol, IonGrid, IonRow } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import Positioning from './Positioning';
 import LinkButton from './LinkButton';
 import { iconEnum } from '../enums/icon.enum';
