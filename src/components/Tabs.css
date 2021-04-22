@@ -1,3 +1,13 @@
+:root {
+	--width: 90.33px;
+	--fontsize: 12px;
+}
+@media screen and (min-width: 360px) {
+	:root {
+	--width: 103.67px;
+	--fontsize: 14px;
+	}
+}
 .tabbar {
 	background: rgba(42, 43, 54, 1);
 	height: 45px;
@@ -11,7 +21,7 @@
 .tabs {
 	background: rgba(42, 43, 54, 1);
 	color: rgba(255, 255, 255, 0.3);
-	font-size: 14px;
+	font-size: var(--fontsize);
 	text-decoration: none;
 }
 
@@ -30,7 +40,7 @@
     content: '';
     height: 3px;
     bottom: -13px; 
-	width: 103.67px;
+	width: var(--width);
 	background: white;
 	border-radius: 3px 3px 0px 0px;
 }
@@ -39,9 +49,9 @@
 	font-family: Protipo;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 14px;
+	font-size: var(--fontsize);
 	line-height: 17px;
-	width: 103.67px;
+	width: var(--width);
 	display: flex;
 	justify-content: center;
 }
