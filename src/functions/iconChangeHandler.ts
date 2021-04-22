@@ -18,12 +18,6 @@ export const iconChangeHandler = (icon: iconEnum): string => {
 	case iconEnum.SEARCH:
 		iconName = searchOutline;
 		break;
-	case iconEnum.CLOSE:
-		iconName = closeOutline;
-		break;
-	case iconEnum.CLOSE_CIRCLE:
-		iconName = closeCircle;
-		break;
 	default:
 		iconName = arrowForwardOutline;
 	}
