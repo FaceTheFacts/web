@@ -1,15 +1,32 @@
+:root {
+	--imagesize: 70px;
+	--height: 106px;
+	--max-width: 76px;
+	--padding: 11px;
+	--padding-bottom: 0px;
+}
+@media screen and (min-width: 360px) {
+	:root {
+	--imagesize: 80px;
+	--height: 116px;
+	--max-width: 90px;
+	--padding: 19px;
+	--padding-bottom: 12px;
+	}
+}
+
 .header {
-	height: 116px;
+	height: var(--height);
 	background-color: rgba(42, 43, 54, 1);
-	padding-top: 24px;
-	padding-bottom: 12px;
+	padding-top: var(--padding);
+	padding-bottom: var(--padding-bottom);
 	display: flex;
 	align-items: center;
 }
 
 .politician-image {
-	height: 80px;
-	width: 80px;
+	height: var(--imagesize);
+	width: var(--imagesize);
 	border: 0;
 	object-position: 45% 35%;
 	object-fit: cover;
@@ -45,9 +62,9 @@
 }
 
 .profile-image {
-	max-width: 90px;
+	max-width: var(--max-width);
 	padding: 0;
-	margin-left: 19px;
+	margin-left: var(--padding);
 }
 
 .profile-details {
