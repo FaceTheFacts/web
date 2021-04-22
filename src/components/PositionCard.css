@@ -1,3 +1,7 @@
+.position-card {
+  background: #2A2B36;
+}
+
 .position-card-subcontent {
 	display: flex;
 	align-items: center;
