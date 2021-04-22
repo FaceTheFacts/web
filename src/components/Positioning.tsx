@@ -8,7 +8,11 @@ interface PositioningProps {
 
 const Positioning: React.FC<PositioningProps> = ({ positioning }: PositioningProps) => {
 	const translated = germanTranslator(positioning);
-	return <div className={`positioning positioning-${positioning}`}>{translated}</div>;
+	return (
+		<div className={`positioning positioning-${positioning}`} data-testid="positioning">
+			{translated}
+		</div>
+	);
 };
 
 export default Positioning;
