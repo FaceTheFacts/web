@@ -7,7 +7,11 @@ interface PostionCardsProps {
 const PositionCards: React.FC<PostionCardsProps> = ({ positions }: PostionCardsProps) => (
 	<React.Fragment>
 		{positions.map((position, index) => (
-			<PositionCard key={`position-${index}`} title={position.title} />
+			<PositionCard
+				key={`position-${index}`}
+				title={position.title}
+				answer={position.answer}
+			/>
 		))}
 	</React.Fragment>
 );
