@@ -4,6 +4,8 @@ import Positioning from './Positioning';
 import LinkButton from './LinkButton';
 import { iconEnum } from '../enums/icon.enum';
 
+import './PositionCard.css';
+
 interface PostionCardProps {
 	candidateId: number;
 	title: string;
@@ -24,11 +26,13 @@ const PositionCard: React.FC<PostionCardProps> = ({
 							<IonCardTitle data-testid="position-card-title">{title}</IonCardTitle>
 						</IonCol>
 						<IonCol size="4">
-							<Positioning positioning={answer} />
-							<LinkButton
-								linkTo={`/politician/${candidateId}/position`}
-								icon={iconEnum.CHEVRON_FORWARD}
-							/>
+							<div className="position-card-subcontent">
+								<Positioning positioning={answer} />
+								<LinkButton
+									linkTo={`/politician/${candidateId}/position`}
+									icon={iconEnum.CHEVRON_FORWARD}
+								/>
+							</div>
 						</IonCol>
 					</IonRow>
 				</IonGrid>
