@@ -31,3 +31,7 @@
 	display: flex;
 	align-items: center;
 }
+
+.position-card-button {
+	opacity: 0.5;
+}
