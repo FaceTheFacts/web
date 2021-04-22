@@ -31,7 +31,7 @@ const Position: React.FC<PositionProps> = ({ candidate }: PositionProps) => {
 			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
-				<PositionCards positions={examplePositionData} />
+				<PositionCards candidateId={candidate.id} positions={examplePositionData} />
 			</IonContent>
 		</IonPage>
 	);
