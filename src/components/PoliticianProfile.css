@@ -7,11 +7,11 @@
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--imagesize-politician-profile: 80px;
-	--height-politician-profile: 116px;
-	--max-width-politician-profile: 90px;
-	--padding-politician-profile: 19px;
-	--padding-bottom-politician-profile: 12px;
+		--imagesize-politician-profile: 80px;
+		--height-politician-profile: 116px;
+		--max-width-politician-profile: 90px;
+		--padding-politician-profile: 19px;
+		--padding-bottom-politician-profile: 12px;
 	}
 }
 

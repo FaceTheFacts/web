@@ -29,25 +29,25 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
 			<IonContent>
-			{segment==='0' ? 
-				<div>
-					<VoteExplainerCard vote="Erststimme" />
-					<div className="election-chances-firstVote">
-						<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
-						<IonCardTitle className="constituency">Wahlkreis - {candidate.constituency.label}</IonCardTitle>
+				{segment==='0' ? 
+					<div>
+						<VoteExplainerCard vote="Erststimme" />
+						<div className="election-chances-firstVote">
+							<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
+							<IonCardTitle className="constituency">Wahlkreis - {candidate.constituency.label}</IonCardTitle>
+						</div>
 					</div>
-				</div>
-				:
-				<div>
-					<VoteExplainerCard vote="Zweitstimme" />
-					<div className="election-chances-secondVote">
-						<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-						<IonCardTitle className={stateListClass}><span>CDU Mecklenburg-Vorpommern</span></IonCardTitle>
+					:
+					<div>
+						<VoteExplainerCard vote="Zweitstimme" />
+						<div className="election-chances-secondVote">
+							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
+							<IonCardTitle className={stateListClass}><span>CDU Mecklenburg-Vorpommern</span></IonCardTitle>
+						</div>
+						<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
+						<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
 					</div>
-					<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
-					<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
-				</div>
-			}
+				}
 
 			
 				<div>
