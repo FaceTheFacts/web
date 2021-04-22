@@ -5,9 +5,9 @@
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--width-tabs: 103.67px;
-	--fontsize-tabs: 14px;
-	--padding-tabs: 24px;
+		--width-tabs: 103.67px;
+		--fontsize-tabs: 14px;
+		--padding-tabs: 24px;
 	}
 }
 .tabbar {
@@ -33,15 +33,15 @@
 	text-decoration: underline white;
     text-underline-position: below;
     text-underline-offset: 11px; */
-	text-decoration: none; 
-    position: relative; 
+	text-decoration: none;
+	position: relative;
 }
 
 .activated:after {
 	position: absolute;
-    content: '';
-    height: 3px;
-    bottom: -13px; 
+	content: '';
+	height: 3px;
+	bottom: -13px;
 	width: var(--width-tabs);
 	background: white;
 	border-radius: 3px 3px 0px 0px;

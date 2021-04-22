@@ -29,7 +29,7 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 				>
 					ZWEITSTIMME
 				</IonSegmentButton>
-				
+
 				{/* Wahlkreis Feature currently not part of MVP
 				<IonSegmentButton
 					class="segment-button"

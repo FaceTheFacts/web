@@ -10,9 +10,8 @@ interface ContainerProps {
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
-
 	const partyClassName = candidate.party.toLowerCase().replace(/\s/g, '');
-	
+
 	return (
 		<div className="header">
 			<IonGrid>
@@ -32,7 +31,10 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 							{candidate.chips.map((chip: string, index: number) => {
 								return (
 									<IonChip
-										className={classnames('politician-detail', `${partyClassName+index}` )}
+										className={classnames(
+											'politician-detail',
+											`${partyClassName + index}`
+										)}
 										key={index}
 										data-testid="profile-detail"
 									>

@@ -6,10 +6,10 @@
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--fontsize-segment-button: 14px;
-	--height-segment-button: 43px;
-	--padding-segment-button: 24px;
-	--line-height-segment-button: 16.73px;
+		--fontsize-segment-button: 14px;
+		--height-segment-button: 43px;
+		--padding-segment-button: 24px;
+		--line-height-segment-button: 16.73px;
 	}
 }
 
@@ -29,7 +29,7 @@
 }
 
 .segment-button {
-	--indicator-color: #2A2B36;
+	--indicator-color: #2a2b36;
 	--color: rgba(255, 255, 255, 0.5);
 	--color-checked: rgba(255, 255, 255, 1);
 	--border-radius: 4px;

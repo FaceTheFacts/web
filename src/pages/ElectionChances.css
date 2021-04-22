@@ -145,11 +145,11 @@
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 17px;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .secondvote-card:first-of-type {
-	background-color:rgba(45, 93, 234, 1);
+	background-color: rgba(45, 93, 234, 1);
 }
 
 ion-content {

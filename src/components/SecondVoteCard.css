@@ -1,11 +1,11 @@
 :root {
 	--margintop-secondvote-card: 0px;
-	--marginleft-secondvote-card: 12px
+	--marginleft-secondvote-card: 12px;
 }
 @media screen and (min-width: 360px) {
 	:root {
 		--margintop-secondvote-card: 2px;
-		--marginleft-secondvote-card: 16px
+		--marginleft-secondvote-card: 16px;
 	}
 }
 

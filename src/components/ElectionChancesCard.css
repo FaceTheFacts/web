@@ -5,8 +5,8 @@
 
 @media screen and (min-width: 360px) {
 	:root {
-	--height-electionchances-card: 77px;
-	--padding-electionchances-card: 11px;
+		--height-electionchances-card: 77px;
+		--padding-electionchances-card: 11px;
 	}
 }
 
@@ -27,7 +27,7 @@
 	margin-top: 8px;
 	margin-bottom: 0px;
 	height: var(--height-electionchances-card);
-	background-color: #2A2B36;
+	background-color: #2a2b36;
 }
 
 .election-chances-card:last-of-type {
