@@ -23,7 +23,12 @@ const PositionCard: React.FC<PostionCardProps> = ({
 				<IonGrid>
 					<IonRow>
 						<IonCol size="8">
-							<IonCardTitle data-testid="position-card-title">{title}</IonCardTitle>
+							<IonCardTitle
+								className="position-card-title"
+								data-testid="position-card-title"
+							>
+								{title}
+							</IonCardTitle>
 						</IonCol>
 						<IonCol size="4">
 							<div className="position-card-subcontent">
