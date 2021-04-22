@@ -1,15 +1,15 @@
 :root {
-	--fontsize: 12px;
-	--height: 40px;
-	--padding: 16px;
-	--line-height: 14.34px;
+	--fontsize-segment-button: 12px;
+	--height-segment-button: 40px;
+	--padding-segment-button: 16px;
+	--line-height-segment-button: 14.34px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-	--fontsize: 14px;
-	--height: 43px;
-	--padding: 24px;
-	--line-height: 16.73px;
+	--fontsize-segment-button: 14px;
+	--height-segment-button: 43px;
+	--padding-segment-button: 24px;
+	--line-height-segment-button: 16.73px;
 	}
 }
 
@@ -18,13 +18,13 @@
 	display: flex;
 	align-items: center;
 	height: 65px;
-	padding-left: var(--padding);
-	padding-right: var(--padding);
+	padding-left: var(--padding-segment-button);
+	padding-right: var(--padding-segment-button);
 }
 
 .segment {
 	width: 100%;
-	height: 43px;
+	height: var(--height-segment-button);
 	background-color: #181924;
 }
 
@@ -36,7 +36,7 @@
 	font-family: Protipo;
 	font-style: normal;
 	font-weight: bold;
-	font-size: var(--fontsize);
-	line-height: var(--line-height);
+	font-size: var(--fontsize-segment-button);
+	line-height: var(--line-height-segment-button);
 	letter-spacing: 0.7px;
 }
