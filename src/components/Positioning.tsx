@@ -6,7 +6,7 @@ interface PositioningProps {
 }
 
 const Positioning: React.FC<PositioningProps> = ({ positioning }: PositioningProps) => (
-	<div className={`positioning-${positioning}`}>{positioning}</div>
+	<div className={`positioning positioning-${positioning}`}>{positioning}</div>
 );
 
 export default Positioning;

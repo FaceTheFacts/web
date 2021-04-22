@@ -1,0 +1,33 @@
+.positioning {
+	width: 54px;
+	height: 24px;
+	border-radius: 4px;
+	color: white;
+	right: 0px;
+	text-align: center;
+	padding-top: 6px;
+	font-size: 12px;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.positioning-yes {
+	text-transform: uppercase;
+	background-color: #6fad5a;
+}
+
+.positioning-no {
+	text-transform: uppercase;
+	background-color: #d74769;
+}
+
+.positioning-abstain {
+	text-transform: uppercase;
+	background-color: #3969f5;
+}
+
+.positioning-none {
+	text-transform: uppercase;
+	background-color: #c4c4c4;
+}
