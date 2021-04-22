@@ -15,7 +15,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ linkTo, icon }: LinkButtonProps
 	const iconName = iconChangeHandler(icon);
 	return (
 		<Link to={linkTo}>
-			<IonButton className="LinkButton" size="small">
+			<IonButton className="LinkButton" size="small" fill="clear">
 				<IonIcon slot="icon-only" icon={iconName} />
 			</IonButton>
 		</Link>
