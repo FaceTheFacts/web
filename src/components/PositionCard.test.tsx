@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { getByTestId } from '@testing-library/react';
 import PositionCard from './PositionCard';
 
@@ -23,13 +24,19 @@ afterEach(() => {
 
 it('renders with correct title', () => {
 	// given
+	const candidateId = 1;
 	const cardTitle = 'Pfleger:innen aus dem Ausland';
 	const cardAnswer = 'yes';
-
-	// when
-	act(() => {
-		render(<PositionCard title={cardTitle} answer={cardAnswer} />, container);
+	const history = createMemoryHistory({
+		initialEntries: [`/politician/${candidateId}/position`],
 	});
+	//when
+	render(
+		<Router history={history}>
+			<PositionCard candidateId={candidateId} title={cardTitle} answer={cardAnswer} />
+		</Router>,
+		container
+	);
 
 	// then
 	if (container !== null) {
