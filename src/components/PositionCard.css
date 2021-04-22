@@ -1,7 +1,13 @@
 .position-card {
-  background: #2A2B36;
+	background: #2a2b36;
 }
-
+.position-card-title {
+	font-family: 'protipo', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	color: #ffffff;
+}
 .position-card-subcontent {
 	display: flex;
 	align-items: center;
