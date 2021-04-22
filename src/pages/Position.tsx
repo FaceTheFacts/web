@@ -31,7 +31,11 @@ const Position: React.FC<PositionProps> = ({ candidate }: PositionProps) => {
 			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
-				<PositionCard />
+				{
+					examplePositionData.map((datum, index) => (
+						<PositionCard key = {`position-${index}`} title = {datum.title}/>
+					))
+				}
 			</IonContent>
 		</IonPage>
 	);
