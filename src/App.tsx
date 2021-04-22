@@ -35,6 +35,7 @@ import { Candidate } from './Types';
 
 /* Hardcoded Amthor */
 import { amthor } from './amthor';
+import Position from './pages/Position';
 
 const politician: Candidate = amthor;
 
@@ -69,6 +70,9 @@ const App: React.FC = () => {
 						</Route>
 						<Route path="/politician/:id/votes" exact>
 							<Votes candidate={candidate as Candidate}></Votes>
+						</Route>
+						<Route path="/politician/:id/position" exact>
+							<Position candidate={candidate as Candidate}></Position>
 						</Route>
 
 						{/* Redirect '/' to '/scan', since that will be our starting point */}
