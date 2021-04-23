@@ -9,4 +9,5 @@ PULL_REQUEST_TEMPLATE.md
 .github
 
 src/functions/iconChangeHandler.ts
+src/functions/germanTranslator.ts
 src/pages/ElectionChances.tsx
