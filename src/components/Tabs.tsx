@@ -12,8 +12,7 @@ const Tabs: React.FC = () => {
 		<div className="tabbar">
 			<NavLink
 				id="Position"
-				// directing to bio until Position Page is ready
-				to={`/politician/${id}/bio`}
+				to={`/politician/${id}/position`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>
@@ -27,17 +26,6 @@ const Tabs: React.FC = () => {
 			>
 				<div className="tabtext">Profilseite</div>
 			</NavLink>
-			{/* BIO and NEWS not part of current MVP
-			<NavLink to={`/politician/${id}/bio`} className="tabs" activeClassName="tabs activated">
-				<div>BIO</div>
-			</NavLink>
-			<NavLink
-				to={`/politician/${id}/news`}
-				className="tabs"
-				activeClassName="tabs activated"
-			>
-				<div>NEWS</div>
-			</NavLink> */}
 			<NavLink
 				to={`/politician/${id}/election`}
 				className="tabs"
