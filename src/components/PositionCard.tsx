@@ -11,10 +11,7 @@ interface PostionCardProps {
 	answer: string;
 }
 
-const PositionCard: React.FC<PostionCardProps> = ({
-	title,
-	answer,
-}: PostionCardProps) => {
+const PositionCard: React.FC<PostionCardProps> = ({ title, answer }: PostionCardProps) => {
 	return (
 		<IonCard className="position-card">
 			<IonCardHeader className="position-card-header">
