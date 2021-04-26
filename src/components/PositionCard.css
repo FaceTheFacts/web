@@ -6,6 +6,9 @@
 	margin-left: 16px;
 	margin-right: 16px;
 }
+.position-card:first-of-type {
+	margin-top: 16px;
+}
 
 .position-card-header {
 	padding: 12px;
