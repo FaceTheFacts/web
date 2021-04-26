@@ -1,10 +1,9 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import Positioning from './Positioning';
-import LinkButton from './LinkButton';
-import { iconEnum } from '../enums/icon.enum';
 
 import './PositionCard.css';
+import { chevronForwardOutline } from 'ionicons/icons';
 
 interface PostionCardProps {
 	candidateId: number;
@@ -33,12 +32,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 						<div>
 							<Positioning positioning={answer} />
 						</div>
-						<div className="position-card-button">
-							<LinkButton
-								linkTo={`/politician/${candidateId}/position`}
-								icon={iconEnum.CHEVRON_FORWARD}
-							/>
-						</div>
+						<IonIcon slot="icon-only" icon={chevronForwardOutline} />
 					</div>
 				</div>
 			</IonCardHeader>
