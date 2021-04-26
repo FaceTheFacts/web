@@ -12,7 +12,6 @@ interface PostionCardProps {
 }
 
 const PositionCard: React.FC<PostionCardProps> = ({
-	candidateId,
 	title,
 	answer,
 }: PostionCardProps) => {
