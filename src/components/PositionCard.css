@@ -40,6 +40,10 @@
 	align-items: center;
 }
 
+.position-positioning {
+	margin-right: 8px;
+}
+
 .position-card-button {
 	opacity: 0.5;
 }

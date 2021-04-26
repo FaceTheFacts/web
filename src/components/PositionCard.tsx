@@ -29,7 +29,7 @@ const PositionCard: React.FC<PostionCardProps> = ({
 						</IonCardTitle>
 					</div>
 					<div className="position-card-sub-content">
-						<div>
+						<div className="position-positioning">
 							<Positioning positioning={answer} />
 						</div>
 						<IonIcon slot="icon-only" icon={chevronForwardOutline} />
