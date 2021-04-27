@@ -143,7 +143,7 @@ export const politicalFocusHandler = (fetchedData: string) => {
             </svg>
             Verteidigung
         </div>
-        case '1. Untersuchungsausschuss: Terroranschlag auf dem Breitscheidplatz ' : return <div className="hidden">
+        case '1. Untersuchungsausschuss: Terroranschlag auf dem Breitscheidplatz ' : return <div className="politicalFocus">
         <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.3828 3.20312L9.63281 0.390625C9.42188 0.320312 9.21094 0.285156 9 0.285156C8.75391 0.285156 8.54297 0.320312 8.33203 0.390625L1.58203 3.20312C0.949219 3.48438 0.5625 4.08203 0.5625 4.75C0.5625 11.7461 4.57031 16.5625 8.33203 18.1445C8.75391 18.3203 9.21094 18.3203 9.63281 18.1445C12.6562 16.8789 17.4375 12.5547 17.4375 4.75C17.4375 4.08203 17.0156 3.48438 16.3828 3.20312Z" fill={color}/>
         </svg>
