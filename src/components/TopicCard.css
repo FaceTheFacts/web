@@ -5,3 +5,12 @@
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 }
+
+.politicalFocus {
+	display: flex;
+	align-items: center;
+}
+
+.politicalFocus > svg {
+	margin-right: 10px;
+}
