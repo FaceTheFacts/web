@@ -19,6 +19,11 @@
 		padding: 16px;
 	}
 }
+@media screen and (min-width: 992px) {
+	.position-card {
+		width: auto;
+	}
+}
 
 .position-card-title {
 	font-family: 'protipo', sans-serif;
