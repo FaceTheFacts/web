@@ -90,13 +90,11 @@ export type PartyMatchType = {
 	percentage: string;
 };
 
-<<<<<<< HEAD
 export type Position = {
 	title: string;
 	answer: string;
 	reason: string;
 };
-=======
 /* export type Bio = {
 	id: number;
 	name: string;
@@ -169,10 +167,26 @@ export type Party = {
 };
 
 export type Topics = {
-	topic: Array<Topic>;
+	topic: [Topic];
 };
 
 export type Topic = {
-	name: string;
-	icon: string;
-};>>>>>>> Create Type for AbgeordnetenWatch API
+	'api_url': string;
+	'candidacy_mandate': {
+		'id': number;
+		'entity_type': string;
+		'label': string;
+		'api_url': string;
+	};
+	'committee': {
+		'id': number;
+		'entity_type': string;
+		'label': string;
+		'api_url': string;
+	}
+	'committee_role': string;
+	'entity_type': string;
+	'id': number;
+	'label': string;
+	'__proto__': Object;
+};
