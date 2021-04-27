@@ -50,7 +50,6 @@
 		"@typescript-eslint/parser": "^2.10.0",
 		"aws-sdk": "^2.842.0",
 		"camelcase": "^5.3.1",
-		"canvas": "^2.7.0",
 		"case-sensitive-paths-webpack-plugin": "2.3.0",
 		"chart.js": "^2.9.4",
 		"classnames": "^2.3.1",
