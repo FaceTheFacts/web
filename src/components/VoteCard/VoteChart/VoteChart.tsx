@@ -9,11 +9,11 @@ Register the ChartProps interface so we can pass properties to the component.
 To be more TypeScripty, we should create a vote type which we can reuse throughout the app.
 */
 interface ChartProps {
-	vote: Poll;
+	totalvotes: [number, number, number, number];
 }
 
 /* Create the VoteChart component and pass in the vote property from VoteCard */
-const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
+const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 	/*imports: [
         ChartsModule
       ]*/
@@ -38,10 +38,10 @@ const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
 						display: false, //hide the horizontal axis and it's values
 						//set the max so the chart always fills the whole bar
 						max:
-							vote.result.total.yes +
-							vote.result.total.no +
-							vote.result.total.abstain +
-							vote.result.total.none,
+							totalvotes[0] +
+							totalvotes[1] +
+							totalvotes[2] +
+							totalvotes[3],
 					},
 					gridLines: {
 						// hide gridlines
@@ -72,37 +72,37 @@ const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
 			display: false, // do not display the legend, we built this ourselves in VoteCard.tsx
 		},
 	};
-	const loadData = (vote: Poll): void => {
+	const loadData = (totalvotes: [number, number, number, number] ): void => {
 		setChartData({
 			//labels: [vote.name],
 			datasets: [
 				{
-					label: `Ja: ${vote.result.total.yes}`,
+					label: `Ja: ${totalvotes[0]}`,
 					backgroundColor: '#6FAD5A',
 					borderWidth: 0,
 					hoverBackgroundColor: '#6FAD5A',
-					data: [vote.result.total.yes],
+					data: [totalvotes[0]],
 				},
 				{
 					label: 'Nein',
 					backgroundColor: '#D74769',
 					borderWidth: 0,
 					hoverBackgroundColor: '#D74769',
-					data: [vote.result.total.no],
+					data: [totalvotes[1]],
 				},
 				{
 					label: 'Enthalten',
 					backgroundColor: '#3969F5',
 					borderWidth: 0,
 					hoverBackgroundColor: '#3969F5',
-					data: [vote.result.total.abstain],
+					data: [totalvotes[2]],
 				},
 				{
 					label: 'Nicht abg.',
 					backgroundColor: '#C4C4C4',
 					borderWidth: 0,
 					hoverBackgroundColor: '#C4C4C4',
-					data: [vote.result.total.none],
+					data: [totalvotes[3]],
 				},
 			],
 		});
@@ -114,8 +114,8 @@ const VoteChart: React.FC<ChartProps> = ({ vote }: ChartProps) => {
 	More information here: https://reactjs.org/docs/hooks-effect.html
 	*/
 	useEffect(() => {
-		loadData(vote);
-	}, [vote]);
+		loadData(totalvotes);
+	}, [totalvotes]);
 
 	return (
 		<div className="bar-chart">
