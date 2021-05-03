@@ -20,7 +20,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					icon={iconEnum.CHEVRON_BACK}
 				/>
 			</div>
-			<IonContent>
+			{/* <IonContent>
 				<div className="votes-black-back">
 					{candidate.polls.map((vote, index) => {
 						return (
@@ -30,7 +30,7 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 						);
 					})}
 				</div>
-			</IonContent>
+			</IonContent> */}
 		</IonPage>
 	);
 };

@@ -12,7 +12,9 @@ import Bio from './pages/Bio';
 import Home from './pages/Home';
 import LegalNotice from './pages/Legal_Notice';
 import Privacy from './pages/Privacy';
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,17 +37,17 @@ import './theme/variables.css';
 import './pages/mobile-view.css';
 
 /* Global Types */
-import { Candidate } from './Types';
+import { Candidate, Politician } from './Types';
 
 /* Hardcoded Amthor */
 import { amthor } from './amthor';
 import Position from './pages/Position';
 
-const politician: Candidate = amthor;
+let politician: Politician;
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
-	const [candidate, setCandidate] = useState<Candidate>(politician);
+	const [candidate, setCandidate] = useState<Politician>(politician);
 
 	log.setLevel('DEBUG', true);
 	return (
@@ -70,13 +72,13 @@ const App: React.FC = () => {
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
-						<Route path="/politician/:id/election">
+						{/* <Route path="/politician/:id/election">
 							<Electionchances candidate={candidate as Candidate} />
-						</Route>
+						</Route> */}
 						<Route path="/politician/:id/profile" exact>
-							<Profile candidate={candidate as Candidate}></Profile>
+							<Profile candidate={candidate}></Profile>
 						</Route>
-						<Route path="/politician/:id/news" exact>
+{/* 						<Route path="/politician/:id/news" exact>
 							<News candidate={candidate as Candidate}></News>
 						</Route>
 						<Route path="/politician/:id/bio" exact>
@@ -86,12 +88,13 @@ const App: React.FC = () => {
 							<Votes candidate={candidate as Candidate}></Votes>
 						</Route>
 						<Route path="/politician/:id/position" exact>
-							<Position candidate={candidate as Candidate}></Position>
+							<Position candidate={candidate}></Position>
 						</Route>
 					</IonRouterOutlet>
 				</IonSplitPane>
 			</IonReactRouter>
 		</IonApp>
+		<ReactQueryDevtools initialIsOpen />
 		</QueryClientProvider>
 	);
 };
