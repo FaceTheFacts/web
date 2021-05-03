@@ -190,3 +190,63 @@ export type Topic = {
 	'label': string;
 	'__proto__': Object;
 };
+
+export type SideJobData = {
+	additional_information: null;
+	api_url: string;
+	category: string;
+	created: number;
+	data_change_date: string;
+	entity_type: string;
+	field_city: null;
+	field_country: Object;
+	field_topics: Array<Object>;
+	id: number;
+	income_level: null;
+	interval: null;
+	job_title_extra: null;
+	label: string;
+	mandates: Array<Object>;
+	sidejob_organization: SideJobOrganization;
+	__proto__: Object;
+};
+
+export type SideJobOrganization = {
+	id: number;
+	entity_type: string;
+	label: string;
+	api_url: string;
+};
+
+export type PollData = {
+	"id": number;
+    "entity_type": string;
+    "label": string;
+    "api_url": string;
+    "publish_on": null;
+    "unpublish_on": null;
+    "field_committees": [
+                {
+                    "id": number;
+                    "entity_type": string;
+                    "label": string;
+                    "api_url": string;
+                }
+            ],
+    "field_intro": string;
+	"field_legislature": {
+                "id": number;
+                "entity_type": string;
+                "label": string;
+                "api_url": string;
+                "abgeordnetenwatch_url": string;
+            },
+    "field_poll_date": string;
+    "field_related_links": [
+                {
+                    "uri": string;
+                    "title": string;
+                },
+            ],
+    "field_topics": null;
+}
