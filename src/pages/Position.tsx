@@ -3,11 +3,16 @@ import React from 'react';
 import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
+<<<<<<< HEAD
 import { Candidate } from '../Types';
 import PositionCards from '../components/PositionCards/PositionCards';
+=======
+import { Candidate, Politician } from '../Types';
+import PositionCards from '../components/PositionCards';
+>>>>>>> Implement API
 
 interface PositionProps {
-	candidate: Candidate;
+	candidate: Politician;
 }
 const reason =
 	'"Das ist nur ein Platzhalter. Für die Bundestagswahl haben Kandidat:innen  hier die Möglichkeit ihre Position zu begründen"';
