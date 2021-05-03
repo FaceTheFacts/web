@@ -10,7 +10,8 @@ interface ContainerProps {
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
-	const partyClassName = candidate.party.toLowerCase().replace(/\s/g, '');
+	const partyClassName = candidate.party.label.toLowerCase().replace(/\s/g, '');
+
 
 	return (
 		<div className="header">
@@ -19,41 +20,19 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 					<IonCol className="profile-image">
 						<img
 							className="politician-image"
-<<<<<<< HEAD
-							src={String(candidate.image)}
-							alt={candidate.name}
-=======
 							src='https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
 							alt={candidate.label}
-							data-testid="profile-img-url"
->>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
-						></img>
+							data-testid="profile-img-url">
+						</img>
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
-<<<<<<< HEAD
-							<IonCardTitle data-testid="profile-name">{candidate.name}</IonCardTitle>
-						</div>
-						<div className="politican-details">
-							{candidate.chips.map((chip: string, index: number) => {
-								return (
-									<IonChip
-										className={classnames(
-											'politician-detail',
-											`${partyClassName + index}`
-										)}
-										key={index}
-										data-testid="profile-detail"
-									>
-										{chip}
-									</IonChip>
-								);
-							})}
-=======
 							<IonCardTitle>{candidate.label}</IonCardTitle>
 						</div>
 						<div className="politican-details">
-							<IonChip className="politician-detail">
+							<IonChip className={classnames(
+											'politician-detail',
+											`${partyClassName}`)}>
 								{candidate.party.label}
 							</IonChip>
 							{candidate.occupation !== null ?
@@ -62,7 +41,6 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 								</IonChip>
 							: null
 							}
->>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
 						</div>
 					</IonCol>
 				</IonRow>

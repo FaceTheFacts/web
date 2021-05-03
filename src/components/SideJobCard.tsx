@@ -2,10 +2,10 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import './SideJobCard.css';
 import '../index.css';
-import { SideJob } from '../Types';
+import { SideJobData } from '../Types';
 
 interface SideJobCardProps {
-	sideJob: SideJob;
+	sideJob: SideJobData;
 }
 
 const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) => {
@@ -16,7 +16,7 @@ const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) 
 					{sideJob.label}
 				</IonCardTitle>
 				<IonCardTitle className="sideJob-minor" data-testid="profile-sidejob-organisation">
-					{sideJob.organisation}
+					{sideJob.sidejob_organization.label}
 				</IonCardTitle>
 			</IonCardHeader>
 		</IonCard>

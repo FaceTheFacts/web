@@ -1,41 +1,54 @@
 import React from 'react';
+<<<<<<< HEAD:src/components/Profile/Profile.tsx
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
 import { Candidate, SideJob } from '../../Types';
 import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
+=======
+import TopicCard from './TopicCard';
+import LinkButton from './LinkButton';
+import { Candidate, SideJob, Politician, PollData } from '../Types';
+import VoteCard from '../components/VoteCard';
+import SideJobCard from '../components/SideJobCard';
+>>>>>>> Implement API:src/components/Profile.tsx
 import './Profile.css';
 import TitleHeader from '../TitleHeader';
 import { useQuery } from 'react-query';
-import axios, { AxiosResponse } from 'axios';
-
 import './Profile.css';
+<<<<<<< HEAD:src/components/Profile/Profile.tsx
 import { iconEnum } from '../../enums/icon.enum';
+=======
+import { iconEnum } from '../enums/icon.enum';
+import fetch from '../functions/queries'
+>>>>>>> Implement API:src/components/Profile.tsx
 interface ProfileProps {
-	candidate: Candidate;
+	candidate: Politician;
 	profileId: string;
 }
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
-	const data = useQuery('politicalFocus', () => axios(`https://www.abgeordnetenwatch.de/api/v2/committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.name}`))
-	const politicalFocusData: AxiosResponse<any> | undefined | any = data.data
+	const { data, status, error } = useQuery(`politicalFocus-${candidate.label}`, () => fetch(`committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.label} (Bundestag)`))
+	const sideJobs = useQuery(`sideJob-${candidate.label}`, () => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=10`))
+	const polls = useQuery('poll', () => fetch('polls?field_legislature[entity.label]eq=Bundestag&range_end=10'))
+	
+	if (status === 'loading' || sideJobs.status === 'loading' || polls.status === 'loading' ) {
+		return (<p>Loading</p>);
+	}
 
+	if (status === 'error' || sideJobs.status === 'error' || polls.status === 'error') {
+		return (<p>Error: {error}</p>);
+	}
 	return (
 		<React.Fragment>
 			<div className="profile-black-back">
-<<<<<<< HEAD
-				<TitleHeader title="Politische Schwerpunkte" />
-				<div className="profile-topic">
-					<TopicCard />
-				</div>
-=======
-				{politicalFocusData !== undefined ?	
+				{ data.data.length !== 0 ? 
 				<div>
 					<TitleHeader title="Politische Schwerpunkte" />
-					<TopicCard topics={politicalFocusData} />
-				</div>
-				: null }
->>>>>>> Add if statemant in case no political focus data
+					<div className="profile-topic">	
+						<TopicCard topics={data.data} />
+					</div>
+				</div> : null }
 				<TitleHeader title="Kürzliche Abstimmungen">
 					<LinkButton
 						linkTo={`/politician/${profileId}/votes`}
@@ -43,17 +56,17 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					/>
 				</TitleHeader>
 				<ul className="vote-card-lists">
-					{candidate.polls.map((poll, index) => {
+					{polls.data.data.map((poll: PollData, index: number) => {
 						return (
 							<li key={index}>
-								<VoteCard vote={poll} />
+								<VoteCard vote={poll} name={candidate.label}/>
 							</li>
 						);
 					})}
 				</ul>
 
 				<TitleHeader title="Bezahlte Tätigkeiten" />
-				{candidate.sideJobs.map((sideJob, index) => {
+				{sideJobs.data.data.map((sideJob: any, index: number) => {
 					return <SideJobCard sideJob={sideJob} key={index} />;
 				})}
 			</div>
