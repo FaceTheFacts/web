@@ -13,11 +13,11 @@ import React, { useState } from 'react';
 import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
 import './Discover.css';
-import { Candidate } from '../Types';
+import { Candidate, Politician } from '../Types';
 import SearchResults from '../components/SearchResults';
 
 interface DiscoverProps {
-	candidate: Candidate;
+	candidate: Politician;
 	setCandidate: Function;
 }
 
@@ -117,11 +117,11 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */
 					>
-						<DetectedCandidate
+						{/* <DetectedCandidate
 							setShowPopover={setShowPopover}
 							setShowCamera={setShowCamera}
 							candidate={candidate}
-						/>
+						/> */}
 					</IonPopover>
 				</div>
 			</IonContent>
