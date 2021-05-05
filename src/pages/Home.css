@@ -1,0 +1,120 @@
+@media screen and (max-width: 374px) {
+    .nav-header {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        padding-left: 41px;
+        padding-right: 40px;
+    }
+
+    #home > div {
+        width: 238.87px;
+        height: 60px;
+    }
+
+    #legal-notice, #privacy {
+        display: none;
+    }
+
+    .links-bottom {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .nav-header {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        padding-left: 49px;
+        padding-right: 47px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #home > div {
+        width: 278.68px;
+        height: 70px;
+    }
+
+    #legal-notice, #privacy {
+        display: none;
+    }
+
+    .links-bottom {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .nav-header {
+        padding-top: 39px;
+        padding-bottom: 21px;
+        padding-left: 60px;
+        padding-right: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    #legal-notice {
+        margin-right: 30px;
+    }
+
+    .links {
+        display: flex;
+    }
+
+    #legal-notice, #privacy {
+        display: unset;
+    }
+
+    #legal-notice-bottom, #privacy-bottom {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .nav-header {
+        padding-top: 69px;
+        padding-bottom: 21px;
+        padding-left: 120px;
+        padding-right: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    #legal-notice {
+        margin-right: 50px;
+    }
+
+}
+.nav-header {
+    background-color: rgba(42, 43, 54, 0.9);
+}
+
+.navbar {
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-decoration: none;
+    align-items: center
+}
+
+.activ {
+    opacity: 1;
+}
+
+.content {
+    height: 400px;
+    background-color: red;
+}
