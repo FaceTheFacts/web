@@ -3,7 +3,6 @@ import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { Redirect, Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
-import Menu from './components/Menu';
 import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
@@ -49,7 +48,6 @@ const App: React.FC = () => {
 			<IonReactRouter>
 				<IonSplitPane contentId="main">
 					{/* Include the side menu */}
-					<Menu />
 					<IonRouterOutlet id="main">
 						{/* Register each page with the router
 							This works by defining a path and telling the router which component
