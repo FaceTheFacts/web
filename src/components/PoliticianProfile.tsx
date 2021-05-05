@@ -44,8 +44,8 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 								);
 							})}
 						</div>
-						<div className ="just-test">
-							<Logo/>
+						<div className="just-test">
+							<Logo />
 						</div>
 					</IonCol>
 				</IonRow>
