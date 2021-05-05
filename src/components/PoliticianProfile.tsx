@@ -4,6 +4,7 @@ import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import './PoliticianProfile.css';
 import { Candidate } from '../Types';
 import '../index.css';
+import Logo from './Logo/Logo';
 
 interface ContainerProps {
 	candidate: Candidate;
@@ -42,6 +43,9 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 									</IonChip>
 								);
 							})}
+						</div>
+						<div className ="just-test">
+							<Logo/>
 						</div>
 					</IonCol>
 				</IonRow>
