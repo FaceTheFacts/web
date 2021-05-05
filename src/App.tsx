@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes';
 import Bio from './pages/Bio';
+import Home from './pages/Home'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -53,6 +54,9 @@ const App: React.FC = () => {
 						{/* Register each page with the router
 							This works by defining a path and telling the router which component
 							(page) to render for that path. */}
+						<Route path="/" exact>
+							<Home />
+						</Route>
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
 						</Route>
@@ -74,9 +78,6 @@ const App: React.FC = () => {
 						<Route path="/politician/:id/position" exact>
 							<Position candidate={candidate as Candidate}></Position>
 						</Route>
-
-						{/* Redirect '/' to '/scan', since that will be our starting point */}
-						<Redirect from="/" to="/discover" exact />
 					</IonRouterOutlet>
 				</IonSplitPane>
 			</IonReactRouter>
