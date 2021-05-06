@@ -15,6 +15,11 @@
         display: none;
     }
 
+    #legal-notice-bottom, #privacy-bottom {
+        font-size: 14px;
+        line-height: 17px
+    }
+
     .links-bottom {
         display: flex;
         justify-content: space-evenly;
@@ -38,6 +43,11 @@
 
     #legal-notice, #privacy {
         display: none;
+    }
+
+    #legal-notice-bottom, #privacy-bottom {
+        font-size: 14px;
+        line-height: 17px
     }
 
     .links-bottom {
@@ -68,6 +78,8 @@
 
     #legal-notice, #privacy {
         display: unset;
+        font-size: 18px;
+        line-height: 22px;
     }
 
     #legal-notice-bottom, #privacy-bottom {
@@ -100,8 +112,6 @@
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #FFFFFF;
