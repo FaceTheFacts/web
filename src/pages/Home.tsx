@@ -36,7 +36,7 @@ const Home: React.FC = () => {
 			</NavLink>
             </div>
         </div>
-        <div className="content">
+        <div className="mockup">
 			<Mockup />
 		</div>
 

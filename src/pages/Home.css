@@ -17,12 +17,17 @@
 
     #legal-notice-bottom, #privacy-bottom {
         font-size: 14px;
-        line-height: 17px
+        line-height: 17px;
+        opacity: 0.7;
     }
 
     .links-bottom {
         display: flex;
         justify-content: space-evenly;
+    }
+
+    .mockup {
+        width: 231px;
     }
 }
 
@@ -47,12 +52,17 @@
 
     #legal-notice-bottom, #privacy-bottom {
         font-size: 14px;
-        line-height: 17px
+        line-height: 17px;
+        opacity: 0.7;
     }
 
     .links-bottom {
         display: flex;
         justify-content: space-evenly;
+    }
+
+    .mockup {
+        width: 231px;
     }
 }
 
@@ -80,10 +90,15 @@
         display: unset;
         font-size: 18px;
         line-height: 22px;
+        opacity: 0.7;
     }
 
     #legal-notice-bottom, #privacy-bottom {
         display: none;
+    }
+
+    .mockup {
+        width: 319px;
     }
 
 }
@@ -103,6 +118,10 @@
         margin-right: 50px;
     }
 
+    .mockup {
+        width: 439px;
+    }
+
 }
 .nav-header {
     background-color: rgba(42, 43, 54, 0.9);
@@ -115,16 +134,11 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #FFFFFF;
-    opacity: 0.9;
     text-decoration: none;
     align-items: center
 }
 
 .activ {
     opacity: 1;
-}
-
-.content {
-    height: 400px;
-    background-color: red;
+    font-weight: bold;
 }
