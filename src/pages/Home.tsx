@@ -1,3 +1,4 @@
+import { IonButton, IonCardSubtitle, IonCardTitle, IonTitle } from '@ionic/react';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../components/Logo'
@@ -36,10 +37,16 @@ const Home: React.FC = () => {
 			</NavLink>
             </div>
         </div>
-        <div className="mockup">
-			<Mockup />
+		<div className="content">
+			<div className="text">
+				<IonCardTitle className="home-title">Wähl nicht irgendwen.</IonCardTitle>
+				<IonCardSubtitle className="home-subtitle">Mit Face the Facts Wahlplakate scannen und herausfinden wofür Politiker wirklich stehen.</IonCardSubtitle>
+				<IonButton href="/politician/1/position" className="home-button">Zur Demo</IonButton>
+			</div>
+			<div className="mockup">
+				<Mockup />
+			</div>
 		</div>
-
         <div className="links-bottom">
             <NavLink
                 id="legal-notice-bottom"
