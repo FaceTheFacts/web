@@ -16,6 +16,7 @@
     }
 
     #legal-notice-bottom, #privacy-bottom {
+        margin-top: 85px;
         font-size: 14px;
         line-height: 17px;
         opacity: 0.7;
@@ -51,6 +52,7 @@
     }
 
     #legal-notice-bottom, #privacy-bottom {
+        margin-top: 91px;
         font-size: 14px;
         line-height: 17px;
         opacity: 0.7;
