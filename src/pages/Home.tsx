@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../components/Logo'
+import Mockup from '../components/Mockup'
 import './Home.css';
 
 
@@ -35,7 +36,9 @@ const Home: React.FC = () => {
 			</NavLink>
             </div>
         </div>
-        <div className="content">Content</div>
+        <div className="content">
+			<Mockup />
+		</div>
 
         <div className="links-bottom">
             <NavLink
