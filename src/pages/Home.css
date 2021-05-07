@@ -58,6 +58,10 @@
     .home-subtitle {
         text-align: center;
     }
+
+    .linebreak {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 375px) {
