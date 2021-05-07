@@ -9,7 +9,8 @@ import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes';
 import Bio from './pages/Bio';
-import Home from './pages/Home'
+import Home from './pages/Home';
+import LegalNotice from './pages/Legal_Notice'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -54,6 +55,9 @@ const App: React.FC = () => {
 							(page) to render for that path. */}
 						<Route path="/" exact>
 							<Home />
+						</Route>
+						<Route path="/legal-notice" exact>
+							<LegalNotice />
 						</Route>
 						<Route path="/discover" exact>
 							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
