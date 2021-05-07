@@ -1,6 +1,6 @@
 import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Electionchances from './pages/ElectionChances';
@@ -10,8 +10,8 @@ import News from './pages/News';
 import Votes from './pages/Votes';
 import Bio from './pages/Bio';
 import Home from './pages/Home';
-import LegalNotice from './pages/Legal_Notice'
-import Privacy from './pages/Privacy'
+import LegalNotice from './pages/Legal_Notice';
+import Privacy from './pages/Privacy';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
