@@ -23,7 +23,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 
 	/* This is returned when using this component */
 	return (
-		<IonPage>
+		<IonPage className="Profile-Mobile">
 			{/* Here the content of our page starts */}
 			<PoliticianProfile candidate={candidate} />
 			<Tabs></Tabs>
