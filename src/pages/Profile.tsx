@@ -6,7 +6,6 @@ import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
 import { Candidate } from '../Types';
 import ProfileComponent from '../components/Profile';
-import DemoNavBar from '../components/DemoNavBar';
 interface ProfileProps {
 	candidate: Candidate;
 }
@@ -18,8 +17,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 
 	/* This is returned when using this component */
 	return (
-		<div>
-		<DemoNavBar />
 		<IonPage className="Profile-Mobile">
 			{' '}
 			{/* Page Tag */}
@@ -29,7 +26,6 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 				<ProfileComponent candidate={candidate} profileId={id} />
 			</IonContent>
 		</IonPage>
-		</div>
 	);
 };
 

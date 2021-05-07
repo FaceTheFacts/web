@@ -55,7 +55,7 @@ const examplePositionData = [
 
 const Position: React.FC<PositionProps> = ({ candidate }: PositionProps) => {
 	return (
-		<IonPage>
+		<IonPage className="Profile-Mobile">
 			<PoliticianProfile candidate={candidate} />
 			<Tabs />
 			<IonContent>
