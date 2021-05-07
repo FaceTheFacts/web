@@ -31,6 +31,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './pages/mobile-view.css';
 
 /* Global Types */
 import { Candidate } from './Types';
