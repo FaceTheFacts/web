@@ -18,8 +18,8 @@ const Home: React.FC = () => {
 			<div className="content">
 				<div className="text">
 					<IonCardTitle className="home-title">Wähl nicht irgendwen.</IonCardTitle>
-					<IonCardSubtitle className="home-subtitle">Mit Face the Facts Wahlplakate scannen und <br className="linebreak"/>herausfinden wofür Politiker wirklich stehen.</IonCardSubtitle>
-					<IonButton href="/politician/1/position" className="home-button">Zur Philipp Amthor Demo</IonButton>
+					<IonCardSubtitle className="home-subtitle">Mit Face the Facts Wahlplakate scannen und <br />herausfinden wofür Politiker:innen wirklich stehen.</IonCardSubtitle>
+					<IonButton href="/politician/1/position" className="home-button">Zur Demo mit Philipp Amthor</IonButton>
 				</div>
 				<div className="mockup">
 					<Mockup />
