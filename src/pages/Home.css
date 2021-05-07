@@ -1,20 +1,4 @@
 @media screen and (max-width: 374px) {
-    .nav-header {
-        padding-top: 30px;
-        padding-bottom: 10px;
-        padding-left: 41px;
-        padding-right: 40px;
-    }
-
-    #home > div {
-        width: 238.87px;
-        height: 60px;
-    }
-
-    #legal-notice, #privacy {
-        display: none;
-    }
-
     #legal-notice-bottom, #privacy-bottom {
         margin-top: 85px;
         font-size: 14px;
@@ -65,24 +49,6 @@
 }
 
 @media screen and (min-width: 375px) {
-    .nav-header {
-        padding-top: 30px;
-        padding-bottom: 10px;
-        padding-left: 49px;
-        padding-right: 47px;
-        display: flex;
-        justify-content: center;
-    }
-
-    #home > div {
-        width: 278.68px;
-        height: 70px;
-    }
-
-    #legal-notice, #privacy {
-        display: none;
-    }
-
     #legal-notice-bottom, #privacy-bottom {
         margin-top: 91px;
         font-size: 14px;
@@ -131,30 +97,6 @@
 
 
 @media screen and (min-width: 768px) {
-    .nav-header {
-        padding-top: 39px;
-        padding-bottom: 21px;
-        padding-left: 60px;
-        padding-right: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center
-    }
-
-    #legal-notice {
-        margin-right: 30px;
-    }
-
-    .links {
-        display: flex;
-    }
-
-    #legal-notice, #privacy {
-        display: unset;
-        font-size: 18px;
-        line-height: 22px;
-        opacity: 0.7;
-    }
 
     #legal-notice-bottom, #privacy-bottom {
         display: none;
@@ -192,19 +134,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .nav-header {
-        padding-top: 69px;
-        padding-bottom: 21px;
-        padding-left: 120px;
-        padding-right: 120px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center
-    }
-
-    #legal-notice {
-        margin-right: 3.57vw;
-    }
 
     .mockup > div {
         width: 30.486vw;
@@ -231,9 +160,6 @@
         text-align: unset;
     }
 
-}
-.nav-header {
-    background-color: rgba(42, 43, 54, 0.9);
 }
 
 .navbar {
@@ -292,13 +218,4 @@
 
 .links-bottom {
     padding-bottom: 50px;
-}
-
-#privacy:hover, #legal-notice:hover {
-    animation: opacity-animation 1s forwards;
-}
-
-@keyframes opacity-animation {
-    from {opacity: 0.7;}
-    to {opacity: 1;}
 }
