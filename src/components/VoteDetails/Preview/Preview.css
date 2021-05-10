@@ -1,0 +1,24 @@
+.preview-container{
+  background-color: #181924;
+  padding-top: 16px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+.preview-title {
+  font-size: 14px;
+  font-family: 'protipo', sans-serif;
+	font-style: normal;
+	color: white;
+}
+
+.preview-content {
+  font-size: 14px;
+  font-family: 'IBM Plex Serif', sans-serif;
+	font-style: normal;
+	color: white;
+  opacity: 0.8;
+  align-self: stretch;
+  letter-spacing: 0.3px;
+  margin: 5px 0px;
+}
