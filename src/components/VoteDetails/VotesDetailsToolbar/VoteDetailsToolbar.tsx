@@ -1,9 +1,9 @@
 import React from 'react';
 
 import CrossImage from '../../../assets/images/cross.svg';
-
+import './VoteDetailsToolbar.css'
 const VoteDetailsToolbar: React.FC = () => (
-  <div>
+  <div className='details-toolbar-container'>
     <div>Gesetzesentwurf</div>
     <div><img src = {CrossImage} alt = 'cross'/></div>
   </div>

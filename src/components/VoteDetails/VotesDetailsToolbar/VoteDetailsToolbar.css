@@ -1,0 +1,14 @@
+.details-toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 19px;
+  background: #2A2B36;
+}
+
+.details-toolbar-container div {
+  font-size: 12px;
+  font-family: 'protipo', sans-serif;
+	font-style: normal;
+	color: white;
+}
