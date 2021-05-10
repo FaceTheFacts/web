@@ -18,7 +18,20 @@
 	font-style: normal;
 	color: white;
   opacity: 0.8;
-  align-self: stretch;
   letter-spacing: 0.3px;
   margin: 5px 0px;
+}
+
+.preview-button {
+  font-family: 'protipo', sans-serif;
+	font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+	color: white;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-left: calc(50% - 56.27px);
+  margin-top: 11px;
 }
