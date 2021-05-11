@@ -13,6 +13,9 @@ export const germanTranslator = (word: string): string => {
 	case 'none':
 		translated = 'nicht abg';
 		break;
+	case 'absent':
+		translated = 'abwesend';
+		break;
 	default:
 		translated = 'undefined';
 	}
