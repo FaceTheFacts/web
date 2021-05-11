@@ -10,6 +10,7 @@
 	font-family: 'protipo', sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	letter-spacing: 0.7px;
 }
 
 .positioning-yes {
@@ -25,6 +26,11 @@
 .positioning-abstain {
 	text-transform: uppercase;
 	background-color: #3969f5;
+}
+
+.positioning-absent {
+	text-transform: uppercase;
+	background-color: #2A2B36;
 }
 
 .positioning-none {
