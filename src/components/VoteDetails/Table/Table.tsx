@@ -11,7 +11,7 @@ interface TableProps {
 
 const Table: React.FC = () => (
   <div className='table'>
-    <div>
+    <div className='table-row'>
       <PartyChips parties = {['cdu', 'spd','fdp', 'grüne']}/>
     </div>
     <div className='table-content-frame'>

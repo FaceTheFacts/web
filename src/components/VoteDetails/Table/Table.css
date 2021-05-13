@@ -1,13 +1,25 @@
 .table {
   height: 177px;
   background: #5c5c5c;
+  padding: 16px 24px 16px 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.table::-webkit-scrollbar {
+	display: none;
+}
+
+.table-row {
+  margin-left: 99.406px;
+  display: inline-block;
 }
 
 .table-content-frame {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 16px 24px 16px 16px;
 }
 
 .table-column-container {
