@@ -9,6 +9,13 @@
 	padding: 5px 8px ;
 	height: 24px;
 	border-radius: 4px;
+	margin: 0px;
+	margin-right: 12px;
+}
+
+.gesamt {
+	background-color: #636363;
+	text-transform: capitalize;
 }
 
 .cdu {
