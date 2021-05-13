@@ -1,0 +1,31 @@
+.number-chip {
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	text-align: center;
+	letter-spacing: 0.7px;
+	color: white;	
+	padding: 5px 8px ;
+	height: 24px;
+	border-radius: 4px;
+	margin: 0px;
+	margin-right: 12px;
+  background-color: transparent;
+}
+
+.ja {
+  background-color: #5AB760;
+}
+
+.nein {
+  background-color: #BB3C45;
+}
+
+.enthalten {
+  background-color:#3969F54D;
+}
+
+.abwesend {
+  background-color: #2A2B36;
+}
