@@ -1,7 +1,13 @@
 import React from 'react';
-import NumberChips, {VoteNumbers} from '../NumberChips/NumberChips';
-import PartyChip from '../PartyChips/PartyChip/PartyChip';
+import NumberChips, {VoteNumbers} from '../../NumberChips/NumberChips';
+import PartyChip from '../../PartyChips/PartyChip/PartyChip';
 import './Column.css';
+
+export type ColumnType = {
+  party: string;
+  votes: VoteNumbers;
+  majority: string;
+}
 
 interface ColumnProps {
   party: string;
