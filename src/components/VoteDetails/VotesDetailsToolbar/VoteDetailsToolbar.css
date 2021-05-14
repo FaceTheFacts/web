@@ -7,8 +7,9 @@
 }
 
 .details-toolbar-container div {
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'protipo', sans-serif;
 	font-style: normal;
 	color: white;
+  font-weight: normal;
 }
