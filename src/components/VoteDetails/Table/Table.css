@@ -1,6 +1,6 @@
 .table {
   height: 177px;
-  background: #5c5c5c;
+  background: #151515;
   padding: 16px 24px 16px 16px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -13,13 +13,13 @@
 
 .table-row {
   margin-left: 99.406px;
+  margin-bottom: 13px;
   display: inline-block;
 }
 
 .table-content-frame {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
 .table-column-container {
@@ -28,4 +28,8 @@
 }
 .table-column-container .positioning {
   margin-bottom: 4px;
+}
+
+.table-column-total {
+  margin-left: 24px;
 }

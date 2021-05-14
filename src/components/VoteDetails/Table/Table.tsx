@@ -2,11 +2,22 @@ import React from 'react';
 import { VoteResult } from '../../../Types';
 import Positioning from '../../Positioning';
 import './Table.css';
-import PartyChip from './Table/PartyChips/PartyChip/PartyChip';
-import PartyChips from './Table/PartyChips/PartyChips';
+import PartyChips from './PartyChips/PartyChips';
+import NumberChip from './NumberChips/NumberChip/NumberChip';
+import NumberChips from './NumberChips/NumberChips';
 
 interface TableProps {
   result: VoteResult;
+}
+
+const temporalInput = {
+  votes:{
+    ja: 432,
+    nein: 176,
+    enthalten: 21,
+    abwesend: 79,
+  },
+  majority:'ja'
 }
 
 const Table: React.FC = () => (
@@ -20,6 +31,9 @@ const Table: React.FC = () => (
         <Positioning positioning = 'no'/>
         <Positioning positioning = 'abstain'/>
         <Positioning positioning = 'absent'/>
+      </div>
+      <div className='table-column-total'>
+        <NumberChips votes = {temporalInput.votes} majority={temporalInput.majority}/>
       </div>
     </div>
   </div>
