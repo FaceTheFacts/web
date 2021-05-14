@@ -2,7 +2,7 @@ import * as React from 'react';
 import NumberChip from './NumberChip/NumberChip';
 import './NumberChips.css';
 
-type VoteNumbers = {
+export type VoteNumbers = {
   ja: number;
   nein: number;
   enthalten: number;
