@@ -1,12 +1,12 @@
 .vote-details-infotext {
-  background-color: #151515;
-  height: 41px;
-  font-family: 'Protipo' sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  color: #FFFFFF;
-  opacity: 0.7;
-  letter-spacing: 0.7px;
-  padding: 18.5px 54px 8.5px 15px;
+	background-color: #151515;
+	height: 41px;
+	font-family: 'Protipo' sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: #ffffff;
+	opacity: 0.7;
+	letter-spacing: 0.7px;
+	padding: 18.5px 54px 8.5px 15px;
 }

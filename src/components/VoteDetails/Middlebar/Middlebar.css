@@ -1,47 +1,47 @@
-.middlebar-container{
-  background-color: #151515;
-  display: flex;
-  align-items: center;
-  padding: 0px 19px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.middlebar-container {
+	background-color: #151515;
+	display: flex;
+	align-items: center;
+	padding: 0px 19px;
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .middlebar-vote-item {
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
-  font-family: 'Protipo', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  color: #FFFFFF;
+	padding-top: 13.5px;
+	padding-bottom: 13.5px;
+	font-family: 'Protipo', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	color: #ffffff;
 }
 
 .middlebar-container positioning {
-  width: 39px;
+	width: 39px;
 }
 
-.middlebar-border{
-  width: 6px;
-  height: 29px;
-  background-color: #FFFFFF;
-  opacity: 0.3;
-  margin-left: 35.5px;
-  margin-right: 35.5px;
+.middlebar-border {
+	width: 6px;
+	height: 29px;
+	background-color: #ffffff;
+	opacity: 0.3;
+	margin-left: 35.5px;
+	margin-right: 35.5px;
 }
 
-.middlebar-vote-container{
-  display: flex;
-  align-items: center;
+.middlebar-vote-container {
+	display: flex;
+	align-items: center;
 }
 
 .middlebar-result {
-  font-family: 'Protipo', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  padding-top: 19px;
-  padding-bottom: 19px;
-  width: 140px;
+	font-family: 'Protipo', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	padding-top: 19px;
+	padding-bottom: 19px;
+	width: 140px;
 }

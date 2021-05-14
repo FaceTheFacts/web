@@ -1,5 +1,5 @@
 .positioning {
-	padding: 5px 8px ;
+	padding: 5px 8px;
 	height: 24px;
 	border-radius: 4px;
 	color: white;
@@ -30,7 +30,7 @@
 
 .positioning-absent {
 	text-transform: uppercase;
-	background-color: #2A2B36;
+	background-color: #2a2b36;
 }
 
 .positioning-none {

@@ -1,15 +1,15 @@
 .details-toolbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 19px;
-  background: #252525;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 19px;
+	background: #252525;
 }
 
 .details-toolbar-container div {
-  font-size: 14px;
-  font-family: 'protipo', sans-serif;
+	font-size: 14px;
+	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	color: white;
-  font-weight: normal;
+	font-weight: normal;
 }

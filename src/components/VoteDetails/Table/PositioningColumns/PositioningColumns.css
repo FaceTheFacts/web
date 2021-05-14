@@ -1,8 +1,8 @@
 .positioning-columns-container {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .positioning-columns {
-  margin-bottom: 4px;
+	margin-bottom: 4px;
 }
