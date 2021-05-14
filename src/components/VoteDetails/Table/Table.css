@@ -12,3 +12,8 @@
 .table::-webkit-scrollbar {
 	display: none;
 }
+
+.table-positioning {
+  margin-top: 37px;
+  margin-right: 12px;
+}
