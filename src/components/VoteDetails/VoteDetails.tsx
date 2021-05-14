@@ -8,23 +8,22 @@ import Table from './Table/Table';
 import VoteDetailsToolbar from './VotesDetailsToolbar/VoteDetailsToolbar';
 
 interface VoteDetailsProps {
-  title: string;
-  content: string;
-  positioning: string;
-  result: string;
-  totalVote: TotalColumnType;
-  partyVote: Array<ColumnType>;
+	title: string;
+	content: string;
+	positioning: string;
+	result: string;
+	totalVote: TotalColumnType;
+	partyVote: Array<ColumnType>;
 }
 
 const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
-  <div>
-    <VoteDetailsToolbar/>
-    <Preview title ={props.title} content={props.content}/>
-    <Middlebar postioning={props.positioning} result ={props.result}/>
-    <InfoText/>
-    <Table totalVote = {props.totalVote} partyVote = {props.partyVote}/>
-  </div>
+	<div>
+		<VoteDetailsToolbar />
+		<Preview title={props.title} content={props.content} />
+		<Middlebar postioning={props.positioning} result={props.result} />
+		<InfoText />
+		<Table totalVote={props.totalVote} partyVote={props.partyVote} />
+	</div>
 );
 
 export default VoteDetails;
-

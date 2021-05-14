@@ -5,8 +5,8 @@
 	font-size: 12px;
 	text-align: center;
 	letter-spacing: 0.7px;
-	color: white;	
-	padding: 5px 8px ;
+	color: white;
+	padding: 5px 8px;
 	height: 24px;
 	border-radius: 4px;
 	margin: 0px;
@@ -23,21 +23,18 @@
 	text-transform: uppercase;
 }
 
-
-
 .spd {
-	background-color: #E95050;
+	background-color: #e95050;
 	text-transform: uppercase;
 }
 
 .fdp {
-	background-color: #FAED0B;
+	background-color: #faed0b;
 	color: #181924;
 	text-transform: capitalize;
 }
 
 .grüne {
-	background-color: #61A056;
+	background-color: #61a056;
 	text-transform: capitalize;
 }
-
