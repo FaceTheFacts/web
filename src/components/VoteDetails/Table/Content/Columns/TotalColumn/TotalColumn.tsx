@@ -2,6 +2,11 @@ import React from 'react';
 import Column from '../Column/Column';
 import {VoteNumbers} from '../../../NumberChips/NumberChips';
 
+export type TotalColumnType = {
+  votes: VoteNumbers;
+  majority: string;
+}
+
 interface TotalColumnProps {
   votes: VoteNumbers;
   majority: string;
