@@ -1,6 +1,8 @@
 .table {
   height: 177px;
   background: #151515;
+  display: flex;
+  flex-direction: row;
   padding: 16px 24px 16px 16px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -9,27 +11,4 @@
 
 .table::-webkit-scrollbar {
 	display: none;
-}
-
-.table-row {
-  margin-left: 99.406px;
-  margin-bottom: 13px;
-  display: inline-block;
-}
-
-.table-content-frame {
-  display: flex;
-  flex-direction: row;
-}
-
-.table-column-container {
-  display: flex;
-  flex-direction: column;
-}
-.table-column-container .positioning {
-  margin-bottom: 4px;
-}
-
-.table-column-total {
-  margin-left: 24px;
 }
