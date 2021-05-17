@@ -13,28 +13,28 @@
 	margin-right: 12px;
 }
 
-.gesamt {
+.gesamt-1 {
 	background-color: #636363;
 	text-transform: capitalize;
 }
 
-.cdu {
+.cdu-1 {
 	background-color: #636363;
 	text-transform: uppercase;
 }
 
-.spd {
+.spd-1 {
 	background-color: #e95050;
 	text-transform: uppercase;
 }
 
-.fdp {
+.fdp-1 {
 	background-color: #faed0b;
 	color: #181924;
 	text-transform: capitalize;
 }
 
-.grüne {
+.grüne-1 {
 	background-color: #61a056;
 	text-transform: capitalize;
 }
