@@ -21,6 +21,43 @@ interface ContainerProps {
 	vote: Poll;
 }
 
+const majorityJudge = (yes: number, no: number, abstain: number, noShow: number) => {
+	const majority = Math.max(yes, no, abstain, noShow);
+	let judge = 'ja';
+
+	switch (majority) {
+		case yes:
+			judge = 'ja';
+			break;
+		case no:
+			judge = 'nein';
+			break;
+		case abstain:
+			judge = 'enthalten';
+			break;
+		case noShow:
+			judge = 'abwesend';
+			break;
+		default:
+			judge = 'ja';
+	}
+	return judge;
+};
+
+const voteObjectHandler = (yes: number, no: number, abstain: number, noShow: number) => {
+	const majority = majorityJudge(yes, no, abstain, noShow);
+	const voteResult = {
+		votes: {
+			ja: yes,
+			nein: no,
+			enthalten: abstain,
+			abwesend: noShow,
+		},
+		majority: majority,
+	};
+	return voteResult;
+};
+
 const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
@@ -36,68 +73,83 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	}`;
 	const judgeStatement =
 		vote.subtitle + ' ' + voteJudgeHandler(vote.result.total.yes, +totalvotes);
-	//Temporal Input
-	const preview = {
-		title: 'Verlängerung des Bundeswehreinsatzes in Südsudan (Friedensmission UNMISS)',
-		content:
-			'Die Bundesregierung beruft sich bei ihrem Antrag auf das Schutzmandat der Vereinten Nationen und das System gegenseitiger kollektiver Sicherheit. Die Zivilbevölkerung müsse vor der bewaffneten Auseinandersetzung zwischen Regierungs- und Oppositionsgruppen geschützt werden.',
-	};
-	const totalVote = {
-		votes: {
-			ja: 432,
-			nein: 176,
-			enthalten: 21,
-			abwesend: 79,
-		},
-		majority: 'ja',
-	};
 
-	const partyVoteInputs = [
-		{
-			party: 'cdu',
-			votes: {
-				ja: 244,
-				nein: 0,
-				enthalten: 0,
-				abwesend: 20,
-			},
-			majority: 'ja',
-		},
-		{
-			party: 'spd',
-			votes: {
-				ja: 126,
-				nein: 7,
-				enthalten: 2,
-				abwesend: 17,
-			},
-			majority: 'ja',
-		},
-		{
-			party: 'fdp',
-			votes: {
-				ja: 68,
-				nein: 2,
-				enthalten: 5,
-				abwesend: 5,
-			},
-			majority: 'ja',
-		},
-		{
-			party: 'grüne',
-			votes: {
-				ja: 14,
-				nein: 32,
-				enthalten: 14,
-				abwesend: 7,
-			},
-			majority: 'nein',
-		},
-	];
-	const tempInput = {
-		totalVote,
-		partyVoteInputs,
-	};
+	const totalVoteJudge = voteObjectHandler(
+		vote.result.total.yes,
+		vote.result.total.no,
+		vote.result.total.abstain,
+		vote.result.total.none
+	);
+
+	const partyVoteResult: any = [];
+	vote.result.partyResult.forEach((partyVote) => {
+		partyVoteResult.push(
+			voteObjectHandler(partyVote.yes, partyVote.no, partyVote.abstain, partyVote.none)
+		);
+	});
+
+	//Temporal Input
+	// const preview = {
+	// 	title: 'Verlängerung des Bundeswehreinsatzes in Südsudan (Friedensmission UNMISS)',
+	// 	content:
+	// 		'Die Bundesregierung beruft sich bei ihrem Antrag auf das Schutzmandat der Vereinten Nationen und das System gegenseitiger kollektiver Sicherheit. Die Zivilbevölkerung müsse vor der bewaffneten Auseinandersetzung zwischen Regierungs- und Oppositionsgruppen geschützt werden.',
+	// };
+	// const totalVote = {
+	// 	votes: {
+	// 		ja: 432,
+	// 		nein: 176,
+	// 		enthalten: 21,
+	// 		abwesend: 79,
+	// 	},
+	// 	majority: 'ja',
+	// };
+
+	// const partyVoteInputs = [
+	// 	{
+	// 		party: 'cdu',
+	// 		votes: {
+	// 			ja: 244,
+	// 			nein: 0,
+	// 			enthalten: 0,
+	// 			abwesend: 20,
+	// 		},
+	// 		majority: 'ja',
+	// 	},
+	// 	{
+	// 		party: 'spd',
+	// 		votes: {
+	// 			ja: 126,
+	// 			nein: 7,
+	// 			enthalten: 2,
+	// 			abwesend: 17,
+	// 		},
+	// 		majority: 'ja',
+	// 	},
+	// 	{
+	// 		party: 'fdp',
+	// 		votes: {
+	// 			ja: 68,
+	// 			nein: 2,
+	// 			enthalten: 5,
+	// 			abwesend: 5,
+	// 		},
+	// 		majority: 'ja',
+	// 	},
+	// 	{
+	// 		party: 'grüne',
+	// 		votes: {
+	// 			ja: 14,
+	// 			nein: 32,
+	// 			enthalten: 14,
+	// 			abwesend: 7,
+	// 		},
+	// 		majority: 'nein',
+	// 	},
+	// ];
+	// const tempInput = {
+	// 	totalVote,
+	// 	partyVoteInputs,
+	// };
 	return (
 		<React.Fragment>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
@@ -151,12 +203,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					swipeToClose={true}
 				>
 					<VoteDetails
-						title={preview.title}
-						content={preview.content}
-						positioning="yes"
-						result="Antrag angenommen"
-						totalVote={tempInput.totalVote}
-						partyVote={tempInput.partyVoteInputs}
+						title={vote.title}
+						content={vote.abstract}
+						positioning={vote.candidateVote}
+						result={judgeStatement}
+						totalVote={totalVoteJudge}
+						partyVote={partyVoteResult}
 					/>
 				</IonModal>
 			</IonContent>
