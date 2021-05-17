@@ -15,7 +15,7 @@ import {
 import { Poll } from '../Types';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 import Positioning from './Positioning';
-import VoteDetails from './VoteDetails/VoteDetails';
+import VoteDetails from './Votes/VoteDetails/VoteDetails';
 
 interface ContainerProps {
 	vote: Poll;

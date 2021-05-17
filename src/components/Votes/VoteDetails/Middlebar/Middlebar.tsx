@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Positioning from '../../Positioning';
+import Positioning from '../../../Positioning';
 
 import './Middlebar.css';
 
