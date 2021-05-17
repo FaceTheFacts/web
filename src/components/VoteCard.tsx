@@ -1,50 +1,29 @@
 import React from 'react';
-import PartyVoteChart from './PartyVoteChart';
 import VoteChart from './VoteChart';
 import './VoteCard.css';
 import {
 	IonCard,
 	IonCardHeader,
-	IonCardSubtitle,
 	IonCardTitle,
 	IonCardContent,
 	IonGrid,
 	IonCol,
 	IonRow,
 	IonModal,
-	IonButton,
 	IonContent,
-	IonChip,
-	IonText,
-	IonIcon,
-	IonLabel,
 } from '@ionic/react';
 import { Poll } from '../Types';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 import Positioning from './Positioning';
+import VoteDetails from './VoteDetails/VoteDetails';
 
 interface ContainerProps {
 	vote: Poll;
 }
 
 const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
-	/* 
-	Internationalisation to keep the code in English but print the national language
-	*/
-
-	const voteStrings = {
-		yes: 'Ja',
-		no: 'Nein',
-		abstain: 'Enthalten',
-		none: 'Nicht Abg.',
-	};
-
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
-	/* 
-	Dynamically create the className for the candidate's reason for voting
-	*/
-	const reasonVoteClassName = `reason-vote vote-${vote.candidateVote.toLowerCase()}`;
 
 	/* 
 	Dynamically calculate the total number of votes
@@ -55,9 +34,70 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.abstain +
 		vote.result.total.none
 	}`;
-	const voteString = vote.candidateVote;
 	const judgeStatement =
 		vote.subtitle + ' ' + voteJudgeHandler(vote.result.total.yes, +totalvotes);
+	//Temporal Input
+	const preview = {
+		title: 'Verlängerung des Bundeswehreinsatzes in Südsudan (Friedensmission UNMISS)',
+		content:
+			'Die Bundesregierung beruft sich bei ihrem Antrag auf das Schutzmandat der Vereinten Nationen und das System gegenseitiger kollektiver Sicherheit. Die Zivilbevölkerung müsse vor der bewaffneten Auseinandersetzung zwischen Regierungs- und Oppositionsgruppen geschützt werden.',
+	};
+	const totalVote = {
+		votes: {
+			ja: 432,
+			nein: 176,
+			enthalten: 21,
+			abwesend: 79,
+		},
+		majority: 'ja',
+	};
+
+	const partyVoteInputs = [
+		{
+			party: 'cdu',
+			votes: {
+				ja: 244,
+				nein: 0,
+				enthalten: 0,
+				abwesend: 20,
+			},
+			majority: 'ja',
+		},
+		{
+			party: 'spd',
+			votes: {
+				ja: 126,
+				nein: 7,
+				enthalten: 2,
+				abwesend: 17,
+			},
+			majority: 'ja',
+		},
+		{
+			party: 'fdp',
+			votes: {
+				ja: 68,
+				nein: 2,
+				enthalten: 5,
+				abwesend: 5,
+			},
+			majority: 'ja',
+		},
+		{
+			party: 'grüne',
+			votes: {
+				ja: 14,
+				nein: 32,
+				enthalten: 14,
+				abwesend: 7,
+			},
+			majority: 'nein',
+		},
+	];
+	const tempInput = {
+		totalVote,
+		partyVoteInputs,
+	};
 	return (
 		<React.Fragment>
 			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
@@ -102,9 +142,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					</IonGrid>
 				</IonCardContent>
 			</IonCard>
-
 			{/*Vote Detail Modal*/}
-
 			<IonContent>
 				<IonModal
 					isOpen={showDetails}
@@ -112,170 +150,14 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					backdropDismiss={true}
 					swipeToClose={true}
 				>
-					<div className="title-div">
-						<IonCardSubtitle className="subtitle-styling">
-							{vote.subtitle}
-						</IonCardSubtitle>
-						<IonCardTitle className="title-styling">{vote.title}</IonCardTitle>
-
-						<IonChip className="chip-styling">
-							<IonIcon icon={vote.chip.icon} />
-
-							<IonLabel>{vote.chip.name}</IonLabel>
-						</IonChip>
-					</div>
-
-					<div className="abstract-div">
-						<p className="abstract-title">Abstrakt:</p>
-						<p className="abstract-text">{vote.abstract}</p>
-					</div>
-
-					<div>
-						<IonButton fill="clear" className="abstract-button">
-							zum Gesetz
-						</IonButton>
-					</div>
-
-					<hr className="first-line-style"></hr>
-
-					<div className="reason-div">
-						<IonGrid fixed={true}>
-							<IonRow>
-								<IonCol className={reasonVoteClassName}>
-									<div className="reason-vote-text">
-										{voteStrings[voteString]}
-									</div>
-								</IonCol>
-								<IonCol className="reason-reason">
-									<div>
-										<p className="reason-title">Begründung des Abgeordneten:</p>
-										<p className="reason-text">{vote.reason}</p>
-									</div>
-								</IonCol>
-							</IonRow>
-						</IonGrid>
-					</div>
-
-					<hr className="second-line-style"></hr>
-
-					<div className="result-div">
-						<IonGrid>
-							<IonRow>
-								<IonCol size="12">
-									<IonText>
-										<span className="result-vote-title">
-											Abstimmungsergebnis
-										</span>
-										<span className="result-vote-members">
-											{' '}
-											{totalvotes} Mitglieder
-										</span>
-									</IonText>
-								</IonCol>
-							</IonRow>
-						</IonGrid>
-
-						{/* We also use a grid here to more easily arrange the indivdual components. */}
-						<IonGrid>
-							{/* Vote Result Chart */}
-							<IonRow className="result-row-spacing">
-								<IonCol size="12">
-									<div className="result-chart-container">
-										{/* Render a VoteChart component for the vote result */}
-										<VoteChart vote={vote} />
-									</div>
-								</IonCol>
-							</IonRow>
-
-							{/* Vote Result Legend */}
-							<IonRow>
-								<IonCol size="auto"></IonCol>
-								<IonCol size="auto">
-									<div className="result-legend-circle vote-yes"></div>
-									<span className="result-legend-text">
-										Ja: {vote.result.total.yes}
-									</span>
-								</IonCol>
-								<IonCol size="auto">
-									<div className="result-legend-circle vote-no"></div>
-									<span className="result-legend-text">
-										Nein: {vote.result.total.no}
-									</span>
-								</IonCol>
-								<IonCol size="auto">
-									<div className="result-legend-circle vote-abstain"></div>
-									<span className="result-legend-text">
-										Enthalten: {vote.result.total.abstain}
-									</span>
-								</IonCol>
-								<IonCol size="auto">
-									<div className="result-legend-circle vote-none"></div>
-									<span className="result-legend-text">
-										Nicht abg.: {vote.result.total.none}
-									</span>
-								</IonCol>
-							</IonRow>
-						</IonGrid>
-					</div>
-
-					<div className="round-chart-div">
-						<IonCard className="round-chart-card">
-							<IonCardHeader>
-								<IonGrid>
-									<IonRow>
-										<IonCol size="6">
-											<div>
-												{/* Render a partyVoteChart component for the vote result.
-													All partyResult[0] instances below will need to be altered when multiple parties are added to the dataset. 
-													*/}
-												<PartyVoteChart
-													partyVote={vote.result.partyResult[0]}
-												/>
-											</div>
-										</IonCol>
-										<IonCol size="6">
-											<IonRow>
-												<IonText>
-													<span className="chart-vote-title">
-														{vote.result.partyResult[0].partyName}
-													</span>
-													<p className="chart-vote-members">
-														{' '}
-														{vote.result.partyResult[0].partyTotal}{' '}
-														Mitglieder
-													</p>
-												</IonText>
-											</IonRow>
-											<IonRow className="chart-row-spacing">
-												<div className="result-legend-circle vote-yes"></div>
-												<span className="result-legend-text">
-													Ja: {vote.result.partyResult[0].yes}
-												</span>
-											</IonRow>
-											<IonRow className="chart-row-spacing">
-												<div className="result-legend-circle vote-no"></div>
-												<span className="result-legend-text">
-													Nein: {vote.result.partyResult[0].no}
-												</span>
-											</IonRow>
-											<IonRow className="chart-row-spacing">
-												<div className="result-legend-circle vote-abstain"></div>
-												<span className="result-legend-text">
-													Enthalten: {vote.result.partyResult[0].abstain}
-												</span>
-											</IonRow>
-											<IonRow className="chart-row-spacing">
-												<div className="result-legend-circle vote-none"></div>
-												<span className="result-legend-text">
-													Nicht abg.: {vote.result.partyResult[0].none}
-												</span>
-											</IonRow>
-										</IonCol>
-									</IonRow>
-								</IonGrid>
-							</IonCardHeader>
-						</IonCard>
-					</div>
+					<VoteDetails
+						title={preview.title}
+						content={preview.content}
+						positioning="yes"
+						result="Antrag angenommen"
+						totalVote={tempInput.totalVote}
+						partyVote={tempInput.partyVoteInputs}
+					/>
 				</IonModal>
 			</IonContent>
 		</React.Fragment>
