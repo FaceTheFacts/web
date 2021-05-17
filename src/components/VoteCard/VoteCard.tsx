@@ -44,9 +44,16 @@ const majorityJudge = (yes: number, no: number, abstain: number, noShow: number)
 	return judge;
 };
 
-const voteObjectHandler = (yes: number, no: number, abstain: number, noShow: number) => {
+const voteObjectHandler = (
+	yes: number,
+	no: number,
+	abstain: number,
+	noShow: number,
+	party?: string
+) => {
 	const majority = majorityJudge(yes, no, abstain, noShow);
 	const voteResult = {
+		party: party,
 		votes: {
 			ja: yes,
 			nein: no,
@@ -84,7 +91,13 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	const partyVoteResult: any = [];
 	vote.result.partyResult.forEach((partyVote) => {
 		partyVoteResult.push(
-			voteObjectHandler(partyVote.yes, partyVote.no, partyVote.abstain, partyVote.none)
+			voteObjectHandler(
+				partyVote.yes,
+				partyVote.no,
+				partyVote.abstain,
+				partyVote.none,
+				partyVote.partyName
+			)
 		);
 	});
 
