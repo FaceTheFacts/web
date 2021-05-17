@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import VoteChart from './VoteChart';
-import { amthor } from '../amthor';
+import { amthor } from '../../../amthor';
 import 'jest-canvas-mock';
 let container: HTMLDivElement | null = null;
 

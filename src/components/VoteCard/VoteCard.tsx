@@ -1,5 +1,5 @@
 import React from 'react';
-import VoteChart from './VoteChart';
+import VoteChart from './VoteChart/VoteChart';
 import './VoteCard.css';
 import {
 	IonCard,
@@ -12,10 +12,10 @@ import {
 	IonModal,
 	IonContent,
 } from '@ionic/react';
-import { Poll } from '../Types';
-import { voteJudgeHandler } from '../functions/voteJudgeHandler';
-import Positioning from './Positioning';
-import VoteDetails from './Votes/VoteDetails/VoteDetails';
+import { Poll } from '../../Types';
+import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
+import Positioning from '../Positioning';
+import VoteDetails from './VoteDetails/VoteDetails';
 
 interface ContainerProps {
 	vote: Poll;
