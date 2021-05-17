@@ -6,7 +6,7 @@ interface PartyChipProps {
 }
 
 const PartyChip: React.FC<PartyChipProps> = (props: PartyChipProps) => (
-	<IonChip className={['party-chip', props.party].join(' ')}>{props.party}</IonChip>
+	<IonChip className={['party-chip', props.party + '-1'].join(' ')}>{props.party}</IonChip>
 );
 
 export default PartyChip;
