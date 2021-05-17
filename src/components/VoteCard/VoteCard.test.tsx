@@ -2,11 +2,11 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import { amthor } from '../amthor';
+import { amthor } from '../../amthor';
 import 'jest-canvas-mock';
 import VoteCard from './VoteCard';
 import { getAllByTestId } from '@testing-library/dom';
-import { voteJudgeHandler } from '../functions/voteJudgeHandler';
+import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 let container: HTMLDivElement | null = null;
 
 beforeEach(() => {
