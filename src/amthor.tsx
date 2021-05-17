@@ -51,7 +51,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 200,
 						no: 0,
 						abstain: 0,
@@ -81,7 +81,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 0,
 						no: 212,
 						abstain: 0,
@@ -100,7 +100,7 @@ export const amthor: Candidate = {
 				icon: 'assets/icon/sack-dollar-light.svg',
 			},
 			abstract:
-				'Mit einer Änderung des Grundgesetzes beabsichtigen die Regierungsfraktionen CDU/CSU und SPD die stärkere finanzielle Entlastung der Kommunen während der COVID-19-Pandemie.',
+				'Mit einer Änderung des Grundgesetzes beabsichtigen die Regierungsfraktionen cdu und SPD die stärkere finanzielle Entlastung der Kommunen während der COVID-19-Pandemie.',
 			reason: 'keine Begründung',
 			result: {
 				total: {
@@ -111,7 +111,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 234,
 						no: 0,
 						abstain: 0,
@@ -141,7 +141,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 0,
 						no: 229,
 						abstain: 0,
@@ -171,7 +171,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 0,
 						no: 229,
 						abstain: 0,
@@ -201,7 +201,7 @@ export const amthor: Candidate = {
 				},
 				partyResult: [
 					{
-						partyName: 'CDU/CSU',
+						partyName: 'cdu',
 						yes: 160,
 						no: 66,
 						abstain: 9,
