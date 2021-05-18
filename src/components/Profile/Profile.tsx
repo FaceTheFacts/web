@@ -28,12 +28,21 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
-	const { data, status, error } = useQuery(`politicalFocus-${candidate.label}`, () => fetch(`committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.label} (Bundestag)`))
-	const sideJobs = useQuery(`sideJob-${candidate.label}`, () => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=10`))
-	const polls = useQuery('poll', () => fetch('polls?field_legislature[entity.label]eq=Bundestag&range_end=10'))
+	const { data, status, error } = useQuery(`politicalFocus-${candidate.label}`, () => fetch(`committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.label} (Bundestag 2017 - 2021)`), {
+		staleTime: 60 * 10000000,
+		cacheTime: 60 * 10000000 // 10000 minute = around 1 week
+	})
+	const sideJobs = useQuery(`sideJob-${candidate.label}`, () => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=10`), {
+		staleTime: 60 * 2880000,
+		cacheTime: 60 * 2880000 // 2 days
+	})
+	const polls = useQuery('poll', () => fetch('polls?field_legislature[entity.label]eq=Bundestag 2017 - 2021&range_end=10'), {
+		staleTime: 60 * 1440000,
+		cacheTime: 60 * 1440000 // 1 day
+	})
 	
 	if (status === 'loading' || sideJobs.status === 'loading' || polls.status === 'loading' ) {
-		return (<p>Loading</p>);
+		return (<iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>);
 	}
 
 	if (status === 'error' || sideJobs.status === 'error' || polls.status === 'error') {
