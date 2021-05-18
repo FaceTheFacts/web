@@ -11,7 +11,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }: SearchResultsP
 		<div id="search-results">
 			{results.map((result, index) => {
 				return (
-					<IonCard key={`result-${index}`} button={true} href={`politician/${result.id}/profile`}>
+					<IonCard
+						key={`result-${index}`}
+						button={true}
+						href={`politician/${result.id}/profile`}
+					>
 						<IonCardHeader>
 							<IonCardSubtitle>{result.party.label}</IonCardSubtitle>
 							<IonCardTitle>{result.label}</IonCardTitle>

@@ -37,11 +37,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 					ticks: {
 						display: false, //hide the horizontal axis and it's values
 						//set the max so the chart always fills the whole bar
-						max:
-							totalvotes[0] +
-							totalvotes[1] +
-							totalvotes[2] +
-							totalvotes[3],
+						max: totalvotes[0] + totalvotes[1] + totalvotes[2] + totalvotes[3],
 					},
 					gridLines: {
 						// hide gridlines
@@ -72,7 +68,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 			display: false, // do not display the legend, we built this ourselves in VoteCard.tsx
 		},
 	};
-	const loadData = (totalvotes: [number, number, number, number] ): void => {
+	const loadData = (totalvotes: [number, number, number, number]): void => {
 		setChartData({
 			//labels: [vote.name],
 			datasets: [
