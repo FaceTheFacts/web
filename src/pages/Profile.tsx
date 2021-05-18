@@ -23,10 +23,13 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
 	const { data, status, error } = useQuery(`politicianProfile-${id}`, () => 
-	fetch(`politicians/${id}?related_data=show_information`))
+	fetch(`politicians/${id}?related_data=show_information`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
 
 	if (status === 'loading') {
-		return (<p>Loading</p>);
+		return (<iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>);
 	}
 
 	if (status === 'error') {
