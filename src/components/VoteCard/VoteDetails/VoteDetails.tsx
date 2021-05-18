@@ -7,6 +7,8 @@ import { TotalColumnType } from './Table/Content/Columns/TotalColumn/TotalColumn
 import Table from './Table/Table';
 import VoteDetailsToolbar from './VotesDetailsToolbar/VoteDetailsToolbar';
 
+import './VoteDetails.css';
+
 interface VoteDetailsProps {
 	clicked: Function;
 	title: string;
@@ -18,7 +20,7 @@ interface VoteDetailsProps {
 }
 
 const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
-	<div>
+	<div className="vote-details-background">
 		<VoteDetailsToolbar clicked={props.clicked} />
 		<Preview title={props.title} content={props.content} />
 		<Middlebar postioning={props.positioning} result={props.result} />
