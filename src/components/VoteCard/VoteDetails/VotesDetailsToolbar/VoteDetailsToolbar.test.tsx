@@ -27,7 +27,7 @@ it('renders with the correct title', () => {
 
 	// when
 	act(() => {
-		render(<Toolbar clicked = {jest.fn()}/>, container);
+		render(<Toolbar clicked={jest.fn()} />, container);
 	});
 
 	// then
