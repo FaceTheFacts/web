@@ -15,7 +15,6 @@ import Privacy from './pages/Privacy';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -75,10 +74,10 @@ const App: React.FC = () => {
 						{/* <Route path="/politician/:id/election">
 							<Electionchances candidate={candidate as Candidate} />
 						</Route> */}
-						<Route path="/politician/:id/profile" exact>
-							<Profile candidate={candidate}></Profile>
-						</Route>
-{/* 						<Route path="/politician/:id/news" exact>
+							<Route path="/politician/:id/profile" exact>
+								<Profile candidate={candidate}></Profile>
+							</Route>
+							{/* 						<Route path="/politician/:id/news" exact>
 							<News candidate={candidate as Candidate}></News>
 						</Route>
 						<Route path="/politician/:id/bio" exact>
@@ -90,11 +89,13 @@ const App: React.FC = () => {
 						<Route path="/politician/:id/position" exact>
 							<Position candidate={candidate}></Position>
 						</Route>
-					</IonRouterOutlet>
-				</IonSplitPane>
-			</IonReactRouter>
-		</IonApp>
-		<ReactQueryDevtools initialIsOpen />
+
+						{/* Redirect '/' to '/scan', since that will be our starting point */}
+						</IonRouterOutlet>
+					</IonSplitPane>
+				</IonReactRouter>
+			</IonApp>
+			<ReactQueryDevtools initialIsOpen />
 		</QueryClientProvider>
 	);
 };

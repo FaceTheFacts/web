@@ -11,7 +11,7 @@ import ProfileComponent from '../components/Profile/Profile';
 import { Candidate, Politician } from '../Types';
 import ProfileComponent from '../components/Profile';
 import { useQuery } from 'react-query';
-import fetch from '../functions/queries'
+import fetch from '../functions/queries';
 
 >>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
 interface ProfileProps {
@@ -22,18 +22,21 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
-	const { data, status, error } = useQuery(`politicianProfile-${id}`, () => 
-	fetch(`politicians/${id}?related_data=show_information`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
+	const { data, status, error } = useQuery(
+		`politicianProfile-${id}`,
+		() => fetch(`politicians/${id}?related_data=show_information`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
 
 	if (status === 'loading') {
-		return (<iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>);
+		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 
 	if (status === 'error') {
-		return (<p>Error: {error}</p>);
+		return <p>Error: {error}</p>;
 	}
 
 	/* This is returned when using this component */

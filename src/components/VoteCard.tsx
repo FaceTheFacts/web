@@ -23,7 +23,7 @@ import { PollData } from '../Types';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
 import Positioning from './Positioning';
 import { useQuery } from 'react-query';
-import fetch from '../functions/queries'
+import fetch from '../functions/queries';
 
 interface ContainerProps {
 	vote: PollData;
@@ -35,35 +35,51 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	Internationalisation to keep the code in English but print the national language
 	*/
 
-	const votequery = useQuery(`vote-${vote.id}`, () => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
-	const yes = useQuery(`yes-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=yes&range_end=1`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
+	const votequery = useQuery(
+		`vote-${vote.id}`,
+		() => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
+	const yes = useQuery(
+		`yes-${vote.id}`,
+		() => fetch(`votes?poll=${vote.id}&vote=yes&range_end=1`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
 	const no = useQuery(`no-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no&range_end=1`), {
 		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
-	const noShow = useQuery(`noShow-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no_show&range_end=1`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
-	const abstain = useQuery(`abstain-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=abstain&range_end=1`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000
-	})
-	
-	if (votequery.status === 'loading' ) {
-		return (<p>Loading</p>);
+		cacheTime: 60 * 10000000,
+	});
+	const noShow = useQuery(
+		`noShow-${vote.id}`,
+		() => fetch(`votes?poll=${vote.id}&vote=no_show&range_end=1`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
+	const abstain = useQuery(
+		`abstain-${vote.id}`,
+		() => fetch(`votes?poll=${vote.id}&vote=abstain&range_end=1`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
+
+	if (votequery.status === 'loading') {
+		return <p>Loading</p>;
 	}
 
-	if ( yes.status === 'error') {
-		return (<p>Error: {votequery.error}</p>);
+	if (yes.status === 'error') {
+		return <p>Error: {votequery.error}</p>;
 	}
-	
+
 	const voteStrings = {
 		yes: 'Ja',
 		no: 'Nein',
@@ -81,19 +97,24 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	/* 
 	Dynamically calculate the total number of votes
 	*/
-	let judge, noTotal: number, yesTotal: number , abstainTotal: number, noShowTotal: number;
-	let totalvotes: [number, number, number, number]= [0, 0, 0, 0];
+	let judge, noTotal: number, yesTotal: number, abstainTotal: number, noShowTotal: number;
+	let totalvotes: [number, number, number, number] = [0, 0, 0, 0];
 	/* const voteString = vote.candidateVote; */
 
-	if ( yes.status === 'success' && no.status === 'success' && abstain.status === 'success' && noShow.status === 'success') {
+	if (
+		yes.status === 'success' &&
+		no.status === 'success' &&
+		abstain.status === 'success' &&
+		noShow.status === 'success'
+	) {
 		yesTotal = yes.data.meta.result.total;
 		noTotal = no.data.meta.result.total;
 		abstainTotal = abstain.data.meta.result.total;
-		noShowTotal= noShow.data.meta.result.total;
+		noShowTotal = noShow.data.meta.result.total;
 		totalvotes = [yesTotal, noTotal, abstainTotal, noShowTotal];
-		judge = 'Antrag ' + voteJudgeHandler(yesTotal, (yesTotal+noTotal+abstainTotal));
+		judge = 'Antrag ' + voteJudgeHandler(yesTotal, yesTotal + noTotal + abstainTotal);
 	}
-		
+
 	return (
 		<React.Fragment>
 			<IonCard className="vote-card" /* onClick={(): void => setShowDetails(!showDetails) }*/>
@@ -131,7 +152,9 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							<IonCol size="12">
 								<div className="vote-chart-container">
 									{/* Render a VoteChart component for the vote result */}
-									{totalvotes !== undefined ? <VoteChart totalvotes={totalvotes} /> : null }
+									{totalvotes !== undefined ? (
+										<VoteChart totalvotes={totalvotes} />
+									) : null}
 								</div>
 							</IonCol>
 						</IonRow>
@@ -211,8 +234,8 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							</IonRow>
 						</IonGrid> */}
 
-						{/* We also use a grid here to more easily arrange the indivdual components. */}
-						{/* <IonGrid>
+			{/* We also use a grid here to more easily arrange the indivdual components. */}
+			{/* <IonGrid>
 							{/* Vote Result Chart
 							<IonRow className="result-row-spacing">
 								<IonCol size="12">
@@ -223,8 +246,8 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 								</IonCol>
 							</IonRow> */}
 
-							{/* Vote Result Legend */}
-							{/* <IonRow>
+			{/* Vote Result Legend */}
+			{/* <IonRow>
 								<IonCol size="auto"></IonCol>
 								<IonCol size="auto">
 									<div className="result-legend-circle vote-yes"></div>
@@ -254,7 +277,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 						</IonGrid> 
 					</div>*/}
 
-					{/* <div className="round-chart-div">
+			{/* <div className="round-chart-div">
 						<IonCard className="round-chart-card">
 							<IonCardHeader>
 								<IonGrid>
@@ -315,7 +338,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 				</IonModal>
 			</IonContent> */}
 		</React.Fragment>
-	)
+	);
 };
 
 export default VoteCard;
