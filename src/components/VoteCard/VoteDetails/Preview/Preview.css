@@ -18,6 +18,18 @@
 	opacity: 0.8;
 	letter-spacing: 0.3px;
 	margin: 5px 0px;
+	line-height: 15px;
+}
+
+.readmore-shrinked {
+	/* seven lines */
+	height: calc(15px * 7);
+	overflow: hidden;
+	text-overflow: clip;
+}
+
+.readmore-extended {
+	height: auto;
 }
 
 .preview-button {
