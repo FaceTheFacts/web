@@ -27,7 +27,7 @@ export const amthor: Candidate = {
 			organisation: 'AMEOS Krankenhausgesellschaft Vorpommern',
 			label: 'Mitglied des Regionalbeirates',
 			candidate: 1,
-		}
+		},
 	],
 	polls: [
 		{

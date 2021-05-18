@@ -12,7 +12,6 @@ interface ContainerProps {
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
 	const partyClassName = candidate.party.label.toLowerCase().replace(/\s/g, '');
 
-
 	return (
 		<div className="header">
 			<IonGrid>
@@ -20,27 +19,26 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 					<IonCol className="profile-image">
 						<img
 							className="politician-image"
-							src='https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr'
+							src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
 							alt={candidate.label}
-							data-testid="profile-img-url">
-						</img>
+							data-testid="profile-img-url"
+						></img>
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
 							<IonCardTitle>{candidate.label}</IonCardTitle>
 						</div>
 						<div className="politican-details">
-							<IonChip className={classnames(
-											'politician-detail',
-											`${partyClassName}`)}>
+							<IonChip
+								className={classnames('politician-detail', `${partyClassName}`)}
+							>
 								{candidate.party.label}
 							</IonChip>
-							{candidate.occupation !== null ?
+							{candidate.occupation !== null ? (
 								<IonChip className="politician-detail">
 									{candidate.occupation}
 								</IonChip>
-							: null
-							}
+							) : null}
 						</div>
 					</IonCol>
 				</IonRow>

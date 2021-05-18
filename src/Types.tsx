@@ -106,64 +106,64 @@ export type Position = {
 }; */
 
 export type Politician = {
-        "id": number;
-        "entity_type": string;
-        "label": string;
-        "api_url": string;
-        "abgeordnetenwatch_url": string;
-        "first_name": string;
-        "last_name": string;
-        "birth_name": string;
-        "sex": string;
-        "year_of_birth": number;
-        "party": Party;
-        "party_past": string;
-        "deceased": string;
-        "deceased_date": string;
-        "education": string;
-        "residence": string;
-        "occupation": string;
-        "statistic_questions": number;
-        "statistic_questions_answered": number;
-        "qid_wikidata": string;
-        "field_title": string;
-        "related_data": {
-            "mandates": {
-                "meta": {
-                    "description": string;
-                },
-                "api_path": string;
-                "api_path_include": string;
-            },
-            "candidacies": {
-                "meta": {
-                    "description": string;
-                },
-                "api_path": string;
-                "api_path_include": string;
-            },
-            "all_candidacies_mandates": {
-                "meta": {
-                    "description": string;
-                },
-                "api_path": string;
-                "api_path_include": string;
-            },
-            "votes": {
-                "meta": {
-                    "description": string;
-                },
-                "api_path": string;
-                "api_path_include": string;
-            }
-        }
+	id: number;
+	entity_type: string;
+	label: string;
+	api_url: string;
+	abgeordnetenwatch_url: string;
+	first_name: string;
+	last_name: string;
+	birth_name: string;
+	sex: string;
+	year_of_birth: number;
+	party: Party;
+	party_past: string;
+	deceased: string;
+	deceased_date: string;
+	education: string;
+	residence: string;
+	occupation: string;
+	statistic_questions: number;
+	statistic_questions_answered: number;
+	qid_wikidata: string;
+	field_title: string;
+	related_data: {
+		mandates: {
+			meta: {
+				description: string;
+			};
+			api_path: string;
+			api_path_include: string;
+		};
+		candidacies: {
+			meta: {
+				description: string;
+			};
+			api_path: string;
+			api_path_include: string;
+		};
+		all_candidacies_mandates: {
+			meta: {
+				description: string;
+			};
+			api_path: string;
+			api_path_include: string;
+		};
+		votes: {
+			meta: {
+				description: string;
+			};
+			api_path: string;
+			api_path_include: string;
+		};
+	};
 };
 
 export type Party = {
-	"id": number;
-	"entity_type": string;
-	"label": string;
-	"api_url": string;
+	id: number;
+	entity_type: string;
+	label: string;
+	api_url: string;
 };
 
 export type Topics = {
@@ -171,24 +171,24 @@ export type Topics = {
 };
 
 export type Topic = {
-	'api_url': string;
-	'candidacy_mandate': {
-		'id': number;
-		'entity_type': string;
-		'label': string;
-		'api_url': string;
+	api_url: string;
+	candidacy_mandate: {
+		id: number;
+		entity_type: string;
+		label: string;
+		api_url: string;
 	};
-	'committee': {
-		'id': number;
-		'entity_type': string;
-		'label': string;
-		'api_url': string;
-	}
-	'committee_role': string;
-	'entity_type': string;
-	'id': number;
-	'label': string;
-	'__proto__': Object;
+	committee: {
+		id: number;
+		entity_type: string;
+		label: string;
+		api_url: string;
+	};
+	committee_role: string;
+	entity_type: string;
+	id: number;
+	label: string;
+	__proto__: Record<string, any>;
 };
 
 export type SideJobData = {
@@ -199,16 +199,16 @@ export type SideJobData = {
 	data_change_date: string;
 	entity_type: string;
 	field_city: null;
-	field_country: Object;
-	field_topics: Array<Object>;
+	field_country: Record<string, any>;
+	field_topics: Array<Record<string, any>>;
 	id: number;
 	income_level: null;
 	interval: null;
 	job_title_extra: null;
 	label: string;
-	mandates: Array<Object>;
+	mandates: Array<Record<string, any>>;
 	sidejob_organization: SideJobOrganization;
-	__proto__: Object;
+	__proto__: Record<string, any>;
 };
 
 export type SideJobOrganization = {
@@ -219,34 +219,34 @@ export type SideJobOrganization = {
 };
 
 export type PollData = {
-	"id": number;
-    "entity_type": string;
-    "label": string;
-    "api_url": string;
-    "publish_on": null;
-    "unpublish_on": null;
-    "field_committees": [
-                {
-                    "id": number;
-                    "entity_type": string;
-                    "label": string;
-                    "api_url": string;
-                }
-            ],
-    "field_intro": string;
-	"field_legislature": {
-                "id": number;
-                "entity_type": string;
-                "label": string;
-                "api_url": string;
-                "abgeordnetenwatch_url": string;
-            },
-    "field_poll_date": string;
-    "field_related_links": [
-                {
-                    "uri": string;
-                    "title": string;
-                },
-            ],
-    "field_topics": null;
-}
+	id: number;
+	entity_type: string;
+	label: string;
+	api_url: string;
+	publish_on: null;
+	unpublish_on: null;
+	field_committees: [
+		{
+			id: number;
+			entity_type: string;
+			label: string;
+			api_url: string;
+		}
+	];
+	field_intro: string;
+	field_legislature: {
+		id: number;
+		entity_type: string;
+		label: string;
+		api_url: string;
+		abgeordnetenwatch_url: string;
+	};
+	field_poll_date: string;
+	field_related_links: [
+		{
+			uri: string;
+			title: string;
+		}
+	];
+	field_topics: null;
+};
