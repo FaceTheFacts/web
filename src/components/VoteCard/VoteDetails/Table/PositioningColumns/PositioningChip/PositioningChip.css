@@ -1,0 +1,32 @@
+.positioning-chip {
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	text-align: center;
+	letter-spacing: 0.7px;
+	color: white;
+	padding: 5px 8px;
+	margin: 0px;
+	height: 24px;
+	border-radius: 4px;
+}
+
+.ja {
+	background: #5ab760;
+	text-transform: capitalize;
+}
+
+.nein {
+	background: #bb3c45;
+	text-transform: capitalize;
+}
+
+.enthalten {
+	background: #3969f54d;
+	text-transform: capitalize;
+}
+
+.abwesend {
+	background: #2a2b36;
+}
