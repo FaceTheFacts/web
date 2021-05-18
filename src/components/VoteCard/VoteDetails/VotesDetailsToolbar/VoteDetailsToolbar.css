@@ -9,6 +9,13 @@
 	background: #252525;
 }
 
+@media screen and (min-width: 360px) {
+	.details-toolbar-container {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
 .details-toolbar-container div {
 	font-size: 14px;
 	font-family: 'protipo', sans-serif;
