@@ -35,11 +35,26 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	Internationalisation to keep the code in English but print the national language
 	*/
 
-	const votequery = useQuery(`vote-${vote.id}`, () => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`))
-	const yes = useQuery(`yes-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=yes&range_end=1`))
-	const no = useQuery(`no-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no&range_end=1`))
-	const noShow = useQuery(`noShow-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no_show&range_end=1`))
-	const abstain = useQuery(`abstain-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=abstain&range_end=1`))
+	const votequery = useQuery(`vote-${vote.id}`, () => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
+	const yes = useQuery(`yes-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=yes&range_end=1`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
+	const no = useQuery(`no-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no&range_end=1`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
+	const noShow = useQuery(`noShow-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no_show&range_end=1`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
+	const abstain = useQuery(`abstain-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=abstain&range_end=1`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000
+	})
 	
 	if (votequery.status === 'loading' ) {
 		return (<p>Loading</p>);
