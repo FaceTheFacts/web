@@ -96,7 +96,7 @@
 }
 
 .details-open {
-	--height: 702px;
+	--height: 630px;
 	--border-radius: 15px 15px 0 0;
 	position: fixed;
 	margin-bottom: -29.5%;
