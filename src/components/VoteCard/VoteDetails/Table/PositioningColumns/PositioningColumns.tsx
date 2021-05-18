@@ -1,14 +1,15 @@
 import * as React from 'react';
 import Positioning from '../../../../Positioning';
+import PositioningChip from './PositioningChip/PositioningChip';
 import './PositioningColumns.css';
 
-const positionings = ['yes', 'no', 'abstain', 'absent'];
+const positionings = ['ja', 'nein', 'enthalten', 'abwesend'];
 
 const PositioningColumns: React.FC = () => (
 	<div className="positioning-columns-container">
 		{positionings.map((position, index) => (
 			<div key={`positioning-column-${index}`} className="positioning-columns">
-				<Positioning positioning={position} />
+				<PositioningChip positioning={position} />
 			</div>
 		))}
 	</div>
