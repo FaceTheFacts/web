@@ -2,7 +2,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px 19px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 19px;
+	padding-right: 2px;
 	background: #252525;
 }
 
@@ -12,4 +15,8 @@
 	font-style: normal;
 	color: white;
 	font-weight: normal;
+}
+
+.details-toolbar-container ion-button {
+	margin: 0;
 }
