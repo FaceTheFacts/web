@@ -8,6 +8,7 @@ import Table from './Table/Table';
 import VoteDetailsToolbar from './VotesDetailsToolbar/VoteDetailsToolbar';
 
 interface VoteDetailsProps {
+	clicked: Function;
 	title: string;
 	content: string;
 	positioning: string;
@@ -18,7 +19,7 @@ interface VoteDetailsProps {
 
 const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
 	<div>
-		<VoteDetailsToolbar />
+		<VoteDetailsToolbar clicked={props.clicked} />
 		<Preview title={props.title} content={props.content} />
 		<Middlebar postioning={props.positioning} result={props.result} />
 		<InfoText />

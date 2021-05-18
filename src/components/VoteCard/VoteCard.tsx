@@ -69,6 +69,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
+	const modalCloser = () => {
+		setShowDetails(false);
+	};
+
 	/* 
 	Dynamically calculate the total number of votes
 	*/
@@ -216,6 +220,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					swipeToClose={true}
 				>
 					<VoteDetails
+						clicked={modalCloser}
 						title={vote.title}
 						content={vote.abstract}
 						positioning={vote.candidateVote}
