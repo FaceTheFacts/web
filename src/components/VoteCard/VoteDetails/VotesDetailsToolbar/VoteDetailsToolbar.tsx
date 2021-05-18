@@ -1,13 +1,19 @@
+import { IonButton, IonIcon } from '@ionic/react';
 import React from 'react';
 
 import CrossImage from '../../../../assets/images/cross.svg';
 import './VoteDetailsToolbar.css';
-const VoteDetailsToolbar: React.FC = () => (
+
+interface VoteDetailsToolbarProps {
+	clicked: Function;
+}
+
+const VoteDetailsToolbar: React.FC<VoteDetailsToolbarProps> = (props: VoteDetailsToolbarProps) => (
 	<div className="details-toolbar-container">
 		<div data-testid="votes-details-toolbar-title">Gesetzesentwurf</div>
-		<div>
-			<img src={CrossImage} alt="cross" />
-		</div>
+		<IonButton onClick={() => props.clicked()} fill="clear">
+			<IonIcon slot="icon-only" icon={CrossImage} />
+		</IonButton>
 	</div>
 );
 
