@@ -10,12 +10,17 @@ interface MiddlebarProps {
 
 const Middlebar: React.FC<MiddlebarProps> = (props: MiddlebarProps) => (
 	<div className="middlebar-container">
-		<div className="middlebar-vote-container">
-			<div className="middlebar-vote-item">Kandidat:in stimmte mit </div>
-			<Positioning positioning={props.postioning} />
+		{/* left */}
+		<div className="middlebar-left">
+			<div className="middlebar-left-sentence">Kandidat:in stimmte mit</div>
+			<div className="middlebar-left-positioning">
+				<Positioning positioning={props.postioning} />
+			</div>
 		</div>
+		{/* border bar */}
 		<div className="middlebar-border"></div>
-		<div className="middlebar-result">{props.result}</div>
+		{/* right */}
+		<div className="middlebar-right">{props.result}</div>
 	</div>
 );
 
