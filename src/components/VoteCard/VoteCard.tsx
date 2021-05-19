@@ -27,20 +27,20 @@ const majorityJudge = (yes: number, no: number, abstain: number, noShow: number)
 	let judge = 'ja';
 
 	switch (majority) {
-		case yes:
-			judge = 'ja';
-			break;
-		case no:
-			judge = 'nein';
-			break;
-		case abstain:
-			judge = 'enthalten';
-			break;
-		case noShow:
-			judge = 'abwesend';
-			break;
-		default:
-			judge = 'ja';
+	case yes:
+		judge = 'ja';
+		break;
+	case no:
+		judge = 'nein';
+		break;
+	case abstain:
+		judge = 'enthalten';
+		break;
+	case noShow:
+		judge = 'abwesend';
+		break;
+	default:
+		judge = 'ja';
 	}
 	return judge;
 };
