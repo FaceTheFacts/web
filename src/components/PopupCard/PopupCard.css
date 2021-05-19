@@ -1,0 +1,24 @@
+.PopupCard {
+  background: #252525;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.popup-header {
+  padding: 0px;
+}
+
+.popup-title {
+  font-family: 'Protipo' sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+@media screen and (min-width: 360px) {
+  .PopupCard {
+    padding: 16px;
+  }
+}
