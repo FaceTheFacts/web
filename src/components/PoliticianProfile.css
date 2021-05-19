@@ -41,7 +41,6 @@
 	font-size: 18px;
 	line-height: 22px;
 	color: white;
-	z-index: 2;
 	padding-left: 2px;
 }
 
@@ -54,7 +53,6 @@
 	letter-spacing: 0.7px;
 	color: white;
 	background-color: rgba(255, 255, 255, 0.2);
-	z-index: 2;
 	border-radius: 4px;
 	margin-inline: 2px;
 	margin-top: 3px;
