@@ -11,3 +11,4 @@ PULL_REQUEST_TEMPLATE.md
 src/functions/iconChangeHandler.ts
 src/functions/germanTranslator.ts
 src/pages/ElectionChances.tsx
+src/components/VoteCard/VoteCard.tsx
