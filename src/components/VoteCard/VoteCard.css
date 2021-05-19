@@ -97,7 +97,7 @@
 
 .details-open {
 	--border-radius: 15px 15px 0 0;
-	bottom:0;
+	bottom: 0;
 	position: fixed;
 	margin-top: 30px;
 }
@@ -106,4 +106,14 @@
 	.details-open {
 		margin-top: calc(100vh - 586px);
 	}
+}
+
+.overlay {
+	position:fixed;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+  background-color:#000;
+  opacity:0.5;
 }

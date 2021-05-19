@@ -168,6 +168,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					/>
 				</IonModal>
 			</IonContent>
+			{showDetails?<div className='overlay'></div>:undefined}
 		</React.Fragment>
 	);
 };
