@@ -16,30 +16,31 @@ import { Poll } from '../../Types';
 import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 import Positioning from '../Positioning';
 import VoteDetails from './VoteDetails/VoteDetails';
+import { ColumnType } from './VoteDetails/Table/Content/Columns/Column/Column';
 
 interface ContainerProps {
 	vote: Poll;
 }
 
-const majorityJudge = (yes: number, no: number, abstain: number, noShow: number) => {
+const majorityJudge = (yes: number, no: number, abstain: number, noShow: number): string => {
 	const majority = Math.max(yes, no, abstain, noShow);
 	let judge = 'ja';
 
 	switch (majority) {
-		case yes:
-			judge = 'ja';
-			break;
-		case no:
-			judge = 'nein';
-			break;
-		case abstain:
-			judge = 'enthalten';
-			break;
-		case noShow:
-			judge = 'abwesend';
-			break;
-		default:
-			judge = 'ja';
+	case yes:
+		judge = 'ja';
+		break;
+	case no:
+		judge = 'nein';
+		break;
+	case abstain:
+		judge = 'enthalten';
+		break;
+	case noShow:
+		judge = 'abwesend';
+		break;
+	default:
+		judge = 'ja';
 	}
 	return judge;
 };
@@ -50,9 +51,9 @@ const voteObjectHandler = (
 	abstain: number,
 	noShow: number,
 	party?: string
-) => {
+): ColumnType => {
 	const majority = majorityJudge(yes, no, abstain, noShow);
-	const voteResult = {
+	const voteResult: ColumnType = {
 		party: party,
 		votes: {
 			ja: yes,
@@ -69,7 +70,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
-	const modalCloser = () => {
+	const modalCloser = (): void => {
 		setShowDetails(false);
 	};
 
@@ -92,7 +93,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		vote.result.total.none
 	);
 
-	const partyVoteResult: any = [];
+	const partyVoteResult: ColumnType[] = [];
 	vote.result.partyResult.forEach((partyVote) => {
 		partyVoteResult.push(
 			voteObjectHandler(

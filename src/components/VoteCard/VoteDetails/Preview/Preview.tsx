@@ -13,7 +13,7 @@ const Preview: React.FC<PreviewProps> = (props: PreviewProps) => {
 	const [isShort, setIsShort] = React.useState('readmore-short');
 
 	//If the button clicked
-	const readmoreChange = () => {
+	const readmoreChange = (): void => {
 		setIsReadMore(!isReadMore);
 		//change class
 		isReadMore ? setIsShort('readmore-short') : setIsShort('readmore-long');

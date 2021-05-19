@@ -4,13 +4,13 @@ import PartyChip from '../../../PartyChips/PartyChip/PartyChip';
 import './Column.css';
 
 export type ColumnType = {
-	party: string;
+	party?: string;
 	votes: VoteNumbers;
 	majority: string;
 };
 
 interface ColumnProps {
-	party: string;
+	party?: string;
 	votes: VoteNumbers;
 	majority: string;
 }

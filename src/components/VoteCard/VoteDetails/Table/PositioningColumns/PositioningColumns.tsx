@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Positioning from '../../../../Positioning';
 import PositioningChip from './PositioningChip/PositioningChip';
 import './PositioningColumns.css';
 

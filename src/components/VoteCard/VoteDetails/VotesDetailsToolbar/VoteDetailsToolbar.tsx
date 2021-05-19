@@ -11,7 +11,7 @@ interface VoteDetailsToolbarProps {
 const VoteDetailsToolbar: React.FC<VoteDetailsToolbarProps> = (props: VoteDetailsToolbarProps) => (
 	<div className="details-toolbar-container">
 		<div data-testid="votes-details-toolbar-title">Gesetzesentwurf</div>
-		<IonButton onClick={() => props.clicked()} fill="clear">
+		<IonButton onClick={(): void => props.clicked()} fill="clear">
 			<IonIcon slot="icon-only" icon={CrossImage} />
 		</IonButton>
 	</div>
