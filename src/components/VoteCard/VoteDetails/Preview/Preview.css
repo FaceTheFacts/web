@@ -21,14 +21,14 @@
 	line-height: 15px;
 }
 
-.readmore-shrinked {
+.readmore-short {
 	/* seven lines */
 	height: calc(15px * 7);
 	overflow: hidden;
 	text-overflow: clip;
 }
 
-.readmore-extended {
+.readmore-long {
 	height: auto;
 }
 

@@ -7,22 +7,23 @@ interface PreviewProps {
 	content: string;
 }
 const Preview: React.FC<PreviewProps> = (props: PreviewProps) => {
+	// As a default, 'Read More === mehr lesen' will show up
 	const [isReadMore, setIsReadMore] = React.useState(true);
-	const [readMoreClass, setReadMoreClass] = React.useState('readmore-shrinked');
-	const toggleReadMore = () => {
+	//isReadMore === true => sentence should be short
+	const [isShort, setIsShort] = React.useState('readmore-short');
+
+	//If the button clicked
+	const readmoreChange = () => {
 		setIsReadMore(!isReadMore);
-		if (isReadMore === false) {
-			setReadMoreClass('readmore-shrinked');
-		} else {
-			setReadMoreClass('readmore-extended');
-		}
+		//change class
+		isReadMore ? setIsShort('readmore-short') : setIsShort('readmore-long');
 	};
 
 	return (
 		<div className="preview-container">
 			<div className="preview-title">{props.title}</div>
-			<div className={['preview-content', readMoreClass].join(' ')}>{props.content}</div>
-			<button className="preview-button" onClick={toggleReadMore}>
+			<div className={['preview-content', isShort].join(' ')}>{props.content}</div>
+			<button className="preview-button" onClick={readmoreChange}>
 				{isReadMore ? 'mehr lesen' : 'weniger lesen'}
 			</button>
 		</div>
