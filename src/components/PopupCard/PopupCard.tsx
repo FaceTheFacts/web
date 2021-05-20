@@ -1,4 +1,4 @@
-import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 import React from 'react';
 
 import './PopupCard.css';
@@ -15,7 +15,13 @@ const PopupCard: React.FC<PopupCardProps>= (props: PopupCardProps)=>(
       </IonCardTitle>
     </IonCardHeader>
     <div className='popup-border'></div>
-    {props.children}
+    <IonCardContent className='popup-content'>
+      {props.children}
+    </IonCardContent>
+    <div className='popup-border'></div>
+    <IonCardContent>
+
+    </IonCardContent>
   </IonCard>
 );
 
