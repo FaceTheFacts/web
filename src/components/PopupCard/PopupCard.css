@@ -17,14 +17,25 @@
   color: #FFFFFF;
 }
 
+.popup-border {
+  border-top: 1px solid #ffffff;
+  opacity: 0.2;
+  margin-top: 8px;
+}
+
+.popup-content {
+  padding: 0px;
+  padding-top: 8px;
+}
+
 @media screen and (min-width: 360px) {
   .PopupCard {
     padding: 16px;
   }
-}
-
-.popup-border {
-  border-top: 1px solid #ffffff;
-	opacity: 0.2;
-  margin-top: 8px;
+  .popup-border {
+    margin-top: 12px;
+  }
+  .popup-content {
+    padding-top: 12px;
+  }
 }
