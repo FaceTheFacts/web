@@ -22,3 +22,9 @@
     padding: 16px;
   }
 }
+
+.popup-border {
+  border-top: 1px solid #ffffff;
+	opacity: 0.2;
+  margin-top: 8px;
+}

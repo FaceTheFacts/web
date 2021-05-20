@@ -11,10 +11,10 @@ const PopupCard: React.FC<PopupCardProps>= (props: PopupCardProps)=>(
   <IonCard className='PopupCard'>
     <IonCardHeader className='popup-header'>
       <IonCardTitle className='popup-title'>
-        {/* Wie funktioniert die Erststimme? */}
         {props.title}
       </IonCardTitle>
     </IonCardHeader>
+    <div className='popup-border'></div>
     {props.children}
   </IonCard>
 );
