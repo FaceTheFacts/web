@@ -1,10 +1,12 @@
 :root {
-	--padding-explainer-card: 16px;
+	--padding-explainer-card-left: 16px;
+	--padding-explainer-card-right: 3px;
 	--height-explainer-card: 48px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-		--padding-explainer-card: 19px;
+		--padding-explainer-card-left: 19px;
+		--padding-explainer-card-right: 6px;
 		--height-explainer-card: 55px;
 	}
 }
@@ -14,20 +16,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-left: var(--padding-explainer-card);
-	padding-right: var(--padding-explainer-card);
+	padding-left: var(--padding-explainer-card-left);
+	padding-right: var(--padding-explainer-card-right);
 	border-top: 1px solid rgba(76, 78, 98, 1);
 }
 
 .forward-button {
-	transform: rotate(180deg);
-	color: white;
-	width: 10px;
+	color: #FFFFFF;
+	font-size: 10px;
+	margin: 0px;
 }
+
 
 .vote-explainer-card ion-card-subtitle {
 	--color: white;
 	margin-bottom: 0px;
 	font-weight: 400;
 	text-transform: none;
+	font-size: 14px;
+	line-height: 17px;
 }
