@@ -1,6 +1,19 @@
 .img-sentence-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 30px 230px;
+  column-gap: 12px;
+  grid-template-areas: "side main";
+  justify-items: start;
   align-items: center;
+}
+.img-sentence-img{
+  width: 30px;
+  grid-area: side;
+
+}
+.img-sentence-img img {
+  width: 100%;
+  height: auto;
 }
 
 .img-sentence {
@@ -11,5 +24,5 @@
   line-height: 125%;
   letter-spacing: 0.25px;
   color: #FFFFFF;
-  margin-left: 12px;
+  grid-area: main;
 }
