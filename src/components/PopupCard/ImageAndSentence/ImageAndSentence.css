@@ -5,6 +5,7 @@
   grid-template-areas: "side main";
   justify-items: start;
   align-items: center;
+  margin-bottom: 8px;
 }
 .img-sentence-img{
   width: 30px;
@@ -12,7 +13,7 @@
 
 }
 .img-sentence-img img {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
