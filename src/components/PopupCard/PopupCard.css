@@ -39,3 +39,17 @@
     padding-top: 12px;
   }
 }
+
+.bottom-sentence {
+  font-family: 'IBM Plex Serif', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+}
+
+.bottom-sentence:last-child{
+  margin-bottom: 0px;
+}
