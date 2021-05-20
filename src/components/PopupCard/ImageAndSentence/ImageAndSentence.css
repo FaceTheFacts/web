@@ -1,0 +1,15 @@
+.img-sentence-container {
+  display: flex;
+  align-items: center;
+}
+
+.img-sentence {
+  font-family: 'Protipo' sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 125%;
+  letter-spacing: 0.25px;
+  color: #FFFFFF;
+  margin-left: 12px;
+}
