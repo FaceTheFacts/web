@@ -26,12 +26,17 @@ const VoteExplainerCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 					isOpen={showModal}
 					swipeToClose={true}
 					onDidDismiss={(): void => setShowModal(false)}
-					cssClass= 'explainer-modal'
-
+					cssClass="explainer-modal"
 				>
-				<div className="explainer-modalcard-container">
-					{props.children}
-				</div>
+					<span
+						role="button"
+						tabIndex={0}
+						className="explainer-modalcard-container"
+						onClick={(): void => setShowModal(!showModal)}
+						onKeyDown={(): void => setShowModal(!showModal)}
+					>
+						{props.children}
+					</span>
 				</IonModal>
 			</IonContent>
 		</React.Fragment>
