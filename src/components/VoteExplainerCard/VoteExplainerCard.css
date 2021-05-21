@@ -1,12 +1,10 @@
 :root {
-	--padding-explainer-card-left: 16px;
-	--padding-explainer-card-right: 3px;
+	--padding-explainer-card: 16px;
 	--height-explainer-card: 48px;
 }
 @media screen and (min-width: 360px) {
 	:root {
-		--padding-explainer-card-left: 19px;
-		--padding-explainer-card-right: 6px;
+		--padding-explainer-card: 19px;
 		--height-explainer-card: 55px;
 	}
 }
@@ -16,14 +14,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-left: var(--padding-explainer-card-left);
-	padding-right: var(--padding-explainer-card-right);
+	padding-left: var(--padding-explainer-card);
+	padding-right: var(--padding-explainer-card);
 	border-top: 1px solid rgba(76, 78, 98, 1);
 }
 
 .forward-button {
 	color: #ffffff;
-	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 13px;
 	margin: 0px;
 }
 

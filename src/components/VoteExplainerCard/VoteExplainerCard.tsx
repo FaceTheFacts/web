@@ -11,16 +11,16 @@ const VoteExplainerCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	const [showModal, setShowModal] = useState(false);
 	return (
 		<React.Fragment>
-			<div className="vote-explainer-card">
+			<span
+				role="button"
+				tabIndex={0}
+				className="vote-explainer-card"
+				onClick={(): void => setShowModal(!showModal)}
+				onKeyDown={(): void => setShowModal(!showModal)}
+			>
 				<IonCardSubtitle>Wie funktioniert die {props.vote}?</IonCardSubtitle>
-				<IonButton
-					className="forward-button"
-					fill="clear"
-					onClick={(): void => setShowModal(!showModal)}
-				>
-					<IonIcon slot="icon-only" icon={chevronForward} />
-				</IonButton>
-			</div>
+				<IonIcon className="forward-button" slot="icon-only" icon={chevronForward} />
+			</span>
 			<IonContent>
 				<IonModal
 					isOpen={showModal}
