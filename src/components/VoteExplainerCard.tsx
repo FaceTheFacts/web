@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import './VoteExplainerCard.css';
-import { IonCardSubtitle, IonButton, IonIcon, IonContent, IonModal, IonPopover, IonBackdrop} from '@ionic/react';
+import { IonCardSubtitle, IonButton, IonIcon} from '@ionic/react';
 import { chevronForward } from 'ionicons/icons';
 import FirstVotePopup from './PopupCard/FirstVotePopup/FirstVotePopup';
 interface ContainerProps {
 	vote: string;
+	children?: JSX.Element;
 }
 // eslint-disable-next-line
-const VoteExplainerCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
+const VoteExplainerCard: React.FC<ContainerProps> = (props:  ContainerProps) => {
 	const [showModal, setShowModal] = useState(false)
 	return (
 		<React.Fragment>
 			<div className="vote-explainer-card">
-				<IonCardSubtitle>Wie funktioniert die {vote}?</IonCardSubtitle>
+				<IonCardSubtitle>Wie funktioniert die {props.vote}?</IonCardSubtitle>
 				<IonButton className="forward-button" fill = "clear" onClick={(): void=>setShowModal(!showModal)}>
 					<IonIcon slot="icon-only" icon={chevronForward} />
 				</IonButton>
@@ -20,7 +21,7 @@ const VoteExplainerCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) =
 			{showModal ?
 			<button className='explainer-modal' onClick={(): void=>setShowModal(!showModal)}>
 				<div className='explainer-modalcard-container'>
-					<FirstVotePopup/>
+					{props.children}
 				</div>
 			</button> 	
 			: undefined}

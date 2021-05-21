@@ -9,6 +9,7 @@ import Tabs from '../components/Tabs'
 import VoteExplainerCard from '../components/VoteExplainerCard'
 import './ElectionChances.css';
 import { Candidate } from '../Types';
+import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -31,7 +32,9 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 			<IonContent>
 				{segment==='0' ? 
 					<div>
-						<VoteExplainerCard vote="Erststimme" />
+						<VoteExplainerCard vote="Erststimme">
+							<FirstVotePopup/>
+						</VoteExplainerCard>
 						<div className="election-chances-firstVote">
 							<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
 							<IonCardTitle className="constituency">Wahlkreis - {candidate.constituency.label}</IonCardTitle>
