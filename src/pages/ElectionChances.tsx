@@ -10,6 +10,7 @@ import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard
 import './ElectionChances.css';
 import { Candidate } from '../Types';
 import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
+import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVotePopup';
 
 interface ElectionchancesProps {
 	candidate: Candidate;
@@ -42,7 +43,9 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 					</div>
 					:
 					<div>
-						<VoteExplainerCard vote="Zweitstimme" />
+						<VoteExplainerCard vote="Zweitstimme">
+							<SecondVotePopup/>
+						</VoteExplainerCard>
 						<div className="election-chances-secondVote">
 							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
 							<IonCardTitle className={stateListClass}><span>CDU Mecklenburg-Vorpommern</span></IonCardTitle>
