@@ -45,3 +45,6 @@
 	margin-top: auto;
 	margin-bottom: auto;
 }
+span:focus {
+	outline: none;
+}

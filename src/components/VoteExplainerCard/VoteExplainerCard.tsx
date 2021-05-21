@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './VoteExplainerCard.css';
-import { IonCardSubtitle, IonButton, IonIcon, IonModal, IonContent } from '@ionic/react';
+import { IonCardSubtitle, IonIcon, IonModal, IonContent } from '@ionic/react';
 import { chevronForward } from 'ionicons/icons';
 interface ContainerProps {
 	vote: string;
