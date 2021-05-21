@@ -1,6 +1,5 @@
 import React from 'react';
 import PopupCard from '../PopupCard';
-import './FirstVotePopup.css';
 import personLogo from '../../../assets/images/person.svg';
 import firstVote from '../../../assets/images/first-vote.svg';
 import ImageAndSentence from '../ImageAndSentence/ImageAndSentence';
