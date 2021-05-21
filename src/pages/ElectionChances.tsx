@@ -5,8 +5,8 @@ import ElectionchancesCard from '../components/ElectionChancesCard';
 import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
 import PoliticianProfile from '../components/PoliticianProfile'
-import Tabs from '../components/Tabs'
-import VoteExplainerCard from '../components/VoteExplainerCard'
+import Tabs from '../components/Tabs';
+import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard';
 import './ElectionChances.css';
 import { Candidate } from '../Types';
 import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
