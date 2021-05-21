@@ -20,6 +20,7 @@
 	height: 65px;
 	padding-left: var(--padding-segment-button);
 	padding-right: var(--padding-segment-button);
+	z-index: 0;
 }
 
 .segment {
