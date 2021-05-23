@@ -14,7 +14,7 @@ import {
 } from '@ionic/react';
 import { Poll } from '../../Types';
 import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
-import Positioning from '../Positioning';
+import Positioning from '../PositionCards/Positioning/Positioning';
 import VoteDetails from './VoteDetails/VoteDetails';
 import { ColumnType } from './VoteDetails/Table/Content/Columns/Column/Column';
 

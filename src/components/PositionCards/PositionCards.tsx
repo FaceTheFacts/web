@@ -1,6 +1,6 @@
 import React from 'react';
-import { Position } from '../Types';
-import PositionCard from './PositionCard';
+import { Position } from '../../Types';
+import PositionCard from './PositionCard/PositionCard';
 interface PostionCardsProps {
 	candidateId: number;
 	positions: Array<Position>;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
-import Positioning from './Positioning';
+import Positioning from '../Positioning/Positioning';
 
 import './PositionCard.css';
 import { chevronForwardOutline } from 'ionicons/icons';

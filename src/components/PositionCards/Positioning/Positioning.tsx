@@ -1,5 +1,5 @@
 import React from 'react';
-import { germanTranslator } from '../functions/germanTranslator';
+import { germanTranslator } from '../../../functions/germanTranslator';
 import './Positioning.css';
 
 interface PositioningProps {
