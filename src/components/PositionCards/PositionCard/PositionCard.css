@@ -51,3 +51,8 @@
 .position-card-button {
 	opacity: 0.5;
 }
+
+.position-card-popup {
+	margin-top: auto;
+	margin-bottom: auto;
+}
