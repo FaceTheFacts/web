@@ -4,7 +4,7 @@ import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
 import { Candidate } from '../Types';
-import PositionCards from '../components/PositionCards';
+import PositionCards from '../components/PositionCards/PositionCards';
 
 interface PositionProps {
 	candidate: Candidate;
