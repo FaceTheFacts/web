@@ -5,7 +5,7 @@ import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
 import { Candidate } from '../Types';
-import ProfileComponent from '../components/Profile';
+import ProfileComponent from '../components/Profile/Profile';
 interface ProfileProps {
 	candidate: Candidate;
 }

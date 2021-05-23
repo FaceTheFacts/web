@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import TopicCard from './TopicCard';
-import LinkButton from './LinkButton';
-import { Candidate, SideJob } from '../Types';
-import VoteCard from '../components/VoteCard/VoteCard';
-import SideJobCard from '../components/SideJobCard';
+import TopicCard from '../TopicCard';
+import LinkButton from '../LinkButton';
+import { Candidate, SideJob } from '../../Types';
+import VoteCard from '../../components/VoteCard/VoteCard';
+import SideJobCard from '../../components/SideJobCard';
 import './Profile.css';
-import TitleHeader from './TitleHeader';
+import TitleHeader from '../TitleHeader';
 
 import './Profile.css';
-import { iconEnum } from '../enums/icon.enum';
+import { iconEnum } from '../../enums/icon.enum';
 interface ProfileProps {
 	candidate: Candidate;
 	profileId: string;
