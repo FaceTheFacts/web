@@ -1,27 +1,16 @@
 .details-toolbar-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 12.5px;
-	padding-bottom: 12.5px;
-	padding-left: 19px;
-	padding-right: 2px;
-	background: #252525;
+	--background: #252525;
 }
-
-@media screen and (min-width: 360px) {
-	.details-toolbar-container {
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-}
-
 .details-toolbar-container div {
+	margin-left: 19px;
 	font-size: 14px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
 	color: white;
 	font-weight: normal;
+}
+.details-toolbar-button {
+	--color: rgba(255, 255, 255, 0.7);
 }
 
 .details-toolbar-container ion-button {
