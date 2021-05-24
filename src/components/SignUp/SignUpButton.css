@@ -1,0 +1,11 @@
+.sign-up-button {
+    width: 30px;
+    background-color: rgba(24, 25, 36, 1);
+    ;
+}
+
+.sign-up-button img {
+	width: 80%;
+	height: auto;
+    color: rgba(256, 256, 256, 0.3);
+}
