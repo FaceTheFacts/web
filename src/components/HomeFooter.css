@@ -1,5 +1,5 @@
 @media screen and (max-width: 374px) {
-	.nav-header {
+	.nav-footer {
 		padding-top: 30px;
 		padding-bottom: 10px;
 		padding-left: 41px;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (min-width: 375px) {
-	.nav-header {
+	.nav-footer {
 		padding-top: 30px;
 		padding-bottom: 10px;
 		padding-left: 49px;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (min-width: 768px) {
-	.nav-header {
+	.nav-footer {
 		padding-top: 39px;
 		padding-bottom: 21px;
 		padding-left: 60px;
@@ -67,7 +67,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-	.nav-header {
+	.nav-footer {
 		padding-top: 69px;
 		padding-bottom: 21px;
 		padding-left: 120px;
@@ -82,7 +82,7 @@
 	}
 }
 
-.nav-header {
+.nav-footer {
 	background-color: rgba(42, 43, 54, 0.9);
 }
 

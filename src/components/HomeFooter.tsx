@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../components/Logo';
-import './HomeNavBar.css';
+import Logo from './Logo';
+import './HomeFooter.css';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const HomeNavBar: React.FC = () => {
+const HomeFooter: React.FC = () => {
 	/* This is returned when using this component */
 
 	return (
-		<div className="nav-header">
+		<div className="nav-footer">
 			<NavLink id="home" to={'/'}>
 				<Logo />
 			</NavLink>
@@ -34,4 +34,4 @@ const HomeNavBar: React.FC = () => {
 	);
 };
 
-export default HomeNavBar;
+export default HomeFooter;
