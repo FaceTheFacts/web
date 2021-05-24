@@ -1,0 +1,92 @@
+.signup {
+    padding-left: calc(50% - 351px/2 - 210.5px);
+    padding-top: 61px;
+    padding-bottom: 49px;
+    display: flex;
+}
+
+.signup-text {
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #FFFFFF
+}
+
+.signup-form {
+    padding-left: 52px;
+}
+
+.signup-link {
+    color: #3AA6F4;
+}
+
+form > label {
+    padding-left: 9px;
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+#email {
+    width: 382px;
+    height: 48px;
+    padding: 13px;
+    margin-bottom: 10.5px;
+    background-color: rgba(24, 25, 36, 1);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+}
+
+#email:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+#email:focus {
+    border-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+#email::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+    opacity: 1; /* Firefox */
+}
+
+#email:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+  }
+  
+#email::-ms-input-placeholder { /* Microsoft Edge */
+    font-family: Protipo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+  }
