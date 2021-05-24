@@ -156,7 +156,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					isOpen={showDetails}
 					cssClass="details-open"
 					backdropDismiss={true}
-					swipeToClose={true}
+					swipeToClose={false}
 				>
 					<VoteDetails
 						clicked={modalCloser}
@@ -169,7 +169,6 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					/>
 				</IonModal>
 			</IonContent>
-			{showDetails ? <div className="overlay"></div> : undefined}
 		</React.Fragment>
 	);
 };
