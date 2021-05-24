@@ -22,8 +22,8 @@
 }
 
 .readmore-short {
-	/* seven lines */
-	height: calc(15px * 7);
+	/* four lines */
+	height: calc(15px * 4);
 	overflow: hidden;
 	text-overflow: clip;
 }
