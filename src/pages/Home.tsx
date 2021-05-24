@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HomeFooter from '../components/HomeFooter';
 import Mockup from '../components/Mockup';
+import SignUp from '../components/SignUp/SignUp';
 import './Home.css';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
 						<Mockup />
 					</div>
 				</div>
+				<SignUp />
 				<div className="links-bottom">
 					<NavLink
 						id="legal-notice-bottom"
