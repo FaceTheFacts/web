@@ -7,8 +7,8 @@ import 'jest-canvas-mock';
 
 import Profile from './Profile';
 
-import { amthor } from '../amthor';
-import { voteJudgeHandler } from '../functions/voteJudgeHandler';
+import { amthor } from '../../amthor';
+import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 
 let container: HTMLDivElement | null = null;
 
