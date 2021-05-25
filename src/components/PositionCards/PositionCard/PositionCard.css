@@ -9,6 +9,9 @@
 .position-card:first-of-type {
 	margin-top: 16px;
 }
+.position-card:last-of-type {
+	margin-bottom: 16px;
+}
 
 .position-card-header {
 	padding: 12px 16px;
