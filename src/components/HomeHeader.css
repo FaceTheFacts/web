@@ -1,4 +1,19 @@
 .logo-link {
     width: 21px;
-    height: 32px; 
+    height: 32px;
+    opacity: 0.3;
+    margin-right: 40px; 
+}
+
+.logo-link:hover {
+	animation: opacity-animation 1s forwards;
+}
+
+@keyframes opacity-animation {
+	from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
 }
