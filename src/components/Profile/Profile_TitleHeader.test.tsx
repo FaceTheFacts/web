@@ -7,7 +7,7 @@ import 'jest-canvas-mock';
 
 import Profile from './Profile';
 
-import { amthor } from '../amthor';
+import { amthor } from '../../amthor';
 
 let container: HTMLDivElement | null = null;
 
