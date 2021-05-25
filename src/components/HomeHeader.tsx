@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import './HomeHeader.css';
-import SocialMediaLogo from './SocialMediaLogo';
+import faceTheFactsLogoNoText from '../assets/images/Logo_without_text.svg';
 import faceBookLogo from '../assets/images/facebook-square-brands.svg'
 import instagramLogo from '../assets/images/instagram-brands.svg'
 import linkedInLogo from '../assets/images/linkedin-brands.svg'
@@ -14,9 +14,9 @@ const HomeHeader: React.FC = () => {
 	/* This is returned when using this component */
 
 	return (
-		<div className="nav-footer">
+		<div className="nav-header">
 			<NavLink id="home" to={'/'}>
-				<Logo />
+                <img src={faceTheFactsLogoNoText} alt="logo" />
 			</NavLink>
 			<div className="links">
                 <a className="logo-link" href="https://www.instagram.com/face_the_facts_app/"><img src={instagramLogo} alt="logo" /></a>
