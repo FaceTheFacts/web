@@ -14,42 +14,65 @@ const examplePositionData = [
 	{
 		title: 'Pfleger:innen aus dem Ausland',
 		answer: 'yes',
+		reason:
+			'"Wir sollten aktive Pfleger:innen aus dem Ausland anwerben um die Personalnot in der Pflege zu lindern."',
 	},
 	{
 		title: 'Lobbyismusgesetz verschärfen',
 		answer: 'no',
+		reason:
+			'"Wir sollten ein Lobbyregister einführen, um den legislativen Fußabdruck von Oganisation und Unternehmen transparent zu machen."',
 	},
 	{
 		title: 'Abitur aussetzen',
 		answer: 'yes',
+		reason:
+			'"Wir sollten das Abitur aussetzen, weil Corona die Leistungen zu stark beeinträchtigt hat."',
 	},
 	{
 		title: 'Bedigungsloses Grundeinkommen',
 		answer: 'no',
+
+		reason:
+			'"Wir sollten ein bedingungsloses Grundeinkommen einführen, das jedem Bürger den Lebensunterhalt sichert."',
 	},
 	{
 		title: 'Spitzensteuersatz senken',
 		answer: 'yes',
+		reason:
+			'"Wir sollten den Spitzensteuersatz senken, um Investitionen und Konsum anzukurbeln."',
 	},
 	{
 		title: 'Mehr Subventionen für erneuerbare Energien',
 		answer: 'no',
+
+		reason:
+			'"Wir sollten den Spitzensteuersatz senken, um Investitionen und Konsum anzukurbeln."',
 	},
 	{
 		title: 'Mehr Geld für Pflegekräfte',
 		answer: 'yes',
+		reason:
+			'"Wir sollten Gehälter in der Pflege mit staatlichen Eingriffen erhöhen, um den Beruf attraktiver zu machen."',
 	},
 	{
 		title: 'Soziale Start-ups fördern',
 		answer: 'yes',
+		reason:
+			'"Wir sollten soziale Start-ups finanziell fördern, um nachhaltige Lösungen wettbewerbsfähig zu machen."',
 	},
 	{
 		title: 'Amazon und Co. angemessen besteuern',
 		answer: 'yes',
+		reason:
+			'"Wir sollten uns dafür einsetzen, dass große Internetfirmen im gleichen Maße besteuert werden wie konventionelle Unternehmen."',
 	},
 	{
 		title: 'Mietpreise deckeln',
 		answer: 'no',
+
+		reason:
+			'"Wir sollten Mietpreise deckeln, um begehrten Wohnungsraum für alle Schichten finanzierbar zu machen."',
 	},
 ];
 

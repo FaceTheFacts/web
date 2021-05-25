@@ -10,6 +10,7 @@ interface PostionCardProps {
 	candidateId: number;
 	title: string;
 	answer: string;
+	reason: string;
 }
 
 const PositionCard: React.FC<PostionCardProps> = (props: PostionCardProps) => {
@@ -46,7 +47,7 @@ const PositionCard: React.FC<PostionCardProps> = (props: PostionCardProps) => {
 							<PositionPopup
 								title={props.title}
 								positioning={props.answer}
-								reason="Reasons for the position"
+								reason={props.reason}
 							/>
 						</div>
 					</IonModal>

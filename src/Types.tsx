@@ -93,4 +93,5 @@ export type PartyMatchType = {
 export type Position = {
 	title: string;
 	answer: string;
+	reason: string;
 };
