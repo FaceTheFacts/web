@@ -16,6 +16,7 @@ const PositionCards: React.FC<PostionCardsProps> = ({
 				candidateId={candidateId}
 				title={position.title}
 				answer={position.answer}
+				reason={position.reason}
 			/>
 		))}
 	</React.Fragment>
