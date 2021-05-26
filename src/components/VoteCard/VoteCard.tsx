@@ -158,15 +158,17 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					backdropDismiss={true}
 					swipeToClose={false}
 				>
-					<VoteDetails
-						clicked={modalCloser}
-						title={vote.title}
-						content={vote.abstract}
-						positioning={vote.candidateVote}
-						result={judgeStatement}
-						totalVote={totalVoteJudge}
-						partyVote={partyVoteResult}
-					/>
+					<div className = 'vote-modal'>
+						<VoteDetails
+							clicked={modalCloser}
+							title={vote.title}
+							content={vote.abstract}
+							positioning={vote.candidateVote}
+							result={judgeStatement}
+							totalVote={totalVoteJudge}
+							partyVote={partyVoteResult}
+						/>
+					</div>
 				</IonModal>
 			</IonContent>
 		</React.Fragment>

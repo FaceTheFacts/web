@@ -107,3 +107,8 @@
 		margin-top: calc(100vh - 586px);
 	}
 }
+
+.vote-modal {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
