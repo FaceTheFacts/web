@@ -1,4 +1,4 @@
-export const getMobileOperatingSystem = () => {
+export const getMobileOperatingSystem = (): string => {
 	const userAgent = navigator.userAgent || navigator.vendor || window.opener;
 
 	if (/android/i.test(userAgent)) {
