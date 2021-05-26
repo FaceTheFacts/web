@@ -7,7 +7,7 @@ import Electionchances from './pages/ElectionChances';
 import Discover from './pages/Discover';
 import Profile from './pages/Profile';
 import News from './pages/News';
-import Votes from './pages/Votes';
+import Votes from './pages/Votes/Votes';
 import Bio from './pages/Bio';
 import Home from './pages/Home';
 import LegalNotice from './pages/Legal_Notice';
