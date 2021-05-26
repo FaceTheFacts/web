@@ -33,6 +33,14 @@
 	margin-left: 12px;
 }
 
+.middlebar-border-android {
+	width: 1px;
+	height: 29px;
+	background-color: #ffffff;
+	opacity: 0.3;
+	margin-left: 23.5px;
+}
+
 .middlebar-right {
 	font-family: 'Protipo', sans-serif;
 	font-style: normal;
@@ -41,6 +49,14 @@
 	line-height: 17px;
 	margin-left: 12px;
 	width: 120px;
+}
+
+.middlebar-right-android {
+	font-family: 'Protipo', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	margin-left: 23.5px;
 }
 
 @media screen and (min-width: 360px) {
