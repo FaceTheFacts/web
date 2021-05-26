@@ -1,10 +1,10 @@
 import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
-import VoteCard from '../components/VoteCard/VoteCard';
+import VoteCard from '../../components/VoteCard/VoteCard';
 import './Votes.css';
-import { Candidate } from '../Types';
-import LinkButton from '../components/LinkButton';
-import { iconEnum } from '../enums/icon.enum';
+import { Candidate } from '../../Types';
+import LinkButton from '../../components/LinkButton';
+import { iconEnum } from '../../enums/icon.enum';
 
 interface VoteProps {
 	candidate: Candidate;

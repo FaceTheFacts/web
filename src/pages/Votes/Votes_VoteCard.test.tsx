@@ -5,9 +5,9 @@ import { createMemoryHistory } from 'history';
 import 'jest-canvas-mock';
 import Votes from './Votes';
 
-import { amthor } from '../amthor';
+import { amthor } from '../../amthor';
 import { getAllByTestId } from '@testing-library/dom';
-import { voteJudgeHandler } from '../functions/voteJudgeHandler';
+import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 
 let container: HTMLDivElement | null = null;
 

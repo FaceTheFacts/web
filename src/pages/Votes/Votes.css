@@ -10,9 +10,9 @@
 	font-weight: 400;
 	font-style: normal;
 }
-.votes-header-container> :first-child {
+.votes-header-container > :first-child {
 	position: absolute;
-	left: 5px;
+	left: 0px;
 }
 .votes-header-container > :second-child {
 	margin-left: 20px;
