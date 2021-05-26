@@ -1,8 +1,10 @@
 .details-toolbar-container {
 	--background: #2a2b36;
+	margin: 0px;
+	padding: 0px 19px;
+	padding-right: 2px;
 }
 .details-toolbar-container div {
-	margin-left: 19px;
 	font-size: 14px;
 	font-family: 'protipo', sans-serif;
 	font-style: normal;

@@ -30,12 +30,12 @@ const VoteDetailsToolbar: React.FC<VoteDetailsToolbarProps> = (props: VoteDetail
 			);
 		} else {
 			setToolbar(
-				<div className="details-toolbar">
+				<IonToolbar className="details-toolbar-container">
 					<div data-testid="votes-details-toolbar-title">Gesetzesentwurf</div>
-					<IonButton onClick={(): void => props.clicked()} fill="clear">
+					<IonButton onClick={(): void => props.clicked()} 	slot="end" fill="clear">
 						<IonIcon slot="icon-only" icon={CrossImage} />
 					</IonButton>
-				</div>
+				</IonToolbar>
 			);
 		}
 	}, []);
