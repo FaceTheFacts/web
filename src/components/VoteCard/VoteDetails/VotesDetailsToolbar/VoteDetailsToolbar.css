@@ -18,3 +18,9 @@
 .details-toolbar-container ion-button {
 	margin: 0;
 }
+
+@media screen and (max-width: 359px) {
+	.details-toolbar-container {
+		padding-right: 19px;
+	}
+}
