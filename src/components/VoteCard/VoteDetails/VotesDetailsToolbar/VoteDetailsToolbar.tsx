@@ -1,5 +1,5 @@
 import { IonButton, IonIcon, IonToolbar } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { closeCircle } from 'ionicons/icons';
 import './VoteDetailsToolbar.css';
 import CrossImage from '../../../../assets/images/cross.svg';
@@ -11,10 +11,10 @@ interface VoteDetailsToolbarProps {
 
 const VoteDetailsToolbar: React.FC<VoteDetailsToolbarProps> = (props: VoteDetailsToolbarProps) => {
 	const [toolbar, setToolbar] = useState<JSX.Element | null>(null);
-	let operatingSystem;
+	const operatingSystem = useRef('');
 	useEffect(() => {
-		operatingSystem = getMobileOperatingSystem();
-		if (operatingSystem === 'iOS') {
+		operatingSystem.current = getMobileOperatingSystem();
+		if (operatingSystem.current === 'iOS') {
 			setToolbar(
 				<IonToolbar className="details-toolbar-container">
 					<div data-testid="votes-details-toolbar-title">Gesetzesentwurf</div>
@@ -32,13 +32,13 @@ const VoteDetailsToolbar: React.FC<VoteDetailsToolbarProps> = (props: VoteDetail
 			setToolbar(
 				<IonToolbar className="details-toolbar-container">
 					<div data-testid="votes-details-toolbar-title">Gesetzesentwurf</div>
-					<IonButton onClick={(): void => props.clicked()} 	slot="end" fill="clear">
+					<IonButton onClick={(): void => props.clicked()} slot="end" fill="clear">
 						<IonIcon slot="icon-only" icon={CrossImage} />
 					</IonButton>
 				</IonToolbar>
 			);
 		}
-	}, []);
+	}, [props]);
 
 	return <React.Fragment>{toolbar}</React.Fragment>;
 };
