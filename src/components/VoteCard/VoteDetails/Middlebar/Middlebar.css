@@ -1,11 +1,16 @@
 .middlebar-container {
-	height: 56px;
 	background-color: #181924;
 	display: flex;
 	align-items: center;
-	padding: 0px 15px;
+	padding: 13.5px 15px;
 	border-top: 1px solid rgba(255, 255, 255, 0.3);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (min-width: 360px) {
+	.middlebar-container {
+		padding: 13.5px 19px;
+	}
 }
 
 .middlebar-left {
@@ -39,5 +44,6 @@
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
+	line-height: 17px;
 	margin-left: 23.5px;
 }
