@@ -10,11 +10,11 @@ import {
 	IonCol,
 	IonRow,
 } from '@ionic/react';
-import { Election } from '../Types';
+import { ElectionResult } from '../Types';
 import '../index.css';
 
 interface ContainerProps {
-	vote: Election;
+	vote: ElectionResult;
 }
 
 const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
@@ -22,7 +22,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 	Internationalisation to keep the code in English but print the national language
 	*/
 
-	const partyClassName = vote.party.toLowerCase().replace(/\s/g, '');
+	const partyClassName = vote.party.label.toLowerCase().replace(/\s/g, '');
 	const electionChancesCardSubtitleClass = className(
 		'election-chances-card-subtitle',
 		partyClassName
@@ -43,13 +43,13 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 									className="election-chances-card-title"
 									data-testid="election-chances-card-title"
 								>
-									{vote.candidate}
+									{vote.politician.label}
 								</IonCardTitle>
 								<IonCardSubtitle
 									className={electionChancesCardSubtitleClass}
 									data-testid="election-chances-card-party"
 								>
-									<span>{vote.party}</span>
+									<span>{vote.party.label}</span>
 								</IonCardSubtitle>
 							</div>
 						</IonCol>
@@ -58,7 +58,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 								className="election-chances-card-title"
 								data-testid="election-chances-card-percentage"
 							>
-								{vote.percentage} %
+								{vote.electoral_data.constituency_result} %
 							</IonCardTitle>
 						</IonCol>
 					</IonRow>
