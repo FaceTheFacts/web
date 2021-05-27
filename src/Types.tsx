@@ -250,3 +250,52 @@ export type PollData = {
 	];
 	field_topics: null;
 };
+
+export type ElectionResult = {
+	"id": number;
+    "entity_type": string;
+    "label": string;
+    "api_url": string;
+    "id_external_administration": null;
+    "id_external_administration_description": null;
+    "type": string;
+    "parliament_period": {
+        "id": number;
+        "entity_type": string;
+        "label": string;
+        "api_url": string;
+        "abgeordnetenwatch_url": string;
+    };
+    "politician": {
+        "id": number;
+        "entity_type": string;
+        "label": string;
+        "api_url": string;
+        "abgeordnetenwatch_url": string;
+    };
+    "party": Party;
+    "start_date": null;
+    "end_date": null;
+    "info": null;
+    "electoral_data": {
+        "id": number;
+        "entity_type": string;
+        "label": string;
+        "electoral_list": {
+            "id": number;
+            "entity_type": string;
+            "label": string;
+            "api_url": string;
+        };
+    	"list_position": number;
+    	"constituency": {
+        	"id": number;
+        	"entity_type": string;
+        	"label": string;
+        	"api_url": string;
+    	};
+    	"constituency_result": number;
+    	"constituency_result_count": null;
+    	"mandate_won": string;
+	};
+};
