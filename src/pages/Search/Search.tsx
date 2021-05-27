@@ -2,19 +2,14 @@ import {
 	IonInput,
 	IonContent,
 	IonImg,
-	IonModal,
-	IonFabButton,
 	IonPage,
-	IonIcon,
 	IonPopover,
 } from '@ionic/react';
-import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
-import CameraView from '../../components/CameraView';
-import DetectedCandidate from '../../components/DetectedCandidate';
 import './Search.css';
 import { Candidate } from '../../Types';
 import SearchResults from '../../components/SearchResults';
+import logo2021 from '../../assets/images/logo2021.svg';
 
 interface DiscoverProps {
 	candidate: Candidate;
@@ -61,13 +56,12 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 			<IonContent fullscreen>
 				
 				<div className="discover-page">
-						<IonImg id="camera-square" src="../assets/icon/camera-square.svg"></IonImg>
-						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
+					<IonImg id="logo2021" src={logo2021} alt='logo2021'></IonImg> 
 
 					<IonInput
 						className="search-bar"
 						value={text}
-						placeholder="Kandidat:in, PLZ oder Ort suchen"
+						placeholder="Nach Kandidat:innen suchen"
 						disabled={false}
 						onIonChange={async (e): Promise<void> => {
 							setText(e.detail.value as string);

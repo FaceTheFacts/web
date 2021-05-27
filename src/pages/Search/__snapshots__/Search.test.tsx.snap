@@ -9,14 +9,6 @@ exports[`integration test renders page correctly 1`] = `
       <div
         class="discover-page"
       >
-        <ion-img
-          id="camera-square"
-          src="../assets/icon/camera-square.svg"
-        />
-        <ion-img
-          id="camera-icon"
-          src="../assets/icon/camera-solid.svg"
-        />
         <ion-input
           class="search-bar"
           placeholder="Kandidat:in, PLZ oder Ort suchen"
