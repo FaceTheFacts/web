@@ -54,40 +54,15 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 	const [showResults, setShowResults] = useState<boolean>(false);
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
-	const [showCamera, setShowCamera] = useState<boolean>(false);
 	const [showPopover, setShowPopover] = useState<boolean>(false);
-
-	// animation for the popover
-	/* const popoverAnimation = (baseEl: any) => {
-		return createAnimation()
-		.addElement(baseEl)
-		.duration(500)
-		.fromTo("bottom", "-20%", "20%")
-	} */
 
 	return (
 		<IonPage>
 			<IonContent fullscreen>
-				<IonModal isOpen={showCamera} cssClass="my-custom-class">
-					<IonFabButton
-						className="camera-close-button"
-						onClick={(): void => setShowCamera(false)}
-					>
-						<IonIcon icon={closeOutline}></IonIcon>
-					</IonFabButton>
-					<CameraView setShowPopover={setShowPopover} setCandidate={setCandidate} />
-				</IonModal>
+				
 				<div className="discover-page">
-					<div
-						className="camera-icon-background"
-						onClick={(): void => setShowCamera(true)}
-						onKeyPress={(): void => setShowCamera(true)}
-						role="link"
-						tabIndex={0}
-					>
 						<IonImg id="camera-square" src="../assets/icon/camera-square.svg"></IonImg>
 						<IonImg id="camera-icon" src="../assets/icon/camera-solid.svg"></IonImg>
-					</div>
 
 					<IonInput
 						className="search-bar"
@@ -117,11 +92,6 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */
 					>
-						<DetectedCandidate
-							setShowPopover={setShowPopover}
-							setShowCamera={setShowCamera}
-							candidate={candidate}
-						/>
 					</IonPopover>
 				</div>
 			</IonContent>
