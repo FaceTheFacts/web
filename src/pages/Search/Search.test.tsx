@@ -6,7 +6,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Search from './Search';
-import { amthor } from '../amthor';
+import { amthor } from '../../amthor';
 
 let container: HTMLDivElement | null = null;
 
@@ -28,7 +28,7 @@ afterEach(() => {
 Enzyme.configure({ adapter: new Adapter() });
 
 // navigator.getUserMedia() is not available in testing environment
-jest.mock('../components/CameraView/CameraFeed');
+jest.mock('../../components/CameraView/CameraFeed');
 
 describe('integration test', () => {
 	it('renders page correctly', () => {

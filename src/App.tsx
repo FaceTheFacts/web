@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Electionchances from './pages/ElectionChances';
-import Search from './pages/Search';
+import Search from './pages/Search/Search';
 import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes/Votes';
