@@ -10,7 +10,22 @@
 	height: 52px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 35%;
+	margin-top: 50%;
+}
+.search-bar {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	height: 50px;
+	width: calc(100vw - 24px);
+	margin: 8px 12px;
+	font-size: 14px;
+	line-height: 17px;
+	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: #FFFFFF;
+	opacity: 0.5;
+	padding: 16px !important;
 }
 
 .camera-icon-background {
@@ -27,21 +42,6 @@
 	position: fixed;
 	width: 90px;
 	margin: 20px;
-}
-.search-bar {
-	position: fixed;
-	top: 60%;
-	background-color: rgba(212, 212, 212, 0.7);
-	margin-left: 5%;
-	margin-right: 5%;
-	width: 90%;
-	height: 50px;
-	border-radius: 10px;
-	padding-left: 18px !important;
-	font-family: 'protipo', sans-serif;
-	font-weight: 400;
-	font-style: normal;
-	color: rgb(31, 31, 31);
 }
 
 #camera-icon {
