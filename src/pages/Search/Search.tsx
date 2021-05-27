@@ -49,7 +49,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 		<IonPage>
 			<IonContent fullscreen>
 				<div className="discover-page">
-					<IonImg id="logo2021" src={logo2021} alt="logo2021"></IonImg>
+					<IonImg className="search-logo"  id="logo2021" src={logo2021} alt="logo2021"/>
 
 					<IonInput
 						className="search-bar"
@@ -78,7 +78,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						translucent={true}
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */
-					></IonPopover>
+					> </IonPopover>
 				</div>
 			</IonContent>
 		</IonPage>

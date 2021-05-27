@@ -5,6 +5,14 @@
 	overflow: hidden;
 }
 
+.search-logo {
+	width: 174.13px;
+	height: 52px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 35%;
+}
+
 .camera-icon-background {
 	position: fixed;
 	background-color: rgba(212, 212, 212, 0.5);
@@ -20,13 +28,6 @@
 	width: 90px;
 	margin: 20px;
 }
-
-#camera-icon {
-	position: fixed;
-	width: 50px;
-	margin: 40px;
-}
-
 .search-bar {
 	position: fixed;
 	top: 60%;
@@ -42,6 +43,13 @@
 	font-style: normal;
 	color: rgb(31, 31, 31);
 }
+
+#camera-icon {
+	position: fixed;
+	width: 50px;
+	margin: 40px;
+}
+
 .search-bar-icon {
 	position: fixed;
 	margin-left: 20px;
