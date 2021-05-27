@@ -1,6 +1,6 @@
 import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
-import './Page.css';
+
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
 import { amthor } from '../amthor';
