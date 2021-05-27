@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Electionchances from './pages/ElectionChances';
-import Discover from './pages/Discover';
+import Search from './pages/Search';
 import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes/Votes';
@@ -64,8 +64,8 @@ const App: React.FC = () => {
 						<Route path="/privacy" exact>
 							<Privacy />
 						</Route>
-						<Route path="/discover" exact>
-							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
+						<Route path="/search" exact>
+							<Search candidate={politician} setCandidate={setCandidate}></Search>
 						</Route>
 						<Route path="/politician/:id/election">
 							<Electionchances candidate={candidate as Candidate} />

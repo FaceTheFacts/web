@@ -5,7 +5,7 @@ import { createMemoryHistory } from 'history';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Discover from './Discover';
+import Search from './Search';
 import { amthor } from '../amthor';
 
 let container: HTMLDivElement | null = null;
@@ -34,7 +34,7 @@ describe('integration test', () => {
 	it('renders page correctly', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: ['/discover'],
+			initialEntries: ['/search'],
 		});
 
 		const setCandidate = jest.fn();
@@ -42,7 +42,7 @@ describe('integration test', () => {
 		// when
 		render(
 			<Router history={history}>
-				<Discover candidate={amthor} setCandidate={setCandidate} />
+				<Search candidate={amthor} setCandidate={setCandidate} />
 			</Router>,
 			container
 		);
@@ -57,7 +57,7 @@ describe('integration test', () => {
 	it('opens camera view', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: ['/discover'],
+			initialEntries: ['/search'],
 		});
 
 		const setCandidate = jest.fn();
@@ -65,7 +65,7 @@ describe('integration test', () => {
 		// when
 		const page = mount(
 			<Router history={history}>
-				<Discover candidate={amthor} setCandidate={setCandidate} />
+				<Search candidate={amthor} setCandidate={setCandidate} />
 			</Router>
 		);
 		//Node.js 15 issue

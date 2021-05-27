@@ -12,7 +12,7 @@ import { closeOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 import CameraView from '../components/CameraView';
 import DetectedCandidate from '../components/DetectedCandidate';
-import './Discover.css';
+import './Search.css';
 import { Candidate } from '../Types';
 import SearchResults from '../components/SearchResults';
 
