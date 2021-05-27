@@ -48,7 +48,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 	return (
 		<IonPage>
 			<IonContent fullscreen>
-				<div className="discover-page">
+				<div className="search-page">
 					<IonImg className="search-logo"  id="logo2021" src={logo2021} alt="logo2021"/>
 
 					<IonInput
