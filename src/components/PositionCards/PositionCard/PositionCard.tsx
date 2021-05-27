@@ -9,6 +9,7 @@ import PositionPopup from '../../PopupCard/PositionPopup/PositionPopup';
 interface PostionCardProps {
 	candidateId: number;
 	title: string;
+	extendedTitle: string;
 	answer: string;
 	reason: string;
 }
@@ -45,7 +46,7 @@ const PositionCard: React.FC<PostionCardProps> = (props: PostionCardProps) => {
 					>
 						<div className="position-card-popup">
 							<PositionPopup
-								title={props.title}
+								extendedTitle={props.extendedTitle}
 								positioning={props.answer}
 								reason={props.reason}
 							/>

@@ -1,10 +1,4 @@
-import {
-	IonInput,
-	IonContent,
-	IonImg,
-	IonPage,
-	IonPopover,
-} from '@ionic/react';
+import { IonInput, IonContent, IonImg, IonPage, IonPopover } from '@ionic/react';
 import React, { useState } from 'react';
 import './Search.css';
 import { Candidate } from '../../Types';
@@ -54,9 +48,8 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 	return (
 		<IonPage>
 			<IonContent fullscreen>
-				
 				<div className="discover-page">
-					<IonImg id="logo2021" src={logo2021} alt='logo2021'></IonImg> 
+					<IonImg id="logo2021" src={logo2021} alt="logo2021"></IonImg>
 
 					<IonInput
 						className="search-bar"
@@ -85,8 +78,7 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						translucent={true}
 						id="detected-candidate-popover"
 						/* enterAnimation={popoverAnimation} */
-					>
-					</IonPopover>
+					></IonPopover>
 				</div>
 			</IonContent>
 		</IonPage>

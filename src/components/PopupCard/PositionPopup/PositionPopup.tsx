@@ -5,14 +5,14 @@ import Positioning from '../../PositionCards/Positioning/Positioning';
 import './PositionPopup.css';
 
 interface PositionPopupProps {
-	title: string;
+	extendedTitle: string;
 	positioning: string;
 	reason: string;
 }
 const PositionPopup: React.FC<PositionPopupProps> = (props: PositionPopupProps) => (
 	<IonCard className="PopupCard">
 		<IonCardHeader className="popup-header">
-			<IonCardTitle className="popup-title">{props.title}</IonCardTitle>
+			<IonCardTitle className="popup-title">{props.extendedTitle}</IonCardTitle>
 		</IonCardHeader>
 		<div className="popup-border"></div>
 		<div className="position-popup-positioning">

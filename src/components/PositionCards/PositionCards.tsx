@@ -15,6 +15,7 @@ const PositionCards: React.FC<PostionCardsProps> = ({
 				key={`position-${index}`}
 				candidateId={candidateId}
 				title={position.title}
+				extendedTitle={position.extendedTitle}
 				answer={position.answer}
 				reason={position.reason}
 			/>
