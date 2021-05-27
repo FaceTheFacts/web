@@ -28,6 +28,13 @@
 	padding: 16px !important;
 }
 
+@media screen and (min-width: 360px) {
+	.search-bar {
+		width: calc(100vw - 32px);
+		margin: 12px 16px;
+	}
+}
+
 .camera-icon-background {
 	position: fixed;
 	background-color: rgba(212, 212, 212, 0.5);
