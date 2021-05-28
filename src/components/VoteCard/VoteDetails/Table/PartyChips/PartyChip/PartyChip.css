@@ -6,7 +6,7 @@
 	line-height: 14px;
 	text-align: center;
 	letter-spacing: 0.7px;
-  text-transform: uppercase;
+	text-transform: uppercase;
 	letter-spacing: 0.7px;
 	color: white;
 	padding: 5px 8px;
@@ -14,6 +14,7 @@
 	border-radius: 4px;
 	margin: 0px;
 	margin-right: 12px;
+	background-color: #636363;
 }
 
 .gesamt-1 {
