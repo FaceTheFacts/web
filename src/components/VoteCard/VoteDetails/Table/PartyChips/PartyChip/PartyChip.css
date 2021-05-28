@@ -1,9 +1,12 @@
 .party-chip {
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: normal;
 	font-size: 12px;
+	line-height: 14px;
 	text-align: center;
+	letter-spacing: 0.7px;
+  text-transform: uppercase;
 	letter-spacing: 0.7px;
 	color: white;
 	padding: 5px 8px;
@@ -15,26 +18,21 @@
 
 .gesamt-1 {
 	background-color: #636363;
-	text-transform: capitalize;
 }
 
 .cdu-1 {
 	background-color: #636363;
-	text-transform: uppercase;
 }
 
 .spd-1 {
 	background-color: #e95050;
-	text-transform: uppercase;
 }
 
 .fdp-1 {
 	background-color: #faed0b;
 	color: #181924;
-	text-transform: capitalize;
 }
 
 .grüne-1 {
 	background-color: #61a056;
-	text-transform: capitalize;
 }
