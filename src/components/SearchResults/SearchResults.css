@@ -1,0 +1,13 @@
+.search-result-card {
+	background: #2a2b36;
+	border-radius: 8px;
+}
+
+.search-result-title {
+	font-family: 'protipo', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	color: #ffffff;
+	line-height: 17px;
+}

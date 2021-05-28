@@ -1,5 +1,7 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonIcon } from '@ionic/react';
+import './SearchResults.css';
+import { chevronForwardOutline } from 'ionicons/icons';
 
 interface SearchResultsProps {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,10 +13,17 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }: SearchResultsP
 		<div id="search-results">
 			{results.map((result, index) => {
 				return (
-					<IonCard key={`result-${index}`} button={true} href={`politician/${result.id}/profile`}>
+					<IonCard
+						className="search-result-card"
+						key={`result-${index}`}
+						button={true}
+						href={`politician/${result.id}/profile`}
+					>
 						<IonCardHeader>
+							<IonCardTitle className="search-result-title">
+								{result.label}
+							</IonCardTitle>
 							<IonCardSubtitle>{result.party.label}</IonCardSubtitle>
-							<IonCardTitle>{result.label}</IonCardTitle>
 						</IonCardHeader>
 					</IonCard>
 				);
