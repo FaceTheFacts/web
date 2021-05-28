@@ -10,9 +10,21 @@
 	height: 52px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50%;
+	margin-top: 40%;
 }
+
 .search-bar {
+	--background: rgba(255, 255, 255, 0.1);
+	--border-radius: 8px;
+	--clear-button-color: #ffffff;
+	--color: #ffffff;
+	--icon-color: rgba(255, 255, 255, 0.7);
+	--placeholder-color: rgba(255, 255, 255, 0.5);
+	--placeholder-font-style: 'protipo', sans-serif;
+	--placeholder-font-weight: 400;
+}
+
+/* .search-bar {
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 8px;
 	height: 50px;
@@ -23,10 +35,10 @@
 	font-family: 'protipo', sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	color: #FFFFFF;
+	color: #ffffff;
 	opacity: 0.5;
 	padding: 16px !important;
-}
+} */
 
 @media screen and (min-width: 360px) {
 	.search-bar {

@@ -1,4 +1,13 @@
-import { IonInput, IonContent, IonImg, IonPage, IonPopover } from '@ionic/react';
+import {
+	IonInput,
+	IonContent,
+	IonImg,
+	IonPage,
+	IonPopover,
+	IonSearchbar,
+	IonToolbar,
+	IonFooter,
+} from '@ionic/react';
 import React, { useState } from 'react';
 import './Search.css';
 import { Candidate } from '../../Types';
@@ -39,7 +48,7 @@ type SearchResult = {
 	field_title: null;
 };
 const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: DiscoverProps) => {
-	const [text, setText] = useState<string>();
+	const [searchText, setsearchText] = useState<string>();
 	const [showResults, setShowResults] = useState<boolean>(false);
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
@@ -49,9 +58,35 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 		<IonPage>
 			<IonContent fullscreen>
 				<div className="search-page">
-					<IonImg className="search-logo"  id="logo2021" src={logo2021} alt="logo2021"/>
+					<IonImg className="search-logo" id="logo2021" src={logo2021} alt="logo2021" />
+					<IonSearchbar
+						className="search-bar"
+						clearIcon="close-sharp"
+						value={searchText}
+						placeholder="Nach Kandidat:innen suchen"
+						onIonChange={async (e): Promise<void> => {
+							setsearchText(e.detail.value as string);
+							setTimeout(async () => {
+								const url =
+									'https://www.abgeordnetenwatch.de/api/v2/politicians/?label[cn]=';
+								const res = await fetch(`${url}${searchText}&range_end=20`);
+								const data = await res.json();
+								setSearchResults(data.data);
+								setShowResults(true);
+							}, 400);
+						}}
+					></IonSearchbar>
+				</div>
+			</IonContent>
+			{showResults ? (
+				<IonFooter>
+					<IonToolbar>
+						<SearchResults results={searchResults} />
+					</IonToolbar>
+				</IonFooter>
+			) : null}
 
-					<IonInput
+			{/* <IonInput
 						className="search-bar"
 						value={text}
 						placeholder="Nach Kandidat:innen suchen"
@@ -77,10 +112,9 @@ const Discover: React.FC<DiscoverProps> = ({ candidate, setCandidate }: Discover
 						onDidDismiss={(): void => setShowPopover(false)}
 						translucent={true}
 						id="detected-candidate-popover"
-						/* enterAnimation={popoverAnimation} */
 					> </IonPopover>
 				</div>
-			</IonContent>
+			</IonContent> */}
 		</IonPage>
 	);
 };
