@@ -6,7 +6,6 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Search from './Search';
-import { amthor } from '../../amthor';
 
 let container: HTMLDivElement | null = null;
 
@@ -42,7 +41,7 @@ describe('integration test', () => {
 		// when
 		render(
 			<Router history={history}>
-				<Search candidate={amthor} setCandidate={setCandidate} />
+				<Search />
 			</Router>,
 			container
 		);
@@ -60,12 +59,10 @@ describe('integration test', () => {
 			initialEntries: ['/search'],
 		});
 
-		const setCandidate = jest.fn();
-
 		// when
 		const page = mount(
 			<Router history={history}>
-				<Search candidate={amthor} setCandidate={setCandidate} />
+				<Search />
 			</Router>
 		);
 		//Node.js 15 issue

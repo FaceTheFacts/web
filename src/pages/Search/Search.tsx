@@ -1,9 +1,4 @@
-import {
-	IonContent,
-	IonImg,
-	IonPage,
-	IonSearchbar,
-} from '@ionic/react';
+import { IonContent, IonImg, IonPage, IonSearchbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './Search.css';
 import logo2021 from '../../assets/images/logo2021.svg';
