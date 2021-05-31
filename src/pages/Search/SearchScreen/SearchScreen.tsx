@@ -5,7 +5,6 @@ import './SearchScreen.css';
 
 const SearchScreen: React.FC = () => {
 	const [searchText, setsearchText] = useState<string>();
-	const [showResults, setShowResults] = useState<boolean>(false);
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
 	return (
@@ -16,7 +15,6 @@ const SearchScreen: React.FC = () => {
 					clearIcon="close-sharp"
 					value={searchText}
 					placeholder=""
-					onIonFocus={() => setShowResults(true)}
 					onIonChange={async (e): Promise<void> => {
 						setsearchText(e.detail.value as string);
 						setTimeout(async () => {
@@ -25,17 +23,19 @@ const SearchScreen: React.FC = () => {
 							const res = await fetch(`${url}${searchText}&range_end=20`);
 							const data = await res.json();
 							setSearchResults(data.data);
-							setShowResults(true);
 						}, 400);
 					}}
-					onIonClear={() => setShowResults(false)}
+					onIonClear={() => setsearchText('')}
+					searchIcon="undefined"
 				/>
 			</IonHeader>
-			<IonContent fullscreen>
-				<IonList>
-					<SearchResults results={searchResults} />
-				</IonList>
-			</IonContent>
+			{searchText ? (
+				<IonContent fullscreen>
+					<IonList>
+						<SearchResults results={searchResults} />
+					</IonList>
+				</IonContent>
+			) : undefined}
 		</IonApp>
 	);
 };
