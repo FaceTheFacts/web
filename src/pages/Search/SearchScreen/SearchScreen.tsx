@@ -1,6 +1,7 @@
 import { IonApp, IonContent, IonHeader, IonList, IonSearchbar } from '@ionic/react';
 import React, { useState } from 'react';
 import SearchResults from '../../../components/SearchResults/SearchResults';
+import './SearchScreen.css';
 
 const SearchScreen: React.FC = () => {
 	const [searchText, setsearchText] = useState<string>();
@@ -9,11 +10,12 @@ const SearchScreen: React.FC = () => {
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
 	return (
 		<IonApp>
-			<IonHeader>
+			<IonHeader className="search-screen-header">
 				<IonSearchbar
-					className="search-bar"
+					className="searchscreen-bar"
 					clearIcon="close-sharp"
 					value={searchText}
+					placeholder=""
 					onIonFocus={() => setShowResults(true)}
 					onIonChange={async (e): Promise<void> => {
 						setsearchText(e.detail.value as string);
