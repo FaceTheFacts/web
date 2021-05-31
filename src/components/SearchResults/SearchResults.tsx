@@ -1,18 +1,8 @@
 import React from 'react';
-import {
-	IonCard,
-	IonCardHeader,
-	IonCardTitle,
-	IonCardSubtitle,
-	IonIcon,
-	IonGrid,
-	IonCol,
-	IonButton,
-} from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import './SearchResults.css';
 import { chevronForwardOutline } from 'ionicons/icons';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
-import { stringByteLength } from '@tensorflow/tfjs-core/dist/io/io_utils';
 
 interface SearchResultsProps {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any

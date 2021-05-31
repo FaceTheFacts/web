@@ -25,7 +25,7 @@ const SearchScreen: React.FC = () => {
 							setSearchResults(data.data);
 						}, 400);
 					}}
-					onIonClear={() => setsearchText('')}
+					onIonClear={(): void => setsearchText('')}
 					searchIcon="undefined"
 				/>
 			</IonHeader>

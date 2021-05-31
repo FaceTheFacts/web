@@ -43,6 +43,7 @@ import Position from './pages/Position';
 const politician: Candidate = amthor;
 
 const App: React.FC = () => {
+	// eslint-disable-next-line
 	const [candidate, setCandidate] = useState<Candidate>(politician);
 
 	log.setLevel('DEBUG', true);
@@ -65,7 +66,7 @@ const App: React.FC = () => {
 							<Privacy />
 						</Route>
 						<Route path="/search" exact>
-							<Search candidate={politician} setCandidate={setCandidate}></Search>
+							<Search />
 						</Route>
 						<Route path="/politician/:id/election">
 							<Electionchances candidate={candidate as Candidate} />
