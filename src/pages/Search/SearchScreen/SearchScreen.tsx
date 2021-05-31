@@ -34,7 +34,7 @@ const SearchScreen: React.FC = () => {
 					<IonList className="search-screen-content">
 						<SearchResults results={searchResults} />
 					</IonList>
-				) : undefined}
+				) : null}
 			</IonContent>
 		</IonApp>
 	);
