@@ -28,6 +28,10 @@
 	margin-right: 12px;
 }
 
+.search-bar .searchbar-input-container {
+	height: 50px;
+}
+
 @media screen and (min-width: 360px) {
 	.search-bar {
 		width: calc(100vw - 32px);

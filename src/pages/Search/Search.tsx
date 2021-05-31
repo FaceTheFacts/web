@@ -8,17 +8,25 @@ const Search: React.FC = () => {
 	const [showScreen, setShowScreen] = useState<boolean>(false);
 	return (
 		<IonPage>
-			<IonContent fullscreen>
-				<div className="search-page">
-					<IonImg className="search-logo" id="logo2021" src={logo2021} alt="logo2021" />
-					<IonSearchbar
-						className="search-bar"
-						clearIcon="close-sharp"
-						placeholder="Nach Kandidat:innen suchen"
-						onIonFocus={(): void => setShowScreen(true)}
-					></IonSearchbar>
-				</div>
-			</IonContent>
+			{showScreen === false ? (
+				<IonContent fullscreen>
+					<div className="search-page">
+						<IonImg
+							className="search-logo"
+							id="logo2021"
+							src={logo2021}
+							alt="logo2021"
+						/>
+						<IonSearchbar
+							className="search-bar"
+							clearIcon="close-sharp"
+							placeholder="Nach Kandidat:innen suchen"
+							onIonFocus={(): void => setShowScreen(true)}
+						></IonSearchbar>
+					</div>
+				</IonContent>
+			) : null}
+
 			{showScreen ? <SearchScreen /> : null}
 		</IonPage>
 	);
