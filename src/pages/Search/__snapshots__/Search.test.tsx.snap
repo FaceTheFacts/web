@@ -5,9 +5,11 @@ exports[`integration test renders page correctly 1`] = `
   <div
     class="ion-page"
   >
-    <ion-content>
+    <ion-content
+      class="search-page"
+    >
       <div
-        class="search-page"
+        class="search-content"
       >
         <ion-img
           alt="logo2021"
