@@ -5,12 +5,16 @@
 	overflow: hidden;
 }
 
+.search-content {
+	position: fixed;
+	top: 30%;
+}
+
 .search-logo {
 	width: 174.13px;
 	height: 52px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 40%;
 }
 
 .search-bar {

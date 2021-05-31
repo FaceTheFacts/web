@@ -9,8 +9,8 @@ const Search: React.FC = () => {
 	return (
 		<IonPage>
 			{showScreen === false ? (
-				<IonContent fullscreen>
-					<div className="search-page">
+				<IonContent className="search-page" fullscreen>
+					<div className="search-content">
 						<IonImg
 							className="search-logo"
 							id="logo2021"
