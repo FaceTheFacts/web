@@ -29,13 +29,13 @@ const SearchScreen: React.FC = () => {
 					searchIcon="undefined"
 				/>
 			</IonHeader>
-			{searchText ? (
-				<IonContent fullscreen>
-					<IonList>
+			<IonContent className="search-screen-content" fullscreen>
+				{searchText ? (
+					<IonList className="search-screen-content">
 						<SearchResults results={searchResults} />
 					</IonList>
-				</IonContent>
-			) : undefined}
+				) : undefined}
+			</IonContent>
 		</IonApp>
 	);
 };
