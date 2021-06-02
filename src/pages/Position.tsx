@@ -3,13 +3,8 @@ import React from 'react';
 import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
-<<<<<<< HEAD
-import { Candidate } from '../Types';
-import PositionCards from '../components/PositionCards/PositionCards';
-=======
 import { Candidate, Politician } from '../Types';
-import PositionCards from '../components/PositionCards';
->>>>>>> Implement API
+import PositionCards from '../components/PositionCards/PositionCards';
 
 interface PositionProps {
 	candidate: Politician;

@@ -1,31 +1,16 @@
 import React from 'react';
-<<<<<<< HEAD:src/components/Profile/Profile.tsx
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
-import { Candidate, SideJob } from '../../Types';
-import VoteCard from '../VoteCard/VoteCard';
+import { Candidate, SideJob, Politician, PollData } from '../../Types';
+import VoteCard from '../VoteCard';
 import SideJobCard from '../SideJobCard';
-=======
-import TopicCard from './TopicCard';
-import LinkButton from './LinkButton';
-import { Candidate, SideJob, Politician, PollData } from '../Types';
-import VoteCard from '../components/VoteCard';
-import SideJobCard from '../components/SideJobCard';
->>>>>>> Implement API:src/components/Profile.tsx
 import './Profile.css';
 import TitleHeader from '../TitleHeader';
 import { useQuery } from 'react-query';
 import './Profile.css';
-<<<<<<< HEAD:src/components/Profile/Profile.tsx
 import { iconEnum } from '../../enums/icon.enum';
-=======
-import { iconEnum } from '../enums/icon.enum';
-<<<<<<< HEAD:src/components/Profile/Profile.tsx
-import fetch from '../functions/queries'
->>>>>>> Implement API:src/components/Profile.tsx
-=======
-import fetch from '../functions/queries';
->>>>>>> run prettier and eslint:src/components/Profile.tsx
+import fetch from '../../functions/queries';
+
 interface ProfileProps {
 	candidate: Politician;
 	profileId: string;
