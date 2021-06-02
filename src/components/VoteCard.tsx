@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PartyVoteChart from './PartyVoteChart';
-import VoteChart from './VoteChart';
-import './VoteCard.css';
+import VoteChart from './VoteCard/VoteChart/VoteChart';
+import './VoteCard/VoteCard.css';
 import {
 	IonCard,
 	IonCardHeader,
@@ -21,7 +20,7 @@ import {
 } from '@ionic/react';
 import { PollData } from '../Types';
 import { voteJudgeHandler } from '../functions/voteJudgeHandler';
-import Positioning from './Positioning';
+import Positioning from './PositionCards/Positioning/Positioning';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 

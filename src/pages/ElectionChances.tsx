@@ -8,16 +8,13 @@ import PoliticianProfile from '../components/PoliticianProfile'
 import Tabs from '../components/Tabs';
 import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard';
 import './ElectionChances.css';
-<<<<<<< HEAD
 import { Candidate } from '../Types';
 import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
 import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVotePopup';
-=======
 import { ElectionResult, Politician } from '../Types';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 import { useParams } from 'react-router';
->>>>>>> Implement API call for constituency, results, profile
 
 interface ElectionchancesProps {
 	candidate: Politician;
@@ -38,7 +35,6 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	);
 
 	const name = data?.data.label
-	const party = data?.data.party.label
 
 	const constituency = useQuery(
 		`constituency-${name}`,
@@ -51,7 +47,6 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	);
 
 	const constituencyId = constituency.data?.data[0].electoral_data.constituency.id
-	const electionListId = constituency.data?.data[0].electoral_data.electoral_list.id
 
 	const electionResults = useQuery(
 		`electionResults-${constituencyId}`,
@@ -63,18 +58,8 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 		}
 	);
 
-	const stateList = useQuery(
-		`${party}stateList-${electionListId}`,
-		() => fetch(`candidacies-mandates?electoral_data[entity.electoral_list.entity.id][eq]=${electionListId}&politician[entity.party.entity.short_name]=${party}&sort_by=electoral_data[entity.list_position]`),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-			enabled: !!constituencyId,
-		}
-	);
-
 	if (constituency.isFetched) {
-		console.log(stateList.data);
+		console.log(constituency);
 	}
 
 	const constituencyName = constituency.data?.data[0].electoral_data.constituency.label
@@ -124,15 +109,17 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 					</div>
 				}
 				
-				<div>
-					{segment==='1' && stateList.isFetched ?
-						stateList.data.data.map((StateList: ElectionResult, index: number) => {
+				<div>{/*
+					{segment==='1' ?
+						candidate.secondVote.map((StateList, index) => {
 							return <SecondVoteCard
 								secondVote={StateList}
 								key={`secondvote-${index}`}
+								rank={index + 1}
 							/>;
-						}) : null }
-					{segment==='0' && electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
+						})
+						:*/}
+						{electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
 						
 							return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
 						}) : null

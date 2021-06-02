@@ -4,16 +4,11 @@ import { useParams } from 'react-router';
 import './Page.css';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
-<<<<<<< HEAD
-import { Candidate } from '../Types';
-import ProfileComponent from '../components/Profile/Profile';
-=======
 import { Candidate, Politician } from '../Types';
-import ProfileComponent from '../components/Profile';
+import ProfileComponent from '../components/Profile/Profile';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 
->>>>>>> Fetch Data for PoliticianProfile with ReactQuery and Axios
 interface ProfileProps {
 	candidate: Politician;
 }
