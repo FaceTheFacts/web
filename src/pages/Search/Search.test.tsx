@@ -5,8 +5,7 @@ import { createMemoryHistory } from 'history';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Discover from './Discover';
-import { amthor } from '../amthor';
+import Search from './Search';
 
 let container: HTMLDivElement | null = null;
 
@@ -28,13 +27,13 @@ afterEach(() => {
 Enzyme.configure({ adapter: new Adapter() });
 
 // navigator.getUserMedia() is not available in testing environment
-jest.mock('../components/CameraView/CameraFeed');
+jest.mock('../../components/CameraView/CameraFeed');
 
 describe('integration test', () => {
 	it('renders page correctly', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: ['/discover'],
+			initialEntries: ['/search'],
 		});
 
 		const setCandidate = jest.fn();
@@ -42,7 +41,7 @@ describe('integration test', () => {
 		// when
 		render(
 			<Router history={history}>
-				<Discover candidate={amthor} setCandidate={setCandidate} />
+				<Search />
 			</Router>,
 			container
 		);
@@ -57,15 +56,13 @@ describe('integration test', () => {
 	it('opens camera view', () => {
 		// given
 		const history = createMemoryHistory({
-			initialEntries: ['/discover'],
+			initialEntries: ['/search'],
 		});
-
-		const setCandidate = jest.fn();
 
 		// when
 		const page = mount(
 			<Router history={history}>
-				<Discover candidate={amthor} setCandidate={setCandidate} />
+				<Search />
 			</Router>
 		);
 		//Node.js 15 issue

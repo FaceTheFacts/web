@@ -12,7 +12,8 @@ const SecondVoteCard: React.FC<CandidateInfoProps> = ({ secondVote }: CandidateI
 		<IonCard className="secondvote-card">
 			<IonCardHeader className="secondvote-card-header">
 				<IonCardTitle className="secondvote-card-name" data-testid="rank-secondVote">
-					<span className="rank">#{secondVote.electoral_data.list_position}</span> {secondVote.politician.label}
+					<span className="rank">#{secondVote.electoral_data.list_position}</span>{' '}
+					{secondVote.politician.label}
 				</IonCardTitle>
 			</IonCardHeader>
 		</IonCard>

@@ -18,6 +18,10 @@
 	height: 50px;
 }
 
+.searchbar-clear-button.sc-ion-searchbar-md {
+	top: -2px;
+}
+
 .search-screen-content {
 	background-color: #181924;
 }

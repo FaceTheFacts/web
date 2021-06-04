@@ -12,17 +12,17 @@ const TopicCard: React.FC<TopicCardProps> = ({ topics }: TopicCardProps) => {
 		<div>
 			{topics instanceof Array
 				? topics
-					.slice(0)
-					.reverse()
-					.map((topic: Topic, index: number) => {
-						return (
-							<IonChip className="topic-card" key={`topic-${index}`}>
-								<IonLabel data-testid="topic-name">
-									{politicalFocusHandler(topic.committee.label)}
-								</IonLabel>
-							</IonChip>
-						);
-					})
+						.slice(0)
+						.reverse()
+						.map((topic: Topic, index: number) => {
+							return (
+								<IonChip className="topic-card" key={`topic-${index}`}>
+									<IonLabel data-testid="topic-name">
+										{politicalFocusHandler(topic.committee.label)}
+									</IonLabel>
+								</IonChip>
+							);
+						})
 				: null}
 		</div>
 	);

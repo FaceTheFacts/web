@@ -13,8 +13,8 @@ const SearchScreen: React.FC = () => {
 				<IonSearchbar
 					className="searchscreen-bar"
 					clearIcon="close-sharp"
+					placeholder="Nach Kandidat:innen suchen"
 					value={searchText}
-					placeholder=""
 					onIonChange={async (e): Promise<void> => {
 						setsearchText(e.detail.value as string);
 						setTimeout(async () => {
@@ -25,7 +25,8 @@ const SearchScreen: React.FC = () => {
 							setSearchResults(data.data);
 						}, 400);
 					}}
-					onIonClear={() => setsearchText('')}
+					debounce={0}
+					onIonClear={(): void => setsearchText('')}
 					searchIcon="undefined"
 				/>
 			</IonHeader>
