@@ -81,10 +81,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 		abstain.status === 'success' &&
 		noShow.status === 'success'
 	) {
-		yesTotal = yes.data.meta.result.total;
-		noTotal = no.data.meta.result.total;
-		abstainTotal = abstain.data.meta.result.total;
-		noShowTotal = noShow.data.meta.result.total;
+		yesTotal = yes.data?.meta.result.total;
+		noTotal = no.data?.meta.result.total;
+		abstainTotal = abstain.data?.meta.result.total;
+		noShowTotal = noShow.data?.meta.result.total;
 		totalvotes = [yesTotal, noTotal, abstainTotal, noShowTotal];
 		judge = 'Antrag ' + voteJudgeHandler(yesTotal, yesTotal + noTotal + abstainTotal);
 	}
