@@ -1,0 +1,47 @@
+.search-result-card {
+	background: #2a2b36;
+	width: calc(100vw -32px);
+	margin-top: 8px;
+	margin-bottom: 0px;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+.search-result-card:first-of-type {
+	margin-top: 16px;
+}
+.search-result-card:last-of-type {
+	margin-bottom: 16px;
+}
+
+.search-result-card-header {
+	padding: 12px 16px;
+}
+
+@media screen and (min-width: 360px) {
+	.search-result-card-header {
+		padding: 16px;
+	}
+}
+@media screen and (min-width: 992px) {
+	.search-result-card {
+		width: auto;
+	}
+}
+.search-result-card-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.search-result-card-title {
+	font-family: 'protipo', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	color: #ffffff;
+	margin-bottom: 2px;
+}
+
+.search-result-card-icon {
+	color: #ffffff;
+}
