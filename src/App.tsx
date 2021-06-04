@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React, { useState } from 'react';
 import Electionchances from './pages/ElectionChances';
-import Discover from './pages/Discover';
+import Search from './pages/Search/Search';
 import Profile from './pages/Profile';
 import News from './pages/News';
 import Votes from './pages/Votes/Votes';
@@ -51,26 +51,26 @@ const App: React.FC = () => {
 	log.setLevel('DEBUG', true);
 	return (
 		<QueryClientProvider client={queryClient}>
-		<IonApp>
-			<IonReactRouter>
-				<IonSplitPane contentId="main">
-					{/* Include the side menu */}
-					<IonRouterOutlet id="main">
-						{/* Register each page with the router
+			<IonApp>
+				<IonReactRouter>
+					<IonSplitPane contentId="main">
+						{/* Include the side menu */}
+						<IonRouterOutlet id="main">
+							{/* Register each page with the router
 							This works by defining a path and telling the router which component
 							(page) to render for that path. */}
-						<Route path="/" exact>
-							<Home />
-						</Route>
-						<Route path="/legal-notice" exact>
-							<LegalNotice />
-						</Route>
-						<Route path="/privacy" exact>
-							<Privacy />
-						</Route>
-						<Route path="/discover" exact>
-							<Discover candidate={politician} setCandidate={setCandidate}></Discover>
-						</Route>
+							<Route path="/" exact>
+								<Home />
+							</Route>
+							<Route path="/legal-notice" exact>
+								<LegalNotice />
+							</Route>
+							<Route path="/privacy" exact>
+								<Privacy />
+							</Route>
+							<Route path="/search" exact>
+								<Search />
+							</Route>
 							<Route path="/politician/:id/election">
 								<Electionchances candidate={candidate} />
 							</Route>
