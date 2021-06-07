@@ -102,7 +102,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 						</VoteExplainerCard>
 						<div className="election-chances-secondVote">
 							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-							<IonCardTitle className={stateListClass}><span>{status === "success" ? data.data.party.label : null } {constituency.isFetched ? stateName : null}</span></IonCardTitle>
+							<IonCardTitle className={stateListClass}><span>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? stateName : null}</span></IonCardTitle>
 						</div>
 						<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
 						<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
@@ -119,11 +119,11 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 							/>;
 						})
 						:*/}
-						{electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
+					{electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
 						
-							return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
-						}) : null
-					}
+					return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
+				}) : null
+				}
 				</div> 
 			</IonContent> 
 		</IonPage>
