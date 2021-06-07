@@ -1,5 +1,5 @@
-export const germanTranslator = (word: string): string => {
-	let translated: string;
+export const germanTranslator = (word: string): string|undefined => {
+	let translated: string|undefined;
 	switch (word) {
 	case 'yes':
 		translated = 'ja';
@@ -17,7 +17,7 @@ export const germanTranslator = (word: string): string => {
 		translated = 'abwesend';
 		break;
 	default:
-		translated = 'undefined';
+		translated = undefined;
 	}
 	return translated;
 };

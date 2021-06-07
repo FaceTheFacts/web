@@ -147,6 +147,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 		totalvotes = [yesTotal, noTotal, abstainTotal, noShowTotal];
 		judge = 'Antrag ' + voteJudgeHandler(yesTotal, yesTotal + noTotal + abstainTotal);
 	}
+
+	let positioning = 'noData';
+
+	if (votequery.data.data[0] !== undefined) {
+		positioning = votequery.data.data[0].vote
+	}
 	
 	/* const totalVoteJudge = voteObjectHandler(
 		vote.result.total.yes,
@@ -184,7 +190,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							</IonCol>
 							<IonCol size="4">
 								<div className="candidate-vote">
-									<Positioning positioning={votequery.data.data[0].vote} />
+									<Positioning positioning={positioning} />
 								</div>
 							</IonCol>
 							<IonCol size="12">
