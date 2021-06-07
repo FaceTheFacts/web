@@ -12,5 +12,5 @@ test("If the input is 'none', it should return 'nicht abg'.", () => {
 	expect(germanTranslator('none')).toBe('nicht abg');
 });
 test("If the input is 'something', it should return 'undefined'.", () => {
-	expect(germanTranslator('something')).toBe('undefined');
+	expect(germanTranslator('something')).toBeUndefined();
 });
