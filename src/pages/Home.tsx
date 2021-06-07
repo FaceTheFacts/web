@@ -21,7 +21,7 @@ const Home: React.FC = () => {
 							herausfinden wofür Politiker:innen wirklich stehen.
 						</IonCardSubtitle>
 						<IonButton href="/search" className="home-button">
-							Zur Demo mit Philipp Amthor
+							Zur Demo
 						</IonButton>
 					</div>
 					<div className="mockup">
