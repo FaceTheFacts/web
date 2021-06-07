@@ -4,18 +4,7 @@
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/facethefacts/app?label=build&logo=docker)](https://hub.docker.com/r/facethefacts/app)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/face-the-facts/mobile-app/eslint?label=ESLint&logo=eslint)
 
-Face the Facts is a mobile web application enabling users to access information about the political candidates runnning for office in their constituency directly on the election poster.
 
-Check it out here: [https://facethefacts.app](https://facethefacts.app)
-
-For testing the scanning feature, point your device's camera at [this image](.github/media/philipp_amthor_poster.jpeg).
-
-## Technologies
-
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/typescript?logo=typescript)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/react?logo=react)
-
-The application is built using the [Ionic Framework](https://ionicframework.com/) on top of [React](https://reactjs.org/). The scanning feature utilises the WebRTC API to gain access to the device camera alongside the machine learning library Tensorflow with its Blazeface model for face detection and the optical character recognition engine Tesseract.js.
 
 ## Contributing
 
