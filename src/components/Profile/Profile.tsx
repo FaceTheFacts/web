@@ -2,7 +2,7 @@ import React from 'react';
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
 import { Candidate, SideJob, Politician, PollData } from '../../Types';
-import VoteCard from '../VoteCard';
+import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
 import './Profile.css';
 import TitleHeader from '../TitleHeader';
