@@ -8,7 +8,7 @@ import './Content.css';
 
 interface ContentProps {
 	totalVote: Array<number>;
-	partyVote: Array<number>;
+	partyVote: Array<Array<number>>;
 }
 
 const Content: React.FC<ContentProps> = (props: ContentProps) => (
