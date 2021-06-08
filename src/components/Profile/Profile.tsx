@@ -1,7 +1,7 @@
 import React from 'react';
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
-import { Politician, PollData } from '../../Types';
+import { Candidate, SideJob, Politician, PollData } from '../../Types';
 import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
 import './Profile.css';
