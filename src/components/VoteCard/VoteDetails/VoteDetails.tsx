@@ -16,7 +16,7 @@ interface VoteDetailsProps {
 	positioning: string;
 	result: string;
 	totalVote: Array<number>;
-	partyVote: Array<number>;
+	partyVote: Array<Array<number>>;
 }
 
 const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
