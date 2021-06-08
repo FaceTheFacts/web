@@ -69,6 +69,14 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	if (yes.status === 'error') {
 		return <p>Error: {votequery.error}</p>;
 	}
+	
+	const Poll = voteDetailsHandler(vote.id);
+	const voteStrings = {
+		yes: 'Ja',
+		no: 'Nein',
+		abstain: 'Enthalten',
+		none: 'Nicht Abg.',
+	};
 
 	let judge, noTotal: number, yesTotal: number, abstainTotal: number, noShowTotal: number;
 	let totalvotes: [number, number, number, number] = [0, 0, 0, 0];
@@ -132,13 +140,34 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							<IonCol size="12">
 								<div className="vote-chart-container">
 									{/* Render a VoteChart component for the vote result */}
-									<VoteChart totalvotes={totalvotes} />
+									<VoteChart totalvotes={[Poll.Gesamt[0], Poll.Gesamt[1], Poll.Gesamt[2], Poll.Gesamt[3]]} />
 								</div>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
 				</IonCardContent>
 			</IonCard>
+			{/*Vote Detail Modal*/}
+			<IonContent>
+				<IonModal
+					isOpen={showDetails}
+					cssClass="details-open"
+					backdropDismiss={true}
+					swipeToClose={false}
+				>
+					<div className = 'vote-modal'>
+						<VoteDetails
+							clicked={modalCloser}
+							title={vote.label}
+							content={vote.field_intro}
+							positioning={votequery.data.data[0].vote}
+							result={Poll.judge}
+							totalVote={Poll.Gesamt}
+							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.AfD, Poll.LINKE, Poll.fraktionslos]}
+						/>
+					</div>
+				</IonModal>
+			</IonContent>
 		</React.Fragment>
 	);
 };
