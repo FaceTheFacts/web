@@ -2,8 +2,6 @@ import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
 
 import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile';
-import { amthor } from '../amthor';
 import { Candidate } from '../Types';
 import KontroCard from '../components/KontroCard';
 interface ProfileProps {

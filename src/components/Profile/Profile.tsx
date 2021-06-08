@@ -1,7 +1,7 @@
 import React from 'react';
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
-import { Candidate, SideJob, Politician, PollData } from '../../Types';
+import { Politician, PollData } from '../../Types';
 import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
 import './Profile.css';
@@ -46,6 +46,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls.status === 'loading') {
+		// eslint-disable-next-line
 		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 
@@ -80,9 +81,12 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				</ul>
 
 				<TitleHeader title="Bezahlte Tätigkeiten" />
-				{sideJobs.data.data.map((sideJob: any, index: number) => {
-					return <SideJobCard sideJob={sideJob} key={index} />;
-				})}
+				{
+					// eslint-disable-next-line
+					sideJobs.data.data.map((sideJob: any, index: number) => {
+						return <SideJobCard sideJob={sideJob} key={index} />;
+					})
+				}
 			</div>
 		</React.Fragment>
 	);

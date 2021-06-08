@@ -1,6 +1,5 @@
-import { IonContent, IonPage } from '@ionic/react';
+import { IonPage } from '@ionic/react';
 import React from 'react';
-import VoteCard from '../../components/VoteCard/VoteCard';
 import './Votes.css';
 import { Candidate } from '../../Types';
 import LinkButton from '../../components/LinkButton';
@@ -20,17 +19,6 @@ const Votes: React.FC<VoteProps> = ({ candidate }: VoteProps) => {
 					icon={iconEnum.CHEVRON_BACK}
 				/>
 			</div>
-			{/* <IonContent>
-				<div className="votes-black-back">
-					{candidate.polls.map((vote, index) => {
-						return (
-							<div className="votes-vote-card" key={`poll-${index}`}>
-								<VoteCard vote={vote} />
-							</div>
-						);
-					})}
-				</div>
-			</IonContent> */}
 		</IonPage>
 	);
 };

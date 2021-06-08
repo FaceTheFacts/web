@@ -2,7 +2,6 @@ import { IonContent, IonPage } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile';
 import { Candidate } from '../Types';
 import BioCard from '../components/BioCard';
 
