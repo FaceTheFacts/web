@@ -21,6 +21,10 @@
 	line-height: 15px;
 }
 
+.preview-content > p > a {
+	color: #3AA6F4;
+}
+
 .readmore-short {
 	/* four lines */
 	height: calc(15px * 4);

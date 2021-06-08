@@ -87,3 +87,20 @@
 .cdu {
 	background: #636363;
 }
+
+.LINKE-1 {
+	text-transform: capitalize;
+	background-color: #CD3E72;
+	;
+}
+
+.AfD-1 {
+	text-transform: capitalize;
+	background-color: #3AA6F4;
+	;
+}
+
+.fraktionslos-1 {
+	background-color: white;
+	color: black;
+}
