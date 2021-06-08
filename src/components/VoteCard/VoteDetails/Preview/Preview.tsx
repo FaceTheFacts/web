@@ -20,7 +20,7 @@ const Preview: React.FC<PreviewProps> = (props: PreviewProps) => {
 	return (
 		<div className="preview-container">
 			<div className="preview-title">{props.title}</div>
-			<div className={['preview-content', isReadMore].join(' ')}>{props.content}</div>
+			<div className={['preview-content', isReadMore].join(' ')} dangerouslySetInnerHTML={{__html: props.content}}></div>
 			<button className="preview-button" onClick={readmoreChange}>
 				{isReadMore === 'readmore-short' ? 'mehr lesen' : 'weniger lesen'}
 			</button>
