@@ -3,7 +3,7 @@ import React from 'react';
 import className from 'classnames'
 import ElectionchancesCard from '../components/ElectionChancesCard';
 import SegmentButtons from '../components/SegmentButtons';
-import PoliticianProfile from '../components/PoliticianProfile'
+import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile'
 import Tabs from '../components/Tabs';
 import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard';
 import './ElectionChances.css';
