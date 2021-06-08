@@ -81,7 +81,7 @@ const Poll7 = { id: 4088,
     Grünen: [58, 0, 0, 9],
     LINKE: [57, 0, 0, 12],
     AfD: [1, 1, 66, 20],
-    fraktionslos: [2, 0, 0,4]
+    fraktionslos: [2, 0, 0, 4]
 }
 
 const Poll8 = { id: 4098,
