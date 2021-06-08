@@ -7,13 +7,14 @@ import TotalColumn, { TotalColumnType } from './Columns/TotalColumn/TotalColumn'
 import './Content.css';
 
 interface ContentProps {
-	totalVote: TotalColumnType;
-	partyVote: Array<ColumnType>;
+	totalVote: Array<number>;
+	partyVote: Array<number>;
 }
 
 const Content: React.FC<ContentProps> = (props: ContentProps) => (
+	
 	<div className="content-container">
-		<TotalColumn votes={props.totalVote.votes} majority={props.totalVote.majority} />
+		<TotalColumn votes={props.totalVote} />
 		<div className="content-line"></div>
 		<Columns votes={props.partyVote} />
 	</div>

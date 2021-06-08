@@ -6,8 +6,8 @@ import { TotalColumnType } from './Content/Columns/TotalColumn/TotalColumn';
 import { ColumnType } from './Content/Columns/Column/Column';
 
 interface TableProps {
-	totalVote: TotalColumnType;
-	partyVote: Array<ColumnType>;
+	totalVote: Array<number>;
+	partyVote: Array<number>;
 }
 
 const Table: React.FC<TableProps> = (props: TableProps) => (
