@@ -10,20 +10,42 @@ export type ColumnType = {
 };
 
 interface ColumnProps {
-	party?: string;
 	votes: VoteNumbers;
-	majority: string;
+	party: string;
 }
 
-const Column: React.FC<ColumnProps> = (props: ColumnProps) => (
+const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
+	const partyNameHandler = (index: string) => {
+		switch (index) {
+			case "0":
+				return "CDU";
+			case "1":
+				return "SPD";
+			case "2":
+				return "FDP";
+			case "3":
+				return "Grünen"
+			case "4":
+				return "LINKE";
+			case "5":
+				return "AfD";
+			case "6":
+				return "fraktionslos"
+			default:
+				return "Gesamt";
+		}
+	} 
+
+	return (
 	<div>
 		<div className="column-party">
-			<PartyChip party={props.party} />
+			<PartyChip party={partyNameHandler(props.party)} />
 		</div>
 		<div className="column-numbers">
-			<NumberChips votes={props.votes} majority={props.majority} />
+			<NumberChips votes={props.votes} />
 		</div>
 	</div>
-);
+	)
+};
 
 export default Column;
