@@ -4,8 +4,6 @@
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/facethefacts/app?label=build&logo=docker)](https://hub.docker.com/r/facethefacts/app)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/face-the-facts/mobile-app/eslint?label=ESLint&logo=eslint)
 
-
-
 ## Contributing
 
 This project is still in a very early stage. If you are interested in contributing, feel free to reach out to [info@facethefacts.app](mailto:info@facethefacts.app).
