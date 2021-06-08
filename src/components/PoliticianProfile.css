@@ -27,10 +27,8 @@
 .politician-image {
 	height: var(--imagesize-politician-profile);
 	width: var(--imagesize-politician-profile);
-	border: 0;
-	object-position: 45% 35%;
-	object-fit: cover;
 	border-radius: 50%;
+	background: #ffffff;
 }
 
 /* Have to use ion-card-title to overwrite inherited css from :host */

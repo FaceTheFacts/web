@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
+import Placeholder from '../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../Types';
 import '../index.css';
@@ -17,12 +18,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 			<IonGrid>
 				<IonRow>
 					<IonCol className="profile-image">
-						<img
-							className="politician-image"
-							src="https://www.abgeordnetenwatch.de/sites/default/files/styles/opengraph_image/public/politicians-profile-pictures/philipp_amthor.jpg?itok=_-cUhevr"
-							alt={candidate.label}
-							data-testid="profile-img-url"
-						></img>
+						<img className="politician-image" src={Placeholder} alt="placeholder" />
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
