@@ -6,7 +6,7 @@ import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
 import './Profile.css';
 import TitleHeader from '../TitleHeader';
-import { useQuery } from 'react-query';
+import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
 import fetch from '../../functions/queries';
@@ -17,6 +17,9 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
+
+	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
+
 	const { data, status, error } = useQuery(
 		`politicalFocus-${candidate.label}`,
 		() =>
@@ -36,21 +39,22 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			cacheTime: 60 * 2880000, // 2 days
 		}
 	);
-	const polls = useQuery(
-		'poll',
-		() => fetch('polls?field_legislature[entity.label]eq=Bundestag 2017 - 2021&range_end=10'),
-		{
+	const polls = useQueries(
+		pollIds.map(pollId => {
+			return {
+				queryKey: ['poll', pollId],
+				queryFn: () => fetch(`polls/${pollId}`),
 			staleTime: 60 * 1440000,
 			cacheTime: 60 * 1440000, // 1 day
-		}
+			}
+		})
 	);
 
-	if (status === 'loading' || sideJobs.status === 'loading' || polls.status === 'loading') {
-		// eslint-disable-next-line
+	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
 		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 
-	if (status === 'error' || sideJobs.status === 'error' || polls.status === 'error') {
+	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
 		return <p>Error: {error}</p>;
 	}
 	return (
@@ -71,10 +75,10 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					/>
 				</TitleHeader>
 				<ul className="vote-card-lists">
-					{polls.data.data.map((poll: PollData, index: number) => {
+					{polls.map((poll: any, index: number) => {
 						return (
 							<li key={index}>
-								<VoteCard vote={poll} name={candidate.label} />
+								<VoteCard vote={poll.data.data} name={candidate.label} />
 							</li>
 						);
 					})}
