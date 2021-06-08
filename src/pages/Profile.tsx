@@ -2,7 +2,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
 import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile';
+import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile';
 import { Politician } from '../Types';
 import ProfileComponent from '../components/Profile/Profile';
 import { useQuery } from 'react-query';

@@ -1,10 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
-import Placeholder from '../assets/images/placeholder.svg';
+import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
-import { Politician } from '../Types';
-import '../index.css';
+import { Politician } from '../../Types';
 
 interface ContainerProps {
 	candidate: Politician;

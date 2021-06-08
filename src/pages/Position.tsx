@@ -1,7 +1,7 @@
 import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
 import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile';
+import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile';
 import { Politician } from '../Types';
 import PositionCards from '../components/PositionCards/PositionCards';
 
