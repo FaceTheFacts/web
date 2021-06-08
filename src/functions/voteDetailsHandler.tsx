@@ -1,6 +1,6 @@
 export const voteDetailsHandler = (id: number) => {
 
-const Poll_1 = { id: 1584,
+const Poll1 = { id: 1584,
     judge: "Antrag angenommen",
     Gesamt: [362, 222, 60, 65],
     CDU: [216, 3, 1, 26],
@@ -12,7 +12,7 @@ const Poll_1 = { id: 1584,
     fraktionslos: [0, 0, 0, 0]
 };
 
-const Poll_2 = { id: 1603,
+const Poll2 = { id: 1603,
     judge: "Antrag abgelehnt",
     Gesamt: [250, 475, 1, 83],
     CDU: [0, 224, 0, 22],
@@ -24,7 +24,7 @@ const Poll_2 = { id: 1603,
     fraktionslos: [2, 0, 0, 1]
 }
 
-const Poll_3 = { id: 1639,
+const Poll3 = { id: 1639,
     judge: "Antrag abgelehnt",
     Gesamt: [185, 458, 5, 61],
     CDU: [0, 232, 0, 14],
@@ -36,7 +36,7 @@ const Poll_3 = { id: 1639,
     fraktionslos: [0, 0, 1, 3]
 }
 
-const Poll_4 = { id: 1758,
+const Poll4 = { id: 1758,
     judge: "Antrag abgelehnt",
     Gesamt: [292, 379, 3, 35],
     CDU: [146, 89, 2, 9],
@@ -48,7 +48,7 @@ const Poll_4 = { id: 1758,
     fraktionslos: [2, 2, 0, 1]
 }
 
-const Poll_5 = { id: 3602,
+const Poll5 = { id: 3602,
     judge: "Antrag angenommen",
     Gesamt: [369, 214, 63, 63],
     CDU: [225, 0, 4, 17],
@@ -60,7 +60,7 @@ const Poll_5 = { id: 3602,
     fraktionslos: [0, 2, 0, 4]
 }
 
-const Poll_6 = { id: 3936,
+const Poll6 = { id: 3936,
     judge: "Antrag abgelehnt",
     Gesamt: [59, 476, 1, 113],
     CDU: [0, 212, 0, 34],
@@ -72,7 +72,7 @@ const Poll_6 = { id: 3936,
     fraktionslos: [0, 1, 1, 4]
 }
 
-const Poll_7 = { id: 4088,
+const Poll7 = { id: 4088,
     judge: "Antrag abgelehnt",
     Gesamt: [118, 382, 67, 141],
     CDU: [0, 209, 0, 35],
@@ -84,7 +84,7 @@ const Poll_7 = { id: 4088,
     fraktionslos: [2, 0, 0,4]
 }
 
-const Poll_8 = { id: 4098,
+const Poll8 = { id: 4098,
     judge: "Antrag angenommen",
     Gesamt: [342, 250, 64, 53],
     CDU: [207, 21, 5, 12],
@@ -97,22 +97,22 @@ const Poll_8 = { id: 4098,
 }
 
 switch (id) {
-    case Poll_8.id:
-        return Poll_8;
-    case Poll_7.id:
-        return Poll_7;
-    case Poll_6.id:
-        return Poll_6;
-    case Poll_5.id:
-        return Poll_5;
-    case Poll_4.id:
-        return Poll_4;
-    case Poll_3.id:
-        return Poll_3;
-    case Poll_2.id:
-        return Poll_2;
+    case Poll8.id:
+        return Poll8;
+    case Poll7.id:
+        return Poll7;
+    case Poll6.id:
+        return Poll6;
+    case Poll5.id:
+        return Poll5;
+    case Poll4.id:
+        return Poll4;
+    case Poll3.id:
+        return Poll3;
+    case Poll2.id:
+        return Poll2;
     default:
-        return Poll_1;
+        return Poll1;
 }
 
 };
