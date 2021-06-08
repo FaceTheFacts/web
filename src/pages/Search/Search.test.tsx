@@ -36,8 +36,6 @@ describe('integration test', () => {
 			initialEntries: ['/search'],
 		});
 
-		const setCandidate = jest.fn();
-
 		// when
 		render(
 			<Router history={history}>

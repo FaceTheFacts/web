@@ -1,5 +1,5 @@
 import React from 'react';
-
+// eslint-disable-next-line
 export const politicalFocusHandler = (fetchedData: string) => {
 	const color = 'rgba(255, 255, 255, 0.5)';
 	switch (fetchedData) {

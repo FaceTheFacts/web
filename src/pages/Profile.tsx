@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile';
-import { Candidate, Politician } from '../Types';
+import { Politician } from '../Types';
 import ProfileComponent from '../components/Profile/Profile';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
@@ -26,6 +26,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
 	);
 
 	if (status === 'loading') {
+		// eslint-disable-next-line
 		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 

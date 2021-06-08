@@ -6,9 +6,6 @@ import React, { useState } from 'react';
 import Electionchances from './pages/ElectionChances';
 import Search from './pages/Search/Search';
 import Profile from './pages/Profile';
-import News from './pages/News';
-import Votes from './pages/Votes/Votes';
-import Bio from './pages/Bio';
 import Home from './pages/Home';
 import LegalNotice from './pages/Legal_Notice';
 import Privacy from './pages/Privacy';
@@ -36,16 +33,13 @@ import './theme/variables.css';
 import './pages/mobile-view.css';
 
 /* Global Types */
-import { Candidate, Politician } from './Types';
-
-/* Hardcoded Amthor */
-import { amthor } from './amthor';
-import Position from './pages/Position';
+import { Politician } from './Types';
 
 let politician: Politician;
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
+	// eslint-disable-next-line
 	const [candidate, setCandidate] = useState<Politician>(politician);
 
 	log.setLevel('DEBUG', true);
@@ -77,20 +71,6 @@ const App: React.FC = () => {
 							<Route path="/politician/:id/profile" exact>
 								<Profile candidate={candidate}></Profile>
 							</Route>
-							{/* 						<Route path="/politician/:id/news" exact>
-							<News candidate={candidate as Candidate}></News>
-						</Route>
-						<Route path="/politician/:id/bio" exact>
-							<Bio candidate={candidate as Candidate}></Bio>
-						</Route>
-						<Route path="/politician/:id/votes" exact>
-							<Votes candidate={candidate as Candidate}></Votes>
-						</Route>
-						<Route path="/politician/:id/position" exact>
-							<Position candidate={candidate}></Position>
-						</Route>
-
-						{/* Redirect '/' to '/scan', since that will be our starting point */}
 						</IonRouterOutlet>
 					</IonSplitPane>
 				</IonReactRouter>

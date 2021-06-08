@@ -188,6 +188,7 @@ export type Topic = {
 	entity_type: string;
 	id: number;
 	label: string;
+	// eslint-disable-next-line
 	__proto__: Record<string, any>;
 };
 
@@ -199,15 +200,19 @@ export type SideJobData = {
 	data_change_date: string;
 	entity_type: string;
 	field_city: null;
+	// eslint-disable-next-line
 	field_country: Record<string, any>;
+	// eslint-disable-next-line
 	field_topics: Array<Record<string, any>>;
 	id: number;
 	income_level: null;
 	interval: null;
 	job_title_extra: null;
 	label: string;
+	// eslint-disable-next-line
 	mandates: Array<Record<string, any>>;
 	sidejob_organization: SideJobOrganization;
+	// eslint-disable-next-line
 	__proto__: Record<string, any>;
 };
 

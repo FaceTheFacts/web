@@ -2,13 +2,11 @@ import {IonContent, IonPage, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 import React from 'react';
 import className from 'classnames'
 import ElectionchancesCard from '../components/ElectionChancesCard';
-import SecondVoteCard from '../components/SecondVoteCard';
 import SegmentButtons from '../components/SegmentButtons';
 import PoliticianProfile from '../components/PoliticianProfile'
 import Tabs from '../components/Tabs';
 import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard';
 import './ElectionChances.css';
-import { Candidate } from '../Types';
 import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
 import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVotePopup';
 import { ElectionResult, Politician } from '../Types';
@@ -69,6 +67,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	const stateListClass = className('state', partyClassName)
 
 	if (status === 'loading') {
+		// eslint-disable-next-line
 		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 
@@ -109,21 +108,11 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 					</div>
 				}
 				
-				<div>{/*
-					{segment==='1' ?
-						candidate.secondVote.map((StateList, index) => {
-							return <SecondVoteCard
-								secondVote={StateList}
-								key={`secondvote-${index}`}
-								rank={index + 1}
-							/>;
-						})
-						:*/}
+				<div>
 					{electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
-						
-					return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
-				}) : null
-				}
+						return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
+					}) : null
+					}
 				</div> 
 			</IonContent> 
 		</IonPage>
