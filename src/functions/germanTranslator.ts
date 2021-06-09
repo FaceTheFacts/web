@@ -8,12 +8,12 @@ export const germanTranslator = (word: string): string|undefined => {
 		translated = 'nein';
 		break;
 	case 'abstain':
-		translated = 'enthalten';
+		translated = 'enth';
 		break;
 	case 'none':
 		translated = 'nicht abg';
 		break;
-	case 'absent':
+	case 'no_show':
 		translated = 'abwesend';
 		break;
 	default:
