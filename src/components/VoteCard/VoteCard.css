@@ -112,3 +112,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
+.hidden {
+	display: none;
+}

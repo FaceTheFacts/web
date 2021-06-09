@@ -105,7 +105,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 
 	return (
 		<React.Fragment>
-			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
+			<IonCard className={ votequery.data.data[0].vote === "no_show" ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
