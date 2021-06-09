@@ -68,7 +68,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						</div>
 					</div>
 				) : null}
-				<TitleHeader title="Kürzliche Abstimmungen">
+				<TitleHeader title="Wichtigste Abstimmungen">
 					<LinkButton
 						linkTo={`/politician/${profileId}/votes`}
 						icon={iconEnum.ARROW_FORWARD}
