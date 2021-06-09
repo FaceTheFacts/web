@@ -43,18 +43,22 @@
 }
 
 .politician-detail {
-	font-family: Protipo;
+	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 400;
 	font-size: 12px;
 	line-height: 14px;
+	text-align: center;
+	letter-spacing: 0.7px;
+	text-transform: uppercase;
 	letter-spacing: 0.7px;
 	color: white;
-	background-color: rgba(255, 255, 255, 0.2);
-	border-radius: 4px;
-	margin-inline: 2px;
-	margin-top: 3px;
 	padding: 5px 8px;
+	height: 24px;
+	border-radius: 4px;
+	margin: 0px;
+	margin-right: 12px;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .profile-image {
