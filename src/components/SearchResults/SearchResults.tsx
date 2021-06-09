@@ -26,7 +26,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }: SearchResultsP
 									<IonCardTitle className="search-result-card-title">
 										{result.label}
 									</IonCardTitle>
-									<PartyChip party={result.party.label.toLowerCase()} />
+									<PartyChip party={result.party.label} />
 								</div>
 								<IonIcon
 									className="search-result-card-icon"
