@@ -33,6 +33,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	);
 
 	const name = data?.data.label
+	const party = data?.data.party.label
 
 	const constituency = useQuery(
 		`constituency-${name}`,
@@ -45,6 +46,7 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 	);
 
 	const constituencyId = constituency.data?.data[0].electoral_data.constituency.id
+	const electoralListId = constituency.data?.data[0].electoral_data.electoral_list.id
 
 	const electionResults = useQuery(
 		`electionResults-${constituencyId}`,
@@ -56,9 +58,15 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 		}
 	);
 
-	if (constituency.isFetched) {
-		console.log(constituency);
-	}
+	const stateList = useQuery(
+		`StateList-${party}-${electoralListId}`,
+		() => fetch(`candidacies-mandates?electoral_data[entity.electoral_list.entity.id][eq]=${electoralListId}&politician[entity.party.entity.short_name]=${party}`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+			enabled: !!constituencyId,
+		}
+	);
 
 	const constituencyName = constituency.data?.data[0].electoral_data.constituency.label
 	const stateName = constituency.data?.data[0].electoral_data.electoral_list.label
@@ -109,10 +117,18 @@ const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: Election
 				}
 				
 				<div>
-					{electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
-						return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
-					}) : null
-					}
+					{segment==='1' ?
+						stateList.data?.data.map((StateList: ElectionResult, index: number) => {
+							return <SecondVoteCard
+								secondVote={StateList}
+								key={`secondvote-${index}`}
+							/>;
+						})
+						:
+						electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
+						
+							return <ElectionchancesCard vote={ElectionResults} key={`electionResults-${index}`}/>;
+						}) : null }
 				</div> 
 			</IonContent> 
 		</IonPage>
