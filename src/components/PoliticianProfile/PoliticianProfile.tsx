@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
@@ -11,8 +10,6 @@ interface ContainerProps {
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
-	const partyClassName = candidate.party.label.toLowerCase().replace(/\s/g, '');
-
 	return (
 		<div className="header">
 			<IonGrid>
