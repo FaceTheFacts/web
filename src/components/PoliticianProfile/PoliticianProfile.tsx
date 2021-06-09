@@ -4,6 +4,7 @@ import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
 import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
+import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 
 interface ContainerProps {
 	candidate: Politician;
@@ -24,11 +25,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 							<IonCardTitle>{candidate.label}</IonCardTitle>
 						</div>
 						<div className="politican-details">
-							<IonChip
-								className={classnames('politician-detail', `${partyClassName}`)}
-							>
-								{candidate.party.label}
-							</IonChip>
+							<PartyChip party={candidate.party.label} />
 							{candidate.occupation !== null ? (
 								<IonChip className="politician-detail">
 									{candidate.occupation}
