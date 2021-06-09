@@ -10,8 +10,7 @@ import {
 	IonCol,
 	IonRow,
 } from '@ionic/react';
-import { ElectionResult } from '../Types';
-import '../index.css';
+import { ElectionResult } from '../../Types';
 
 interface ContainerProps {
 	vote: ElectionResult;

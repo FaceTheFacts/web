@@ -1,7 +1,7 @@
 import {IonContent, IonPage, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 import React from 'react';
 import className from 'classnames'
-import ElectionchancesCard from '../components/ElectionChancesCard';
+import ElectionchancesCard from '../components/ElectionChancesCard/ElectionChancesCard';
 import SegmentButtons from '../components/SegmentButtons';
 import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile'
 import Tabs from '../components/Tabs';
