@@ -10,8 +10,8 @@ const SecondVotePopup: React.FC = () => (
 	<PopupCard
 		title="Wie funktioniert die Zweitstimme?"
 		bottomContent={[
-			'Es kann also sein, dass ein Politiker auf der Landesliste nicht von deiner Stimme profitiert, weil er soweit unten steht, dass er keine Chance hat. ',
-			' Außerdem kann es sein, dass du Politiker indirekt reinwählst, mit denen du nicht einverstanden bist. ',
+			'Es kann also sein, dass ein Politiker:innen auf der Landesliste nicht von deiner Stimme profitiert, weil er soweit unten steht, dass er keine Chance hat. ',
+			' Außerdem kann es sein, dass du Politiker:innen indirekt reinwählst, mit denen du nicht einverstanden bist. ',
 			'Schau dir deshalb die Liste genau an.',
 		]}
 	>
