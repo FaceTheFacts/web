@@ -1,7 +1,7 @@
 .party-chip {
 	font-family: 'protipo', sans-serif;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 400;
 	font-size: 12px;
 	line-height: 14px;
 	text-align: center;
@@ -14,26 +14,75 @@
 	border-radius: 4px;
 	margin: 0px;
 	margin-right: 12px;
+	background-color: #333333;
+}
+
+.gesamt {
 	background-color: #636363;
 }
 
-.gesamt-1 {
-	background-color: #636363;
+.fraktionslos {
+	background: #ffffff;
+	color: #333333;
 }
 
-.cdu-1 {
-	background-color: #636363;
+.bayernpartei {
+	background: #ffffff;
+	border: 2px solid #3aa6f4;
+	color: #3aa6f4;
 }
 
-.spd-1 {
-	background-color: #e95050;
+.freiewähler {
+	background: #ffffff;
+	border: 2px solid #fd820b;
+	color: #2f5997;
 }
 
-.fdp-1 {
+.fdp {
 	background-color: #faed0b;
 	color: #181924;
 }
 
-.grüne-1 {
+.piraten {
+	background: #ffb430;
+}
+
+.ödp {
+	background: #fd820b;
+}
+
+.spd {
+	background-color: #e95050;
+}
+
+.dielinke {
+	background: #cd3e72;
+}
+
+.diepartei {
+	background: #81323d;
+}
+
+.grüne {
 	background-color: #61a056;
+}
+
+.afd {
+	background: #3aa6f4;
+}
+
+.tierschutz {
+	background: #2f5997;
+}
+
+.rep {
+	background: #2f5997;
+}
+
+.npd {
+	background: #a97d4f;
+}
+
+.cdu {
+	background: #636363;
 }
