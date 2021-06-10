@@ -1,7 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line
 export const politicalFocusHandler = (fetchedData: string) => {
-	const color = 'rgba(255, 255, 255, 0.5)';
+	const color = 'rgba(255, 255, 255, 1)';
 	switch (fetchedData) {
 	case 'Ausschuss Digitale Agenda':
 		return (
