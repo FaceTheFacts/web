@@ -9,17 +9,13 @@ import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard
 import './ElectionChances.css';
 import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
 import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVotePopup';
-import { ElectionResult, Politician } from '../Types';
+import { ElectionResult } from '../Types';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 import { useParams } from 'react-router';
 import SecondVoteCard from '../components/SecondVoteCard';
 
-interface ElectionchancesProps {
-	candidate: Politician;
-}
-/* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Electionchances: React.FC<ElectionchancesProps> = ({ candidate }: ElectionchancesProps) => {
+const Electionchances: React.FC  = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const [segment, setSegment] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 

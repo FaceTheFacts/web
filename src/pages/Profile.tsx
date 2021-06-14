@@ -13,7 +13,7 @@ interface ProfileProps {
 }
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
+const Profile: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
 	const { data, status, error } = useQuery(

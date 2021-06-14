@@ -2,7 +2,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { Route } from 'react-router-dom';
 import log from 'loglevel';
-import React, { useState } from 'react';
+import React from 'react';
 import Electionchances from './pages/ElectionChances';
 import Search from './pages/Search/Search';
 import Profile from './pages/Profile';
@@ -32,16 +32,9 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './pages/mobile-view.css';
 
-/* Global Types */
-import { Politician } from './Types';
-
-let politician: Politician;
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
-	// eslint-disable-next-line
-	const [candidate, setCandidate] = useState<Politician>(politician);
-
 	log.setLevel('DEBUG', true);
 	return (
 		<QueryClientProvider client={queryClient}>
@@ -66,10 +59,10 @@ const App: React.FC = () => {
 								<Search />
 							</Route>
 							<Route path="/politician/:id/election">
-								<Electionchances candidate={candidate} />
+								<Electionchances />
 							</Route>
 							<Route path="/politician/:id/profile" exact>
-								<Profile candidate={candidate}></Profile>
+								<Profile />
 							</Route>
 						</IonRouterOutlet>
 					</IonSplitPane>
