@@ -4,12 +4,16 @@ import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
+import '../index.css';
+import { occupationHandler } from '../../functions/occupationHandler';
 
 interface ContainerProps {
 	candidate: Politician;
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
+	occupationHandler(candidate.occupation);
+
 	return (
 		<div className="header">
 			<IonGrid>
@@ -24,9 +28,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						<div className="politican-details">
 							<PartyChip party={candidate.party.label} />
 							{candidate.occupation !== null ? (
-								<IonChip className="politician-detail">
-									{candidate.occupation}
-								</IonChip>
+								occupationHandler(candidate.occupation)
 							) : null}
 						</div>
 					</IonCol>
