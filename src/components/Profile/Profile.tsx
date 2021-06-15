@@ -33,7 +33,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 	const sideJobs = useQuery(
 		`sideJob-${candidate.label}`,
-		() => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=10`),
+		() => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=15`),
 		{
 			staleTime: 60 * 2880000,
 			cacheTime: 60 * 2880000, // 2 days
@@ -68,6 +68,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						</div>
 					</div>
 				) : null}
+				{polls[0].data !== undefined ? (
+				<div>
 				<TitleHeader title="Wichtigste Abstimmungen">
 					<LinkButton
 						linkTo={`/politician/${profileId}/votes`}
@@ -76,13 +78,16 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				</TitleHeader>
 				<ul className="vote-card-lists">
 					{polls.map((poll: any, index: number) => {
+						if (poll.data?.data !== undefined) {
 						return (
 							<li key={index}>
-								<VoteCard vote={poll.data.data} name={candidate.label} />
+								<VoteCard vote={poll.data?.data} name={candidate.label} />
 							</li>
-						);
+						);} 
 					})}
 				</ul>
+				</div>
+				) : null }
 
 				<TitleHeader title="Bezahlte Tätigkeiten" />
 				{
