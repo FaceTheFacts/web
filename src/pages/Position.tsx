@@ -74,25 +74,25 @@ const examplePositionData = [
 ];
 
 const Position: React.FC = () => {
-		/* Here we define the variable 'name' to be used as a parameter in components */
-		const { id } = useParams<{ id: string }>();
-		const { data, status, error } = useQuery(
-			`politicianProfile-${id}`,
-			() => fetch(`politicians/${id}?related_data=show_information`),
-			{
-				staleTime: 60 * 10000000, // 10000 minute = around 1 week
-				cacheTime: 60 * 10000000,
-			}
-		);
-	
-		if (status === 'loading') {
-			// eslint-disable-next-line
-			return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
+	/* Here we define the variable 'name' to be used as a parameter in components */
+	const { id } = useParams<{ id: string }>();
+	const { data, status, error } = useQuery(
+		`politicianProfile-${id}`,
+		() => fetch(`politicians/${id}?related_data=show_information`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
 		}
-	
-		if (status === 'error') {
-			return <p>Error: {error}</p>;
-		}
+	);
+
+	if (status === 'loading') {
+		// eslint-disable-next-line
+		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
+	}
+
+	if (status === 'error') {
+		return <p>Error: {error}</p>;
+	}
 	return (
 		<IonPage className="Profile-Mobile">
 			{data !== undefined ? <PoliticianProfile candidate={data.data} /> : null}
