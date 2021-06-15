@@ -31,6 +31,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './pages/mobile-view.css';
+import Position from './pages/Position';
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,9 @@ const App: React.FC = () => {
 							</Route>
 							<Route path="/politician/:id/profile" exact>
 								<Profile />
+							</Route>
+							<Route path="/politician/:id/position" exact>
+								<Position/>
 							</Route>
 						</IonRouterOutlet>
 					</IonSplitPane>
