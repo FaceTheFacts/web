@@ -66,7 +66,7 @@ const App: React.FC = () => {
 								<Profile />
 							</Route>
 							<Route path="/politician/:id/position" exact>
-								<Position/>
+								<Position />
 							</Route>
 						</IonRouterOutlet>
 					</IonSplitPane>
