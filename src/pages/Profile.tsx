@@ -3,14 +3,9 @@ import React from 'react';
 import { useParams } from 'react-router';
 import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile';
-import { Politician } from '../Types';
 import ProfileComponent from '../components/Profile/Profile';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
-
-interface ProfileProps {
-	candidate: Politician;
-}
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC = () => {
