@@ -1,7 +1,7 @@
 import React from 'react';
 import TopicCard from '../TopicCard';
 import LinkButton from '../LinkButton';
-import { Candidate, SideJob, Politician, PollData } from '../../Types';
+import { Politician } from '../../Types';
 import VoteCard from '../VoteCard/VoteCard';
 import SideJobCard from '../SideJobCard';
 import './Profile.css';
@@ -17,7 +17,6 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
-
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 
 	const { data, status, error } = useQuery(
@@ -40,18 +39,18 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 		}
 	);
 	const polls = useQueries(
-		pollIds.map(pollId => {
+		pollIds.map((pollId) => {
 			return {
 				queryKey: ['poll', pollId],
 				queryFn: () => fetch(`polls/${pollId}`),
-			staleTime: 60 * 1440000,
-			cacheTime: 60 * 1440000, // 1 day
-			}
+				staleTime: 60 * 1440000,
+				cacheTime: 60 * 1440000, // 1 day
+			};
 		})
 	);
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
-		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
+		return <iframe title="loading" src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
 	}
 
 	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
@@ -69,25 +68,29 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					</div>
 				) : null}
 				{polls[0].data !== undefined ? (
-				<div>
-				<TitleHeader title="Wichtigste Abstimmungen">
-					<LinkButton
-						linkTo={`/politician/${profileId}/votes`}
-						icon={iconEnum.ARROW_FORWARD}
-					/>
-				</TitleHeader>
-				<ul className="vote-card-lists">
-					{polls.map((poll: any, index: number) => {
-						if (poll.data?.data !== undefined) {
-						return (
-							<li key={index}>
-								<VoteCard vote={poll.data?.data} name={candidate.label} />
-							</li>
-						);} 
-					})}
-				</ul>
-				</div>
-				) : null }
+					<div>
+						<TitleHeader title="Wichtigste Abstimmungen">
+							<LinkButton
+								linkTo={`/politician/${profileId}/votes`}
+								icon={iconEnum.ARROW_FORWARD}
+							/>
+						</TitleHeader>
+						<ul className="vote-card-lists">
+							{polls.map((poll: any, index: number) => {
+								if (poll.data?.data !== undefined) {
+									return (
+										<li key={index}>
+											<VoteCard
+												vote={poll.data?.data}
+												name={candidate.label}
+											/>
+										</li>
+									);
+								}
+							})}
+						</ul>
+					</div>
+				) : null}
 
 				<TitleHeader title="Bezahlte Tätigkeiten" />
 				{

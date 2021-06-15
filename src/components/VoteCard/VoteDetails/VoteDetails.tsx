@@ -2,8 +2,6 @@ import React from 'react';
 import InfoText from './InfoText/Infotext';
 import Middlebar from './Middlebar/Middlebar';
 import Preview from './Preview/Preview';
-import { ColumnType } from './Table/Content/Columns/Column/Column';
-import { TotalColumnType } from './Table/Content/Columns/TotalColumn/TotalColumn';
 import Table from './Table/Table';
 import VoteDetailsToolbar from './VotesDetailsToolbar/VoteDetailsToolbar';
 

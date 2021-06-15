@@ -2,8 +2,6 @@ import React from 'react';
 import './Table.css';
 import Content from './Content/Content';
 import PositioningColumns from './PositioningColumns/PositioningColumns';
-import { TotalColumnType } from './Content/Columns/TotalColumn/TotalColumn';
-import { ColumnType } from './Content/Columns/Column/Column';
 
 interface TableProps {
 	totalVote: Array<number>;
