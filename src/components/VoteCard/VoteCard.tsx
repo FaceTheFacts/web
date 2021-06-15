@@ -69,6 +69,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	if (yes.status === 'error') {
 		return <p>Error: {votequery.error}</p>;
 	}
+
+	if(votequery.status === 'success' && votequery.data.data[0] === undefined) {
+		return <p>Sorry, keine Daten</p>
+	}
 	
 	const Poll = voteDetailsHandler(vote.id);
 	const voteStrings = {
@@ -105,7 +109,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 
 	return (
 		<React.Fragment>
-			<IonCard className={ votequery.data.data[0].vote === "no_show" ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
+			<IonCard className={ votequery.data?.data[0].vote === "no_show" && votequery.data?.data[0] !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
