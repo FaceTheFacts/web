@@ -13,6 +13,7 @@ import { ElectionResult, Politician } from '../Types';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 import { useParams } from 'react-router';
+import SecondVoteCard from '../components/SecondVoteCard';
 
 interface ElectionchancesProps {
 	candidate: Politician;

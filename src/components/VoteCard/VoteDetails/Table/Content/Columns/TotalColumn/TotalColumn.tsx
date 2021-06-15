@@ -11,9 +11,8 @@ interface TotalColumnProps {
 	votes: Array<number>;
 }
 
-
 const TotalColumn: React.FC<TotalColumnProps> = (props: TotalColumnProps) => (
 	<Column party="Gesamt" votes={props.votes} />
-); 
+);
 
 export default TotalColumn;

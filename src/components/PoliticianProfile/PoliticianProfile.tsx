@@ -1,10 +1,9 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonChip, IonCardTitle } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonCardTitle } from '@ionic/react';
 import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
-import '../index.css';
 import { occupationHandler } from '../../functions/occupationHandler';
 
 interface ContainerProps {
@@ -27,9 +26,9 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						</div>
 						<div className="politican-details">
 							<PartyChip party={candidate.party.label} />
-							{candidate.occupation !== null ? (
-								occupationHandler(candidate.occupation)
-							) : null}
+							{candidate.occupation !== null
+								? occupationHandler(candidate.occupation)
+								: null}
 						</div>
 					</IonCol>
 				</IonRow>

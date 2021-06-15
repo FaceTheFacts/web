@@ -9,12 +9,15 @@ import {
 	IonGrid,
 	IonCol,
 	IonRow,
+	IonContent,
+	IonModal,
 } from '@ionic/react';
 import { PollData } from '../../Types';
-import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 import Positioning from '../PositionCards/Positioning/Positioning';
 import { useQuery } from 'react-query';
 import fetch from '../../functions/queries'
+import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
+import VoteDetails from './VoteDetails/VoteDetails';
 
 interface ContainerProps {
 	vote: PollData;
@@ -25,37 +28,13 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
+	const modalCloser = (): void => {
+		setShowDetails(false);
+	};
+
 	const votequery = useQuery(
 		`vote-${vote.id}`,
 		() => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-		}
-	);
-	const yes = useQuery(
-		`yes-${vote.id}`,
-		() => fetch(`votes?poll=${vote.id}&vote=yes&range_end=1`),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-		}
-	);
-	const no = useQuery(`no-${vote.id}`, () => fetch(`votes?poll=${vote.id}&vote=no&range_end=1`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000,
-	});
-	const noShow = useQuery(
-		`noShow-${vote.id}`,
-		() => fetch(`votes?poll=${vote.id}&vote=no_show&range_end=1`),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-		}
-	);
-	const abstain = useQuery(
-		`abstain-${vote.id}`,
-		() => fetch(`votes?poll=${vote.id}&vote=abstain&range_end=1`),
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
@@ -66,8 +45,8 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 		return <p>Loading</p>;
 	}
 
-	if (yes.status === 'error') {
-		return <p>Error: {votequery.error}</p>;
+	if (votequery.status === 'error') {
+		return <p>Error: {votequery.error}</p>
 	}
 
 	if(votequery.status === 'success' && votequery.data.data[0] === undefined) {
@@ -75,31 +54,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	}
 	
 	const Poll = voteDetailsHandler(vote.id);
-	const voteStrings = {
-		yes: 'Ja',
-		no: 'Nein',
-		abstain: 'Enthalten',
-		none: 'Nicht Abg.',
-	};
 
-	let judge, noTotal: number, yesTotal: number, abstainTotal: number, noShowTotal: number;
-	let totalvotes: [number, number, number, number] = [0, 0, 0, 0];
+	let judge;
 	/* 
 	Dynamically calculate the total number of votes
 	*/
-	if (
-		yes.status === 'success' &&
-		no.status === 'success' &&
-		abstain.status === 'success' &&
-		noShow.status === 'success'
-	) {
-		yesTotal = yes.data?.meta.result.total;
-		noTotal = no.data?.meta.result.total;
-		abstainTotal = abstain.data?.meta.result.total;
-		noShowTotal = noShow.data?.meta.result.total;
-		totalvotes = [yesTotal, noTotal, abstainTotal, noShowTotal];
-		judge = 'Antrag ' + voteJudgeHandler(yesTotal, yesTotal + noTotal + abstainTotal);
-	}
+
 
 	let positioning = 'noData';
 
@@ -109,7 +69,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 
 	return (
 		<React.Fragment>
-			<IonCard className={ votequery.data?.data[0].vote === "no_show" && votequery.data?.data[0] !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
+			<IonCard className={ votequery.data?.data[0].vote === 'no_show' && votequery.data?.data[0] !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
@@ -164,7 +124,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							clicked={modalCloser}
 							title={vote.label}
 							content={vote.field_intro}
-							positioning={votequery.data.data[0].vote}
+							positioning={positioning}
 							result={Poll.judge}
 							totalVote={Poll.Gesamt}
 							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.AfD, Poll.LINKE, Poll.fraktionslos]}
