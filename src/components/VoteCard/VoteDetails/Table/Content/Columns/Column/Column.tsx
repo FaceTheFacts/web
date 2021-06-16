@@ -26,7 +26,7 @@ const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
 		case '3':
 			return 'Grünen';
 		case '4':
-			return 'LINKE';
+			return 'Die LINKE';
 		case '5':
 			return 'AfD';
 		case '6':
