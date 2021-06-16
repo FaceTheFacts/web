@@ -1,7 +1,7 @@
 import { IonChip } from '@ionic/react';
 import React from 'react';
 
-export const occupationHandler = (occupation: string) => {
+export const occupationHandler = (occupation: string): JSX.Element => {
 	let firstPartIndex: number;
 	if (occupation.includes('Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit')) {
 		firstPartIndex = occupation.lastIndexOf(',');
@@ -11,7 +11,7 @@ export const occupationHandler = (occupation: string) => {
 
 	let firstPart: string;
 	let secondPart = '';
-	const stringHandler = (secondPart: string) => {
+	const stringHandler = (secondPart: string): string => {
 		switch (secondPart) {
 		case 'Fraktionsvorsitzender DIE LINKE im Bundestag':
 			return 'Fraktionsvorsitzender';
@@ -38,7 +38,7 @@ export const occupationHandler = (occupation: string) => {
 		}
 	};
 
-	const ministryHandler = (secondPart: string) => {
+	const ministryHandler = (secondPart: string): string => {
 		switch (secondPart) {
 		case 'Bundesminister des Auswärtigen':
 			return 'Außenminister';
@@ -65,7 +65,7 @@ export const occupationHandler = (occupation: string) => {
 		}
 	};
 
-	const stateHandler = (secondPart: string) => {
+	const stateHandler = (secondPart: string): string => {
 		switch (secondPart) {
 		case 'Ministerpräsident NRW':
 			return 'Ministerpräsident';
@@ -76,7 +76,7 @@ export const occupationHandler = (occupation: string) => {
 		}
 	};
 
-	const inputHandler = (part: string) => {
+	const inputHandler = (part: string): string => {
 		return stringHandler(ministryHandler(stateHandler(part)));
 	};
 

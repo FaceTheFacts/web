@@ -1,4 +1,17 @@
-export const voteDetailsHandler = (id: number) => {
+interface PollDataHard {
+	id: number;
+	judge: string;
+	Gesamt: Array<number>;
+	CDU: Array<number>;
+	SPD: Array<number>;
+	FDP: Array<number>;
+	Grünen: Array<number>;
+	LINKE: Array<number>;
+	AfD: Array<number>;
+	fraktionslos: Array<number>;
+}
+
+export const voteDetailsHandler = (id: number): PollDataHard => {
 	const Poll1 = {
 		id: 1584,
 		judge: 'Antrag angenommen',
