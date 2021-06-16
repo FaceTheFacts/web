@@ -7,7 +7,6 @@ exports[`integration test renders page correctly 1`] = `
   >
     <ion-content
       class="search-page"
-      fullscreen="true"
     >
       <div
         class="search-content"

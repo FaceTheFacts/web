@@ -15,7 +15,7 @@ interface ColumnProps {
 }
 
 const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
-	const partyNameHandler = (index: string) => {
+	const partyNameHandler = (index: string): string => {
 		switch (index) {
 		case '0':
 			return 'CDU';
