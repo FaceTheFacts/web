@@ -5,7 +5,7 @@ import Tabs from '../components/Tabs';
 import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile';
 import ProfileComponent from '../components/Profile/Profile';
 import { useQuery } from 'react-query';
-import fetch from '../functions/queries';
+import axios from 'axios';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Profile: React.FC = () => {
@@ -13,7 +13,10 @@ const Profile: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
 	const { data, status, error } = useQuery(
 		`politicianProfile-${id}`,
-		() => fetch(`politicians/${id}?related_data=show_information`),
+		async () => {
+			const res = await axios.get(`/politicians/${id}`);
+			return await res.data;
+		},
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
