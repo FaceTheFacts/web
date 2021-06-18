@@ -2,6 +2,7 @@
 	"name": "face-the-facts",
 	"version": "0.0.1",
 	"private": true,
+	"proxy": "http://localhost:8000",
 	"description": "An Ionic project",
 	"scripts": {
 		"build": "node scripts/build.js",
