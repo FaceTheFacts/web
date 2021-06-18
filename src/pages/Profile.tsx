@@ -20,27 +20,24 @@ const Profile: React.FC = () => {
 		}
 	);
 
-	if (status === 'loading') {
+	switch (status) {
+	case 'loading':
 		// eslint-disable-next-line
-		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
-	}
-
-	if (status === 'error') {
+			return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
+	case 'error':
 		return <p>Error: {error}</p>;
+	default:
+		/* This is returned when using this component */
+		return (
+			<IonPage className="Profile-Mobile">
+				{data !== undefined ? <PoliticianProfile candidate={data} /> : null}
+				<Tabs />
+				<IonContent>
+					<ProfileComponent candidate={data} profileId={id} />
+				</IonContent>
+			</IonPage>
+		);
 	}
-
-	/* This is returned when using this component */
-	return (
-		<IonPage className="Profile-Mobile">
-			{' '}
-			{/* Page Tag */}
-			{data !== undefined ? <PoliticianProfile candidate={data.data} /> : null}
-			<Tabs />
-			<IonContent>
-				<ProfileComponent candidate={data.data} profileId={id} />
-			</IonContent>
-		</IonPage>
-	);
 };
 
 export default Profile;
