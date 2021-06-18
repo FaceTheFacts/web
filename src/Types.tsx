@@ -122,7 +122,7 @@ export type Politician = {
 	deceased_date: string;
 	education: string;
 	residence: string;
-	occupation: string;
+	occupation: Array<string>;
 	statistic_questions: number;
 	statistic_questions_answered: number;
 	qid_wikidata: string;
