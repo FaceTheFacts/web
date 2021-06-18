@@ -14,6 +14,7 @@ import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 import { useParams } from 'react-router';
 import SecondVoteCard from '../components/SecondVoteCard';
+import axios from 'axios';
 
 const Electionchances: React.FC  = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
@@ -22,15 +23,16 @@ const Electionchances: React.FC  = () => {
 	const { id } = useParams<{ id: string }>();
 	const { data, status, error } = useQuery(
 		`politicianProfile-${id}`,
-		() => fetch(`politicians/${id}?related_data=show_information`),
+		async () => await (await axios.get(`/politicians/${id}`)).data
+		,
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
 		}
 	);
 
-	const name = data?.data.label
-	const party = data?.data.party.label
+	const name = data?.label
+	const party = data?.party.id
 
 	const constituency = useQuery(
 		`constituency-${name}`,
@@ -57,7 +59,7 @@ const Electionchances: React.FC  = () => {
 
 	const stateList = useQuery(
 		`StateList-${party}-${electoralListId}`,
-		() => fetch(`candidacies-mandates?electoral_data[entity.electoral_list.entity.id][eq]=${electoralListId}&politician[entity.party.entity.short_name]=${party}`),
+		() => fetch(`candidacies-mandates?electoral_data[entity.electoral_list.entity.id][eq]=${electoralListId}&politician[entity.party.entity.id]=${party}`),
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
@@ -68,7 +70,7 @@ const Electionchances: React.FC  = () => {
 	const constituencyName = constituency.data?.data[0].electoral_data.constituency.label
 	const stateName = constituency.data?.data[0].electoral_data.electoral_list.label
 
-	const partyClassName = data?.data.party.label.toLowerCase().replace(/\s/g, '');
+	const partyClassName = data?.party.label.toLowerCase().replace(/\s/g, '');
 	const stateListClass = className('state', partyClassName)
 
 	if (status === 'loading') {
@@ -85,7 +87,7 @@ const Electionchances: React.FC  = () => {
 	return (
 		<IonPage className="Profile-Mobile">
 			{/* Here the content of our page starts */}
-			<PoliticianProfile candidate={data.data} />
+			<PoliticianProfile candidate={data} />
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
 			<IonContent>
@@ -106,7 +108,7 @@ const Electionchances: React.FC  = () => {
 						</VoteExplainerCard>
 						<div className="election-chances-secondVote">
 							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-							<IonCardTitle className={stateListClass}><span>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? stateName : null}</span></IonCardTitle>
+							<IonCardTitle className={stateListClass}><span>{status === 'success' ? data.party.label : null } {constituency.isFetched ? stateName : null}</span></IonCardTitle>
 						</div>
 						<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
 						<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
