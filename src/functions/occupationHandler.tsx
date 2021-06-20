@@ -1,7 +1,4 @@
-import { IonChip } from '@ionic/react';
-import React from 'react';
-
-export const occupationHandler = (occupation: string): JSX.Element => {
+export const occupationHandler = (occupation: string): string[] => {
 	let firstPartIndex: number;
 	if (occupation.includes('Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit')) {
 		firstPartIndex = occupation.lastIndexOf(',');
@@ -90,22 +87,11 @@ export const occupationHandler = (occupation: string): JSX.Element => {
 		if (secondPartIndex !== -1) {
 			realSecondPart = secondPart.slice(0, secondPartIndex);
 			thirdPart = secondPart.slice(secondPartIndex + 2);
-			return (
-				<div>
-					<IonChip className="politician-detail">{inputHandler(firstPart)}</IonChip>
-					<IonChip className="politician-detail">{inputHandler(realSecondPart)}</IonChip>
-					<IonChip className="politician-detail">{inputHandler(thirdPart)}</IonChip>
-				</div>
-			);
+			return [inputHandler(firstPart), inputHandler(realSecondPart), inputHandler(thirdPart)]
 		} else {
-			return (
-				<div>
-					<IonChip className="politician-detail">{inputHandler(firstPart)}</IonChip>
-					<IonChip className="politician-detail">{inputHandler(secondPart)}</IonChip>
-				</div>
-			);
+			return [inputHandler(firstPart), inputHandler(secondPart)]
 		}
 	} else {
-		return <IonChip className="politician-detail">{occupation}</IonChip>;
+		return [occupation]
 	}
 };
