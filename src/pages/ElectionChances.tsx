@@ -97,7 +97,7 @@ const Electionchances: React.FC  = () => {
 						</VoteExplainerCard>
 						<div className="election-chances-firstVote">
 							<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
-							<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyName : null}</IonCardTitle>
+							<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyCardHandler(constituencyName) : null}</IonCardTitle>
 						</div>
 					</div>
 					: 
