@@ -73,15 +73,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
-							<IonCol size="8">
+							<IonCol size="9">
 								<IonCardTitle
-									className="vote-card-title"
+									className={vote.label.length < 50 ? "vote-card-title" : "vote-card-title large-label"}
 									data-testid="vote-card-title"
 								>
 									{vote.label}
 								</IonCardTitle>
 							</IonCol>
-							<IonCol size="4">
+							<IonCol size="3">
 								<div className="candidate-vote">
 									<Positioning positioning={positioning} />
 								</div>
