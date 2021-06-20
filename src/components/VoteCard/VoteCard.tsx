@@ -75,7 +75,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 						<IonRow>
 							<IonCol size="9">
 								<IonCardTitle
-									className={vote.label.length < 50 ? "vote-card-title" : "vote-card-title large-label"}
+									className={vote.label.length < 50 ? 'vote-card-title' : 'vote-card-title large-label'}
 									data-testid="vote-card-title"
 								>
 									{vote.label}

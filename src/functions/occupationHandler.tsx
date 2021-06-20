@@ -2,11 +2,10 @@ export const occupationHandler = (occupation: string): string[] => {
 	let firstPartIndex: number;
 	if (occupation.includes('Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit')) {
 		firstPartIndex = occupation.lastIndexOf(',');
-	} 
-	if(occupation.includes('Bundesminister des Inneres, Bau und Heimat')){
-		firstPartIndex = 42;
 	}
-	else {
+	if (occupation.includes('Bundesminister des Inneres, Bau und Heimat')) {
+		firstPartIndex = 42;
+	} else {
 		firstPartIndex = occupation.indexOf(',');
 	}
 
@@ -95,11 +94,11 @@ export const occupationHandler = (occupation: string): string[] => {
 		if (secondPartIndex !== -1) {
 			realSecondPart = secondPart.slice(0, secondPartIndex);
 			thirdPart = secondPart.slice(secondPartIndex + 2);
-			return [inputHandler(firstPart), inputHandler(realSecondPart), inputHandler(thirdPart)]
+			return [inputHandler(firstPart), inputHandler(realSecondPart), inputHandler(thirdPart)];
 		} else {
-			return [inputHandler(firstPart), inputHandler(secondPart)]
+			return [inputHandler(firstPart), inputHandler(secondPart)];
 		}
 	} else {
-		return [occupation]
+		return [occupation];
 	}
 };

@@ -27,9 +27,15 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						<div className="politician-details">
 							<PartyChip party={candidate.party.label} />
 							{candidate.occupation !== null
-								? occupationHandler(candidate.occupation).map((occupation: string, index: number) => {
-									return <IonChip key={index} className="politician-detail" >{occupation}</IonChip>
-								})
+								? occupationHandler(candidate.occupation).map(
+									(occupation: string, index: number) => {
+										return (
+											<IonChip key={index} className="politician-detail">
+												{occupation}
+											</IonChip>
+										);
+									}
+								)
 								: null}
 						</div>
 					</IonCol>

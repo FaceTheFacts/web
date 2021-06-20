@@ -46,7 +46,6 @@
 }
 
 .state {
-	
 	font-family: Protipo;
 	font-style: normal;
 	font-weight: bold;
@@ -98,7 +97,6 @@ ion-content {
 
 .firstVote {
 	--background: rgba(24, 25, 36, 1);
-	;
 }
 
 .secondVote {
