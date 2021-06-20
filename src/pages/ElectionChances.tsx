@@ -89,7 +89,7 @@ const Electionchances: React.FC  = () => {
 			<PoliticianProfile candidate={data.data} />
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
-			<IonContent className={segment==='0' ? "firstVote" : "secondVote"}>
+			<IonContent className={segment==='0' ? 'firstVote' : 'secondVote'}>
 				{segment==='0' ? 
 					<div>
 						<VoteExplainerCard vote="Erststimme">
@@ -106,11 +106,11 @@ const Electionchances: React.FC  = () => {
 							<SecondVotePopup/>
 						</VoteExplainerCard>
 						<div className="election-chances-secondVote">
-							<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>							
+							<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
 							<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
 						</div>
 						<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-						<IonCardTitle><span className={stateListClass + " constituencycard"}>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? constituencyCardHandler(stateName) : null}</span></IonCardTitle>
+						<IonCardTitle><span className={stateListClass + ' constituencycard'}>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? constituencyCardHandler(stateName) : null}</span></IonCardTitle>
 					</div>
 				}
 				
