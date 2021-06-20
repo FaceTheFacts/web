@@ -5,11 +5,12 @@ import './SecondVoteCard.css';
 
 interface CandidateInfoProps {
 	secondVote: ElectionResult;
+	candidateName: string;
 }
 
-const SecondVoteCard: React.FC<CandidateInfoProps> = ({ secondVote }: CandidateInfoProps) => {
+const SecondVoteCard: React.FC<CandidateInfoProps> = ({ secondVote, candidateName }: CandidateInfoProps) => {
 	return (
-		<IonCard className="secondvote-card">
+		<IonCard className={ candidateName === secondVote.politician.label ? "secondvote-card blue" : "secondvote-card"}>
 			<IonCardHeader className="secondvote-card-header">
 				<IonCardTitle className="secondvote-card-name" data-testid="rank-secondVote">
 					<span className="rank">#{secondVote.electoral_data.list_position}</span>{' '}
