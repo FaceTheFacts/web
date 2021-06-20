@@ -2,7 +2,11 @@ export const occupationHandler = (occupation: string): string[] => {
 	let firstPartIndex: number;
 	if (occupation.includes('Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit')) {
 		firstPartIndex = occupation.lastIndexOf(',');
-	} else {
+	} 
+	if(occupation.includes('Bundesminister des Inneres, Bau und Heimat')){
+		firstPartIndex = 42;
+	}
+	else {
 		firstPartIndex = occupation.indexOf(',');
 	}
 
@@ -56,7 +60,11 @@ export const occupationHandler = (occupation: string): string[] => {
 		case 'Bundesminister für wirtschaftliche Zusammenarbeit und Entwicklung':
 			return 'Bundesentwicklungshilfeminister';
 		case 'Bundesminister für besondere Aufgaben und Chef des Bundeskanzleramts':
-			return 'Chef des Bundeskanzleramts';
+			return 'Bundeskanzleramtschef';
+		case 'Bundesminister des Inneres, Bau und Heimat':
+			return 'Bundesinnenminister';
+		case 'Ministerpräsidentin des Saarlandes':
+			return 'Bundesverteidigungsministerin';
 		default:
 			return secondPart;
 		}
