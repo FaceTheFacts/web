@@ -14,3 +14,7 @@
 .politicalFocus > svg {
 	margin-right: 10px;
 }
+
+.emptyFocus {
+	display: none;
+}
