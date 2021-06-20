@@ -16,7 +16,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topics }: TopicCardProps) => {
 					.reverse()
 					.map((topic: Topic, index: number) => {
 						return (
-							<IonChip className="topic-card" key={`topic-${index}`}>
+							<IonChip className={politicalFocusHandler(topic.committee.label)=== null ? "emptyFocus" : "topic-card"} key={`topic-${index}`}>
 								<IonLabel data-testid="topic-name">
 									{politicalFocusHandler(topic.committee.label)}
 								</IonLabel>
