@@ -12,6 +12,7 @@ import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVoteP
 import { ElectionResult } from '../Types';
 import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
+import {constituencyCardHandler} from '../functions/constituencyCardHandler'
 import { useParams } from 'react-router';
 import SecondVoteCard from '../components/SecondVoteCard';
 
@@ -29,7 +30,7 @@ const Electionchances: React.FC  = () => {
 		}
 	);
 
-	const name = data?.data.label
+	const name: string = data?.data.label
 	const party = data?.data.party.label
 
 	const constituency = useQuery(
@@ -88,7 +89,7 @@ const Electionchances: React.FC  = () => {
 			<PoliticianProfile candidate={data.data} />
 			<Tabs></Tabs>
 			<SegmentButtons tab={segment} setTab={setSegment}/>
-			<IonContent>
+			<IonContent className={segment==='0' ? "firstVote" : "secondVote"}>
 				{segment==='0' ? 
 					<div>
 						<VoteExplainerCard vote="Erststimme">
@@ -105,11 +106,11 @@ const Electionchances: React.FC  = () => {
 							<SecondVotePopup/>
 						</VoteExplainerCard>
 						<div className="election-chances-secondVote">
-							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-							<IonCardTitle className={stateListClass}><span>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? stateName : null}</span></IonCardTitle>
+							<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>							
+							<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
 						</div>
-						<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
-						<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
+						<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
+						<IonCardTitle><span className={stateListClass + " constituencycard"}>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? constituencyCardHandler(stateName) : null}</span></IonCardTitle>
 					</div>
 				}
 				
@@ -118,6 +119,7 @@ const Electionchances: React.FC  = () => {
 						stateList.data?.data.map((StateList: ElectionResult, index: number) => {
 							return <SecondVoteCard
 								secondVote={StateList}
+								candidateName={name}
 								key={`secondvote-${index}`}
 							/>;
 						})
