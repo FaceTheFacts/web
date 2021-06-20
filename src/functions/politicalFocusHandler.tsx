@@ -384,23 +384,7 @@ export const politicalFocusHandler = (fetchedData: string) => {
 			</div>
 		);
 	case 'Unterausschuss zu Fragen der Europäischen Union':
-		return (
-			<div className="politicalFocus">
-				<svg
-					width="18"
-					height="19"
-					viewBox="0 0 18 19"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M5.625 11.5H6.04688V12.0625C6.04688 12.3789 6.29297 12.625 6.60938 12.625H8.01562C8.29688 12.625 8.57812 12.3789 8.57812 12.0625V11.5H9C9.59766 11.5 10.125 11.0078 10.125 10.375V2.5C10.125 1.90234 9.59766 1.375 9 1.375V0.8125C9 0.53125 8.71875 0.25 8.4375 0.25H6.1875C5.87109 0.25 5.625 0.53125 5.625 0.8125V1.375C4.99219 1.375 4.5 1.90234 4.5 2.5V10.375C4.5 11.0078 4.99219 11.5 5.625 11.5ZM16.3125 16H16.2422C17.332 14.8047 18 13.2578 18 11.5C18 7.80859 14.9414 4.75 11.25 4.75V7C13.7109 7 15.75 9.03906 15.75 11.5C15.75 13.9961 13.7109 16 11.25 16H1.6875C0.738281 16 0 16.7734 0 17.6875C0 18.0039 0.246094 18.25 0.5625 18.25H17.4375C17.7188 18.25 18 18.0039 18 17.6875C18 16.7734 17.2266 16 16.3125 16ZM3.65625 14.875H10.9688C11.1094 14.875 11.25 14.7695 11.25 14.5938V14.0312C11.25 13.8906 11.1094 13.75 10.9688 13.75H3.65625C3.48047 13.75 3.375 13.8906 3.375 14.0312V14.5938C3.375 14.7695 3.48047 14.875 3.65625 14.875Z"
-						fill={color}
-					/>
-				</svg>
-				Europäische Union
-			</div>
-		);
+		return null;
 	case 'Verteidigungsausschuss':
 		return (
 			<div className="politicalFocus">
@@ -437,6 +421,12 @@ export const politicalFocusHandler = (fetchedData: string) => {
 				U-Ausschuss: Anschlag Breitscheidplatz
 			</div>
 		);
+	case 'Petitionsausschuss':
+		return null;
+	case 'Rechnungsprüfungsausschuss':
+		return null;
+	case 'Ausschuss für Wahlprüfung, Immunität und Geschäftsordnung':
+		return null;
 	default:
 		return fetchedData;
 	}
