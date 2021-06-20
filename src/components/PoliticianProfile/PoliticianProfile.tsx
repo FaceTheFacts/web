@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonCardTitle } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonCardTitle, IonChip } from '@ionic/react';
 import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
@@ -24,10 +24,12 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						<div className="politician-name">
 							<IonCardTitle>{candidate.label}</IonCardTitle>
 						</div>
-						<div className="politican-details">
+						<div className="politician-details">
 							<PartyChip party={candidate.party.label} />
 							{candidate.occupation !== null
-								? occupationHandler(candidate.occupation)
+								? occupationHandler(candidate.occupation).map((occupation: string, index: number) => {
+									return <IonChip key={index} className="politician-detail" >{occupation}</IonChip>
+								})
 								: null}
 						</div>
 					</IonCol>
