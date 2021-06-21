@@ -10,7 +10,11 @@ const PartyChip: React.FC<PartyChipProps> = (props: PartyChipProps) => {
 	const partyClassName = props.party?.toLowerCase().replace(/\s/g, '');
 	const partyChipClass = className('party-chip', partyClassName);
 
-	return <IonChip className={partyChipClass}>{props.party}</IonChip>;
+	return (
+		<IonChip className={partyChipClass}>
+			{partyClassName === 'cdu' ? 'CDU/CSU' : props.party}
+		</IonChip>
+	);
 };
 
 export default PartyChip;
