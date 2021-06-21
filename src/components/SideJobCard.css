@@ -35,10 +35,23 @@
 	font-style: normal;
 	font-weight: normal;
 	font-size: 12px;
-	line-height: 14px;
 	color: rgba(256, 256, 256, 0.7);
 }
 
 .sideJob-layout:last-of-type {
 	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 330px) {
+	.sideJob-major {
+		font-size: 12px;
+	}
+
+	.sideJob-minor {
+		font-size: 11px;
+	}
+
+	.sideJob-income {
+		font-size: 11px;
+	}
 }
