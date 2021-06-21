@@ -1,5 +1,5 @@
 import { IonApp, IonContent, IonHeader, IonList, IonSearchbar } from '@ionic/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchResults from '../../../components/SearchResults/SearchResults';
 import './SearchScreen.css';
 
@@ -7,6 +7,10 @@ const SearchScreen: React.FC = () => {
 	const [searchText, setsearchText] = useState<string>();
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [searchResults, setSearchResults] = useState<Array<any>>([]);
+
+	useEffect(() => {
+		document.querySelector('input')?.focus();
+	}, []);
 	return (
 		<IonApp>
 			<IonHeader className="search-screen-header">
