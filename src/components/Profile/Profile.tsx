@@ -101,7 +101,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					</div>
 				) : null}
 
-				<TitleHeader title="Bezahlte Tätigkeiten" />
+				<TitleHeader title="Bekannte Nebentätigkeiten" />
 				{
 					// eslint-disable-next-line
 					sideJobs.data.data.map((sideJob: any, index: number) => {
