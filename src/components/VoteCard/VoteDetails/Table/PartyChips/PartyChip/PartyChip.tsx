@@ -7,14 +7,10 @@ interface PartyChipProps {
 }
 
 const PartyChip: React.FC<PartyChipProps> = (props: PartyChipProps) => {
-	const partyClassName = props.party?.toLowerCase().replace(/\s/g, '')
+	const partyClassName = props.party?.toLowerCase().replace(/\s/g, '');
 	const partyChipClass = className('party-chip', partyClassName?.replace('/', '-'));
 
-	return (
-		<IonChip className={partyChipClass}>
-			{partyClassName}
-		</IonChip>
-	);
+	return <IonChip className={partyChipClass}>{partyClassName}</IonChip>;
 };
 
 export default PartyChip;
