@@ -205,7 +205,7 @@ export type SideJobData = {
 	// eslint-disable-next-line
 	field_topics: Array<Record<string, any>>;
 	id: number;
-	income_level: null;
+	income_level: string;
 	interval: null;
 	job_title_extra: null;
 	label: string;
