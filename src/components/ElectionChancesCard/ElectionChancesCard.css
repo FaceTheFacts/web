@@ -19,8 +19,8 @@
 	align-items: center;
 }
 
-.election-chances-card:first-of-type {
-	margin-top: 12px;
+.election-chances-card:last-of-type {
+	margin-bottom: 15px;
 }
 
 .election-chances-card {
@@ -28,10 +28,6 @@
 	margin-bottom: 0px;
 	height: var(--height-electionchances-card);
 	background-color: #2a2b36;
-}
-
-.election-chances-card:last-of-type {
-	margin-bottom: 12px;
 }
 
 .election-chances-card-header {
