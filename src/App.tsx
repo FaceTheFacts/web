@@ -10,7 +10,6 @@ import Home from './pages/Home';
 import LegalNotice from './pages/Legal_Notice';
 import Privacy from './pages/Privacy';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -72,7 +71,6 @@ const App: React.FC = () => {
 					</IonSplitPane>
 				</IonReactRouter>
 			</IonApp>
-			<ReactQueryDevtools initialIsOpen />
 		</QueryClientProvider>
 	);
 };
