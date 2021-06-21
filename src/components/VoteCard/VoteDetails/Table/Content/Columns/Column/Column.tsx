@@ -18,7 +18,7 @@ const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
 	const partyNameHandler = (index: string): string => {
 		switch (index) {
 		case '0':
-			return 'CDU';
+			return 'CDU/CSU';
 		case '1':
 			return 'SPD';
 		case '2':
