@@ -32,7 +32,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 	const sideJobs = useQuery(
 		`sideJob-${candidate.label}`,
-		() => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=15`),
+		() => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=100`),
 		{
 			staleTime: 60 * 2880000,
 			cacheTime: 60 * 2880000, // 2 days
