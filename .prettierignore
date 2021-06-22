@@ -12,3 +12,4 @@ src/functions/iconChangeHandler.ts
 src/functions/germanTranslator.ts
 src/pages/ElectionChances.tsx
 src/components/VoteCard/VoteCard.tsx
+src/components/PoliticianProfile/PoliticianProfile.tsx
