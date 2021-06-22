@@ -34,9 +34,9 @@ const Votes: React.FC = () => {
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
 							if (poll.data?.data !== undefined) {
 								return (
-									<li key={index}>
+									<div className="votes-vote-card" key={`poll-${index}`}>
 										<VoteCard vote={poll.data?.data} name={poll.data?.label} />
-									</li>
+									</div>
 								);
 							}
 						})
