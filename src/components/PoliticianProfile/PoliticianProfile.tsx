@@ -35,7 +35,7 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 											</IonChip>
 										);
 									}
-								)
+								  )
 								: null}
 						</div>
 					</IonCol>
