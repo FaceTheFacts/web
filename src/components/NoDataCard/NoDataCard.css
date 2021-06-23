@@ -25,6 +25,4 @@
 	margin-top: 10px;
 	position: relative;
 	margin-bottom: 0;
-    width: calc(100vw - 32px);
-    margin-inline-end: 16px;
 }
