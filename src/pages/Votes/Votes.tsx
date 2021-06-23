@@ -35,7 +35,7 @@ const Votes: React.FC = () => {
 							if (poll.data?.data !== undefined) {
 								return (
 									<div className="votes-vote-card" key={`poll-${index}`}>
-										<VoteCard vote={poll.data?.data} name={poll.data?.label} />
+										<VoteCard vote={poll.data?.data} name={poll.data?.label} setArrow={(): null => null}/>
 									</div>
 								);
 							}
