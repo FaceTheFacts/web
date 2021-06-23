@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VoteChart from './VoteChart/VoteChart';
 import './VoteCard.css';
 import {
@@ -18,14 +18,14 @@ import { useQuery } from 'react-query';
 import fetch from '../../functions/queries'
 import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
 import VoteDetails from './VoteDetails/VoteDetails';
-import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ContainerProps {
 	vote: PollData;
 	name: string;
+	setArrow: Function;
 }
 
-const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
+const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
@@ -34,27 +34,21 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	};
 
 	const votequery = useQuery(
-		`vote-${vote.id}`,
-		() => fetch(`votes?poll=${vote.id}&mandate[entity.label][cn]=${name}`),
+		`vote-${props.vote.id}`,
+		() => fetch(`votes?poll=${props.vote.id}&mandate[entity.label][cn]=${props.name}`),
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
 		}
 	);
-/*
-	if (votequery.status === 'loading') {
-		return <p>Loading</p>;
-	}
+	
+	useEffect(() => {
+		if (votequery.status === 'success' && votequery.data.data[0] === undefined) {
+			props.setArrow(false);
+		} // eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [votequery])
 
-	if (votequery.status === 'error') {
-		return <p>Error: {votequery.error}</p>
-	}
-*/
-	if(votequery.status === 'success' && votequery.data.data[0] === undefined) {
-		return <NoDataCard type="vote" />
-	} 
-	console.log(votequery)
-	const Poll = voteDetailsHandler(vote.id);
+	const Poll = voteDetailsHandler(props.vote.id);
 
 	let judge;
 	/* 
@@ -64,7 +58,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 
 	let positioning = 'noData';
 
-if (votequery.data?.data[0] !== undefined) {
+	if (votequery.data?.data[0] !== undefined) {
 		positioning = votequery.data.data[0].vote
 	}
 
@@ -76,10 +70,10 @@ if (votequery.data?.data[0] !== undefined) {
 						<IonRow>
 							<IonCol size="9">
 								<IonCardTitle
-									className={vote.label.length < 50 ? 'vote-card-title' : 'vote-card-title large-label'}
+									className={props.vote.label.length < 50 ? 'vote-card-title' : 'vote-card-title large-label'}
 									data-testid="vote-card-title"
 								>
-									{vote.label}
+									{props.vote.label}
 								</IonCardTitle>
 							</IonCol>
 							<IonCol size="3">
@@ -123,9 +117,9 @@ if (votequery.data?.data[0] !== undefined) {
 					<div className = 'vote-modal'>
 						<VoteDetails
 							clicked={modalCloser}
-							title={vote.label}
-							content={vote.field_intro}
-							positioning={name}
+							title={props.vote.label}
+							content={props.vote.field_intro}
+							positioning={props.name}
 							result={Poll.judge}
 							totalVote={Poll.Gesamt}
 							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.AfD, Poll.LINKE, Poll.fraktionslos]}
@@ -137,4 +131,4 @@ if (votequery.data?.data[0] !== undefined) {
 	);
 };
 
-export default VoteCard;
+export default VoteCard

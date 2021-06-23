@@ -19,7 +19,7 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
-
+	const [showArrow, setArrow] = React.useState(true);
 	const { data, status, error } = useQuery(
 		`politicalFocus-${candidate.label}`,
 		() =>
@@ -77,40 +77,43 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				{polls[0].data !== undefined ? (
 					<div>
 						<TitleHeader title="Wichtigste Abstimmungen">
-							<LinkButton
-								linkTo={`/politician/${profileId}/votes`}
-								icon={iconEnum.ARROW_FORWARD}
-							/>
+							<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
+								<LinkButton
+									linkTo={`/politician/${profileId}/votes`}
+									icon={iconEnum.ARROW_FORWARD}
+								/>
+							</div>
 						</TitleHeader>
 						<ul className="vote-card-lists">
-							{
+							{showArrow ? (
 								// eslint-disable-next-line
 								polls.map((poll: any, index: number): JSX.Element | undefined => {
-									if (poll.data?.data !== undefined) {
-										return (
-											<li key={index}>
-												<VoteCard
-													vote={poll.data?.data}
-													name={candidate.label}
-												/>
-											</li>
-										);
-									}
-								})  
-							}
+									return (
+										<li key={index}>
+											<VoteCard
+												vote={poll.data?.data}
+												name={candidate.label}
+												setArrow={setArrow}
+											/>
+										</li>
+									);
+								})
+							) : (
+								<NoDataCard type="vote" />
+							)}
 						</ul>
 					</div>
 				) : null}
 
 				<TitleHeader title="Bekannte Nebentätigkeiten" />
-				{
+				{sideJobs.data.data.length !== 0 ? (
 					// eslint-disable-next-line
-					sideJobs.data.data.length !== 0 ? 
 					sideJobs.data.data.map((sideJob: any, index: number) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;
 					})
-					: <NoDataCard type="sideJob" />
-				}
+				) : (
+					<NoDataCard type="sideJob" />
+				)}
 			</div>
 		</React.Fragment>
 	);
