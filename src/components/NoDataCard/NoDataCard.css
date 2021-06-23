@@ -1,0 +1,7 @@
+.vote-layout:first-of-type {
+    display: unset;
+}
+
+.vote-layout {
+    display: none;
+}

@@ -10,6 +10,7 @@ import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
 import fetch from '../../functions/queries';
+import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ProfileProps {
 	candidate: Politician;
@@ -94,8 +95,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 												/>
 											</li>
 										);
+									} else {
+										return <NoDataCard type="vote" /> 
 									}
-								})
+
+								})  
 							}
 						</ul>
 					</div>
