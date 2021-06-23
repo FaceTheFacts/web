@@ -52,12 +52,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
-		return (
-			<iframe
-				title="loading"
-				src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"
-			></iframe>
-		);
+		return <div>Loading</div>;
 	}
 
 	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
