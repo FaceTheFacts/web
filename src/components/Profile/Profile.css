@@ -49,3 +49,6 @@ ul.vote-card-lists {
 ul.vote-card-lists::-webkit-scrollbar {
 	display: none;
 }
+.hide-arrow {
+	display: none;
+}
