@@ -8,8 +8,8 @@ interface NoDataCardProps {
 }
 
 const NoDataCard: React.FC<NoDataCardProps> = ( props: NoDataCardProps) => (
-	props.type === "sideJob" ? 
-		<IonCard className="vote-layout">
+	props.type === "sideJob" ?
+		<IonCard className="sideJob-layout">
 			<IonCardHeader>
 				<IonCardTitle className="sideJob-major" >
                     Keine
@@ -21,7 +21,7 @@ const NoDataCard: React.FC<NoDataCardProps> = ( props: NoDataCardProps) => (
 		</IonCard>
 	:
      <IonCard className="vote-layout">
-        <IonCardHeader className="vote-layout">
+        <IonCardHeader>
         <IonCardTitle className="vote-major" >
         Keine Abstimmungsergebnisse
         </IonCardTitle>
@@ -29,8 +29,7 @@ const NoDataCard: React.FC<NoDataCardProps> = ( props: NoDataCardProps) => (
         Diese:r Kandidat:in ist nicht Teil des Parlaments und konnte deshalb nicht abstimmen.  
         </IonCardTitle>
         </IonCardHeader>
-    </IonCard> 
-    
+    </IonCard>
 );
 
 export default NoDataCard;

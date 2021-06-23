@@ -53,7 +53,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	if(votequery.status === 'success' && votequery.data.data[0] === undefined) {
 		return <NoDataCard type="vote" />
 	} 
-	
+	console.log(votequery)
 	const Poll = voteDetailsHandler(vote.id);
 
 	let judge;
@@ -62,15 +62,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	*/
 
 
-/*	let positioning = 'noData';
+	let positioning = 'noData';
 
- 	if (votequery.data.data[0] !== undefined) {
+if (votequery.data?.data[0] !== undefined) {
 		positioning = votequery.data.data[0].vote
-	} */
+	}
 
 	return (
 		<React.Fragment>
-			<IonCard className={ name === 'no_show' && name !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
+			<IonCard className={ positioning === 'no_show' && positioning !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
@@ -84,7 +84,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							</IonCol>
 							<IonCol size="3">
 								<div className="candidate-vote">
-									<Positioning positioning={name} />
+									<Positioning positioning={positioning} />
 								</div>
 							</IonCol>
 							<IonCol size="12">

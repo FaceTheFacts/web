@@ -1,7 +1,30 @@
-.vote-layout:first-of-type {
-    display: unset;
+.vote-minor {
+	color: #ffffff;
+	font-size: 12px;
+	letter-spacing: 0.3px;
+	line-height: 1.2;
+	font-weight: 400;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+}
+
+.vote-major {
+	color: #ffffff;
+	font-size: 14px;
+	letter-spacing: 0px;
+	line-height: 1;
+	font-weight: 600;
+	font-family: 'protipo', sans-serif;
+	font-style: normal;
+	margin-bottom: 5px;
 }
 
 .vote-layout {
-    display: none;
+	background: #2b2c36;
+	border-radius: 10px;
+	margin-top: 10px;
+	position: relative;
+	margin-bottom: 0;
+    width: calc(100vw - 32px);
+    margin-inline-end: 16px;
 }

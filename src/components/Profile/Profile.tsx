@@ -95,10 +95,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 												/>
 											</li>
 										);
-									} else {
-										return <NoDataCard type="vote" /> 
 									}
-
 								})  
 							}
 						</ul>
@@ -108,9 +105,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				<TitleHeader title="Bekannte Nebentätigkeiten" />
 				{
 					// eslint-disable-next-line
+					sideJobs.data.data.length !== 0 ? 
 					sideJobs.data.data.map((sideJob: any, index: number) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;
 					})
+					: <NoDataCard type="sideJob" />
 				}
 			</div>
 		</React.Fragment>
