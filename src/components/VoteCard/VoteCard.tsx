@@ -18,6 +18,7 @@ import { useQuery } from 'react-query';
 import fetch from '../../functions/queries'
 import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
 import VoteDetails from './VoteDetails/VoteDetails';
+import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ContainerProps {
 	vote: PollData;
@@ -40,7 +41,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 			cacheTime: 60 * 10000000,
 		}
 	);
-
+/*
 	if (votequery.status === 'loading') {
 		return <p>Loading</p>;
 	}
@@ -48,10 +49,10 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	if (votequery.status === 'error') {
 		return <p>Error: {votequery.error}</p>
 	}
-
+*/
 	if(votequery.status === 'success' && votequery.data.data[0] === undefined) {
-		return <p>Sorry, keine Daten</p>
-	}
+		return <NoDataCard type="vote" />
+	} 
 	
 	const Poll = voteDetailsHandler(vote.id);
 
@@ -61,15 +62,15 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 	*/
 
 
-	let positioning = 'noData';
+/*	let positioning = 'noData';
 
-	if (votequery.data.data[0] !== undefined) {
+ 	if (votequery.data.data[0] !== undefined) {
 		positioning = votequery.data.data[0].vote
-	}
+	} */
 
 	return (
 		<React.Fragment>
-			<IonCard className={ votequery.data?.data[0].vote === 'no_show' && votequery.data?.data[0] !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
+			<IonCard className={ name === 'no_show' && name !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
@@ -83,7 +84,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							</IonCol>
 							<IonCol size="3">
 								<div className="candidate-vote">
-									<Positioning positioning={positioning} />
+									<Positioning positioning={name} />
 								</div>
 							</IonCol>
 							<IonCol size="12">
@@ -124,7 +125,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote, name }: ContainerProps) => {
 							clicked={modalCloser}
 							title={vote.label}
 							content={vote.field_intro}
-							positioning={positioning}
+							positioning={name}
 							result={Poll.judge}
 							totalVote={Poll.Gesamt}
 							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.AfD, Poll.LINKE, Poll.fraktionslos]}
