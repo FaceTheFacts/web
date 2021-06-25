@@ -74,7 +74,7 @@ const Electionchances: React.FC  = () => {
 
 	if (status === 'loading') {
 		// eslint-disable-next-line
-		return <iframe src="https://lottiefiles.com/iframe/58266-quad-cube-shifter-1"></iframe>;
+		return <div>Loading</div>;
 	}
 
 	if (status === 'error') {
@@ -109,8 +109,10 @@ const Electionchances: React.FC  = () => {
 							<IonCardSubtitle className="result-text">Über diese Liste kamen 2017</IonCardSubtitle>
 							<IonCardTitle className="result-total">20 Kandidat:innen in den Bundestag.</IonCardTitle>
 						</div>
-						<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
-						<IonCardTitle><span className={stateListClass + ' constituencycard'}>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? constituencyCardHandler(stateName) : null}</span></IonCardTitle>
+						<div className="secondVote-info-text">
+							<IonCardSubtitle className="statelist">Landesliste 2021</IonCardSubtitle>
+							<IonCardTitle className="statelist-title"><span className={stateListClass + ' constituencycard'}>{status === 'success' ? data.data.party.label : null } {constituency.isFetched ? constituencyCardHandler(stateName) : null}</span></IonCardTitle>
+						</div>
 					</div>
 				}
 				
