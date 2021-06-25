@@ -122,7 +122,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 							positioning={props.name}
 							result={Poll.judge}
 							totalVote={Poll.Gesamt}
-							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.AfD, Poll.LINKE, Poll.fraktionslos]}
+							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
 						/>
 					</div>
 				</IonModal>
