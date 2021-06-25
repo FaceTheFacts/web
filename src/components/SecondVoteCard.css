@@ -10,7 +10,7 @@
 }
 
 .secondvote-card {
-	background: rgba(24, 25, 36, 1);
+	background: rgba(42, 43, 54, 1);
 	margin-top: var(--margintop-secondvote-card);
 	margin-bottom: calc(8px - var(--margintop-secondvote-card));
 	margin-left: var(--marginleft-secondvote-card);
