@@ -119,7 +119,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 							clicked={modalCloser}
 							title={props.vote.label}
 							content={props.vote.field_intro}
-							positioning={props.name}
+							positioning={positioning}
 							result={Poll.judge}
 							totalVote={Poll.Gesamt}
 							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
