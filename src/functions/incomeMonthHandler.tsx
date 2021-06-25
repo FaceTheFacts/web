@@ -5,6 +5,8 @@ export const incomeMonthHandler = (date: string): string => {
 		const newDate = date.slice(yearIndex + 1);
 		const monthIndex = newDate.indexOf('-');
 		const month = newDate.slice(0, monthIndex);
-		return month + '/' + year;}
-	else {return ''}
+		return month + '/' + year;
+	} else {
+		return '';
+	}
 };
