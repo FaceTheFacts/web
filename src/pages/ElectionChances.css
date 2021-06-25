@@ -41,8 +41,7 @@
 	letter-spacing: 0.7px;
 	text-transform: uppercase;
 	padding-left: 19px;
-	padding-top: 19px;
-	margin-bottom: -7px;
+	margin: 0px;
 }
 
 .state {
@@ -100,9 +99,21 @@ ion-content {
 }
 
 .secondVote {
-	--background: rgba(42, 43, 54, 1);
+	--background: rgba(24, 25, 36, 1);
 }
 
 .secondvote-card:first-of-type {
-	margin-top: 30px;
+	margin-top: 16px;
+}
+
+.secondVote-info-text {
+	background-color: rgba(42, 43, 54, 1);
+	padding-top: 19px;
+	padding-bottom: 19px;
+
+}
+
+.statelist-title {
+	font-size: 12px;
+	padding-top: 8px;	
 }
