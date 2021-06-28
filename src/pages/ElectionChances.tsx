@@ -95,10 +95,16 @@ const Electionchances: React.FC  = () => {
 						<VoteExplainerCard vote="Erststimme">
 							<FirstVotePopup/>
 						</VoteExplainerCard>
-						<div className="election-chances-firstVote">
-							<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
-							<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyCardHandler(constituencyName) : null}</IonCardTitle>
-						</div>
+						{ 
+							// eslint-disable-next-line
+							constituencyName ? (	<div className="election-chances-firstVote">
+								<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
+								<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyCardHandler(constituencyName) : null}</IonCardTitle>
+							</div>): (<div className="election-chances-firstVote">
+								<IonCardTitle className="constituency">Nicht direkt wählbar</IonCardTitle>
+								<IonCardSubtitle className="electionresult">Kandidat:in kann also nur indirekt über die Zweitstimme gewählt werden.</IonCardSubtitle>
+							</div>)
+						}
 					</div>
 					: 
 					<div>
