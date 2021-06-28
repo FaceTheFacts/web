@@ -1,4 +1,4 @@
-export const constituencyCardHandler = (constituencyCard: string|null): string|null => {
+export const constituencyCardHandler = (constituencyCard: string | null): string | null => {
 	let cleanConstituencyCard: string;
 
 	if (constituencyCard?.includes('(')) {
