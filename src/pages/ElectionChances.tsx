@@ -43,8 +43,8 @@ const Electionchances: React.FC  = () => {
 		}
 	);
 
-	const constituencyId = constituency.data?.data[0].electoral_data.constituency.id
-	const electoralListId = constituency.data?.data[0].electoral_data.electoral_list.id
+	const constituencyId = constituency.data?.data[0] !== undefined ? constituency.data?.data[0].electoral_data.constituency.id:null
+	const electoralListId = constituency.data?.data[0] !== undefined ? constituency.data?.data[0].electoral_data.electoral_list.id: null
 
 	const electionResults = useQuery(
 		`electionResults-${constituencyId}`,
@@ -66,8 +66,8 @@ const Electionchances: React.FC  = () => {
 		}
 	);
 
-	const constituencyName = constituency.data?.data[0].electoral_data.constituency.label
-	const stateName = constituency.data?.data[0].electoral_data.electoral_list.label
+	const constituencyName = constituency.data?.data[0] !== undefined ? constituency.data?.data[0].electoral_data.constituency.label: null
+	const stateName = constituency.data?.data[0] !== undefined ? constituency.data?.data[0].electoral_data.electoral_list.label: null
 
 	const partyClassName = data?.data.party.label.toLowerCase().replace(/\s/g, '');
 	const stateListClass = className('state', partyClassName)
