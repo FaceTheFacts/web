@@ -1,7 +1,7 @@
-export const constituencyCardHandler = (constituencyCard: string): string => {
+export const constituencyCardHandler = (constituencyCard: string|null): string|null => {
 	let cleanConstituencyCard: string;
 
-	if (constituencyCard.includes('(')) {
+	if (constituencyCard?.includes('(')) {
 		const index = constituencyCard.indexOf('(');
 		cleanConstituencyCard = constituencyCard.slice(0, index);
 		if (constituencyCard.includes('Landesliste')) {
