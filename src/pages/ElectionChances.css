@@ -31,6 +31,34 @@
 	margin-bottom: 12px;
 }
 
+.no-direct-first {
+	padding: 16px;
+}
+
+.no-direct-first-title {
+	font-family: Protipo, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.25px;
+	text-transform: none;
+	color: #FFFFFF;
+}
+
+.no-direct-first-subtitle {
+	margin-top: 4px;
+	font-family: Protipo, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.34px;
+	letter-spacing: 0.25px;
+	color: #FFFFFF;
+	opacity: 0.7;
+	text-transform: none;
+}
+
 .statelist {
 	color: white;
 	font-family: Protipo;

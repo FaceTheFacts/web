@@ -100,9 +100,9 @@ const Electionchances: React.FC  = () => {
 							constituencyName ? (	<div className="election-chances-firstVote">
 								<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
 								<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyCardHandler(constituencyName) : null}</IonCardTitle>
-							</div>): (<div className="election-chances-firstVote">
-								<IonCardTitle className="constituency">Nicht direkt wählbar</IonCardTitle>
-								<IonCardSubtitle className="electionresult">Kandidat:in kann also nur indirekt über die Zweitstimme gewählt werden.</IonCardSubtitle>
+							</div>): (<div className = "no-direct-first">
+								<IonCardTitle className="no-direct-first-title">Nicht direkt wählbar</IonCardTitle>
+								<IonCardSubtitle className="no-direct-first-subtitle">Kandidat:in kann also nur indirekt über die Zweitstimme gewählt werden.</IonCardSubtitle>
 							</div>)
 						}
 					</div>
