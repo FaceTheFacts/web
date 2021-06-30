@@ -33,17 +33,17 @@
 
 .no-direct-first {
 	padding: 16px;
-	background: #2A2B36;
+	background: #2a2b36;
 	height: 68vh;
 }
 .no-direct-second {
 	padding: 16px;
-	background: #2A2B36;
+	background: #2a2b36;
 	height: 68vh;
 	border-top: 1px solid rgba(76, 78, 98, 1);
 }
 
-.no-direct-first-title {
+.no-direct-title {
 	font-family: Protipo, sans-serif;
 	font-style: normal;
 	font-weight: 400;
@@ -54,7 +54,7 @@
 	color: #ffffff;
 }
 
-.no-direct-first-subtitle {
+.no-direct-subtitle {
 	margin-top: 4px;
 	font-family: Protipo, sans-serif;
 	font-style: normal;
