@@ -97,6 +97,22 @@ const Electionchances: React.FC  = () => {
 		return <p>Error: {error}</p>;
 	}
 
+	let secondVoteCards;
+	if (stateList.data) {
+		secondVoteCards = stateList.data?.data.map((StateList: ElectionResult, index: number) => {
+			return <SecondVoteCard
+				secondVote={StateList}
+				candidateName={name}
+				key={`secondvote-${index}`}
+			/>;
+		})
+	} else {
+		secondVoteCards = <div className = "no-direct-second">
+			<IonCardTitle className="no-direct-first-title">Nicht auf einer Landesliste</IonCardTitle>
+			<IonCardSubtitle className="no-direct-first-subtitle">Kandidat:in ist also nur über die Erststimme wählbar.</IonCardSubtitle>
+		</div>
+	}
+
 
 	/* This is returned when using this component */
 	return (
@@ -140,13 +156,7 @@ const Electionchances: React.FC  = () => {
 				
 				<div>
 					{segment==='1' ?
-						stateList.data?.data.map((StateList: ElectionResult, index: number) => {
-							return <SecondVoteCard
-								secondVote={StateList}
-								candidateName={name}
-								key={`secondvote-${index}`}
-							/>;
-						})
+						secondVoteCards
 						:
 						electionResults.isFetched ? electionResults.data.data.map((ElectionResults: ElectionResult, index: number) => {
 						
