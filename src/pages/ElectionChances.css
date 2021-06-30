@@ -36,6 +36,12 @@
 	background: #2A2B36;
 	height: 68vh;
 }
+.no-direct-second {
+	padding: 16px;
+	background: #2A2B36;
+	height: 68vh;
+	border-top: 1px solid rgba(76, 78, 98, 1);
+}
 
 .no-direct-first-title {
 	font-family: Protipo, sans-serif;
