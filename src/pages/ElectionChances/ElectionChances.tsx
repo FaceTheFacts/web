@@ -1,20 +1,20 @@
 import {IonContent, IonPage, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 import React from 'react';
 import className from 'classnames'
-import ElectionchancesCard from '../components/ElectionChancesCard/ElectionChancesCard';
-import SegmentButtons from '../components/SegmentButtons';
-import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile'
-import Tabs from '../components/Tabs';
-import VoteExplainerCard from '../components/VoteExplainerCard/VoteExplainerCard';
+import ElectionchancesCard from '../../components/ElectionChancesCard/ElectionChancesCard';
+import SegmentButtons from '../../components/SegmentButtons';
+import PoliticianProfile from '../../components/PoliticianProfile/PoliticianProfile'
+import Tabs from '../../components/Tabs';
+import VoteExplainerCard from '../../components/VoteExplainerCard/VoteExplainerCard';
 import './ElectionChances.css';
-import FirstVotePopup from '../components/PopupCard/FirstVotePopup/FirstVotePopup';
-import SecondVotePopup from '../components/PopupCard/SecondVotePopup/SecondVotePopup';
-import { ElectionResult } from '../Types';
+import FirstVotePopup from '../../components/PopupCard/FirstVotePopup/FirstVotePopup';
+import SecondVotePopup from '../../components/PopupCard/SecondVotePopup/SecondVotePopup';
+import { ElectionResult } from '../../Types';
 import { useQuery } from 'react-query';
-import fetch from '../functions/queries';
-import {constituencyCardHandler} from '../functions/constituencyCardHandler'
+import fetch from '../../functions/queries';
+import {constituencyCardHandler} from '../../functions/constituencyCardHandler'
 import { useParams } from 'react-router';
-import SecondVoteCard from '../components/SecondVoteCard';
+import SecondVoteCard from '../../components/SecondVoteCard';
 
 const Electionchances: React.FC  = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */

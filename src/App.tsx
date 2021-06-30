@@ -3,7 +3,7 @@ import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React from 'react';
-import Electionchances from './pages/ElectionChances';
+import Electionchances from './pages/ElectionChances/ElectionChances';
 import Search from './pages/Search/Search';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
