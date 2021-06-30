@@ -108,8 +108,8 @@ const Electionchances: React.FC  = () => {
 		})
 	} else {
 		secondVoteCards = <div className = "no-direct-second">
-			<IonCardTitle className="no-direct-first-title">Nicht auf einer Landesliste</IonCardTitle>
-			<IonCardSubtitle className="no-direct-first-subtitle">Kandidat:in ist also nur über die Erststimme wählbar.</IonCardSubtitle>
+			<IonCardTitle className="no-direct-title">Nicht auf einer Landesliste</IonCardTitle>
+			<IonCardSubtitle className="no-direct-subtitle">Kandidat:in ist also nur über die Erststimme wählbar.</IonCardSubtitle>
 		</div>
 	}
 
@@ -133,8 +133,8 @@ const Electionchances: React.FC  = () => {
 								<IonCardSubtitle className="electionresult">Wahlergebnis 2017</IonCardSubtitle>
 								<IonCardTitle className="constituency">Wahlkreis - {constituency.isFetched ? constituencyCardHandler(constituencyName) : null}</IonCardTitle>
 							</div>): (<div className = "no-direct-first">
-								<IonCardTitle className="no-direct-first-title">Nicht direkt wählbar</IonCardTitle>
-								<IonCardSubtitle className="no-direct-first-subtitle">Kandidat:in kann also nur indirekt über die Zweitstimme gewählt werden.</IonCardSubtitle>
+								<IonCardTitle className="no-direct-title">Nicht direkt wählbar</IonCardTitle>
+								<IonCardSubtitle className="no-direct-subtitle">Kandidat:in kann also nur indirekt über die Zweitstimme gewählt werden.</IonCardSubtitle>
 							</div>)
 						}
 					</div>
