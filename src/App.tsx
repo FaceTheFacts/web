@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import log from 'loglevel';
 import React from 'react';
 import Electionchances from './pages/ElectionChances/ElectionChances';
-import Search from './pages/Search/Search';
+import SearchScreen from './pages/Search/SearchScreen/SearchScreen';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
 import LegalNotice from './pages/Legal_Notice';
@@ -57,7 +57,7 @@ const App: React.FC = () => {
 								<Privacy />
 							</Route>
 							<Route path="/search" exact>
-								<Search />
+								<SearchScreen />
 							</Route>
 							<Route path="/politician/:id/election">
 								<Electionchances />
