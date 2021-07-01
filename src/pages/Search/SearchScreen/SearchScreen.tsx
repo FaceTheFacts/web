@@ -31,7 +31,6 @@ const SearchScreen: React.FC = () => {
 					}}
 					debounce={0}
 					onIonClear={(): void => setsearchText('')}
-					searchIcon="undefined"
 				/>
 			</IonHeader>
 			<IonContent className="search-screen-content" fullscreen>
