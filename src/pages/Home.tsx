@@ -2,6 +2,7 @@ import { IonApp, IonButton, IonCardSubtitle, IonCardTitle, IonContent } from '@i
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HomeFooter from '../components/HomeFooter';
+import HomeHeader from '../components/HomeHeader';
 import Mockup from '../components/Mockup';
 import SignUp from '../components/SignUp/SignUp';
 import './Home.css';
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
 
 	return (
 		<IonApp>
-			<HomeFooter />
+			<HomeHeader />
 			<IonContent>
 				<div className="content">
 					<div className="text">
