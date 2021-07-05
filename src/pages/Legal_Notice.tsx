@@ -1,6 +1,6 @@
 import { IonApp, IonContent } from '@ionic/react';
 import React from 'react';
-import HomeNavBar from '../components/HomeNavBar';
+/* import HomeNavBar from '../components/HomeNavBar'; */
 import './Legal_Notice.css';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
@@ -9,7 +9,7 @@ const LegalNotice: React.FC = () => {
 
 	return (
 		<IonApp>
-			<HomeNavBar />
+{/* 			<HomeNavBar /> */}
 			<IonContent>
 				<div className="legal-notice">
 					<h1 className="legal-notice-header">Impressum</h1>
