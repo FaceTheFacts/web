@@ -1,0 +1,15 @@
+@media screen and (min-width: 415px) and (min-height: 812px) {
+	.MobileScreen {
+		margin-left: calc(50vw - 207px);
+		margin-right: calc(50vw - 207px);
+		margin-top: calc(50vh - 406px);
+		margin-bottom: calc(50vh - 406px);
+	}
+}
+
+@media screen and (min-width: 415px) and (max-height: 812px) {
+	.MobileScreen {
+		margin-left: calc(50vw - 207px);
+		margin-right: calc(50vw - 207px);
+	}
+}
