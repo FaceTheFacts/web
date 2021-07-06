@@ -9,12 +9,12 @@ import Tabs from '../components/Tabs';
 import './MobileScreen.css';
 
 interface MobileScreenProps {
-  children?: JSX.Element;
+	children?: JSX.Element;
 }
 
-const MobileScreen: React.FC <MobileScreenProps> = (props: MobileScreenProps) => {
+const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => {
 	const { id } = useParams<{ id: string }>();
-	let mainComponent: JSX.Element|undefined;
+	let mainComponent: JSX.Element | undefined;
 
 	const { data, status, error } = useQuery(
 		`politicianProfile-${id}`,
@@ -26,11 +26,11 @@ const MobileScreen: React.FC <MobileScreenProps> = (props: MobileScreenProps) =>
 	);
 
 	if (status === 'success') {
-		mainComponent = props.children
+		mainComponent = props.children;
 	}
 
 	if (status === 'loading') {
-		mainComponent = <Spinner/>;
+		mainComponent = <Spinner />;
 	}
 
 	if (status === 'error') {
@@ -41,11 +41,9 @@ const MobileScreen: React.FC <MobileScreenProps> = (props: MobileScreenProps) =>
 		<IonPage className="MobileScreen">
 			{data !== undefined ? <PoliticianProfile candidate={data.data} /> : null}
 			<Tabs />
-			<IonContent>
-				{mainComponent}
-			</IonContent>
+			<IonContent>{mainComponent}</IonContent>
 		</IonPage>
-	)
+	);
 };
 
 export default MobileScreen;

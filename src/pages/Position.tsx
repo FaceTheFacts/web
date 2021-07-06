@@ -75,7 +75,9 @@ const Position: React.FC = () => {
 	);
 	return (
 		<MobileScreen>
-			{data !== undefined ? <PositionCards candidateId={data.data.id} positions={examplePositionData} />: undefined }
+			{data !== undefined ? (
+				<PositionCards candidateId={data.data.id} positions={examplePositionData} />
+			) : undefined}
 		</MobileScreen>
 	);
 };
