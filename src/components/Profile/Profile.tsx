@@ -20,7 +20,7 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const [showArrow, setArrow] = React.useState(true);
-	const { data, status, error } = useQuery(
+	const { data, status } = useQuery(
 		`politicalFocus-${candidate.label}`,
 		() =>
 			fetch(
@@ -52,11 +52,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
-		return <div>Loading</div>;
+		return null;
 	}
 
 	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
-		return <p>Error: {error}</p>;
+		return null;
 	}
 	return (
 		<React.Fragment>
