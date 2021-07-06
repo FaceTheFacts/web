@@ -20,7 +20,9 @@ const Profile: React.FC = () => {
 
 	return (
 		<MobileScreen>
-			{data !== undefined ? <ProfileComponent candidate={data.data} profileId={id} /> : undefined}
+			{data !== undefined ? (
+				<ProfileComponent candidate={data.data} profileId={id} />
+			) : undefined}
 		</MobileScreen>
 	);
 };
