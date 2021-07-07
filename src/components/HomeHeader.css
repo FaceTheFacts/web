@@ -1,4 +1,4 @@
-.logo-link {
+.top {
     width: 21px;
     opacity: 0.3;
     margin-right: 40px; 
@@ -16,7 +16,7 @@
 		width: 238.87px;
 		height: 60px;
 	}
-    .logo-link {
+    .top {
 		display: none;
 	}
 }
@@ -35,7 +35,7 @@
 		height: 70px;
 	}
 
-	.logo-link {
+	.top {
 		display: none;
 	}
 }
@@ -51,7 +51,7 @@
 		align-items: center;
 	}
 
-	.logo-link {
+	.top {
 		display: unset;
     }
 }
@@ -73,7 +73,7 @@
 	background: rgba(24, 25, 36, 1);
 }
 
-.logo-link:hover {
+.top:hover {
 	animation: opacity-animation 1s forwards;
 }
 
