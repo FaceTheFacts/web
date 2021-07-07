@@ -4,18 +4,22 @@ import instagramLogo from '../assets/images/instagram-brands.svg';
 import linkedInLogo from '../assets/images/linkedin-brands.svg';
 import twitterLogo from '../assets/images/twitter-brands.svg';
 
-const SocialMediaLinks: React.FC = () => (
-	<div className="links">
-		<a className="logo-link" href="https://www.instagram.com/face_the_facts_app/">
+interface SocialMediaLinksProps {
+	position: string;
+}
+
+const SocialMediaLinks: React.FC<SocialMediaLinksProps> = (props: SocialMediaLinksProps) => (
+	<div className="social-media-links">
+		<a className={props.position} href="https://www.instagram.com/face_the_facts_app/">
 			<img src={instagramLogo} alt="logo" />
 		</a>
-		<a className="logo-link" href="https://www.linkedin.com/company/71743117">
+		<a className={props.position} href="https://www.linkedin.com/company/71743117">
 			<img src={linkedInLogo} alt="logo" />
 		</a>
-		<a className="logo-link" href="https://www.facebook.com/Face-the-Facts-110924574516372">
+		<a className={props.position} href="https://www.facebook.com/Face-the-Facts-110924574516372">
 			<img src={faceBookLogo} alt="logo" />
 		</a>
-		<a className="logo-link" href="https://twitter.com/FaceTheFactsApp">
+		<a className={props.position} href="https://twitter.com/FaceTheFactsApp">
 			<img src={twitterLogo} alt="logo" />
 		</a>
 	</div>
