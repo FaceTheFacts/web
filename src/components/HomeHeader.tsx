@@ -14,7 +14,7 @@ const HomeHeader: React.FC = () => {
 			<NavLink id="home" to={'/'}>
                 <img src={faceTheFactsLogoNoText} alt="logo" />
 			</NavLink>
-			<SocialMediaLinks />
+			<SocialMediaLinks position="top"/>
 		</div>
 	);
 };
