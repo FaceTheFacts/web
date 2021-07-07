@@ -24,6 +24,7 @@
 		padding-left: 49px;
 		padding-right: 47px;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 	}
 
@@ -53,8 +54,8 @@
 		margin-right: 30px;
 	}
 
-	.links {
-		display: flex;
+	.bottom {
+		display: none;
 	}
 
 	#legal-notice,
@@ -84,6 +85,30 @@
 
 .nav-footer {
 	background-color: rgba(42, 43, 54, 0.9);
+}
+
+.nav-footer > #home {
+	padding-bottom: 30px;
+}
+
+.nav-footer > .links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom {
+    width: 21px;
+    opacity: 0.3;
+}
+
+.social-media-bottom {
+	padding-bottom: 30px;
+}
+
+.social-media-links {
+	display: flex;
+	align-items: center;
+    justify-content: space-evenly;
 }
 
 #privacy:hover,
