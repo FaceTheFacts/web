@@ -40,7 +40,7 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 	return (
 		<IonPage className="MobileScreen">
 			{data !== undefined ? <PoliticianProfile candidate={data.data} /> : null}
-			<Tabs />
+			<Tabs id={id} />
 			<IonContent>{mainComponent}</IonContent>
 		</IonPage>
 	);
