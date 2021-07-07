@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import './HomeFooter.css';
+import SocialMediaLinks from './SocialMediaLinks';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const HomeFooter: React.FC = () => {
@@ -12,22 +13,25 @@ const HomeFooter: React.FC = () => {
 			<NavLink id="home" to={'/'}>
 				<Logo />
 			</NavLink>
+			<div className="social-media-bottom">
+				<SocialMediaLinks position="bottom"/>
+			</div>
 			<div className="links">
 				<NavLink
-					id="legal-notice"
-					to={'/legal-notice'}
-					className="navbar"
-					activeClassName="navbar activ"
-				>
-					Impressum
-				</NavLink>
-				<NavLink
-					id="privacy"
+					id="privacy-bottom"
 					to={'/privacy'}
 					className="navbar"
 					activeClassName="navbar activ"
 				>
 					Datenschutz
+				</NavLink>
+				<NavLink
+					id="legal-notice-bottom"
+					to={'/legal-notice'}
+					className="navbar"
+					activeClassName="navbar activ"
+				>
+					Impressum
 				</NavLink>
 			</div>
 		</div>
