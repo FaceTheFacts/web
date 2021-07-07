@@ -1,5 +1,69 @@
+:root {
+    --fontsize-email: 17px;
+    --lineheight-email: 22px;
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --fontsize-email: 14px;
+        --lineheight-email: 20px;
+    }
+
+    .signup
+    {
+        padding-left: 16px;
+        padding-right: 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-text {
+        padding-bottom: 10px;
+        font-size: 18px;
+        line-height: 135%;
+    }
+
+    #email {
+        width: 313px;
+        height: 48px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .content__gdpr {
+        font-size: 12px;
+    }
+
+    .checkbox .subfield {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .signup
+    {
+        padding-left: calc(50% - 351px/2 - 210.5px);
+    }
+
+    .signup-text {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .signup-form {
+        padding-left: 52px;
+    }
+
+    #email {
+        width: 382px;
+        font-size: 17px;
+        line-height: 22px;
+    }
+}
+
+
 .signup {
-    padding-left: calc(50% - 351px/2 - 210.5px);
     padding-top: 61px;
     padding-bottom: 49px;
     display: flex;
@@ -9,14 +73,11 @@
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 32px;
     letter-spacing: -0.25px;
     color: #FFFFFF
 }
 
 .signup-form {
-    padding-left: 52px;
     color: white
 }
 
@@ -26,7 +87,6 @@
 
 .signup-button {
     padding: 0;
-    margin-left: -50px;
     background-color: unset;
 }
 
@@ -41,7 +101,6 @@ form > label {
 }
 
 #email {
-    width: 382px;
     height: 48px;
     padding: 13px;
     background-color: rgba(24, 25, 36, 1);
@@ -51,10 +110,8 @@ form > label {
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 22px;
     letter-spacing: 0.15px;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #email:hover {
@@ -64,16 +121,21 @@ form > label {
 #email:focus {
     border-color: rgba(255, 255, 255, 1);
     background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 1);
+}
+
+#email:focus+.sign-up-button+.sign-up-button>img {
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 #email::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 22px;
+    font-size: var(--fontsize-email);
+    line-height: var(--lineheight-email);
     letter-spacing: 0.15px;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5);
     opacity: 1; /* Firefox */
 }
 
@@ -81,20 +143,20 @@ form > label {
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 22px;
+    font-size: var(--fontsize-email);
+    line-height: var(--lineheight-email);
     letter-spacing: 0.15px;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5);
   }
   
 #email::-ms-input-placeholder { /* Microsoft Edge */
     font-family: Protipo;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 22px;
+    font-size: var(--fontsize-email);
+    line-height: var(--lineheight-email);
     letter-spacing: 0.15px;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5);
   }
 
 .hidden-form {
