@@ -1,6 +1,5 @@
 import { IonApp, IonButton, IonCardSubtitle, IonCardTitle, IonContent } from '@ionic/react';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import HomeFooter from '../components/HomeFooter';
 import HomeHeader from '../components/HomeHeader';
 import Mockup from '../components/Mockup';
@@ -31,24 +30,6 @@ const Home: React.FC = () => {
 					</div>
 				</div>
 				<SignUp />
-				<div className="links-bottom">
-					<NavLink
-						id="legal-notice-bottom"
-						to={'/legal-notice'}
-						className="navbar"
-						activeClassName="navbar activ"
-					>
-						Impressum
-					</NavLink>
-					<NavLink
-						id="privacy-bottom"
-						to={'/privacy'}
-						className="navbar"
-						activeClassName="navbar activ"
-					>
-						Datenschutz
-					</NavLink>
-				</div>
 				<HomeFooter />
 			</IonContent>
 		</IonApp>

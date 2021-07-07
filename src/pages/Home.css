@@ -54,22 +54,13 @@
 	display: flex;
 }
 
-.links-bottom {
-	padding-bottom: 50px;
-}
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
 	#privacy-bottom {
-		margin-top: 85px;
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
-	}
-
-	.links-bottom {
-		display: flex;
-		justify-content: space-evenly;
 	}
 
 	.mockup > div {
@@ -108,15 +99,9 @@
 @media screen and (min-width: 375px) {
 	#legal-notice-bottom,
 	#privacy-bottom {
-		margin-top: 91px;
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
-	}
-
-	.links-bottom {
-		display: flex;
-		justify-content: space-evenly;
 	}
 
 	.mockup > div {
