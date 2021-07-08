@@ -1,9 +1,21 @@
-import React from 'react';
+import { IonCheckbox } from '@ionic/react';
+import React, { useState } from 'react';
 import './SignUp.css';
 import SignUpButton from './SignUpButton';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const SignUp: React.FC = () => {
+
+	const [isFocus, setIsFocus] = useState(false)
+
+
+	const focusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+		setIsFocus(true);
+	}
+
+	const blurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+		setIsFocus(false);
+	}
 	/* This is returned when using this component */
 
 	return (
@@ -27,22 +39,22 @@ const SignUp: React.FC = () => {
 									className="required email"
 									id="email"
                                     placeholder="Deine Mail-Adresse"
+									onFocus={focusHandler}
+									onBlur={blurHandler}
 								/>
 								<button
 									type="submit"
 									name="subscribe"
 									className="signup-button"
-                                ><SignUpButton /> </button>
+                                ><SignUpButton focus={isFocus ? "sign-up-button focussed" : "sign-up-button"}/> </button>
 							</div>
 								<div className="content__gdpr">
 										<label className="checkbox subfield" htmlFor="gdpr_67758">
-											<input
-												type="checkbox"
-												id="gdpr_67758"
+											<IonCheckbox id="gdpr_67758"
 												name="gdpr[67758]"
 												value="Y"
 												className="checkbox-gdpr"
-											/>
+												/>
 											<span>Ich bin einverstanden mit der <a className="signup-link" href="/privacy">Datenschutzerklärung</a></span>
 										</label>
 								</div>

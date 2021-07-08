@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from './Logo';
+import logo from '../assets/images/Logo_without_text.svg';
 import './HomeFooter.css';
 import SocialMediaLinks from './SocialMediaLinks';
 
@@ -11,7 +11,8 @@ const HomeFooter: React.FC = () => {
 	return (
 		<div className="nav-footer">
 			<NavLink id="home" to={'/'}>
-				<Logo />
+				<img src={logo} alt="logo"/>
+				<span>Face The Facts</span>
 			</NavLink>
 			<div className="social-media-bottom">
 				<SocialMediaLinks position="bottom"/>
