@@ -11,11 +11,11 @@ const HomeFooter: React.FC = () => {
 	return (
 		<div className="nav-footer">
 			<NavLink id="home" to={'/'}>
-				<img src={logo} alt="logo"/>
+				<img src={logo} alt="logo" />
 				<span>Face The Facts</span>
 			</NavLink>
 			<div className="social-media-bottom">
-				<SocialMediaLinks position="bottom"/>
+				<SocialMediaLinks position="bottom" />
 			</div>
 			<div className="links">
 				<NavLink

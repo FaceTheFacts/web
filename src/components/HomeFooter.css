@@ -90,7 +90,7 @@
 
 .nav-footer > #home {
 	display: flex;
-    align-items: center;
+	align-items: center;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 17px;
@@ -101,17 +101,17 @@
 }
 
 #home > span {
-	padding-left: 13.55px
+	padding-left: 13.55px;
 }
 
 .nav-footer > .links {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .bottom {
-    width: 21px;
-    opacity: 0.3;
+	width: 21px;
+	opacity: 0.3;
 }
 
 .social-media-bottom {
@@ -121,7 +121,7 @@
 .social-media-links {
 	display: flex;
 	align-items: center;
-    justify-content: space-evenly;
+	justify-content: space-evenly;
 }
 
 #privacy:hover,

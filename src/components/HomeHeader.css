@@ -1,7 +1,7 @@
 .top {
-    width: 21px;
-    opacity: 0.3;
-    margin-right: 40px; 
+	width: 21px;
+	opacity: 0.3;
+	margin-right: 40px;
 }
 
 @media screen and (max-width: 374px) {
@@ -16,7 +16,7 @@
 		width: 238.87px;
 		height: 60px;
 	}
-    .top {
+	.top {
 		display: none;
 	}
 }
@@ -53,9 +53,8 @@
 
 	.top {
 		display: unset;
-    }
+	}
 }
-
 
 @media screen and (min-width: 1440px) {
 	.nav-header {
