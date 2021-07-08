@@ -33,11 +33,11 @@ Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br />
 
 <br />z.Hd. Victor Bellu
-Bellu, Köditz und Krümmel GbR 
+<br />Bellu, Köditz und Krümmel GbR 
 <br />Zähringerstraße 17
 <br />10707 Berlin
-<br />Kontakt
-<br />Telefon: +01729789410
+<br /><h5>Kontakt</h5>
+Telefon: +01729789410
 <br />E-Mail: info@facethefacts.app
 <br />
 <br />
