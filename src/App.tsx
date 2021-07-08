@@ -31,6 +31,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Position from './pages/Position';
 import Votes from './pages/Votes/Votes';
+import { animationBuilder } from './functions/animation-builder';
 
 const queryClient = new QueryClient();
 
@@ -42,7 +43,7 @@ const App: React.FC = () => {
 				<IonReactRouter>
 					<IonSplitPane contentId="main">
 						{/* Include the side menu */}
-						<IonRouterOutlet id="main">
+						<IonRouterOutlet id="main" animation={animationBuilder}>
 							{/* Register each page with the router
 							This works by defining a path and telling the router which component
 							(page) to render for that path. */}
