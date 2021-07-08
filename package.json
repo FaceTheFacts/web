@@ -26,8 +26,8 @@
 	"dependencies": {
 		"7": "0.0.1",
 		"@ionic/pwa-elements": "^3.0.2",
-		"@ionic/react": "^5.5.4",
-		"@ionic/react-router": "^5.5.4",
+		"@ionic/react": "^5.6.11",
+		"@ionic/react-router": "^5.6.11",
 		"@material-ui/core": "^4.11.3",
 		"@material-ui/icons": "^4.9.1",
 		"@svgr/webpack": "4.3.3",
