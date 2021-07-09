@@ -13,6 +13,10 @@
 	color: #ffffff;
 }
 
+.privacy > a {
+	color: #3aa6f4;
+}
+
 @media screen and (max-width: 374px) {
 	.privacy {
 		padding: 30px;
@@ -50,7 +54,7 @@
 
 @media screen and (min-width: 768px) {
 	.privacy {
-		padding: 100px 170px;
+		padding: 80px 150px;
 		font-size: 17px;
 		line-height: 22px;
 	}
@@ -58,9 +62,9 @@
 
 @media screen and (min-width: 1440px) {
 	.privacy {
-		padding-top: 11.1vh;
-		padding-bottom: 11.1vh;
-		padding-left: 25.69vw;
-		padding-right: 25.69vw;
+		padding-top: 10vh;
+		padding-bottom: 10vh;
+		padding-left: 25vw;
+		padding-right: 25vw;
 	}
 }

@@ -1,0 +1,221 @@
+:root {
+	--fontsize-email: 17px;
+	--lineheight-email: 22px;
+}
+
+@media screen and (max-width: 321px) {
+	:root {
+		--fontsize-email: 14px;
+		--lineheight-email: 20px;
+	}
+
+	#email {
+		width: 258px;
+	}
+
+	.signup {
+		padding-left: 16px;
+		padding-right: 16px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.signup-text {
+		padding-bottom: 10px;
+		font-size: 18px;
+		line-height: 135%;
+	}
+
+	.content__gdpr {
+		font-size: 10.5px;
+	}
+
+	.checkbox-gdpr {
+		--size: 14px;
+		margin-right: 5px;
+	}
+}
+
+@media screen and (min-width: 321px) {
+	:root {
+		--fontsize-email: 14px;
+		--lineheight-email: 20px;
+	}
+
+	.signup {
+		padding-left: 16px;
+		padding-right: 16px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.signup-text {
+		padding-bottom: 10px;
+		font-size: 18px;
+		line-height: 135%;
+	}
+
+	#email {
+		width: 313px;
+		height: 48px;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.content__gdpr {
+		font-size: 12px;
+	}
+
+	.checkbox-gdpr {
+		--size: 16px;
+		margin-right: 9px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.signup-text {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	#email {
+		width: 363px;
+		font-size: 17px;
+		line-height: 22px;
+	}
+
+	.content__gdpr {
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.signup {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.signup-text {
+		padding-right: 5.76vw;
+	}
+}
+
+.signup {
+	padding-top: 61px;
+	padding-bottom: 49px;
+	display: flex;
+}
+
+.signup-text {
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: -0.25px;
+	color: #ffffff;
+}
+
+.signup-form {
+	color: white;
+}
+
+.signup-link {
+	color: #3aa6f4;
+}
+
+.signup-button {
+	padding: 0;
+	background-color: unset;
+}
+
+form > label {
+	padding-left: 9px;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+	color: #ffffff;
+}
+
+#email {
+	height: 48px;
+	padding: 13px;
+	background-color: rgba(24, 25, 36, 1);
+	border: 1.5px solid rgba(255, 255, 255, 0.3);
+	box-sizing: border-box;
+	border-radius: 8px;
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: 0.15px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#email:hover {
+	border-color: rgba(255, 255, 255, 1);
+}
+
+#email:focus {
+	border-color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.12);
+	color: rgba(255, 255, 255, 1);
+	outline: none;
+}
+
+#email::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: var(--fontsize-email);
+	line-height: var(--lineheight-email);
+	letter-spacing: 0.15px;
+	color: rgba(255, 255, 255, 0.5);
+	opacity: 1; /* Firefox */
+}
+
+#email:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: var(--fontsize-email);
+	line-height: var(--lineheight-email);
+	letter-spacing: 0.15px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#email::-ms-input-placeholder {
+	/* Microsoft Edge */
+	font-family: Protipo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: var(--fontsize-email);
+	line-height: var(--lineheight-email);
+	letter-spacing: 0.15px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.hidden-form {
+	position: absolute;
+	left: -50000px;
+}
+
+.checkbox-gdpr {
+	--background: rgb(24, 25, 36);
+	--border-color: rgba(256, 256, 256, 1);
+	--background-checked: rgba(90, 183, 96, 1);
+	--checkmark-color: rgb(24, 25, 36);
+	--checkmark-width: 4px;
+	--border-radius: 3px;
+}
+
+.email-field {
+	display: flex;
+	margin-bottom: 10.5px;
+}
+
+.subfield {
+	display: flex;
+	align-items: center;
+}
