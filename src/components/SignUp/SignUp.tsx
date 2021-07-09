@@ -7,7 +7,7 @@ import SignUpButton from './SignUpButton';
 const SignUp: React.FC = () => {
 	const [isFocus, setIsFocus] = useState(false);
 
-	const ACTION = `https://app.us6.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_ID}&amp;id=${process.env.REACT_APP_MAILCHIMP_MAILLIST_ID}`
+	const ACTION = `https://app.us6.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_ID}&amp;id=${process.env.REACT_APP_MAILCHIMP_MAILLIST_ID}`;
 
 	// eslint-disable-next-line
 	const focusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
