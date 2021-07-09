@@ -4,14 +4,12 @@ import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
-import { occupationHandler } from '../../functions/occupationHandler';
 
 interface ContainerProps {
 	candidate: Politician;
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
-	occupationHandler(candidate.occupation);
 
 	return (
 		<div className="header">
@@ -26,17 +24,15 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerPro
 						</div>
 						<div className="politician-details">
 							<PartyChip party={candidate.party.label} />
-							{candidate.occupation !== null
-								? occupationHandler(candidate.occupation).map(
-									(occupation: string, index: number) => {
-										return (
-											<IonChip key={index} className="politician-detail">
-												{occupation}
-											</IonChip>
-										);
-									}
-								)
-								: null}
+							{candidate.occupation.map(
+								(occupation: string, index: number) => {
+									return (
+										<IonChip key={index} className="politician-detail">
+											{occupation}
+										</IonChip>
+									);
+								}
+							)}
 						</div>
 					</IonCol>
 				</IonRow>
