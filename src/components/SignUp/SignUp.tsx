@@ -7,6 +7,8 @@ import SignUpButton from './SignUpButton';
 const SignUp: React.FC = () => {
 	const [isFocus, setIsFocus] = useState(false);
 
+	const ACTION = `https://app.us6.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_ID}&amp;id=${process.env.REACT_APP_MAILCHIMP_MAILLIST_ID}`
+
 	// eslint-disable-next-line
 	const focusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
 		setIsFocus(true);
@@ -23,7 +25,7 @@ const SignUp: React.FC = () => {
 			<div className="signup-text">Bleib auf dem Laufenden:</div>
 			<div className="signup-form">
 				<form
-					action="https://app.us6.list-manage.com/subscribe/post?u=7d218321c3d9896cf653785d4&amp;id=6f8827b5cc"
+					action={ACTION}
 					method="post"
 					name="mc-embedded-subscribe-form"
 					className="validate"
