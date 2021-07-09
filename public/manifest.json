@@ -1,9 +1,9 @@
 {
-  "short_name": "FtF App",
+  "short_name": "FaceTheFacts",
   "name": "Face the Facts App",
   "icons": [
       {
-          "src": "/android-icon-192x192.png",
+          "src": "/assets/icon/android-icon-192x192.png",
           "sizes": "192x192",
           "type": "image/png"
       }
