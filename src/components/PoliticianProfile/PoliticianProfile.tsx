@@ -7,16 +7,17 @@ import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyC
 
 interface ContainerProps {
 	candidate: Politician;
+	image: string;
 }
 
-const PoliticianProfile: React.FC<ContainerProps> = ({ candidate }: ContainerProps) => {
+const PoliticianProfile: React.FC<ContainerProps> = ({ candidate, image }: ContainerProps) => {
 
 	return (
 		<div className="header">
 			<IonGrid>
 				<IonRow>
 					<IonCol className="profile-image">
-						<img className="politician-image" src={Placeholder} alt="placeholder" />
+						<img className="politician-image" src={image !== null ? image : Placeholder} alt="placeholder" />
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
