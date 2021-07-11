@@ -152,3 +152,7 @@ ion-content {
 	font-size: 12px;
 	padding-top: 8px;
 }
+
+#electionChancesCard-link, #secondVoteCard-link{
+	text-decoration: unset;
+}
