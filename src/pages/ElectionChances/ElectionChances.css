@@ -138,8 +138,12 @@ ion-content {
 	--background: rgba(24, 25, 36, 1);
 }
 
-.secondvote-card:first-of-type {
+a:first-of-type > .secondvote-card {
 	margin-top: 16px;
+}
+
+a:last-of-type > .secondvote-card{
+	margin-bottom: 15px;
 }
 
 .secondVote-info-text {
