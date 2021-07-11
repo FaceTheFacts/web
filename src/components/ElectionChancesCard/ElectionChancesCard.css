@@ -19,7 +19,7 @@
 	align-items: center;
 }
 
-.election-chances-card:last-of-type {
+a:last-of-type > .election-chances-card {
 	margin-bottom: 15px;
 }
 
