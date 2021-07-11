@@ -14,8 +14,6 @@ const Profile: React.FC = () => {
 		cacheTime: 60 * 10000000,
 	});
 
-	console.log(data);
-
 	return (
 		<MobileScreen>
 			{data !== undefined ? <ProfileComponent candidate={data} profileId={id} /> : undefined}
