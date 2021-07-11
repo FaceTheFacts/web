@@ -14,6 +14,7 @@ import { constituencyCardHandler } from '../../functions/constituencyCardHandler
 import { useParams } from 'react-router';
 import SecondVoteCard from '../../components/SecondVoteCard';
 import MobileScreen from '../../hoc/MobileScreen';
+import { NavLink } from 'react-router-dom';
 
 const Electionchances: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
@@ -33,11 +34,12 @@ const Electionchances: React.FC = () => {
 	if (status==='success') {
 		secondVoteCards = data.second_vote.map((StateList: ElectionResult, index: number) => {
 			return (
+				<NavLink id="secondVoteCard-link" to={`/politician/${StateList.politician.id}/profile`} key={`secondvote-${index}`}>
 				<SecondVoteCard
 					secondVote={StateList}
 					candidateName={data.politician.label}
-					key={`secondvote-${index}`}
 				/>
+				</NavLink>
 			);
 		});
 	} else {
@@ -121,10 +123,11 @@ const Electionchances: React.FC = () => {
 								? data.first_vote.map(
 									(ElectionResults: ElectionResult, index: number) => {
 										return (
-											<ElectionchancesCard
+											<NavLink id="electionChancesCard-link"to={`/politician/${ElectionResults.politician.id}/profile`} key={`electionResults-${index}`}>
+												<ElectionchancesCard
 												vote={ElectionResults}
-												key={`electionResults-${index}`}
 											/>
+											</NavLink>
 										);
 									}
 								)
