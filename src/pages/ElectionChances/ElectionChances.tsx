@@ -9,7 +9,7 @@ import FirstVotePopup from '../../components/PopupCard/FirstVotePopup/FirstVoteP
 import SecondVotePopup from '../../components/PopupCard/SecondVotePopup/SecondVotePopup';
 import { ElectionResult } from '../../Types';
 import { useQuery } from 'react-query';
-import fetch from '../../functions/queries';
+import fetch, { newfetch } from '../../functions/queries';
 import { constituencyCardHandler } from '../../functions/constituencyCardHandler';
 import { useParams } from 'react-router';
 import SecondVoteCard from '../../components/SecondVoteCard';
@@ -20,87 +20,22 @@ const Electionchances: React.FC = () => {
 	const [segment, setSegment] = React.useState('0'); // eslint-disable-line @typescript-eslint/no-unused-vars
 
 	const { id } = useParams<{ id: string }>();
-	const { data, status } = useQuery(
-		`politicianProfile-${id}`,
-		() => fetch(`politicians/${id}?related_data=show_information`),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-		}
-	);
 
-	const name: string = data?.data.label;
-	const party = data?.data.party.label;
+	const { data, status } = useQuery(`politician-mandate-${id}`, () => newfetch(`candidacies-mandates/?politician_id=${id}`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000,
+	});
 
-	const constituency = useQuery(
-		`constituency-${name}`,
-		() =>
-			fetch(
-				`candidacies-mandates?politician[entity.label][cn]=${name}&parliament_period[entity.label][eq]=Bundestag Wahl 2017`
-			),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-			enabled: !!name,
-		}
-	);
-
-	let constituencyId: number | null;
-	let constituencyName: string | null;
-	let electoralListId: number | null;
-	let stateName: string | null;
-
-	if (constituency.data?.data[0] === undefined) {
-		constituencyId = null;
-		constituencyName = null;
-		electoralListId = null;
-		stateName = null;
-	} else {
-		//Data
-		const constituencyData = constituency.data?.data[0].electoral_data.constituency;
-		constituencyId = constituencyData.id;
-		constituencyName = constituencyData.label;
-		//list
-		const electoralList = constituency.data?.data[0].electoral_data.electoral_list;
-		electoralListId = electoralList.id;
-		stateName = electoralList.label;
-	}
-
-	const electionResults = useQuery(
-		`electionResults-${constituencyId}`,
-		() =>
-			fetch(
-				`candidacies-mandates?electoral_data[entity.constituency.entity.id]=${constituencyId}&label[cn]=Bundestag Wahl 2017`
-			),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-			enabled: !!constituencyId,
-		}
-	);
-
-	const stateList = useQuery(
-		`StateList-${party}-${electoralListId}`,
-		() =>
-			fetch(
-				`candidacies-mandates?electoral_data[entity.electoral_list.entity.id][eq]=${electoralListId}&politician[entity.party.entity.short_name]=${party}`
-			),
-		{
-			staleTime: 60 * 10000000, // 10000 minute = around 1 week
-			cacheTime: 60 * 10000000,
-			enabled: !!constituencyId,
-		}
-	);
-
-	const partyClassName = data?.data.party.label.toLowerCase().replace(/\s/g, '');
+	const partyClassName = data?.party.label.toLowerCase().replace(/\s/g, '');
 	const stateListClass = className('state', partyClassName);
+	console.log(data)
 	let secondVoteCards;
-	if (stateList.data) {
-		secondVoteCards = stateList.data?.data.map((StateList: ElectionResult, index: number) => {
+	if (status==='success') {
+		secondVoteCards = data.second_vote.map((StateList: ElectionResult, index: number) => {
 			return (
 				<SecondVoteCard
 					secondVote={StateList}
-					candidateName={name}
+					candidateName={data.politician.label}
 					key={`secondvote-${index}`}
 				/>
 			);
@@ -129,16 +64,14 @@ const Electionchances: React.FC = () => {
 							</VoteExplainerCard>
 							{
 								// eslint-disable-next-line
-								constituencyName ? (
+								status === 'success' ? (
 									<div className="election-chances-firstVote">
 										<IonCardSubtitle className="electionresult">
 											Wahlergebnis 2017
 										</IonCardSubtitle>
 										<IonCardTitle className="constituency">
 											Wahlkreis -{' '}
-											{constituency.isFetched
-												? constituencyCardHandler(constituencyName)
-												: null}
+											{status==='success' ? constituencyCardHandler(data?.electoral_data.constituency.label) : null}
 										</IonCardTitle>
 									</div>
 								) : (
@@ -173,10 +106,8 @@ const Electionchances: React.FC = () => {
 								</IonCardSubtitle>
 								<IonCardTitle className="statelist-title">
 									<span className={stateListClass + ' constituencycard'}>
-										{status === 'success' ? data.data.party.label : null}{' '}
-										{constituency.isFetched
-											? constituencyCardHandler(stateName)
-											: null}
+										{status === 'success' ? data.party.label : null}{' '}
+										{constituencyCardHandler(data?.electoral_data.electoral_list.label)}
 									</span>
 								</IonCardTitle>
 							</div>
@@ -186,8 +117,8 @@ const Electionchances: React.FC = () => {
 					<div>
 						{segment === '1'
 							? secondVoteCards
-							: electionResults.isFetched
-								? electionResults.data.data.map(
+							: status === 'success'
+								? data.first_vote.map(
 									(ElectionResults: ElectionResult, index: number) => {
 										return (
 											<ElectionchancesCard
