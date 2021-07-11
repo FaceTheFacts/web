@@ -23,6 +23,13 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 		}
 	);
 
+	const { data: image } = useQuery(`politician-${id}-Image`, () =>
+		newfetch(`politicians/${id}/image`), {
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
+
 	if (status === 'success') {
 		mainComponent = props.children;
 	}
@@ -35,11 +42,9 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 		mainComponent = <p>Error: {error}</p>;
 	}
 
-	console.log(data);
-
 	return (
 		<IonPage className="MobileScreen">
-			{data !== undefined ? <PoliticianProfile candidate={data} /> : null}
+			{data !== undefined ? <PoliticianProfile candidate={data} image={image}/> : null}
 			<Tabs id={id} />
 			<IonContent>{mainComponent}</IonContent>
 		</IonPage>
