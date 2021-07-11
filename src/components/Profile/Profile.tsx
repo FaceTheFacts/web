@@ -9,7 +9,7 @@ import TitleHeader from '../TitleHeader';
 import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
-import fetch from '../../functions/queries';
+import fetch, { newfetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ProfileProps {
@@ -33,7 +33,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 	const sideJobs = useQuery(
 		`sideJob-${candidate.label}`,
-		() => fetch(`sidejobs?mandates[entity.label][cn]=${candidate.label}&range_end=100`),
+		() => newfetch(`sidejobs?politician_name=${candidate.label}`),
 		{
 			staleTime: 60 * 2880000,
 			cacheTime: 60 * 2880000, // 2 days
@@ -101,9 +101,9 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				) : null}
 
 				<TitleHeader title="Bekannte Nebentätigkeiten" />
-				{sideJobs.data.data.length !== 0 ? (
+				{sideJobs.data.length !== 0 ? (
 					// eslint-disable-next-line
-					sideJobs.data.data.map((sideJob: any, index: number) => {
+					sideJobs.data.map((sideJob: any, index: number) => {
 						return <SideJobCard sideJob={sideJob} key={index} />;
 					})
 				) : (
