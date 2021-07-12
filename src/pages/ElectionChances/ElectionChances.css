@@ -10,7 +10,7 @@
 }
 
 .electionresult {
-	font-family: IBM Plex Serif;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 12px;
@@ -44,7 +44,7 @@
 }
 
 .no-direct-title {
-	font-family: inter, sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -56,7 +56,7 @@
 
 .no-direct-subtitle {
 	margin-top: 4px;
-	font-family: inter, sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
@@ -106,7 +106,7 @@
 }
 
 .result-text {
-	font-family: IBM Plex Serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;

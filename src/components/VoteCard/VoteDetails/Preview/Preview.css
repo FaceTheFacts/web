@@ -5,14 +5,14 @@
 
 .preview-title {
 	font-size: 14px;
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	color: white;
 }
 
 .preview-content {
 	font-size: 14px;
-	font-family: 'IBM Plex Serif', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	color: white;
 	opacity: 0.8;
@@ -37,7 +37,7 @@
 }
 
 .preview-button {
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-size: 12px;
 	text-transform: uppercase;
