@@ -40,15 +40,17 @@
 .vote-card-border {
 	border-top: 1px solid #ffffff;
 	opacity: 0.3;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 .judgement {
 	color: #ffffff;
+	opacity: 0.5;
 	font-weight: 400;
-	font-size: 12px;
+	font-size: 11px;
+	line-height: 14px;
+	letter-spacing: 0.03em;
 	font-family: 'inter';
-	margin-top: 6px;
 	padding-top: 0px;
 	box-sizing: border-box;
 }
