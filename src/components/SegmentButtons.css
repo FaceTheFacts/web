@@ -34,7 +34,7 @@
 	--color: rgba(255, 255, 255, 0.5);
 	--color-checked: rgba(255, 255, 255, 1);
 	--border-radius: 4px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: bold;
 	font-size: var(--fontsize-segment-button);

@@ -35,7 +35,7 @@ a:last-of-type > .election-chances-card {
 }
 
 .election-chances-card-title {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
@@ -46,7 +46,7 @@ a:last-of-type > .election-chances-card {
 
 .election-chances-card-subtitle {
 	font-size: 12px;
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter', sans-serif;
 	font-style: normal;
 	color: white;
 }
@@ -62,7 +62,7 @@ a:last-of-type > .election-chances-card {
 }
 
 .percentage .election-chances-card-title {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;

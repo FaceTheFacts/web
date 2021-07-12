@@ -5,7 +5,7 @@
 
 .preview-title {
 	font-size: 14px;
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter', sans-serif;
 	font-style: normal;
 	color: white;
 }
@@ -37,7 +37,7 @@
 }
 
 .preview-button {
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter', sans-serif;
 	font-style: normal;
 	font-size: 12px;
 	text-transform: uppercase;
