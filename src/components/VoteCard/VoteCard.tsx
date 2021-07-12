@@ -49,8 +49,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	}, [votequery])
 
 	const Poll = voteDetailsHandler(props.vote.id);
-
-	let judge;
+	
 	/* 
 	Dynamically calculate the total number of votes
 	*/
