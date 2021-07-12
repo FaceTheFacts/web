@@ -10,7 +10,7 @@
 	--color: #ffffff;
 	--icon-color: rgba(255, 255, 255, 0.7);
 	--placeholder-color: rgba(255, 255, 255, 0.5);
-	--placeholder-font-style: 'inter', sans-serif;
+	--placeholder-font-style: 'inter';
 	--placeholder-font-weight: 400;
 	padding: 0px !important;
 }

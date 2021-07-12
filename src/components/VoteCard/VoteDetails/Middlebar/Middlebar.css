@@ -12,7 +12,7 @@
 	align-items: center;
 }
 .middlebar-left-sentence {
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: normal;
 	font-size: 12px;
@@ -42,7 +42,7 @@
 }
 
 .middlebar-right {
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
@@ -52,7 +52,7 @@
 }
 
 .middlebar-right-android {
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;

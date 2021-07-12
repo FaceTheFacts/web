@@ -46,7 +46,7 @@ a:last-of-type > .election-chances-card {
 
 .election-chances-card-subtitle {
 	font-size: 12px;
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	color: white;
 }

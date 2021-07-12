@@ -4,7 +4,7 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	font-weight: 400;
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 }
 
@@ -14,7 +14,7 @@
 	letter-spacing: 0px;
 	line-height: 1;
 	font-weight: 600;
-	font-family: 'inter', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	margin-bottom: 5px;
 }
