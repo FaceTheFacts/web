@@ -33,7 +33,7 @@
 
 /* Have to use ion-card-title to overwrite inherited css from :host */
 .politician-name ion-card-title {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
@@ -43,7 +43,7 @@
 }
 
 .politician-detail {
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;

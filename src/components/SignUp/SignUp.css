@@ -107,7 +107,7 @@
 }
 
 .signup-text {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	letter-spacing: -0.25px;
@@ -129,7 +129,7 @@
 
 form > label {
 	padding-left: 9px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
@@ -144,7 +144,7 @@ form > label {
 	border: 1.5px solid rgba(255, 255, 255, 0.3);
 	box-sizing: border-box;
 	border-radius: 8px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	letter-spacing: 0.15px;
@@ -164,7 +164,7 @@ form > label {
 
 #email::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: var(--fontsize-email);
@@ -176,7 +176,7 @@ form > label {
 
 #email:-ms-input-placeholder {
 	/* Internet Explorer 10-11 */
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: var(--fontsize-email);
@@ -187,7 +187,7 @@ form > label {
 
 #email::-ms-input-placeholder {
 	/* Microsoft Edge */
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: var(--fontsize-email);

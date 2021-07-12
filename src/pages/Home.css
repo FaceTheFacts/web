@@ -1,5 +1,5 @@
 .navbar {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	letter-spacing: 1px;
@@ -15,7 +15,7 @@
 }
 
 .home-title {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	text-align: center;
@@ -24,7 +24,7 @@
 }
 
 .home-subtitle {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	color: #ffffff;
@@ -38,7 +38,7 @@
 .home-button {
 	--background: rgba(45, 93, 234, 1);
 	--border-radius: 8px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
