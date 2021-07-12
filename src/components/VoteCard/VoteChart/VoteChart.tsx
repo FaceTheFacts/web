@@ -94,9 +94,9 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 				},
 				{
 					label: 'Nicht abg.',
-					backgroundColor: '#C4C4C4',
+					backgroundColor: 'rgba(248, 248, 248, 0.12)',
 					borderWidth: 0,
-					hoverBackgroundColor: '#C4C4C4',
+					hoverBackgroundColor: 'rgba(248, 248, 248, 0.12)',
 					data: [totalvotes[3]],
 				},
 			],
