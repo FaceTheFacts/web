@@ -77,6 +77,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 					borderWidth: 0,
 					hoverBackgroundColor: '#6FAD5A',
 					data: [totalvotes[0]],
+					borderRadius: 12,
 				},
 				{
 					label: 'Nein',
@@ -84,6 +85,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 					borderWidth: 0,
 					hoverBackgroundColor: '#D74769',
 					data: [totalvotes[1]],
+					borderRadius: 12,
 				},
 				{
 					label: 'Enthalten',
@@ -91,6 +93,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 					borderWidth: 0,
 					hoverBackgroundColor: '#3969F5',
 					data: [totalvotes[2]],
+					borderRadius: 12,
 				},
 				{
 					label: 'Nicht abg.',
@@ -98,6 +101,7 @@ const VoteChart: React.FC<ChartProps> = ({ totalvotes }: ChartProps) => {
 					borderWidth: 0,
 					hoverBackgroundColor: 'rgba(248, 248, 248, 0.12)',
 					data: [totalvotes[3]],
+					borderRadius: 12,
 				},
 			],
 		});
