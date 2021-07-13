@@ -33,7 +33,6 @@ const Electionchances: React.FC = () => {
 
 	const partyClassName = data?.party.label.toLowerCase().replace(/\s/g, '');
 	const stateListClass = className('state', partyClassName);
-	console.log(data);
 	let secondVoteCards;
 	if (status === 'success') {
 		secondVoteCards = data.second_vote.map((StateList: ElectionResult, index: number) => {
