@@ -9,7 +9,7 @@ import FirstVotePopup from '../../components/PopupCard/FirstVotePopup/FirstVoteP
 import SecondVotePopup from '../../components/PopupCard/SecondVotePopup/SecondVotePopup';
 import { ElectionResult } from '../../Types';
 import { useQuery } from 'react-query';
-import fetch, { newfetch } from '../../functions/queries';
+import { newfetch } from '../../functions/queries';
 import { constituencyCardHandler } from '../../functions/constituencyCardHandler';
 import { useParams } from 'react-router';
 import SecondVoteCard from '../../components/SecondVoteCard';
@@ -22,23 +22,28 @@ const Electionchances: React.FC = () => {
 
 	const { id } = useParams<{ id: string }>();
 
-	const { data, status } = useQuery(`politician-mandate-${id}`, () => newfetch(`candidacies-mandates/?politician_id=${id}`), {
-		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-		cacheTime: 60 * 10000000,
-	});
+	const { data, status } = useQuery(
+		`politician-mandate-${id}`,
+		() => newfetch(`candidacies-mandates/?politician_id=${id}`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
 
 	const partyClassName = data?.party.label.toLowerCase().replace(/\s/g, '');
 	const stateListClass = className('state', partyClassName);
-	console.log(data)
+	console.log(data);
 	let secondVoteCards;
-	if (status==='success') {
+	if (status === 'success') {
 		secondVoteCards = data.second_vote.map((StateList: ElectionResult, index: number) => {
 			return (
-				<NavLink id="secondVoteCard-link" to={`/politician/${StateList.politician.id}/profile`} key={`secondvote-${index}`}>
-				<SecondVoteCard
-					secondVote={StateList}
-					candidateName={data.politician.label}
-				/>
+				<NavLink
+					id="secondVoteCard-link"
+					to={`/politician/${StateList.politician.id}/profile`}
+					key={`secondvote-${index}`}
+				>
+					<SecondVoteCard secondVote={StateList} candidateName={data.politician.label} />
 				</NavLink>
 			);
 		});
@@ -73,7 +78,11 @@ const Electionchances: React.FC = () => {
 										</IonCardSubtitle>
 										<IonCardTitle className="constituency">
 											Wahlkreis -{' '}
-											{status==='success' ? constituencyCardHandler(data?.electoral_data.constituency.label) : null}
+											{status === 'success'
+												? constituencyCardHandler(
+														data?.electoral_data.constituency.label
+												)
+												: null}
 										</IonCardTitle>
 									</div>
 								) : (
@@ -109,7 +118,9 @@ const Electionchances: React.FC = () => {
 								<IonCardTitle className="statelist-title">
 									<span className={stateListClass + ' constituencycard'}>
 										{status === 'success' ? data.party.label : null}{' '}
-										{constituencyCardHandler(data?.electoral_data.electoral_list.label)}
+										{constituencyCardHandler(
+											data?.electoral_data.electoral_list.label
+										)}
 									</span>
 								</IonCardTitle>
 							</div>
@@ -123,10 +134,12 @@ const Electionchances: React.FC = () => {
 								? data.first_vote.map(
 									(ElectionResults: ElectionResult, index: number) => {
 										return (
-											<NavLink id="electionChancesCard-link"to={`/politician/${ElectionResults.politician.id}/profile`} key={`electionResults-${index}`}>
-												<ElectionchancesCard
-												vote={ElectionResults}
-											/>
+											<NavLink
+												id="electionChancesCard-link"
+												to={`/politician/${ElectionResults.politician.id}/profile`}
+												key={`electionResults-${index}`}
+											>
+												<ElectionchancesCard vote={ElectionResults} />
 											</NavLink>
 										);
 									}

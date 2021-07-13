@@ -142,7 +142,7 @@ a:first-of-type > .secondvote-card {
 	margin-top: 16px;
 }
 
-a:last-of-type > .secondvote-card{
+a:last-of-type > .secondvote-card {
 	margin-bottom: 15px;
 }
 
@@ -157,6 +157,7 @@ a:last-of-type > .secondvote-card{
 	padding-top: 8px;
 }
 
-#electionChancesCard-link, #secondVoteCard-link{
+#electionChancesCard-link,
+#secondVoteCard-link {
 	text-decoration: unset;
 }
