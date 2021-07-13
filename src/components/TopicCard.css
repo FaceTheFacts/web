@@ -4,6 +4,8 @@
 	border-radius: 8px;
 	font-family: 'inter';
 	font-style: normal;
+	padding: 12.5px 16px;
+	height: unset;
 }
 
 .politicalFocus {
