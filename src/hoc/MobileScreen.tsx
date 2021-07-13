@@ -16,15 +16,19 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 	const { id } = useParams<{ id: string }>();
 	let mainComponent: JSX.Element | undefined;
 
-	const { data, status, error } = useQuery(`politician-${id}`, () =>
-		newfetch(`politicians/${id}`), {
+	const { data, status, error } = useQuery(
+		`politician-${id}`,
+		() => newfetch(`politicians/${id}`),
+		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
 		}
 	);
 
-	const { data: image } = useQuery(`politician-${id}-Image`, () =>
-		newfetch(`politicians/${id}/image`), {
+	const { data: image } = useQuery(
+		`politician-${id}-Image`,
+		() => newfetch(`politicians/${id}/image`),
+		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
 			cacheTime: 60 * 10000000,
 		}
@@ -44,7 +48,7 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 
 	return (
 		<IonPage className="MobileScreen">
-			{data !== undefined ? <PoliticianProfile candidate={data} image={image}/> : null}
+			{data !== undefined ? <PoliticianProfile candidate={data} image={image} /> : null}
 			<Tabs id={id} />
 			<IonContent>{mainComponent}</IonContent>
 		</IonPage>
