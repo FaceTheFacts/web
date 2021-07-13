@@ -215,4 +215,8 @@
 	.home-subtitle {
 		text-align: unset;
 	}
+
+	.home-title {
+		text-align: left;
+	}
 }
