@@ -33,3 +33,7 @@
 	font-style: normal;
 	font-weight: 700;
 }
+
+ion-content {
+	--background: #181924;
+}

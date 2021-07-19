@@ -126,10 +126,6 @@
 	color: #ffffff;
 }
 
-ion-content {
-	--background: #181924;
-}
-
 .firstVote {
 	--background: rgba(24, 25, 36, 1);
 }
