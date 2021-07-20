@@ -1,0 +1,14 @@
+.topic-filter {
+	background: #2b2c36;
+	color: #ffffff;
+	border-radius: 8px;
+	font-family: 'inter';
+	font-style: normal;
+	padding: 12.5px 16px;
+	height: unset;
+}
+
+.topic-clicked {
+  background: #F8F8F8;
+	color: #181924;
+}
