@@ -4,7 +4,7 @@ import faceTheFactsMockUp from '../assets/images/Mockup.png';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const Mockup: React.FC = () => (
 	<div>
-		<LazyLoadImage src={faceTheFactsMockUp} alt="logo" effect="blur"/>
+		<LazyLoadImage src={faceTheFactsMockUp} alt="logo" effect="blur" />
 	</div>
 );
 export default Mockup;
