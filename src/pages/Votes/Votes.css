@@ -40,6 +40,7 @@
 	letter-spacing: -0.03em;
 /* white */
 	color: #F8F8F8;
+	padding-bottom: 10px;
 }
 
 .vote-filter-title {
@@ -83,6 +84,9 @@
 
 .votes-topics {
 	overflow-x: auto;
+}
+.votes-topics::-webkit-scrollbar {
+	display: none;
 }
 
 .votes-black-back {
