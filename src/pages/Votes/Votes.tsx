@@ -1,4 +1,4 @@
-import { IonContent, IonImg, IonPage } from '@ionic/react';
+import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
 import React, { useState } from 'react';
 import './Votes.css';
 import LinkButton from '../../components/LinkButton';
@@ -10,6 +10,7 @@ import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
 
 import filterLogo from '../../assets/images/filter.svg';
+import arrowLogo from '../../assets/images/arrow-up.svg';
 
 const Votes: React.FC = () => {
 	const [filter, setFilter] = useState(false);
@@ -40,17 +41,24 @@ const Votes: React.FC = () => {
 			</div>
 			<IonContent>
 				{filter? (
-				<div>
 					<div>
-						nach Themen filtern
+						<div>
+							nach Themen filtern
+						</div>
+						<div className="votes-topics">
+							<Topics/>
+						</div>
+						<IonItem
+							className = "votes-filter-fold" 
+							onClick={(): void => setFilter(false)}>
+							<IonLabel>einklappen</IonLabel>
+							<IonImg
+								id="filter-fold"
+								src={arrowLogo}
+								alt="filter-fold"
+							/>
+						</IonItem>
 					</div>
-					<div className="votes-topics">
-						<Topics/>
-					</div>
-					<div>
-					<button onClick={(): void => setFilter(false)}>einklappen</button>
-					</div>
-				</div>
 				
 				) :null}
 				

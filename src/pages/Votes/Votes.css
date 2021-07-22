@@ -26,6 +26,22 @@
 	color: #FFFFFF;
 }
 
+.votes-filter-fold {
+	--background: #181924;
+	--inner-border-width: 0px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 21px;
+/* identical to box height */
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.03em;
+/* white */
+	color: #F8F8F8;
+}
+
 .votes-topics {
 	overflow-x: auto;
 }
