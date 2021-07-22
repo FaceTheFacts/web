@@ -1,4 +1,5 @@
 import React from 'react';
+import '../components/TopicCard.css'
 export const topicFilterHandler = (title: string, isClicked: boolean): JSX.Element|string => {
 	const color = isClicked ? 'rgba(24, 25, 36, 1)' : 'rgba(255, 255, 255, 1)';
 	switch (title) {
@@ -291,16 +292,16 @@ export const topicFilterHandler = (title: string, isClicked: boolean): JSX.Eleme
 				Nachrichtendienste
 			</div>
 		);
-		case 'Parlamentsangelegenheiten':
+	case 'Parlamentsangelegenheiten':
 		return (
 			<div className="politicalFocus">
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
 					<path d="M17.4375 3.75C17.4375 3.64453 17.332 3.53906 17.2617 3.50391L9.10547 0.410156C9.07031 0.410156 9.03516 0.410156 8.96484 0.410156C8.92969 0.410156 8.89453 0.410156 8.85938 0.410156L0.703125 3.50391C0.632812 3.53906 0.5625 3.64453 0.5625 3.75V4.3125C0.5625 4.48828 0.667969 4.59375 0.84375 4.59375H1.6875V5.01562C1.6875 5.26172 1.86328 5.4375 2.10938 5.4375H15.8906C16.1016 5.4375 16.3125 5.26172 16.3125 5.01562V4.59375H17.1562C17.2969 4.59375 17.4375 4.48828 17.4375 4.3125V3.75ZM16.5938 14.4375H1.40625C0.914062 14.4375 0.5625 14.8242 0.5625 15.2812V15.8438C0.5625 16.0195 0.667969 16.125 0.84375 16.125H17.1562C17.2969 16.125 17.4375 16.0195 17.4375 15.8438V15.2812C17.4375 14.8242 17.0508 14.4375 16.5938 14.4375ZM3.375 6V12.75H2.10938C1.86328 12.75 1.6875 12.9609 1.6875 13.1719V13.875H16.3125V13.1719C16.3125 12.9609 16.1016 12.75 15.8906 12.75H14.625V6H12.375V12.75H10.125V6H7.875V12.75H5.625V6H3.375Z" 
-					fill={color}/>
+						fill={color}/>
 				</svg>
 				Parlamentsangelegenheiten
 			</div>
-	);
+		);
 	case 'Recht und Verbraucherschutz':
 		return (
 			<div className="politicalFocus">
