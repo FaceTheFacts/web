@@ -10,17 +10,22 @@
 	font-weight: 400;
 	font-style: normal;
 }
-.votes-header-container > :first-child {
-	position: absolute;
-	left: 0px;
-}
-.votes-header-container > :second-child {
-	margin-left: 20px;
-}
+
 .votes-header-container > :last-child {
 	position: absolute;
 	right: 19px;
 }
+
+.vote-filter-title {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
+	line-height: 21px;
+	letter-spacing: -0.03em;
+	color: #FFFFFF;
+}
+
 .votes-topics {
 	overflow-x: auto;
 }
