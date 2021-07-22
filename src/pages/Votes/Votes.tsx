@@ -1,5 +1,5 @@
 import { IonContent, IonPage } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 import './Votes.css';
 import LinkButton from '../../components/LinkButton';
 import { iconEnum } from '../../enums/icon.enum';
@@ -10,6 +10,7 @@ import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
 
 const Votes: React.FC = () => {
+	const [filter, setFilter] = useState(false);
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
 	const polls = useQueries(
@@ -27,12 +28,28 @@ const Votes: React.FC = () => {
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
 				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
+				<button onClick={(): void => setFilter(true)}>Test</button>
 			</div>
 			<IonContent>
-				<div className="votes-topics">
-					<Topics/>
+				{filter? (
+				<div>
+					<div>
+						nach Themen filtern
+					</div>
+					<div className="votes-topics">
+						<Topics/>
+					</div>
+					<div>
+					<button onClick={(): void => setFilter(false)}>einklappen</button>
+					</div>
 				</div>
+				
+				) :null}
+				
 				<div className="votes-black-back">
+					<div>
+						Alle Abstimmungen
+					</div>
 					{
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
