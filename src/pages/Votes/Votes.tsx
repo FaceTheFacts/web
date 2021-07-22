@@ -31,7 +31,7 @@ const Votes: React.FC = () => {
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
 				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
-				<div className="vote-filter-title">zurück</div>
+				<div className="vote-page-title">zurück</div>
 				<IonImg
 					id="filter-logo"
 					src={filterLogo}
