@@ -42,6 +42,29 @@
 	color: #F8F8F8;
 }
 
+.vote-filter-title {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 15px;
+	/* identical to box height */
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	/* white */
+	color: #F8F8F8;
+	opacity: 0.7;
+}
+
+.vote-filter {
+	margin-left: 15px;
+}
+
+.vote-filter .vote-filter-title {
+	margin-left: 4px;
+	margin-bottom: 3.5px;
+}
+
 .vote-content-title {
 	font-family: Inter;
 	font-style: normal;
@@ -54,6 +77,8 @@
 	/* white */
 	color: #F8F8F8;
 	opacity: 0.7;
+	margin-left: 18px;
+	margin-bottom: 5px;
 }
 
 .votes-topics {

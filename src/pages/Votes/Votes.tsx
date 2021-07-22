@@ -41,8 +41,8 @@ const Votes: React.FC = () => {
 			</div>
 			<IonContent>
 				{filter? (
-					<div>
-						<div className="vote-content-title">
+					<div className="vote-filter">
+						<div className="vote-filter-title">
 							Nach Themen filtern
 						</div>
 						<div className="votes-topics">
@@ -61,11 +61,10 @@ const Votes: React.FC = () => {
 					</div>
 				
 				) :null}
-				
+				<div className="vote-content-title">
+					Alle Abstimmungen
+				</div>
 				<div className="votes-black-back">
-					<div className="vote-content-title">
-						Alle Abstimmungen
-					</div>
 					{
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
