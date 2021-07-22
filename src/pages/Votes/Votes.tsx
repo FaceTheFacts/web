@@ -42,8 +42,8 @@ const Votes: React.FC = () => {
 			<IonContent>
 				{filter? (
 					<div>
-						<div>
-							nach Themen filtern
+						<div className="vote-content-title">
+							Nach Themen filtern
 						</div>
 						<div className="votes-topics">
 							<Topics/>
@@ -63,7 +63,7 @@ const Votes: React.FC = () => {
 				) :null}
 				
 				<div className="votes-black-back">
-					<div>
+					<div className="vote-content-title">
 						Alle Abstimmungen
 					</div>
 					{
