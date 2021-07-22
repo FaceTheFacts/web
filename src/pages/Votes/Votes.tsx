@@ -7,6 +7,7 @@ import { useParams } from 'react-router';
 import { useQueries } from 'react-query';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
+import Topics from '../../components/TopicFilter/Topics/Topics';
 
 const Votes: React.FC = () => {
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
@@ -28,6 +29,9 @@ const Votes: React.FC = () => {
 				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
 			</div>
 			<IonContent>
+				<div className="votes-topics">
+					<Topics/>
+				</div>
 				<div className="votes-black-back">
 					{
 						// eslint-disable-next-line

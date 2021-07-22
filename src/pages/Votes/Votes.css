@@ -21,6 +21,10 @@
 	position: absolute;
 	right: 19px;
 }
+.votes-topics {
+	overflow-x: auto;
+}
+
 .votes-black-back {
 	background-color: #181924;
 	display: flex;
