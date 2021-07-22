@@ -1,4 +1,4 @@
-import { IonContent, IonPage } from '@ionic/react';
+import { IonContent, IonImg, IonPage } from '@ionic/react';
 import React, { useState } from 'react';
 import './Votes.css';
 import LinkButton from '../../components/LinkButton';
@@ -8,6 +8,8 @@ import { useQueries } from 'react-query';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
+
+import filterLogo from '../../assets/images/filter.svg';
 
 const Votes: React.FC = () => {
 	const [filter, setFilter] = useState(false);
@@ -28,7 +30,12 @@ const Votes: React.FC = () => {
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
 				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
-				<button onClick={(): void => setFilter(true)}>Test</button>
+				<IonImg
+					id="filter-logo"
+					src={filterLogo}
+					alt="filter"
+					onClick={(): void => setFilter(true)}
+				/>
 			</div>
 			<IonContent>
 				{filter? (
