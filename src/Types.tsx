@@ -92,7 +92,7 @@ export type PartyMatchType = {
 
 export type Position = {
 	title: string;
-	answer: string;
+	answer: string|undefined;
 	reason: string;
 };
 /* export type Bio = {

@@ -1,4 +1,4 @@
-export const germanTranslator = (word: string): string|undefined => {
+export const germanTranslator = (word: string|undefined): string|undefined => {
 	let translated: string|undefined;
 	switch (word) {
 	case 'yes':
