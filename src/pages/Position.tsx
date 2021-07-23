@@ -6,57 +6,58 @@ import fetch from '../functions/queries';
 import MobileScreen from '../hoc/MobileScreen';
 const reason =
 	'"Das ist nur ein Platzhalter. Für die Bundestagswahl haben Kandidat:innen  hier die Möglichkeit ihre Position zu begründen"';
+const answer = undefined
 const examplePositionData = [
 	{
 		title: 'Pfleger:innen aus dem Ausland',
-		answer: 'yes',
+		answer: answer,
 		reason: reason,
 	},
 	{
 		title: 'Lobbyismusgesetz verschärfen',
-		answer: 'no',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Abitur aussetzen',
-		answer: 'yes',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Bedigungsloses Grundeinkommen',
-		answer: 'no',
+		answer: 'answer',
 
 		reason: reason,
 	},
 	{
 		title: 'Spitzensteuersatz senken',
-		answer: 'yes',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Mehr Subventionen für erneuerbare Energien',
-		answer: 'no',
+		answer: 'answer',
 
 		reason: reason,
 	},
 	{
 		title: 'Mehr Geld für Pflegekräfte',
-		answer: 'yes',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Soziale Start-ups fördern',
-		answer: 'yes',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Amazon und Co. angemessen besteuern',
-		answer: 'yes',
+		answer: 'answer',
 		reason: reason,
 	},
 	{
 		title: 'Mietpreise deckeln',
-		answer: 'no',
+		answer: 'answer',
 
 		reason: reason,
 	},
