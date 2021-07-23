@@ -6,8 +6,8 @@ import { iconEnum } from '../../enums/icon.enum';
 import { useParams } from 'react-router';
 import { useQueries } from 'react-query';
 import { newfetch } from '../../functions/queries';
-import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
+import VoteCard from '../../components/VoteCard/VoteCard';
 
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
