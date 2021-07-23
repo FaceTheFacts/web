@@ -6,7 +6,9 @@
 	"scripts": {
 		"build": "node scripts/build.js",
 		"start": "node scripts/start.js",
-		"test": "node scripts/test.js"
+		"test": "node scripts/test.js",
+		"prettier":"npx prettier --config .prettierrc.json -w .",
+		"eslint":"npx eslint --fix --ext .tsx ."
 	},
 	"browserslist": {
 		"production": [
