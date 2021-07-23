@@ -9,3 +9,12 @@ ul.topics-list {
   display: inline-block;
   white-space: nowrap;
 }
+
+.topicFocus {
+	display: flex;
+	align-items: center;
+}
+
+.topicFocus > svg {
+	margin-right: 10px;
+}
