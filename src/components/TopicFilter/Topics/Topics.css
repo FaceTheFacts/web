@@ -4,10 +4,9 @@ ul.topics-list li {
 	padding: 0;
 }
 
-
 ul.topics-list {
-  display: inline-block;
-  white-space: nowrap;
+	display: inline-block;
+	white-space: nowrap;
 }
 
 .topicFocus {

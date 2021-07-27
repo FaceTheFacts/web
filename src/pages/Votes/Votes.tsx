@@ -40,30 +40,22 @@ const Votes: React.FC = () => {
 				/>
 			</div>
 			<IonContent>
-				{filter? (
+				{filter ? (
 					<div className="vote-filter">
-						<div className="vote-filter-title">
-							Nach Themen filtern
-						</div>
+						<div className="vote-filter-title">Nach Themen filtern</div>
 						<div className="votes-topics">
-							<Topics/>
+							<Topics />
 						</div>
 						<IonItem
-							className = "votes-filter-fold" 
-							onClick={(): void => setFilter(false)}>
+							className="votes-filter-fold"
+							onClick={(): void => setFilter(false)}
+						>
 							<IonLabel>einklappen</IonLabel>
-							<IonImg
-								id="filter-fold"
-								src={arrowLogo}
-								alt="filter-fold"
-							/>
+							<IonImg id="filter-fold" src={arrowLogo} alt="filter-fold" />
 						</IonItem>
 					</div>
-				
-				) :null}
-				<div className="vote-content-title">
-					Alle Abstimmungen
-				</div>
+				) : null}
+				<div className="vote-content-title">Alle Abstimmungen</div>
 				<div className="votes-black-back">
 					{
 						// eslint-disable-next-line
