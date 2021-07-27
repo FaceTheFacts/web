@@ -42,7 +42,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
-				queryKey: ['poll', pollId],
+				queryKey: ['poll', pollId, candidate.label],
 				// eslint-disable-next-line
 				queryFn: () => fetch(`polls/${pollId}`),
 				staleTime: 60 * 1440000,
