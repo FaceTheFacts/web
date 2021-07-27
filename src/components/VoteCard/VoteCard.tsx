@@ -34,7 +34,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	};
 
 	const votequery = useQuery(
-		`vote-${props.vote.id}`,
+		`vote-${props.vote.id}-${props.name}`,
 		() => fetch(`votes?poll=${props.vote.id}&mandate[entity.label][cn]=${props.name}`),
 		{
 			staleTime: 60 * 10000000, // 10000 minute = around 1 week
