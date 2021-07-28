@@ -256,6 +256,33 @@ export type PollData = {
 	field_topics: null;
 };
 
+export type PollDataTopics = {
+	"id": number;
+	"label": string;
+}
+
+export type jsonPollData = {
+	politician_poll: {
+		"mandate": {
+			"id": number;
+			"label": string;
+		},
+		"vote": string;
+		"poll": {
+			"id": number;
+			"label": string;
+		}
+	};
+	"poll_detail": {
+    "id": number;
+    "intro": string;
+    "topics": Array<PollDataTopics>;
+    "links": null;
+    "committee": null;
+  },
+	"party_votes": Object;
+};
+
 export type ElectionResult = {
 	id: number;
 	entity_type: string;
