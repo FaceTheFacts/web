@@ -9,8 +9,9 @@ import TitleHeader from '../TitleHeader';
 import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
-import fetch, { newfetch } from '../../functions/queries';
+import fetch, { localFetch, newfetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
+import VoteDetails from '../VoteCard/VoteDetails/VoteDetails';
 
 interface ProfileProps {
 	candidate: Politician;
@@ -50,6 +51,17 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			};
 		})
 	);
+	//Json
+	const testData = useQuery(
+		'profile-page-polls-1584-Philipp Amthor',
+		()=>localFetch("profile-page-polls/1584/Philipp Amthor"),
+		{
+			staleTime: 60 * 2880000,
+			cacheTime: 60 * 2880000, // 2 days
+		}
+	)
+
+
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
 		return null;
@@ -109,6 +121,9 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				) : (
 					<NoDataCard type="sideJob" />
 				)}
+				
+				<button>{testData.data?.politician_poll.vote}</button>
+				
 			</div>
 		</React.Fragment>
 	);
