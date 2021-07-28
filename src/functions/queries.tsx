@@ -12,3 +12,11 @@ export async function newfetch(url: string) {
 	const res = await axios(BASE_URL + url);
 	return res.data;
 }
+
+//Connect local server
+// eslint-disable-next-line
+export async function localFetch(url: string) {
+	const BASE_URL = 'http://127.0.0.1:8000/';
+	const res = await axios(BASE_URL + url);
+	return res.data;
+}
