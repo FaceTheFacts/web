@@ -11,7 +11,7 @@ interface PollDataHard {
 	fraktionslos: Array<number>;
 }
 
-export const voteDetailsHandler = (id: number): PollDataHard => {
+export const voteDetailsHandler = (id: number | undefined): PollDataHard => {
 	const Poll1 = {
 		id: 1584,
 		judge: 'Antrag angenommen',
