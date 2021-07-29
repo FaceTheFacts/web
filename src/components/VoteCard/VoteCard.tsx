@@ -33,38 +33,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 		setShowDetails(false);
 	};
 
-	// const votequery = useQuery(
-	// 	`vote-${props.vote.id}-${props.name}`,
-	// 	() => fetch(`votes?poll=${props.vote.id}&mandate[entity.label][cn]=${props.name}`),
-	// 	{
-	// 		staleTime: 60 * 10000000, // 10000 minute = around 1 week
-	// 		cacheTime: 60 * 10000000,
-	// 	}
-	// );
-	
-	// useEffect(() => {
-	// 	if (votequery.status === 'success' && votequery.data.data[0] === undefined) {
-	// 		props.setArrow(false);
-	// 	} // eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [votequery])
-	// useEffect(() => {
-	// 	if ( props.vote. === undefined) {
-	// 		props.setArrow(false);
-	// 	} // eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [votequery])
-
 	const Poll = voteDetailsHandler(props.vote?.politician_poll.poll.id);
-	
-	/* 
-	Dynamically calculate the total number of votes
-	*/
-
-
-	// let positioning = 'noData';
-
-	// if (votequery.data?.data[0] !== undefined) {
-	// 	positioning = votequery.data.data[0].vote
-	// }
 
 	return (
 		<React.Fragment>
@@ -105,7 +74,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									<IonCol size="12">
 										<div className="vote-chart-container">
 											{/* Render a VoteChart component for the vote result */}
-											{/* <VoteChart totalvotes={[Poll.Gesamt[0], Poll.Gesamt[1], Poll.Gesamt[2], Poll.Gesamt[3]]} /> */}
+											<VoteChart totalvotes={[Poll.Gesamt[0], Poll.Gesamt[1], Poll.Gesamt[2], Poll.Gesamt[3]]} />
 										</div>
 									</IonCol>
 								</IonRow>
