@@ -11,7 +11,6 @@ import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
 import fetch, { localFetch, newfetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
-import VoteDetails from '../VoteCard/VoteDetails/VoteDetails';
 
 interface ProfileProps {
 	candidate: Politician;
@@ -40,27 +39,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			cacheTime: 60 * 2880000, // 2 days
 		}
 	);
+	
 	const polls = useQueries(
-		pollIds.map((pollId) => {
-			return {
-				queryKey: ['poll', pollId, candidate.label],
-				// eslint-disable-next-line
-				queryFn: () => fetch(`polls/${pollId}`),
-				staleTime: 60 * 1440000,
-				cacheTime: 60 * 1440000, // 1 day
-			};
-		})
-	);
-	//Json
-	// const testData = useQuery(
-	// 	'profile-page-polls-1584-Philipp Amthor',
-	// 	()=>localFetch("profile-page-polls/1584/Philipp Amthor"),
-	// 	{
-	// 		staleTime: 60 * 2880000,
-	// 		cacheTime: 60 * 2880000, // 2 days
-	// 	}
-	// )
-	const testPolls = useQueries(
 		pollIds.map((pollId) => {
 			return {
 				queryKey: ['profile-page-polls', pollId, candidate.label],
@@ -73,11 +53,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 
 
-	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading'||testPolls[0].status === 'loading') {
+	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
 		return null;
 	}
 
-	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error'||testPolls[0].status === 'error') {
+	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
 		return null;
 	}
 	return (
@@ -91,7 +71,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						</div>
 					</div>
 				) : null}
-				{testPolls[0].data !== undefined ? (
+				{polls[0].data !== undefined ? (
 					<div>
 						<TitleHeader title="Wichtigste Abstimmungen">
 							<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
@@ -104,7 +84,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						<ul className="vote-card-lists">
 							{showArrow ? (
 								// eslint-disable-next-line
-								testPolls.map((poll: any, index: number): JSX.Element | undefined => {
+								polls.map((poll: any, index: number): JSX.Element | undefined => {
 									return (
 										<li key={index}>
 											<VoteCard
