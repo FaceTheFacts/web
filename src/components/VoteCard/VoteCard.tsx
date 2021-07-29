@@ -32,26 +32,48 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	};
 
 	const Poll = voteDetailsHandler(props.vote?.politician_poll.poll.id);
+	const PartyVotes = props.vote?.party_votes
+	if (!PartyVotes) {
+		return <div></div>
+	}
+	const SPD = [PartyVotes['1'].yes , PartyVotes['1'].no , PartyVotes['1'].abstain , PartyVotes['1'].no_show]
+
+	const CDU = [PartyVotes['2'].yes , PartyVotes['2'].no , PartyVotes['2'].abstain , PartyVotes['2'].no_show]
+	
+	const CSU = [PartyVotes['3'].yes , PartyVotes['3'].no , PartyVotes['3'].abstain , PartyVotes['3'].no_show]
+
+	const FDP = [PartyVotes['4'].yes , PartyVotes['4'].no , PartyVotes['4'].abstain , PartyVotes['4'].no_show]
+
+	const Grünen = [PartyVotes['5'].yes , PartyVotes['5'].no , PartyVotes['5'].abstain , PartyVotes['5'].no_show]
+
+	const Linke = [PartyVotes['8'].yes , PartyVotes['8'].no , PartyVotes['8'].abstain , PartyVotes['8'].no_show]
+
+	const AfD = [PartyVotes['16'].yes , PartyVotes['16'].no , PartyVotes['16'].abstain , PartyVotes['16'].no_show]
+
+	const Fraktionslos = [PartyVotes['185'].yes , PartyVotes['185'].no , PartyVotes['185'].abstain , PartyVotes['185'].no_show]
+
+
+
+
 	const voteCounter = () => {
 		let yesVote = 0;
 		let noVote = 0;
 		let abstainVote = 0;
 		let noShowVote =0;
-		const germanPartyId = ['1','2','3','4','5','8','9','16','185']
-		const partyVotes = props.vote?.party_votes
-		if (partyVotes) {
-			germanPartyId.map(id => {
-				if (partyVotes[id].yes){
-					yesVote += partyVotes[id].yes
+		const GermanPartyId = ['1','2','3','4','5','8','9','16','185']
+		if (PartyVotes) {
+			GermanPartyId.map(id => {
+				if (PartyVotes[id].yes){
+					yesVote += PartyVotes[id].yes
 				}
-				if (partyVotes[id].no){
-					noVote += partyVotes[id].no
+				if (PartyVotes[id].no){
+					noVote += PartyVotes[id].no
 				}
-				if (partyVotes[id].abstain){
-					abstainVote += partyVotes[id].abstain
+				if (PartyVotes[id].abstain){
+					abstainVote += PartyVotes[id].abstain
 				}
-				if (partyVotes[id].no_show){
-					noShowVote += partyVotes[id].no_show
+				if (PartyVotes[id].no_show){
+					noShowVote += PartyVotes[id].no_show
 				}
 			})
 		}
@@ -122,7 +144,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									positioning={props.vote.politician_poll.vote}
 									result={Poll.judge}
 									totalVote={totalVotes}
-									partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
+									partyVote={[CDU, SPD, FDP, Grünen, Linke, AfD, Fraktionslos]}
 								/>
 							</div>
 						</IonModal>
