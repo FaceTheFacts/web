@@ -53,7 +53,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	// 	} // eslint-disable-next-line react-hooks/exhaustive-deps
 	// }, [votequery])
 
-	// const Poll = voteDetailsHandler(props.vote.id);
+	const Poll = voteDetailsHandler(props.vote?.politician_poll.poll.id);
 	
 	/* 
 	Dynamically calculate the total number of votes
@@ -121,15 +121,15 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 							swipeToClose={false}
 						>
 							<div className = 'vote-modal'>
-								{/* <VoteDetails
+								<VoteDetails
 									clicked={modalCloser}
-									title={props.vote.label}
-									content={props.vote.field_intro}
-									positioning={positioning}
+									title={props.vote.politician_poll.poll.label}
+									content={props.vote.poll_detail.intro}
+									positioning={props.vote.politician_poll.vote}
 									result={Poll.judge}
 									totalVote={Poll.Gesamt}
 									partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
-								/> */}
+								/>
 							</div>
 						</IonModal>
 					</IonContent>
