@@ -1,27 +1,31 @@
+import arrowLogo from '../../assets/images/arrow-up.svg';
+import filterLogo from '../../assets/images/filter.svg';
+import LinkButton from '../../components/LinkButton';
+import Topics from '../../components/TopicFilter/Topics/Topics';
+import VoteCard from '../../components/VoteCard/VoteCard';
+import { iconEnum } from '../../enums/icon.enum';
+import { localFetch, newfetch } from '../../functions/queries';
+import './Votes.css';
 import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
 import React, { useState } from 'react';
-import './Votes.css';
-import LinkButton from '../../components/LinkButton';
-import { iconEnum } from '../../enums/icon.enum';
+import { useQueries, useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import { useQueries } from 'react-query';
-import { newfetch } from '../../functions/queries';
-import VoteCard from '../../components/VoteCard/VoteCard';
-import Topics from '../../components/TopicFilter/Topics/Topics';
-
-import filterLogo from '../../assets/images/filter.svg';
-import arrowLogo from '../../assets/images/arrow-up.svg';
 
 const Votes: React.FC = () => {
 	const [filter, setFilter] = useState(false);
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
-	const polls = useQueries(
+	const { data } = useQuery(`politician-${id}`, () => newfetch(`politicians/${id}`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000,
+	});
+
+	const testPolls = useQueries(
 		pollIds.map((pollId) => {
 			return {
-				queryKey: ['new-poll', pollId],
+				queryKey: ['profile-page-polls', pollId, data?.label],
 				// eslint-disable-next-line
-				queryFn: () => newfetch(`polls/${pollId}`),
+				queryFn: () => localFetch(`profile-page-polls/${pollId}/${data?.label}`),
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
 			};
@@ -59,18 +63,16 @@ const Votes: React.FC = () => {
 				<div className="votes-black-back">
 					{
 						// eslint-disable-next-line
-						polls.map((poll: any, index: number): JSX.Element | undefined => {
-							if (poll.status === 'success') {
-								return (
-									<div className="votes-vote-card" key={`poll-${index}`}>
-										<VoteCard
-											vote={poll.data}
-											name={poll.label}
-											setArrow={(): null => null}
-										/>
-									</div>
-								);
-							}
+						testPolls.map((poll: any, index: number): JSX.Element | undefined => {
+							return (
+								<div className="votes-vote-card" key={`poll-${index}`}>
+									<VoteCard
+										vote={poll.data}
+										name={data?.label}
+										setArrow={(): null => null}
+									/>
+								</div>
+							);
 						})
 					}
 				</div>
