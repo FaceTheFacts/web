@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VoteChart from './VoteChart/VoteChart';
 import './VoteCard.css';
 import {
@@ -32,6 +32,32 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	};
 
 	const Poll = voteDetailsHandler(props.vote?.politician_poll.poll.id);
+	const voteCounter = () => {
+		let yesVote = 0;
+		let noVote = 0;
+		let abstainVote = 0;
+		let noShowVote =0;
+		const germanPartyId = ['1','2','3','4','5','8','9','16','185']
+		const partyVotes = props.vote?.party_votes
+		if (partyVotes) {
+			germanPartyId.map(id => {
+				if (partyVotes[id].yes){
+					yesVote += partyVotes[id].yes
+				}
+				if (partyVotes[id].no){
+					noVote += partyVotes[id].no
+				}
+				if (partyVotes[id].abstain){
+					abstainVote += partyVotes[id].abstain
+				}
+				if (partyVotes[id].no_show){
+					noShowVote += partyVotes[id].no_show
+				}
+			})
+		}
+		const total = {yesVote,noVote,abstainVote,noShowVote}
+		return total
+	}
 
 	return (
 		<React.Fragment>
