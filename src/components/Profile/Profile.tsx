@@ -9,7 +9,7 @@ import TitleHeader from '../TitleHeader';
 import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
-import fetch, { localFetch, newfetch } from '../../functions/queries';
+import fetch, { newfetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ProfileProps {
@@ -45,7 +45,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			return {
 				queryKey: ['profile-page-polls', pollId, candidate.label],
 				// eslint-disable-next-line
-				queryFn: () => localFetch(`profile-page-polls/${pollId}/${candidate.label}`),
+				queryFn: () => newfetch(`profile-page-polls/${pollId}/${candidate.label}`),
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
 			};
