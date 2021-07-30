@@ -22,7 +22,6 @@ const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
 		<VoteDetailsToolbar clicked={props.clicked} />
 		<Preview title={props.title} content={props.content} />
 		<Middlebar postioning={props.positioning} result={props.result} />
-		<InfoText />
 		<Table totalVote={props.totalVote} partyVote={props.partyVote} />
 	</div>
 );
