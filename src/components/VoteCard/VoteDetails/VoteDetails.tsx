@@ -1,5 +1,4 @@
 import React from 'react';
-import InfoText from './InfoText/Infotext';
 import Middlebar from './Middlebar/Middlebar';
 import Preview from './Preview/Preview';
 import Table from './Table/Table';
