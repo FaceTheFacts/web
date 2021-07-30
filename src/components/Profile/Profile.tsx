@@ -12,6 +12,8 @@ import { iconEnum } from '../../enums/icon.enum';
 import fetch, { newfetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
 import SegmentButtons from '../SegmentButtons';
+import CVComponent from '../CVComponent/CVComponent';
+import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
 
 interface ProfileProps {
 	candidate: Politician;
@@ -183,10 +185,10 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				)}
 			</div>)
 			: tab === '1' ? (
-				<div>Lebenslauf</div>
+				<CVComponent data={cvData} />
 
 			) : (
-				<div>WebLinks</div>
+				<WebLinkComponent data={webLinksData} />
 			)}
 		</React.Fragment>
 	);
