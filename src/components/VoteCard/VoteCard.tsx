@@ -55,10 +55,9 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 				}
 			})
 		}
-		const total = [yesVote,noVote,abstainVote,noShowVote]
+		const total = {yesVote,noVote,abstainVote,noShowVote}
 		return total
 	}
-	const totalVotes = voteCounter()
 
 	return (
 		<React.Fragment>
@@ -99,7 +98,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									<IonCol size="12">
 										<div className="vote-chart-container">
 											{/* Render a VoteChart component for the vote result */}
-											<VoteChart totalvotes={[totalVotes[0], totalVotes[1], totalVotes[2], totalVotes[3]]} />
+											<VoteChart totalvotes={[Poll.Gesamt[0], Poll.Gesamt[1], Poll.Gesamt[2], Poll.Gesamt[3]]} />
 										</div>
 									</IonCol>
 								</IonRow>
@@ -121,7 +120,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									content={props.vote.poll_detail.intro}
 									positioning={props.vote.politician_poll.vote}
 									result={Poll.judge}
-									totalVote={totalVotes}
+									totalVote={Poll.Gesamt}
 									partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
 								/>
 							</div>
