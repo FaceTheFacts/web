@@ -18,6 +18,15 @@ const Votes: React.FC = () => {
 	const [filterIds, setFilterIds] = useState<number[]>([])
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
+	const { data, status } = useQuery(`politician-${id}`, () => localFetch(`politicians/${id}`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000,
+	});
+	let dependantQuery = false;
+	if (status=='success') {
+		dependantQuery = true;
+	}
+
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
@@ -26,6 +35,7 @@ const Votes: React.FC = () => {
 				queryFn: () => newfetch(`polls/${pollId}`),
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
+				enabled: dependantQuery!!
 			};
 		})
 	);
