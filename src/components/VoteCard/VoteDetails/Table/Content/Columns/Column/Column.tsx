@@ -18,20 +18,18 @@ const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
 	const partyNameHandler = (index: string): string => {
 		switch (index) {
 		case '0':
-			return 'CDU';
+			return 'CDU/CSU';
 		case '1':
-			return 'CSU';
-		case '2':
 			return 'SPD';
-		case '3':
+		case '2':
 			return 'FDP';
-		case '4':
+		case '3':
 			return 'Grünen';
-		case '5':
+		case '4':
 			return 'Die LINKE';
-		case '6':
+		case '5':
 			return 'AfD';
-		case '7':
+		case '6':
 			return 'fraktionslos';
 		default:
 			return 'Gesamt';
