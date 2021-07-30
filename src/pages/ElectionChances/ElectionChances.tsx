@@ -61,7 +61,7 @@ const Electionchances: React.FC = () => {
 	return (
 		<MobileScreen>
 			<IonPage>
-				<SegmentButtons tab={segment} setTab={setSegment} />
+				<SegmentButtons tab={segment} setTab={setSegment} type={0}/>
 				<IonContent className={segment === '0' ? 'firstVote' : 'secondVote'}>
 					{segment === '0' ? (
 						<div>
