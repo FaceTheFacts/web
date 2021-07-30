@@ -166,6 +166,22 @@ export type Party = {
 	api_url: string;
 };
 
+export type CVData = {
+	Biography: Biography;
+}
+
+export type Biography = {
+	Raw: string;
+	ShortDescription: string;
+	Steps: Steps[];
+}
+
+export type Steps = {
+	Raw: string;
+	Label: string;
+	Date: string;
+}
+
 export type Topics = {
 	topic: [Topic];
 };
