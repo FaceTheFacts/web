@@ -1,5 +1,4 @@
 import React from 'react';
-import './CVComponent.css';
 import { Steps } from '../../Types';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 
