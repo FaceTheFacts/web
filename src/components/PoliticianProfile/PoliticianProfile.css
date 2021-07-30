@@ -53,12 +53,15 @@
 	letter-spacing: 0.7px;
 	color: white;
 	padding: 5px 8px;
-	height: 24px;
 	border-radius: 4px;
 	margin: 0px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.politician-detail-short {
+	height: 24px;
 }
 
 .profile-image {

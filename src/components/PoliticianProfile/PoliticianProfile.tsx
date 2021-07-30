@@ -4,6 +4,7 @@ import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
+import classNames from 'classnames';
 
 interface ContainerProps {
 	candidate: Politician;
@@ -11,7 +12,6 @@ interface ContainerProps {
 }
 
 const PoliticianProfile: React.FC<ContainerProps> = ({ candidate, image }: ContainerProps) => {
-
 	return (
 		<div className="header">
 			<IonGrid>
@@ -25,10 +25,12 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate, image }: Conta
 						</div>
 						<div className="politician-details">
 							<PartyChip party={candidate.party.label} />
+							{/* Check Toni Jaschinski */}
 							{candidate.occupation.map(
 								(occupation: string, index: number) => {
+									const ocupationClass = classNames ('politician-detail', occupation.length < 36 ? 'politician-detail-short':'')
 									return (
-										<IonChip key={index} className="politician-detail">
+										<IonChip key={index} className={ocupationClass}>
 											{occupation}
 										</IonChip>
 									);
