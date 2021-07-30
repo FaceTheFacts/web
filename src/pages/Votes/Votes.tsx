@@ -4,7 +4,7 @@ import LinkButton from '../../components/LinkButton';
 import Topics from '../../components/TopicFilter/Topics/Topics';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import { iconEnum } from '../../enums/icon.enum';
-import { newfetch } from '../../functions/queries';
+import { localFetch, newfetch } from '../../functions/queries';
 import './Votes.css';
 import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
 import React, { useState } from 'react';
@@ -26,7 +26,7 @@ const Votes: React.FC = () => {
 			return {
 				queryKey: ['profile-page-polls', pollId, data?.label],
 				// eslint-disable-next-line
-				queryFn: () => newfetch(`profile-page-polls/${pollId}/${data?.label}`),
+				queryFn: () => localFetch(`profile-page-polls/${pollId}/${data?.label}`),
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
 			};
