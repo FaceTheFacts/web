@@ -91,7 +91,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						</div>
 					</div>
 				) : null}
-				{testPolls[0].data !== undefined ? (
+				{polls[0].data !== undefined ? (
 					<div>
 						<TitleHeader title="Wichtigste Abstimmungen">
 							<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
@@ -104,11 +104,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 						<ul className="vote-card-lists">
 							{showArrow ? (
 								// eslint-disable-next-line
-								testPolls.map((poll: any, index: number): JSX.Element | undefined => {
+								polls.map((poll: any, index: number): JSX.Element | undefined => {
 									return (
 										<li key={index}>
 											<VoteCard
-												vote={poll.data}
+												vote={poll.data?.data}
 												name={candidate.label}
 												setArrow={setArrow}
 											/>
@@ -131,6 +131,16 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				) : (
 					<NoDataCard type="sideJob" />
 				)}
+				{
+					testPolls.map((testPoll: any, index): any =>{
+						return (
+							<li key={`tests-${index}`}>
+								<button>{testPoll.data?.politician_poll.vote}</button>
+							</li>
+						)
+					})
+				}
+				
 			</div>
 		</React.Fragment>
 	);
