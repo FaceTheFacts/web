@@ -14,8 +14,8 @@ import {
 } from '@ionic/react';
 import { PollData } from '../../Types';
 import Positioning from '../PositionCards/Positioning/Positioning';
+import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
 import VoteDetails from './VoteDetails/VoteDetails';
-import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
 
 interface ContainerProps {
 	vote: PollData|undefined;
@@ -31,6 +31,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 		setShowDetails(false);
 	};
 
+	const Poll = voteDetailsHandler(props.vote?.politician_poll.poll.id);
 	const PartyVotes = props.vote?.party_votes
 	if (!PartyVotes) {
 		return <div></div>
@@ -51,28 +52,35 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 
 	const Fraktionslos = [PartyVotes['185'].yes , PartyVotes['185'].no , PartyVotes['185'].abstain , PartyVotes['185'].no_show]
 
-	const voteCounter = (): Array<number> => {
+
+
+
+	const voteCounter = () => {
 		let yesVote = 0;
 		let noVote = 0;
 		let abstainVote = 0;
 		let noShowVote =0;
 		const GermanPartyId = ['1','2','3','4','5','8','9','16','185']
 		if (PartyVotes) {
-			// eslint-disable-next-line
 			GermanPartyId.map(id => {
-				yesVote += PartyVotes[id].yes
-				noVote += PartyVotes[id].no
-				abstainVote += PartyVotes[id].abstain
-				noShowVote += PartyVotes[id].no_show
+				if (PartyVotes[id].yes){
+					yesVote += PartyVotes[id].yes
+				}
+				if (PartyVotes[id].no){
+					noVote += PartyVotes[id].no
+				}
+				if (PartyVotes[id].abstain){
+					abstainVote += PartyVotes[id].abstain
+				}
+				if (PartyVotes[id].no_show){
+					noShowVote += PartyVotes[id].no_show
+				}
 			})
 		}
 		const total = [yesVote,noVote,abstainVote,noShowVote]
 		return total
 	}
 	const totalVotes = voteCounter()
-
-	const judgeStatement =
-		'Antrag '+ voteJudgeHandler(totalVotes[0], totalVotes[0] + totalVotes[1]+ totalVotes[2] +totalVotes[3]);
 
 	return (
 		<React.Fragment>
@@ -98,7 +106,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									<IonCol size="12">
 										<div className="vote-card-border"></div>
 										<div className="judgement" data-testid="vote-card-judgement">
-											{judgeStatement}
+											{/* {Poll.judge} */}
 										</div>
 									</IonCol>
 								</IonRow>
@@ -134,7 +142,7 @@ const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 									title={props.vote.politician_poll.poll.label}
 									content={props.vote.poll_detail.intro}
 									positioning={props.vote.politician_poll.vote}
-									result={judgeStatement}
+									result={Poll.judge}
 									totalVote={totalVotes}
 									partyVote={[CDU, CSU, SPD, FDP, Grünen, Linke, AfD, Fraktionslos]}
 								/>
