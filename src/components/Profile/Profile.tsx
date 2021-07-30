@@ -52,32 +52,22 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 		})
 	);
 	//Json
-	// const testData = useQuery(
-	// 	'profile-page-polls-1584-Philipp Amthor',
-	// 	()=>localFetch("profile-page-polls/1584/Philipp Amthor"),
-	// 	{
-	// 		staleTime: 60 * 2880000,
-	// 		cacheTime: 60 * 2880000, // 2 days
-	// 	}
-	// )
-	const testPolls = useQueries(
-		pollIds.map((pollId) => {
-			return {
-				queryKey: ['profile-page-polls', pollId, candidate.label],
-				// eslint-disable-next-line
-				queryFn: () => localFetch(`profile-page-polls/${pollId}/${candidate.label}`),
-				staleTime: 60 * 1440000,
-				cacheTime: 60 * 1440000, // 1 day
-			};
-		})
-	);
+	const testData = useQuery(
+		'profile-page-polls-1584-Philipp Amthor',
+		()=>localFetch("profile-page-polls/1584/Philipp Amthor"),
+		{
+			staleTime: 60 * 2880000,
+			cacheTime: 60 * 2880000, // 2 days
+		}
+	)
 
 
-	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading'||testPolls[0].status === 'loading') {
+
+	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
 		return null;
 	}
 
-	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error'||testPolls[0].status === 'error') {
+	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
 		return null;
 	}
 	return (
@@ -131,15 +121,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				) : (
 					<NoDataCard type="sideJob" />
 				)}
-				{
-					testPolls.map((testPoll: any, index): any =>{
-						return (
-							<li key={`tests-${index}`}>
-								<button>{testPoll.data?.politician_poll.vote}</button>
-							</li>
-						)
-					})
-				}
+				
+				<button>{testData.data?.politician_poll.vote}</button>
 				
 			</div>
 		</React.Fragment>
