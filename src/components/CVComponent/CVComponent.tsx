@@ -1,5 +1,4 @@
 import React from 'react';
-import './CVComponent.css';
 import { CVData } from '../../Types';
 import CVComponentCard from './CVComponentCard';
 
