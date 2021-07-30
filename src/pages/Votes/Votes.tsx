@@ -4,7 +4,7 @@ import './Votes.css';
 import LinkButton from '../../components/LinkButton';
 import { iconEnum } from '../../enums/icon.enum';
 import { useParams } from 'react-router';
-import { useQueries } from 'react-query';
+import { useQueries, useQuery } from 'react-query';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
@@ -23,7 +23,7 @@ const Votes: React.FC = () => {
 		cacheTime: 60 * 10000000,
 	});
 	let dependantQuery = false;
-	if (status=='success') {
+	if (status==='success') {
 		dependantQuery = true;
 	}
 
@@ -35,6 +35,7 @@ const Votes: React.FC = () => {
 				queryFn: () => newfetch(`polls/${pollId}`),
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
+				// eslint-disable-next-line
 				enabled: dependantQuery!!
 			};
 		})
