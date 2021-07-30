@@ -9,7 +9,7 @@ import TitleHeader from '../TitleHeader';
 import { useQueries, useQuery } from 'react-query';
 import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
-import fetch, { newfetch } from '../../functions/queries';
+import fetch, { newfetch, localFetch } from '../../functions/queries';
 import NoDataCard from '../NoDataCard/NoDataCard';
 
 interface ProfileProps {
