@@ -20,9 +20,9 @@ const topicSecond = [
 	'Inneres',
 	'Kultur und Medien',
 	'Menschenrechte',
+	'Nachrichtendienste',
 ];
 const topicThird = [
-	'Nachrichtendienste',
 	'Parlamentsangelegenheiten',
 	'Recht und Verbraucherschutz',
 	'Sport',
