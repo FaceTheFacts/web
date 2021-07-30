@@ -223,12 +223,45 @@ export type SideJobOrganization = {
 	api_url: string;
 };
 
+export type PollData = {
+	id: number;
+	entity_type: string;
+	label: string;
+	api_url: string;
+	publish_on: null;
+	unpublish_on: null;
+	field_committees: [
+		{
+			id: number;
+			entity_type: string;
+			label: string;
+			api_url: string;
+		}
+	];
+	field_intro: string;
+	field_legislature: {
+		id: number;
+		entity_type: string;
+		label: string;
+		api_url: string;
+		abgeordnetenwatch_url: string;
+	};
+	field_poll_date: string;
+	field_related_links: [
+		{
+			uri: string;
+			title: string;
+		}
+	];
+	field_topics: null;
+};
+
 export type PollDataTopics = {
 	"id": number;
 	"label": string;
 }
 
-export type PollData = {
+export type jsonPollData = {
 	politician_poll: {
 		"mandate": {
 			"id": number;

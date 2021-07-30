@@ -12,13 +12,15 @@ import {
 	IonContent,
 	IonModal,
 } from '@ionic/react';
-import { PollData } from '../../Types';
+import { jsonPollData, PollData } from '../../Types';
 import Positioning from '../PositionCards/Positioning/Positioning';
+import { useQuery } from 'react-query';
+import fetch from '../../functions/queries'
 import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
 import VoteDetails from './VoteDetails/VoteDetails';
 
 interface ContainerProps {
-	vote: PollData|undefined;
+	vote: jsonPollData|undefined;
 	name: string;
 	setArrow: Function;
 }
