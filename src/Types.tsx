@@ -224,42 +224,30 @@ export type SideJobOrganization = {
 };
 
 export type PollDataTopics = {
-	'id': number;
-	'label': string;
+	"id": number;
+	"label": string;
 }
-
-// eslint-disable-next-line
-type GermanParty = any
-
-type PartyVoteType = {
-	'label': string;
-	'yes': number;
-	'no': number;
-	'abstain': number;
-	'no_show': number;
-}
-
 
 export type PollData = {
 	politician_poll: {
-		'mandate': {
-			'id': number;
-			'label': string;
-		};
-		'vote': string;
-		'poll': {
-			'id': number;
-			'label': string;
-		};
+		"mandate": {
+			"id": number;
+			"label": string;
+		},
+		"vote": string;
+		"poll": {
+			"id": number;
+			"label": string;
+		}
 	};
-	'poll_detail': {
-    'id': number;
-    'intro': string;
-    'topics': Array<PollDataTopics>;
-    'links': null;
-    'committee': null;
-  };
-	'party_votes': Record<GermanParty, PartyVoteType>;
+	"poll_detail": {
+    "id": number;
+    "intro": string;
+    "topics": Array<PollDataTopics>;
+    "links": null;
+    "committee": null;
+  },
+	"party_votes": Object;
 };
 
 export type ElectionResult = {
