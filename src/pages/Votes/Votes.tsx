@@ -15,7 +15,7 @@ import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler
 
 const Votes: React.FC = () => {
 	const [filter, setFilter] = useState(false);
-	const [filterIds, setFilterIds] = useState<any>([])
+	const [filterIds, setFilterIds] = useState<number[]>([])
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
 	const polls = useQueries(
@@ -83,8 +83,9 @@ const Votes: React.FC = () => {
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
 							if (poll.status === 'success') {
-								console.log(poll.data.field_topics[0].id)
+								// console.log(poll.data.field_topics[0].id)
 								// console.log(filterIds.flat().flat()[0])
+								// filterIds.flat().flat().map(id => console.log(id))
 								if(poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
 									return (
 										<div className="votes-vote-card" key={`poll-${index}`}>
