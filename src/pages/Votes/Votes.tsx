@@ -40,11 +40,12 @@ const Votes: React.FC = () => {
 		'Ernährung und Landwirtschaft',
 	]
 	// Update filterIds
-	const topicIdAdd = () => {
+	const topicIdAdd = (): void => {
+		// eslint-disable-next-line
 		const topicIdArr: any= []
 		dummyTopics.forEach(topic => {
 			const topicId = topicsIdHandler(topic);
-				return topicIdArr.push(topicId)	
+			return topicIdArr.push(topicId)
 		})
 		setFilterIds([...filterIds, topicIdArr])
 	}
@@ -101,7 +102,7 @@ const Votes: React.FC = () => {
 						})
 					}
 				</div>
-				<button onClick = {()=>topicIdAdd()}>Dummy Button</button>
+				<button onClick = {(): void=>topicIdAdd()}>Dummy Button</button>
 			</IonContent>
 		</IonPage>
 	);
