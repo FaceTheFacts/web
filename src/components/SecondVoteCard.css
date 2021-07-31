@@ -31,10 +31,8 @@
 	line-height: 17px;
 }
 
-@media screen and (max-width: 350px) {
-	.secondvote-card {
-		height: auto;
-	}
+.secondvote-long {
+	font-size: 12px;
 }
 
 .rank {
