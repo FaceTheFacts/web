@@ -11,9 +11,11 @@ import Topics from '../../components/TopicFilter/Topics/Topics';
 
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
+import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
 
 const Votes: React.FC = () => {
 	const [filter, setFilter] = useState(false);
+	const [filterIds, setFilterIds] = useState<any>([])
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
 	const polls = useQueries(
@@ -27,6 +29,26 @@ const Votes: React.FC = () => {
 			};
 		})
 	);
+	// Dummy data
+	const dummyTopics = [
+		'Arbeit und Soziales',
+		'Auswärtiges',
+		'Bau und Wohnen',
+		'Bildung und Forschung',
+		'Digitale Agenda',
+		'Entwicklung',
+		'Ernährung und Landwirtschaft',
+	]
+	// Update filterIds
+	const topicIdAdd = () => {
+		const topicIdArr: any= []
+		dummyTopics.forEach(topic => {
+			const topicId = topicsIdHandler(topic);
+				return topicIdArr.push(topicId)	
+		})
+		setFilterIds([...filterIds, topicIdArr])
+	}
+
 	return (
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
@@ -61,19 +83,24 @@ const Votes: React.FC = () => {
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
 							if (poll.status === 'success') {
-								return (
-									<div className="votes-vote-card" key={`poll-${index}`}>
-										<VoteCard
-											vote={poll.data}
-											name={poll.label}
-											setArrow={(): null => null}
-										/>
-									</div>
-								);
+								console.log(poll.data.field_topics[0].id)
+								// console.log(filterIds.flat().flat()[0])
+								if(poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
+									return (
+										<div className="votes-vote-card" key={`poll-${index}`}>
+											<VoteCard
+												vote={poll.data}
+												name={poll.label}
+												setArrow={(): null => null}
+											/>
+										</div>
+									);
+								}
 							}
 						})
 					}
 				</div>
+				<button onClick = {()=>topicIdAdd()}>Dummy Button</button>
 			</IonContent>
 		</IonPage>
 	);
