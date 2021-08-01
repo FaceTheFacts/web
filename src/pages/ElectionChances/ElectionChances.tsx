@@ -81,7 +81,7 @@ const Electionchances: React.FC = () => {
 												? constituencyCardHandler(
 														data?.electoral_data.constituency.label
 												)
-												: null}
+												: undefined}
 										</IonCardTitle>
 									</div>
 								) : (
@@ -118,8 +118,8 @@ const Electionchances: React.FC = () => {
 								</IonCardSubtitle>
 								<IonCardTitle className="statelist-title">
 									<span className={stateListClass + ' constituencycard'}>
-										{status === 'success' ? data.party.label : null}
-										{status === 'success' ? data?.electoral_data.electoral_list.label : null}
+										{status === 'success' ? data.party.label : undefined}
+										{status === 'success' ? data?.electoral_data.electoral_list.label : undefined}
 									</span>
 								</IonCardTitle>
 							</div>
@@ -143,7 +143,7 @@ const Electionchances: React.FC = () => {
 										);
 									}
 								)
-								: null}
+								: undefined}
 					</div>
 				</IonContent>
 			</IonPage>
