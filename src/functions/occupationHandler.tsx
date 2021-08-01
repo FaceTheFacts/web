@@ -13,70 +13,70 @@ export const occupationHandler = (occupation: string): string[] => {
 	let secondPart = '';
 	const stringHandler = (secondPart: string): string => {
 		switch (secondPart) {
-			case 'Fraktionsvorsitzender DIE LINKE im Bundestag':
-				return 'Fraktionsvorsitzender';
-			case 'Fraktionsvorsitzende DIE LINKE im Bundestag':
-				return 'Fraktionsvorsitzende';
-			case 'Fraktionsvorsitzender SPD im Bundestag':
-				return 'Fraktionsvorsitzender';
-			case 'Fraktionsvorsitzende BÜNDNIS 90/DIE GRÜNE im Bundestag':
-				return 'Fraktionsvorsitzende';
-			case 'Fraktionsvorsitzender BÜNDNIS 90/DIE GRÜNE im Bundestag':
-				return 'Fraktionsvorsitzender';
-			case 'Fraktionsvorsitzender FDP im Bundestag':
-				return 'Fraktionsvorsitzender';
-			case 'Fraktionsvorsitzender Afd im Bundestag':
-				return 'Fraktionsvorsitzender';
-			case 'Fraktionsvorsitzende Afd im Bundestag':
-				return 'Fraktionsvorsitzende';
-			case 'Fraktionsvorsitzender CDU/CSU im Bundestag':
-				return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzender DIE LINKE im Bundestag':
+			return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzende DIE LINKE im Bundestag':
+			return 'Fraktionsvorsitzende';
+		case 'Fraktionsvorsitzender SPD im Bundestag':
+			return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzende BÜNDNIS 90/DIE GRÜNE im Bundestag':
+			return 'Fraktionsvorsitzende';
+		case 'Fraktionsvorsitzender BÜNDNIS 90/DIE GRÜNE im Bundestag':
+			return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzender FDP im Bundestag':
+			return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzender Afd im Bundestag':
+			return 'Fraktionsvorsitzender';
+		case 'Fraktionsvorsitzende Afd im Bundestag':
+			return 'Fraktionsvorsitzende';
+		case 'Fraktionsvorsitzender CDU/CSU im Bundestag':
+			return 'Fraktionsvorsitzender';
 			/* case 'CSU-Landesgruppenchef':
                 secondPart = 'Landesgruppenchef'; */
-			default:
-				return secondPart;
+		default:
+			return secondPart;
 		}
 	};
 
 	const ministryHandler = (secondPart: string): string => {
 		switch (secondPart) {
-			case 'Bundesminister des Auswärtigen':
-				return 'Außenminister';
-			case 'Bundesminister für Wirtschaft und Energie':
-				return 'Bundeswirtschaftsminister';
-			case 'Bundesministerin für Justiz und Verbraucherschutz':
-				return 'Bundesjustizministerin';
-			case 'Bundesminister für Arbeit und Soziales':
-				return 'Bundesarbeitsminister';
-			case 'Bundesminister für Gesundheit':
-				return 'Bundesgesundheitsminister';
-			case 'Bundesminister für Verkehr und digitale Infrastruktur':
-				return 'Bundesverkehrsminister';
-			case 'Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit':
-				return 'Bundesumweltministerin';
-			case 'Bundesministerin für Bildung und Forschung':
-				return 'Bundesbildungsministerin';
-			case 'Bundesminister für wirtschaftliche Zusammenarbeit und Entwicklung':
-				return 'Bundesentwicklungshilfeminister';
-			case 'Bundesminister für besondere Aufgaben und Chef des Bundeskanzleramts':
-				return 'Bundeskanzleramtschef';
-			case 'Bundesminister des Inneres, Bau und Heimat':
-				return 'Bundesinnenminister';
-			case 'Ministerpräsidentin des Saarlandes':
-				return 'Bundesverteidigungsministerin';
-			default:
-				return secondPart;
+		case 'Bundesminister des Auswärtigen':
+			return 'Außenminister';
+		case 'Bundesminister für Wirtschaft und Energie':
+			return 'Bundeswirtschaftsminister';
+		case 'Bundesministerin für Justiz und Verbraucherschutz':
+			return 'Bundesjustizministerin';
+		case 'Bundesminister für Arbeit und Soziales':
+			return 'Bundesarbeitsminister';
+		case 'Bundesminister für Gesundheit':
+			return 'Bundesgesundheitsminister';
+		case 'Bundesminister für Verkehr und digitale Infrastruktur':
+			return 'Bundesverkehrsminister';
+		case 'Bundesministerin für Umwelt, Naturschutz und nukleare Sicherheit':
+			return 'Bundesumweltministerin';
+		case 'Bundesministerin für Bildung und Forschung':
+			return 'Bundesbildungsministerin';
+		case 'Bundesminister für wirtschaftliche Zusammenarbeit und Entwicklung':
+			return 'Bundesentwicklungshilfeminister';
+		case 'Bundesminister für besondere Aufgaben und Chef des Bundeskanzleramts':
+			return 'Bundeskanzleramtschef';
+		case 'Bundesminister des Inneres, Bau und Heimat':
+			return 'Bundesinnenminister';
+		case 'Ministerpräsidentin des Saarlandes':
+			return 'Bundesverteidigungsministerin';
+		default:
+			return secondPart;
 		}
 	};
 
 	const stateHandler = (secondPart: string): string => {
 		switch (secondPart) {
-			case 'Ministerpräsident NRW':
-				return 'Ministerpräsident';
-			case 'Regierender Bürgermeister von Berlin':
-				return 'Bürgermeister von Berlin';
-			default:
-				return secondPart;
+		case 'Ministerpräsident NRW':
+			return 'Ministerpräsident';
+		case 'Regierender Bürgermeister von Berlin':
+			return 'Bürgermeister von Berlin';
+		default:
+			return secondPart;
 		}
 	};
 

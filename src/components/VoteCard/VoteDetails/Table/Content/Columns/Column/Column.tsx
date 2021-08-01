@@ -17,22 +17,22 @@ interface ColumnProps {
 const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
 	const partyNameHandler = (index: string): string => {
 		switch (index) {
-			case '0':
-				return 'CDU/CSU';
-			case '1':
-				return 'SPD';
-			case '2':
-				return 'FDP';
-			case '3':
-				return 'Grünen';
-			case '4':
-				return 'Die LINKE';
-			case '5':
-				return 'AfD';
-			case '6':
-				return 'fraktionslos';
-			default:
-				return 'Gesamt';
+		case '0':
+			return 'CDU/CSU';
+		case '1':
+			return 'SPD';
+		case '2':
+			return 'FDP';
+		case '3':
+			return 'Grünen';
+		case '4':
+			return 'Die LINKE';
+		case '5':
+			return 'AfD';
+		case '6':
+			return 'fraktionslos';
+		default:
+			return 'Gesamt';
 		}
 	};
 

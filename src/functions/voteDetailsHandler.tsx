@@ -117,21 +117,21 @@ export const voteDetailsHandler = (id: number): PollDataHard => {
 	};
 
 	switch (id) {
-		case Poll8.id:
-			return Poll8;
-		case Poll7.id:
-			return Poll7;
-		case Poll6.id:
-			return Poll6;
-		case Poll5.id:
-			return Poll5;
-		case Poll4.id:
-			return Poll4;
-		case Poll3.id:
-			return Poll3;
-		case Poll2.id:
-			return Poll2;
-		default:
-			return Poll1;
+	case Poll8.id:
+		return Poll8;
+	case Poll7.id:
+		return Poll7;
+	case Poll6.id:
+		return Poll6;
+	case Poll5.id:
+		return Poll5;
+	case Poll4.id:
+		return Poll4;
+	case Poll3.id:
+		return Poll3;
+	case Poll2.id:
+		return Poll2;
+	default:
+		return Poll1;
 	}
 };
