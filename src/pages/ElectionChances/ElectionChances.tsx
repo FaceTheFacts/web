@@ -73,7 +73,7 @@ const Electionchances: React.FC = () => {
 								status === 'success' ? (
 									<div className="election-chances-firstVote">
 										<IonCardSubtitle className="electionresult">
-											Wahlergebnis 2017
+											Wahlergebnis letzte Wahl
 										</IonCardSubtitle>
 										<IonCardTitle className="constituency">
 											Wahlkreis -{' '}
@@ -90,8 +90,7 @@ const Electionchances: React.FC = () => {
 											Nicht direkt wählbar
 										</IonCardTitle>
 										<IonCardSubtitle className="no-direct-subtitle">
-											Kandidat:in kann also nur indirekt über die Zweitstimme
-											gewählt werden.
+											Diese:r Kandidat:in war bei der letzten Wahl nicht direkt wählbar.
 										</IonCardSubtitle>
 									</div>
 								)
