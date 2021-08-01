@@ -102,14 +102,16 @@ const Electionchances: React.FC = () => {
 							<VoteExplainerCard vote="Zweitstimme">
 								<SecondVotePopup />
 							</VoteExplainerCard>
-							<div className="election-chances-secondVote">
-								<IonCardSubtitle className="result-text">
-									Über diese Liste kamen 2017
-								</IonCardSubtitle>
-								<IonCardTitle className="result-total">
-									{status === 'success' ? data.results : null} Kandidat:innen in den Bundestag.
-								</IonCardTitle>
-							</div>
+							{
+								status === 'success'? (<div className="election-chances-secondVote">
+									<IonCardSubtitle className="result-text">
+										Über diese Liste kamen 2017
+									</IonCardSubtitle>
+									<IonCardTitle className="result-total">
+										Kandidat:innen in den Bundestag.
+									</IonCardTitle>
+								</div>) : undefined
+							}
 							<div className="secondVote-info-text">
 								<IonCardSubtitle className="statelist">
 									Landesliste 2021
