@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
-import './Votes.css'
+import './Votes.css';
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
 import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
@@ -13,37 +13,39 @@ import LinkButton from '../../components/LinkButton';
 import { iconEnum } from '../../enums/icon.enum';
 
 const Votes: React.FC = () => {
-	const filterList = ['Arbeit und Soziales',
-	'Auswärtiges',
-	'Bau und Wohnen',
-	'Bildung und Forschung',
-	'Digitale Agenda',
-	'Entwicklung',
-	'Ernährung und Landwirtschaft',
-	'Europäische Union',
-	'Familie',
-	'Finanzen',
-	'Gesundheit',
-	'Haushalt',
-	'Inneres',
-	'Kultur und Medien',
-	'Menschenrechte',
-	'Nachrichtendienste',
-	'Parlamentsangelegenheiten',
-	'Recht und Verbraucherschutz',
-	'Sport',
-	'Tourismus',
-	'Umwelt',
-	'Infrastruktur',
-	'Verteidigung',
-	'Wirtschaft und Energie']
+	const filterList = [
+		'Arbeit und Soziales',
+		'Auswärtiges',
+		'Bau und Wohnen',
+		'Bildung und Forschung',
+		'Digitale Agenda',
+		'Entwicklung',
+		'Ernährung und Landwirtschaft',
+		'Europäische Union',
+		'Familie',
+		'Finanzen',
+		'Gesundheit',
+		'Haushalt',
+		'Inneres',
+		'Kultur und Medien',
+		'Menschenrechte',
+		'Nachrichtendienste',
+		'Parlamentsangelegenheiten',
+		'Recht und Verbraucherschutz',
+		'Sport',
+		'Tourismus',
+		'Umwelt',
+		'Infrastruktur',
+		'Verteidigung',
+		'Wirtschaft und Energie',
+	];
 
 	const [filter, setFilter] = useState(false);
-	const [filterIds, setFilterIds] = useState<number[]>([])
-	const [topicFilter, setTopicFilter] = useState(filterList)
+	const [filterIds, setFilterIds] = useState<number[]>([]);
+	const [topicFilter, setTopicFilter] = useState(filterList);
 	useEffect(() => {
-		console.log(topicFilter)
-	}, [topicFilter])
+		console.log(topicFilter);
+	}, [topicFilter]);
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
 	const { data, status } = useQuery(`politician-${id}`, () => newfetch(`politicians/${id}`), {
@@ -51,7 +53,7 @@ const Votes: React.FC = () => {
 		cacheTime: 60 * 10000000,
 	});
 	let dependantQuery = false;
-	if (status==='success') {
+	if (status === 'success') {
 		dependantQuery = true;
 	}
 
@@ -64,7 +66,7 @@ const Votes: React.FC = () => {
 				staleTime: 60 * 1440000,
 				cacheTime: 60 * 1440000, // 1 day
 				// eslint-disable-next-line
-				enabled: dependantQuery!!
+				enabled: dependantQuery!!,
 			};
 		})
 	);
@@ -77,17 +79,17 @@ const Votes: React.FC = () => {
 		'Digitale Agenda',
 		'Entwicklung',
 		'Ernährung und Landwirtschaft',
-	]
+	];
 	// Update filterIds
 	const topicIdAdd = (): void => {
 		// eslint-disable-next-line
-		const topicIdArr: any= []
-		dummyTopics.forEach(topic => {
+		const topicIdArr: any = [];
+		dummyTopics.forEach((topic) => {
 			const topicId = topicsIdHandler(topic);
-			return topicIdArr.push(topicId)
-		})
-		setFilterIds([...filterIds, topicIdArr])
-	}
+			return topicIdArr.push(topicId);
+		});
+		setFilterIds([...filterIds, topicIdArr]);
+	};
 
 	return (
 		<IonPage className="votes-black-back">
@@ -106,7 +108,7 @@ const Votes: React.FC = () => {
 					<div className="vote-filter">
 						<div className="vote-filter-title">Nach Themen filtern</div>
 						<div className="votes-topics">
-							<Topics setFilter={setTopicFilter} filter={topicFilter}/>
+							<Topics setFilter={setTopicFilter} filter={topicFilter} />
 						</div>
 						<IonItem
 							className="votes-filter-fold"
@@ -126,8 +128,8 @@ const Votes: React.FC = () => {
 								// console.log(poll.data.field_topics[0].id)
 								// console.log(filterIds.flat().flat()[0])
 								// filterIds.flat().flat().map(id => console.log(id))
-								if(poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
-									console.log(poll.data)
+								if (poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
+									console.log(poll.data);
 									return (
 										<div className="votes-vote-card" key={`poll-${index}`}>
 											<VoteCard
@@ -142,7 +144,7 @@ const Votes: React.FC = () => {
 						})
 					}
 				</div>
-				<button onClick = {(): void=>topicIdAdd()}>Dummy Button</button>
+				<button onClick={(): void => topicIdAdd()}>Dummy Button</button>
 			</IonContent>
 		</IonPage>
 	);

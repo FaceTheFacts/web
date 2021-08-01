@@ -16,14 +16,13 @@ const Topic: React.FC<TopicProps> = (props: TopicProps) => {
 	const topicChange = (): void => {
 		setTopic(!topic);
 		if (props.filter.length === 24) {
-			props.setFilter([props.title])
+			props.setFilter([props.title]);
 		} else {
 			if (props.filter.includes(props.title)) {
-				props.setFilter(props.filter.filter(filteritem => filteritem !== props.title))
+				props.setFilter(props.filter.filter((filteritem) => filteritem !== props.title));
 			} else {
-				props.setFilter(props.filter.concat(props.title))
+				props.setFilter(props.filter.concat(props.title));
 			}
-			
 		}
 	};
 	const topicClassName = className('topic', topic ? 'topic-clicked' : '');
