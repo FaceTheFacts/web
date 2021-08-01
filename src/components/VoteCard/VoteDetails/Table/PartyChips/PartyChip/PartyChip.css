@@ -102,6 +102,11 @@
 	color: #ffffff;
 }
 
+.csu {
+	background: #0D6CB4;
+	border: 2px solid #F8F8F8;
+}
+
 .LINKE-1 {
 	text-transform: capitalize;
 	background-color: #cd3e72;
