@@ -42,17 +42,38 @@ const Topics: React.FC<TopicsProps> = (props: TopicsProps) => (
 	<ul className="topics-list">
 		<li>
 			{topicFirst.map((topic, index) => {
-				return <Topic filter={props.filter} setFilter={props.setFilter} title={topic} key={`topicFirst-${index}`} />;
+				return (
+					<Topic
+						filter={props.filter}
+						setFilter={props.setFilter}
+						title={topic}
+						key={`topicFirst-${index}`}
+					/>
+				);
 			})}
 		</li>
 		<li>
 			{topicSecond.map((topic, index) => {
-				return <Topic filter={props.filter} setFilter={props.setFilter} title={topic} key={`topicSecond-${index}`} />;
+				return (
+					<Topic
+						filter={props.filter}
+						setFilter={props.setFilter}
+						title={topic}
+						key={`topicSecond-${index}`}
+					/>
+				);
 			})}
 		</li>
 		<li>
 			{topicThird.map((topic, index) => {
-				return <Topic filter={props.filter} setFilter={props.setFilter} title={topic} key={`topicThird-${index}`} />;
+				return (
+					<Topic
+						filter={props.filter}
+						setFilter={props.setFilter}
+						title={topic}
+						key={`topicThird-${index}`}
+					/>
+				);
 			})}
 		</li>
 	</ul>

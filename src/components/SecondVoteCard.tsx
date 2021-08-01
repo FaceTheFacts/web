@@ -13,7 +13,10 @@ const SecondVoteCard: React.FC<CandidateInfoProps> = ({
 	secondVote,
 	candidateName,
 }: CandidateInfoProps) => {
-	const secondVoteClass = classNames('secondvote-card-name', secondVote.politician.label.length > 20 ? 'secondvote-long':'')
+	const secondVoteClass = classNames(
+		'secondvote-card-name',
+		secondVote.politician.label.length > 20 ? 'secondvote-long' : ''
+	);
 	return (
 		<IonCard
 			className={
@@ -23,7 +26,7 @@ const SecondVoteCard: React.FC<CandidateInfoProps> = ({
 			}
 		>
 			<IonCardHeader className="secondvote-card-header">
-				<IonCardTitle className= {secondVoteClass} data-testid="rank-secondVote">
+				<IonCardTitle className={secondVoteClass} data-testid="rank-secondVote">
 					<span className="rank">#{secondVote.electoral_data.list_position}</span>{' '}
 					{secondVote.politician.label}
 				</IonCardTitle>
