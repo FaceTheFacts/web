@@ -5,10 +5,12 @@ import { useParams } from 'react-router';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
-
+import './Votes.css'
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
 import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
+import LinkButton from '../../components/LinkButton';
+import { iconEnum } from '../../enums/icon.enum';
 
 const Votes: React.FC = () => {
 	const filterList = ['Arbeit und Soziales',
@@ -44,7 +46,7 @@ const Votes: React.FC = () => {
 	}, [topicFilter])
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
-	const { data, status } = useQuery(`politician-${id}`, () => localFetch(`politicians/${id}`), {
+	const { data, status } = useQuery(`politician-${id}`, () => newfetch(`politicians/${id}`), {
 		staleTime: 60 * 10000000, // 10000 minute = around 1 week
 		cacheTime: 60 * 10000000,
 	});
@@ -125,6 +127,7 @@ const Votes: React.FC = () => {
 								// console.log(filterIds.flat().flat()[0])
 								// filterIds.flat().flat().map(id => console.log(id))
 								if(poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
+									console.log(poll.data)
 									return (
 										<div className="votes-vote-card" key={`poll-${index}`}>
 											<VoteCard
@@ -136,15 +139,6 @@ const Votes: React.FC = () => {
 									);
 								}
 							}
-							return (
-								<div className="votes-vote-card" key={`poll-${index}`}>
-									<VoteCard
-										vote={poll.data}
-										name={data?.label}
-										setArrow={(): null => null}
-									/>
-								</div>
-							);
 						})
 					}
 				</div>
