@@ -26,6 +26,7 @@ import './theme/variables.css';
 
 import { animationBuilder } from './functions/animation-builder';
 import Spinner from './components/Spinner/Spinner';
+import Electionchances from './pages/ElectionChances/ElectionChances';
 
 const queryClient = new QueryClient();
 
@@ -33,7 +34,6 @@ const Home = React.lazy(() => import('./pages/Home'));
 const LegalNotice = React.lazy(() => import('./pages/Legal_Notice'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const SearchScreen = React.lazy(() => import('./pages/Search/SearchScreen/SearchScreen'));
-const Electionchances = React.lazy(() => import('./pages/ElectionChances/ElectionChances'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const Position = React.lazy(() => import('./pages/Position'));
 const Votes = React.lazy(() => import('./pages/Votes/Votes'));
@@ -64,7 +64,7 @@ const App: React.FC = () => {
 									<SearchScreen />
 								</Route>
 								<Route path="/politician/:id/election">
-									<Electionchances />
+									<Electionchances/>
 								</Route>
 								<Route path="/politician/:id/profile" exact>
 									<Profile />
