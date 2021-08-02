@@ -44,7 +44,7 @@ const Votes: React.FC = () => {
 	const [filterIds, setFilterIds] = useState<number[]>([]);
 	const [topicFilter, setTopicFilter] = useState(filterList);
 	useEffect(() => {
-		console.log(topicFilter);
+		setFilterIds(topicsIdHandler(topicFilter))
 	}, [topicFilter]);
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
@@ -70,26 +70,6 @@ const Votes: React.FC = () => {
 			};
 		})
 	);
-	// Dummy data
-	const dummyTopics = [
-		'Arbeit und Soziales',
-		'Auswärtiges',
-		'Bau und Wohnen',
-		'Bildung und Forschung',
-		'Digitale Agenda',
-		'Entwicklung',
-		'Ernährung und Landwirtschaft',
-	];
-	// Update filterIds
-	const topicIdAdd = (): void => {
-		// eslint-disable-next-line
-		const topicIdArr: any = [];
-		dummyTopics.forEach((topic) => {
-			const topicId = topicsIdHandler(topic);
-			return topicIdArr.push(topicId);
-		});
-		setFilterIds([...filterIds, topicIdArr]);
-	};
 
 	return (
 		<IonPage className="votes-black-back">
@@ -125,26 +105,25 @@ const Votes: React.FC = () => {
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
 							if (poll.status === 'success') {
-								// console.log(poll.data.field_topics[0].id)
-								// console.log(filterIds.flat().flat()[0])
-								// filterIds.flat().flat().map(id => console.log(id))
-								if (poll.data.field_topics[0].id === filterIds.flat().flat()[1]) {
-									console.log(poll.data);
-									return (
-										<div className="votes-vote-card" key={`poll-${index}`}>
-											<VoteCard
-												vote={poll.data}
-												name={poll.label}
-												setArrow={(): null => null}
-											/>
-										</div>
-									);
-								}
+								const fieldTopicLength = poll.data.field_topics.length
+								for (let i= 0; i < fieldTopicLength; i++) {
+									if (filterIds.flat().flat().includes(poll.data.field_topics[i].id) || filterIds.length===0) {
+										return (
+											<div className="votes-vote-card" key={`poll-${index}`}>
+												<VoteCard
+													vote={poll.data}
+													name={data.label}
+													setArrow={(): null => null}
+												/>
+											</div>
+										);
+									}
+									
+								}	
 							}
 						})
 					}
 				</div>
-				<button onClick={(): void => topicIdAdd()}>Dummy Button</button>
 			</IonContent>
 		</IonPage>
 	);
