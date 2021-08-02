@@ -16,7 +16,6 @@
 }
 
 .header {
-	height: var(--height-politician-profile);
 	background-color: rgba(42, 43, 54, 1);
 	padding-top: var(--padding-politician-profile);
 	padding-bottom: var(--padding-bottom-politician-profile);
