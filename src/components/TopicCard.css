@@ -6,6 +6,12 @@
 	font-style: normal;
 	padding: 12.5px 16px;
 	height: unset;
+	margin: 0px;
+	margin-right: 8px;
+}
+
+.topic-card:first-child {
+	margin-bottom: 8px;
 }
 
 .politicalFocus {
