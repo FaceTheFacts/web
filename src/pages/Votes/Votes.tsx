@@ -1,16 +1,16 @@
 import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import { useQueries, useQuery } from 'react-query';
+import './Votes.css';
+import LinkButton from '../../components/LinkButton';
+import { iconEnum } from '../../enums/icon.enum';
 import { useParams } from 'react-router';
+import { useQueries, useQuery } from 'react-query';
 import { newfetch } from '../../functions/queries';
 import VoteCard from '../../components/VoteCard/VoteCard';
 import Topics from '../../components/TopicFilter/Topics/Topics';
-import './Votes.css';
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
 import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
-import LinkButton from '../../components/LinkButton';
-import { iconEnum } from '../../enums/icon.enum';
 
 const Votes: React.FC = () => {
 	const filterList = [
