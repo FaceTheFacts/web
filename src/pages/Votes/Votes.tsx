@@ -44,7 +44,7 @@ const Votes: React.FC = () => {
 	const [filterIds, setFilterIds] = useState<number[]>([]);
 	const [topicFilter, setTopicFilter] = useState(filterList);
 	useEffect(() => {
-		setFilterIds(topicsIdHandler(topicFilter))
+		setFilterIds(topicsIdHandler(topicFilter));
 	}, [topicFilter]);
 	const pollIds = [1584, 1604, 1639, 1758, 3602, 3936, 4088, 4098];
 	const { id } = useParams<{ id: string }>();
@@ -105,9 +105,15 @@ const Votes: React.FC = () => {
 						// eslint-disable-next-line
 						polls.map((poll: any, index: number): JSX.Element | undefined => {
 							if (poll.status === 'success') {
-								const fieldTopicLength = poll.data.field_topics.length
-								for (let i= 0; i < fieldTopicLength; i++) {
-									if (filterIds.flat().flat().includes(poll.data.field_topics[i].id) || filterIds.length===0) {
+								const fieldTopicLength = poll.data.field_topics.length;
+								for (let i = 0; i < fieldTopicLength; i++) {
+									if (
+										filterIds
+											.flat()
+											.flat()
+											.includes(poll.data.field_topics[i].id) ||
+										filterIds.length === 0
+									) {
 										return (
 											<div className="votes-vote-card" key={`poll-${index}`}>
 												<VoteCard
@@ -118,8 +124,7 @@ const Votes: React.FC = () => {
 											</div>
 										);
 									}
-									
-								}	
+								}
 							}
 						})
 					}

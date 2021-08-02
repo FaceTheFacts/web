@@ -1,6 +1,7 @@
 
 export const topicsIdHandler = (topics: string[]): Array<number> => {
 	const topicArray: Array<number> = []
+	// eslint-disable-next-line
 	topics.map((topic: string): void => {
 		switch (topic) {
 		case 'Digitale Agenda':
@@ -77,7 +78,7 @@ export const topicsIdHandler = (topics: string[]): Array<number> => {
 			break;
 		default:
 			topicArray.push(0);
-	}
-});
+		}
+	});
 	return topicArray
 };
