@@ -52,3 +52,7 @@ ul.vote-card-lists::-webkit-scrollbar {
 .hide-arrow {
 	display: none;
 }
+
+.profile-linkbutton {
+	margin-top: -8px;
+}
