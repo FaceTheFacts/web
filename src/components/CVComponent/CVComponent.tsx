@@ -1,5 +1,5 @@
 import React from 'react';
-import { CVData } from '../../Types';
+import { CVData, Steps } from '../../Types';
 import CVComponentCard from './CVComponentCard';
 
 interface CVComponentProps {
@@ -7,10 +7,13 @@ interface CVComponentProps {
 }
 
 const CVComponent: React.FC<CVComponentProps> = ({ data }: CVComponentProps) => {
-    return <React.Fragment>
-        {data.Biography.Steps.map((Step: any, index: number) => (<CVComponentCard step={Step} key={index} />)
-        )}
-    </React.Fragment>;
+	return (
+		<React.Fragment>
+			{data.Biography.Steps.map((Step: Steps, index: number) => (
+				<CVComponentCard step={Step} key={index} />
+			))}
+		</React.Fragment>
+	);
 };
 
 export default CVComponent;

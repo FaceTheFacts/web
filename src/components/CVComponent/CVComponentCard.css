@@ -1,0 +1,35 @@
+.cv-text {
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 17px;
+	font-weight: normal;
+	font-family: 'inter';
+	font-style: normal;
+}
+
+.cv-date {
+	color: #ffffff;
+	opacity: 0.7;
+	font-size: 11px;
+	line-height: 14px;
+	letter-spacing: 1.5%;
+	font-weight: normal;
+	font-family: 'inter';
+	font-style: normal;
+}
+
+.cv-card {
+	background: #2b2c36;
+	border-radius: 8px;
+	margin-top: 10px;
+	position: relative;
+	margin-bottom: 0;
+}
+
+.cv-container {
+	padding: 16px;
+}
+
+.cv-card:last-of-type {
+	margin-bottom: 8px;
+}
