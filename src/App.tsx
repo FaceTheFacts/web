@@ -64,7 +64,7 @@ const App: React.FC = () => {
 									<SearchScreen />
 								</Route>
 								<Route path="/politician/:id/election">
-									<Electionchances/>
+									<Electionchances />
 								</Route>
 								<Route path="/politician/:id/profile" exact>
 									<Profile />

@@ -148,26 +148,27 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	}
 	return (
 		<React.Fragment>
-			<SegmentButtons tab={tab} setTab={setTab} type={1}/>
-			{tab==='0' ? (<div className="profile-black-back">
-				{data.data.length !== 0 ? (
-					<div>
-						<TitleHeader title="Politische Schwerpunkte" />
-						<div className="profile-topic">
-							<TopicCard topics={data.data} />
-						</div>
-					</div>
-				) : null}
-				{polls[0].data !== undefined ? (
-					<div className="profile-linkbutton">
-						<TitleHeader title="Wichtigste Abstimmungen">
-							<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
-								<LinkButton
-									linkTo={`/politician/${profileId}/votes`}
-									icon={iconEnum.ARROW_FORWARD}
-								/>
+			<SegmentButtons tab={tab} setTab={setTab} type={1} />
+			{tab === '0' ? (
+				<div className="profile-black-back">
+					{data.data.length !== 0 ? (
+						<div>
+							<TitleHeader title="Politische Schwerpunkte" />
+							<div className="profile-topic">
+								<TopicCard topics={data.data} />
 							</div>
-						</TitleHeader>
+						</div>
+					) : null}
+					{polls[0].data !== undefined ? (
+						<div className="profile-linkbutton">
+							<TitleHeader title="Wichtigste Abstimmungen">
+								<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
+									<LinkButton
+										linkTo={`/politician/${profileId}/votes`}
+										icon={iconEnum.ARROW_FORWARD}
+									/>
+								</div>
+							</TitleHeader>
 						</div>
 					) : null}
 					{polls[0].data !== undefined ? (
