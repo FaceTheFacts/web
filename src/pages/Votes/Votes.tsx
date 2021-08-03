@@ -104,7 +104,7 @@ const Votes: React.FC = () => {
 						</IonItem>
 					</div>
 				) : null}
-				<div className="vote-content-title">Alle Abstimmungen</div>
+				<div className="vote-content-title">Abstimmungen</div>
 				<div className="votes-black-back">
 					{
 						// eslint-disable-next-line
