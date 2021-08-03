@@ -6,6 +6,7 @@
 	font-family: 'inter';
 	font-style: normal;
 	padding-left: 16px;
+	margin: 0;
 }
 
 .weblink-card {
@@ -24,6 +25,10 @@
 
 .weblink-icon {
 	display: contents;
+}
+
+.weblink-icon>img {
+	max-width: 25px;
 }
 
 .weblink-card:last-of-type {
