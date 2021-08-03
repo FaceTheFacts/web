@@ -11,6 +11,7 @@ import Topics from '../../components/TopicFilter/Topics/Topics';
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
 import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
+import { Link } from 'react-router-dom';
 
 const Votes: React.FC = () => {
 	const filterList = [
@@ -80,7 +81,7 @@ const Votes: React.FC = () => {
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
 				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
-				<div className="vote-page-title">zurück</div>
+				<Link className="vote-page-title" to = {`/politician/${id}/profile`}>zurück</Link>
 				<IonImg
 					id="filter-logo"
 					src={filterLogo}
