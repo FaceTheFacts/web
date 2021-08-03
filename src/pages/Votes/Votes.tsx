@@ -1,5 +1,5 @@
 import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Votes.css';
 import LinkButton from '../../components/LinkButton';
 import { iconEnum } from '../../enums/icon.enum';
@@ -57,6 +57,11 @@ const Votes: React.FC = () => {
 		dependantQuery = true;
 	}
 
+	const contentRef = useRef<HTMLIonContentElement | null>(null);
+	const scrollToTop = (): void => {
+		setFilter(!filter);
+		contentRef.current && contentRef.current.scrollToTop(1000);
+	}
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
@@ -80,10 +85,10 @@ const Votes: React.FC = () => {
 					id="filter-logo"
 					src={filterLogo}
 					alt="filter"
-					onClick={(): void => setFilter(true)}
+					onClick={(): void => scrollToTop() }
 				/>
 			</div>
-			<IonContent>
+			<IonContent ref={contentRef}>
 				{filter ? (
 					<div className="vote-filter">
 						<div className="vote-filter-title">Nach Themen filtern</div>
