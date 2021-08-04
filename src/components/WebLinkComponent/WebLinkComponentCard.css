@@ -34,3 +34,7 @@
 .weblink-card:last-of-type {
 	margin-bottom: 8px;
 }
+
+.weblink-card:first-of-type {
+	margin-top: 16px;
+}

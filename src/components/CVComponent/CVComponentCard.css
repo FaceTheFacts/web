@@ -33,3 +33,7 @@
 .cv-card:last-of-type {
 	margin-bottom: 8px;
 }
+
+.cv-card:first-of-type {
+	margin-top: 16px;
+}
