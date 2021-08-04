@@ -25,7 +25,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	const [showArrow, setArrow] = React.useState(true);
 	const [tab, setTab] = React.useState('0');
 
-	const cvData = {
+	let cvData = {
 		Biography: {
 			Raw:
 				'2011 Abitur am Greifen-Gymnasium Ueckermünde. 2012/2017 Studium der Rechtswissenschaften an der Ernst-Moritz-Arndt Universität Greifswald (Studienabschluss mit Prädikat), Stipendiat der Konrad-Adenauer-Stiftung; als Nebenbeschäftigung u.a. Mitarbeiter verschiedener Abgeordneter des Deutschen Bundestages und des Landtages Mecklenburg-Vorpommern. 2017 wissenschaftlicher Mitarbeiter an der Ernst-Moritz-Arndt-Universität Greifswald und Mitarbeiter einer Wirtschaftskanzlei in Berlin. Seit 2017 Doktorand. Seit 2008 Mitglied der CDU und der Jungen Union, 2012/2018 Kreisvorsitzender der Jungen Union Vorpommern-Greifswald, seit 2017 Vorsitzender des CDU-Stadtverbandes Ueckermünde, seit 2018 Bundesschatzmeister der Jungen Union Deutschlands, seit 2019 Mitglied des Kreistages Vorpommern-Greifswald. Mitglied des Bundestages seit Oktober 2017 (Mitglied im Innenausschuss und im Europaausschuss, stellv. Mitglied im Rechtsausschuss). Seit 2018 Vorstandsmitglied im Parlamentskreis Mittelstand der CDU/CSU-Bundestagsfraktion. Mitgliedschaften (Auswahl): Atlantik-Brücke, Diözesanrat der Katholiken im Erzbistum Berlin, Landesjagdverband Mecklenburg-Vorpommern e.V., AMEOS-Regionalbeirat Vorpommern, Verwaltungsrat Sparkasse Uecker-Randow, Europa-Union, BdV, OMV (Bundesvorstand). ',
@@ -96,6 +96,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 				},
 			],
 		},
+	};
+
+	window.onmessage = (event) => {
+		console.log(`Received message: ${event.data}`);
+		cvData = event.data;
 	};
 
 	const webLinksData = [
