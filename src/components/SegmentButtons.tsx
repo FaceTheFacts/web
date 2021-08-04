@@ -45,7 +45,7 @@ const SegmentButtons: React.FC<SegmentButtonsProps> = (props: SegmentButtonsProp
 		);
 	} else {
 		return (
-			<IonToolbar class="toolbar">
+			<IonToolbar class="toolbar-profile">
 				<IonSegment class="segment" value={props.tab}>
 					<IonSegmentButton
 						class="segment-button"
