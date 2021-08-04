@@ -107,7 +107,7 @@ const Electionchances: React.FC = () => {
 										Über diese Liste kamen 2017
 									</IonCardSubtitle>
 									<IonCardTitle className="result-total">
-										Kandidat:innen in den Bundestag.
+										{data.results} Kandidat:innen in den Bundestag.
 									</IonCardTitle>
 								</div>) : undefined
 							}
