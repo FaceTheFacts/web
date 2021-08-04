@@ -38,6 +38,7 @@
 	text-transform: lowercase;
 	--margin-start: 9px;
 	--icon-margin-end: 12px;
+	--background-hover: none;
 }
 
 .votes-filter-fold {
