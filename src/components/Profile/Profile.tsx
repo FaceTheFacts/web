@@ -98,9 +98,13 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 		},
 	};
 
-	window.onmessage = (event) => {
-		console.log(`Received message: ${event.data}`);
-		cvData = event.data;
+	// The return type of this will have to get adapted to the final data structure
+	// This probably will have to get moved to another component at the top of this app
+	// This should overwrite cvData displayed as first try
+	// eslint-disable-next-line
+	window.onmessage = (e: any): any => {
+		console.log(`Received message: ${e.data}`);
+		cvData = e.data;
 	};
 
 	const webLinksData = [
