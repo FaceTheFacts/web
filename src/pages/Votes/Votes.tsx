@@ -1,8 +1,6 @@
-import { IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
+import { IonBackButton, IonContent, IonImg, IonItem, IonLabel, IonPage } from '@ionic/react';
 import React, { useEffect, useRef, useState } from 'react';
 import './Votes.css';
-import LinkButton from '../../components/LinkButton';
-import { iconEnum } from '../../enums/icon.enum';
 import { useParams } from 'react-router';
 import { useQueries, useQuery } from 'react-query';
 import { newfetch } from '../../functions/queries';
@@ -11,7 +9,7 @@ import Topics from '../../components/TopicFilter/Topics/Topics';
 import filterLogo from '../../assets/images/filter.svg';
 import arrowLogo from '../../assets/images/arrow-up.svg';
 import { topicsIdHandler } from '../../functions/topicsIdHandler/topicsIdHandler';
-import { Link } from 'react-router-dom';
+import { chevronBackOutline } from 'ionicons/icons';
 
 const Votes: React.FC = () => {
 	const filterList = [
@@ -80,8 +78,10 @@ const Votes: React.FC = () => {
 	return (
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
-				<LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
-				<Link className="vote-page-title" to = {`/politician/${id}/profile`}>zurück</Link>
+				{/* <LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
+				<Link className="vote-page-title" to = {`/politician/${id}/profile`}>zurück</Link> */}
+				{/* This button unmount page */}
+				<IonBackButton className ="votes-back-button" icon ={chevronBackOutline} text = "zurück" defaultHref={`/politician/${id}/profile`} />
 				<IonImg
 					id="filter-logo"
 					src={filterLogo}

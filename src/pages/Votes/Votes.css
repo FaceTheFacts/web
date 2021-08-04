@@ -27,6 +27,19 @@
 	text-decoration: none;
 }
 
+.votes-back-button {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
+	line-height: 21px;
+	letter-spacing: -0.03em;
+	color: #ffffff;
+	text-transform: lowercase;
+	--margin-start: 9px;
+	--icon-margin-end: 12px;
+}
+
 .votes-filter-fold {
 	--background: #181924;
 	--inner-border-width: 0px;
