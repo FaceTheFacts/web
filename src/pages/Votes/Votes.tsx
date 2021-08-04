@@ -78,9 +78,6 @@ const Votes: React.FC = () => {
 	return (
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
-				{/* <LinkButton linkTo={`/politician/${id}/profile`} icon={iconEnum.CHEVRON_BACK} />
-				<Link className="vote-page-title" to = {`/politician/${id}/profile`}>zurück</Link> */}
-				{/* This button unmount page */}
 				<IonBackButton className ="votes-back-button" icon ={chevronBackOutline} text = "zurück" defaultHref={`/politician/${id}/profile`} />
 				<IonImg
 					id="filter-logo"
