@@ -29,7 +29,8 @@ describe('Test Button component', () => {
 	it('Test click event', () => {
 		const setCandidate = jest.fn();
 
-		const button = shallow(<SegmentButtons tab="0" setTab={setCandidate} />);
+		const button = shallow(<SegmentButtons tab="0" setTab={setCandidate} type={0} />);
+		console.log(button);
 		button.find('#ZweitStimme').simulate('click');
 		expect(setCandidate.mock.calls[0]).toEqual(['1']);
 	});
