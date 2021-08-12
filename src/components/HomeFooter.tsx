@@ -1,8 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/Logo_without_text.svg';
 import './HomeFooter.css';
 import SocialMediaLinks from './SocialMediaLinks';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const HomeFooter: React.FC = () => {
