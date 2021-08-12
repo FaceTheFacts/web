@@ -17,20 +17,20 @@ const HomeFooter: React.FC = () => {
 			<div className="social-media-bottom">
 				<SocialMediaLinks position="bottom" />
 			</div>
-			<div className="links">
+			<div className="homefooter-links">
 				<NavLink
 					id="privacy-bottom"
 					to={'/privacy'}
-					className="navbar"
-					activeClassName="navbar activ"
+					className="homefooter-navbar"
+					activeClassName="homefooter-navbar homefooter-navbar-activ"
 				>
 					Datenschutz
 				</NavLink>
 				<NavLink
 					id="legal-notice-bottom"
 					to={'/legal-notice'}
-					className="navbar"
-					activeClassName="navbar activ"
+					className="homefooter-navbar homefooter-navbar-second"
+					activeClassName="homefooter-navbar homefooter-navbar-activ"
 				>
 					Impressum
 				</NavLink>
