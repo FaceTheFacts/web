@@ -54,68 +54,6 @@
 	margin-bottom: 30px;
 }
 
-/* iPhone-X */
-@media screen and (min-width: 375px) {
-	.homefooter-links {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
-	.homefooter-navbar-second {
-		margin-top: 0px;
-	}
-}
-/* iPad */
-@media screen and (min-width: 768px) {
-	#home {
-		padding: 0px;
-	}
-	.nav-footer {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		padding-top: 27px;
-		padding-bottom: 27px;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-	.footer-media-links{
-		display: flex;
-		flex-direction: column;
-		justify-content:flex-end;
-	}
-	.social-media-links {
-		justify-content:flex-end;
-	}
-	.social-media-links a{
-		margin-left:24px;
-	}
-	.homefooter-navbar-second {
-		margin-left: 24px;
-	}
-	.social-media-bottom {
-		margin-bottom: 8px;
-	}
-
-}
-/* 
-@media screen and (min-width: 1440px) {
-	.nav-footer {
-		padding-top: 69px;
-		padding-bottom: 21px;
-		padding-left: 120px;
-		padding-right: 120px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	#privacy-bottom {
-		margin-right: 3.57vw;
-	}
-} */
-
-
 .nav-footer > #home {
 	display: flex;
 	align-items: center;
@@ -149,5 +87,56 @@
 	}
 	to {
 		opacity: 1;
+	}
+}
+
+/* iPhone-X */
+@media screen and (min-width: 375px) {
+	.homefooter-links {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.homefooter-navbar-second {
+		margin-top: 0px;
+	}
+}
+/* iPad */
+@media screen and (min-width: 768px) {
+	#home {
+		padding: 0px;
+	}
+	.nav-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 27px;
+		padding-bottom: 27px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.footer-media-links{
+		display: flex;
+		flex-direction: column;
+		justify-content:flex-end;
+	}
+	.social-media-links {
+		justify-content:flex-end;
+	}
+	.social-media-links a{
+		margin-left:24px;
+	}
+	.homefooter-navbar-second {
+		margin-left: 24px;
+	}
+	.social-media-bottom {
+		margin-bottom: 8px;
+	}
+}
+/* Desktop */
+@media screen and (min-width: 1440px) {
+	.nav-footer {
+		padding-left: 130px;
+		padding-right: 130px;
 	}
 }
