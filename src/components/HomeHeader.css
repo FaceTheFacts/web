@@ -34,91 +34,36 @@
 .homeheader-navbar-second {
 	margin-left: 24px;
 }
-
-
-/* .top {
-	width: 21px;
-	opacity: 0.3;
-	margin-right: 40px;
-}
-
-@media screen and (max-width: 374px) {
-	.nav-header {
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-
-	#home > div {
-		width: 238.87px;
-		height: 60px;
-	}
-	.top {
-		display: none;
-	}
-}
-
+/* iPhone-X */
 @media screen and (min-width: 375px) {
-	.nav-header {
-		padding-top: 10px;
-		padding-bottom: 10px;
+	.homeheader {
+		height: 72px;
 		padding-left: 30px;
 		padding-right: 30px;
-		display: flex;
-	}
-
-	#home > div {
-		width: 278.68px;
-		height: 70px;
-	}
-
-	.top {
-		display: none;
 	}
 }
-
+/* iPad */
 @media screen and (min-width: 768px) {
-	.nav-header {
-		padding-top: 39px;
-		padding-bottom: 21px;
+	.homeheader {
+		height: 90px;
 		padding-left: 50px;
 		padding-right: 50px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 	}
-
-	.top {
-		display: unset;
+	.homeheader-navbar {
+		font-size: 17px;
+		line-height: 22px;
+		/* identical to box height, or 129% */
+		letter-spacing: 0.15px;
+	}
+	.homeheader-logo {
+		height: 49.96846008300781px;
+		width: 40.41413497924805px;	
 	}
 }
-
+/* Desktop  */
 @media screen and (min-width: 1440px) {
-	.nav-header {
-		padding-top: 20px;
-		padding-bottom: 20px;
+	.homeheader {
 		padding-left: 130px;
 		padding-right: 130px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 	}
 }
-
-.nav-header {
-	background: rgba(24, 25, 36, 1);
-}
-
-.top:hover {
-	animation: opacity-animation 1s forwards;
-}
-
-@keyframes opacity-animation {
-	from {
-		opacity: 0.3;
-	}
-	to {
-		opacity: 1;
-	}
-} */
