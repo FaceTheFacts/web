@@ -14,26 +14,28 @@ const HomeFooter: React.FC = () => {
 				<img src={logo} alt="logo" />
 				<span>Face The Facts</span>
 			</NavLink>
-			<div className="social-media-bottom">
-				<SocialMediaLinks position="bottom" />
-			</div>
-			<div className="homefooter-links">
-				<NavLink
-					id="privacy-bottom"
-					to={'/privacy'}
-					className="homefooter-navbar"
-					activeClassName="homefooter-navbar homefooter-navbar-activ"
-				>
-					Datenschutz
-				</NavLink>
-				<NavLink
-					id="legal-notice-bottom"
-					to={'/legal-notice'}
-					className="homefooter-navbar homefooter-navbar-second"
-					activeClassName="homefooter-navbar homefooter-navbar-activ"
-				>
-					Impressum
-				</NavLink>
+			<div className="footer-media-links">
+				<div className="social-media-bottom">
+					<SocialMediaLinks position="bottom" />
+				</div>
+				<div className="homefooter-links">
+					<NavLink
+						id="privacy-bottom"
+						to={'/privacy'}
+						className="homefooter-navbar"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Datenschutz
+					</NavLink>
+					<NavLink
+						id="legal-notice-bottom"
+						to={'/legal-notice'}
+						className="homefooter-navbar homefooter-navbar-second"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Impressum
+					</NavLink>
+				</div>
 			</div>
 		</div>
 	);
