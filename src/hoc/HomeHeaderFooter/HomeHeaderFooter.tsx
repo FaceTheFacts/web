@@ -4,7 +4,7 @@ import { IonApp, IonContent } from '@ionic/react';
 import React from 'react';
 
 interface HomeHeaderFooterProps {
-	children?: JSX.Element[];
+	children?: JSX.Element[] | JSX.Element;
 }
 
 const HomeHeaderFooter: React.FC<HomeHeaderFooterProps> = (props: HomeHeaderFooterProps) => {
