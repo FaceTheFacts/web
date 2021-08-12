@@ -1,4 +1,42 @@
-.top {
+.homeheader {
+	height: 60px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #181924;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.homeheader-logo {
+	height: 39.97476577758789px;
+	width: 31.990978240966797px;
+}
+
+.homeheader-navbar {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	/* identical to box height, or 143% */
+	letter-spacing: 0.25px;
+	color: #FFFFFF;
+	text-decoration: none;
+	opacity: 0.7;
+}
+
+.homeheader-navbar-activ {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.homeheader-navbar-second {
+	margin-left: 24px;
+}
+
+
+/* .top {
 	width: 21px;
 	opacity: 0.3;
 	margin-right: 40px;
@@ -83,4 +121,4 @@
 	to {
 		opacity: 1;
 	}
-}
+} */
