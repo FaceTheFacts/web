@@ -1,7 +1,7 @@
+import faceTheFactsLogoNoText from '../assets/images/Logo_without_text.svg';
+import './HomeHeader.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './HomeHeader.css';
-import faceTheFactsLogoNoText from '../assets/images/Logo_without_text.svg';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const HomeHeader: React.FC = () => {
@@ -9,7 +9,7 @@ const HomeHeader: React.FC = () => {
 
 	return (
 		<div className="homeheader">
-			<NavLink className= "homeheader-logo" id="home" to={'/'}>
+			<NavLink className="homeheader-logo" id="home" to={'/'}>
 				<img src={faceTheFactsLogoNoText} alt="logo" />
 			</NavLink>
 			<div>
