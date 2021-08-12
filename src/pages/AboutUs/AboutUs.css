@@ -1,16 +1,13 @@
-* {
-	font-family: Inter;
-	font-style: normal;
-	font-weight: normal;
-	color: #ffffff;
-}
-
 .about-us-content {
 	padding: 50px 16px;
 	background: rgba(24, 25, 36, 1);
 }
 
 .about-us-title {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
 	height: 29px;
 	font-size: 24px;
 	line-height: 120%;
@@ -19,6 +16,10 @@
 }
 
 .about-us-sentences {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
 	/* small/text */
 	font-size: 14px;
 	line-height: 20px;
@@ -34,6 +35,10 @@
 }
 
 .about-us-team {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
 	height: 29px;
 	font-size: 24px;
 	line-height: 120%;
