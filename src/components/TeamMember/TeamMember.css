@@ -1,6 +1,7 @@
 .team-member-content {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .team-member-title {
