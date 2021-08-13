@@ -45,6 +45,10 @@
 	margin-top: 30px;
 }
 
+.about-us-sentences a {
+	color: #3aa6f4;
+}
+
 /* iPad */
 @media screen and (min-width: 768px) {
 	.about-us-content {
