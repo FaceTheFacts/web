@@ -9,13 +9,13 @@ interface TeamMemberProps {
 }
 
 const TeamMember: React.FC<TeamMemberProps> = (props: TeamMemberProps) => (
-  <div className='team-member-content'>
-    <img src={props.image} alt="team-member" />
-    <div className='team-member-title'>
-      <h2>{props.name}</h2>
-      <p>{props.role}</p>
-    </div>
-  </div>
+	<div className='team-member-content'>
+		<img src={props.image} alt="team-member" />
+		<div className='team-member-title'>
+			<h2>{props.name}</h2>
+			<p>{props.role}</p>
+		</div>
+	</div>
 );
 
 export default TeamMember;
