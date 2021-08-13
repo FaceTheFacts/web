@@ -26,6 +26,15 @@ const Home: React.FC = () => (
 				<Mockup />
 			</div>
 		</div>
+		<div className='partners'>
+			<h2>Partner</h2>
+			<div className='partner-logo-content'>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 		<SignUp />
 	</HomeHeaderFooter>
 );

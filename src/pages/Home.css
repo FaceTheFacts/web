@@ -60,6 +60,27 @@
 	display: none;
 }
 
+.partners {
+	text-align: center;
+	padding-top: 30px;
+	padding-left: 41px;
+	padding-right: 41px;
+	padding-bottom: 39px;
+}
+
+.partners h2 {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 135%;
+	/* or 24px */
+
+	letter-spacing: -0.25px;
+
+	color: #FFFFFF;
+}
+
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
 	#privacy-bottom {
