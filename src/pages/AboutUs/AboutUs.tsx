@@ -10,18 +10,38 @@ import React from 'react';
 const AboutUs: React.FC = () => (
 	<HomeHeaderFooter>
 		<div className="about-us-content">
-			<div className="about-us-title">Headline comes here</div>
+			<div className="about-us-title">Demokratie verdient die Besten</div>
 			<div className="about-us-sentences">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-				tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-				eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-				takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-				consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-				dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-				dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-				ipsum dolor sit amet.
-				<div className="about-us-border"></div>
+				<p>Klimawandel, Digitalisierung, Extremismus, Armut und Krieg.</p>
+				<p>
+					Wir stehen weltweit vor unglaublichen Herausforderungen und brauchen gerade die
+					besten Politiker:innen, die wir kriegen können.
+				</p>
+				<p>
+					Deshalb reicht es nicht mehr, einfach nur nach Parteien und deren
+					Wahlversprechen zu wählen, sondern wir müssen uns auch genauer anschauen, wer
+					denn am Ende wirklich im Parlamenten sitzt.
+					<br />
+					Welche Kompetenzen haben diese Menschen, welche Positionen vertreten sie und wer
+					oder was könnte sie beeinflussen?
+				</p>
+				<p>
+					Mit Face the Facts kannst du das jetzt über einfach die Handykamera direkt am
+					Wahlplakat herausfinden und so schnell die besten Kandidat:innen für dich
+					finden.
+				</p>
+				<p>
+					Die Daten stammen alle aus frei verfügbaren Quellen wie Wikipedia,
+					Abgeordnetenwatch oder direkt den Seiten der Parlamente.
+					<br /> Wir tragen sie nur zusammen und bereiten sie besser auf. Wie wir das
+					genau machen, kannst du dir unter{' '}
+					<a href="https://github.com/FaceTheFacts">
+						https://github.com/FaceTheFacts
+					</a>{' '}
+					anschauen.
+				</p>
 			</div>
+			<div className="about-us-border"></div>
 			<div className="about-us-team">Team</div>
 			<div className="about-us-grid-container">
 				<TeamMember image={Victor} name={'Victor Bellu'} role={'Produkt'} />
