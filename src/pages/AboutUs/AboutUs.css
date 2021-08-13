@@ -25,6 +25,7 @@
 	/* or 143% */
 	letter-spacing: 0.25px;
 	margin-top: 20px;
+	width: calc(100vw -32px);
 }
 
 .about-us-border {
@@ -47,9 +48,6 @@
 
 /* iPhone-X */
 @media screen and (min-width: 375px) {
-	.about-us-content {
-		padding: 50px 16px;
-	}
 	.about-us-border {
 		width: 343px;
 	}
@@ -59,6 +57,7 @@
 @media screen and (min-width: 768px) {
 	.about-us-content {
 		padding: 50px 34px;
+		height: calc(100vh - 90px);
 	}
 	.about-us-title {
 		font-size: 56px;
@@ -66,9 +65,9 @@
 	}
 
 	.about-us-sentences {
-		width: 680px;
 		font-size: 17px;
 		line-height: 22px;
+		width: calc(100vw -68px);
 	}
 
 	.about-us-border {
@@ -89,5 +88,12 @@
 
 /* Desktop */
 @media screen and (min-width: 1440px) {
-
+	.about-us-content {
+		padding-top: 12px;
+		padding-left: 120px;
+		padding-right: 120px;
+	}
+	.about-us-sentences {
+		width: calc(100vw -240px);
+	}
 }
