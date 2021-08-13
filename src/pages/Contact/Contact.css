@@ -31,6 +31,12 @@
   opacity: 0.7;
 }
 
+.contact-us-border {
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 /* iPad */
 @media screen and (min-width: 768px) {
 	.contact-content {
