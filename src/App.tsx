@@ -31,6 +31,7 @@ const queryClient = new QueryClient();
 
 const Home = React.lazy(() => import('./pages/Home'));
 const AboutUs = React.lazy(() => import('./pages/AboutUs/AboutUs'));
+const Contact = React.lazy(() => import('./pages/Contact/Contact'));
 const LegalNotice = React.lazy(() => import('./pages/Legal_Notice'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const SearchScreen = React.lazy(() => import('./pages/Search/SearchScreen/SearchScreen'));
@@ -56,6 +57,9 @@ const App: React.FC = () => {
 								</Route>
 								<Route path="/about-us" exact>
 									<AboutUs />
+								</Route>
+								<Route path="/contact" exact>
+									<Contact />
 								</Route>
 								<Route path="/legal-notice" exact>
 									<LegalNotice />
