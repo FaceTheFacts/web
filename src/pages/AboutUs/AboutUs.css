@@ -29,7 +29,6 @@
 }
 
 .about-us-border {
-	width: 288px;
 	border: 1px solid rgba(255, 255, 255, 0.7);
 	margin-top: 30px;
 }
@@ -44,13 +43,6 @@
 	/* identical to box height, or 29px */
 	letter-spacing: -1px;
 	margin-top: 30px;
-}
-
-/* iPhone-X */
-@media screen and (min-width: 375px) {
-	.about-us-border {
-		width: 343px;
-	}
 }
 
 /* iPad */
@@ -70,16 +62,12 @@
 		width: calc(100vw -68px);
 	}
 
-	.about-us-border {
-		width: 680px;
-	}
-
 	.about-us-team {
 		font-size: 56px;
 		line-height: 120%;
 	}
 
-	.about-us-grid-container{
+	.about-us-grid-container {
 		display: grid;
 		grid-column-gap: 50px;
 		grid-template-columns: auto auto;

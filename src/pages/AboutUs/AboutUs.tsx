@@ -1,11 +1,11 @@
-import HomeHeaderFooter from '../../hoc/HomeHeaderFooter/HomeHeaderFooter';
-import './AboutUs.css';
-import React from 'react';
-import TeamMember from '../../components/TeamMember/TeamMember';
-import Victor from '../../assets/images/victor.svg';
 import Olli from '../../assets/images/olli.svg';
 import Richard from '../../assets/images/richard.svg';
 import Taka from '../../assets/images/taka.svg';
+import Victor from '../../assets/images/victor.svg';
+import TeamMember from '../../components/TeamMember/TeamMember';
+import HomeHeaderFooter from '../../hoc/HomeHeaderFooter/HomeHeaderFooter';
+import './AboutUs.css';
+import React from 'react';
 
 const AboutUs: React.FC = () => (
 	<HomeHeaderFooter>
@@ -20,14 +20,18 @@ const AboutUs: React.FC = () => (
 				dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
 				dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
 				ipsum dolor sit amet.
+				<div className="about-us-border"></div>
 			</div>
-			<div className="about-us-border"></div>
 			<div className="about-us-team">Team</div>
 			<div className="about-us-grid-container">
-				<TeamMember image={Victor} name={'Victor Bellu'} role={'Produkt'}/>
-				<TeamMember image={Olli} name={'Oliver Köditz'} role={'Design'}/>
-				<TeamMember image={Richard} name={'Richard Krümmel'} role={'Software Development'}/>
-				<TeamMember image={Taka} name={'Takahiro Mitsui'} role={'Software Development'}/>
+				<TeamMember image={Victor} name={'Victor Bellu'} role={'Produkt'} />
+				<TeamMember image={Olli} name={'Oliver Köditz'} role={'Design'} />
+				<TeamMember
+					image={Richard}
+					name={'Richard Krümmel'}
+					role={'Software Development'}
+				/>
+				<TeamMember image={Taka} name={'Takahiro Mitsui'} role={'Software Development'} />
 			</div>
 		</div>
 	</HomeHeaderFooter>
