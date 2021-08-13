@@ -23,7 +23,7 @@ const AboutUs: React.FC = () => (
 			</div>
 			<div className="about-us-border"></div>
 			<div className="about-us-team">Team</div>
-			<div>
+			<div className="about-us-grid-container">
 				<TeamMember image={Victor} name={'Victor Bellu'} role={'Produkt'}/>
 				<TeamMember image={Olli} name={'Oliver Köditz'} role={'Design'}/>
 				<TeamMember image={Richard} name={'Richard Krümmel'} role={'Software Development'}/>

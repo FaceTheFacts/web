@@ -8,7 +8,6 @@
 	font-style: normal;
 	font-weight: normal;
 	color: #ffffff;
-	height: 29px;
 	font-size: 24px;
 	line-height: 120%;
 	/* identical to box height, or 29px */
@@ -39,10 +38,56 @@
 	font-style: normal;
 	font-weight: normal;
 	color: #ffffff;
-	height: 29px;
 	font-size: 24px;
 	line-height: 120%;
 	/* identical to box height, or 29px */
 	letter-spacing: -1px;
 	margin-top: 30px;
+}
+
+/* iPhone-X */
+@media screen and (min-width: 375px) {
+	.about-us-content {
+		padding: 50px 16px;
+	}
+	.about-us-border {
+		width: 343px;
+	}
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+	.about-us-content {
+		padding: 50px 34px;
+	}
+	.about-us-title {
+		font-size: 56px;
+		line-height: 120%;
+	}
+
+	.about-us-sentences {
+		width: 680px;
+		font-size: 17px;
+		line-height: 22px;
+	}
+
+	.about-us-border {
+		width: 680px;
+	}
+
+	.about-us-team {
+		font-size: 56px;
+		line-height: 120%;
+	}
+
+	.about-us-grid-container{
+		display: grid;
+		grid-column-gap: 50px;
+		grid-template-columns: auto auto;
+	}
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+
 }
