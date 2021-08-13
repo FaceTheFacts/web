@@ -8,37 +8,30 @@ const Contact: React.FC = () => (
 		<div className="contact-content">
 			<div className='contact-item'>
 				<div className='contact-item-title'>
-					Du hast einen Fehler entdeckt?
+					Du willst mehr über Face the Facts erfahren, mit uns zusammenarbeiten oder über uns berichten?
 				</div>
 				<div className='contact-item-address'>
-					Dann lass es uns wissen mit einer Mail an:
+				Melde dich einfach unter 	<a href="mailto:info@facethefacts.app">info@facethefacts.app</a> und wir beantworten gerne alle Fragen.
+				</div> 
+			</div>
+			<div className="contact-us-border"></div>
+			<div className='contact-item'>
+				<div className='contact-item-title'>
+					Hast du einen Fehler in der App gefunden?
 				</div>
 				<div className='contact-item-address'>
-					daten@facethefacts.app
+				Dann schreib welche Daten nicht stimmen und schick uns das Ganze am besten mit einem <br/>
+				Screenshot direkt an <a href="mailto:info@facethefacts.app">info@facethefacts.app</a><br/>
+				So können wir das zeitnah ändern.
 				</div>
 			</div>
 			<div className="contact-us-border"></div>
 			<div className='contact-item'>
 				<div className='contact-item-title'>
-					Du bist Kandidat:in und möchtest uns mehr Informationen über dich mitteilen?
+					Du bist Kandidat:in oder hast noch Daten über Kandidat:innen die unbedingt in die App gehören?
 				</div>
 				<div className='contact-item-address'>
-					Dann lass es uns wissen mit einer Mail an:
-				</div>
-				<div className='contact-item-address'>
-					daten@facethefacts.app
-				</div>
-			</div>
-			<div className="contact-us-border"></div>
-			<div className='contact-item'>
-				<div className='contact-item-title'>
-					Du möchtest gerne Werbung auf Face The Facts schalten?
-				</div>
-				<div className='contact-item-address'>
-					Dann lass es uns wissen mit einer Mail an:
-				</div>
-				<div className='contact-item-address'>
-					daten@facethefacts.app
+				Dann schick uns die Daten mit Quellenangabe direkt an <a href="mailto:info@facethefacts.app">info@facethefacts.app</a> und schreib am besten in die Betreffzeile so genau wie möglich um wen es geht.
 				</div>
 			</div>
 		</div>
