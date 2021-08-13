@@ -75,10 +75,16 @@
 	font-size: 18px;
 	line-height: 135%;
 	/* or 24px */
-
 	letter-spacing: -0.25px;
-
 	color: #FFFFFF;
+}
+
+.partner-logo-grid-container {
+	display: grid;
+	align-items: center;
+	grid-column-gap: 30px;
+	grid-row-gap: 10px;
+	grid-template-columns: auto auto;
 }
 
 @media screen and (max-width: 374px) {
