@@ -1,3 +1,8 @@
+import Wiki from '../assets/images/wikimedia.svg';
+import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
+import Aw from '../assets/images/aw.svg';
+import PrototypeFund from '../assets/images/prototypeFund.svg';
+
 import Mockup from '../components/Mockup';
 import SignUp from '../components/SignUp/SignUp';
 import HomeHeaderFooter from '../hoc/HomeHeaderFooter/HomeHeaderFooter';
@@ -28,11 +33,11 @@ const Home: React.FC = () => (
 		</div>
 		<div className='partners'>
 			<h2>Partner</h2>
-			<div className='partner-logo-content'>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+			<div className='partner-logo-grid-container'>
+				<img src={Wiki} alt="wikimedia" />
+				<img src={UpdateDeutschland} alt="Update-Deutschland" />
+				<img src={Aw} alt="Abgeordnetenwatch" />
+				<img src={PrototypeFund} alt="Protype-Fund" />
 			</div>
 		</div>
 		<SignUp />
