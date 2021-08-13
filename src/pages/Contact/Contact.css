@@ -1,0 +1,22 @@
+.contact-content {
+	padding: 50px 16px;
+	background: rgba(24, 25, 36, 1);
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+	.contact-content {
+		padding: 50px 34px;
+		height: calc(100vh - 90px);
+	}
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+	.contact-content {
+		padding-top: 12px;
+		padding-left: 120px;
+		padding-right: 120px;
+	}
+}
