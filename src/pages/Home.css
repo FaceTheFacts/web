@@ -168,7 +168,7 @@
 		text-align: center;
 	}
 }
-
+/* iPad */
 @media screen and (min-width: 768px) {
 	#legal-notice-bottom,
 	#privacy-bottom {
@@ -214,6 +214,25 @@
 
 	.breakline-title {
 		display: unset;
+	}
+	.partners {
+		display: flex;
+		align-items: center;
+		text-align:unset;
+		padding: 44px 50px;
+	}
+	.partners h2{
+		margin-right: 118px;
+	}
+
+	.partner-logo-grid-container {
+		display: flex;
+		grid-column-gap: 30px;
+		grid-row-gap: unset;
+		justify-content: space-evenly;
+	}
+	.partner-logo-grid-container img {
+		max-width: 30%;
 	}
 }
 
