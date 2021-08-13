@@ -49,7 +49,7 @@
 /* Desktop */
 @media screen and (min-width: 1440px) {
 	.contact-content {
-		padding-top: 0px;
+		padding-top: 12px;
 		padding-left: 120px;
 		padding-right: 120px;
 	}
