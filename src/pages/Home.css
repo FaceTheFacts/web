@@ -235,8 +235,8 @@
 		max-width: 30%;
 	}
 }
-
-@media screen and (min-width: 1400px) {
+/* Desktop */
+@media screen and (min-width: 1440px) {
 	.mockup > div {
 		width: 44.79vw;
 		padding: 0;
@@ -264,5 +264,17 @@
 
 	.home-title {
 		text-align: left;
+	}
+	.partners {
+		padding: 44px 130px;
+	}
+	.partners h2{
+		margin-right: 340px;
+	}
+	.partner-logo-grid-container img {
+		max-width: 100%;
+	}
+	.partner-logo-grid-container {
+		grid-column-gap: 80px;
 	}
 }
