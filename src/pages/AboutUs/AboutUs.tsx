@@ -26,7 +26,7 @@ const AboutUs: React.FC = () => (
 					oder was könnte sie beeinflussen?
 				</p>
 				<p>
-					Mit Face the Facts kannst du das jetzt über einfach die Handykamera direkt am
+					Mit Face the Facts kannst du das jetzt einfach über die Handykamera direkt am
 					Wahlplakat herausfinden und so schnell die besten Kandidat:innen für dich
 					finden.
 				</p>
