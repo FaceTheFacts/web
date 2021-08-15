@@ -1,5 +1,6 @@
 .about-us-content {
 	padding: 50px 16px;
+	padding-bottom: 0px;
 	background: rgba(24, 25, 36, 1);
 }
 
@@ -52,7 +53,8 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 	.about-us-content {
-		padding: 50px 34px;
+		padding-left: 34px;
+		padding-right: 34px;
 		height: calc(100vh - 90px -104px);
 	}
 	.about-us-title {
@@ -89,8 +91,6 @@
 		padding-top: 12px;
 		padding-left: 120px;
 		padding-right: 120px;
-	}
-	.about-us-sentences {
 		width: calc(100vw -240px);
 	}
 }
