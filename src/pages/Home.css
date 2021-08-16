@@ -235,6 +235,14 @@
 		max-width: 30%;
 	}
 }
+/* iPad Pro */
+@media screen and (min-width: 1024px) {
+	.partner-logo-grid-container {
+		position: absolute;
+		right: 50px;
+	}
+}
+
 /* Desktop */
 @media screen and (min-width: 1440px) {
 	.mockup > div {
@@ -276,5 +284,7 @@
 	}
 	.partner-logo-grid-container {
 		grid-column-gap: 80px;
+		position: absolute;
+		right: 130px;
 	}
 }
