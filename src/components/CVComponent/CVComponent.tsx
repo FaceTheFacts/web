@@ -1,7 +1,5 @@
 import { CVData, Steps } from '../../Types';
-import { Cv } from '../../json/TestJsonData';
 import CVComponentCard from './CVComponentCard';
-import { data } from 'jquery';
 import React from 'react';
 
 interface CVComponentProps {

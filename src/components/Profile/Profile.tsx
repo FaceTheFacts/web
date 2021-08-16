@@ -1,6 +1,5 @@
 import { iconEnum } from '../../enums/icon.enum';
 import fetch, { newfetch } from '../../functions/queries';
-import { TotalDataObj } from '../../json/TestJsonData';
 import CVComponent from '../CVComponent/CVComponent';
 import LinkButton from '../LinkButton';
 import NoDataCard from '../NoDataCard/NoDataCard';
@@ -15,6 +14,7 @@ import './Profile.css';
 import './Profile.css';
 import React from 'react';
 import { useQueries, useQuery } from 'react-query';
+import { TotalDataObj } from '../../interfaces';
 
 interface ProfileProps {
 	candidate: TotalDataObj;

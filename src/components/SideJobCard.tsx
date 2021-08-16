@@ -5,7 +5,8 @@ import '../index.css';
 // import { SideJobData } from '../Types';
 import { incomeMonthHandler } from '../functions/incomeMonthHandler';
 import { incomeLevelHandler } from '../functions/incomeLevelHandler';
-import { Sidejob } from '../json/TestJsonData';
+import { Sidejob } from '../interfaces';
+
 
 interface SideJobCardProps {
 	sideJob: Sidejob;

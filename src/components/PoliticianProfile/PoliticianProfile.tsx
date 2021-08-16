@@ -5,7 +5,8 @@ import './PoliticianProfile.css';
 // import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 import classNames from 'classnames';
-import { TotalDataObj } from '../../json/TestJsonData';
+import { TotalDataObj } from '../../interfaces';
+
 
 
 interface ContainerProps {
