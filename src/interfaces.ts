@@ -25,7 +25,7 @@ interface Constituency {
   result: Result[];
 }
 
-interface Result {
+export interface Result {
   id: number;
   label: string;
   party: string;

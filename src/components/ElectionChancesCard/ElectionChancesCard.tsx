@@ -3,9 +3,10 @@ import './ElectionChancesCard.css';
 import { IonCard, IonCardHeader, IonCardTitle, IonGrid, IonCol, IonRow } from '@ionic/react';
 import { ElectionResult } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
+import { Result } from '../../interfaces';
 
 interface ContainerProps {
-	vote: ElectionResult;
+	vote: Result;
 }
 
 const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
@@ -20,9 +21,9 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 									className="election-chances-card-title"
 									data-testid="election-chances-card-title"
 								>
-									{vote.politician.label}
+									{vote.label}
 								</IonCardTitle>
-								<PartyChip party={vote.party.label} />
+								<PartyChip party={vote.party} />
 							</div>
 						</IonCol>
 						<IonCol className="percentage" size="3">
@@ -30,7 +31,7 @@ const ElectionchancesCard: React.FC<ContainerProps> = ({ vote }: ContainerProps)
 								className="election-chances-card-title"
 								data-testid="election-chances-card-percentage"
 							>
-								{vote.electoral_data.constituency_result} %
+								{vote.result} %
 							</IonCardTitle>
 						</IonCol>
 					</IonRow>

@@ -15,6 +15,8 @@ import { useParams } from 'react-router';
 import SecondVoteCard from '../../components/SecondVoteCard';
 import MobileScreen from '../../hoc/MobileScreen';
 import { NavLink } from 'react-router-dom';
+import { Partialdata } from '../../json/TestJsonData';
+import { Result } from '../../interfaces';
 
 const Electionchances: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
@@ -56,6 +58,9 @@ const Electionchances: React.FC = () => {
 			</div>
 		);
 	}
+	const mockupId = 120155;
+	const selectedData = Partialdata[mockupId]
+	
 
 	/* This is returned when using this component */
 	return (
@@ -129,12 +134,12 @@ const Electionchances: React.FC = () => {
 						{segment === '1'
 							? secondVoteCards
 							: status === 'success'
-								? data.first_vote.map(
-									(ElectionResults: ElectionResult, index: number) => {
+								? selectedData.electoral_data.constituency.result.map(
+									(ElectionResults: Result, index: number) => {
 										return (
 											<NavLink
 												id="electionChancesCard-link"
-												to={`/politician/${ElectionResults.politician.id}/profile`}
+												to={`/politician/${ElectionResults.id}/profile`}
 												key={`electionResults-${index}`}
 											>
 												<ElectionchancesCard vote={ElectionResults} />
