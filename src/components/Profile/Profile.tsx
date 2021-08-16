@@ -14,7 +14,7 @@ import NoDataCard from '../NoDataCard/NoDataCard';
 import SegmentButtons from '../SegmentButtons';
 import CVComponent from '../CVComponent/CVComponent';
 import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
-import {Partialdata, TotalDataObj} from '../../json/TestJsonData';
+import {TotalDataObj} from '../../json/TestJsonData';
 
 interface ProfileProps {
 	candidate: TotalDataObj;
@@ -217,7 +217,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			) : tab === '1' ? (
 				<CVComponent data={candidate.cv} />
 			) : (
-				<WebLinkComponent data={webLinksData} />
+				<WebLinkComponent data={candidate.weblinks} />
 			)}
 		</React.Fragment>
 	);
