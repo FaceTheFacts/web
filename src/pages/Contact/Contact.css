@@ -1,6 +1,8 @@
 .contact-content {
 	padding: 50px 16px;
+	padding-bottom: 0px;
 	background: rgba(24, 25, 36, 1);
+	min-height: calc(100vh - 150px);
 }
 
 .contact-item {
@@ -53,7 +55,7 @@
 @media screen and (min-width: 768px) {
 	.contact-content {
 		padding: 97px 44px;
-		height: calc(100vh - 90px);
+		padding-bottom: 0px;
 	}
 	.contact-item {
 		width: calc(100vw - 88px);
