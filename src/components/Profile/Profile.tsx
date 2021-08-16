@@ -1,20 +1,20 @@
-import React from 'react';
-import TopicCard from '../TopicCard';
-import LinkButton from '../LinkButton';
-import { Politician } from '../../Types';
-import VoteCard from '../VoteCard/VoteCard';
-import SideJobCard from '../SideJobCard';
-import './Profile.css';
-import TitleHeader from '../TitleHeader';
-import { useQueries, useQuery } from 'react-query';
-import './Profile.css';
 import { iconEnum } from '../../enums/icon.enum';
 import fetch, { newfetch } from '../../functions/queries';
+import { TotalDataObj } from '../../json/TestJsonData';
+import CVComponent from '../CVComponent/CVComponent';
+import LinkButton from '../LinkButton';
 import NoDataCard from '../NoDataCard/NoDataCard';
 import SegmentButtons from '../SegmentButtons';
-import CVComponent from '../CVComponent/CVComponent';
+import SideJobCard from '../SideJobCard';
+import TitleHeader from '../TitleHeader';
+import TopicCard from '../TopicCard';
+// import { Politician } from '../../Types';
+import VoteCard from '../VoteCard/VoteCard';
 import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
-import {TotalDataObj} from '../../json/TestJsonData';
+import './Profile.css';
+import './Profile.css';
+import React from 'react';
+import { useQueries, useQuery } from 'react-query';
 
 interface ProfileProps {
 	candidate: TotalDataObj;
