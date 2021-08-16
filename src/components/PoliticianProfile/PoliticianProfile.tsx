@@ -5,9 +5,11 @@ import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 import classNames from 'classnames';
+import { TotalDataObj } from '../../json/TestJsonData';
+
 
 interface ContainerProps {
-	candidate: Politician;
+	candidate: TotalDataObj;
 	image: string;
 }
 
@@ -21,10 +23,10 @@ const PoliticianProfile: React.FC<ContainerProps> = ({ candidate, image }: Conta
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
-							<IonCardTitle>{candidate.label}</IonCardTitle>
+							<IonCardTitle>{candidate.name}</IonCardTitle>
 						</div>
 						<div className="politician-details">
-							<PartyChip party={candidate.party.label} />
+							<PartyChip party={candidate.party} />
 							{/* Check Toni Jaschinski */}
 							{candidate.occupation.map(
 								(occupation: string, index: number) => {
