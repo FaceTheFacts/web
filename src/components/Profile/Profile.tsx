@@ -215,7 +215,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					)}
 				</div>
 			) : tab === '1' ? (
-				<CVComponent data={cvData} />
+				<CVComponent data={candidate.cv} />
 			) : (
 				<WebLinkComponent data={webLinksData} />
 			)}

@@ -2,7 +2,7 @@ import React from 'react';
 import { IonGrid, IonRow, IonCol, IonCardTitle, IonChip } from '@ionic/react';
 import Placeholder from '../../assets/images/placeholder.svg';
 import './PoliticianProfile.css';
-import { Politician } from '../../Types';
+// import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 import classNames from 'classnames';
 import { TotalDataObj } from '../../json/TestJsonData';

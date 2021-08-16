@@ -2,7 +2,7 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import './SideJobCard.css';
 import '../index.css';
-import { SideJobData } from '../Types';
+// import { SideJobData } from '../Types';
 import { incomeMonthHandler } from '../functions/incomeMonthHandler';
 import { incomeLevelHandler } from '../functions/incomeLevelHandler';
 import { Sidejob } from '../json/TestJsonData';

@@ -7,11 +7,11 @@ export interface TotalDataObj {
   party: string;
   electoral_data: Electoraldata;
   occupation: string[];
-  cv: Cv|[];
+  cv: Cv|any[];
   weblinks: string[];
-  committees?: string|null;
-  sidejobs?: Sidejob[]|null;
-  votes?: Vote[]|null;
+  committees?: string;
+  sidejobs?: Sidejob[];
+  votes?: Vote[];
 }
 //Electoraldata
 interface Electoraldata {
@@ -33,7 +33,7 @@ interface Result {
 }
 
 //Cv
-interface Cv {
+export interface Cv {
   Raw: string;
   ShortDescription: string;
   Steps: Step[];
