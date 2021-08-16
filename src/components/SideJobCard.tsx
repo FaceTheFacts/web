@@ -5,9 +5,10 @@ import '../index.css';
 import { SideJobData } from '../Types';
 import { incomeMonthHandler } from '../functions/incomeMonthHandler';
 import { incomeLevelHandler } from '../functions/incomeLevelHandler';
+import { Sidejob } from '../json/TestJsonData';
 
 interface SideJobCardProps {
-	sideJob: SideJobData;
+	sideJob: Sidejob;
 }
 
 const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) => {
@@ -18,13 +19,13 @@ const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) 
 					{sideJob.label}
 				</IonCardTitle>
 				<IonCardTitle className="sideJob-minor" data-testid="profile-sidejob-organisation">
-					{sideJob.sidejob_organization.label}
+					{sideJob.organisation}
 				</IonCardTitle>
 				<div className="vote-card-border"></div>
 				<div className="sideJob-income">
 					<div className="income">{incomeLevelHandler(sideJob.income_level)}</div>
 					<div className="income-date">
-						{incomeMonthHandler(sideJob.data_change_date)}
+						{incomeMonthHandler(sideJob.date)}
 					</div>
 				</div>
 			</IonCardHeader>

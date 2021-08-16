@@ -137,6 +137,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			cacheTime: 60 * 2880000, // 2 days
 		}
 	);
+
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
@@ -204,9 +205,9 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					) : null}
 
 					<TitleHeader title="Bekannte Nebentätigkeiten" />
-					{sideJobs.data.length !== 0 ? (
+					{candidate.sidejobs?.length !== 0 ? (
 						// eslint-disable-next-line
-						sideJobs.data.map((sideJob: any, index: number) => {
+						candidate.sidejobs?.map((sideJob: any, index: number) => {
 							return <SideJobCard sideJob={sideJob} key={index} />;
 						})
 					) : (

@@ -44,7 +44,7 @@ interface Step {
   Date: string;
 }
 //Sidejobs
-interface Sidejob {
+export interface Sidejob {
   label: string;
   income_level: string;
   date: string;
