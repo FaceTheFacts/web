@@ -5,11 +5,11 @@ import './PoliticianProfile.css';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 import classNames from 'classnames';
-import { TotalDataObj } from '../../json/TestJsonData';
+import { TotalDataObj1,TotalDataObj2 } from '../../json/TestJsonData';
 
 
 interface ContainerProps {
-	candidate: TotalDataObj;
+	candidate: TotalDataObj1|TotalDataObj2;
 	image: string;
 }
 

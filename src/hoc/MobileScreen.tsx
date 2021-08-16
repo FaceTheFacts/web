@@ -15,7 +15,7 @@ interface MobileScreenProps {
 
 const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => {
 	const { id } = useParams<{ id: string }>();
-	const mockupId = 177393;
+	const mockupId = 120155;
 	const selectedData = Partialdata[mockupId]
 
 
