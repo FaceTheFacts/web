@@ -14,10 +14,11 @@ import NoDataCard from '../NoDataCard/NoDataCard';
 import SegmentButtons from '../SegmentButtons';
 import CVComponent from '../CVComponent/CVComponent';
 import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
+import {Partialdata, TotalDataObj1, TotalDataObj2} from '../../json/TestJsonData';
 
 interface ProfileProps {
-	candidate: Politician;
-	profileId: string;
+	candidate: TotalDataObj1|TotalDataObj2;
+	profileId: number;
 }
 
 const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps) => {
@@ -118,10 +119,10 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	];
 
 	const { data, status } = useQuery(
-		`politicalFocus-${candidate.label}`,
+		`politicalFocus-${candidate.name}`,
 		() =>
 			fetch(
-				`committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.label} (Bundestag 2017 - 2021)`
+				`committee-memberships?candidacy_mandate[entity.label][cn]=${candidate.name} (Bundestag 2017 - 2021)`
 			),
 		{
 			staleTime: 60 * 10000000,
@@ -129,8 +130,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 		}
 	);
 	const sideJobs = useQuery(
-		`sideJob-${candidate.label}`,
-		() => newfetch(`sidejobs?politician_name=${candidate.label}`),
+		`sideJob-${candidate.name}`,
+		() => newfetch(`sidejobs?politician_name=${candidate.name}`),
 		{
 			staleTime: 60 * 2880000,
 			cacheTime: 60 * 2880000, // 2 days
@@ -139,7 +140,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
-				queryKey: ['poll', pollId, candidate.label],
+				queryKey: ['poll', pollId, candidate.name],
 				// eslint-disable-next-line
 				queryFn: () => fetch(`polls/${pollId}`),
 				staleTime: 60 * 1440000,
@@ -160,6 +161,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			<SegmentButtons tab={tab} setTab={setTab} type={1} />
 			{tab === '0' ? (
 				<div className="profile-black-back">
+					{/* TotalData.json doesn't include topics */}
 					{data.data.length !== 0 ? (
 						<div>
 							<TitleHeader title="Politische Schwerpunkte" />
@@ -173,7 +175,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 							<TitleHeader title="Wichtigste Abstimmungen">
 								<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
 									<LinkButton
-										linkTo={`/politician/${profileId}/votes`}
+										linkTo={`/politician/${String(profileId)}/votes`}
 										icon={iconEnum.ARROW_FORWARD}
 									/>
 								</div>
@@ -188,7 +190,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 											<li key={index}>
 												<VoteCard
 													vote={poll.data?.data}
-													name={candidate.label}
+													name={candidate.name}
 													setArrow={setArrow}
 												/>
 											</li>
