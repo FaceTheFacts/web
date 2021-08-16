@@ -12,6 +12,56 @@ interface MobileScreenProps {
 	children?: JSX.Element;
 }
 
+type ElectoralDataResult = {
+	id: number;
+	label: string;
+	party: string;
+	result: number;
+}
+
+type CVSteps = {
+	Raw: string;
+	Label: string;
+	Date: string;
+}
+
+type Sidejobs = {
+	label: string;
+	income_level: string;
+	date: string;
+	organisation: string;
+	interval: string|undefined;
+}
+
+type Votes = {
+	poll_id: number;
+	vote:'yes'|'no'|'abstain'|'no_show';
+}
+
+type TotalData = {
+	[key:string]:{name: string;
+	party: string;
+	electoral_data: {
+		constituency: {
+			state: string|undefined;
+			id: number,
+			label: string,
+			result:ElectoralDataResult[];
+	  }
+  };
+	occupation: string[]|[];
+	cv: {
+		Raw: string;
+		ShortDescription: string;
+		Steps: CVSteps[];
+	}|[];
+	weblinks: string[]|[];
+	committees: string|undefined;
+	sidejobs:Sidejobs[]|undefined;
+	votes:Votes[]|undefined
+  }
+}
+
 const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => {
 	const { id } = useParams<{ id: string }>();
 	let mainComponent: JSX.Element | undefined;
