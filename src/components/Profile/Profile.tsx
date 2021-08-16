@@ -14,10 +14,10 @@ import NoDataCard from '../NoDataCard/NoDataCard';
 import SegmentButtons from '../SegmentButtons';
 import CVComponent from '../CVComponent/CVComponent';
 import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
-import {Partialdata, TotalDataObj1, TotalDataObj2} from '../../json/TestJsonData';
+import {Partialdata, TotalDataObj} from '../../json/TestJsonData';
 
 interface ProfileProps {
-	candidate: TotalDataObj1|TotalDataObj2;
+	candidate: TotalDataObj;
 	profileId: number;
 }
 

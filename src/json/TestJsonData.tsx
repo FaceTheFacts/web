@@ -1,31 +1,21 @@
 export interface TotalData {
-  [key: string]: TotalDataObj1|TotalDataObj2;
+  [key: string]: TotalDataObj;
 }
-export interface TotalDataObj1 {
-  name: string;
-  party: string;
-  electoral_data: Electoraldata|Electoraldata2;
-  occupation: string[];
-  cv: Cv|[];
-  weblinks: string[];
-}
-export interface TotalDataObj2 {
+
+export interface TotalDataObj {
   name: string;
   party: string;
   electoral_data: Electoraldata;
   occupation: string[];
-  cv: Cv;
+  cv: Cv|[];
   weblinks: string[];
-  committees: string;
-  sidejobs: Sidejob[];
-  votes: Vote[];
+  committees?: string|null;
+  sidejobs?: Sidejob[]|null;
+  votes?: Vote[]|null;
 }
 //Electoraldata
 interface Electoraldata {
-  constituency: Constituency;
-}
-interface Electoraldata2 {
-  state: string;
+  state?: string;
   constituency: Constituency;
 }
 
