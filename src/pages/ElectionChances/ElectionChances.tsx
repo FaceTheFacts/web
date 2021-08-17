@@ -84,8 +84,8 @@ const Electionchances: React.FC = () => {
 											Wahlkreis -{' '}
 											{status === 'success'
 												? constituencyCardHandler(
-														// data?.electoral_data.constituency.label
-														selectedData.electoral_data.constituency.label
+													// data?.electoral_data.constituency.label
+													selectedData.electoral_data.constituency.label
 												)
 												: undefined}
 										</IonCardTitle>
