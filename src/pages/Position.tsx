@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import fetch from '../functions/queries';
 import MobileScreen from '../hoc/MobileScreen';
 const reason =
-	'"Das ist nur ein Platzhalter. Für die Bundestagswahl haben Kandidat:innen  hier die Möglichkeit ihre Position zu begründen"';
+	'"Das ist grade noch ein Platzhalter. Die Positionen werden Anfang September hinzugefügt."';
 const answer = undefined;
 const examplePositionData = [
 	{
