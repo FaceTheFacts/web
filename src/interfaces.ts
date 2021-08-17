@@ -46,10 +46,10 @@ interface Step {
 //Sidejobs
 export interface Sidejob {
   label: string;
-  income_level: string;
+  income_level: string|null;
   date: string;
   organisation: string;
-  interval: string;
+  interval?: string;
 }
 //Votes
 interface Vote {

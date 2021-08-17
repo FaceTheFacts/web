@@ -976,5 +976,818 @@ export const Partialdata: TotalData = {
         "vote": "yes"
       }
     ]
+  },
+  "119708": {
+    "name": "Bettina Stark-Watzinger",
+    "party": "FDP",
+    "electoral_data": {
+      "constituency": {
+        "id": 10238,
+        "label": "181 - Main-Taunus",
+        "result": [
+          {
+            "id": 145885,
+            "label": "Norbert Altenkamp",
+            "party": "CDU",
+            "result": 41.9
+          },
+          {
+            "id": 146825,
+            "label": "Ilja-Kristin Seewald",
+            "party": "SPD",
+            "result": 21.8
+          },
+          {
+            "id": 119708,
+            "label": "Bettina Stark-Watzinger",
+            "party": "FDP",
+            "result": 10.9
+          },
+          {
+            "id": 145777,
+            "label": "Gernot Laude",
+            "party": "AfD",
+            "result": 9.7
+          },
+          {
+            "id": 79004,
+            "label": "Kordula Schulz-Asche",
+            "party": "Die Gr\u00fcnen",
+            "result": 9.1
+          },
+          {
+            "id": 146134,
+            "label": "Ingo von Seemen",
+            "party": "DIE LINKE",
+            "result": 5
+          },
+          {
+            "id": 146447,
+            "label": "Josef Voege",
+            "party": "FREIE W\u00c4HLER",
+            "result": 1.7
+          }
+        ]
+      }
+    },
+    "occupation": [
+      "MdB"
+    ],
+    "cv": {
+      "Raw": "1989 Abitur; 1989 bis 1993 Studium der Volkswirtschaftslehre an der Johannes Gutenberg-Universit\u00e4t Mainz und der Goethe-Universit\u00e4t, Frankfurt; 1994 bis 1997 Traineeausbildung und T\u00e4tigkeit als Regional Manager, BHF BANK AG, Frankfurt; 1997 bis 2006 Auslandsaufenthalt in Gro\u00dfbritannien und Familienpause; 2006 bis 2008 Academic Manager, Finance, Accounting, Controlling und Taxation Department, European Business School, Oestrich-Winkel; seit 2008 Gesch\u00e4ftsf\u00fchrerin einer Forschungseinrichtung; seit 2004 Mitglied der Freien Demokraten; seit 2011 Mitglied des Kreistages des Main-Taunus-Kreises; seit 2011 Mitglied des Landesvorstandes der FDP Hessen; 2014 bis 2015 Stellvertretende Vorsitzende der FDP Hessen; 2015 bis 2018 Generalsekret\u00e4rin der FDP Hessen; 2018 bis 2021 Stellvertretende Vorsitzende der FDP Hessen; seit 2021 Landesvorsitzende der FDP Hessen; Stimmberechtigtes Mitglied der Arbeitsgruppe Migration, Asyl und Integration und beratendes Mitglied der Arbeitsgruppe European Green Deal der Deutsch-Franz\u00f6sischen Parlamentarischen Versammlung. ",
+      "ShortDescription": "Geboren am 12. Mai 1968\u00a0in Frankfurt am Main;\u00a0r\u00f6misch-katholisch;\u00a0verheiratet.",
+      "Steps": [
+        {
+          "Raw": "1989 Abitur",
+          "Label": "Abitur",
+          "Date": "1989"
+        },
+        {
+          "Raw": "1989 bis 1993 Studium der Volkswirtschaftslehre an der Johannes Gutenberg-Universit\u00e4t Mainz und der Goethe-Universit\u00e4t",
+          "Label": "Studium der Volkswirtschaftslehre an der Johannes Gutenberg-Universit\u00e4t Mainz und der Goethe-Universit\u00e4t",
+          "Date": "1989 bis 1993"
+        },
+        {
+          "Raw": "1994 bis 1997 Traineeausbildung und T\u00e4tigkeit als Regional Manager",
+          "Label": "Traineeausbildung und T\u00e4tigkeit als Regional Manager",
+          "Date": "1994 bis 1997"
+        },
+        {
+          "Raw": "1997 bis 2006 Auslandsaufenthalt in Gro\u00dfbritannien und Familienpause",
+          "Label": "Auslandsaufenthalt in Gro\u00dfbritannien und Familienpause",
+          "Date": "1997 bis 2006"
+        },
+        {
+          "Raw": "2006 bis 2008 Academic Manager",
+          "Label": "Academic Manager",
+          "Date": "2006 bis 2008"
+        },
+        {
+          "Raw": "seit 2008 Gesch\u00e4ftsf\u00fchrerin einer Forschungseinrichtung",
+          "Label": "Gesch\u00e4ftsf\u00fchrerin einer Forschungseinrichtung",
+          "Date": "seit 2008"
+        },
+        {
+          "Raw": "seit 2004 Mitglied der Freien Demokraten",
+          "Label": "Mitglied der Freien Demokraten",
+          "Date": "seit 2004"
+        },
+        {
+          "Raw": "seit 2011 Mitglied des Kreistages des Main-Taunus-Kreises",
+          "Label": "Mitglied des Kreistages des Main-Taunus-Kreises",
+          "Date": "seit 2011"
+        },
+        {
+          "Raw": "seit 2011 Mitglied des Landesvorstandes der FDP Hessen",
+          "Label": "Mitglied des Landesvorstandes der FDP Hessen",
+          "Date": "seit 2011"
+        },
+        {
+          "Raw": "2014 bis 2015 Stellvertretende Vorsitzende der FDP Hessen",
+          "Label": "Stellvertretende Vorsitzende der FDP Hessen",
+          "Date": "2014 bis 2015"
+        },
+        {
+          "Raw": "2015 bis 2018 Generalsekret\u00e4rin der FDP Hessen",
+          "Label": "Generalsekret\u00e4rin der FDP Hessen",
+          "Date": "2015 bis 2018"
+        },
+        {
+          "Raw": "2018 bis 2021 Stellvertretende Vorsitzende der FDP Hessen",
+          "Label": "Stellvertretende Vorsitzende der FDP Hessen",
+          "Date": "2018 bis 2021"
+        },
+        {
+          "Raw": "seit 2021 Landesvorsitzende der FDP Hessen",
+          "Label": "Landesvorsitzende der FDP Hessen",
+          "Date": "seit 2021"
+        }
+      ]
+    },
+    "weblinks": [
+      "http://stark-watzinger.de/",
+      "https://www.facebook.com/bettina.starkwa/",
+      "https://twitter.com/starkwatzinger",
+      "https://www.instagram.com/bettina.starkwatzinger/?hl=de"
+    ],
+    "committees": "Finanzausschuss",
+    "sidejobs": [
+      {
+        "label": "Mitglied des Policy Council",
+        "income_level": null,
+        "date": "2021-04-30",
+        "organisation": "Leibniz-Institut f\u00fcr Finanzforschung SAFE"
+      },
+      {
+        "label": "Mitglied des Beirates",
+        "income_level": null,
+        "date": "2019-10-29",
+        "organisation": "Versicherungsombudsmann e.V."
+      },
+      {
+        "label": "Mitglied des Beirates",
+        "income_level": null,
+        "date": "2019-02-20",
+        "organisation": "Karl-Hermann-Flach-Stiftung"
+      },
+      {
+        "label": "Mitglied des Vorstandes",
+        "income_level": null,
+        "date": "2019-02-20",
+        "organisation": "Friedrich-Naumann-Stiftung f\u00fcr die Freiheit (FNF)"
+      },
+      {
+        "label": "Mitglied des wissenschaftlichen Beirates",
+        "income_level": null,
+        "date": "2019-10-29",
+        "organisation": "Berliner Steuergespr\u00e4che e.V."
+      }
+    ],
+    "votes": [
+      {
+        "poll_id": 4197,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4198,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4193,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4201,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4217,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4213,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4199,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4209,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4142,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4123,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4126,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 4098,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4122,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4097,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4124,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 4096,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4119,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4099,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 4093,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4085,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4083,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 4018,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3973,
+        "vote": "no"
+      },
+      {
+        "poll_id": 4082,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3959,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3972,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3965,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3957,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3947,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3950,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3942,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3914,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3936,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3769,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3760,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3710,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3714,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3749,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3711,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3668,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3669,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3631,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 3629,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3599,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3602,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1762,
+        "vote": "no"
+      },
+      {
+        "poll_id": 3572,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 3558,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1761,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1769,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1758,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1754,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1752,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1753,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1745,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1743,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1739,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1737,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1738,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1735,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1736,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1734,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1726,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1724,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1728,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1725,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1727,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1715,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1716,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1717,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1713,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1706,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1690,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1692,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1689,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1688,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1685,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1684,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1687,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1683,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1680,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1681,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1679,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1678,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1677,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1669,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1671,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1660,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1662,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1665,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1667,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1659,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1661,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1663,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1658,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1657,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1656,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1654,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1637,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1655,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1639,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1640,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1638,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1641,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1636,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1627,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1603,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1600,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1599,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1601,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1604,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1597,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1598,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1596,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1593,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1592,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1591,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1587,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1585,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1586,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1584,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1572,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1571,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1568,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1569,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1540,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1541,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1530,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1532,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1525,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1524,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1507,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1510,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1506,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1509,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1505,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1508,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1354,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1307,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1333,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1308,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1306,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1305,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1284,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1286,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1287,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1285,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1283,
+        "vote": "abstain"
+      },
+      {
+        "poll_id": 1282,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1279,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1262,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1263,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1261,
+        "vote": "no"
+      },
+      {
+        "poll_id": 1246,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1245,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1239,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1238,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1237,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1240,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1244,
+        "vote": "yes"
+      },
+      {
+        "poll_id": 1241,
+        "vote": "yes"
+      }
+    ]
   }
 }

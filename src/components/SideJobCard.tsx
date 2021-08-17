@@ -24,7 +24,7 @@ const SideJobCard: React.FC<SideJobCardProps> = ({ sideJob }: SideJobCardProps) 
 				</IonCardTitle>
 				<div className="vote-card-border"></div>
 				<div className="sideJob-income">
-					<div className="income">{incomeLevelHandler(sideJob.income_level)}</div>
+					<div className="income">{sideJob.income_level?incomeLevelHandler(sideJob.income_level):undefined}</div>
 					<div className="income-date">
 						{incomeMonthHandler(sideJob.date)}
 					</div>
