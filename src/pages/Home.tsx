@@ -4,7 +4,6 @@ import Aw from '../assets/images/aw.svg';
 import PrototypeFund from '../assets/images/prototypeFund.svg';
 
 import Mockup from '../components/Mockup';
-import SignUp from '../components/SignUp/SignUp';
 import HomeHeaderFooter from '../hoc/HomeHeaderFooter/HomeHeaderFooter';
 import './Home.css';
 import { IonButton, IonCardSubtitle, IonCardTitle } from '@ionic/react';
@@ -40,7 +39,6 @@ const Home: React.FC = () => (
 				<img src={PrototypeFund} alt="Protype-Fund" />
 			</div>
 		</div>
-		<SignUp />
 	</HomeHeaderFooter>
 );
 
