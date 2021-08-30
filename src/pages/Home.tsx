@@ -6,8 +6,10 @@ import PrototypeFund from '../assets/images/prototypeFund.svg';
 import Mockup from '../components/Mockup';
 import HomeHeaderFooter from '../hoc/HomeHeaderFooter/HomeHeaderFooter';
 import './Home.css';
-import { IonButton, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import React from 'react';
+import SignUp from '../components/SignUp/SignUp';
+import AppStoreButton from '../components/AppStoreButton';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Home: React.FC = () => (
@@ -22,23 +24,22 @@ const Home: React.FC = () => (
 					Mit Face the Facts Wahlplakate scannen und <br />
 					herausfinden wofür Politiker:innen wirklich stehen.
 				</IonCardSubtitle>
-				<IonButton href="/search" className="home-button">
-					zur Demo
-				</IonButton>
+				<AppStoreButton />
 			</div>
 			<div className="mockup">
 				<Mockup />
 			</div>
 		</div>
-		<div className='partners'>
+		<div className="partners">
 			<h2>Partner</h2>
-			<div className='partner-logo-grid-container'>
+			<div className="partner-logo-grid-container">
 				<img src={Wiki} alt="wikimedia" />
 				<img src={UpdateDeutschland} alt="Update-Deutschland" />
 				<img src={Aw} alt="Abgeordnetenwatch" />
 				<img src={PrototypeFund} alt="Protype-Fund" />
 			</div>
 		</div>
+		<SignUp />
 	</HomeHeaderFooter>
 );
 

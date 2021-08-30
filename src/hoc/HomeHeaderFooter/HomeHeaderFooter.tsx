@@ -15,7 +15,7 @@ const HomeHeaderFooter: React.FC<HomeHeaderFooterProps> = (props: HomeHeaderFoot
 			<HomeHeader />
 			<IonContent>
 				{props.children}
-				<div className='homeheaderfooter-footer'>
+				<div className="homeheaderfooter-footer">
 					<HomeFooter />
 				</div>
 			</IonContent>

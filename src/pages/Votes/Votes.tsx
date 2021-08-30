@@ -60,7 +60,7 @@ const Votes: React.FC = () => {
 	const scrollToTop = (): void => {
 		setFilter(!filter);
 		contentRef.current && contentRef.current.scrollToTop(1000);
-	}
+	};
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
@@ -78,12 +78,17 @@ const Votes: React.FC = () => {
 	return (
 		<IonPage className="votes-black-back">
 			<div className="votes-header-container">
-				<IonBackButton className ="votes-back-button" icon ={chevronBackOutline} text = "zurück" defaultHref={`/politician/${id}/profile`} />
+				<IonBackButton
+					className="votes-back-button"
+					icon={chevronBackOutline}
+					text="zurück"
+					defaultHref={`/politician/${id}/profile`}
+				/>
 				<IonImg
 					id="filter-logo"
 					src={filterLogo}
 					alt="filter"
-					onClick={(): void => scrollToTop() }
+					onClick={(): void => scrollToTop()}
 				/>
 			</div>
 			<IonContent ref={contentRef}>
