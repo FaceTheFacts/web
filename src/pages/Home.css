@@ -76,7 +76,7 @@
 	line-height: 135%;
 	/* or 24px */
 	letter-spacing: -0.25px;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .partner-logo-grid-container {
@@ -218,10 +218,10 @@
 	.partners {
 		display: flex;
 		align-items: center;
-		text-align:unset;
+		text-align: unset;
 		padding: 44px 50px;
 	}
-	.partners h2{
+	.partners h2 {
 		margin-right: 118px;
 	}
 
@@ -276,7 +276,7 @@
 	.partners {
 		padding: 44px 130px;
 	}
-	.partners h2{
+	.partners h2 {
 		margin-right: 340px;
 	}
 	.partner-logo-grid-container img {

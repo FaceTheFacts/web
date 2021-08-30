@@ -21,6 +21,25 @@ npm install
 npm start
 ```
 
+## Deployment
+
+1. Build website with Docker
+    - run following command and replace the secrets with the actual ID's
+    ```
+    docker build . -t app --build-arg REACT_APP_MAILCHIMP_ID=<Mailchimp_ID> --build-arg REACT_APP_MAILCHIMP_MAILLIST_ID=<Maillist_ID>
+    ```
+    - don't know the secrets? ask your co-workers
+2. Tag Image
+    ```
+    docker tag app facethefacts/app:<latest or develop>
+    ```
+3. Sign in into DockerHub
+
+4. Push Docker Image
+    ```
+    docker push facethefacts/app:<latest or develop>
+    ```
+
 ## Automated Tests
 
 We use a combination of testing frameworks to ensure functionality accross platforms and browsers
