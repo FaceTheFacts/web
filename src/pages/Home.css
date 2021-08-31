@@ -31,8 +31,8 @@
 	letter-spacing: 0.15px;
 	opacity: 0.7;
 	text-transform: none;
-	padding-bottom: 10px;
-	padding-top: 10px;
+	padding-bottom: 16px;
+	padding-top: 16px;
 }
 
 .home-button {
@@ -87,6 +87,24 @@
 	grid-template-columns: auto auto;
 }
 
+.appstore-button-container {
+	display: flex;
+    align-items: center;
+}
+
+.appstore-button-container > div > a > span > img {
+	height: 40px
+}
+
+.appstore-button-container > div:first-of-type > a > span {
+	padding-right: 4px;
+}
+
+.appstore-button-container > div:last-of-type > a > span {
+	padding-left: 4px;
+}
+
+
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
 	#privacy-bottom {
@@ -117,10 +135,7 @@
 	.text {
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 69px;
-		padding-top: 69px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding: 30px;
 	}
 
 	.home-subtitle {
@@ -158,10 +173,7 @@
 	.text {
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 79px;
-		padding-top: 79px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding: 30px;
 	}
 
 	.home-subtitle {

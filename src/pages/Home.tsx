@@ -2,6 +2,8 @@ import Wiki from '../assets/images/wikimedia.svg';
 import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
 import Aw from '../assets/images/aw.svg';
 import PrototypeFund from '../assets/images/prototypeFund.svg';
+import AppStoreLogo from '../assets/images/app-store-logo.svg';
+import PlayStoreLogo from '../assets/images/google-play-badge.png'
 
 import Mockup from '../components/Mockup';
 import HomeHeaderFooter from '../hoc/HomeHeaderFooter/HomeHeaderFooter';
@@ -24,7 +26,10 @@ const Home: React.FC = () => (
 					Mit Face the Facts Wahlplakate scannen und <br />
 					herausfinden wofür Politiker:innen wirklich stehen.
 				</IonCardSubtitle>
-				<AppStoreButton />
+				<div className="appstore-button-container">
+					<AppStoreButton source={AppStoreLogo} link="https://apps.apple.com/de/app/face-the-facts/id1579513133?l=en"/>
+					<AppStoreButton source={PlayStoreLogo} link="https://play.google.com/store/apps/details?id=com.facethefacts" />
+				</div>
 			</div>
 			<div className="mockup">
 				<Mockup />
