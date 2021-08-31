@@ -1,7 +1,8 @@
 import Wiki from '../assets/images/wikimedia.svg';
 import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
-import Aw from '../assets/images/aw.svg';
-import PrototypeFund from '../assets/images/prototypeFund.svg';
+import Aw from '../assets/images/aw.png';
+import PrototypeFund from '../assets/images/prototypeFund.png';
+import bmbfLogo from '../assets/images/bmbf.jpeg'
 import AppStoreLogo from '../assets/images/app-store-logo.svg';
 import PlayStoreLogo from '../assets/images/google-play-badge.png'
 
@@ -38,6 +39,7 @@ const Home: React.FC = () => (
 		<div className="partners">
 			<h2>Partner</h2>
 			<div className="partner-logo-grid-container">
+				<img src={bmbfLogo} alt="gefördert vom Bundesministerium für Bildung und Forschung" />
 				<img src={Wiki} alt="wikimedia" />
 				<img src={UpdateDeutschland} alt="Update-Deutschland" />
 				<img src={Aw} alt="Abgeordnetenwatch" />
