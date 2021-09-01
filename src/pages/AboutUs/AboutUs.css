@@ -55,7 +55,7 @@
 	.about-us-content {
 		padding-left: 34px;
 		padding-right: 34px;
-		height: calc(100vh - 90px -104px);
+		
 	}
 	.about-us-title {
 		font-size: 56px;
@@ -81,7 +81,13 @@
 }
 @media screen and (min-width: 860px) {
 	.about-us-content {
-		height: 100vh;
+		height: 81.5vh;
+	}
+}
+
+@media screen and (min-width: 1024px) and (max-height: 769px){
+	.about-us-content {
+		height: 125vh;
 	}
 }
 
@@ -91,6 +97,7 @@
 		padding-top: 12px;
 		padding-left: 120px;
 		padding-right: 120px;
-		width: calc(100vw -240px);
+		width: calc(100vw - 240px);
+		height: 90vh;
 	}
 }
