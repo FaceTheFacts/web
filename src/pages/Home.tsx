@@ -1,4 +1,4 @@
-import Wiki from '../assets/images/wikimedia.svg';
+import Wiki from '../assets/images/unlock.png';
 import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
 import Aw from '../assets/images/aw.png';
 import PrototypeFund from '../assets/images/prototypeFund.png';
@@ -39,11 +39,11 @@ const Home: React.FC = () => (
 		<div className="partners">
 			<h2>Partner</h2>
 			<div className="partner-logo-grid-container">
-				<img src={bmbfLogo} alt="gefördert vom Bundesministerium für Bildung und Forschung" />
-				<img src={Wiki} alt="wikimedia" />
-				<img src={UpdateDeutschland} alt="Update-Deutschland" />
-				<img src={Aw} alt="Abgeordnetenwatch" />
-				<img src={PrototypeFund} alt="Protype-Fund" />
+				<img id="bmbf" src={bmbfLogo} alt="gefördert vom Bundesministerium für Bildung und Forschung" />
+				<img id="update" src={UpdateDeutschland} alt="Update-Deutschland" />
+				<img id="proto" src={PrototypeFund} alt="Protype-Fund" />
+				<img id="aw" src={Aw} alt="Abgeordnetenwatch" />
+				<img id="wiki" src={Wiki} alt="wikimedia" />
 			</div>
 		</div>
 		<SignUp />
