@@ -80,11 +80,13 @@
 }
 
 .partner-logo-grid-container {
-	display: grid;
-	align-items: center;
-	grid-column-gap: 30px;
+	display: flex;
+	flex-direction: column;
+	grid-column-gap: 20px;
 	grid-row-gap: 10px;
-	grid-template-columns: auto auto;
+	background-color: #ffffff;
+	border-radius: 16px;
+	padding: 24px 58px 0px 58px;
 }
 
 .appstore-button-container {
@@ -141,6 +143,20 @@
 	.home-subtitle {
 		text-align: center;
 	}
+
+	.partners {
+		padding: 30px;
+	}
+
+	.partners h2 {
+		margin-top: 0px;
+		margin-bottom: 30px;
+	}
+
+	.partner-logo-grid-container {
+		padding: 24px 30px 24px 30px;
+		grid-row-gap: 52px;
+	}
 }
 
 @media screen and (min-width: 375px) {
@@ -178,6 +194,20 @@
 
 	.home-subtitle {
 		text-align: center;
+	}
+
+	.partners {
+		padding: 30px;
+	}
+
+	.partners h2 {
+		margin-top: 0px;
+		margin-bottom: 30px;
+	}
+
+	.partner-logo-grid-container {
+		padding: 24px 30px 24px 30px;
+		grid-row-gap: 52px;
 	}
 }
 /* iPad */
@@ -219,7 +249,6 @@
 	}
 
 	.text {
-		flex-direction: column;
 		padding-top: 50px;
 		padding-bottom: 30px;
 	}
@@ -228,30 +257,52 @@
 		display: unset;
 	}
 	.partners {
-		display: flex;
-		align-items: center;
-		text-align: unset;
-		padding: 44px 50px;
+		padding: 45px 50px;
 	}
+
 	.partners h2 {
-		margin-right: 118px;
+		padding-bottom: 38px;
+		font-size: 24px;
 	}
 
 	.partner-logo-grid-container {
-		display: flex;
-		grid-column-gap: 30px;
-		grid-row-gap: unset;
-		justify-content: space-evenly;
+		display: grid;
+		align-content: center;
+		align-items: center;
+		grid-template-columns: repeat(6, 1fr);
+		grid-gap: 26px 110px;
+		padding: 40px 24px 40px 24px;
 	}
-	.partner-logo-grid-container img {
-		max-width: 30%;
+
+	#bmbf {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
 	}
-}
-/* iPad Pro */
-@media screen and (min-width: 1024px) {
-	.partner-logo-grid-container {
-		position: absolute;
-		right: 50px;
+	
+	#update {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
+	}
+	
+	#proto {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
+	}
+	
+	#aw {
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column: span 3;
+	}
+	
+	#wiki {
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column: span 3;
+
 	}
 }
 
@@ -286,17 +337,23 @@
 		text-align: left;
 	}
 	.partners {
-		padding: 44px 130px;
+		padding: 45px 130px;
 	}
+
 	.partners h2 {
-		margin-right: 340px;
+		padding-bottom: 38px;
+		margin-top: 4px;
 	}
+
 	.partner-logo-grid-container img {
-		max-width: 100%;
+		max-width: 15%;
 	}
+
 	.partner-logo-grid-container {
-		grid-column-gap: 80px;
-		position: absolute;
-		right: 130px;
+		display: flex;
+		flex-direction: unset;
+		justify-content: space-evenly;
+		padding: 40px 24px;
+		grid-gap: 0px 65px;
 	}
 }
