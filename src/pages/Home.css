@@ -109,7 +109,7 @@
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom, #about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -161,7 +161,7 @@
 
 @media screen and (min-width: 375px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom, #about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -213,7 +213,7 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom, #about-us-bottom {
 		font-size: 17px;
 		line-height: 22px;
 	}
