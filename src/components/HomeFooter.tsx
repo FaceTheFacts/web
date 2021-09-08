@@ -19,14 +19,14 @@ const HomeFooter: React.FC = () => {
 					<SocialMediaLinks position="bottom" />
 				</div>
 				<div className="homefooter-links">
-				<NavLink
-					id="about-us-bottom"
-					to={'/about-us'}
-					className="homefooter-navbar"
-					activeClassName="homefooter-navbar homefooter-navbar-activ"
-				>
-					Über uns
-				</NavLink>
+					<NavLink
+						id="about-us-bottom"
+						to={'/about-us'}
+						className="homefooter-navbar"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Über uns
+					</NavLink>
 					<NavLink
 						id="privacy-bottom"
 						to={'/privacy'}
