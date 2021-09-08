@@ -13,13 +13,12 @@ const HomeHeader: React.FC = () => {
 				<img src={faceTheFactsLogoNoText} alt="logo" />
 			</NavLink>
 			<div>
-				<NavLink
-					to={'/about-us'}
+				<a
+					href='https://drive.google.com/drive/folders/17sCDsL5kK9qAm0bjo7t0oT4AhHTAhRLI'
 					className="homeheader-navbar"
-					activeClassName="homeheader-navbar homeheader-navbar-activ"
 				>
-					ÜBER UNS
-				</NavLink>
+					PRESSE KIT
+				</a>
 				<NavLink
 					to={'/contact'}
 					className="homeheader-navbar homeheader-navbar-second"
