@@ -91,11 +91,11 @@
 
 .appstore-button-container {
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .appstore-button-container > div > a > span > img {
-	height: 40px
+	height: 40px;
 }
 
 .appstore-button-container > div:first-of-type > a > span {
@@ -106,7 +106,7 @@
 	padding-left: 4px;
 }
 
-.quote-grid-container{
+.quote-grid-container {
 	display: grid;
 	padding: 30px;
 	grid-row-gap: 24px;
@@ -114,7 +114,8 @@
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
-	#privacy-bottom, #about-us-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -166,7 +167,8 @@
 
 @media screen and (min-width: 375px) {
 	#legal-notice-bottom,
-	#privacy-bottom, #about-us-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -219,7 +221,8 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 	#legal-notice-bottom,
-	#privacy-bottom, #about-us-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 17px;
 		line-height: 22px;
 	}
@@ -285,30 +288,29 @@
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#update {
 		grid-row-start: 1;
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#proto {
 		grid-row-start: 1;
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#aw {
 		grid-row-start: 2;
 		grid-row-end: 3;
 		grid-column: span 3;
 	}
-	
+
 	#wiki {
 		grid-row-start: 2;
 		grid-row-end: 3;
 		grid-column: span 3;
-
 	}
 	.quote-grid-container {
 		padding: 45px 50px;
@@ -317,11 +319,11 @@
 		grid-template-columns: auto auto;
 	}
 	/* add margin on the first element */
-	.quote-grid-container .Quote_container__1Il-M:nth-child(1) .Quote_name__2vyC4{
+	.quote-grid-container .Quote_container__1Il-M:nth-child(1) .Quote_name__2vyC4 {
 		margin-top: 30px;
 	}
-		/* add margin on the last element */
-	.quote-grid-container .Quote_container__1Il-M:nth-child(4) .Quote_name__2vyC4{
+	/* add margin on the last element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(4) .Quote_name__2vyC4 {
 		margin-top: 30px;
 	}
 }
@@ -377,10 +379,10 @@
 		grid-gap: 0px 65px;
 	}
 	.quote-grid-container {
-		padding:36px 130px 72px 130px;
+		padding: 36px 130px 72px 130px;
 		display: flex;
 	}
-	.quote-grid-container .Quote_container__1Il-M .Quote_name__2vyC4{
+	.quote-grid-container .Quote_container__1Il-M .Quote_name__2vyC4 {
 		margin-top: 30px;
 	}
 }
