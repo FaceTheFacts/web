@@ -16,8 +16,3 @@
   Opacity: 70%
 }
 
-@media screen and (min-width: 768px) {
-  .name {
-    margin-top: 30px;
-  }
-}

@@ -315,6 +315,14 @@
 		grid-row-gap: 48px;
 		grid-template-columns: auto auto;
 	}
+	/* add margin on the first element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(1) .Quote_name__2vyC4{
+		margin-top: 30px;
+	}
+		/* add margin on the last element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(4) .Quote_name__2vyC4{
+		margin-top: 30px;
+	}
 }
 
 /* Desktop */
