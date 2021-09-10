@@ -106,6 +106,17 @@
 	padding-left: 4px;
 }
 
+.quote-container {
+	padding: 30px;
+}
+
+.quote-container .Quote_container__1Il-M{
+	margin-bottom: 24px;
+}
+
+.quote-container .Quote_container__1Il-M:last-child{
+	margin-bottom: 0px;
+}
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
