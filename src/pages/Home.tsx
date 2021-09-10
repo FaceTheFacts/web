@@ -13,6 +13,7 @@ import { IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import React from 'react';
 import SignUp from '../components/SignUp/SignUp';
 import AppStoreButton from '../components/AppStoreButton';
+import Quote from '../components/Quote/Quote';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const Home: React.FC = () => (
@@ -35,6 +36,12 @@ const Home: React.FC = () => (
 			<div className="mockup">
 				<Mockup />
 			</div>
+		</div>
+		<div>
+			<Quote content ={'„Wahlplakate durchschauen: Diese App weiß alles über die Politiker“'} name = {'FOCUS Online'}/>
+			<Quote content ={'“Die Idee hinter der App Face the Facts ist darum so genial wie einfach…“'} name = {'chip.de'}/>
+			<Quote content ={'„Unter den Bildungsapps von Apple hat sie es inzwischen schon unter die Top 60 Bildungsapps geschaﬀt.“'} name = {'Business Insider Deutschland'}/>
+			<Quote content ={'„Studenten entwickeln App, die jedem Wähler hilft“'} name = {'t-online.de'}/>
 		</div>
 		<div className="partners">
 			<h2>Partner</h2>
