@@ -106,16 +106,10 @@
 	padding-left: 4px;
 }
 
-.quote-container {
+.quote-grid-container{
+	display: grid;
 	padding: 30px;
-}
-
-.quote-container .Quote_container__1Il-M{
-	margin-bottom: 24px;
-}
-
-.quote-container .Quote_container__1Il-M:last-child{
-	margin-bottom: 0px;
+	grid-row-gap: 24px;
 }
 
 @media screen and (max-width: 374px) {
