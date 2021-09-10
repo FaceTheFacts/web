@@ -206,8 +206,9 @@
 	}
 
 	.partners h2 {
+		text-align: start;
 		margin-top: 0px;
-		margin-bottom: 30px;
+		margin-bottom: 16px;
 	}
 
 	.partner-logo-grid-container {
@@ -266,7 +267,7 @@
 	}
 
 	.partners h2 {
-		padding-bottom: 38px;
+		margin-bottom: 24px;
 		font-size: 24px;
 	}
 
