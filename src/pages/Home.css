@@ -309,6 +309,12 @@
 		grid-column: span 3;
 
 	}
+	.quote-grid-container {
+		padding: 45px 50px;
+		grid-column-gap: 40px;
+		grid-row-gap: 48px;
+		grid-template-columns: auto auto;
+	}
 }
 
 /* Desktop */
