@@ -37,7 +37,7 @@ const Home: React.FC = () => (
 				<Mockup />
 			</div>
 		</div>
-		<div className="quote-container">
+		<div className="quote-grid-container">
 			<Quote content ={'„Wahlplakate durchschauen: Diese App weiß alles über die Politiker“'} name = {'FOCUS Online'}/>
 			<Quote content ={'“Die Idee hinter der App Face the Facts ist darum so genial wie einfach…“'} name = {'chip.de'}/>
 			<Quote content ={'„Unter den Bildungsapps von Apple hat sie es inzwischen schon unter die Top 60 Bildungsapps geschaﬀt.“'} name = {'Business Insider Deutschland'}/>
