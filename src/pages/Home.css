@@ -375,4 +375,11 @@
 		padding: 40px 24px;
 		grid-gap: 0px 65px;
 	}
+	.quote-grid-container {
+		padding:36px 130px 72px 130px;
+		display: flex;
+	}
+	.quote-grid-container .Quote_container__1Il-M .Quote_name__2vyC4{
+		margin-top: 30px;
+	}
 }
