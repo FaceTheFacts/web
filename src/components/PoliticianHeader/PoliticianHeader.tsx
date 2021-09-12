@@ -11,12 +11,13 @@ interface HeaderProps {
 }
 
 const PoliticianHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
+	const hasImage = props.image !== undefined
 	return (
 		<div className="header">
 			<IonGrid>
 				<IonRow>
 					<IonCol className="profile-image">
-						<img className="politician-image" src={props.image !== null ? props.image : Placeholder} alt="placeholder" />
+						<img className="politician-image" src={hasImage ? props.image : Placeholder} alt="placeholder" />
 					</IonCol>
 					<IonCol className="profile-details">
 						<div className="politician-name">
