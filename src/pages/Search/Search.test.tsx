@@ -26,8 +26,6 @@ afterEach(() => {
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// navigator.getUserMedia() is not available in testing environment
-jest.mock('../../components/CameraView/CameraFeed');
 
 describe('integration test', () => {
 	it('renders page correctly', () => {
