@@ -4,9 +4,9 @@ import { useParams } from 'react-router';
 import { useQuery } from 'react-query';
 import { newfetch } from '../functions/queries';
 import Spinner from '../components/Spinner/Spinner';
-import PoliticianProfile from '../components/PoliticianProfile/PoliticianProfile';
 import Tabs from '../components/Tabs';
 import './MobileScreen.css';
+import PoliticianHeader from '../components/PoliticianHeader/PoliticianHeader';
 
 interface MobileScreenProps {
 	children?: JSX.Element;
@@ -48,7 +48,7 @@ const MobileScreen: React.FC<MobileScreenProps> = (props: MobileScreenProps) => 
 
 	return (
 		<IonPage className="MobileScreen">
-			{data !== undefined ? <PoliticianProfile candidate={data} image={image} /> : null}
+			{data !== undefined ? <PoliticianHeader candidate={data} image={image} /> : null}
 			<Tabs id={id} />
 			<IonContent>{mainComponent}</IonContent>
 		</IonPage>
