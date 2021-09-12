@@ -1,0 +1,84 @@
+:root {
+	--imagesize-politician-profile: 70px;
+	--height-politician-profile: 106px;
+	--max-width-politician-profile: 76px;
+	--padding-politician-profile: 11px;
+	--padding-bottom-politician-profile: 0px;
+}
+@media screen and (min-width: 360px) {
+	:root {
+		--imagesize-politician-profile: 80px;
+		--height-politician-profile: 116px;
+		--max-width-politician-profile: 90px;
+		--padding-politician-profile: 19px;
+		--padding-bottom-politician-profile: 12px;
+	}
+}
+
+.header {
+	background-color: rgba(42, 43, 54, 1);
+	padding-top: var(--padding-politician-profile);
+	padding-bottom: var(--padding-bottom-politician-profile);
+	display: flex;
+	align-items: center;
+}
+
+.politician-image {
+	height: var(--imagesize-politician-profile);
+	width: var(--imagesize-politician-profile);
+	border-radius: 50%;
+	background: #ffffff;
+}
+
+/* Have to use ion-card-title to overwrite inherited css from :host */
+.politician-name ion-card-title {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 22px;
+	color: white;
+	padding-left: 2px;
+}
+
+.politician-detail {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	text-align: center;
+	letter-spacing: 0.7px;
+	letter-spacing: 0.7px;
+	color: white;
+	padding: 5px 8px;
+	border-radius: 4px;
+	margin: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color: rgba(255, 255, 255, 0.2);
+	width: min-content;
+}
+
+.politician-detail-short {
+	height: 24px;
+	width: auto;
+}
+
+.profile-image {
+	max-width: var(--max-width-politician-profile);
+	padding: 0;
+	margin-left: var(--padding-politician-profile);
+}
+
+.profile-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0;
+}
+
+.politician-details > .party-chip {
+	margin-right: 5px;
+	margin-bottom: 5px;
+}

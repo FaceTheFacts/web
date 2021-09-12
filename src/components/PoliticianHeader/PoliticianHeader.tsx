@@ -4,6 +4,7 @@ import Placeholder from '../../assets/images/placeholder.svg';
 import { Politician } from '../../Types';
 import PartyChip from '../VoteCard/VoteDetails/Table/PartyChips/PartyChip/PartyChip';
 import classNames from 'classnames';
+import './PoliticianHeader.css'
 
 interface HeaderProps {
 	candidate: Politician;
@@ -25,10 +26,12 @@ const PoliticianHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
 						</div>
 						<div className="politician-details">
 							<PartyChip party={props.candidate.party.label} />
-							{/* Check Toni Jaschinski */}
 							{props.candidate.occupation.map(
 								(occupation: string, index: number) => {
-									const ocupationClass = classNames ('politician-detail', occupation.length < 36 ? 'politician-detail-short':'')
+									const occupationLength = occupation.length
+									const isShort = occupationLength < 36
+									const additionalClass = isShort?'politician-detail-short':''
+									const ocupationClass = classNames ('politician-detail', additionalClass)
 									return (
 										<IonChip key={index} className={ocupationClass}>
 											{occupation}
