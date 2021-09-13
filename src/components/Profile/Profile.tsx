@@ -52,6 +52,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			cacheTime: 60 * 10000000, // 10000 minute = around 1 week
 		}
 	);
+	const hasData = data?.data.length !== 0
 	const sideJobs = useQuery(
 		`sideJob-${candidate.label}`,
 		() => newfetch(`sidejobs?politician_name=${candidate.label}`),
@@ -84,14 +85,14 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			<SegmentButtons tab={tab} setTab={setTab} type={1} />
 			{tab === '0' ? (
 				<div className="profile-black-back">
-					{data.data.length !== 0 ? (
+					{hasData ? (
 						<div>
 							<TitleHeader title="Politische Schwerpunkte" />
 							<div className="profile-topic">
 								<TopicCard topics={data.data} />
 							</div>
 						</div>
-					) : null}
+					) : undefined}
 					{polls[0].data !== undefined ? (
 						<div>
 							<TitleHeader title="Wichtigste Abstimmungen">
@@ -123,7 +124,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 								)}
 							</ul>
 						</div>
-					) : null}
+					) : undefined}
 
 					<TitleHeader title="Bekannte Nebentätigkeiten" />
 					{sideJobs.data.length !== 0 ? (
