@@ -61,6 +61,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			cacheTime: 60 * 2880000, // 2 days
 		}
 	);
+	const hasSideJob = sideJobs.data?.length !== 0
+
 	const polls = useQueries(
 		pollIds.map((pollId) => {
 			return {
@@ -72,6 +74,8 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 			};
 		})
 	);
+
+	const hasPollData = polls[0].data !== undefined
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
 		return <Spinner/>;
@@ -93,7 +97,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 							</div>
 						</div>
 					) : undefined}
-					{polls[0].data !== undefined ? (
+					{hasPollData ? (
 						<div>
 							<TitleHeader title="Wichtigste Abstimmungen">
 								<div className={showArrow ? 'show-arrow' : 'hide-arrow'}>
@@ -127,7 +131,7 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 					) : undefined}
 
 					<TitleHeader title="Bekannte Nebentätigkeiten" />
-					{sideJobs.data.length !== 0 ? (
+					{hasSideJob ? (
 						// eslint-disable-next-line
 						sideJobs.data.map((sideJob: any, index: number) => {
 							return <SideJobCard sideJob={sideJob} key={index} />;
