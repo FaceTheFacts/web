@@ -240,7 +240,7 @@ export type SideJobOrganization = {
 };
 
 export type PollData = {
-	id: number;
+	id?: number;
 	entity_type: string;
 	label: string;
 	api_url: string;
