@@ -16,6 +16,7 @@ import CVComponent from '../CVComponent/CVComponent';
 import WebLinkComponent from '../WebLinkComponent/WebLinkComponent';
 import { cv } from './AmthorCv';
 import { AmthorWeblinks } from './AmthorWeblinks';
+import Spinner from '../Spinner/Spinner';
 
 
 interface ProfileProps {
@@ -72,11 +73,11 @@ const Profile: React.FC<ProfileProps> = ({ candidate, profileId }: ProfileProps)
 	);
 
 	if (status === 'loading' || sideJobs.status === 'loading' || polls[0].status === 'loading') {
-		return null;
+		return <Spinner/>;
 	}
 
 	if (status === 'error' || sideJobs.status === 'error' || polls[0].status === 'error') {
-		return null;
+		return <p>Error</p>;
 	}
 	return (
 		<React.Fragment>
