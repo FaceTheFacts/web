@@ -94,7 +94,6 @@
 	border-radius: 4px;
 	padding: 5px 8px;
 	margin-left: 19px;
-	color: white;
 }
 
 .fdp.constituencycard {
@@ -124,10 +123,6 @@
 	font-size: 14px;
 	line-height: 17px;
 	color: #ffffff;
-}
-
-ion-content {
-	--background: #181924;
 }
 
 .firstVote {

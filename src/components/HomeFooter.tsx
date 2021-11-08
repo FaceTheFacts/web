@@ -1,8 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/Logo_without_text.svg';
 import './HomeFooter.css';
 import SocialMediaLinks from './SocialMediaLinks';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
 const HomeFooter: React.FC = () => {
@@ -14,26 +14,36 @@ const HomeFooter: React.FC = () => {
 				<img src={logo} alt="logo" />
 				<span>Face The Facts</span>
 			</NavLink>
-			<div className="social-media-bottom">
-				<SocialMediaLinks position="bottom" />
-			</div>
-			<div className="links">
-				<NavLink
-					id="privacy-bottom"
-					to={'/privacy'}
-					className="navbar"
-					activeClassName="navbar activ"
-				>
-					Datenschutz
-				</NavLink>
-				<NavLink
-					id="legal-notice-bottom"
-					to={'/legal-notice'}
-					className="navbar"
-					activeClassName="navbar activ"
-				>
-					Impressum
-				</NavLink>
+			<div className="footer-media-links">
+				<div className="social-media-bottom">
+					<SocialMediaLinks position="bottom" />
+				</div>
+				<div className="homefooter-links">
+					<NavLink
+						id="about-us-bottom"
+						to={'/about-us'}
+						className="homefooter-navbar"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Über uns
+					</NavLink>
+					<NavLink
+						id="privacy-bottom"
+						to={'/privacy'}
+						className="homefooter-navbar homefooter-navbar-second"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Datenschutz
+					</NavLink>
+					<NavLink
+						id="legal-notice-bottom"
+						to={'/legal-notice'}
+						className="homefooter-navbar homefooter-navbar-second"
+						activeClassName="homefooter-navbar homefooter-navbar-activ"
+					>
+						Impressum
+					</NavLink>
+				</div>
 			</div>
 		</div>
 	);

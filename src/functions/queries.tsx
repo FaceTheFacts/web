@@ -8,7 +8,7 @@ export default async function fetch(url: string) {
 
 // eslint-disable-next-line
 export async function newfetch(url: string) {
-	const BASE_URL = 'https://backend-aoa59.ondigitalocean.app/';
+	const BASE_URL = 'http://face-the-facts-backend-main.eu-central-1.elasticbeanstalk.com/';
 	const res = await axios(BASE_URL + url);
 	return res.data;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import InfoText from './InfoText/Infotext';
 import Middlebar from './Middlebar/Middlebar';
 import Preview from './Preview/Preview';
 import Table from './Table/Table';
@@ -22,7 +21,6 @@ const VoteDetails: React.FC<VoteDetailsProps> = (props: VoteDetailsProps) => (
 		<VoteDetailsToolbar clicked={props.clicked} />
 		<Preview title={props.title} content={props.content} />
 		<Middlebar postioning={props.positioning} result={props.result} />
-		<InfoText />
 		<Table totalVote={props.totalVote} partyVote={props.partyVote} />
 	</div>
 );

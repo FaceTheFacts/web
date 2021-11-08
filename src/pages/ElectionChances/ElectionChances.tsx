@@ -61,7 +61,7 @@ const Electionchances: React.FC = () => {
 	return (
 		<MobileScreen>
 			<IonPage>
-				<SegmentButtons tab={segment} setTab={setSegment} />
+				<SegmentButtons tab={segment} setTab={setSegment} type={0}/>
 				<IonContent className={segment === '0' ? 'firstVote' : 'secondVote'}>
 					{segment === '0' ? (
 						<div>
@@ -73,7 +73,7 @@ const Electionchances: React.FC = () => {
 								status === 'success' ? (
 									<div className="election-chances-firstVote">
 										<IonCardSubtitle className="electionresult">
-											Wahlergebnis 2017
+											Wahlergebnis letzte Wahl
 										</IonCardSubtitle>
 										<IonCardTitle className="constituency">
 											Wahlkreis -{' '}
@@ -81,7 +81,7 @@ const Electionchances: React.FC = () => {
 												? constituencyCardHandler(
 														data?.electoral_data.constituency.label
 												)
-												: null}
+												: undefined}
 										</IonCardTitle>
 									</div>
 								) : (
@@ -90,8 +90,7 @@ const Electionchances: React.FC = () => {
 											Nicht direkt wählbar
 										</IonCardTitle>
 										<IonCardSubtitle className="no-direct-subtitle">
-											Kandidat:in kann also nur indirekt über die Zweitstimme
-											gewählt werden.
+											Diese:r Kandidat:in war bei der letzten Wahl nicht direkt wählbar.
 										</IonCardSubtitle>
 									</div>
 								)
@@ -102,24 +101,24 @@ const Electionchances: React.FC = () => {
 							<VoteExplainerCard vote="Zweitstimme">
 								<SecondVotePopup />
 							</VoteExplainerCard>
-							<div className="election-chances-secondVote">
-								<IonCardSubtitle className="result-text">
-									Über diese Liste kamen 2017
-								</IonCardSubtitle>
-								<IonCardTitle className="result-total">
-									20 Kandidat:innen in den Bundestag.
-								</IonCardTitle>
-							</div>
+							{
+								status === 'success'? (<div className="election-chances-secondVote">
+									<IonCardSubtitle className="result-text">
+										Über diese Liste kamen 2017
+									</IonCardSubtitle>
+									<IonCardTitle className="result-total">
+										{data.results} Kandidat:innen in den Bundestag.
+									</IonCardTitle>
+								</div>) : undefined
+							}
 							<div className="secondVote-info-text">
 								<IonCardSubtitle className="statelist">
 									Landesliste 2021
 								</IonCardSubtitle>
 								<IonCardTitle className="statelist-title">
 									<span className={stateListClass + ' constituencycard'}>
-										{status === 'success' ? data.party.label : null}{' '}
-										{constituencyCardHandler(
-											data?.electoral_data.electoral_list.label
-										)}
+										{status === 'success' ? data.party.label : undefined}
+										{status === 'success' ? data?.electoral_data.electoral_list.label : undefined}
 									</span>
 								</IonCardTitle>
 							</div>
@@ -143,7 +142,7 @@ const Electionchances: React.FC = () => {
 										);
 									}
 								)
-								: null}
+								: undefined}
 					</div>
 				</IonContent>
 			</IonPage>

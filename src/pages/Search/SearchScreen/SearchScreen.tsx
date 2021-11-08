@@ -23,7 +23,7 @@ const SearchScreen: React.FC = () => {
 						setsearchText(e.detail.value as string);
 						setTimeout(async () => {
 							const url =
-								'https://www.abgeordnetenwatch.de/api/v2/politicians/?label[cn]=';
+								'https://www.abgeordnetenwatch.de/api/v2/politicians?label[cn]=';
 							const res = await fetch(`${url}${searchText}&range_end=20`);
 							const data = await res.json();
 							setSearchResults(data.data);
