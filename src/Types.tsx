@@ -92,7 +92,7 @@ export type PartyMatchType = {
 
 export type Position = {
 	title: string;
-	answer: string;
+	answer: string | undefined;
 	reason: string;
 };
 /* export type Bio = {
@@ -164,6 +164,22 @@ export type Party = {
 	entity_type: string;
 	label: string;
 	api_url: string;
+};
+
+export type CVData = {
+	Biography: Biography;
+};
+
+export type Biography = {
+	Raw: string;
+	ShortDescription: string;
+	Steps: Steps[];
+};
+
+export type Steps = {
+	Raw: string;
+	Label: string;
+	Date: string;
 };
 
 export type Topics = {

@@ -9,7 +9,7 @@ import PositionPopup from '../../PopupCard/PositionPopup/PositionPopup';
 interface PostionCardProps {
 	candidateId: number;
 	title: string;
-	answer: string;
+	answer: string | undefined;
 	reason: string;
 }
 
@@ -30,7 +30,9 @@ const PositionCard: React.FC<PostionCardProps> = (props: PostionCardProps) => {
 						</div>
 						<div className="position-card-sub-content">
 							<div className="position-positioning">
-								<Positioning positioning={props.answer} />
+								{props.answer === undefined ? undefined : (
+									<Positioning positioning={props.answer} />
+								)}
 							</div>
 							<IonIcon slot="icon-only" icon={chevronForwardOutline} />
 						</div>

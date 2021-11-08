@@ -3,7 +3,7 @@ import { germanTranslator } from '../../../functions/germanTranslator';
 import './Positioning.css';
 
 interface PositioningProps {
-	positioning: string;
+	positioning: string | undefined;
 }
 
 const Positioning: React.FC<PositioningProps> = ({ positioning }: PositioningProps) => {

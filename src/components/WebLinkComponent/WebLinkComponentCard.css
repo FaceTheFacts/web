@@ -1,0 +1,40 @@
+.weblink-text {
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 17px;
+	font-weight: normal;
+	font-family: 'inter';
+	font-style: normal;
+	padding-left: 16px;
+	margin: 0;
+}
+
+.weblink-card {
+	background: #2b2c36;
+	border-radius: 10px;
+	margin-top: 10px;
+	position: relative;
+	margin-bottom: 0;
+}
+
+.weblink-container {
+	display: flex;
+	align-items: center;
+	padding: 16px;
+}
+
+.weblink-icon {
+	display: contents;
+}
+
+.weblink-icon > img {
+	max-width: 25px;
+}
+
+.weblink-card:last-of-type {
+	margin-bottom: 8px;
+}
+
+.weblink-card:first-of-type {
+	margin-top: 16px;
+}

@@ -16,7 +16,6 @@
 }
 
 .header {
-	height: var(--height-politician-profile);
 	background-color: rgba(42, 43, 54, 1);
 	padding-top: var(--padding-politician-profile);
 	padding-bottom: var(--padding-bottom-politician-profile);
@@ -53,12 +52,17 @@
 	letter-spacing: 0.7px;
 	color: white;
 	padding: 5px 8px;
-	height: 24px;
 	border-radius: 4px;
 	margin: 0px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	background-color: rgba(255, 255, 255, 0.2);
+	width: min-content;
+}
+
+.politician-detail-short {
+	height: 24px;
+	width: auto;
 }
 
 .profile-image {
