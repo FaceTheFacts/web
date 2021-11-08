@@ -91,11 +91,11 @@
 
 .appstore-button-container {
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .appstore-button-container > div > a > span > img {
-	height: 40px
+	height: 40px;
 }
 
 .appstore-button-container > div:first-of-type > a > span {
@@ -106,10 +106,16 @@
 	padding-left: 4px;
 }
 
+.quote-grid-container {
+	display: grid;
+	padding: 30px;
+	grid-row-gap: 24px;
+}
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -161,7 +167,8 @@
 
 @media screen and (min-width: 375px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
@@ -202,7 +209,7 @@
 
 	.partners h2 {
 		margin-top: 0px;
-		margin-bottom: 30px;
+		margin-bottom: 16px;
 	}
 
 	.partner-logo-grid-container {
@@ -213,7 +220,8 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 17px;
 		line-height: 22px;
 	}
@@ -261,7 +269,7 @@
 	}
 
 	.partners h2 {
-		padding-bottom: 38px;
+		margin-bottom: 24px;
 		font-size: 24px;
 	}
 
@@ -279,30 +287,43 @@
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#update {
 		grid-row-start: 1;
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#proto {
 		grid-row-start: 1;
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-	
+
 	#aw {
 		grid-row-start: 2;
 		grid-row-end: 3;
 		grid-column: span 3;
 	}
-	
+
 	#wiki {
 		grid-row-start: 2;
 		grid-row-end: 3;
 		grid-column: span 3;
-
+	}
+	.quote-grid-container {
+		padding: 45px 50px;
+		grid-column-gap: 40px;
+		grid-row-gap: 48px;
+		grid-template-columns: auto auto;
+	}
+	/* add margin on the first element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(1) .Quote_name__2vyC4 {
+		margin-top: 30px;
+	}
+	/* add margin on the last element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(4) .Quote_name__2vyC4 {
+		margin-top: 30px;
 	}
 }
 
@@ -355,5 +376,12 @@
 		justify-content: space-evenly;
 		padding: 40px 24px;
 		grid-gap: 0px 65px;
+	}
+	.quote-grid-container {
+		padding: 36px 130px 72px 130px;
+		display: flex;
+	}
+	.quote-grid-container .Quote_container__1Il-M .Quote_name__2vyC4 {
+		margin-top: 30px;
 	}
 }
