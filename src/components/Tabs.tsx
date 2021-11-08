@@ -1,18 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import './Tabs.css';
+interface TabsProps {
+	id: string;
+}
 
-/* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Tabs: React.FC = () => {
-	/* This is returned when using this component */
-	const { id } = useParams<{ id: string }>();
-
+const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
 	return (
 		<div className="tabbar">
 			<NavLink
 				id="Position"
-				to={`/politician/${id}/position`}
+				to={`/politician/${props.id}/position`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>
@@ -20,14 +18,14 @@ const Tabs: React.FC = () => {
 			</NavLink>
 			<NavLink
 				id="Profile"
-				to={`/politician/${id}/profile`}
+				to={`/politician/${props.id}/profile`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>
 				<div className="tabtext">Profilseite</div>
 			</NavLink>
 			<NavLink
-				to={`/politician/${id}/election`}
+				to={`/politician/${props.id}/election`}
 				className="tabs"
 				activeClassName="tabs activated"
 			>

@@ -1,0 +1,59 @@
+[log]
+  level = "INFO"
+
+[accessLog]
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+    [entryPoints.web.http.redirections.entryPoint]
+      to = "websecure"
+      scheme = "https"
+
+  [entryPoints.websecure]
+    address = ":443"
+  [entryPoints.websecure.http.tls]
+    certResolver = "le"
+
+# Redirect to https
+[http.middlewares]
+  [http.middlewares.https-redirect.redirectScheme]
+    scheme = "https"
+    permanent = true
+
+[certificatesResolvers.le.acme]
+  email = "webmaster@facethefacts.app"
+  storage = "/etc/traefik/acme/certs.json"
+  [certificatesResolvers.le.acme.httpChallenge]
+    # used during the challenge
+    entryPoint = "web"
+  #[certificatesResolvers.myresolver.acme.tlsChallenge]
+
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  #domain = "fabianvolkers.com"
+  watch = true
+  network = "traefik-public"
+  swarmMode = true
+
+[api]
+#  insecure = true
+#  debug = true
+#  entryPoint = "http"
+
+[tls.options]
+  [tls.options.TLSv13]
+    minVersion = "VersionTLS13"
+        cipherSuites = [
+        "TLS_AES_128_GCM_SHA256",
+        "TLS_AES_256_GCM_SHA384",
+        "TLS_CHACHA20_POLY1305_SHA256"
+    ]
+  [tls.options.default]
+    minVersion = "VersionTLS12"
+    cipherSuites = [
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305",
+        "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+    ]
+    #curvePreferences = ["X25519", "CurveP521", "CurveP384", "CurveP256"]

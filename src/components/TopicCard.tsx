@@ -1,36 +1,36 @@
 import React from 'react';
-import { IonChip, IonIcon, IonLabel } from '@ionic/react';
+import { IonChip, IonLabel } from '@ionic/react';
 import './TopicCard.css';
+import { Topics, Topic } from '../Types';
+import { politicalFocusHandler } from '../functions/politicalFocusHandler';
+interface TopicCardProps {
+	topics: Topics;
+}
 
-const topics = [
-	{
-		name: 'Finanzen',
-		icon: 'assets/icon/sack-dollar-light.svg',
-		filter: '',
-	},
-	{
-		name: 'Soziales',
-		icon: 'assets/icon/user-friends-light.svg',
-		filter: '',
-	},
-	{
-		name: 'Verteidigung',
-		icon: 'assets/icon/shield-light.svg',
-		filter: '',
-	},
-];
-
-const TopicCard: React.FC = () => {
+const TopicCard: React.FC<TopicCardProps> = ({ topics }: TopicCardProps) => {
 	return (
 		<div>
-			{topics.map((topic, index) => {
-				return (
-					<IonChip className="topic-card" key={`topic-${index}`}>
-						<IonIcon src={topic.icon} color="light" />
-						<IonLabel data-testid="topic-name">{topic.name}</IonLabel>
-					</IonChip>
-				);
-			})}
+			{topics instanceof Array
+				? topics
+					.slice(0)
+					.reverse()
+					.map((topic: Topic, index: number) => {
+						return (
+							<IonChip
+								className={
+									politicalFocusHandler(topic.committee.label) === null
+										? 'emptyFocus'
+										: 'topic-card'
+								}
+								key={`topic-${index}`}
+							>
+								<IonLabel data-testid="topic-name">
+									{politicalFocusHandler(topic.committee.label)}
+								</IonLabel>
+							</IonChip>
+						);
+					})
+				: null}
 		</div>
 	);
 };

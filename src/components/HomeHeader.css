@@ -1,0 +1,69 @@
+.homeheader {
+	height: 60px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #181924;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.homeheader-logo {
+	height: 39.97476577758789px;
+	width: 31.990978240966797px;
+}
+
+.homeheader-navbar {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	/* identical to box height, or 143% */
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	text-decoration: none;
+	opacity: 0.7;
+}
+
+.homeheader-navbar-activ {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.homeheader-navbar-second {
+	margin-left: 24px;
+}
+/* iPhone-X */
+@media screen and (min-width: 375px) {
+	.homeheader {
+		height: 72px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+/* iPad */
+@media screen and (min-width: 768px) {
+	.homeheader {
+		height: 90px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.homeheader-navbar {
+		font-size: 17px;
+		line-height: 22px;
+		/* identical to box height, or 129% */
+		letter-spacing: 0.15px;
+	}
+	.homeheader-logo {
+		height: 49.96846008300781px;
+		width: 40.41413497924805px;
+	}
+}
+/* Desktop  */
+@media screen and (min-width: 1440px) {
+	.homeheader {
+		padding-left: 130px;
+		padding-right: 130px;
+	}
+}

@@ -1,0 +1,158 @@
+.election-chances-firstVote {
+	padding-left: 19px;
+	padding-top: 12px;
+}
+
+.election-chances-secondVote {
+	background-color: rgba(24, 25, 36, 1);
+	padding-left: 19px;
+	padding-top: 19px;
+}
+
+.electionresult {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.3px;
+	color: rgba(256, 256, 256, 0.7);
+	text-transform: none;
+	margin-bottom: 2px;
+}
+
+.constituency {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: white;
+	margin-bottom: 12px;
+}
+
+.no-direct-first {
+	padding: 16px;
+	background: #2a2b36;
+	height: 68vh;
+}
+.no-direct-second {
+	padding: 16px;
+	background: #2a2b36;
+	height: 68vh;
+	border-top: 1px solid rgba(76, 78, 98, 1);
+}
+
+.no-direct-title {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.25px;
+	text-transform: none;
+	color: #ffffff;
+}
+
+.no-direct-subtitle {
+	margin-top: 4px;
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.34px;
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	opacity: 0.7;
+	text-transform: none;
+}
+
+.statelist {
+	color: white;
+	font-family: inter;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 0.7px;
+	text-transform: uppercase;
+	padding-left: 19px;
+	margin: 0px;
+}
+
+.state {
+	font-family: inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 14px;
+	padding-bottom: 21px;
+	text-transform: uppercase;
+}
+
+.constituencycard {
+	border-radius: 4px;
+	padding: 5px 8px;
+	margin-left: 19px;
+}
+
+.fdp.constituencycard {
+	color: black;
+}
+
+.piraten.constituencycard {
+	color: black;
+}
+
+.result-text {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.3px;
+	color: rgba(256, 256, 256, 0.7);
+	text-transform: none;
+}
+
+.result-total {
+	padding-bottom: 19px;
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: #ffffff;
+}
+
+.firstVote {
+	--background: rgba(24, 25, 36, 1);
+}
+
+.secondVote {
+	--background: rgba(24, 25, 36, 1);
+}
+
+a:first-of-type > .secondvote-card {
+	margin-top: 16px;
+}
+
+a:last-of-type > .secondvote-card {
+	margin-bottom: 15px;
+}
+
+.secondVote-info-text {
+	background-color: rgba(42, 43, 54, 1);
+	padding-top: 19px;
+	padding-bottom: 19px;
+}
+
+.statelist-title {
+	font-size: 12px;
+	padding-top: 8px;
+}
+
+#electionChancesCard-link,
+#secondVoteCard-link {
+	text-decoration: unset;
+}

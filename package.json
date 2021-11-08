@@ -6,7 +6,9 @@
 	"scripts": {
 		"build": "node scripts/build.js",
 		"start": "node scripts/start.js",
-		"test": "node scripts/test.js"
+		"test": "node scripts/test.js",
+		"prettier": "npx prettier --config .prettierrc.json -w .",
+		"eslint": "npx eslint --fix --ext .tsx ."
 	},
 	"browserslist": {
 		"production": [
@@ -26,8 +28,8 @@
 	"dependencies": {
 		"7": "0.0.1",
 		"@ionic/pwa-elements": "^3.0.2",
-		"@ionic/react": "^5.5.4",
-		"@ionic/react-router": "^5.5.4",
+		"@ionic/react": "^5.6.11",
+		"@ionic/react-router": "^5.6.11",
 		"@material-ui/core": "^4.11.3",
 		"@material-ui/icons": "^4.9.1",
 		"@svgr/webpack": "4.3.3",
@@ -49,6 +51,7 @@
 		"@typescript-eslint/eslint-plugin": "^2.10.0",
 		"@typescript-eslint/parser": "^2.10.0",
 		"aws-sdk": "^2.842.0",
+		"axios": "^0.21.1",
 		"camelcase": "^5.3.1",
 		"case-sensitive-paths-webpack-plugin": "2.3.0",
 		"chart.js": "^2.9.4",
@@ -85,8 +88,10 @@
 		"react-collapse": "^5.0.1",
 		"react-dev-utils": "^10.2.1",
 		"react-dom": "^16.14.0",
+		"react-lazy-load-image-component": "^1.5.1",
 		"react-minimal-pie-chart": "^8.1.0",
 		"react-native-expandable-card": "^1.0.3",
+		"react-query": "^3.13.12",
 		"react-router": "^5.1.2",
 		"react-router-dom": "^5.1.2",
 		"react-scroll": "^1.8.1",
@@ -121,6 +126,7 @@
 		"@types/enzyme-adapter-react-16": "^1.0.6",
 		"@types/jest": "^24.9.1",
 		"@types/jquery": "^3.5.5",
+		"@types/react-lazy-load-image-component": "^1.5.2",
 		"@types/react-scroll": "^1.8.2",
 		"babel-eslint": "10.1.0",
 		"babel-jest": "^24.9.0",

@@ -48,7 +48,7 @@
 }
 
 .tabtext {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: var(--fontsize-tabs);

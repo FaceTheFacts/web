@@ -1,16 +1,16 @@
 import React from 'react';
-import Column, { ColumnType } from './Column/Column';
+import Column from './Column/Column';
 import './Columns.css';
 
 interface ColumnsProps {
-	votes: Array<ColumnType>;
+	votes: Array<Array<number>>;
 }
 
 const Columns: React.FC<ColumnsProps> = (props: ColumnsProps) => (
 	<div className="columns-container">
 		{props.votes.map((vote, index) => (
 			<div key={`columns-${index}`}>
-				<Column party={vote.party} votes={vote.votes} majority={vote.majority} />
+				<Column party={`${index}`} votes={vote} />
 			</div>
 		))}
 	</div>

@@ -1,0 +1,53 @@
+name: CI
+
+on:
+    pull_request:
+    schedule:
+        # run once a day
+        - cron: "0 0 * * *"
+
+env:
+    # used by npm-commands
+    CI: true
+
+jobs:
+    unittests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: npm ci
+            - name: Generate coverage report
+              run: npm test -- --coverage
+            # TODO: re-enable if we know how to make it *not* fail the CI
+            # - uses: codecov/codecov-action@v1
+            #   with:
+            #       fail_ci_if_error: false
+
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: npm ci
+            - run: npm run build
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: bradennapier/eslint-plus-action@v3.4.2
+              # action needs workflow to set a `name`, else it will fail
+              with:
+                  reportIgnoredFiles: true
+                  issueSummaryOnlyOnEvent: true
+
+    code-ql:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v1
+              with:
+                  languages: javascript
+            - uses: github/codeql-action/autobuild@v1
+            - name: Perform CodeQL Analysis
+              uses: github/codeql-action/analyze@v1

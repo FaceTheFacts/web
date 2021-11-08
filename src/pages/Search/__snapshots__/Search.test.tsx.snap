@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration test renders page correctly 1`] = `
+<div>
+  <div
+    class="ion-page"
+  >
+    <ion-content
+      class="search-page"
+      fullscreen="true"
+    >
+      <div
+        class="search-content"
+      >
+        <ion-img
+          alt="logo2021"
+          class="search-logo"
+          id="logo2021"
+          src="logo2021.svg"
+        />
+        <ion-searchbar
+          class="search-bar"
+          clear-icon="close-sharp"
+          placeholder="Nach Kandidat:innen suchen"
+        />
+      </div>
+    </ion-content>
+  </div>
+</div>
+`;

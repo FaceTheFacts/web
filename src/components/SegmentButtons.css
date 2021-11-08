@@ -34,10 +34,21 @@
 	--color: rgba(255, 255, 255, 0.5);
 	--color-checked: rgba(255, 255, 255, 1);
 	--border-radius: 4px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: bold;
 	font-size: var(--fontsize-segment-button);
 	line-height: var(--line-height-segment-button);
 	letter-spacing: 0.7px;
+}
+
+.toolbar-profile {
+	--background: #181924;
+	display: flex;
+	align-items: center;
+	height: 65px;
+	padding-left: var(--padding-segment-button);
+	padding-right: var(--padding-segment-button);
+	z-index: 0;
+	border-bottom: 1px solid rgba(76, 78, 98, 1);
 }

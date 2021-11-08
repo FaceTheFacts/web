@@ -2,6 +2,24 @@
 	background: #2b2c36;
 	color: #ffffff;
 	border-radius: 8px;
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
+	padding: 12.5px 16px;
+	height: 43px;
+	margin: 0px;
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+
+.politicalFocus {
+	display: flex;
+	align-items: center;
+}
+
+.politicalFocus > svg {
+	margin-right: 10px;
+}
+
+.emptyFocus {
+	display: none;
 }

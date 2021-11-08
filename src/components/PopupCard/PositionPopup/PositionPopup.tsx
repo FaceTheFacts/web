@@ -6,7 +6,7 @@ import './PositionPopup.css';
 
 interface PositionPopupProps {
 	title: string;
-	positioning: string;
+	positioning: string | undefined;
 	reason: string;
 }
 const PositionPopup: React.FC<PositionPopupProps> = (props: PositionPopupProps) => (

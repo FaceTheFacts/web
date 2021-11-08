@@ -1,0 +1,70 @@
+:root {
+	--height-electionchances-card: 69px;
+	--padding-electionchances-card: 7px;
+}
+
+@media screen and (min-width: 360px) {
+	:root {
+		--height-electionchances-card: 77px;
+		--padding-electionchances-card: 11px;
+	}
+}
+
+.election-chances-card ion-col {
+	padding-bottom: 0;
+	padding-top: 0;
+	padding-left: 0;
+	padding-right: 0;
+	display: flex;
+	align-items: center;
+}
+
+a:last-of-type > .election-chances-card {
+	margin-bottom: 15px;
+}
+
+.election-chances-card {
+	margin-top: 8px;
+	margin-bottom: 0px;
+	height: var(--height-electionchances-card);
+	background-color: #2a2b36;
+}
+
+.election-chances-card-header {
+	padding: var(--padding-electionchances-card);
+}
+
+.election-chances-card-title {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: white;
+	padding-bottom: 8px;
+}
+
+.election-chances-card-subtitle {
+	font-size: 12px;
+	font-family: 'inter';
+	font-style: normal;
+	color: white;
+}
+
+.election-chances-card-subtitle span {
+	padding: 5px 8px;
+	border-radius: 5px;
+}
+
+.percentage {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.percentage .election-chances-card-title {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+}

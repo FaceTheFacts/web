@@ -1,19 +1,18 @@
 import React from 'react';
-import { ColumnType } from './Columns/Column/Column';
 import Columns from './Columns/Columns';
 
-import TotalColumn, { TotalColumnType } from './Columns/TotalColumn/TotalColumn';
+import TotalColumn from './Columns/TotalColumn/TotalColumn';
 
 import './Content.css';
 
 interface ContentProps {
-	totalVote: TotalColumnType;
-	partyVote: Array<ColumnType>;
+	totalVote: Array<number>;
+	partyVote: Array<Array<number>>;
 }
 
 const Content: React.FC<ContentProps> = (props: ContentProps) => (
 	<div className="content-container">
-		<TotalColumn votes={props.totalVote.votes} majority={props.totalVote.majority} />
+		<TotalColumn votes={props.totalVote} />
 		<div className="content-line"></div>
 		<Columns votes={props.partyVote} />
 	</div>

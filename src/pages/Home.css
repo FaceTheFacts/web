@@ -1,5 +1,5 @@
 .navbar {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	letter-spacing: 1px;
@@ -15,33 +15,35 @@
 }
 
 .home-title {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	text-align: center;
-	letter-spacing: -0.7px;
+	letter-spacing: -1px;
 	color: #ffffff;
 }
 
 .home-subtitle {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	color: #ffffff;
+	letter-spacing: 0.15px;
 	opacity: 0.7;
 	text-transform: none;
-	padding-bottom: 10px;
-	padding-top: 10px;
+	padding-bottom: 16px;
+	padding-top: 16px;
 }
 
 .home-button {
-	--background: rgba(255, 255, 255, 0.1);
+	--background: rgba(45, 93, 234, 1);
 	--border-radius: 8px;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 22px;
+	letter-spacing: 0.15px;
 	color: #ffffff;
 	text-transform: none;
 }
@@ -54,26 +56,73 @@
 	display: flex;
 }
 
-.links-bottom {
-	padding-bottom: 50px;
+.breakline-title {
+	display: none;
+}
+
+.partners {
+	text-align: center;
+	padding-top: 30px;
+	padding-left: 41px;
+	padding-right: 41px;
+	padding-bottom: 39px;
+}
+
+.partners h2 {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 135%;
+	/* or 24px */
+	letter-spacing: -0.25px;
+	color: #ffffff;
+}
+
+.partner-logo-grid-container {
+	display: flex;
+	flex-direction: column;
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+	background-color: #ffffff;
+	border-radius: 16px;
+	padding: 24px 58px 0px 58px;
+}
+
+.appstore-button-container {
+	display: flex;
+	align-items: center;
+}
+
+.appstore-button-container > div > a > span > img {
+	height: 40px;
+}
+
+.appstore-button-container > div:first-of-type > a > span {
+	padding-right: 4px;
+}
+
+.appstore-button-container > div:last-of-type > a > span {
+	padding-left: 4px;
+}
+
+.quote-grid-container {
+	display: grid;
+	padding: 30px;
+	grid-row-gap: 24px;
 }
 
 @media screen and (max-width: 374px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
-		margin-top: 85px;
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
 	}
 
-	.links-bottom {
-		display: flex;
-		justify-content: space-evenly;
-	}
-
 	.mockup > div {
-		width: 231px;
+		width: auto;
 	}
 
 	.home-title {
@@ -94,33 +143,39 @@
 	.text {
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 69px;
-		padding-top: 69px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding: 30px;
 	}
 
 	.home-subtitle {
 		text-align: center;
+	}
+
+	.partners {
+		padding: 30px;
+	}
+
+	.partners h2 {
+		margin-top: 0px;
+		margin-bottom: 30px;
+	}
+
+	.partner-logo-grid-container {
+		padding: 24px 30px 24px 30px;
+		grid-row-gap: 52px;
 	}
 }
 
 @media screen and (min-width: 375px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
-		margin-top: 91px;
+	#privacy-bottom,
+	#about-us-bottom {
 		font-size: 14px;
 		line-height: 17px;
 		opacity: 0.7;
 	}
 
-	.links-bottom {
-		display: flex;
-		justify-content: space-evenly;
-	}
-
 	.mockup > div {
-		width: 231px;
+		width: auto;
 	}
 
 	.home-title {
@@ -141,37 +196,59 @@
 	.text {
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 79px;
-		padding-top: 79px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding: 30px;
 	}
 
 	.home-subtitle {
 		text-align: center;
 	}
-}
 
+	.partners {
+		padding: 30px;
+	}
+
+	.partners h2 {
+		margin-top: 0px;
+		margin-bottom: 16px;
+	}
+
+	.partner-logo-grid-container {
+		padding: 24px 30px 24px 30px;
+		grid-row-gap: 52px;
+	}
+}
+/* iPad */
 @media screen and (min-width: 768px) {
 	#legal-notice-bottom,
-	#privacy-bottom {
-		display: none;
+	#privacy-bottom,
+	#about-us-bottom {
+		font-size: 17px;
+		line-height: 22px;
 	}
 
 	.mockup > div {
-		width: 319px;
+		width: auto;
+		padding-left: 61.5px;
+		padding-right: 61.5px;
 	}
 
 	.home-title {
 		font-size: 56px;
-		line-height: 67px;
+		line-height: 97.5%;
 	}
 
 	.home-subtitle {
 		font-size: 17px;
 		line-height: 22px;
-		padding-bottom: 21px;
+		padding-top: 20px;
+		padding-bottom: 16px;
+		margin-bottom: 0px;
 		text-align: center;
+	}
+
+	.home-button {
+		font-size: 17px;
+		width: 127px;
 	}
 
 	.content {
@@ -180,22 +257,87 @@
 	}
 
 	.text {
-		flex-direction: column;
-		padding-top: 165px;
-		padding-bottom: 95px;
+		padding-top: 50px;
+		padding-bottom: 30px;
+	}
+
+	.breakline-title {
+		display: unset;
+	}
+	.partners {
+		padding: 45px 50px;
+	}
+
+	.partners h2 {
+		margin-bottom: 24px;
+		font-size: 24px;
+	}
+
+	.partner-logo-grid-container {
+		display: grid;
+		align-content: center;
+		align-items: center;
+		grid-template-columns: repeat(6, 1fr);
+		grid-gap: 26px 110px;
+		padding: 40px 24px 40px 24px;
+	}
+
+	#bmbf {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
+	}
+
+	#update {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
+	}
+
+	#proto {
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
+	}
+
+	#aw {
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column: span 3;
+	}
+
+	#wiki {
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column: span 3;
+	}
+	.quote-grid-container {
+		padding: 45px 50px;
+		grid-column-gap: 40px;
+		grid-row-gap: 48px;
+		grid-template-columns: auto auto;
+	}
+	/* add margin on the first element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(1) .Quote_name__2vyC4 {
+		margin-top: 30px;
+	}
+	/* add margin on the last element */
+	.quote-grid-container .Quote_container__1Il-M:nth-child(4) .Quote_name__2vyC4 {
+		margin-top: 30px;
 	}
 }
 
-@media screen and (min-width: 1400px) {
+/* Desktop */
+@media screen and (min-width: 1440px) {
 	.mockup > div {
-		width: 30.486vw;
+		width: 44.79vw;
+		padding: 0;
 	}
 
 	.text {
 		flex-direction: column;
 		align-items: flex-start;
 		padding-left: 8.33vw;
-		padding-top: 25.55vh;
 	}
 
 	.content {
@@ -210,5 +352,36 @@
 
 	.home-subtitle {
 		text-align: unset;
+	}
+
+	.home-title {
+		text-align: left;
+	}
+	.partners {
+		padding: 45px 130px;
+	}
+
+	.partners h2 {
+		padding-bottom: 38px;
+		margin-top: 4px;
+	}
+
+	.partner-logo-grid-container img {
+		max-width: 15%;
+	}
+
+	.partner-logo-grid-container {
+		display: flex;
+		flex-direction: unset;
+		justify-content: space-evenly;
+		padding: 40px 24px;
+		grid-gap: 0px 65px;
+	}
+	.quote-grid-container {
+		padding: 36px 130px 72px 130px;
+		display: flex;
+	}
+	.quote-grid-container .Quote_container__1Il-M .Quote_name__2vyC4 {
+		margin-top: 30px;
 	}
 }

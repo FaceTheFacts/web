@@ -8,12 +8,11 @@ export type TotalColumnType = {
 };
 
 interface TotalColumnProps {
-	votes: VoteNumbers;
-	majority: string;
+	votes: Array<number>;
 }
 
 const TotalColumn: React.FC<TotalColumnProps> = (props: TotalColumnProps) => (
-	<Column party="gesamt" votes={props.votes} majority={props.majority} />
+	<Column party="Gesamt" votes={props.votes} />
 );
 
 export default TotalColumn;

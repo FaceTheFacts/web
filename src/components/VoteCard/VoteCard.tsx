@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VoteChart from './VoteChart/VoteChart';
 import './VoteCard.css';
 import {
@@ -9,64 +9,23 @@ import {
 	IonGrid,
 	IonCol,
 	IonRow,
-	IonModal,
 	IonContent,
+	IonModal,
 } from '@ionic/react';
-import { Poll } from '../../Types';
-import { voteJudgeHandler } from '../../functions/voteJudgeHandler';
+import { PollData } from '../../Types';
 import Positioning from '../PositionCards/Positioning/Positioning';
+import { useQuery } from 'react-query';
+import fetch from '../../functions/queries'
+import { voteDetailsHandler } from '../../functions/voteDetailsHandler';
 import VoteDetails from './VoteDetails/VoteDetails';
-import { ColumnType } from './VoteDetails/Table/Content/Columns/Column/Column';
 
 interface ContainerProps {
-	vote: Poll;
+	vote: PollData;
+	name: string;
+	setArrow: Function;
 }
 
-const majorityJudge = (yes: number, no: number, abstain: number, noShow: number): string => {
-	const majority = Math.max(yes, no, abstain, noShow);
-	let judge = 'ja';
-
-	switch (majority) {
-	case yes:
-		judge = 'ja';
-		break;
-	case no:
-		judge = 'nein';
-		break;
-	case abstain:
-		judge = 'enthalten';
-		break;
-	case noShow:
-		judge = 'abwesend';
-		break;
-	default:
-		judge = 'ja';
-	}
-	return judge;
-};
-
-const voteObjectHandler = (
-	yes: number,
-	no: number,
-	abstain: number,
-	noShow: number,
-	party?: string
-): ColumnType => {
-	const majority = majorityJudge(yes, no, abstain, noShow);
-	const voteResult: ColumnType = {
-		party: party,
-		votes: {
-			ja: yes,
-			nein: no,
-			enthalten: abstain,
-			abwesend: noShow,
-		},
-		majority: majority,
-	};
-	return voteResult;
-};
-
-const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
+const VoteCard: React.FC<ContainerProps> = (props: ContainerProps) => {
 	//State Hook to alter state when clicked and open vote detail modal
 	const [showDetails, setShowDetails] = React.useState(false);
 
@@ -74,61 +33,57 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 		setShowDetails(false);
 	};
 
+	const votequery = useQuery(
+		`vote-${props.vote.id}-${props.name}`,
+		() => fetch(`votes?poll=${props.vote.id}&mandate[entity.label][cn]=${props.name}`),
+		{
+			staleTime: 60 * 10000000, // 10000 minute = around 1 week
+			cacheTime: 60 * 10000000,
+		}
+	);
+	
+	useEffect(() => {
+		if (votequery.status === 'success' && votequery.data.data[0] === undefined) {
+			props.setArrow(false);
+		} // eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [votequery])
+
+	const Poll = voteDetailsHandler(props.vote.id);
+	
 	/* 
 	Dynamically calculate the total number of votes
 	*/
-	const totalvotes = `${
-		vote.result.total.yes +
-		vote.result.total.no +
-		vote.result.total.abstain +
-		vote.result.total.none
-	}`;
-	const judgeStatement =
-		vote.subtitle + ' ' + voteJudgeHandler(vote.result.total.yes, +totalvotes);
 
-	const totalVoteJudge = voteObjectHandler(
-		vote.result.total.yes,
-		vote.result.total.no,
-		vote.result.total.abstain,
-		vote.result.total.none
-	);
 
-	const partyVoteResult: ColumnType[] = [];
-	vote.result.partyResult.forEach((partyVote) => {
-		partyVoteResult.push(
-			voteObjectHandler(
-				partyVote.yes,
-				partyVote.no,
-				partyVote.abstain,
-				partyVote.none,
-				partyVote.partyName
-			)
-		);
-	});
+	let positioning = 'noData';
+
+	if (votequery.data?.data[0] !== undefined) {
+		positioning = votequery.data.data[0].vote
+	}
 
 	return (
 		<React.Fragment>
-			<IonCard className="vote-card" onClick={(): void => setShowDetails(!showDetails)}>
+			<IonCard className={ positioning === 'no_show' && positioning !== undefined ? 'vote-card hidden' : 'vote-card' } onClick={(): void => setShowDetails(!showDetails)} >
 				<IonCardHeader className="vote-card-header">
 					<IonGrid>
 						<IonRow>
-							<IonCol size="8">
+							<IonCol size="9">
 								<IonCardTitle
-									className="vote-card-title"
+									className={props.vote.label.length < 50 ? 'vote-card-title' : 'vote-card-title large-label'}
 									data-testid="vote-card-title"
 								>
-									{vote.title}
+									{props.vote.label}
 								</IonCardTitle>
 							</IonCol>
-							<IonCol size="4">
+							<IonCol size="3">
 								<div className="candidate-vote">
-									<Positioning positioning={vote.candidateVote} />
+									<Positioning positioning={positioning} />
 								</div>
 							</IonCol>
 							<IonCol size="12">
 								<div className="vote-card-border"></div>
 								<div className="judgement" data-testid="vote-card-judgement">
-									{judgeStatement}
+									{Poll.judge}
 								</div>
 							</IonCol>
 						</IonRow>
@@ -143,7 +98,7 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 							<IonCol size="12">
 								<div className="vote-chart-container">
 									{/* Render a VoteChart component for the vote result */}
-									<VoteChart vote={vote} />
+									<VoteChart totalvotes={[Poll.Gesamt[0], Poll.Gesamt[1], Poll.Gesamt[2], Poll.Gesamt[3]]} />
 								</div>
 							</IonCol>
 						</IonRow>
@@ -161,12 +116,12 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 					<div className = 'vote-modal'>
 						<VoteDetails
 							clicked={modalCloser}
-							title={vote.title}
-							content={vote.abstract}
-							positioning={vote.candidateVote}
-							result={judgeStatement}
-							totalVote={totalVoteJudge}
-							partyVote={partyVoteResult}
+							title={props.vote.label}
+							content={props.vote.field_intro}
+							positioning={positioning}
+							result={Poll.judge}
+							totalVote={Poll.Gesamt}
+							partyVote={[Poll.CDU, Poll.SPD, Poll.FDP, Poll.Grünen, Poll.LINKE, Poll.AfD, Poll.fraktionslos]}
 						/>
 					</div>
 				</IonModal>
@@ -175,4 +130,4 @@ const VoteCard: React.FC<ContainerProps> = ({ vote }: ContainerProps) => {
 	);
 };
 
-export default VoteCard;
+export default VoteCard

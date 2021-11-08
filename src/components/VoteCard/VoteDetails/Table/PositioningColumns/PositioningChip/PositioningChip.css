@@ -1,5 +1,5 @@
 .positioning-chip {
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
@@ -29,4 +29,5 @@
 
 .abwesend {
 	background: #2a2b36;
+	text-transform: capitalize;
 }

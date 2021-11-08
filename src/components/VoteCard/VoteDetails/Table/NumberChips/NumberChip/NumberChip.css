@@ -1,5 +1,5 @@
 .number-chip {
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
@@ -23,7 +23,7 @@
 }
 
 .enthalten {
-	background-color: #3969f54d;
+	background: rgba(57, 105, 245, 0.3);
 }
 
 .abwesend {
