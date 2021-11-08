@@ -4,19 +4,6 @@
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/facethefacts/app?label=build&logo=docker)](https://hub.docker.com/r/facethefacts/app)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/face-the-facts/mobile-app/eslint?label=ESLint&logo=eslint)
 
-Face the Facts is a mobile web application enabling users to access information about the political candidates runnning for office in their constituency directly on the election poster.
-
-Check it out here: [https://facethefacts.app](https://facethefacts.app)
-
-For testing the scanning feature, point your device's camera at [this image](.github/media/philipp_amthor_poster.jpeg).
-
-## Technologies
-
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/typescript?logo=typescript)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/face-the-facts/mobile-app/react?logo=react)
-
-The application is built using the [Ionic Framework](https://ionicframework.com/) on top of [React](https://reactjs.org/). The scanning feature utilises the WebRTC API to gain access to the device camera alongside the machine learning library Tensorflow with its Blazeface model for face detection and the optical character recognition engine Tesseract.js.
-
 ## Contributing
 
 This project is still in a very early stage. If you are interested in contributing, feel free to reach out to [info@facethefacts.app](mailto:info@facethefacts.app).
@@ -33,6 +20,25 @@ cd mobile-app
 npm install
 npm start
 ```
+
+## Deployment
+
+1. Build website with Docker
+    - run following command and replace the secrets with the actual ID's
+    ```
+    docker build . -t app --build-arg REACT_APP_MAILCHIMP_ID=<Mailchimp_ID> --build-arg REACT_APP_MAILCHIMP_MAILLIST_ID=<Maillist_ID>
+    ```
+    - don't know the secrets? ask your co-workers
+2. Tag Image
+    ```
+    docker tag app facethefacts/app:<latest or develop>
+    ```
+3. Sign in into DockerHub
+
+4. Push Docker Image
+    ```
+    docker push facethefacts/app:<latest or develop>
+    ```
 
 ## Automated Tests
 

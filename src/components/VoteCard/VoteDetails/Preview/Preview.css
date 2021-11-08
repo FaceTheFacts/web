@@ -1,0 +1,51 @@
+.preview-container {
+	background-color: #181924;
+	padding: 16px 19px;
+}
+
+.preview-title {
+	font-size: 14px;
+	font-family: 'inter';
+	font-style: normal;
+	color: white;
+}
+
+.preview-content {
+	font-size: 14px;
+	font-family: 'inter';
+	font-style: normal;
+	color: white;
+	opacity: 0.8;
+	letter-spacing: 0.3px;
+	margin: 5px 0px;
+	line-height: 15px;
+}
+
+.preview-content > p > a {
+	color: #3aa6f4;
+}
+
+.readmore-short {
+	/* four lines */
+	height: calc(15px * 4);
+	overflow: hidden;
+	text-overflow: clip;
+}
+
+.readmore-long {
+	height: auto;
+}
+
+.preview-button {
+	font-family: 'inter';
+	font-style: normal;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 1px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	padding: 8px 16px;
+	margin-left: calc(50% - 56.27px);
+	margin-top: 11px;
+}

@@ -1,0 +1,60 @@
+.PopupCard {
+	background: #2a2b36;
+	padding: 12px;
+	border-radius: 8px;
+	margin: 0px;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.popup-header {
+	padding: 0px;
+}
+
+.popup-title {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: #ffffff;
+}
+
+.popup-border {
+	border-top: 1px solid #ffffff;
+	opacity: 0.2;
+	margin-top: 8px;
+}
+
+.popup-content {
+	padding: 0px;
+	padding-top: 8px;
+}
+
+@media screen and (min-width: 360px) {
+	.PopupCard {
+		padding: 16px;
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+	.popup-border {
+		margin-top: 12px;
+	}
+	.popup-content {
+		padding-top: 12px;
+	}
+}
+
+.bottom-sentence {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 15px;
+	color: #ffffff;
+	margin-bottom: 15px;
+}
+
+.bottom-sentence:last-child {
+	margin-bottom: 0px;
+}

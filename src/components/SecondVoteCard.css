@@ -10,7 +10,7 @@
 }
 
 .secondvote-card {
-	background: #2b2c36;
+	background: rgba(42, 43, 54, 1);
 	margin-top: var(--margintop-secondvote-card);
 	margin-bottom: calc(8px - var(--margintop-secondvote-card));
 	margin-left: var(--marginleft-secondvote-card);
@@ -24,19 +24,27 @@
 
 .secondvote-card-name {
 	color: white;
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 17px;
 }
 
+.secondvote-long {
+	font-size: 12px;
+}
+
 .rank {
-	font-family: Protipo;
+	font-family: inter;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 17px;
 	padding-right: 15px;
 	opacity: 0.7;
+}
+
+.blue {
+	background-color: rgba(45, 93, 234, 1);
 }

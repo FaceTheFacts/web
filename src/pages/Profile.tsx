@@ -1,31 +1,23 @@
-import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
-import './Page.css';
-import Tabs from '../components/Tabs';
-import PoliticianProfile from '../components/PoliticianProfile';
-import { Candidate } from '../Types';
-import ProfileComponent from '../components/Profile';
-interface ProfileProps {
-	candidate: Candidate;
-}
+import ProfileComponent from '../components/Profile/Profile';
+import { useQuery } from 'react-query';
+import { newfetch } from '../functions/queries';
+import MobileScreen from '../hoc/MobileScreen';
 
 /* Define the React component (FC stands for Functional Components, as opposed to class-based components) */
-const Profile: React.FC<ProfileProps> = ({ candidate }: ProfileProps) => {
+const Profile: React.FC = () => {
 	/* Here we define the variable 'name' to be used as a parameter in components */
 	const { id } = useParams<{ id: string }>();
+	const { data } = useQuery(`politician-${id}`, () => newfetch(`politicians/${id}`), {
+		staleTime: 60 * 10000000, // 10000 minute = around 1 week
+		cacheTime: 60 * 10000000,
+	});
 
-	/* This is returned when using this component */
 	return (
-		<IonPage>
-			{' '}
-			{/* Page Tag */}
-			<PoliticianProfile candidate={candidate} />
-			<Tabs />
-			<IonContent>
-				<ProfileComponent candidate={candidate} profileId={id} />
-			</IonContent>
-		</IonPage>
+		<MobileScreen>
+			{data !== undefined ? <ProfileComponent candidate={data} profileId={id} /> : undefined}
+		</MobileScreen>
 	);
 };
 

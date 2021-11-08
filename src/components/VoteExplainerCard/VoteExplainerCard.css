@@ -1,0 +1,52 @@
+:root {
+	--padding-explainer-card: 16px;
+	--height-explainer-card: 48px;
+}
+@media screen and (min-width: 360px) {
+	:root {
+		--padding-explainer-card: 19px;
+		--height-explainer-card: 55px;
+	}
+}
+
+.vote-explainer-card {
+	height: var(--height-explainer-card);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: var(--padding-explainer-card);
+	padding-right: var(--padding-explainer-card);
+	border-top: 1px solid rgba(76, 78, 98, 1);
+	border-bottom: 1px solid rgba(76, 78, 98, 1);
+	background-color: rgba(24, 25, 36, 1);
+}
+
+.forward-button {
+	color: #ffffff;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 13px;
+	margin: 0px;
+}
+
+.vote-explainer-card ion-card-subtitle {
+	--color: white;
+	margin-bottom: 0px;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+.explainer-modal {
+	--background: #181924;
+}
+
+.explainer-modalcard-container {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+span:focus {
+	outline: none;
+}

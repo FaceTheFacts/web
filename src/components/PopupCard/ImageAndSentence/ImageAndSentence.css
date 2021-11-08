@@ -1,0 +1,28 @@
+.img-sentence-container {
+	display: grid;
+	grid-template-columns: 30px auto;
+	column-gap: 12px;
+	grid-template-areas: 'side main';
+	justify-items: start;
+	align-items: center;
+	margin-bottom: 8px;
+}
+.img-sentence-img {
+	width: 30px;
+	grid-area: side;
+}
+.img-sentence-img img {
+	width: 80%;
+	height: auto;
+}
+
+.img-sentence {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	line-height: 125%;
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	grid-area: main;
+}

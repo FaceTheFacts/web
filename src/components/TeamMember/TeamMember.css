@@ -1,0 +1,38 @@
+.team-member-content {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.team-member-title {
+	margin-left: 12px;
+}
+
+.team-member-title h2 {
+	height: 24px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 135%;
+	/* or 24px */
+	letter-spacing: -0.25px;
+	color: #ffffff;
+	margin: 0px;
+}
+
+.team-member-title p {
+	height: 20px;
+	/* small/text */
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	/* identical to box height, or 143% */
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	opacity: 0.7;
+	margin: 0px;
+	margin-top: 2px;
+}

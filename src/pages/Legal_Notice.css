@@ -1,0 +1,84 @@
+.legal-notice {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.legal-notice-header {
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: -0.7px;
+	color: #ffffff;
+}
+
+@media screen and (max-width: 374px) {
+	.legal-notice {
+		padding: 30px;
+		font-size: 14px;
+		line-height: 17px;
+	}
+	.legal-notice-header {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	.legal-notice > h2 {
+		font-size: 20px;
+		opacity: 0.7;
+	}
+
+	.legal-notice > h3 {
+		font-size: 18px;
+		opacity: 0.7;
+	}
+
+	.legal-notice > p {
+		opacity: 0.7;
+	}
+}
+
+@media screen and (min-width: 375px) {
+	.legal-notice {
+		padding: 30px;
+		font-size: 14px;
+		line-height: 17px;
+	}
+
+	.legal-notice-header {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	.legal-notice > h2 {
+		font-size: 20px;
+		opacity: 0.7;
+	}
+
+	.legal-notice > h3 {
+		font-size: 18px;
+		opacity: 0.7;
+	}
+
+	.legal-notice > p {
+		opacity: 0.7;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.legal-notice {
+		padding: 100px 170px;
+		font-size: 17px;
+		line-height: 22px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.legal-notice {
+		padding-top: 11.1vh;
+		padding-bottom: 11.1vh;
+		padding-left: 25.69vw;
+		padding-right: 25.69vw;
+	}
+}

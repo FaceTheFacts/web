@@ -1,0 +1,26 @@
+.details-toolbar-container {
+	--background: #2a2b36;
+	margin: 0px;
+	padding: 0px 19px;
+	padding-right: 2px;
+}
+.details-toolbar-container div {
+	font-size: 14px;
+	font-family: 'inter';
+	font-style: normal;
+	color: white;
+	font-weight: normal;
+}
+.details-toolbar-button {
+	--color: rgba(255, 255, 255, 0.7);
+}
+
+.details-toolbar-container ion-button {
+	margin: 0;
+}
+
+@media screen and (max-width: 359px) {
+	.details-toolbar-container {
+		padding-right: 19px;
+	}
+}

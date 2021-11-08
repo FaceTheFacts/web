@@ -1,0 +1,21 @@
+.table {
+	/* height: 177px; */
+	background: #181924;
+	display: flex;
+	flex-direction: row;
+	padding-top: 12px;
+	padding-left: 14px;
+	padding-right: 4px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+.table::-webkit-scrollbar {
+	display: none;
+}
+
+.table-positioning {
+	margin-top: 37px;
+	margin-right: 12px;
+}

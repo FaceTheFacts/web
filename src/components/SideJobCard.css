@@ -4,8 +4,9 @@
 	letter-spacing: 0.3px;
 	line-height: 1.2;
 	font-weight: 400;
-	font-family: 'protipo', sans-serif;
+	font-family: 'inter';
 	font-style: normal;
+	opacity: 0.7;
 }
 
 .sideJob-major {
@@ -13,8 +14,8 @@
 	font-size: 14px;
 	letter-spacing: 0px;
 	line-height: 1;
-	font-weight: 600;
-	font-family: 'protipo', sans-serif;
+	font-weight: 400;
+	font-family: 'inter';
 	font-style: normal;
 	margin-bottom: 5px;
 }
@@ -25,4 +26,32 @@
 	margin-top: 10px;
 	position: relative;
 	margin-bottom: 0;
+}
+
+.sideJob-income {
+	display: flex;
+	justify-content: space-between;
+	font-family: inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(256, 256, 256, 0.7);
+}
+
+.sideJob-layout:last-of-type {
+	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 360px) {
+	.sideJob-major {
+		font-size: 12px;
+	}
+
+	.sideJob-minor {
+		font-size: 11px;
+	}
+
+	.sideJob-income {
+		font-size: 11px;
+	}
 }

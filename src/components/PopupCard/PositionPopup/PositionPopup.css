@@ -1,0 +1,18 @@
+.position-popup-positioning {
+	margin-top: 8px;
+}
+.position-popup-bottom {
+	font-family: 'inter';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.3px;
+	color: #ffffff;
+}
+
+@media screen and (min-width: 360px) {
+	.position-popup-positioning {
+		margin-top: 12px;
+	}
+}

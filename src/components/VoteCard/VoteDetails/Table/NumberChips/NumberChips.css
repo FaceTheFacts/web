@@ -1,0 +1,9 @@
+.number-chips-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.number-chips-item {
+	margin-bottom: 4px;
+	text-align: center;
+}

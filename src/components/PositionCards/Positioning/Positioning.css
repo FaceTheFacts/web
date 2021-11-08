@@ -1,0 +1,39 @@
+.positioning {
+	width: 54px;
+	height: 24px;
+	border-radius: 4px;
+	color: white;
+	right: 0px;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 12px;
+	font-family: 'inter';
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0.7px;
+}
+
+.positioning-yes {
+	text-transform: uppercase;
+	background-color: #5ab760;
+}
+
+.positioning-no {
+	text-transform: uppercase;
+	background-color: #bb3c45;
+}
+
+.positioning-abstain {
+	text-transform: uppercase;
+	background-color: #3969f5;
+}
+
+.positioning-absent {
+	text-transform: uppercase;
+	background-color: #2a2b36;
+}
+
+.positioning-none {
+	text-transform: uppercase;
+	background-color: #c4c4c4;
+}

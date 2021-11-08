@@ -1,0 +1,141 @@
+.nav-footer {
+	background-color: rgba(42, 43, 54, 0.9);
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+#home {
+	padding-bottom: 30px;
+	justify-content: center;
+}
+
+#legal-notice,
+#privacy {
+	display: none;
+}
+
+.homefooter-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.homefooter-navbar {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	/* identical to box height, or 143% */
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+	opacity: 0.7;
+}
+
+.homefooter-navbar-activ {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.homefooter-navbar-second {
+	margin-top: 10px;
+}
+
+.social-media-links {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.social-media-bottom {
+	margin-bottom: 30px;
+}
+
+.nav-footer > #home {
+	display: flex;
+	align-items: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 22px;
+	letter-spacing: 0.15px;
+	color: rgba(255, 255, 255, 1);
+	text-decoration: unset;
+}
+
+#home > span {
+	padding-left: 13.55px;
+}
+
+.bottom {
+	width: 21px;
+	opacity: 0.3;
+}
+
+#privacy:hover,
+#legal-notice:hover {
+	animation: opacity-animation 1s forwards;
+}
+
+@keyframes opacity-animation {
+	from {
+		opacity: 0.7;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* iPhone-X */
+@media screen and (min-width: 375px) {
+	.homefooter-links {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.homefooter-navbar-second {
+		margin-top: 0px;
+	}
+}
+/* iPad */
+@media screen and (min-width: 768px) {
+	#home {
+		padding: 0px;
+	}
+	.nav-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 27px;
+		padding-bottom: 27px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.footer-media-links {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.social-media-links {
+		justify-content: flex-end;
+	}
+	.social-media-links a {
+		margin-left: 24px;
+	}
+	.homefooter-navbar-second {
+		margin-left: 24px;
+	}
+	.social-media-bottom {
+		margin-bottom: 8px;
+	}
+}
+/* Desktop */
+@media screen and (min-width: 1440px) {
+	.nav-footer {
+		padding-left: 130px;
+		padding-right: 130px;
+	}
+}

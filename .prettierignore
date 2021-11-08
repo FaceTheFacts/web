@@ -9,4 +9,11 @@ PULL_REQUEST_TEMPLATE.md
 .github
 
 src/functions/iconChangeHandler.ts
+src/functions/germanTranslator.ts
+src/functions/topicsIdHandler/topicsIdHandler.ts
 src/pages/ElectionChances.tsx
+src/components/VoteCard/VoteCard.tsx
+src/components/PoliticianProfile/PoliticianProfile.tsx
+
+
+src/pages/ElectionChances/

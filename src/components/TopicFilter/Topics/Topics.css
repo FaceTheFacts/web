@@ -1,0 +1,19 @@
+ul.topics-list,
+ul.topics-list li {
+	margin: 0;
+	padding: 0;
+}
+
+ul.topics-list {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.topicFocus {
+	display: flex;
+	align-items: center;
+}
+
+.topicFocus > svg {
+	margin-right: 10px;
+}

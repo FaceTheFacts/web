@@ -1,0 +1,27 @@
+.search-screen-header {
+	background: #2a2b36;
+	padding: 19px 16px 11px 16px;
+}
+
+.searchscreen-bar {
+	--background: rgba(255, 255, 255, 0.1);
+	--border-radius: 8px;
+	--clear-button-color: #ffffff;
+	--color: #ffffff;
+	--icon-color: rgba(255, 255, 255, 0.7);
+	--placeholder-color: rgba(255, 255, 255, 0.5);
+	--placeholder-font-style: 'inter';
+	--placeholder-font-weight: 400;
+	padding: 0px !important;
+}
+.searchscreen-bar .searchbar-input-container {
+	height: 50px;
+}
+
+.searchbar-clear-button.sc-ion-searchbar-md {
+	top: -2px;
+}
+
+.search-screen-content {
+	background-color: #181924;
+}

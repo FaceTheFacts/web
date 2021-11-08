@@ -1,0 +1,10 @@
+.content-line {
+	border: 1px solid #ffffff;
+	opacity: 0.2;
+	height: 100%;
+	margin-right: 12px;
+}
+
+.content-container {
+	display: flex;
+}

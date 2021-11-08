@@ -1,0 +1,103 @@
+.about-us-content {
+	padding: 50px 16px;
+	padding-bottom: 0px;
+	background: rgba(24, 25, 36, 1);
+}
+
+.about-us-title {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
+	font-size: 24px;
+	line-height: 120%;
+	/* identical to box height, or 29px */
+	letter-spacing: -1px;
+}
+
+.about-us-sentences {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
+	/* small/text */
+	font-size: 14px;
+	line-height: 20px;
+	/* or 143% */
+	letter-spacing: 0.25px;
+	margin-top: 20px;
+	width: calc(100vw -32px);
+}
+
+.about-us-border {
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	margin-top: 30px;
+}
+
+.about-us-team {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	color: #ffffff;
+	font-size: 24px;
+	line-height: 120%;
+	/* identical to box height, or 29px */
+	letter-spacing: -1px;
+	margin-top: 30px;
+}
+
+.about-us-sentences a {
+	color: #3aa6f4;
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+	.about-us-content {
+		padding-left: 34px;
+		padding-right: 34px;
+		
+	}
+	.about-us-title {
+		font-size: 56px;
+		line-height: 120%;
+	}
+
+	.about-us-sentences {
+		font-size: 17px;
+		line-height: 22px;
+		width: calc(100vw -68px);
+	}
+
+	.about-us-team {
+		font-size: 56px;
+		line-height: 120%;
+	}
+
+	.about-us-grid-container {
+		display: grid;
+		grid-column-gap: 50px;
+		grid-template-columns: auto auto;
+	}
+}
+@media screen and (min-width: 860px) {
+	.about-us-content {
+		height: 81.5vh;
+	}
+}
+
+@media screen and (min-width: 1024px) and (max-height: 769px){
+	.about-us-content {
+		height: 125vh;
+	}
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+	.about-us-content {
+		padding-top: 12px;
+		padding-left: 120px;
+		padding-right: 120px;
+		width: calc(100vw - 240px);
+		height: 90vh;
+	}
+}
