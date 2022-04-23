@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t $IMAGE_NAME --build-arg REACT_APP_MAILCHIMP_ID=$REACT_APP_MAILCHIMP_ID --build-arg REACT_APP_MAILCHIMP_MAILLIST_ID=$REACT_APP_MAILCHIMP_MAILLIST_ID .
+docker build -t $IMAGE_NAME  .
