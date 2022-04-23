@@ -7,8 +7,6 @@ COPY package-lock.json ./
 RUN npm ci --silent
 RUN npm install react-scripts@3.4.1 -g --silent
 COPY . ./
-ARG REACT_APP_MAILCHIMP_ID
-ARG REACT_APP_MAILCHIMP_MAILLIST_ID
 RUN npm run build
 
 # production environment

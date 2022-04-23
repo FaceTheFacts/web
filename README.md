@@ -26,7 +26,7 @@ npm start
 1. Build website with Docker
     - run following command and replace the secrets with the actual ID's
     ```
-    docker build . -t app --build-arg REACT_APP_MAILCHIMP_ID=<Mailchimp_ID> --build-arg REACT_APP_MAILCHIMP_MAILLIST_ID=<Maillist_ID>
+    docker build . -t app
     ```
     - don't know the secrets? ask your co-workers
 2. Tag Image
