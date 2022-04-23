@@ -1,5 +1,4 @@
 import React from 'react';
-import faceBookLogo from '../assets/images/facebook-square-brands.svg';
 import instagramLogo from '../assets/images/instagram-brands.svg';
 import linkedInLogo from '../assets/images/linkedin-brands.svg';
 import twitterLogo from '../assets/images/twitter-brands.svg';
@@ -15,12 +14,6 @@ const SocialMediaLinks: React.FC<SocialMediaLinksProps> = (props: SocialMediaLin
 		</a>
 		<a className={props.position} href="https://www.linkedin.com/company/71743117">
 			<img src={linkedInLogo} alt="logo" />
-		</a>
-		<a
-			className={props.position}
-			href="https://www.facebook.com/Face-the-Facts-110924574516372"
-		>
-			<img src={faceBookLogo} alt="logo" />
 		</a>
 		<a className={props.position} href="https://twitter.com/FaceTheFactsApp">
 			<img src={twitterLogo} alt="logo" />
