@@ -3,12 +3,12 @@ import Aw from '../assets/images/aw.png';
 import bmbfLogo from '../assets/images/bmbf.jpeg';
 import PlayStoreLogo from '../assets/images/google-play-badge.png';
 import PrototypeFund from '../assets/images/prototypeFund.png';
+import Politrack from '../assets/images/politrack.svg';
 import Wiki from '../assets/images/unlock.png';
 import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
 import AppStoreButton from '../components/AppStoreButton';
 import Mockup from '../components/Mockup';
 import Quote from '../components/Quote/Quote';
-import SignUp from '../components/SignUp/SignUp';
 import HomeHeaderFooter from '../hoc/HomeHeaderFooter/HomeHeaderFooter';
 import './Home.css';
 import { IonCardSubtitle, IonCardTitle } from '@ionic/react';
@@ -76,9 +76,9 @@ const Home: React.FC = () => (
 				<img id="proto" src={PrototypeFund} alt="Protype-Fund" />
 				<img id="aw" src={Aw} alt="Abgeordnetenwatch" />
 				<img id="wiki" src={Wiki} alt="wikimedia" />
+				<img id="politrack" src={Politrack} alt="Politrack" />
 			</div>
 		</div>
-		<SignUp />
 	</HomeHeaderFooter>
 );
 
