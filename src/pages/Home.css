@@ -159,6 +159,11 @@
 		margin-bottom: 30px;
 	}
 
+	#politrack {
+		max-width: 80%;
+		align-self: center;
+	}
+
 	.partner-logo-grid-container {
 		padding: 24px 30px 24px 30px;
 		grid-row-gap: 52px;
@@ -176,6 +181,8 @@
 
 	.mockup > div {
 		width: auto;
+		padding-left: 5%;
+		padding-right: 5%;
 	}
 
 	.home-title {
@@ -212,6 +219,11 @@
 		margin-bottom: 16px;
 	}
 
+	#politrack {
+		max-width: 60%;
+		align-self: center;
+	}
+
 	.partner-logo-grid-container {
 		padding: 24px 30px 24px 30px;
 		grid-row-gap: 52px;
@@ -228,8 +240,8 @@
 
 	.mockup > div {
 		width: auto;
-		padding-left: 61.5px;
-		padding-right: 61.5px;
+		padding-left: 20%;
+		padding-right: 20%;
 	}
 
 	.home-title {
@@ -277,8 +289,8 @@
 		display: grid;
 		align-content: center;
 		align-items: center;
-		grid-template-columns: repeat(6, 1fr);
-		grid-gap: 26px 110px;
+		grid-template-columns: repeat(8, 1fr);
+		grid-gap: 26px 80px;
 		padding: 40px 24px 40px 24px;
 	}
 
@@ -299,17 +311,24 @@
 		grid-row-end: 2;
 		grid-column: span 2;
 	}
-
+	
 	#aw {
 		grid-row-start: 2;
 		grid-row-end: 3;
-		grid-column: span 3;
+		grid-column: span 4;
 	}
 
 	#wiki {
 		grid-row-start: 2;
 		grid-row-end: 3;
-		grid-column: span 3;
+		grid-column: span 4;
+	}
+	#politrack {
+		max-width: 80%;
+		align-self: center;
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column: span 2;
 	}
 	.quote-grid-container {
 		padding: 45px 50px;
@@ -367,7 +386,11 @@
 	}
 
 	.partner-logo-grid-container img {
-		max-width: 15%;
+		max-width: 12%;
+	}
+
+	#politrack {
+		max-width: 8%;
 	}
 
 	.partner-logo-grid-container {
