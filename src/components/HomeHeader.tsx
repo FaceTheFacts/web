@@ -14,7 +14,7 @@ const HomeHeader: React.FC = () => {
 			</NavLink>
 			<div>
 				<a
-					href='https://drive.google.com/drive/folders/17sCDsL5kK9qAm0bjo7t0oT4AhHTAhRLI'
+					href="https://drive.google.com/drive/folders/17sCDsL5kK9qAm0bjo7t0oT4AhHTAhRLI"
 					className="homeheader-navbar"
 				>
 					PRESSE KIT
