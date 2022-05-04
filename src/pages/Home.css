@@ -91,7 +91,13 @@
 
 .appstore-button-container {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+}
+
+.appstore-button-container > div {
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .appstore-button-container > div > a > span > img {
@@ -242,6 +248,10 @@
 		width: auto;
 		padding-left: 20%;
 		padding-right: 20%;
+	}
+
+	.appstore-button-container {
+		flex-direction: row;
 	}
 
 	.home-title {
