@@ -104,14 +104,6 @@
 	height: 40px;
 }
 
-.appstore-button-container > div:first-of-type > a > span {
-	padding-right: 4px;
-}
-
-.appstore-button-container > div:last-of-type > a > span {
-	padding-left: 4px;
-}
-
 .quote-grid-container {
 	display: grid;
 	padding: 30px;
@@ -254,6 +246,14 @@
 		flex-direction: row;
 	}
 
+	.appstore-button-container > div:first-of-type > a > span {
+		padding-right: 4px;
+	}
+
+	.appstore-button-container > div:last-of-type > a > span {
+		padding-left: 4px;
+	}
+	
 	.home-title {
 		font-size: 56px;
 		line-height: 97.5%;
