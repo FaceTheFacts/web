@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface AppStoreButtonProps {
 	link: string;
-	source: string; 
+	source: string;
 }
 
 const Mockup: React.FC<AppStoreButtonProps> = (props: AppStoreButtonProps) => (
