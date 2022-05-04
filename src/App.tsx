@@ -33,6 +33,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const AboutUs = React.lazy(() => import('./pages/AboutUs/AboutUs'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact'));
 const LegalNotice = React.lazy(() => import('./pages/Legal_Notice'));
+const AppPrivacy = React.lazy(() => import('./pages/App_Privacy'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const SearchScreen = React.lazy(() => import('./pages/Search/SearchScreen/SearchScreen'));
 const Profile = React.lazy(() => import('./pages/Profile'));
@@ -66,6 +67,9 @@ const App: React.FC = () => {
 								</Route>
 								<Route path="/privacy" exact>
 									<Privacy />
+								</Route>
+								<Route path="/app/privacy" exact>
+									<AppPrivacy />
 								</Route>
 								<Route path="/search" exact>
 									<SearchScreen />
