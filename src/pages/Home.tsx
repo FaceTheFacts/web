@@ -3,6 +3,7 @@ import Aw from '../assets/images/aw.png';
 import bmbfLogo from '../assets/images/bmbf.jpeg';
 import PlayStoreLogo from '../assets/images/google-play-badge.png';
 import PrototypeFund from '../assets/images/prototypeFund.png';
+import APKLogo from '../assets/images/apk-btn.svg';
 import Politrack from '../assets/images/politrack.svg';
 import Wiki from '../assets/images/unlock.png';
 import UpdateDeutschland from '../assets/images/updateDeutschland.svg';
@@ -35,6 +36,10 @@ const Home: React.FC = () => (
 					<AppStoreButton
 						source={PlayStoreLogo}
 						link="https://play.google.com/store/apps/details?id=com.facethefacts"
+					/>
+					<AppStoreButton
+						source={APKLogo}
+						link="https://facethefacts-database.s3.eu-central-1.amazonaws.com/FaceTheFacts.apk"
 					/>
 				</div>
 			</div>
