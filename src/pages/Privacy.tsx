@@ -1,5 +1,6 @@
 import { IonApp, IonContent } from '@ionic/react';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import HomeFooter from '../components/HomeFooter';
 import HomeHeader from '../components/HomeHeader';
 import './Privacy.css';
@@ -10,7 +11,7 @@ const Privacy: React.FC = () => (
 		<HomeHeader />
 		<IonContent>
 			<div className="privacy">
-				<h1 className="privacy-header">Datenschutz</h1>
+				<h1 className="privacy-header">Datenschutz Website</h1>
 				<h2>1. Datenschutz auf einen Blick </h2>
 				<h3>Allgemeine Hinweise</h3>
 				Der Schutz Ihrer Daten liegt uns besonders am Herzen. Darum geben wir alles, um ihre
@@ -276,6 +277,11 @@ const Privacy: React.FC = () => (
 				erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen Ihnen daher,
 				unsere Informationen und Hinweise zur Datenverarbeitung regelmäßig erneut zur
 				Kenntnis zu nehmen.
+				<br />
+				<br />
+				<NavLink to={'/app/privacy'} className="privacy-link">
+					zur App Datenschutzerklärung
+				</NavLink>
 			</div>
 			<HomeFooter />
 		</IonContent>
