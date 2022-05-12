@@ -1,6 +1,5 @@
 import Olli from '../../assets/images/olli.svg';
 import Richard from '../../assets/images/richard.svg';
-import Taka from '../../assets/images/taka.svg';
 import Victor from '../../assets/images/victor.svg';
 import TeamMember from '../../components/TeamMember/TeamMember';
 import HomeHeaderFooter from '../../hoc/HomeHeaderFooter/HomeHeaderFooter';
@@ -51,7 +50,6 @@ const AboutUs: React.FC = () => (
 					name={'Richard Krümmel'}
 					role={'Software Development'}
 				/>
-				<TeamMember image={Taka} name={'Takahiro Mitsui'} role={'Software Development'} />
 			</div>
 		</div>
 	</HomeHeaderFooter>
