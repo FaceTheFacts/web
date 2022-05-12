@@ -395,12 +395,8 @@
 		margin-top: 4px;
 	}
 
-	.partner-logo-grid-container img {
+	.partner-logo-grid-container a {
 		max-width: 12%;
-	}
-
-	#politrack {
-		max-width: 8%;
 	}
 
 	.partner-logo-grid-container {
